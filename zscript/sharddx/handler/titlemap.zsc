@@ -28,7 +28,7 @@ class SHDX_TitlemapEvent : EventHandler
 	
 	ui void PlayTitleMusic()
 	{
-		S_ChangeMusic("D_RFACT");
+		S_ChangeMusic("W_TITLE");
 	}
 	
 	ui void DrawBGImage(string texturepath)

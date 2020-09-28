@@ -21,7 +21,7 @@ class SHDX_StatusScreen : DoomStatusScreen
 
 		if (bcnt == 1)
 		{
-			S_ChangeMusic("D_BVICT", 0, false);
+			S_ChangeMusic("W_TITLE", 0, false);
 		}
 
 		checkForAccelerate();
@@ -103,7 +103,7 @@ class SHDX_StatusScreen : DoomStatusScreen
 			{
 				PlaySound("intermission/paststats");
 				initShowNextLoc();
-				S_ChangeMusic("D_TERMIN", true);
+				// S_ChangeMusic("D_TERMIN", true);
 			}
 		}
 		else if (sp_state & 1)

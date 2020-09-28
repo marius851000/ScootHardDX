@@ -1,0 +1,10 @@
+map E2A1 lookup SHDX_E2A1
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E2A2"
+	secretnext = "E2A5"
+	lightning
+}

@@ -1,0 +1,9 @@
+I am using AstroCreep's Wolf3D Mac music pack from here:
+
+https://forum.zdoom.org/viewtopic.php?f=46&t=69725&p=1163772&hilit=mac+music#p1163772
+
+Instead of the original soundtrack from Scoot Hard SDL.
+
+It seems Rainbow Factory is ContentID'd nowadays. Why would you do that WoodenToaster?
+
+This is temporary until and if Rod makes a more ambient soundtrack for this.

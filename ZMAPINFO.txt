@@ -6,12 +6,12 @@ include "mapinfo/defaultmap.txt"
 
 include "mapinfo/episodes.txt"
 
-// For cluster purposes
-cluster 1
-{
-	flat = "FLTDIRTA"
-	music = "UNUSED"
-	exittext = ""
-}
+include "mapinfo/cluster.txt"
 
-include "mapinfo/maps.txt"
+include "mapinfo/titlemap.txt"
+
+include "mapinfo/ep1.txt"
+
+include "mapinfo/ep2.txt"
+
+include "mapinfo/ep3.txt"
