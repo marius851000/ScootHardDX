@@ -1,0 +1,155 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_SpectraAmmo : Ammo
+{
+	Default
+	{
+		Inventory.MaxAmount 5;
+		Ammo.BackpackAmount 0;
+		Ammo.BackpackMaxAmount 5;
+	}
+}
+
+Class SHDX_Rainbower : SHDX_MissileWeapon
+{
+	Default
+	{
+		//$Title "Rainbower"
+		//$Sprite GUN6A0
+		Tag "$SHDX_TAG_RAINBNOWER";
+		Weapon.SelectionOrder 10;
+		Inventory.PickupMessage "$SHDX_PICKUP_RAINBOWER";
+		Weapon.AmmoType "SHDX_SpectraAmmo";
+		Weapon.AmmoGive 5;
+		Weapon.AmmoUse 1;
+		+Weapon.NoAutoFire
+		+Weapon.NoAutoAim
+		+Weapon.CheatNotWeapon
+		Obituary "$SHDX_OB_RAINBOWER";
+	}
+	
+	States
+	{
+		Ready:
+			RBWG A 1 A_WeaponReady;
+			Loop;
+		Deselect:
+			RBWG A 1 A_Lower;
+			Loop;
+		Select:
+			RBWG A 1 A_Raise;
+			Loop;
+		Flash:
+			TNT1 A 8 A_Light1;
+			goto LightDone;
+		Flash2:
+			TNT1 A 6 A_Light1;
+			goto LightDone;
+		Fire:
+			RBWG A 0 A_GunFlash;
+			RBWG A 0 A_AlertMonsters;
+			RBWG A 0 A_FireProjectile("SHDX_RainbowerProjectileA", 0, true, 0, -16);
+			RBWG C 6;
+			RBWG A 1;
+			RBWG A 0 A_ReFire;
+			Goto Ready;
+		Spawn:
+			GUN6 A -1;
+			Stop;
+	}
+}
+
+const SHDX_RBOWER_FLAGS = (CMF_AIMDIRECTION|CMF_TRACKOWNER);
+
+Class SHDX_RainbowerProjectileA : SHDX_Projectile
+{
+	Default
+	{
+		Radius 11;
+		Height 6;
+		Speed 30;
+		Damage 60;
+		Mass 5000;
+		Projectile;
+		+Corpse;
+		DamageType "RainbowerX";
+		DeathSound "weapons/rainbowerx";
+	}
+	
+	States
+	{
+		Spawn:
+			RBWP AB 2;
+			RBWP A 0 A_Gravity;
+			Loop;
+		
+		Death:
+		XDeath:
+		Crash:
+			TNT1 A 0 Bright A_StartSound("weapons/rainbower2");
+			TNT1 A 1;
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, 0, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 2;
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, 32, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, -32, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 2;
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, 64, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, -64, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 2;
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, 96, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, -96, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 2;
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, 128, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, -128, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 2;
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, 160, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, -160, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 2;
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, 192, 0, SHDX_RBOWER_FLAGS, 0);
+			TNT1 A 0 Bright A_SpawnProjectile("SHDX_RainbowerFxA", 0, -192, 0, SHDX_RBOWER_FLAGS, 0);
+			Stop;
+	}
+}
+
+Class SHDX_RainbowerFxA : SHDX_Actor
+{
+	Default
+	{
+		+MISSILE
+		+DROPOFF
+		+FOILINVUL
+		+RANDOMIZE
+		+RIPPER
+		+NOEXPLODEFLOOR
+		+STEPMISSILE
+		MaxStepHeight 16;
+		Damage 50;
+		Speed 35;
+		DamageType "RainbowerX";
+		RenderStyle "Add";
+		Alpha 0.7;
+		DeathSound "weapons/rainbowerx";
+	}
+	
+	States
+	{
+		Spawn:
+			RBOW A 5 Bright;
+			Loop;
+		Death:
+			RBWN BCD 4 Bright;
+			Stop;
+	}
+}

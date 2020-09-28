@@ -1,0 +1,36 @@
+misc/splatx				"sounds/slop.ogg"
+// $volume misc/splatx		0.5
+gen/gibs				"sounds/SPLASH02.ogg"
+// $volume gen/gibs		0.3
+
+vending/fail			"sounds/ui/error.ogg"
+vending/failfilthyfrank	"sounds/no_money.ogg"
+vending/dispense		"sounds/clunk.ogg"
+
+misc/secret				"sounds/secret.ogg"
+
+weapons/chickenmiss		DSEMPTY		// Nothing!
+
+misc/chat2				"sounds/ui/tink.ogg"		// Chat Tink Sound
+
+// Thunder Strikes
+world/thunder1			"sounds/world/THUNDR01.ogg"
+world/thunder2			"sounds/world/THUNDR02.ogg"
+world/thunder3			"sounds/world/THUNDR03.ogg"
+$random world/thunder	{ world/thunder1	world/thunder2	world/thunder3 }
+
+world/barrelx			"sounds/boom2.ogg"		// Generic Barrel Exploding
+
+world/boing				"sounds/tpoline.ogg"		// Trampoline
+
+misc/teleport			"sounds/teleport.ogg"
+misc/foodcook			"sounds/FRIED01.ogg"		// Frying noise
+world/lava				"sounds/FRIED01.ogg"		// When in lava, you'll burn...
+world/glassbreak		"sounds/glass_break.ogg"	// Breaking Glass Noise
+
+// Animated Doors Noises
+doors/metalo			"sounds/doom_door_open.ogg"
+doors/metalc			"sounds/doom_door_close.ogg"
+// End Animated Door Noises
+
+world/splash			"sounds/splash02.ogg"	// Splashing noise

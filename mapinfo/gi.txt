@@ -1,0 +1,52 @@
+gameinfo
+{
+    titlepage = "TITLEPIC"
+    titlemusic = "TITLE"
+    titletime = 11
+    advisorytime = 0
+    pagetime = 5
+    chatsound = "misc/chat2"
+    finalemusic = "B_FINAL"
+    finaleflat = "FLTGRASS"
+    finalepage = "FINISHED"
+    infopage = "HELP1", "HELP2", "HELP3", "HELP4"
+    quitsound = "menu/quit2"
+    borderflat = "FLTCONCA"
+    border = DoomBorder
+    telefogheight = 0
+    defkickback = 100
+    skyflatname = "F_SKY1"
+    translator = "xlat/doom.txt"
+    defaultbloodcolor = "68 00 00"
+    defaultbloodparticlecolor = "ff 00 00"
+    intermissionmusic = "PAUSE"
+    intermissioncounter = false
+    dimcolor = "ff d7 00"
+    dimamount = 0.2
+    definventorymaxamount = 25
+    defaultrespawntime = 12
+    defaultdropstyle = 1
+    player5start = 4001
+    pickupcolor = "d6 ba 45"
+    quitmessages = "$SHDX_QUIT1"
+    menufontcolor_title = "RED"
+    menufontcolor_label = "UNTRANSLATED"
+    menufontcolor_value = "GRAY"
+    menufontcolor_action = "GRAY"
+    menufontcolor_header = "GOLD"
+    menufontcolor_highlight = "YELLOW"
+    menufontcolor_selection = "BRICK"
+    playerclasses = "SHDX_ScootalooPlayer"
+    pausesign = "M_PAUSE"
+    gibfactor = 1
+	CursorPic = "-"
+	norandomplayerclass = true
+	
+	statscreen_single = "SHDX_StatusScreen"
+	statscreen_coop = "SHDX_CoopStatusScreen"
+	statscreen_dm = "SHDX_DeathmatchStatusScreen"
+	
+	statusbarclass = "SHDX_StatusBar"
+	
+	AddEventHandlers = "SHDX_ErrorHandler", "SHDX_ReadThisHijacker"
+}

@@ -1,0 +1,64 @@
+cameratexture CAMTEX32 32 32
+cameratexture CAMTEX64 64 64
+cameratexture CTEXT001 320 256 fit 80 64 worldpanning
+cameratexture CTEXT002 320 256 fit 80 64 worldpanning
+cameratexture CTEXT003 320 256 fit 80 64 worldpanning
+cameratexture CTEXT004 320 256 fit 80 64 worldpanning
+cameratexture CTEXT005 512 320 worldpanning
+cameratexture CTEXT006 512 320 worldpanning
+cameratexture CTEXT007 512 320 worldpanning
+
+texture RFALL01
+	allowdecals
+	pic RFALL01 tics 5
+	pic RFALL02 tics 5
+	
+warp2 flat F_WATER
+warp2 flat OWATER01
+warp2 flat F_WATER2
+warp2 flat F_NUKE
+warp2 flat F_LAVA
+
+animateddoor door1a
+	opensound DoorOpenMetal
+	closesound DoorCloseMetal
+	pic door1a
+	pic door1b
+	pic door1c
+	pic door1d
+	pic door1e
+
+switch SW1_A on sound switches/normbutn pic SW1_B tics 0
+switch SW1_B off sound switches/exitbutn pic SW1_A tics 0
+
+switch SW2_A on sound switches/normbutn pic SW2_B tics 0
+switch SW2_B off sound switches/exitbutn pic SW2_A tics 0
+
+switch SW3_A on sound switches/normbutn pic SW3_B tics 0
+switch SW3_B off sound switches/exitbutn pic SW3_A tics 0
+
+switch SLSWB0 on sound switches/normbutn pic SLSWB1 tics 0
+switch SLSWB1 off sound switches/exitbutn pic SLSWB0 tics 0
+
+switch SLSWR0 on sound switches/normbutn pic SLSWR1 tics 0
+switch SLSWR1 off sound switches/exitbutn pic SLSWR0 tics 0
+
+switch SLSWY0 on sound switches/normbutn pic SLSWY1 tics 0
+switch SLSWY1 off sound switches/exitbutn pic SLSWY0 tics 0
+
+switch BGLASS_A on sound world/glassbreak pic BGLASS_B tics 0
+
+switch SW1GOTH1 on sound switches/normbutn pic SW2GOTH1 tics 0
+switch SW1GOTH2 off sound switches/normbutn pic SW1GOTH1 tics 0
+switch SW1GOTH2 on sound switches/normbutn pic SW2GOTH2 tics 0
+switch SW2GOTH2 off sound switches/normbutn pic SW1GOTH2 tics 0
+
+Texture	OFALLG01	Range	OFALLG08	Tics 3
+Texture	OFALLM01	Range	OFALLM08	Tics 2
+Texture	OFALLN01	Range	OFALLN08	Tics 3
+// Texture	OFALLW01	Range	OFALLW08	Tics 2
+Texture	OFALLW11	Range	OFALLW18	Tics 3
+
+switch VENT_A on sound misc/ventbust pic VENT_B tics 0
+switch VENT_C on sound misc/ventbust pic VENT_D tics 0
+switch VENT_E on sound misc/ventbust pic VENT_F tics 0

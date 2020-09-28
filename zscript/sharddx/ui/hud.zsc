@@ -1,0 +1,293 @@
+/*
+Copyright 2020 Sanya K. Waffles, Marisa Kirisame
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+class SHDX_HudDisable : Inventory
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+}
+
+class SHDX_StatusBar : BaseStatusBar
+{
+	HUDFont mHUDFont;
+	HUDFont mIndexFont;
+	HUDFont mSmallFont;
+	InventoryBarState diparms;
+	
+	Inventory lastsel;
+	Weapon lastwep;
+	
+	override void Init()
+	{
+		Super.Init();
+		SetSize(40, 320, 200);
+		
+		// create fonts
+		mHUDFont = HUDFont.Create("HudFont");
+		mIndexFont = HUDFont.Create("tinyfont");
+		mSmallFont = HUDFont.Create("Smallfont");
+		diparms = InventoryBarState.Create();
+	}
+	
+	override void DrawAutomapHUD(double ticFrac)
+	{
+		DoDrawAutomapHUD(Font.CR_GREY, Font.CR_UNTRANSLATED);
+	}
+	
+	override void Draw(int state, double TicFrac)
+	{
+		Super.Draw(state, TicFrac);
+		
+		if(state == HUD_StatusBar)
+		{
+			BeginStatusBar();
+			DrawMainBar(TicFrac);
+		}
+		else if(state == HUD_Fullscreen)
+		{
+			BeginHUD();
+			fullscreenOffsets = true;
+			DrawFSHUD();
+		}
+	}
+	
+	protected void DrawSHDXHudBG(int _x, int _y)
+	{
+		DrawImage("graphics/hud/hudbg.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+	}
+	
+	protected void DrawSHDXHudPart(int _x, int _y, String localizestr, int number, int formatto=0, int translation=Font.CR_RED)
+	{
+		DrawImage("graphics/hud/hud_part_back.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawString(mSmallFont, StringTable.Localize(localizestr), (_x + 5, _y + 1), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+		DrawString(mHUDFont, FormatNumber(number, formatto), (_x + 5, _y + 13), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, translation);
+	}
+	
+	protected void DrawSHDXActualHealth(int _x, int _y)
+	{
+		DrawSHDXHudPart(_x, _y, "$SHDX_HUD_HEALTH", CPlayer.health, 3, Font.CR_RED);
+	}
+	
+	
+	protected void DrawSHDXActualBits(int _x, int _y)
+	{
+		DrawSHDXHudPart(_x, _y, "$SHDX_HUD_BITS", GetAmount("SHDX_BitCoin"), 3, Font.CR_GOLD);
+	}
+	
+	protected void DrawSHDXFrags(int _x, int _y)
+	{
+		DrawSHDXHUDPart(_x, _y, "$SHDX_HUD_FRAGS", CPlayer.FragCount, 3, Font.CR_GOLD);
+	}
+	
+	protected void DrawSHDXActualAmmo(int _x, int _y)
+	{
+		Inventory a1, a2;
+		[a1, a2] = GetCurrentAmmo();
+		
+		if (a1)
+		{
+			DrawSHDXHudPart(_x, _y, "$SHDX_HUD_AMMO1", a1.Amount, 3, Font.CR_BLUE);
+		}
+		if (a2 && a1 != a2)
+		{
+			DrawSHDXHudPart(_x + 60, _y, "$SHDX_HUD_AMMO2", a2.Amount, 3, Font.CR_BLUE);
+		}
+	}
+	
+	protected void DrawSHDXPowers(int _x, int _y)
+	{
+		for (let iitem = CPlayer.mo.Inv; iitem != NULL; iitem = iitem.Inv)
+		{
+			let item = Powerup(iitem);
+			if (item != null)
+			{
+				let shdxbulletproof = SHDX_PowerBulletProof(item);
+				if (shdxbulletproof && !shdxbulletproof.isBlinking())
+				{
+					DrawImage("graphics/hud/hud_bulletproof.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+				}
+				let shdxfireproof = SHDX_PowerFireProof(item);
+				if (shdxfireproof && !shdxfireproof.isBlinking())
+				{
+					DrawImage("graphics/hud/hud_fireproof.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+				}
+				let shdxwxproof = SHDX_PowerWeatherProof(item);
+				if (shdxwxproof && !shdxwxproof.isBlinking())
+				{
+					DrawImage("graphics/hud/hud_weatherproof.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+				}
+				let shdxchickenmode = SHDX_ChickenMorph(item);
+				if (shdxchickenmode && !shdxchickenmode.isBlinking())
+				{
+					DrawImage("graphics/hud/hud_chickenmode.png", (_x + 24, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+				} 
+			}
+		}
+	}
+	
+	// Draw Keys
+	protected void DrawSHDXKeys(int _x = 80, int _y = 172)
+	{
+		if (GetAmount("SHDX_RedCard"))
+			DrawImage("graphics/hud/hud_key_red.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+		
+		if (GetAmount("SHDX_GreenCard"))
+			DrawImage("graphics/hud/hud_key_green.png", (_x + 12, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+			
+		if (GetAmount("SHDX_BlueCard"))
+			DrawImage("graphics/hud/hud_key_blue.png", (_x, _y + 12), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+			
+		if (GetAmount("SHDX_ManagementCard"))
+			DrawImage("graphics/hud/hud_key_mgmt.png", (_x + 12, _y + 12), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+	}
+	
+	/* 
+	protected void DrawSHDXInventorySingle(int _x = 80, int _y = 172)
+	{
+		if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
+		{
+			DrawInventoryIcon(CPlayer.mo.InvSel, (_x, _y), scale: (0.25, 0.25));
+			if (CPlayer.mo.InvSel.Amount > 1)
+			{
+				DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount), (_x + 8, _y-mIndexFont.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT, Font.CR_GOLD);
+			}
+		}
+	}
+	
+	void DrawSHDXInventoryBar(InventoryBarState parms, Vector2 position, int numfields, int flags = 0, double bgalpha = 1.)
+	{
+		TextureId bawx = TexMan.CheckForTexture("graphics/hud/inventory_back.png", TexMan.TYPE_MiscPatch);
+		TextureId selector = TexMan.CheckForTexture("graphics/hud/inventory_cursor.png", TexMan.TYPE_MiscPatch);
+		double width = parms.boxsize.X * numfields;
+		[position, flags] = AdjustPosition(position, flags, width, parms.boxsize.Y);
+		
+		CPlayer.mo.InvFirst = ValidateInvFirst(numfields);
+		if (CPlayer.mo.InvFirst == null) return;	// Player has no listed inventory items.
+		
+		Vector2 boxsize = parms.boxsize;
+		// First draw all the boxes
+		for(int i = 0; i < numfields; i++)
+		{
+			DrawTexture(bawx, position + (boxsize.X * i, 0), flags | DI_ITEM_LEFT_TOP, bgalpha, scale:(0.25, 0.25));
+		}
+		
+		// now the items and the rest
+		
+		Vector2 itempos = position + boxsize / 2;
+		Vector2 textpos = position + boxsize - (1, 1 + parms.amountfont.mFont.GetHeight());
+
+		int i = 0;
+		Inventory item;
+		for(item = CPlayer.mo.InvFirst; item != NULL && i < numfields; item = item.NextInv())
+		{
+			for(int j = 0; j < 2; j++)
+			{
+				if (j ^ !!(flags & DI_DRAWCURSORFIRST))
+				{
+					if (item == CPlayer.mo.InvSel)
+					{
+						double flashAlpha = bgalpha;
+						if (flags & DI_ARTIFLASH) flashAlpha *= itemflashFade;
+						DrawTexture(selector, position + parms.selectofs + (boxsize.X * i, 0), flags | DI_ITEM_LEFT_TOP, flashAlpha, scale:(0.25, 0.25));
+					}
+				}
+				else
+				{
+					DrawInventoryIcon(item, itempos + (boxsize.X * i, 0), flags | DI_ITEM_CENTER, scale: (0.25, 0.25));
+				}
+			}
+			
+			if (parms.amountfont != null && (item.Amount > 1 || (flags & DI_ALWAYSSHOWCOUNTERS)))
+			{
+				DrawString(mIndexFont, FormatNumber(item.Amount, 0, 5), textpos + (boxsize.X * i, 0), flags | DI_TEXT_ALIGN_RIGHT, parms.cr, parms.itemalpha);
+			}
+			i++;
+		}
+		// Is there something to the left?
+		if (CPlayer.mo.FirstInv() != CPlayer.mo.InvFirst)
+		{
+			DrawTexture(parms.left, position + (-parms.arrowoffset.X, parms.arrowoffset.Y), flags | DI_ITEM_RIGHT|DI_ITEM_VCENTER, scale: (0.12, 0.12));
+		}
+		// Is there something to the right?
+		if (item != NULL)
+		{
+			DrawTexture(parms.right, position + parms.arrowoffset + (width, 0), flags | DI_ITEM_LEFT|DI_ITEM_VCENTER, scale: (0.12, 0.12));
+		}
+	}
+	
+	protected void DrawSHDXInventory(int _x = 48, int _y = 160)
+	{
+		if (isInventoryBarVisible())
+		{
+			DrawSHDXInventoryBar(diparms, (_x, _y), 7, DI_ITEM_LEFT_TOP);
+		}
+	} */
+	
+	const MAINBAROFSY = 160;
+	
+	protected void DrawMainBar(double TicFrac)
+	{
+		DrawSHDXHudBG(-640, MAINBAROFSY);
+		DrawSHDXHudBG(-320, MAINBAROFSY);
+		DrawSHDXHudBG(0, MAINBAROFSY);
+		DrawSHDXHudBG(320, MAINBAROFSY);
+		DrawSHDXHudBG(640, MAINBAROFSY);
+		if (!GetAmount("SHDX_HudDisable"))
+		{
+			// If this is like SBARINFO, things drawn first
+			// are 'drawn over' by subsequent functions
+			DrawSHDXActualHealth(0, MAINBAROFSY);
+			DrawSHDXActualBits(60, MAINBAROFSY);
+			DrawSHDXActualAmmo(120, MAINBAROFSY);
+			
+			DrawSHDXPowers(200, MAINBAROFSY);
+			
+			if (deathmatch)
+			{
+				DrawSHDXFrags(236, MAINBAROFSY);
+			}
+			else
+			{
+				DrawSHDXKeys(256, MAINBAROFSY);		// Draw keys next
+			}
+		}
+	}
+	
+	protected void DrawFSHUD()
+	{
+		if (!GetAmount("SHDX_HudDisable"))
+		{
+			
+			// Lower Left
+			DrawSHDXActualHealth(0, -40);
+			DrawSHDXActualBits(60, -40);
+			// Lower Right
+			DrawSHDXActualAmmo(-128, -40);
+			
+			DrawSHDXPowers(-320, 40);
+			
+			if (deathmatch)
+			{
+				DrawSHDXFrags(-128, 0);
+			}
+			else
+			{
+				DrawSHDXKeys(-80, 0);
+			}
+		}
+	}
+}

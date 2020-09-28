@@ -1,0 +1,65 @@
+// Scootaloo Player Pawn
+
+$playeralias    scootaloo  male    *death      scootaloo/death
+$playeralias    scootaloo  male    *xdeath     scootaloo/death
+$playersound    scootaloo  male    *gibbed     "sounds/slop.ogg"
+$playeralias    scootaloo  male    *pain100    "sounds/scootaloo/SCOOPAI3.ogg"
+$playersounddup scootaloo  male    *pain75     *pain100
+$playersounddup scootaloo  male    *pain50     *pain100
+$playersounddup scootaloo  male    *pain25     *pain100
+$playersound    scootaloo  male    *grunt      DSEMPTY
+$playersound	scootaloo  male    *land       DSEMPTY
+$playersound    scootaloo  male    *jump       DSEMPTY
+$playersound    scootaloo  male    *fist       DSEMPTY
+$playersound    scootaloo  male    *usefail    "sounds/usefail.ogg"
+
+$playeralias    scootaloo  female    *death      scootaloo/death
+$playeralias    scootaloo  female    *xdeath     scootaloo/death
+$playersound    scootaloo  female    *gibbed     "sounds/slop.ogg"
+$playeralias    scootaloo  female    *pain100    "sounds/scootaloo/SCOOPAI3.ogg"
+$playersounddup scootaloo  female    *pain75     *pain100
+$playersounddup scootaloo  female    *pain50     *pain100
+$playersounddup scootaloo  female    *pain25     *pain100
+$playersound    scootaloo  female    *grunt      DSEMPTY
+$playersound	scootaloo  female    *land       DSEMPTY
+$playersound    scootaloo  female    *jump       DSEMPTY
+$playersound    scootaloo  female    *fist       DSEMPTY
+$playersound    scootaloo  female    *usefail    "sounds/usefail.ogg"
+
+$playeralias    scootaloo  other    *death      scootaloo/death
+$playeralias    scootaloo  other    *xdeath     scootaloo/death
+$playersound    scootaloo  other    *gibbed     "sounds/slop.ogg"
+$playeralias    scootaloo  other    *pain100	"sounds/scootaloo/SCOOPAI3.ogg"
+$playersounddup scootaloo  other    *pain75     *pain100
+$playersounddup scootaloo  other    *pain50     *pain100
+$playersounddup scootaloo  other    *pain25     *pain100
+$playersound    scootaloo  other    *grunt      DSEMPTY
+$playersound	scootaloo  other    *land       DSEMPTY
+$playersound    scootaloo  other    *jump       DSEMPTY
+$playersound    scootaloo  other    *fist       DSEMPTY
+$playersound    scootaloo  other    *usefail    "sounds/usefail.ogg"
+
+scootaloo/death1				"sounds/scootaloo/SCOODIE1.ogg"
+scootaloo/death2				"sounds/scootaloo/SCOODIE2.ogg"
+scootaloo/death3				"sounds/scootaloo/SCOODIE3.ogg"
+scootaloo/death4				"sounds/scootaloo/SCOODIE4.ogg"
+$random		scootaloo/death	{	scootaloo/death1	scootaloo/death2	scootaloo/death3	scootaloo/death4	}
+
+scootaloo/voiceover1	"sounds/scootaloo/SCOOTS01.ogg"
+scootaloo/voiceover2	"sounds/scootaloo/SCOOTS02.ogg"
+scootaloo/voiceover3	"sounds/scootaloo/SCOOTS03.ogg"
+scootaloo/voiceover4	"sounds/scootaloo/SCOOTS04.ogg"
+scootaloo/voiceover5	"sounds/scootaloo/scoots05.ogg"
+scootaloo/voiceover6	"sounds/scootaloo/scoots06.ogg"
+scootaloo/voiceover7	"sounds/scootaloo/scoots07.ogg"
+scootaloo/voiceover8	"sounds/scootaloo/scoots08.ogg"
+scootaloo/voiceover9	"sounds/scootaloo/scoots09.ogg"
+scootaloo/voiceover10	"sounds/scootaloo/scoots10.ogg"
+
+scootaloo/event01		"sounds/scootaloo/SCEVNT01.ogg"
+scootaloo/event02		"sounds/scootaloo/SCEVNT02.ogg"
+scootaloo/event03		"sounds/scootaloo/SCEVNT03.ogg"
+scootaloo/event04		"sounds/scootaloo/SCEVNT04.ogg"
+scootaloo/eventboss2	"sounds/scootaloo/SCEVNT05.ogg"
+scootaloo/event06		"sounds/scootaloo/SCEVNT06.ogg"
+scootaloo/eventboss3	"sounds/scootaloo/SCEVNT07.ogg"

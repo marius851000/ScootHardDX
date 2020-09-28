@@ -1,0 +1,150 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+// Water Splashes
+Class SHDX_WaterSplash : SHDX_SplashBase
+{
+	States
+	{
+		Spawn:
+			SPLW ABC 4;
+			SPLW D 8;
+			Stop;
+		
+		Death:
+			SPLW D 8;
+			Stop;
+	}
+}
+
+Class SHDX_WaterSplashSmall : SHDX_WaterSplash
+{
+	Default
+	{
+		Radius 2;
+		Height 4;
+		Scale 0.1;
+	}
+}
+
+Class SHDX_WaterSplashBig : SHDX_WaterSplash
+{
+	Default
+	{
+		Radius 4;
+		Height 8;
+		Scale 0.2;
+	}
+}
+
+// Sludge Splashes
+Class SHDX_SludgeSplashSmall : SHDX_WaterSplashSmall
+{
+	Default
+	{
+		Translation "160:175=48:63";
+	}
+}
+
+Class SHDX_SludgeSplashBig : SHDX_WaterSplashBig
+{
+	Default
+	{
+		Translation "160:175=48:63";
+	}
+}
+
+// Despairium Splashes
+Class SHDX_DespairSplash : SHDX_SplashBase
+{
+	Default
+	{
+		Radius 2;
+		Height 4;
+	}
+
+	States
+	{
+		Spawn:
+			SPLB ABC 4;
+			SPLB D 8;
+			Stop;
+		
+		Death:
+			SPLB D 8;
+			Stop;
+	}
+}
+
+Class SHDX_DespairSplashSmall : SHDX_DespairSplash
+{
+	Default
+	{
+		Radius 2;
+		Height 4;
+		Scale 0.1;
+	}
+}
+
+Class SHDX_DespairSplashBig : SHDX_DespairSplash
+{
+	Default
+	{
+		Radius 4;
+		Height 8;
+		Scale 0.2;
+	}
+}
+
+// Lava Splashes
+Class SHDX_LavaSplash : SHDX_SplashBase
+{
+	Default
+	{
+		Radius 2;
+		Height 4;
+	}
+	
+	States
+	{
+		Spawn:
+			SPLL ABC 4;
+			SPLL D 8;
+			Stop;
+		
+		Death:
+			SPLL D 8;
+			Stop;
+	}
+}
+
+Class SHDX_LavaSplashSmall : SHDX_LavaSplash
+{
+	Default
+	{
+		Radius 2;
+		Height 4;
+		Scale 0.1;
+	}
+}
+
+Class SHDX_LavaSplashBig : SHDX_LavaSplash
+{
+	Default
+	{
+		Radius 4;
+		Height 8;
+		Scale 0.2;
+	}
+}

@@ -1,0 +1,52 @@
+splash SHWater
+{
+	smallclass		WaterSplash
+	smallsound		world/splash
+
+	baseclass		WaterSplashBase
+	sound			world/splash
+	noalert
+}
+
+terrain SHWater
+{
+	splash			SHWater
+	footclip		4
+	liquid
+}
+
+floor F_WATER SHWater
+floor F_WATER2 SHWater
+
+splash SHLava
+{
+	sound			world/lava
+	noalert
+}
+
+terrain SHLava
+{
+	splash			SHLava
+	footclip		2
+	liquid
+	friction		0.75
+
+	damagetype              fire
+	damageamount            3
+	damagetimemask          5
+}
+
+floor F_LAVA SHLava
+
+terrain SHNukem
+{
+	footclip		2
+	liquid
+	friction		0.75
+
+	damagetype              slime
+	damageamount            5
+	damagetimemask          35
+}
+
+floor F_NUKE SHNukem

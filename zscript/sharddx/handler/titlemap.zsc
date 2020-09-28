@@ -1,0 +1,169 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+class SHDX_TitlemapEvent : EventHandler
+{
+	ui int seconds;
+	
+	const SECONDS_SPLASHSCREEN = 1;
+	const SECONDS_TITLESCREEN = 10;
+	const SECONDS_ADVISORY = (SECONDS_TITLESCREEN + 4);
+	const SECONDS_MAX = 120;
+	
+	ui void PlayBootMusic()
+	{
+		S_StartSound("titlemap/wisjingle", CHAN_BODY, CHANF_DEFAULT, 1, ATTN_NORM);
+	}
+	
+	ui void PlayTitleMusic()
+	{
+		S_ChangeMusic("D_RFACT");
+	}
+	
+	ui void DrawBGImage(string texturepath)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			int _rw, _rh;
+			[_rw, _rh] = TexMan.GetSize(rid);
+			Screen.DrawTexture(rid, false, 0, 0, 
+							DTA_VirtualWidth, 1920, DTA_VirtualHeight, 1080, DTA_FullscreenEx, 3);
+		}
+	}
+	
+	ui void DrawImageWithOffsets(string texturepath, int x, int y, bool centered = false)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			int _rw, _rh;
+			[_rw, _rh] = TexMan.GetSize(rid);
+			Screen.DrawTexture(rid, false, x, y, 
+							DTA_VirtualWidth, 1920, DTA_VirtualHeight, 1080, DTA_CenterOffset, centered);
+		}
+	}
+	
+	ui bool, String GetHalForUserName()
+	{
+		bool haldetected = false;
+		String returnedstring;
+		
+		String un = players[consoleplayer].GetUserName();
+		
+		if (un ~== "sanya" || un ~== "sanyawaffles")
+		{
+			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_SANYAUSERNAME");
+		}
+		else if (un ~== "navy")
+		{
+			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_NAVYUSERNAME");
+		}
+		else if (un ~== "ellie" || un ~== "elliejojo")
+		{
+			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_ELLIEUSERNAME");
+		}
+		else if (un ~== "marisa" || un ~== "marisakirisame")
+		{
+			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_MARISAKUSERNAME");
+		}
+		else if (un ~== "nukkus" || un ~== "haruka mishima")
+		{
+			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_NUKKUSUSERNAME");
+		}
+		
+		if (returnedstring.Length() > 0)
+			haldetected = true;
+		
+		return haldetected, returnedstring;
+	}
+	
+	ui void DrawBootInformation()
+	{
+		bool hal;
+		String halstr;
+		String lawg;
+		[hal, halstr] = GetHalForUserName();
+		String mp = CVar.GetCvar('r_multithreaded', players[consoleplayer]).GetBool() ? StringTable.Localize("$SHDX_TITLEMAP_MULTI") : "";
+		if (!hal)
+		{
+			lawg = String.Format("%s %s %s\n%s %s", StringTable.Localize("$SHDX_TITLEMAP_FINAL1"), StringTable.Localize("$SHDX_TITLEMAP_FINAL2"),
+												StringTable.Localize("$SHDX_BUILDNUM"), StringTable.Localize("$SHDX_TITLEMAP_FINAL3"), mp);
+		}
+		else
+		{
+			lawg = String.Format("%s %s %s\n%s\n%s %s", StringTable.Localize("$SHDX_TITLEMAP_FINAL1"), StringTable.Localize("$SHDX_TITLEMAP_FINAL2"),
+														StringTable.Localize("$SHDX_BUILDNUM"), halstr,
+														StringTable.Localize("$SHDX_TITLEMAP_FINAL3"), mp);
+		}
+		Screen.DrawText("newsmallfont", Font.CR_WHITE, 0, 0, lawg,
+							DTA_VirtualWidth,  640,
+							DTA_VirtualHeight, 480);
+	}
+	
+	ui void DrawAdvisoryString()
+	{
+		Font fnt = "smallfont";
+		int h = fnt.GetHeight();
+		String adv = StringTable.Localize("$SHDX_TITLEMAP_ADVISORY");
+		int len = fnt.StringWidth(adv) / 2;
+		Screen.DrawText(fnt, Font.CR_FIRE, 320 - len, 480 - h, adv,
+								DTA_VirtualWidth,  640,
+								DTA_VirtualHeight, 480);
+	}
+	
+	ui void ClearBlack()
+	{
+		Screen.Clear(0, 0, Screen.GetWidth(), Screen.GetHeight(), 0x000000);
+	}
+	
+	override void UITick()
+	{
+		if (!(level.time % TICRATE))
+		{
+			if (seconds == SECONDS_SPLASHSCREEN - 1)
+				PlayBootMusic();
+			
+			if (seconds == SECONDS_TITLESCREEN - 1)
+				PlayTitleMusic();
+			
+			seconds++;
+		}
+	}
+
+	// Override the RenderOverlay
+	override void RenderOverlay(RenderEvent e)
+	{
+		PlayerInfo p = players[consoleplayer];
+		
+		if (p && p.mo)
+		{
+			if (seconds >= 0)
+				ClearBlack();
+			
+			if (seconds >= SECONDS_SPLASHSCREEN && seconds < SECONDS_TITLESCREEN)
+			{
+				DrawBGImage("graphics/WISPLASH.png");
+				DrawBootInformation();
+			}
+			
+			if (seconds >= SECONDS_TITLESCREEN)
+			{
+				DrawBGImage("graphics/titlepic.png");
+				DrawImageWithOffsets("graphics/SHDXlogo.png", 1920 / 2, 1080 / 7, true);
+				DrawAdvisoryString();
+			}
+		}
+	}
+}

@@ -1,0 +1,208 @@
+// Animators
+stretcher BloodStretcher
+{
+	StretchTime	35
+	GoalY		0.45
+}
+
+slider BloodSlider
+{
+	SlideTime	35
+	DistY		-5
+}
+
+combiner BloodSmearer
+{
+	BloodStretcher
+	BloodSlider
+}
+// End Animators
+
+decal SHDX_BulletChip1
+{
+	pic CHIP1
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.12
+	y-scale 0.12
+	randomflipx
+	randomflipy
+}
+
+// Big Chips
+decal SHDX_BulletChip2
+{
+	pic CHIP2
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.12
+	y-scale 0.12
+	randomflipx
+	randomflipy
+}
+
+// Blood Splat Decals
+decal BloodSplat1
+{
+	pic BSPLAT1
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat2
+{
+	pic BSPLAT2
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat3
+{
+	pic BSPLAT3
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat4
+{
+	pic BSPLAT4
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat5
+{
+	pic BSPLAT5
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat6
+{
+	pic BSPLAT6
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat7
+{
+	pic BSPLAT7
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+// Blood smears
+decal BloodSmear1
+{
+	pic BSMEAR1
+	x-scale 0.12
+	y-scale 0.12
+	shade "BloodDefault"
+	randomflipx
+	animator BloodSmearer
+}
+
+decal BloodSmear2
+{
+	pic BSMEAR1
+	x-scale 0.12
+	y-scale 0.12
+	shade "BloodDefault"
+	randomflipx
+	animator BloodSmearer
+}
+
+// Scorch
+decal SHDX_Scorch
+{
+	pic BLAST1
+	shade "00 00 00"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal SHDX_MediumScorch
+{
+	pic BLAST1
+	shade "00 00 00"
+	x-scale 0.15
+	y-scale 0.15
+	randomflipx
+	randomflipy
+}
+
+decal DD2_SmallScorch
+{
+	pic BLAST1
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decal DD2_FrostScorch
+{
+	pic BLAST1
+	shade "00 00 ff"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decal CLogoColour 1
+{
+	pic "LOGO1_1"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal CLogoStencil 2
+{
+	pic "LOGO1_2"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal CLogoNastyA 3
+{
+	pic "LOGO1_3"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal EasterEggArk 5
+{
+	pic "BOXL1_1"
+	x-scale 0.55
+	y-scale 0.55
+}
+
+generator SHDX_BulletPuff				SHDX_BulletChip1
+generator SHDX_FillyMissile				SHDX_MediumScorch
+generator SHDX_Missile					SHDX_Scorch
+generator SHDX_HailBall					DD2_FrostScorch

@@ -1,0 +1,142 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+Class SHDX_PlasmaBall : SHDX_Projectile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 20;
+		Damage 3;
+		Projectile;
+		+RANDOMIZE
+		DamageType "Lightning";
+		SeeSound "engineer/attack";
+		DeathSound "engineer/shotx";
+	}
+	
+	States
+	{
+		Spawn:
+			PLAS AB 1 Bright;
+			Loop;
+		Death:
+			PLAS C 2 Bright;
+			PLAS DE 2;
+			Stop;
+	}
+}
+
+Class SHDX_Engineer : SHDX_Enemy
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite ENG1A0
+		//$Title "Engineer (Blue)"
+		Health 80;
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 14;
+		PainChance 144;
+		SeeSound "engineer/sight";
+		PainSound "engineer/pain";
+		DeathSound "engineer/death";
+		ActiveSound "engineer/active";
+		Obituary "$SHDX_OB_ENGINEER";
+		// DropItem "SHBitCoinPickupGold" 127
+		Tag "$SHDX_TAG_ENGINEER";
+	}
+	
+	void A_DropItemsEngie()
+	{
+		A_SHDX_DropItem("SHDX_GoldBitCoin", false);
+	}
+	
+	States
+	{
+		Spawn:
+			ENG1 A 10 A_Look;
+			Loop;
+		See:
+			ENG1 BCDEBCDE 4 A_Chase;
+			Loop;
+		Missile:
+			ENG1 F 5 A_FaceTarget;
+			ENG1 G 0 bright A_SpawnProjectile("SHDX_PlasmaBall");
+			ENG1 GH 2 bright;
+			ENG1 F 2 A_FaceTarget;
+			ENG1 G 0 bright A_SpawnProjectile("SHDX_PlasmaBall");
+			ENG1 GH 2 bright;
+			Goto See;
+		Melee:
+			ENG1 I 3 A_FaceTarget;
+			ENG1 J 3 A_CustomMeleeAttack(5, "engineer/melee", "engineer/miss", "Lightning", true);
+			ENG1 K 3;
+			Goto See;
+		Pain:
+			ENG1 L 0
+			{
+				if (Random[Engie](0, 100) < 50)
+					return ResolveState("Pain2");
+				
+				return ResolveState("Pain1");
+			}
+		Pain1:
+			ENG1 L 3;
+			ENG1 L 3 A_Pain;
+			Goto See;
+		Pain2:
+			ENG1 M 3;
+			ENG1 M 3 A_Pain;
+			Goto See;
+		Death:
+			ENG1 N 5 A_Scream;
+			ENG1 O 5
+			{
+				A_NoBlocking();
+			}
+			ENG1 P 5;
+			ENG1 Q -1;
+			Stop;
+		Death.Explosive:
+		Death.Weather:
+		Death.Extreme:
+		XDeath:
+			GIBX B 1
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsEngie();
+				A_SpawnGibsFx(self);
+			}
+			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBX BC 5;
+			GIBX D -1;
+			Stop;
+		Death.RainbowerX:
+			GIBR A 4;
+			GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBR BC 4;
+			GIBR D -1;
+			Stop;
+		Crush:
+			GIBX D 0 A_SHDX_SquishSound;
+			GIBX D 1 A_SHDX_GivePlayerOneLiner;
+			GIBX D -1;
+			Stop;
+	}
+}

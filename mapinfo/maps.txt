@@ -1,0 +1,70 @@
+// For Titlemap
+map TITLEMAP lookup SHDX_TITLEMAP
+{
+	cluster = 1
+	par = 30
+	sucktime = 1
+	EventHandlers = "SHDX_TitlemapEvent"
+}
+
+map E1A1 lookup SHDX_E1A1
+{
+	sky1 = "SKY1"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E1A2"
+	secretnext = "E1A5"
+	music = "D_PSX01"
+}
+
+map E1A2 lookup SHDX_E1A2
+{
+	sky1 = "SKY1"
+	cluster = 1
+	par = 75
+	sucktime = 1
+	next = "E1A3"
+	secretnext = "E1A5"
+}
+
+map E1A3 lookup SHDX_E1A3
+{
+	sky1 = "SKY1"
+	cluster = 1
+	par = 75
+	sucktime = 1
+	next = "E1A4"
+	secretnext = "E1A4"
+}
+
+map E1A4 lookup SHDX_E1A4
+{
+	sky1 = "SKY1"
+	cluster = 1
+	par = 75
+	sucktime = 1
+	next = "END1"
+	secretnext = "END1"
+}
+
+map E1A5 lookup SHDX_E1A5
+{
+	sky1 = "SKY1"
+	cluster = 1
+	par = 75
+	sucktime = 1
+	next = "E1A3"
+	secretnext = "E1A3"
+}
+
+map E2A1 lookup SHDX_E2A1
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E2A2"
+	secretnext = "E2A5"
+	lightning
+}

@@ -1,0 +1,370 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+enum ECheckSolidFootingFlags
+{
+    CSF_SOLIDGROUND = 1,
+    CSF_SOLIDACTORS = 2,
+    
+    CSF_ALL = CSF_SOLIDGROUND|CSF_SOLIDACTORS,
+}
+
+// Enemy Class Base
+Class SHDX_Enemy : SHDX_Actor
+{	
+	Default
+	{
+		//$Category "Monsters"
+		//$Color 12
+		
+		Scale 0.12;
+		Mass 100;
+		Height 56;
+		Radius 22;
+		BloodType "SHDX_Blood";
+		DamageFactor "Bullet", 1.00;
+		DamageFactor "Chicken", 1.00;
+		DamageFactor "ChickenX", 1.00;
+		DamageFactor "Weather", 1.00;
+		DamageFactor "RainbowerX", 1.00;
+		DamageFactor "Explosive", 1.00;
+		PainChance "Fire", 0;
+		SHDX_Enemy.JumpUpVelocity 16;
+		SHDX_Enemy.JumpForwardVelocity 32;
+		
+		Monster;
+		+FloorClip
+		+DropOff
+		+NoInfightSpecies
+		+LookAllAround
+		+SHDX_Enemy.CanJump
+	}
+	
+	private int SHDXFlags;
+	flagdef CanJump: SHDXFlags, 0;
+	
+	meta int JumpUpVelocity;
+	Property JumpUpVelocity: JumpUpVelocity;
+	
+	meta int JumpForwardVelocity;
+	Property JumpForwardVelocity: JumpForwardVelocity;
+	
+	int jumpcooldown;
+	
+	vector3 oldPos;		// This needs to remain
+	double oldVelZ;		// From ZDoom Wiki
+	int leveltimemod;	// [SW] - Replaces Kinsie's timer mainly for debugging
+						// I put it here
+	
+	// [SW] - Do Modulus instead of relying on timers
+	void GetLevelTimeMask()
+	{
+		leveltimemod = level.time % TICRATE;
+	}
+	
+	void SetOldVelZ()
+	{
+		oldVelZ = vel.z;
+	}
+	
+	virtual void DoAISubroutines()
+	{
+		SetOldVelZ();
+		CheckForEnemyJump();
+		GetLevelTimeMask();
+		EnemySwim();
+		DoHurtSectorBasedDmg();
+	}
+	
+	// [SW] - Check if enemy can jump... this is a complex function
+	void CheckForEnemyJump()
+	{
+		// if enemy has been flagged not to jump
+		// or is corpse, or is set to float or has no target
+		// we wanna return early...
+		if (health <= 0 || !bCanJump || bFloat || !target)
+			return;
+			
+		// Check for slope
+		// if (CurSector.FloorPlane.isSlope())
+		//	return;
+		
+		// Only do this if the enemy is in the See state.
+		if (!InStateSequence(CurState, ResolveState("See")))
+			return;
+		
+		// if the enemy hasn't cooled down it's jump yet
+		// don't bother, decrement it
+		if (jumpcooldown > 0)
+		{				
+			jumpcooldown--;
+			return;
+		}
+		
+		// Check position and height offsets
+		Vector3 vecd = LevelLocals.Vec3Diff(pos, target.pos);
+		if (vecd.z > height && Distance3D(target) < 256)
+		{
+			// Randomize jump.
+			if (Random[JumpChance](0, 100) < 12 && A_CheckSolidFooting2(CSF_ALL))
+			{
+				// Face target, jump towards
+				A_FaceTarget(64);
+				VelFromAngle(JumpForwardVelocity, angle);
+				vel.z += JumpUpVelocity;
+				
+				if (ResolveState("Jump"))
+					SetStateLabel("Jump");
+				
+				// Set cooldown
+				jumpcooldown = TICRATE * Random[JumpCooldown](2,4);
+			}
+		}
+	}
+	
+	virtual void EnemySwim()
+	{
+		if (leveltimemod == 8 && waterlevel >= 2 && health > 0)
+		{
+			A_FaceTarget(128);
+			if (JumpForwardVelocity > 0 && JumpUpVelocity > 0)
+			{
+				VelFromAngle(JumpForwardVelocity, angle);
+				vel.z += JumpUpVelocity;
+			}
+			else
+			{
+				VelFromAngle(speed, angle);
+				vel.z += 16;
+			}
+		}
+		else if (waterlevel == 1)
+		{
+			vel.z += 1;
+		}
+	}
+	
+	// [SW] - Loosely based on FauxDM's sector damage functions... I extended the
+	// hell out of it though and did alot of cleanup
+	virtual void DoHurtSectorBasedDmg()
+	{
+		TerrainDef ter = GetFloorTerrain();
+		
+		if (ter && waterlevel > 0 || (pos.z == GetZAt(pos.x, pos.y) && ter.DamageMOD && !bFLOAT && leveltimemod >= ter.damagetimemask))
+		{				
+			DamageMobj(self, self, ter.damageamount * Random[TerrainHurt](2, 5), ter.DamageMOD, 0, 0);
+			
+			A_StartSound(PainSound);
+			if (Random[TerrainHurt](0, 3) == 1)
+				Vel3dFromAngle(speed * 2, angle, -35);
+		}
+		if (CurSector.damageamount != 0 && leveltimemod >= CurSector.damageinterval)
+		{
+			if (waterlevel > 0 || (waterlevel == 0 && pos.z == GetZAt(pos.x, pos.y)))
+			{
+				DamageMobj(self, self, CurSector.damageamount, CurSector.damagetype, 0, 0);
+			}
+		}
+	}
+	
+	// This function is from the ZDoom wiki and seems to do what we need?
+	action state A_CheckSolidFooting(StateLabel label, int flags = CSF_ALL)
+	{
+		// small optimization: if our z-vel has changed, we aren't standing on something
+		if (invoker.oldVelZ != vel.z)
+			return null;
+
+		// are we standing on solid ground?
+		if (abs(pos.z - GetZAt()) <= 1)
+		{
+			if (flags & CSF_SOLIDGROUND)
+				return ResolveState(label);
+		}
+
+		// are we standing on an actor?
+		bool ok; Actor below;
+		[ok, below] = TestMobjZ(true);
+		if (below)
+		{
+			if (flags & CSF_SOLIDACTORS)
+				return ResolveState(label);
+		}
+
+		// has our z-velocity not changed?
+		if (vel.z == invoker.oldVelZ && (flags & CSF_SOLIDGROUND))
+			return ResolveState(label);
+
+		// we aren't standing on anything
+		return null;
+	}
+	
+	
+	// Same function as above, but it doesn't return a function. It instead returns
+	// a boolean value
+	action bool A_CheckSolidFooting2(int flags = CSF_ALL)
+	{
+		// small optimization: if our z-vel has changed, we aren't standing on something
+		if (invoker.oldVelZ != vel.z)
+			return false;
+
+		// are we standing on solid ground?
+		if (abs(pos.z - GetZAt()) <= 1)
+		{
+			if (flags & CSF_SOLIDGROUND)
+				return true;
+		}
+
+		// are we standing on an actor?
+		bool ok; Actor below;
+		[ok, below] = TestMobjZ(true);
+		if (below)
+		{
+			if (flags & CSF_SOLIDACTORS)
+				return true;
+		}
+
+		// has our z-velocity not changed?
+		if (vel.z == invoker.oldVelZ && (flags & CSF_SOLIDGROUND))
+			return true;
+
+		// we aren't standing on anything
+		return false;
+	}
+	
+	// Might as well move this here
+	void A_SHDX_Look()
+	{
+		A_LookEx(0, 0, 1280, 1280, 180, "See");
+	}
+	
+	// [SW + Kinsie] - based on Kinsie's A_FDMChase
+	// but extended for my purposes
+	void A_SHDX_Chase(statelabel melee = "Melee", statelabel missile = "Missile", int flags = 0)
+	{		
+		A_Chase(melee, missile, flags);
+	}
+	
+	override void Tick()
+	{
+		DoAISubroutines();
+		
+		Super.Tick();
+	}
+	
+	void A_NewScream()
+	{
+		A_StartSound(DeathSound, CHAN_VOICE);
+		A_NoBlocking();
+	}
+	
+	void A_NewXScream(bool playnormalscream = true)
+	{
+		A_StartSound("misc/splatx", CHAN_6);
+		
+		if (playnormalscream)
+		{
+			A_StartSound(DeathSound, 9);
+		}
+	}
+	
+	void A_SHDX_ExtremeScreamAndUnblock()
+	{
+		A_NoBlocking();
+		
+		A_NewXScream();
+	}
+	
+	void A_SHDX_SquishSound()
+	{
+		A_StartSound("misc/splatx", CHAN_5);
+	}
+}
+
+
+Class SHDX_Boss : SHDX_Enemy
+{
+	Default
+	{
+		//$Category "Monsters/Bosses"
+		Mass 1000;
+		DamageFactor "Bullet", 0.50;	// Bullets are less effective against bosses
+		DamageFactor "Chicken", 0.00;
+		DamageFactor "ChickenX", 0.00;
+		DamageFactor "Weather", 0.75;
+		DamageFactor "RainbowX", 0.50;
+		DamageFactor "Explosive", 1.00;	// Explosives are more effective
+		
+		PainChance "Shrink", 0;
+		DamageFactor "Shrink", 0.0;
+
+		+Boss
+		+DontGib
+		+BossDeath
+		+DontMorph
+		+NeverRespawn
+		
+		+Ambush	// hmm...
+	}
+	
+	private int DD2BossFlags;
+	flagdef TriggerLevelEnd: DD2BossFlags, 0;
+	flagdef TriggerCutscene: DD2BossFlags, 1;
+	
+	meta Name CutsceneToPlay;
+	Property CutsceneToPlay: CutsceneToPlay;
+	
+	void A_DD2_BossPlayCutscene()
+	{
+		if (shdx_skipcutscenes)
+			return;
+			
+		if (bTriggerCutscene && (CutsceneToPlay != '' || CutsceneToPlay != 'None'))
+		{
+			level.StartSlideShow(CutsceneToPlay);
+		}
+	}
+	
+	void A_DD2_BossEndLevel()
+	{
+		if (bTriggerLevelEnd)
+		{
+			level.ExitLevel(0, false);
+		}
+	}
+	
+	/*
+	void A_DD2_SetToBossBarHUD()
+	{
+		let hnd = DD2_Handler(EventHandler.Find("DD2_Handler"));
+		if (hnd)
+		{
+			hnd.bossmo = self;
+			hnd.bossfound = true;
+		}
+	} */
+	
+	States
+	{
+		Raise:
+		Crush:
+			Stop;
+			
+		XDeath:
+		Death.Explosive:
+		Death.Weather:
+		Death.RainbowX:
+			Stop;
+	}
+}

@@ -1,0 +1,188 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+Class SHDX_HighGuardSpawner : RandomSpawner
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite HIGHF0
+		//$Title "High Guard (Random)"
+		scale 0.12;
+		Radius 20;
+		Height 56;
+		DropItem "SHDX_HighGuardMale";
+		DropItem "SHDX_HighGuardFemale";
+	}
+}
+
+Class SHDX_HighGuardMale : SHDX_Enemy
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite HIGHA0
+		//$Title "High Guard (Male)"
+		
+		Health 70;
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 8;
+		PainChance 200;
+		SeeSound "hguard1/sight";
+		PainSound "hguard1/pain";
+		DeathSound "hguard1/death";
+		ActiveSound "hguard1/active";
+		Obituary "$SHDX_OB_HIGHGUARD";
+		Tag "$SHDX_TAG_HIGHGUARD";
+	}
+	
+	void A_DropItemsHighGuard()
+	{
+		A_SHDX_DropItem("SHDX_GoldBitCoin", false);
+		
+		if (target && !target.CountInv("SHDX_SubmachineGun"))
+			A_SHDX_DropItem("SHDX_SubmachineGun");
+	}
+	
+	States
+	{		
+		Spawn:
+			HIGH A 10 A_Look;
+			Loop;
+		See:
+			HIGH BCDEBCDE 4 A_Chase;
+			Loop;
+		Missile:
+			HIGH F 2 A_FaceTarget;
+			HIGH G 0 bright A_StartSound("hguard/attack", CHAN_WEAPON);
+			HIGH GH 4 bright A_CustomBulletAttack(1, 0.0, 1, random[HighGuard](3,6)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			HIGH IF 2 A_FaceTarget;
+			HIGH G 0 bright A_StartSound("hguard/attack", CHAN_WEAPON);
+			HIGH GH 4 bright A_CustomBulletAttack(1, 0.0, 1, random[HighGuard](3,6)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			HIGH I 2;
+			Goto See;
+		Pain:
+			HIGH I 0
+			{
+				if (Random[HighGuard](0, 100) < 50)
+					return ResolveState("Pain2");
+				
+				return ResolveState("Pain1");
+			}
+		Pain1:
+			HIGH J 3;
+			HIGH J 3 A_Pain;
+			Goto See;
+		Pain2:
+			HIGH K 3;
+			HIGH K 3 A_Pain;
+			Goto See;
+		Death:
+			HIGH L 5 A_NewScream;
+			HIGH M 5
+			{
+				A_NoBlocking();
+				A_DropItemsHighGuard();
+			}
+			HIGH N 5;
+			HIGH O -1;
+			Stop;
+		Death.Explosive:
+		Death.Weather:
+		Death.Extreme:
+		XDeath:
+			GIBX B 1
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsHighGuard();
+				A_SpawnGibsFx(self);
+			}
+			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBX BC 5;
+			GIBX D -1;
+			Stop;
+		Death.RainbowerX:
+			GIBR A 4;
+			GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBR BC 4;
+			GIBR D -1;
+			Stop;
+		Crush:
+			GIBX D 0 A_SHDX_SquishSound;
+			GIBX D 1 A_SHDX_GivePlayerOneLiner;
+			GIBX D -1;
+			Stop;
+	}
+}
+
+Class SHDX_HighGuardFemale : SHDX_HighGuardMale
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite HIG2A0
+		//$Title "High Guard (Female)"
+		
+		SeeSound "hguard2/sight";
+		PainSound "hguard2/pain";
+		DeathSound "hguard2/death";
+		ActiveSound "hguard2/active";
+	}	States
+	{		
+		Spawn:
+			HIG2 A 10 A_Look;
+			Loop;
+		See:
+			HIG2 BCDEBCDE 4 A_Chase;
+			Loop;
+		Missile:
+			HIG2 F 2 A_FaceTarget;
+			HIG2 G 0 bright A_StartSound("hguard/attack", CHAN_WEAPON);
+			HIG2 GH 4 bright A_CustomBulletAttack(1, 0.0, 1, random[HighGuard](3,6)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			HIG2 IF 2 A_FaceTarget;
+			HIG2 G 0 bright A_StartSound("hguard/attack", CHAN_WEAPON);
+			HIG2 GH 4 bright A_CustomBulletAttack(1, 0.0, 1, random[HighGuard](3,6)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			HIG2 I 2;
+			Goto See;
+		Pain:
+			HIG2 I 0
+			{
+				if (Random[HighGuard](0, 100) < 50)
+					return ResolveState("Pain2");
+				
+				return ResolveState("Pain1");
+			}
+		Pain1:
+			HIG2 J 3;
+			HIG2 J 3 A_Pain;
+			Goto See;
+		Pain2:
+			HIG2 K 3;
+			HIG2 K 3 A_Pain;
+			Goto See;
+		Death:
+			HIG2 L 5 A_NewScream;
+			HIG2 M 5
+			{
+				A_NoBlocking();
+				A_DropItemsHighGuard();
+			}
+			HIG2 N 5;
+			HIG2 O -1;
+			Stop;
+	}
+}

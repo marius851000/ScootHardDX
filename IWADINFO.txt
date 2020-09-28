@@ -1,0 +1,8 @@
+IWad
+{
+	Name = "Scoot Hard DX"
+	Autoname = "Scoot Hard DX"
+	Game = "Doom"
+	Config = "ScootHardDX"
+	BannerColors = "FF FF 00", "FF 0A 75"
+}

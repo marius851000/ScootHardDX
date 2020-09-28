@@ -1,0 +1,91 @@
+/*
+ * Note: This license has also been called the "New BSD License" or "Modified BSD License". See also the 2-clause BSD License.
+ *
+ * Copyright 2020 Sanya K. Waffles
+ *
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+ * disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products
+ * derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+
+version "4.3"
+
+#include "zscript/sharddx/constants.zsc"
+
+#include "zscript/sharddx/utilities/utilities.zsc"
+#include "zscript/sharddx/utilities/align.zsc"
+#include "zscript/sharddx/utilities/unicode.zsc"
+
+#include "zscript/sharddx/base/base_actor.zsc"
+#include "zscript/sharddx/base/base_enemy.zsc"
+#include "zscript/sharddx/base/base_fx.zsc"
+#include "zscript/sharddx/base/base_pickups.zsc"
+#include "zscript/sharddx/base/base_player.zsc"
+#include "zscript/sharddx/base/base_projectile.zsc"
+#include "zscript/sharddx/base/base_props.zsc"
+#include "zscript/sharddx/base/base_splash.zsc"
+#include "zscript/sharddx/base/base_switchables.zsc"
+#include "zscript/sharddx/base/base_weapon.zsc"
+
+#include "zscript/sharddx/enemies/lowguard.zsc"
+#include "zscript/sharddx/enemies/highguard.zsc"
+#include "zscript/sharddx/enemies/pegapol.zsc"
+#include "zscript/sharddx/enemies/engineer.zsc"
+#include "zscript/sharddx/enemies/boss1.zsc"
+#include "zscript/sharddx/enemies/boss2.zsc"
+#include "zscript/sharddx/enemies/boss3.zsc"
+
+#include "zscript/sharddx/fx/flash.zsc"
+#include "zscript/sharddx/fx/giblets.zsc"
+#include "zscript/sharddx/fx/puffs.zsc"
+#include "zscript/sharddx/fx/splashes.zsc"
+
+#include "zscript/sharddx/handler/error.zsc"
+#include "zscript/sharddx/handler/slideshow.zsc"
+#include "zscript/sharddx/handler/titlemap.zsc"
+
+#include "zscript/sharddx/oneliner/oneliner.zsc"
+
+#include "zscript/sharddx/pickups/bits.zsc"
+#include "zscript/sharddx/pickups/chickenmode.zsc"
+#include "zscript/sharddx/pickups/health.zsc"
+#include "zscript/sharddx/pickups/keys.zsc"
+#include "zscript/sharddx/pickups/protection.zsc"
+#include "zscript/sharddx/pickups/sbahj.zsc"
+#include "zscript/sharddx/pickups/missileweapon.zsc"
+
+#include "zscript/sharddx/props/props.zsc"
+
+#include "zscript/sharddx/players/scootplayer.zsc"
+
+#include "zscript/sharddx/ui/credits.zsc"
+#include "zscript/sharddx/ui/hud.zsc"
+#include "zscript/sharddx/ui/readthis.zsc"
+#include "zscript/sharddx/ui/stat_coop.zsc"
+#include "zscript/sharddx/ui/stat_dm.zsc"
+#include "zscript/sharddx/ui/stat_sp.zsc"
+
+#include "zscript/sharddx/weapons/blaster.zsc"
+#include "zscript/sharddx/weapons/fillyseeker.zsc"
+#include "zscript/sharddx/weapons/hailer.zsc"
+#include "zscript/sharddx/weapons/machinegun.zsc"
+#include "zscript/sharddx/weapons/missilelauncher.zsc"
+#include "zscript/sharddx/weapons/rainbower.zsc"
+#include "zscript/sharddx/weapons/tornadozer.zsc"
+
+#include "zscript/sharddx/vending.zsc"
+#include "zscript/sharddx/jumppad.zsc"

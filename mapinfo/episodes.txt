@@ -1,0 +1,60 @@
+// Episodes
+clearepisodes
+episode e1a1
+{
+	name = "$SHDX_EPISODE"
+	key = "s"
+}
+
+// Skills
+clearskills
+skill easy
+{
+	AutoUseHealth
+	AmmoFactor = 2
+	ACSReturn = 0
+	DamageFactor = 0.75
+	EasyBossBrain
+	EasyKey
+	SpawnFilter = 1
+	Name = "$SHDX_SKILL1"
+	TextColor = "Blue"
+	MonsterHealth = 0.75
+	Key = "c"
+	DropAmmoFactor = 1.0
+}
+
+skill medium
+{
+	SpawnFilter = 2
+	ACSReturn = 1
+	Name = "$SHDX_SKILL2"
+	TextColor = "Green"
+	Key = "r"
+	DefaultSkill
+	DropAmmoFactor = 1.0
+}
+
+skill hard
+{
+	Aggressiveness = 0.3
+	ACSReturn = 2
+	SpawnFilter = 3
+	Name = "$SHDX_SKILL3"
+	TextColor = "Yellow"
+	Key = "a"
+	MonsterHealth = 1.25
+	DropAmmoFactor = 1.0
+}
+
+skill despair
+{
+	Aggressiveness = 0.5
+	SpawnFilter = 4
+	ACSReturn = 3
+	Name = "$SHDX_SKILL4"
+	TextColor = "Red"
+	Key = "v"
+	MonsterHealth = 1.5
+	DropAmmoFactor = 1.0
+}

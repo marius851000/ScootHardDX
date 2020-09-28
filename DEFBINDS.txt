@@ -1,0 +1,81 @@
+/* Default keybindings for Daytime Drama */
+
+` toggleconsole
+1 "slot 1"
+2 "slot 2"
+3 "slot 3"
+4 "slot 4"
+5 "slot 5"
+6 "slot 6"
+7 "slot 7"
+8 "slot 8"
+9 "slot 9"
+0 "slot 0"
+[ invprev
+] invnext
+enter invuse
+- sizedown
+= sizeup
+ctrl +crouch
+space +jump
+shift +speed
+w +forward
+a +moveleft
+s +back
+d +moveright
+e +use
+mouse1 +attack
+mouse2 +altattack
+f1 menu_help
+f2 menu_save
+f3 menu_load
+f4 menu_options
+f5 menu_display
+f6 quicksave
+f7 menu_endgame
+f8 togglemessages
+f9 quickload
+f11 bumpgamma
+f10 menu_quit
+tab togglemap
+pause pause
+sysrq screenshot
+t messagemode
+mwheeldown weapprev
+mwheelup weapnext
+` toggleconsole
+
+// Xbox 360 / PS2 controllers
+pad_b +strafe
+pad_x +use
+pad_a +jump
+pad_y +user1
+rtrigger +attack
+ltrigger +altattack
+lshoulder weapprev
+rshoulder weapnext
+dpadleft invprev
+dpadright invnext
+dpaddown invuse
+dpadup togglemap
+pad_start menu_main
+pad_back quicksave
+lthumb crouch
+
+/* Default automap bindings */
+mapbind f am_togglefollow
+mapbind g am_togglegrid
+mapbind p am_toggletexture
+mapbind m am_setmark
+mapbind c am_clearmarks
+mapbind 0 am_gobig
+mapbind rightarrow +am_panright
+mapbind leftarrow +am_panleft
+mapbind uparrow +am_panup
+mapbind downarrow +am_pandown
+mapbind - +am_zoomout
+mapbind = +am_zoomin
+mapbind kp- +am_zoomout
+mapbind kp+ +am_zoomin
+mapbind mwheelup "am_zoom 1.2"
+mapbind mwheeldown "am_zoom -1.2"

@@ -1,0 +1,95 @@
+Class SHDX_Prop : SHDX_Actor
+{
+	Default
+	{
+		Height 56;
+		Radius 22;
+		Mass 300;
+		MaxStepHeight 8;
+		MaxDropOffHeight 8;
+		
+		
+		+Solid
+		+NotAutoAimed
+		+NoBlood
+	}
+}
+
+Class SHDX_ExplodeyProp : SHDX_Prop
+{
+	
+}
+
+Class SHDX_Decoration : SHDX_Prop
+{
+	Default
+	{
+		-Solid
+	}
+}
+
+// Breakable container base
+Class SHDX_BreakableContainer : SHDX_Prop
+{
+	Default
+	{
+		//$Arg0 "Object"
+		//$Arg0Str
+		+Shootable
+		+DontGib
+	}
+	
+	States
+	{
+		Death:
+			TNT1 A 0 A_DestroyDDContainer;
+			Stop;
+	}
+	
+	// Copied the code and made some edits from Pottery1
+	void A_DestroyDDContainer()
+	{
+		A_StartSound("generic/break", CHAN_BODY);	// hmm...
+		
+		// Spawn an item?
+		Class<Actor> type = GetSpawnableType(args[0]);
+		
+		if (type != null)
+		{
+			if (!(level.nomonsters || sv_nomonsters) || !(GetDefaultByType(type).bIsMonster))
+			{
+				// Only spawn monsters if not -nomonsters
+				Spawn(type, pos, ALLOW_REPLACE);
+			}
+		}
+		Destroy();
+	}
+}
+
+Class SHDX_EdibleDecoration : SHDX_Decoration
+{
+	Meta Sound EatingSound;
+	Property EatingSound : EatingSound;
+	Meta int HealthToGive;
+	Property HealthToGive : HealthToGive;
+	
+	bool haseaten;
+	
+	override bool Used(Actor user)
+	{
+		if (user && user.player && !haseaten)
+		{
+			// Don't need to cast to SHDX_PlayerPawn
+			let pl = PlayerPawn(user);
+			if (pl && pl.health < pl.MaxHealth)
+			{
+				A_StartSound(EatingSound, CHAN_BODY, CHANF_DEFAULT, 1.0);
+				user.A_GiveInventory("Health", HealthToGive);
+				haseaten = true;
+				self.SetStateLabel("Empty");
+				return true;
+			}
+		}
+		return false;
+	}
+}

@@ -1,0 +1,54 @@
+DoomEdNums
+{
+	6000 = SHDX_LowGuardSpawner
+	6001 = SHDX_LowGuardMale
+	6002 = SHDX_LowGuardFemale
+	6003 = SHDX_HighGuardSpawner
+	6004 = SHDX_HighGuardMale
+	6005 = SHDX_HighGuardFemale
+	6006 = SHDX_PegapolMale
+	// 6007 = 
+	6008 = SHDX_Engineer
+	6009 = SHDX_Engineer
+	
+	6050 = SHDX_BossSpot
+	6051 = SHDX_SurpriseBoss
+	6052 = SHDX_DrAtmosphereBoss
+	6053 = SHDX_PegasusDevice
+	
+	6500 = SHDX_SubmachineGun
+	6502 = SHDX_MissileLauncher
+	6503 = SHDX_FillySeeker
+	6506 = SHDX_Rainbower
+	6507 = SHDX_Tornadozer
+	6508 = SHDX_HailerWeapon
+	
+	6590 = SHDX_SilverBitCoin
+	6591 = SHDX_GoldBitCoin
+	6600 = SHDX_Sandwich
+	6601 = SHDX_Applesauce
+	
+	6610 = SHDX_ChickenMode
+	6612 = SHDX_BulletproofArmor
+	6613 = SHDX_FireproofArmor
+	// 6614 = SHDX_SBaHJMode
+	6615 = SHDX_WeatherproofArmor
+	
+	6700 = SHDX_BlueVase
+	6701 = SHDX_PottedPlant
+	6702 = SHDX_FlagPole
+	6703 = SHDX_Lamp
+	6704 = SHDX_Barrel1
+	6705 = SHDX_Barrel2
+	6706 = SHDX_ExplosiveBarrel
+	6707 = SHDX_LittleCeilingLight
+	6708 = SHDX_LittleFloorLight
+	
+	6800 = SHDX_RedCard
+	6801 = SHDX_BlueCard
+	6802 = SHDX_GreenCard
+	6803 = SHDX_ManagementCard
+	
+	7000 = SHDX_JumpPad
+	7001 = SHDX_VendingMachine
+}

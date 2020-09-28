@@ -1,0 +1,69 @@
+type = "Doom Builder Map Settings Configuration";
+gameconfig = "WIGZDoom_SHDXUDMF.cfg";
+strictpatches = 0;
+
+maps
+{
+	
+	TITLEMAP
+	{
+		defaultceiltexture = "CONC00";
+		overridefloorheight = false;
+		customfloorheight = 0;
+		uselongtexturenames = false;
+		scriptcompiler = "zdoom_acs.cfg";
+		
+		resources
+		{
+		}
+		overrideceiltexture = false;
+		viewpositionx = 292.3911f;
+		defaulttoptexture = "BLDGSID5";
+		
+		fieldtypes
+		{
+			
+			sector
+			{
+				rotationfloor = 1;
+				xscalefloor = 1;
+				ypanningceiling = 1;
+				ypanningfloor = 1;
+				xpanningceiling = 1;
+				yscalefloor = 1;
+				xpanningfloor = 1;
+				yscaleceiling = 1;
+				xscaleceiling = 1;
+				rotationceiling = 1;
+			}
+		}
+		overrideceilheight = false;
+		useresourcesinreadonlymode = false;
+		overridebrightness = false;
+		overridefloortexture = false;
+		
+		grid
+		{
+			backoffsetx = 0;
+			backsource = 0;
+			gridoriginy = 0;
+			backscaley = 100;
+			gridrotate = 0;
+			backscalex = 100;
+			gridoriginx = 0;
+			gridsize = 32;
+			background = "";
+			backoffsety = 0;
+		}
+		overridetoptexture = false;
+		overridebottomtexture = false;
+		defaultbottomtexture = "BLDGSID5";
+		defaultfloortexture = "CONC00";
+		viewpositiony = -680.7332f;
+		defaultwalltexture = "BLDGSID5";
+		customceilheight = 128;
+		overridemiddletexture = false;
+		custombrightness = 196;
+		viewscale = 0.2521673f;
+	}
+}

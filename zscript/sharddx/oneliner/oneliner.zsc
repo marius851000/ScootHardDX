@@ -1,0 +1,245 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+const SHDX_ONELINER_NORMAL_CHANCE = 25;
+const SHDX_ONELINER_GIB_CHANCE = 50;
+const SHDX_ONELINER_BOSS_CHANCE = 100;
+
+enum OneLinerFlags
+{
+	OLSSF_DEFAULT = 0,
+	OLSSF_FORCEONELINER = 1
+}
+
+extend class SHDX_Enemy
+{
+	void A_SHDX_SendOLToPlayerPawn(SHDX_PlayerPawn pp, int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT)
+	{
+		String finalsnd;
+		if (Random[OneLiner](0, 100) <= r)
+		{
+			if (snd.Length() < 1)
+			{
+				snd = pp.A_GetDefaultVoiceOver();
+			}
+			
+			finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
+			
+			// pp.A_Log("Oneliner: "..finalsnd);
+			
+			pp.A_OneLinerInit(finalsnd, flags);
+		}
+	}
+	/*	***********************************************
+	 *			A_SHDX_GivePlayerOneLiner();
+	 *		Gives the player a token obbject
+	 *		that causes the player pawn to sound
+	 *		off a one liner.
+	 *	***********************************************/
+	void A_SHDX_GivePlayerOneLiner(int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT)
+	{		
+		if (!target)
+			return;
+		
+		let SHDXpl = SHDX_PlayerPawn(target);
+		if (SHDXpl)
+		{
+			A_SHDX_SendOLToPlayerPawn(SHDXpl, r, snd, flags);
+		}
+		else
+		{
+			let eb = SHDX_ExplodeyProp(target);
+			if (eb)
+			{
+				let SHDXpl2 = SHDX_PlayerPawn(eb.target);
+				if (SHDXpl2)
+				{
+					A_SHDX_SendOLToPlayerPawn(SHDXpl2, r, snd, flags);
+				}
+			}
+		}
+	}
+}
+
+extend class SHDX_PlayerPawn
+{
+	const ONELINER_COOLDOWN_MAX = TICRATE * 5;
+	const ONELINER_TIME_TO_SING = TICRATE * 60;
+	const ONELINER_TIME_TO_SING_END = ONELINER_TIME_TO_SING + (TICRATE * 30);
+	const ONELINER_USE_LOCKED_MAX = 3;
+	
+	int onelinercount;		// One Liner Counter
+	int lastonelinernum;
+	bool onelinerhit;		// One Liner Flag
+	Sound onelinersnd;		// One Liner Sound
+	int timetosing;
+	int lockcount;
+	bool onelinermute;
+	bool lowervolumeforoneliner;
+	bool queuevolumechange;
+	bool changevolumefordialog;
+	int onelinerflags;
+	int SavedTimes;
+	bool SavedTrigger;
+	
+	meta String OneLinerPrefix;
+	Property OneLinerPrefix: OneLinerPrefix;
+	
+	void CheckOneLinerSoundOnPlayer()
+	{
+		lowervolumeforoneliner = IsActorPlayingSound(SHDXPLAYER_DIALOGUECHANNEL1);
+	}
+	
+	void A_ResetIdleFromPain()
+	{
+		timetosing = 0;
+	}
+	
+	const ATTN_ONELINER = 0.5;
+	
+	String A_GetDefaultVoiceOver()
+	{
+		int r;
+		do
+		{
+			r =  Random[OneLiner](1, 10);
+		}
+		while (r == lastonelinernum)
+		
+		lastonelinernum = r;
+		
+		return String.Format("voiceover%d", r);
+	}
+	
+	bool A_CheckOneLinerCVar()
+	{
+		if (player)
+			return Cvar.GetCVar('shdx_snd_oneliners', player).GetBool();
+		
+		return false;
+	}
+	
+	void A_OneLinerInit(Sound snd, int flags = OLSSF_DEFAULT)
+	{
+		if (onelinercount <= 0 || onelinerflags & OLSSF_FORCEONELINER)
+			onelinercount = ONELINER_COOLDOWN_MAX;
+			
+		onelinerflags = flags;
+		
+		onelinersnd = snd;
+	}
+	
+	void A_OneLinerSound(Sound snd)
+	{		
+		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_OVERLAP, 4.0, ATTN_ONELINER);
+		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_OVERLAP, 4.0, ATTN_ONELINER);
+	}
+	
+	void A_StopOneLinerSound()
+	{
+		A_StopSound(SHDXPLAYER_DIALOGUECHANNEL1);
+	}
+	
+	// Perform Voice One Liner Actions
+	void A_OneLinerProcess()
+	{
+		if (!A_CheckOneLinerCVar())
+			return;
+			
+		if (onelinermute)
+		{
+			onelinercount = 0;
+			return;	
+		}
+		
+		if (health <= 0)
+			return;
+		
+		if (onelinercount >= ONELINER_COOLDOWN_MAX)
+		{
+			onelinerhit = true;
+			
+			if (SHDX_Utilities.CheckSoundExists(onelinersnd))
+			{
+				A_OneLinerSound(onelinersnd);
+			}
+		}
+		
+		if (onelinerhit)
+		{
+			if (onelinercount > 0)
+			{
+				onelinercount--;
+			}
+			
+			if (onelinercount <= 0)
+			{
+				onelinercount = 0;
+				onelinersnd = "";
+				onelinerhit = false;
+				onelinerflags = 0;
+			}
+		}
+	}
+	
+	bool A_CheckIfInTitleMapOrCutscene()
+	{
+		bool ret;
+		
+		ret = bool(level.levelnum == 0);
+		
+		ret = CheckFrozen();
+		
+		if (level.MapName ~== "TITLEMAP" || level.MapName ~== "MAP00" || level.MapName ~== "ENDING")
+			ret = true;
+			
+		return ret;
+	}
+	
+	void ProcessIdle()
+	{
+		if (!player)
+			return;
+			
+		if (health <= 0)
+			return;
+		
+		if (!A_CheckIfInTitleMapOrCutscene() && A_CheckOneLinerCVar() && !onelinermute)
+		{
+			bool checkmove = (!(player.cmd.forwardmove) && !(player.cmd.sidemove) && !(player.cmd.buttons & BT_FORWARD) && !(player.cmd.buttons & BT_BACK) && !(player.cmd.buttons & BT_MOVELEFT) && !(player.cmd.buttons & BT_MOVERIGHT));
+			bool checkatk = (!(player.cmd.buttons & BT_ATTACK) && !(player.cmd.buttons & BT_ALTATTACK));
+			bool checkuse =  (!(player.cmd.buttons & BT_USE));
+			
+			if (checkmove && checkatk && checkuse)
+			{
+				timetosing++;
+			}
+			else
+			{
+				timetosing = 0;
+			}
+			
+			if (timetosing == ONELINER_TIME_TO_SING)
+			{
+				Sound snd1 = String.Format("%s/idle%d", OneLinerPrefix, Random[OneLiner](1, 14));
+				A_OneLinerInit(snd1);
+			}
+			if (timetosing >= ONELINER_TIME_TO_SING_END)
+			{
+				timetosing = 0;
+			}
+		}
+	}
+}
+

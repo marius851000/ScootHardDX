@@ -1,0 +1,77 @@
+grunt1/sight1				"sounds/enemies/guard/g_see1.ogg"
+grunt1/sight2				"sounds/enemies/guard/g_see2.ogg"
+grunt1/sight3				"sounds/enemies/guard/g_see3.ogg"
+$random	grunt1/sight		{ grunt1/sight1	grunt1/sight2 grunt1/sight3 }
+
+grunt1/death1				"sounds/enemies/guard/g_die1.ogg"
+grunt1/death2				"sounds/enemies/guard/g_die2.ogg"
+grunt1/pain					"sounds/enemies/guard/g_die3.ogg"
+$random	grunt1/death		{ grunt1/death1	grunt1/death2}
+
+grunt2/sight1				"sounds/enemies/guard/g2_see1.ogg"
+grunt2/sight2				"sounds/enemies/guard/g2_see2.ogg"
+grunt2/sight3				"sounds/enemies/guard/g2_see3.ogg"
+$random	grunt2/sight		{ grunt2/sight1	grunt2/sight2 grunt2/sight3 }
+
+grunt2/death1				"sounds/enemies/guard/g2_die1.ogg"
+grunt2/death2				"sounds/enemies/guard/g2_die3.ogg"
+grunt2/pain					"sounds/enemies/guard/g2_die2.ogg"
+$random	grunt2/death		{ grunt2/death1	grunt2/death2 }
+
+grunt/attack				"sounds/weapons/pistol.ogg"
+
+hguard1/sight1				"sounds/enemies/high/hg_see1.ogg"
+hguard1/sight2				"sounds/enemies/high/hg_see2.ogg"
+$random hguard1/sight		{ hguard1/sight1 hguard1/sight2 }
+
+hguard1/death				"sounds/enemies/high/hg_die1.ogg"
+
+// Todo: Female High Guard Sounds
+
+hguard/attack			"sounds/weapons/smg_fire.ogg"
+
+pegapol/sight1			"sounds/enemies/pegpol/pp_see1.ogg"
+pegapol/sight2			"sounds/enemies/pegpol/pp_see2.ogg"
+$random pegapol/sight	{ pegapol/sight1 pegapol/sight2 }
+pegapol/pain			dsempty	// needs replaced?
+pegapol/death			"sounds/enemies/pegpol/pp_die.ogg"
+pegapol/attack			"sounds/weapons/smg_fire.ogg"
+
+// BOSS #1 - Surprise
+boss1/sight				"sounds/enemies/surprise/b1_aha.ogg"
+boss1/laugh				"sounds/enemies/surprise/b1_laugh.ogg"
+boss1/stomp				THUD
+boss1/pain				"sounds/enemies/surprise/b1_die2.ogg"
+boss1/taunt				"sounds/enemies/surprise/b1_bcaw.ogg"
+boss1/death				"sounds/enemies/surprise/b1_die.ogg"			// hmmm....
+boss1/tornado			"sounds/weapons/tornado_projectile.ogg"
+$limit boss1/tornado	1
+
+boss2/sight				"sounds/enemies/atmos/atmossee.ogg"
+boss2/pain1				"sounds/enemies/atmos/atmos_ow.ogg"
+boss2/pain2				"sounds/enemies/atmos/atmosow2.ogg"
+$random boss2/pain		{ boss2/pain1 boss2/pain2 }
+boss2/death				"sounds/enemies/atmos/atmosdie.ogg"
+
+boss3/sight				"sounds/enemies/pdevice/pdp_see1.ogg"
+boss3/death				"sounds/enemies/pdevice/pdp_die1.ogg"
+boss3/active1			"sounds/enemies/pdevice/pdp_act1.ogg"
+boss3/active2			"sounds/enemies/pdevice/pdp_act2.ogg"
+boss3/active3			"sounds/enemies/pdevice/pdp_act3.ogg"
+$random boss3/active	{ boss3/active1 boss3/active2 boss3/active3 }
+boss3/meleehit			"sounds/saw_hit.ogg"
+$limit boss3/meleehit	1
+boss3/meleemiss			"sounds/saw_miss.ogg"		
+$limit boss3/meleehit	1
+
+engineer/sight1			"sounds/enemies/engie/en_see1.ogg"
+engineer/sight2			"sounds/enemies/engie/en_see2.ogg"
+$random engineer/sight			{ engineer/sight1 engineer/sight2}
+engineer/death			"sounds/enemies/engie/en_death.ogg"
+engineer/attack			"sounds/weapons/plasma_fire.ogg"
+engineer/shotx			"sounds/weapons/plasma_shotx.ogg"
+engineer/melee			"sounds/weapons/destablizer_hit.ogg"
+engineer/miss			"sounds/weapons/destablizer_full.ogg"
+engineer/death1			"sounds/enemies/engie/en_die1.ogg"
+engineer/death2			"sounds/enemies/engie/en_die2.ogg"
+$random engineer/death			{ engineer/death1 engineer/death2}
