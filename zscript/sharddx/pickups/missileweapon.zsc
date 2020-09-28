@@ -37,4 +37,28 @@ Class SHDX_MissileWeapon : SHDX_Weapon
 		
 		return Super.TryPickup(toucher);
 	}
+	
+	override void OnDrop(Actor dropper)
+	{
+		if (dropper)
+		{
+			Ammo a1, a2;
+			if (ammotype1)
+				a1 = Ammo(dropper.FindInventory(ammotype1));
+			if (ammotype2)
+				a2 = Ammo(dropper.FindInventory(ammotype2));
+			
+			if (a1)
+			{
+				ammogive1 = a1.amount;
+				dropper.RemoveInventory(a1);
+			}
+			
+			if (a2)
+			{
+				ammogive2 = a2.amount;
+				dropper.RemoveInventory(a2);
+			}
+		}
+	}
 }

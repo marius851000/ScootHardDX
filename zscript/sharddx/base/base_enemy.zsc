@@ -162,6 +162,9 @@ Class SHDX_Enemy : SHDX_Actor
 	{
 		TerrainDef ter = GetFloorTerrain();
 		
+		if (health <= 0)
+			return;
+		
 		if (ter && waterlevel > 0 || (pos.z == GetZAt(pos.x, pos.y) && ter.DamageMOD && !bFLOAT && leveltimemod >= ter.damagetimemask))
 		{				
 			DamageMobj(self, self, ter.damageamount * Random[TerrainHurt](2, 5), ter.DamageMOD, 0, 0);
