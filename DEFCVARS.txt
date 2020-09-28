@@ -16,4 +16,4 @@ use_joystick true
 autoaim 0
 crosshair 1
 am_portaloverlay false
-cl_decals 2560
+cl_maxdecals 2560
