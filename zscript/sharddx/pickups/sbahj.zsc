@@ -19,6 +19,56 @@ Class SHDX_PowerSBaHJ : PowerSpeed
 	{
 		+PowerSpeed.NoTrail
 		Speed 0.75;
+	}	
+	
+	double rpitch;
+	bool pitchdir;
+	bool resetpitch;
+	
+	override void DoEffect()
+	{
+		if (rpitch <= 0.35 && pitchdir)
+		{
+			rpitch += 0.01;
+			if (rpitch >= 0.35)
+			{
+				rpitch = 0.35;
+				pitchdir = false;
+			}
+		}
+		
+		if (rpitch >= -0.35 && !pitchdir)
+		{
+			rpitch -= 0.01;
+			if (rpitch <= -0.35)
+			{
+				rpitch = -0.35;
+				pitchdir = true;
+			}
+		}
+		
+		Owner.A_SetPitch(Owner.pitch + rpitch);
+		Owner.A_SetRoll(Owner.roll + rpitch);
+		// FadeTo(Random(0, 255), Random(0, 255), Random(0, 255), 0.5, 1.0);
+		
+		if (Owner.FindInventory("SHDX_ChickenMorph"))
+		{
+			Owner.A_SetPitch(0);
+			Owner.A_SetRoll(0);
+			// CancelFade();
+			if (!Owner.health > 0)
+			
+			Owner.RemoveInventory(self);
+		}
+		
+		if (Owner && EffectTics == 1)
+		{
+			Owner.A_SetPitch(0);
+			Owner.A_SetRoll(0);
+			A_StartSound("powerup/disappear", CHAN_BODY);
+		}
+		
+		Super.DoEffect();
 	}
 }
 
@@ -37,53 +87,11 @@ Class SHDX_SBaHJMode : PowerupGiver
 		Inventory.MaxAmount 0;
 		Powerup.Duration -15;
 		Inventory.PickupMessage "$SHDX_PICKUP_SBAHJ";
+		Inventory.PickupSound "pickup/hellajeff";
 		Tag "$SHDX_TAG_SBAHJ";
-	}
-	
-	double rpitch;
-	bool pitchdir;
-	bool resetpitch;
-	
-	override void DoEffect()
-	{
-		Super.DoEffect();
-		if (rpitch <= 0.15 && pitchdir)
-		{
-			rpitch += 0.01;
-			if (rpitch >= 0.15)
-			{
-				rpitch = 0.15;
-				pitchdir = false;
-			}
-		}
 		
-		if (rpitch >= -0.15 && !pitchdir)
-		{
-			rpitch -= 0.01;
-			if (rpitch <= -0.15)
-			{
-				rpitch = -0.15;
-				pitchdir = true;
-			}
-		}
-		
-		A_SetViewPitch(rpitch);	// affect only the view, not the actual pitch
-		// FadeTo(Random(0, 255), Random(0, 255), Random(0, 255), 0.5, 1.0);
-		
-		if (FindInventory("SHDX_ChickenMorph"))
-		{
-			TakeInventory("SHDX_SBaHJMode", 255);
-			resetpitch = true;
-		}
-		
-		if (resetpitch)
-		{
-			resetpitch = false;
-			A_SetViewPitch(0);
-			// CancelFade();
-			if (!FindInventory("SHDX_ChickenMorph") && Owner.health > 0)
-				A_StartSound("powerup/disappear", CHAN_BODY);
-		}
+		+INVENTORY.AUTOACTIVATE
+		+INVENTORY.ALWAYSPICKUP
 	}
 	
 	States

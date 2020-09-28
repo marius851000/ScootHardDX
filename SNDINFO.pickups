@@ -13,3 +13,5 @@ powerup/disappear		"sounds/items/lose_powerup.ogg"	// Lose Powerup
 
 powerup/cmode			"sounds/items/chicken_dance_start.ogg"	// ChickenDance
 powerup/cmodedone		"sounds/items/chicken_dance_end.ogg"	// slowmo chickendance
+
+pickup/hellajeff		"sounds/items/hella_jeff.ogg"
