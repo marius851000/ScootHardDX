@@ -12,39 +12,84 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-
-Class SHDX_Blaster : SHDX_Weapon
+Class SHDX_Toilet : SHDX_SwitchableDecoration
 {
 	Default
 	{
-		Weapon.SelectionOrder 1900;
-		Obituary "$SHDX_OB_BLASTER";
-		+WEAPON.WIMPY_WEAPON
-		DamageType "Bullet";
-		Tag "$SHDX_TAG_BLASTER";
+		//$NotAngled
+		//$Title "Toilet"
+		//$Sprite JOHNA0
+		//$Category "Obstacles"
+		
+		Height 40;
+		Radius 12;
+		Health 5;
+		Mass 1000;
+		Activation THINGSPEC_Default | THINGSPEC_Switch | THINGSPEC_NoDeathSpecial;
+		
+		+Solid
+		+UseSpecial
+		+Shootable
+		+NoBlood
+		+DontGib
+		+DontFall
+	}
+	
+	void A_ToggleToiletStart()
+	{
+		A_DisableSpecial();
+		A_StartSound("misc/toiletflush", CHAN_BODY);
+	}
+	
+	void A_ToiletXPlode()
+	{
+		A_StartSound("misc/toiletbreak", CHAN_BODY);
+		A_DisableSpecial();
+		A_NoBlocking();
+		
+		SHDX_Actor.A_SpawnMetalJunkFx(self);
+		
+		A_SpawnItemEx("SHDX_WaterGush");
 	}
 	
 	States
 	{
-		Ready:
-			PISG A 1 A_WeaponReady;
+		Active:
+		Inactive:
+			JOHN A 1 A_ToggleToiletStart;
+			JOHN A 38;
+			JOHN A 1 A_EnableSpecial;
+			Goto Spawn;
+		
+		Spawn:
+			JOHN A 1;
 			Loop;
-		Deselect:
-			PISG A 1 A_Lower;
+		
+		Death:
+			JOHN B 1 A_ToiletXPlode;
+			JOHN B -1;
+			Stop;
+	}
+}
+
+Class SHDX_WaterGush : SHDX_Decoration
+{
+	Default
+	{
+		Radius 10;
+		Height 20;
+	}
+
+	States
+	{
+		Spawn:
+			WTRF A 2;
+			WTRF B 2 A_StartSound("misc/watergush", CHAN_BODY, CHANF_LOOPING, ATTN_NORM);
+			WTRF CD 2;
+			Goto GushLoop;
+			
+		GushLoop:
+			WTRF EGFH 2;
 			Loop;
-		Select:
-			PISG A 1 A_Raise;
-			Loop;
-		Flash:
-			PISF A 4 A_Light1;
-			goto LightDone;
-		Fire:
-			PISG A 0 A_GunFlash;
-			PISG B 0 A_FireBullets (3.5, 0, 1, 5, "SHDX_BulletPuff", FBF_NORANDOMPUFFZ);
-			PISG B 0 A_StartSound("weapons/pistolf", CHAN_WEAPON);
-			PISG B 6;
-			PISG C 4;
-			PISG A 5 A_ReFire;
-			goto Ready;
 	}
 }

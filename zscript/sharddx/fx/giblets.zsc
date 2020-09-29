@@ -228,3 +228,32 @@ Class SHDX_AshGibs : SHDX_Actor
 			Stop;
 	}
 }
+
+// Junk spawn
+Class SHDX_MetalJunk : SHDX_Actor
+{
+	Default
+	{
+		Radius 10;
+		Height 10;
+		Speed 0;
+		Scale 0.12;
+		+FLOORCLIP
+		+NOBLOCKMONST
+		+SLIDESONWALLS
+		+CORPSE
+		+RANDOMIZE
+		-SOLID
+		// DeathSound "gen/gibs";
+	}
+	
+	States
+	{
+		Spawn:
+			JUNK CDAB 2;
+			Loop;
+		Crash:
+			TNT1 A 0;
+			Stop;
+	}
+}

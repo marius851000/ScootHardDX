@@ -43,6 +43,10 @@ DoomEdNums
 	6706 = SHDX_ExplosiveBarrel
 	6707 = SHDX_LittleCeilingLight
 	6708 = SHDX_LittleFloorLight
+	6709 = SHDX_Toilet
+	6710 = SHDX_Urinal
+	6711 = SHDX_MaleGuardCorpse
+	6712 = SHDX_MaleGuardCorpse2
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

@@ -1,0 +1,41 @@
+Class SHDX_GuardCorpse : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Male Guard Corpse (Bloody)"
+		//$Sprite GRD1N0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			GRD1 N -1 Bright;
+			Stop;
+	}
+}
+
+Class SHDX_GuardCorpse2 : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Male Guard Corpse (Not Bloody)"
+		//$Sprite GRD1R0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			GRD1 R -1 Bright;
+			Stop;
+	}
+}
