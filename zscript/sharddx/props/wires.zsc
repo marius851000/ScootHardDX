@@ -12,86 +12,70 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-Class SHDX_MaleGuardCorpse : SHDX_Decoration
+Class SHDX_Wires : SHDX_SwitchableDecoration
 {
 	Default
 	{
 		//$NotAngled
-		//$Title "Male Guard Corpse (Bloody)"
-		//$Sprite GRD1N0
-		//$Category "Decoration"
+		//$Title "Wires (Ceiling)"
+		//$Sprite WIREB0
+		//$Category "Obstacles/Traps"
 		
-		Radius 10;
-		Height 10;
+		Radius 32;
+		Height 24;
+		
+		+SpawnCeiling
+		+NoGravity
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if (bDormant)
+		{
+			SetStateLabel("Inactive");
+			bDormant = false;
+		}
 	}
 	
 	States
 	{
+		Active:
 		Spawn:
-			GRD1 N -1 Bright;
-			Stop;
+			WIRE BC 2 Bright A_Explode(5, 32, damagetype:'Lightning');
+			Loop;
+		
+		Inactive:
+			WIRE A 4;
+			Loop;
 	}
 }
 
-Class SHDX_MaleGuardCorpse2 : SHDX_Decoration
+Class SHDX_WiresFloor : SHDX_Wires
 {
 	Default
 	{
 		//$NotAngled
-		//$Title "Male Guard Corpse (Not Bloody)"
-		//$Sprite GRD1R0
-		//$Category "Decoration"
+		//$Title "Wires (Floor)"
+		//$Sprite WIREE0
+		//$Category "Obstacles/Traps"
 		
-		Radius 10;
-		Height 10;
+		Radius 32;
+		Height 24;
+		
+		-SpawnCeiling
+		-NoGravity
 	}
 	
 	States
 	{
+		Active:
 		Spawn:
-			GRD1 R -1 Bright;
-			Stop;
-	}
-}
-
-Class SHDX_Skeleton : SHDX_Decoration
-{
-	Default
-	{
-		//$NotAngled
-		//$Title "Skeleton"
-		//$Sprite SKELA0
-		//$Category "Decoration"
+			WIRE EF 2 Bright A_Explode(5, 32, damagetype:'Lightning');
+			Loop;
 		
-		Radius 10;
-		Height 10;
-	}
-	
-	States
-	{
-		Spawn:
-			SKEL A -1 Bright;
-			Stop;
-	}
-}
-
-Class SHDX_SkeletonBloody : SHDX_Decoration
-{
-	Default
-	{
-		//$NotAngled
-		//$Title "Skeleton"
-		//$Sprite SKL2A0
-		//$Category "Decoration"
-		
-		Radius 10;
-		Height 10;
-	}
-	
-	States
-	{
-		Spawn:
-			SKL2 A -1 Bright;
-			Stop;
+		Inactive:
+			WIRE D 4;
+			Loop;
 	}
 }

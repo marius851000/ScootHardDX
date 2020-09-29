@@ -29,6 +29,7 @@ version "4.3"
 #include "zscript/sharddx/utilities/utilities.zsc"
 #include "zscript/sharddx/utilities/align.zsc"
 #include "zscript/sharddx/utilities/unicode.zsc"
+#include "zscript/sharddx/utilities/hitbox.zsc"
 
 #include "zscript/sharddx/base/base_actor.zsc"
 #include "zscript/sharddx/base/base_enemy.zsc"
@@ -72,6 +73,8 @@ version "4.3"
 #include "zscript/sharddx/props/toilet.zsc"
 #include "zscript/sharddx/props/urinal.zsc"
 #include "zscript/sharddx/props/corpses.zsc"
+#include "zscript/sharddx/props/wires.zsc"
+#include "zscript/sharddx/props/flags.zsc"
 
 #include "zscript/sharddx/players/scootplayer.zsc"
 

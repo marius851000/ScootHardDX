@@ -9,7 +9,7 @@ DoomEdNums
 	6006 = SHDX_PegapolMale
 	// 6007 = 
 	6008 = SHDX_Engineer
-	6009 = SHDX_Engineer
+	// 6009 = SHDX_Engineer
 	
 	6050 = SHDX_BossSpot
 	6051 = SHDX_SurpriseBoss
@@ -47,6 +47,10 @@ DoomEdNums
 	6710 = SHDX_Urinal
 	6711 = SHDX_MaleGuardCorpse
 	6712 = SHDX_MaleGuardCorpse2
+	6713 = SHDX_FlagPole2
+	6714 = SHDX_FlagDestroyableSmall
+	6715 = SHDX_Skeleton
+	6716 = SHDX_SkeletonBloody
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

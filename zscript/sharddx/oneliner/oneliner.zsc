@@ -51,6 +51,9 @@ extend class SHDX_Enemy
 	{		
 		if (!target)
 			return;
+			
+		if (!iscorpse)
+			return;
 		
 		let SHDXpl = SHDX_PlayerPawn(target);
 		if (SHDXpl)

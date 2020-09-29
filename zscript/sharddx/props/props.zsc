@@ -54,27 +54,6 @@ Class SHDX_PottedPlant : SHDX_Prop
 	}
 }
 
-Class SHDX_FlagPole : SHDX_Prop
-{
-	Default
-	{
-		//$NotAngled
-		//$Title "Flag pole"
-		//$Sprite FLAGA0
-		//$Category "Obstacles"
-		
-		Radius 10;
-		Height 56;
-	}
-	
-	States
-	{
-		Spawn:
-			FLAG A -1;
-			Stop;
-	}
-}
-
 Class SHDX_Lamp : SHDX_Prop
 {
 	Default

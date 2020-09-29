@@ -52,6 +52,8 @@ Class SHDX_Enemy : SHDX_Actor
 		+SHDX_Enemy.CanJump
 	}
 	
+	bool iscorpse;
+	
 	private int SHDXFlags;
 	flagdef CanJump: SHDXFlags, 0;
 	
@@ -292,6 +294,12 @@ Class SHDX_Enemy : SHDX_Actor
 	void A_SHDX_SquishSound()
 	{
 		A_StartSound("misc/splatx", CHAN_5);
+	}
+	
+	void A_SetCorpseShootable()
+	{
+		iscorpse = true;
+		SHDX_Utilities.AssignCorpseHitboxToEnemy(self);
 	}
 }
 

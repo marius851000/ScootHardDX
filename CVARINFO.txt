@@ -1,2 +1,3 @@
 server int shdx_snd_oneliners = 1;
 server bool shdx_skipcutscenes = false;
+server bool shdx_showextrahitboxes = false;

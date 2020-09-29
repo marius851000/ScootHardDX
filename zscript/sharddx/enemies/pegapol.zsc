@@ -46,9 +46,9 @@ Class SHDX_PegapolMale : SHDX_Enemy
 	
 	void A_DropItemsPegapol()
 	{
-		A_SHDX_DropItem("SHDX_GoldBitCoin", false);
+		A_SHDX_DropItem("SHDX_SilverBitCoin", false);
 		
-		if (target && !target.CountInv("SHDX_SubmachineGun"))
+		if (target && target.CountInv("SHDX_SubmachineGun") <= 0)
 			A_SHDX_DropItem("SHDX_SubmachineGun");
 	}
 	
@@ -69,7 +69,7 @@ Class SHDX_PegapolMale : SHDX_Enemy
 			PEGA E 0
 			{
 				if (random[Pegapol](0, 100) >= 72)
-					return ResolveState("StartFyling");
+					return ResolveState("StartFlying");
 				
 				return ResolveState(null);
 			}
@@ -177,7 +177,7 @@ Class SHDX_PegapolMale : SHDX_Enemy
 				A_DropItemsPegapol();
 			}
 			PEGA M 5;
-			PEGA N -1;
+			PEGA N -1 A_SetCorpseShootable;
 			Stop;
 		Death.Explosive:
 		Death.Weather:

@@ -111,7 +111,7 @@ Class SHDX_Engineer : SHDX_Enemy
 				A_NoBlocking();
 			}
 			ENG1 P 5;
-			ENG1 Q -1;
+			ENG1 Q -1 A_SetCorpseShootable;
 			Stop;
 		Death.Explosive:
 		Death.Weather:

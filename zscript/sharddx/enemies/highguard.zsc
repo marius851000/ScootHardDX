@@ -52,7 +52,7 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 	
 	void A_DropItemsHighGuard()
 	{
-		A_SHDX_DropItem("SHDX_GoldBitCoin", false);
+		A_SHDX_DropItem("SHDX_SilverBitCoin", false);
 		
 		if (target && !target.CountInv("SHDX_SubmachineGun"))
 			A_SHDX_DropItem("SHDX_SubmachineGun");
@@ -99,7 +99,7 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 				A_DropItemsHighGuard();
 			}
 			HIGH N 5;
-			HIGH O -1;
+			HIGH O -1 A_SetCorpseShootable;
 			Stop;
 		Death.Explosive:
 		Death.Weather:

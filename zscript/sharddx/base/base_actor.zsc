@@ -88,4 +88,15 @@ Class SHDX_Actor : Actor
 		
 		// a.vel += self.vel;
 	}
+	
+	static double A_SHDX_NormalizeAngle(double ang)
+	{
+		double ret = ang;
+		if (ret < 0)
+			ret = 360 - (ret % 360);
+		else
+			ret = ret % 360;
+		
+		return ret;
+	}
 }
