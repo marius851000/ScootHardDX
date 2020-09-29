@@ -27,7 +27,7 @@ Class SHDX_FillySeeker : SHDX_MissileWeapon
 {
 	Default
 	{
-		//$Title "Missile Launcher"
+		//$Title "Fillyseeker"
 		//$Sprite GUN5A0
 		
 		Weapon.SelectionOrder 350;

@@ -38,15 +38,27 @@ Class SHDX_Wires : SHDX_SwitchableDecoration
 		}
 	}
 	
+	override void Touch(Actor toucher)
+	{
+		toucher.DamageMobj(self, self, Random[Wires](1, 10), 'Lightning');
+		A_StartSound("misc/arc2", CHAN_BODY);
+	}
+	
 	States
 	{
 		Active:
 		Spawn:
-			WIRE BC 2 Bright A_Explode(5, 32, damagetype:'Lightning');
+			WIRE BC 2 Bright
+			{
+				bSpecial = true;
+			}
 			Loop;
 		
 		Inactive:
-			WIRE A 4;
+			WIRE A 4
+			{
+				bSpecial = false;
+			}
 			Loop;
 	}
 }
@@ -71,11 +83,17 @@ Class SHDX_WiresFloor : SHDX_Wires
 	{
 		Active:
 		Spawn:
-			WIRE EF 2 Bright A_Explode(5, 32, damagetype:'Lightning');
+			WIRE EF 2 Bright
+			{
+				bSpecial = true;
+			}
 			Loop;
 		
 		Inactive:
-			WIRE D 4;
+			WIRE D 4
+			{
+				bSpecial = false;
+			}
 			Loop;
 	}
 }

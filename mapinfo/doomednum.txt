@@ -51,6 +51,10 @@ DoomEdNums
 	6714 = SHDX_FlagDestroyableSmall
 	6715 = SHDX_Skeleton
 	6716 = SHDX_SkeletonBloody
+	6717 = SHDX_Wires
+	6718 = SHDX_WiresFloor
+	6719 = SHDX_Hook
+	6720 = SHDX_Hook2
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

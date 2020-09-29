@@ -174,35 +174,63 @@ decal DD2_FrostScorch
 	randomflipy
 }
 
-decal CLogoColour 1
+generator SHDX_BulletPuff				SHDX_BulletChip1
+generator SHDX_FillyMissile				SHDX_MediumScorch
+generator SHDX_Missile					SHDX_Scorch
+generator SHDX_HailBall					DD2_FrostScorch
+
+decal CWCLogoColour 1
 {
-	pic "LOGO1_1"
+	pic "graphics/decals/cwc_logo_1.png"
 	x-scale 0.12
 	y-scale 0.12
 }
 
-decal CLogoStencil 2
+decal CWCLogoRed 2
 {
-	pic "LOGO1_2"
+	pic "graphics/decals/cwc_logo_2.png"
 	x-scale 0.12
 	y-scale 0.12
 }
 
-decal CLogoNastyA 3
+decal CWCLogoNastyStencil 3
 {
-	pic "LOGO1_3"
+	pic "graphics/decals/cwc_logo_3.png"
 	x-scale 0.12
 	y-scale 0.12
 }
 
 decal EasterEggArk 5
 {
-	pic "BOXL1_1"
+	pic "graphics/decals/ark_logo.png"
 	x-scale 0.55
 	y-scale 0.55
 }
 
-generator SHDX_BulletPuff				SHDX_BulletChip1
-generator SHDX_FillyMissile				SHDX_MediumScorch
-generator SHDX_Missile					SHDX_Scorch
-generator SHDX_HailBall					DD2_FrostScorch
+decal CafeteriaSign 6
+{
+	pic "graphics/decals/cafeteria_sign.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal WarningSign 7
+{
+	pic "graphics/decals/warning_sign.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal GraffitiScootaloo 8
+{
+	pic "graphics/decals/grafitti_a.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal GraffitiHelpUs 9
+{
+	pic "graphics/decals/grafitti_b.png"
+	x-scale 0.12
+	y-scale 0.12
+}

@@ -60,7 +60,7 @@ Class SHDX_Lamp : SHDX_Prop
 	{
 		//$NotAngled
 		//$Title "Lamp"
-		//$Sprite PLNTA0
+		//$Sprite LAMPA0
 		//$Category "Light sources"
 		
 		+SHOOTABLE
@@ -217,3 +217,46 @@ Class SHDX_LittleFloorLight : SHDX_Decoration
 	}
 }
 
+Class SHDX_Hook : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Hook"
+		//$Sprite HOOKA0
+		//$Category "Decoration"
+		
+		Radius 8;
+		Height 56;
+		
+		+SpawnCeiling
+		+NoGravity
+	}
+	
+	States
+	{
+		Spawn:
+			HOOK A -1;
+			Stop;
+	}
+}
+
+
+
+Class SHDX_Hook2 : SHDX_Hook
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Bloody Hook"
+		//$Sprite HUK2A0
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			HUK2 A -1;
+			Stop;
+	}
+}
