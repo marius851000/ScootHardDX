@@ -17,7 +17,7 @@ maps
 		{
 		}
 		overrideceiltexture = false;
-		viewpositionx = 2021.063f;
+		viewpositionx = 1046.177f;
 		defaulttoptexture = "STNBLU08";
 		overrideceilheight = false;
 		useresourcesinreadonlymode = false;
@@ -41,12 +41,12 @@ maps
 		overridebottomtexture = false;
 		defaultbottomtexture = "STNBLU08";
 		defaultfloortexture = "FLOOR71P";
-		viewpositiony = 1487.306f;
+		viewpositiony = 1315.02f;
 		defaultwalltexture = "STNBLU08";
 		customceilheight = 128;
 		overridemiddletexture = false;
 		custombrightness = 196;
-		viewscale = 0.7518739f;
+		viewscale = 0.2632516f;
 		
 		fieldtypes
 		{
@@ -72,8 +72,8 @@ maps
 			{
 				xpanningfloor = 1;
 				ypanningfloor = 1;
-				rotationfloor = 1;
-				rotationceiling = 1;
+				rotationfloor = 17;
+				rotationceiling = 17;
 				xpanningceiling = 1;
 				ypanningceiling = 1;
 				xscaleceiling = 1;

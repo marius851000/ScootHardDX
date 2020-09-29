@@ -46,6 +46,12 @@ switch SLSWR1 off sound switches/exitbutn pic SLSWR0 tics 0
 switch SLSWY0 on sound switches/normbutn pic SLSWY1 tics 0
 switch SLSWY1 off sound switches/exitbutn pic SLSWY0 tics 0
 
+switch SW2S0 on sound switch/normbutn pic SW2S1 tics 0
+switch SW2S1 off sound switch/normbutn pic SW2S0 tics 0
+
+switch SW3S0 on sound switch/normbutn pic SW3S1 tics 0
+switch SW3S1 off sound switch/normbutn pic SW3S0 tics 0
+
 switch BGLASS_A on sound world/glassbreak pic BGLASS_B tics 0
 switch MIDGLASS on sound world/glassbreak pic GLSBRKNL tics 0
 
