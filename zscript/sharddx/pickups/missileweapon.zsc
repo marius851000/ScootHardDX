@@ -29,10 +29,18 @@ Class SHDX_MissileWeapon : SHDX_Weapon
 	
 	override bool TryPickup (in out Actor toucher)
 	{
+		
 		let w = toucher.FindInventory("SHDX_MissileWeapon", true);
 		if (w)
 		{
-			toucher.A_DropInventory(w.GetClass());
+			if (toucher.player && (toucher.player.cmd.buttons & BT_USE && !(toucher.player.oldbuttons & BT_USE)))
+			{
+				toucher.A_DropInventory(w.GetClass());
+				
+				return Super.TryPickup(toucher);
+			}
+			
+			return false;
 		}
 		
 		return Super.TryPickup(toucher);

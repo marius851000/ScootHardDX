@@ -1,4 +1,4 @@
-Class SHDX_GuardCorpse : SHDX_Decoration
+Class SHDX_MaleGuardCorpse : SHDX_Decoration
 {
 	Default
 	{
@@ -19,7 +19,7 @@ Class SHDX_GuardCorpse : SHDX_Decoration
 	}
 }
 
-Class SHDX_GuardCorpse2 : SHDX_Decoration
+Class SHDX_MaleGuardCorpse2 : SHDX_Decoration
 {
 	Default
 	{
