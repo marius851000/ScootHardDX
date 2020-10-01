@@ -104,7 +104,7 @@ Class SHDX_GreenCeilingLight : SHDX_Decoration
 	Default
 	{
 		//$NotAngled
-		//$Title "Little Ceiling Light"
+		//$Title "Green Ceiling Light"
 		//$Sprite CLT2A0
 		//$Category "Light sources"
 		

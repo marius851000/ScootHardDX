@@ -39,6 +39,7 @@ Class SHDX_FlagPole : SHDX_Prop
 			FLAG B 0
 			{
 				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
 				SHDX_Actor.A_SpawnMetalJunkFx(self);
 			}
 			FLAG B -1;
@@ -182,6 +183,8 @@ Class SHDX_FlagPole2 : SHDX_Prop
 			FLG3 B 0
 			{
 				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				
 				SHDX_Actor.A_SpawnMetalJunkFx(self);
 			}
 			FLG3 B -1;

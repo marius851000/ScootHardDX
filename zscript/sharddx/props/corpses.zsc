@@ -80,7 +80,7 @@ Class SHDX_SkeletonBloody : SHDX_Decoration
 	Default
 	{
 		//$NotAngled
-		//$Title "Skeleton"
+		//$Title "Skeleton (Bloody)"
 		//$Sprite SKL2A0
 		//$Category "Decoration"
 		

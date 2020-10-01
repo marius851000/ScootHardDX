@@ -107,5 +107,14 @@ Class SHDX_TrashCan : SHDX_TrashObj
 		SpawnMaid:
 			TCAN B -1;
 			Stop;
+			
+		Death:
+			"####" "#" 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			Stop;
 	}
 }

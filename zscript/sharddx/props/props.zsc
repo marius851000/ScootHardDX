@@ -23,12 +23,26 @@ Class SHDX_BlueVase : SHDX_Prop
 		
 		Radius 10;
 		Height 26;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
 	}
 	
 	States
 	{
 		Spawn:
 			VASE A -1;
+			Stop;
+			
+		Death:
+			VASE A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			VASE A 5;
 			Stop;
 	}
 }
@@ -44,12 +58,26 @@ Class SHDX_PottedPlant : SHDX_Prop
 		
 		Radius 10;
 		Height 60;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
 	}
 	
 	States
 	{
 		Spawn:
 			PLNT A -1;
+			Stop;
+			
+		Death:
+			PLNT A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			PLNT A 5;
 			Stop;
 	}
 }
@@ -65,12 +93,26 @@ Class SHDX_Barrel1 : SHDX_Prop
 		
 		Radius 10;
 		Height 28;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
 	}
 	
 	States
 	{
 		Spawn:
 			BARL A -1;
+			Stop;
+			
+		Death:
+			BARL A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			BARL A 5;
 			Stop;
 	}
 }
@@ -86,12 +128,25 @@ Class SHDX_Barrel2 : SHDX_Prop
 		
 		Radius 10;
 		Height 28;
+		Health 35;
+		
+		+SHOOTABLE
+		+NOBLOOD
 	}
 	
 	States
 	{
 		Spawn:
 			BAR2 A -1;
+			Stop;
+		Death:
+			BAR2 A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			BARL A 5;
 			Stop;
 	}
 }
@@ -123,7 +178,11 @@ Class SHDX_ExplosiveBarrel : SHDX_ExplodeyProp
 			Stop;
 		
 		Death:
-			EXPL A 0 A_StartSound("world/barrelx", CHAN_BODY);
+			EXPL A 0
+			{
+				A_StartSound("world/barrelx", CHAN_BODY);
+				SHDX_Utilities.DoExplosion(self, 128, 0, 128, 0, DE_NOTMISSILE, 'Explosive');
+			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
 			Stop;
@@ -198,6 +257,7 @@ Class SHDX_CoffeeMug : SHDX_Decoration
 		Death:
 			TNT1 A 0
 			{
+				A_StartSound("world/glassbreak");
 				SHDX_Actor.A_SpawnMetalJunkFx(self);
 			}
 			Stop;
