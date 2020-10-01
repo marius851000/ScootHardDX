@@ -52,9 +52,10 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 	
 	void A_DropItemsHighGuard()
 	{
-		A_SHDX_DropItem("SHDX_SilverBitCoin", false);
+		if (target && target.CountInv("SHDX_BitCoin") < 50)
+			A_SHDX_DropItem("SHDX_SilverBitCoin", false);
 		
-		if (target && !target.CountInv("SHDX_SubmachineGun"))
+		if (target && target.CountInv("SHDX_SubmachineGun") < 1)
 			A_SHDX_DropItem("SHDX_SubmachineGun");
 	}
 	

@@ -156,12 +156,10 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 			BEAK A 1 A_Raise;
 			Loop;
 		Fire:
-			BEAK A 1;
-			BEAK A 2
+			BEAK A 3
 			{
 				invoker.chargeup++;
 			}
-			BEAK A 5;
 			BEAK A 0
 			{
 				if (invoker.chargeup >= 5)
@@ -169,14 +167,14 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 					
 				return ResolveState(null);
 			}
-			BEAK A 0
+			BEAK A 10
 			{
-				double pitchtoshift = 1.0 * invoker.chargeup; 
+				double pitchtoshift = 1.0 + (invoker.chargeup * 0.1); 
 				A_StartSound("weapons/cluck", CHAN_AUTO, pitch:pitchtoshift);
 			}
 			BEAK A 0 A_ReFire;
 		Fire.Normal:
-			BEAK A 3 A_CustomPunch(6, false, 0, "SHDX_ChickenPuff");
+			BEAK A 5 A_CustomPunch(6, false, 0, "SHDX_ChickenPuff");
 			BEAK B 1
 			{
 				invoker.chargeup = 0;

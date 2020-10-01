@@ -46,7 +46,8 @@ Class SHDX_PegapolMale : SHDX_Enemy
 	
 	void A_DropItemsPegapol()
 	{
-		A_SHDX_DropItem("SHDX_SilverBitCoin", false);
+		if (target && target.CountInv("SHDX_BitCoin") < 50)
+			A_SHDX_DropItem("SHDX_SilverBitCoin", false);
 		
 		if (target && target.CountInv("SHDX_SubmachineGun") <= 0)
 			A_SHDX_DropItem("SHDX_SubmachineGun");
