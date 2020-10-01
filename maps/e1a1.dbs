@@ -17,7 +17,7 @@ maps
 		{
 		}
 		overrideceiltexture = false;
-		viewpositionx = 291.7737f;
+		viewpositionx = 459.5931f;
 		defaulttoptexture = "FZBKBKL4";
 		overrideceilheight = false;
 		useresourcesinreadonlymode = false;
@@ -41,12 +41,12 @@ maps
 		overridebottomtexture = false;
 		defaultbottomtexture = "FZBKBKL4";
 		defaultfloortexture = "FLTCONCA";
-		viewpositiony = 854.3951f;
+		viewpositiony = 1141.546f;
 		defaultwalltexture = "FZBKBKL4";
 		customceilheight = 128;
 		overridemiddletexture = false;
 		custombrightness = 196;
-		viewscale = 4.879436f;
+		viewscale = 3.753406f;
 		
 		fieldtypes
 		{
@@ -54,6 +54,7 @@ maps
 			linedef
 			{
 				locknumber = 0;
+				alpha = 1;
 			}
 			
 			sidedef
@@ -74,12 +75,15 @@ maps
 				xpanningfloor = 1;
 				lightceiling = 0;
 				lightcolor = 0;
-				ypanningfloor = 1;
-				lightfloor = 0;
 				xpanningceiling = 1;
 				ypanningceiling = 1;
+				ypanningfloor = 1;
+				lightfloor = 0;
 				xscalefloor = 1;
 				yscalefloor = 1;
+				rotationceiling = 1;
+				xscaleceiling = 1;
+				yscaleceiling = 1;
 			}
 		}
 	}

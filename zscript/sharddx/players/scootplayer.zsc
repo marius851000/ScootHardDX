@@ -41,7 +41,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Player.WeaponSlot 1, "SHDX_Blaster";
 		Player.WeaponSlot 2, "SHDX_SubmachineGun";
-		Player.WeaponSlot 3, "SHDX_MissileLauncher", "SHDX_FillySeeker", "SHDX_Tornadozer", "SHDX_Rainbower", "SHDX_Hailer";
+		Player.WeaponSlot 3, "SHDX_MissileLauncher", "SHDX_FillySeeker", "SHDX_Tornadozer", "SHDX_Rainbower", "SHDX_HailerWeapon";
 
 		Player.ColorRange 144, 159;
 		Player.ColorSet 0, "$SHDX_SCOOTALOO_COLORSET1", 144, 159, 159;

@@ -17,7 +17,7 @@ maps
 		{
 		}
 		overrideceiltexture = false;
-		viewpositionx = -1295.977f;
+		viewpositionx = 1126.266f;
 		defaulttoptexture = "STNBLU08";
 		overrideceilheight = false;
 		useresourcesinreadonlymode = false;
@@ -41,12 +41,12 @@ maps
 		overridebottomtexture = false;
 		defaultbottomtexture = "STNBLU08";
 		defaultfloortexture = "FLOOR71P";
-		viewpositiony = 256.2537f;
+		viewpositiony = 1088.785f;
 		defaultwalltexture = "STNBLU08";
 		customceilheight = 128;
 		overridemiddletexture = false;
 		custombrightness = 196;
-		viewscale = 2.791628f;
+		viewscale = 0.5783578f;
 		
 		fieldtypes
 		{
