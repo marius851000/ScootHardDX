@@ -85,7 +85,7 @@ Class SHDX_Hitbox : SHDX_Actor
 			}
 		} */
 		
-		if (mod == 'Normal' || mod == 'Bullet' || mod == 'Ice')
+		if (mod == 'Normal' || mod == 'Bullet' || mod == 'Ice' || mod == 'Electric' || mod == 'Lightning')
 		{
 			/* 
 			if (isheadshot && !iscorpse)

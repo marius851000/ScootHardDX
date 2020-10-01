@@ -97,7 +97,7 @@ Class SHDX_FillyMissile : SHDX_Projectile
 			{
 				SHDX_Utilities.DoExplosion(self, 56, 32, 80);
 			}
-			EXPL A 3 Bright;
+			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
 			Stop;
 	}

@@ -55,6 +55,12 @@ DoomEdNums
 	6718 = SHDX_WiresFloor
 	6719 = SHDX_Hook
 	6720 = SHDX_Hook2
+	6721 = SHDX_CoffeeMug
+	6722 = SHDX_WaterCooler
+	6723 = SHDX_TrashCan
+	6724 = SHDX_GreenCeilingLight
+	6725 = DD2_FlagDestroyableMedium
+	6726 = DD2_FlagDestroyableLarge
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

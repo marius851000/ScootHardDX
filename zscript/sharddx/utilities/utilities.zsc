@@ -136,4 +136,68 @@ class SHDX_Utilities play
 		}
 		// TODO destructible geometry support
 	}
+		
+	// DoExplosion except it does an impact sound if damage occurs.
+	static play void DoExplosionWithSound( Actor Source, double Damage, double MomentumTransfer, double ExplosionRadius, double FullDamageRadius = 0., int flags = 0, Name DamageType = '', Actor ignoreme = null, Sound sndtoplay = 0, int channel = CHAN_BODY )
+	{
+		if ( !(flags&DE_NOSPLASH) ) Source.CheckSplash(ExplosionRadius);
+		double brange = 1./(ExplosionRadius-FullDamageRadius);
+		Actor Instigator = (flags&DE_NOTMISSILE)?Source:Source.target;
+		BlockThingsIterator bi = BlockThingsIterator.Create(Source,ExplosionRadius*2);	// test with doubled radius, just to be sure
+		while ( bi.Next() )
+		{
+			Actor a = bi.Thing;
+			// early checks for self and ignored actor (usually the instigator)
+			if ( !a || (a == ignoreme) || (a == Source) )
+				continue;
+			// can't be affected
+			if ( !a.bSHOOTABLE && !a.bVULNERABLE )
+				continue;
+			// no blasting if no radius dmg (unless forced)
+			if ( a.bNORADIUSDMG && !Source.bFORCERADIUSDMG )
+				continue;
+			// check the DONTHARMCLASS/DONTHARMSPECIES flags
+			if ( !a.player && ((Source.bDONTHARMCLASS && (a.GetClass() == Source.GetClass())) || (Source.bDONTHARMSPECIES && (a.GetSpecies() == Source.GetSpecies()))) )
+				continue;
+			// can we see it
+			if ( !(flags&DE_THRUWALLS) && !Source.CheckSight(a,SF_IGNOREVISIBILITY|SF_IGNOREWATERBOUNDARY) )
+				continue;
+			// intersecting?
+			if ( !SHDX_Utilities.SphereIntersect(a,Source.pos,ExplosionRadius) )
+				continue;
+			// calculate factor
+			Vector3 dir = level.Vec3Diff(Source.pos,a.Vec3Offset(0,0,a.Height/2));
+			double dist = dir.length();
+			// intersecting, randomize direction
+			if ( dir.length() <= double.epsilon )
+			{
+				double ang = FRandom[DoBlast](0,360);
+				double pt = FRandom[DoBlast](-90,90);
+				dir = (cos(ang)*cos(pt),sin(ang)*cos(pt),-sin(pt));
+			}
+			dir /= dist;
+			dist = clamp(dist-FullDamageRadius,0,min(dist,ExplosionRadius));
+			double damagescale = 1.-clamp((dist-a.Radius)*brange,0.,1.);
+			double mm = MomentumTransfer*damagescale;
+			// no knockback if massive/unpushable
+			if ( (abs(mm) > 0.) && !a.bDORMANT && !a.bDONTTHRUST && (a.Mass < Actor.LARGE_MASS) )
+			{
+				Vector3 Momentum = dir*mm;
+				if ( (a.pos.z <= a.floorz) || !a.TestMobjZ() )
+					Momentum.z = max(Momentum.z,(flags&DE_EXTRAZTHRUST?.4:.1)*Momentum.length());
+				Momentum /= Thinker.TICRATE*max(50,a.Mass);	// prevent tiny things from getting yeeted at warp speed
+				a.vel += Momentum;
+				if ( (flags&DE_BLAST) && a.bCANBLAST && !a.bDONTBLAST ) a.bBLASTED = true;
+			}
+			// hit it
+			int dmg = int(Damage*damagescale);
+			if ( dmg <= 0 ) continue;	// no harm
+			int ndmg = a.DamageMobj(Source,Instigator,dmg,(DamageType=='')?Source.DamageType:DamageType,DMG_EXPLOSION,atan2(-dir.y,-dir.x));
+			if ( !(flags&DE_NOBLEED) ) a.TraceBleed((ndmg>0)?ndmg:dmg,Source);
+			
+			// [SW] Make a sound if damage occurs
+			if (ndmg >0) source.A_StartSound(sndtoplay, channel);
+		}
+		// TODO destructible geometry support
+	}
 }

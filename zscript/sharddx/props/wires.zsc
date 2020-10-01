@@ -24,8 +24,11 @@ Class SHDX_Wires : SHDX_SwitchableDecoration
 		Radius 32;
 		Height 24;
 		
+		Obituary "$SHDX_OB_LIVEWIRES";
+		
 		+SpawnCeiling
 		+NoGravity
+		-Solid
 	}
 	
 	override void PostBeginPlay()
@@ -38,27 +41,18 @@ Class SHDX_Wires : SHDX_SwitchableDecoration
 		}
 	}
 	
-	override void Touch(Actor toucher)
-	{
-		toucher.DamageMobj(self, self, Random[Wires](1, 10), 'Lightning');
-		A_StartSound("misc/arc2", CHAN_BODY);
-	}
-	
 	States
 	{
 		Active:
 		Spawn:
 			WIRE BC 2 Bright
 			{
-				bSpecial = true;
+				SHDX_Utilities.DoExplosionWithSound(self, Random[Wires](1, 10), 0, 32, 32, DE_NOBLEED|DE_NOTMISSILE, 'Lightning', null, "misc/arc2", CHAN_BODY);
 			}
 			Loop;
 		
 		Inactive:
-			WIRE A 4
-			{
-				bSpecial = false;
-			}
+			WIRE A 4;
 			Loop;
 	}
 }
@@ -85,15 +79,12 @@ Class SHDX_WiresFloor : SHDX_Wires
 		Spawn:
 			WIRE EF 2 Bright
 			{
-				bSpecial = true;
+				SHDX_Utilities.DoExplosionWithSound(self, Random[Wires](1, 10), 0, 32, 32, DE_NOBLEED|DE_NOTMISSILE, 'Lightning', null, "misc/arc2", CHAN_BODY);
 			}
 			Loop;
 		
 		Inactive:
-			WIRE D 4
-			{
-				bSpecial = false;
-			}
+			WIRE D 4;
 			Loop;
 	}
 }

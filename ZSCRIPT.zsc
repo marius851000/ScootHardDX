@@ -70,11 +70,14 @@ version "4.3"
 #include "zscript/sharddx/pickups/missileweapon.zsc"
 
 #include "zscript/sharddx/props/props.zsc"
+#include "zscript/sharddx/props/light_sources.zsc"
 #include "zscript/sharddx/props/toilet.zsc"
 #include "zscript/sharddx/props/urinal.zsc"
 #include "zscript/sharddx/props/corpses.zsc"
 #include "zscript/sharddx/props/wires.zsc"
 #include "zscript/sharddx/props/flags.zsc"
+#include "zscript/sharddx/props/trash.zsc"
+#include "zscript/sharddx/props/water_cooler.zsc"
 
 #include "zscript/sharddx/players/scootplayer.zsc"
 

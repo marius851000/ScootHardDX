@@ -6,6 +6,7 @@ gen/gibs				"sounds/SPLASH02.ogg"
 vending/fail			"sounds/ui/error.ogg"
 vending/failfilthyfrank	"sounds/no_money.ogg"
 vending/dispense		"sounds/clunk.ogg"
+vending/watercooler		"sounds/water_cooler.ogg"
 
 misc/secret				"sounds/secret.ogg"
 

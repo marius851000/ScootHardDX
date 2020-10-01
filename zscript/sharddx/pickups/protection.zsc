@@ -17,7 +17,7 @@ Class SHDX_PowerProtectionGiver : PowerupGiver
 	override bool TryPickup (in out Actor toucher)
 	{
 		// Don't pick up any armor if we have existing armor...
-		let w = toucher.FindInventory("PowerProtection", true);
+		let w = toucher.FindInventory("SHDX_PowerProtection", true);
 		if (w)
 		{
 			return false;
@@ -27,13 +27,8 @@ Class SHDX_PowerProtectionGiver : PowerupGiver
 	}
 }
 
-Class SHDX_PowerBulletProof : PowerProtection
+Class SHDX_PowerProtection : PowerProtection
 {
-	Default
-	{
-		DamageFactor "Bullet", 0.10;
-	}
-	
 	override void DoEffect()
 	{
 		Super.DoEffect();
@@ -42,6 +37,14 @@ Class SHDX_PowerBulletProof : PowerProtection
 		{
 			Owner.A_StartSound("powerup/disappear", 13);
 		}
+	}
+}
+
+Class SHDX_PowerBulletProof : SHDX_PowerProtection
+{
+	Default
+	{
+		DamageFactor "Bullet", 0.50;
 	}
 }
 
@@ -73,23 +76,13 @@ Class SHDX_BulletproofArmor : SHDX_PowerProtectionGiver
 	}
 }
 
-Class SHDX_PowerFireProof : PowerProtection
+Class SHDX_PowerFireProof : SHDX_PowerProtection
 {
 	Default
 	{
 		DamageFactor "Explosive", 0.05;
 		DamageFactor "Slime", 0.0;
 		DamageFactor "Fire", 0.0;
-	}
-	
-	override void DoEffect()
-	{
-		Super.DoEffect();
-		
-		if (Owner && EffectTics == 1)
-		{
-			Owner.A_StartSound("powerup/disappear", 13);
-		}
 	}
 }
 
@@ -123,7 +116,7 @@ Class SHDX_FireproofArmor : SHDX_PowerProtectionGiver
 
 
 
-Class SHDX_PowerWeatherProof : PowerProtection
+Class SHDX_PowerWeatherProof : SHDX_PowerProtection
 {
 	Default
 	{

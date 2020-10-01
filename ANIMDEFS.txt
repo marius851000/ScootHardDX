@@ -8,6 +8,12 @@ cameratexture CTEXT005 512 320 worldpanning
 cameratexture CTEXT006 512 320 worldpanning
 cameratexture CTEXT007 512 320 worldpanning
 
+texture TV0_A
+	pic TV0_A tics 2
+	pic TV0_B tics 2
+	pic TV0_C tics 2
+	pic TV0_D tics 2
+
 texture RFALL01
 	allowdecals
 	pic RFALL01 tics 5
