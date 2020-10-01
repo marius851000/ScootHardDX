@@ -112,36 +112,31 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 			Loop;
 			
 		See:
-			SCOO ABCD 4;
+			SCOO BCDE 4;
 			Loop;
 			
 		Melee:
-			SCOO E 10;
+			SCOO F 10;
 			Goto Spawn;
 			
 		Missile:
-			SCOO D 5 BRIGHT;
-			Goto Melee;
+			SCOO FGH 5 BRIGHT;
+			Goto Spawn;
 			
 		Pain:
-			SCOO F 4;
-			SCOO F 4 A_NewPlayerPain;
-			Goto Spawn;
-		
-		Pain.Water:
-			SCOO F 4;
-			SCOO F 4 A_NewPlayerPain;
+			SCOO I 4;
+			SCOO I 4 A_NewPlayerPain;
 			Goto Spawn;
 		
 		Death:
 		Death.Fire:
-			SCOO H 5
+			SCOO J 5
 			{
 				A_StopOneLinerSound();
 				DDFunc_PlayerDies();
 			}
-			SCOO IJK 3;
-			SCOO L -1;
+			SCOO KL 3;
+			SCOO M -1;
 			Stop;
 		
 		Death.Extreme:

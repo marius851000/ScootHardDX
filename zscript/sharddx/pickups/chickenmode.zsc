@@ -23,9 +23,8 @@ Class SHDX_ChickenFlash : SHDX_Actor
 	States
 	{
 		Spawn:
-			TNT1 A 0;
-			TNT1 A 1 A_StartSound("powerup/cmode", CHAN_BODY);
-			TNT1 A 105;
+			CFLS A 1 Bright NoDelay A_StartSound("powerup/cmode", CHAN_BODY);
+			CFLS ABCDE 8;
 			Stop;
 	}
 }
@@ -40,9 +39,12 @@ Class SHDX_ChickenFlash2 : SHDX_Actor
 	States
 	{
 		Spawn:
-			TNT1 A 0;
-			TNT1 A 1 A_StartSound("powerup/cmodedone", CHAN_BODY);
-			TNT1 A 105;
+			CFLS A 1 Bright NoDelay
+			{
+				A_SpawnChickenFeathersFx(self);
+				A_StartSound("powerup/cmodedone", CHAN_BODY);
+			}
+			CFLS ABCDE 8 Bright;
 			Stop;
 	}
 }
@@ -123,12 +125,23 @@ Class SHDX_ChickenPlayer : SHDX_PlayerPawn
 			CHKN A 1;
 			Loop;
 		See:
-			CHKN ABCD 4;
+			CHKN BCDE 4;
 			Loop;
 		Melee:
 		Missile:
-			CHKN A 5;
+			CHKN FG 5;
 			Goto Spawn;
+			
+		Pain:
+			CHKN H 5;
+			CHKN H 5 A_Pain;
+			Goto See;
+		
+		Death:
+			CHKN I 2 A_Scream;
+			CHKN J 2;
+			CHKN K -1;
+			Stop;
 	}
 }
 

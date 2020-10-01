@@ -257,3 +257,32 @@ Class SHDX_MetalJunk : SHDX_Actor
 			Stop;
 	}
 }
+
+
+
+Class SHDX_ChickenFeather : SHDX_Actor
+{
+	Default
+	{
+		Radius 10;
+		Height 10;
+		Speed 0;
+		Scale 0.12;
+		Gravity 0.0125;
+		+FLOORCLIP
+		+NOBLOCKMONST
+		+SLIDESONWALLS
+		+CORPSE
+		+RANDOMIZE
+		-SOLID
+	}
+	
+	States
+	{
+		Spawn:
+			FTHR ABCD 3;
+			Loop;
+		Crash:
+			Stop;
+	}
+}

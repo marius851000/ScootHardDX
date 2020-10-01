@@ -67,8 +67,11 @@ Class SHDX_Applesauce : SHDX_Health
 			Stop;
 		
 		Death.Explosive:
-			SAUC A 0 A_StartSound("misc/foodcook", CHAN_BODY);
-			SAUC A 0 A_SpawnItemEx("SHDX_ApplesauceHot");
+			SAUC A 0
+			{
+				A_StartSound("misc/foodcook", CHAN_BODY);
+				A_SpawnItemEx("SHDX_ApplesauceHot");
+			}
 			Stop;
 	}
 }
