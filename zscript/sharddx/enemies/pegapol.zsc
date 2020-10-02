@@ -26,6 +26,7 @@ Class SHDX_PegapolMale : SHDX_Enemy
 		Speed 8;
 		PainChance 128;
 		MeleeRange 8;
+		Damage 5;
 		DamageFactor "Bullet", 0.75;
 		DamageFactor "Explosive", 0.50;
 		DamageFactor "Rainbower", 0.25;

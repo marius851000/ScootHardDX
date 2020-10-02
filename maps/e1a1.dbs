@@ -17,7 +17,7 @@ maps
 		{
 		}
 		overrideceiltexture = false;
-		viewpositionx = 459.5931f;
+		viewpositionx = 1452.169f;
 		defaulttoptexture = "FZBKBKL4";
 		overrideceilheight = false;
 		useresourcesinreadonlymode = false;
@@ -41,12 +41,12 @@ maps
 		overridebottomtexture = false;
 		defaultbottomtexture = "FZBKBKL4";
 		defaultfloortexture = "FLTCONCA";
-		viewpositiony = 1141.546f;
+		viewpositiony = 791.81f;
 		defaultwalltexture = "FZBKBKL4";
 		customceilheight = 128;
 		overridemiddletexture = false;
 		custombrightness = 196;
-		viewscale = 3.753406f;
+		viewscale = 0.5981665f;
 		
 		fieldtypes
 		{

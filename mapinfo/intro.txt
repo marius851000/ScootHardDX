@@ -1,0 +1,70 @@
+Intermission IntroEpisode1
+{
+	Fader
+	{
+		Background = "graphics/cutscenes/intro/intro_1.png"
+		Time = 2
+		FadeType = FadeIn
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/intro/intro_1.png"
+		Music = "POW"
+		TextColor = "Red"
+		Text = "$SHDX_INTRO_1"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/intro/intro_1.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/intro/intro_2.png"
+		TextColor = "Red"
+		Text = "$SHDX_INTRO_2"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/intro/intro_2.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/intro/intro_3.png"
+		TextColor = "Red"
+		Text = "$SHDX_INTRO_3"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/intro/intro_3.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/intro/intro_4.png"
+		TextColor = "Red"
+		Text = "$SHDX_INTRO_4"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/intro/intro_4.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/intro/intro_5.png"
+		TextColor = "Red"
+		Text = "$SHDX_INTRO_5"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/intro/intro_5.png"
+		Time = 10
+	}
+	Fader
+	{
+		Time = 2
+		FadeType = FadeOut
+	}
+}

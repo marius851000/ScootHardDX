@@ -55,6 +55,8 @@ version "4.3"
 #include "zscript/sharddx/fx/puffs.zsc"
 #include "zscript/sharddx/fx/splashes.zsc"
 
+#include "zscript/sharddx/handler/handler.zsc"
+#include "zscript/sharddx/handler/rip.zsc"
 #include "zscript/sharddx/handler/error.zsc"
 #include "zscript/sharddx/handler/slideshow.zsc"
 #include "zscript/sharddx/handler/titlemap.zsc"

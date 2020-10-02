@@ -66,9 +66,21 @@ class SHDX_TitlemapEvent : EventHandler
 		{
 			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_SANYAUSERNAME");
 		}
+		else if (un ~== "scootaloo")
+		{
+			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_SCOOTALOOUSERNAME");
+		}
+		else if (un ~== "maimbow" || un ~== "maimbow undash")
+		{
+			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_MAIMBOWUSERNAME");
+		}
 		else if (un ~== "navy")
 		{
 			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_NAVYUSERNAME");
+		}
+		else if (un ~== "bordeaux")
+		{
+			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_BORDEAUXUSERNAME");
 		}
 		else if (un ~== "ellie" || un ~== "elliejojo")
 		{
@@ -118,7 +130,7 @@ class SHDX_TitlemapEvent : EventHandler
 		int h = fnt.GetHeight();
 		String adv = StringTable.Localize("$SHDX_TITLEMAP_ADVISORY");
 		int len = fnt.StringWidth(adv) / 2;
-		Screen.DrawText(fnt, Font.CR_FIRE, 320 - len, 480 - h, adv,
+		Screen.DrawText(fnt, Font.CR_RED, 320 - len, 480 - h, adv,
 								DTA_VirtualWidth,  640,
 								DTA_VirtualHeight, 480);
 	}
@@ -161,7 +173,7 @@ class SHDX_TitlemapEvent : EventHandler
 			if (seconds >= SECONDS_TITLESCREEN)
 			{
 				DrawBGImage("graphics/titlepic.png");
-				DrawImageWithOffsets("graphics/SHDXlogo.png", 1920 / 2, 1080 / 7, true);
+				DrawImageWithOffsets("graphics/scoot_hard_dx_logo.png", 1920 / 2, 1080 / 7, true);
 				DrawAdvisoryString();
 			}
 		}

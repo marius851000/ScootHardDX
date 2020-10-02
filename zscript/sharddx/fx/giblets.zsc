@@ -283,6 +283,7 @@ Class SHDX_ChickenFeather : SHDX_Actor
 			FTHR ABCD 3;
 			Loop;
 		Crash:
+			TNT1 A 0;
 			Stop;
 	}
 }

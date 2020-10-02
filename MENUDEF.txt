@@ -2,7 +2,7 @@ DefaultListMenu
 {
 	Font "BIGFONT", "Fire"
 	Linespacing 20
-	Selector "M_RUBY1", -24, -4
+	Selector "M_CWC1", -32, -4
 }
 
 ListMenu "MainMenu"

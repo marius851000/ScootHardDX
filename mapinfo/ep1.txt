@@ -1,3 +1,18 @@
+map E1A0 lookup SHDX_E1A0
+{
+	LevelNum = 0
+	Music = ""
+	Next = "E1A1"
+	EventHandlers = "SHDX_E1A0SlideshowHandler"
+	NoIntermission
+	NoAutosaveHint
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+	
+	Sky1 = "SKY1"
+}
+
 map E1A1 lookup SHDX_E1A1
 {
 	sky1 = "SKY1"
@@ -7,6 +22,9 @@ map E1A1 lookup SHDX_E1A1
 	next = "E1A2"
 	secretnext = "E1A5"
 	music = "W_PLOD"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
 }
 
 map E1A2 lookup SHDX_E1A2
@@ -16,7 +34,11 @@ map E1A2 lookup SHDX_E1A2
 	par = 75
 	sucktime = 1
 	next = "E1A3"
-	secretnext = "E1AS"
+	music = "W_ROCKED"
+	// secretnext = "E1AS"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
 }
 
 map E1A3 lookup SHDX_E1A3
@@ -25,32 +47,10 @@ map E1A3 lookup SHDX_E1A3
 	cluster = 1
 	par = 75
 	sucktime = 1
-	next = "E1A4"
-}
-
-map E1A4 lookup SHDX_E1A4
-{
-	sky1 = "SKY1"
-	cluster = 1
-	par = 75
-	sucktime = 1
-	next = "E1A5"
-}
-
-map E1A5 lookup SHDX_E1A5
-{
-	sky1 = "SKY1"
-	cluster = 1
-	par = 75
-	sucktime = 1
-	next = "E2A1"
-}
-
-map E1AS lookup SHDX_E1AS
-{
-	sky1 = "SKY1"
-	cluster = 1
-	par = 75
-	sucktime = 1
-	next = "E2A1"
+	next = "EndTitle"
+	music = "W_GRUNGE"
+	// next = E2A1
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
 }

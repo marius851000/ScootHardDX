@@ -75,3 +75,15 @@ Texture	OFALLW11	Range	OFALLW18	Tics 3
 switch VENT_A on sound misc/ventbust pic VENT_B tics 0
 switch VENT_C on sound misc/ventbust pic VENT_D tics 0
 switch VENT_E on sound misc/ventbust pic VENT_F tics 0
+
+texture M_CWC1
+	pic M_CWC1 tics 2
+	pic M_CWC2 tics 2
+	pic M_CWC3 tics 2
+	pic M_CWC4 tics 2
+	pic M_CWC5 tics 2
+	pic M_CWC6 tics 2
+	pic M_CWC5 tics 2
+	pic M_CWC4 tics 2
+	pic M_CWC3 tics 2
+	pic M_CWC2 tics 2

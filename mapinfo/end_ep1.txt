@@ -1,0 +1,98 @@
+Intermission EndEpisode1
+{
+	Fader
+	{
+		Background = "graphics/cutscenes/end1/end1_1.png"
+		Time = 2
+		FadeType = FadeIn
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_1.png"
+		Music = "WONDERIN"
+		Text = "$SHDX_EP1END_1"
+		TextColor = "Red"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end1/end1_1.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_2.png"
+		Text = "$SHDX_EP1END_2"
+		TextColor = "Red"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end1/end1_2.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_3.png"
+		Text = "$SHDX_EP1END_3"
+		TextColor = "Red"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end1/end1_3.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_4.png"
+		Text = "$SHDX_EP1END_4"
+		TextColor = "Red"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end1/end1_4.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_5.png"
+		Text = "$SHDX_EP1END_5"
+		TextColor = "Red"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end1/end1_5.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_6.png"
+		Text = "$SHDX_EP1END_6"
+		TextColor = "Red"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end1/end1_6.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_7.png"
+		Text = "$SHDX_EP1END_7"
+		TextColor = "Red"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end1/end1_7.png"
+		Time = 10
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end1/end1_8.png"
+		Time = 10
+	}
+	Fader
+	{
+		Background = "graphics/cutscenes/end1/end1_8.png"
+		Time = 2
+		FadeType = FadeOut
+	}
+}

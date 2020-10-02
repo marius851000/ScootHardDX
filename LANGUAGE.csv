@@ -22,27 +22,15 @@ Error! Invalid Help Screen at %d,SHDX_HELP_SCREEN_ERROR,,,,,,,,,,,,,,,,,,,,,,,
 I guess you don't watch Puffin Forest...,SHDX_OBELISK_MSG,Puffin Forest is a Youtuber who does DND stuff,,,,,,,Supongo que no ves Puffin Forest...,,,,,,,,,,,,,,"Nemyslím si, že sledujete Puffinský les ...",
 ,,,,,,,,,,,,,,,,,,,,,,,,
 ,,Titlemap,,,,,,,,,,,,,,,,,,,,,,
-Scoot Hard DX,SHDX_TITLEMAP_HEADER,,,,,,,,Daytime Drama II: Más allá de la desesperación,,,,,,,,,,,,,,,
-Loading Waffle Iron Subsystem,SHDX_TITLEMAP_LOG1,,,,,,,,Cargando Waffle Iron Subsistema,,,,,,,,,,,,,,,
-Loading Meme Database Subsystem,SHDX_TITLEMAP_LOG2,,,,,,,,Cargando Subsistema De Base De Datos De Memes,,,,,,,,,,,,,,,
-Loading The Precious Thing(R),SHDX_TITLEMAP_LOG3,,,,,,,,Cargando La Preciosa Cosa(R),,,,,,,,,,,,,,,
-Loading PeloBlaster Sound Card,SHDX_TITLEMAP_LOG4,,,,,,,,Cargando PeloBlaster Sound Card,,,,,,,,,,,,,,,
-Loading Grafis UltraNo Sound Card,SHDX_TITLEMAP_LOG5,,,,,,,,Cargando Grafis UltraNo Sound Card,,,,,,,,,,,,,,,
-Loading Stupid Discord Login Messages,SHDX_TITLEMAP_LOG6,,,,,,,,Cargando Estúpido Ingresar Mensajes De Discord,,,,,,,,,,,,,,,
-Loading Stupid Fucking Hamster Face,SHDX_TITLEMAP_LOG7,,,,,,,,Cargando Estúpida Maldita Cara De Hámster,,,,,,,,,,,,,,,
-Loading FAT File System,SHDX_TITLEMAP_LOG8,,,,,,,,Cargando el sistema de archivos FAT,,,,,,,,,,,,,,,
-Loading Waffle Iron File System (WIFS),SHDX_TITLEMAP_LOG9,,,,,,,,Cargando el sistema de archivos Waffle Iron,,,,,,,,,,,,,,,
-Loading Homeworld File System (HWFS),SHDX_TITLEMAP_LOG10,,,,,,,,Cargando el sistema de archivos Homeworld,,,,,,,,,,,,,,,
-Loading Gamepad Driver,SHDX_TITLEMAP_LOG11,,,,,,,,Cargando Gamepad Driver,,,,,,,,,,,,,,,
-Loading Keyboard and Mouse Driver,SHDX_TITLEMAP_LOG12,,,,,,,,Carga del controlador de teclado y mouse,,,,,,,,,,,,,,,
-Loading Skycorp(R) Brain Chip Interface,SHDX_TITLEMAP_LOG13,,,,,,,,Carga de la interfaz de chip de cerebro Skycorp (R),,,,,,,,,,,,,,,
-NOTICE: Debug Mode Enabled (Visible special hitboxes),SHDX_TITLEMAP_DEBUG,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Studios(TM) Scoot Hard DX(TM),SHDX_TITLEMAP_FINAL1,,,,,,,,,,,,,,,,,,,,,,,
 Build,SHDX_TITLEMAP_FINAL2,,,,,,,,,,,,,,,,,,,,,,,
 GZDoom 4.5pre Compatible,SHDX_TITLEMAP_FINAL3,,,,,,,,Compatible con GZDoom 4.3.3,,,,,,,,,,,,,,,
 MultiProcessor Enabled,SHDX_TITLEMAP_MULTI,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Systems(TM) WaffleTower i7,SHDX_TITLEMAP_SANYAUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
-Waffle Iron Systems(TM) RubyStation 255n,SHDX_TITLEMAP_SCOOTALOOUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
+Pegasystems(TM) Scooterputer(TM),SHDX_TITLEMAP_SCOOTALOOUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
+Cloudsdale Weather Corporation(TM) Cumulonimbus(TM) Workstation,SHDX_TITLEMAP_MAIMBOWUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
+Waffle Iron Systems(TM) RubyStation 255n,SHDX_TITLEMAP_NAVYUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
+Bordeaux Technologies(TM) Warpstation 666n,SHDX_TITLEMAP_BORDEAUXUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Hat Kid Industries(TM) Work-N-Play System 1024,SHDX_TITLEMAP_ELLIEUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Precious Thing Workstation,SHDX_TITLEMAP_MARISAKUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Peridot Systems(TM) SpinelStation,SHDX_TITLEMAP_MISTERBAMANUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
@@ -59,6 +47,7 @@ Press,SHDX_RESTARTMSG1,,,,,,,,Empujar,,,,,,,,,,,,,,,
 from most recent save.",SHDX_RESTARTMSG2,,,,,,,,"para comenzar
 del estado de salvar más reciente",,,,,,,,,,,,,,,
 or,SHDX_KEYBINDOR,,,,,,,,o,,,,,,,,,,,,,,,
+,,Misc Messages,,,,,,,,,,,,,,,,,,,,,,
 Paid five bits for a hot meal.,SHDX_VENDING_HOTMEAL,,,,,,,,,,,,,,,,,,,,,,,
 Paid one bit for a Dole(R) apple.,SHDX_VENDING_APPLE,,,,,,,,,,,,,,,,,,,,,,,
 You have no money.,SHDX_VENDING_NOBITS,,,,,,,,,,,,,,,,,,,,,,,
@@ -91,7 +80,7 @@ Now you have a machine gun. Ho-Ho-Ho.,SHDX_PICKUP_SMG,,,,,,,,,,,,,,,,,,,,,,,
 You procured a missile launcher.,SHDX_PICKUP_MISSILELAUNCHER,,,,,,,,,,,,,,,,,,,,,,,
 You recovered a Rainbower!,SHDX_PICKUP_RAINBOWER,,,,,,,,,,,,,,,,,,,,,,,
 You took a Tornadozer!,SHDX_PICKUP_TORNADOZER,,,,,,,,,,,,,,,,,,,,,,,
-,,SCOOTALOO Color Sets,,,,,,,,,,,,,,,,,,,,,,
+,,Scootaloo Color Sets,,,,,,,,,,,,,,,,,,,,,,
 Mauve,SHDX_SCOOTALOO_COLORSET1,,,,,,,,,,,,,,,,,,,,,,,
 Green,SHDX_SCOOTALOO_COLORSET2,,,,,,,,,,,,,,,,,,,,,,,
 Blue,SHDX_SCOOTALOO_COLORSET3,,,,,,,,,,,,,,,,,,,,,,,
@@ -166,13 +155,6 @@ Hide Beta Label,MNU_SHARDDX_HIDEBETALABEL,,,,,,,,,,,,,,,,,,,,,,,
 Don't Trigger Dialogue,MNU_SHARDDX_SKIPVOX,,,,,,,,,,,,,,,,,,,,,,,
 Player Specific,MNU_SHARDDX_PLAYERSPEC,,,,,,,,,,,,,,,,,,,,,,,
 Global,MNU_SHARDDX_SERVER,,,,,,,,,,,,,,,,,,,,,,,
-Going back to Twitter?,DD_QUITMSG1,,,,,,,,Volviendo a Twitter?,,,,,,,,,,,,,,,
-Leave. See if I care.,DD_QUITMSG2,,,,,,,,Salir. Mira si me importa.,,,,,,,,,,,,,,,
-"If you quit playing, I'll feel bad.",DD_QUITMSG3,,,,,,,,"Si dejas de jugar, me sentiré mal.",,,,,,,,,,,,,,,
-You'll be back again some day.,DD_QUITMSG4,,,,,,,,Volverás de nuevo algún día.,,,,,,,,,,,,,,,
-Don't let the door hit you on the way out.,DD_QUITMSG5,,,,,,,,No dejes que la puerta te golpee al salir.,,,,,,,,,,,,,,,
-You dare leave in our time of need!?,DD_QUITMSG6,,,,,,,,¿Te atreves a irte en nuestro momento de necesidad?,,,,,,,,,,,,,,,
-Where are you going? Come back!,DD_QUITMSG7,,,,,,,,¿A dónde vas? ¡Vuelve!,,,,,,,,,,,,,,,
 Finished,TXT_IMFINISHED,,,,,,,,Terminada,,,,,,,,,,,,,,,
 Now Entering,TXT_IMENTERING,,,,,,,,Ahora Entrando,,,,,,,,,,,,,,,
 Time,TXT_IMTIME,,,,,,,,Tiempo,,,,,,,,,,,,,,,
@@ -264,22 +246,18 @@ Easy,SHDX_SKILL1,,,,,,,,,,,,,,,,,,,,,,,
 Medium,SHDX_SKILL2,,,,,,,,,,,,,,,,,,,,,,,
 Hard,SHDX_SKILL3,,,,,,,,,,,,,,,,,,,,,,,
 Discourse,SHDX_SKILL4,,,,,,,,,,,,,,,,,,,,,,,
-"This skill is just for those who
-just want to unwind and don't
-want a challenge. Which is fine,
-I genuinely don't mind.",SHDX_SKILLSURE1,"
+"Fewest enemies, lowest aggression,
+less damage taken, and enemies have
+lower health. You'll probably want this
+skill Eri.",SHDX_SKILLSURE1,"
 ",,,,,,,,,,,,,,,,,,,,,,
-"This skill is for people who haven't
-played many shootan games.
-Aggressiveness is low, ammo is doubled,
-damage from enemies and their health
-is lower, and there are fewer enemies.",SHDX_SKILLSURE2,,,,,,,,,,,,,,,,,,,,,,,
-"This skill is for most people.
-Aggressiveness is higher, ammo is normal,
-damage is higher, and there's more enemies.",SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
-"This skill is not for first timers.
-Aggressiveness is way higher and
-enemies are more numerous.",SHDX_SKILLSURE4,,,,,,,,,,,,,,,,,,,,,,,
+"A few more enemies, normal damage and
+health.",SHDX_SKILLSURE2,,,,,,,,,,,,,,,,,,,,,,,
+"Aggression is bumped up a bit. So is enemy
+health and enemy count.",SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
+"Aggression is much higher, enemies are maxed
+out on health. Only the most epic of gamers will
+play on this skill.",SHDX_SKILLSURE4,,,,,,,,,,,,,,,,,,,,,,,
 Choose an episode,SHDX_EPISODE_MENU,,,,,,,,,,,,,,,,,,,,,,,
 Scoot Hard DX,SHDX_EP1STR,,,,,,,,,,,,,,,,,,,,,,,
 Titlemap,SHDX_TITLEMAP,,,,,,,,,,,,,,,,,,,,,,,
@@ -287,3 +265,77 @@ Intro,SHDX_E1A0,,,,,,,,,,,,,,,,,,,,,,,
 Construction,SHDX_E1A1,,,,,,,,,,,,,,,,,,,,,,,
 Ending,SHDX_ENDING,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission,,,,,,,,,,,,,,,,,,,,,,
+"Due to their importance in weather control and other tasks, there's a certain bit of
+nationalism and pride within the Pegasi race, and thus within the Pegasi city of
+Cloudsdale within Equestria. However, something changed recently that made
+that even more profound. And things got really dark at the Cloudsdale Weather
+Corporation, which became more militaristic. Pegasi across Equestria were
+suddenly required to do fitness exams, and if they failed, go through some
+rigorous training program at the monolithic facilities. However, there is no
+training program, as one foal is about to find out.",SHDX_INTRO_1,,,,,,,,,,,,,,,,,,,,,,,
+"Meet Scootaloo, she, and her friend Orion Solstice and another pegasi by
+the name of Aurora Dawn all failed their exams. Scootaloo and the others
+enter the Cloudsdale Weather Corporation. They're given a tour… an odd,
+foreboding tour by a colt by the name of Dr. Atmosphere. Sensing something
+sinister, Scootaloo hatches a plan.",SHDX_INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
+"During the tour, she wanders off into one of the bathrooms that are under
+construction. A guard chases after her. She wrestles with the guard in the
+construction zone, before exerting enough force to snap his neck. The two
+fall down a ventilation shaft thirty floors to the surface - to the Clousdale
+Weather Corporation's ground location. Cloudsdale had two locations -
+a physical location, just north of Tchpsor, Boredomdai, and the floating
+part which was more mobile. It had stopped being mobile as of late.
+Fortunately for Scootaloo, she survived the fall. The guard was not so lucky.",SHDX_INTRO_3,,,,,,,,,,,,,,,,,,,,,,,
+"She finds a two way CB radio and a hoof blaster on the dead guard, as well
+as his utility belt. The CB radio might be useful to call for help. Surely someone
+out there could help her. However, she can't get a signal from here. She'd need to
+get somewhere tall and out in the open. She'd have to get out in the open.",SHDX_INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
+"Arming herself with the blaster and strapping the utility belt up, she sees a door
+ahead. Not knowing at all what is behind that door, she has no idea. Her goal is
+simple - survive and rescue Orion, and Aurora if she can. There's no telling what
+she's going to find. Despite what the suits say, she's been trained by the best -
+Rainbow Dash - even if she can't fly very well, she can kick ass. She took down
+one guard, what's another couple more?
+
+""I gotta get outta here!""",SHDX_INTRO_5,,,,,,,,,,,,,,,,,,,,,,,
+"After taking down Surprise, Scootaloo looks at the door behind her with
+determination. She can taste the first bit of freedom from this place. If only
+she was able to fly.",SHDX_EP1END_1,,,,,,,,,,,,,,,,,,,,,,,
+"She climbs a radio tower. She knows neighboring Boredomdai might be able
+to help contact mainland Equestria. She manages to get ahold of someone.
+Not holding her breath, she climbs back down. Soon, however, she hears radio
+chatter from the Cloudsdale Weather Corporation - Equestrian forces arrive.
+Immediately Pegapol guards open fire on them. Scootaloo can hear it now -
+Equestrian forces are calling in backup. It's going to be war. She'll be rescued
+eventually, she just needs to survive long enough.",SHDX_EP1END_2,,,,,,,,,,,,,,,,,,,,,,,
+"Soon, Dr. Atmosphere is informed about his sister, Surprise, who died at the
+hooves of Scootaloo. He is, to put it mildly, pissed off and wants nothing more
+than your blood. You even hear him cursing you on one of the CB radio channels.",SHDX_EP1END_3,,,,,,,,,,,,,,,,,,,,,,,
+"Eventually you find a computer room. One of the screens lights up. You are
+shocked at who it is. It looks like Rainbow Dash. No! It can't be! This has to
+be some sort of trick by the Pegasi Reich, surely.
+
+""Well, hello Scootaloo. It appears you're causing trouble for your big sister.""
+She says with a malicious grin.
+
+Scootaloo starts crying after an intense amount of shock. ""I THOUGHT
+YOU LOVED ME!""
+
+The rainbow maned pony didn't acknowledge. ""Surrender now, Scootaloo.""",SHDX_EP1END_4,,,,,,,,,,,,,,,,,,,,,,,
+"""There's nowhere to go. You try to leave, you get caught in some nasty
+crossfire. You stay in here, you'll certainly die.""",SHDX_EP1END_5,,,,,,,,,,,,,,,,,,,,,,,
+"The dictatorial pony laughed. ""Nonsense. What fun would that be. You
+have sixty minutes to comply, bitch."" The screen then turned off.
+
+Scootaloo knew what she had to do. She had to rescue them. Even if
+it meant running into Dr. Atmosphere. She was really upset at the
+betrayal of Rainbow Dash, but her friends depended on her more
+than ever.",SHDX_EP1END_6,,,,,,,,,,,,,,,,,,,,,,,
+"Meanwhile in neighboring Tchpsor, an off duty cop by the name
+of Sanya K. Waffles is visiting a local bar. Someone tells them
+to turn on the news.
+
+""Cloudsdale and Equestria are at war!"" They said.
+
+Sanya couldn't believe it. War so close to her home. She
+wondered what would happen if it spilled over into Boredomdai...",SHDX_EP1END_7,,,,,,,,,,,,,,,,,,,,,,,
