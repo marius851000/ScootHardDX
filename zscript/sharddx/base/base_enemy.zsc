@@ -278,7 +278,7 @@ Class SHDX_Enemy : SHDX_Actor
 	{
 		A_StartSound("misc/splatx", CHAN_6);
 		
-		if (playnormalscream)
+		if (playnormalscream && !iscorpse)
 		{
 			A_StartSound(DeathSound, 9);
 		}
