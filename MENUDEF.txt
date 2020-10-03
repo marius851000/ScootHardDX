@@ -8,7 +8,7 @@ DefaultListMenu
 ListMenu "MainMenu"
 {
 	Position 96, 64
-	StaticPatch 32, 0, "M_SHDX"
+	StaticPatch 24, 0, "M_SHDX"
 	TextItem "$MNU_SHARDDX_NEWGAME",		"n",	"PlayerclassMenu"
 	TextItem "$MNU_SHARDDX_SSTATES",		"s",	"SHARDDXGameFilesMenu"
 	TextItem "$MNU_SHARDDX_OPTIONS",		"o",	"SHARDDXOptionsMenu"
@@ -199,4 +199,5 @@ OptionMenu "ScootHardDXMenu"
 	
 	Option "$MNU_SHDX_MUTEPLAYER",		"shdx_snd_oneliners",	"OnOff"
 	Option "$MNU_SHDX_CUTSCENES",		"shdx_skipcutscenes",	"OnOff"
+	Option "$MNU_SHARDDX_COPYRIGHTCENSOR", "shdx_copyrightcensor", "OnOff"
 }

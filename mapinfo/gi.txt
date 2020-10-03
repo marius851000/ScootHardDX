@@ -28,6 +28,7 @@ gameinfo
     defaultdropstyle = 1
     player5start = 4001
     pickupcolor = "d6 ba 45"
+	DimColor = "00 00 00"
     quitmessages = "$SHDX_QUIT1"
     menufontcolor_title = "RED"
     menufontcolor_label = "UNTRANSLATED"
@@ -37,6 +38,7 @@ gameinfo
     menufontcolor_highlight = "YELLOW"
     menufontcolor_selection = "BRICK"
     playerclasses = "SHDX_ScootalooPlayer"
+	MenuBackButton = "M_BACK"
     pausesign = "M_PAUSE"
 	TextScreenX = 2
 	TextScreenY = 2

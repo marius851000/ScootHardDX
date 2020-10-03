@@ -20,7 +20,6 @@ Bridge Raised!,SHDX_BRIGDE_RAISED,,,,,,,,,,,,,,,,,,,,,,,
 BETA,SHDX_BETA_HUD_STRING,,,,,,,,,,,,,,,,,,,,,,,
 Error! Invalid Help Screen at %d,SHDX_HELP_SCREEN_ERROR,,,,,,,,,,,,,,,,,,,,,,,
 I guess you don't watch Puffin Forest...,SHDX_OBELISK_MSG,Puffin Forest is a Youtuber who does DND stuff,,,,,,,Supongo que no ves Puffin Forest...,,,,,,,,,,,,,,"Nemyslím si, že sledujete Puffinský les ...",
-,,,,,,,,,,,,,,,,,,,,,,,,
 ,,Titlemap,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Studios(TM) Scoot Hard DX(TM),SHDX_TITLEMAP_FINAL1,,,,,,,,,,,,,,,,,,,,,,,
 Build,SHDX_TITLEMAP_FINAL2,,,,,,,,,,,,,,,,,,,,,,,
@@ -35,6 +34,21 @@ Hat Kid Industries(TM) Work-N-Play System 1024,SHDX_TITLEMAP_ELLIEUSERNAME,,,,,,
 Precious Thing Workstation,SHDX_TITLEMAP_MARISAKUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Peridot Systems(TM) SpinelStation,SHDX_TITLEMAP_MISTERBAMANUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 No Unironically Fuck You Nukkus Go Away You Don't Get a HAL,SHDX_TITLEMAP_NUKKUSUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
+"Scoot Hard DX is a fair use parody. My Little Pony: Friendship is Magic
+is owned by Hasbro. This is not endorsed by them not is meant to
+replace any official product. It is also not intended for kids. It is intended
+for mature audiences, suggested 18+ years of age. Please support the
+official release.
+
+Scoot Hard DX has wanton and gratituous violence, dark themes
+including but not limited to dealing with authoritarianism, and edgy
+based ironic humor. If these are not your thing, please shut off the
+game and stop playing. And certainly don't go onto ResetEra and
+bitch about it.
+
+Waffle Iron Studios takes no responsibility for loss of sanity or
+unironic comparisons to current year events. Please just enjoy
+the game. I created the prototype in 2014 for god's sake.",SHDX_TITLEMAP_DISCLAIMER,,,,,,,,,,,,,,,,,,,,,,,
 WARNING: Satirical and Mature Content,SHDX_TITLEMAP_ADVISORY,,,,,,,,,,,,,,,,,,,,,,,
 Health,SHDX_HUD_HEALTH,,,,,,,,Salud,,,,,,,,,,,,,,,
 Armor,SHDX_HUD_ARMOR,,,Armour,,,,,Armadura,,,,,,,,,,,,,,,
@@ -98,7 +112,7 @@ Press Escape to bring up the menu. Press F1 to bring up this screen.
 NEW GAME: starts a new game. Pick your difficulty and go.
 GAME STATES: save your current game, or load a current one. Previous
 saves don't work between versions of the game.
-OPTIONS: configure and tweak Daytime Drama II or GZDoom
+OPTIONS: configure and tweak Scoot Hard DX or GZDoom
 HELP SCREEN: this help screen
 CREDITS: the people who worked on the game.
 EXIT TO SYSTEM: exit the game",SHDX_HELP_MENU1,,,,,,,,,,,,,,,,,,,,,,,
@@ -106,20 +120,20 @@ USING THE MENUS (CONTINUED),SHDX_HELP_HEADER_MENU2,,,,,,,,,,,,,,,,,,,,,,,
 "Under the OPTIONS menu you have the following options:
 
 CUSTOMIZE CONTROLS: you can customize the keys and
-buttons that control SCOOTALOO.
+buttons that control Scootaloo.
 MOUSE OPTIONS: fine tune your mouse settings
 JOYSTICK OPTIONS: fine tune your joystick settings
 HUD OPTIONS: configure default crosshair and HUD options
-DIALOGUE AND CUTSCENE OPTIONS: configure settings related to
-subtitles, cutscenes and dialogue, including SCOOTALOO's speech
-CENSOR MODES: configure settings related to blocking certain content
-in the game.
-CUSTOMIZE TILT++: configure the tilting/swaying of the camera
-an advanced crosshair (this is for advanced users only)
 PLAYER SETUP: configure your player settings (name, gender, etc)
 SOUND OPTIONS: configure your sound settings
 SET VIDEO MODE: change video settings/resolution
 GZDOOM OPTIONS (ADVANCED): the original, more advanced GZDoom menu",SHDX_HELP_MENU2,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,,,,,,,,,,,,,
+"You can only carry one one missile weapon at a time.
+
+Either use up your shots first, or swap it out by walking over another weapon
+and pressing the use key (default is E) to swap it out. The dropped weapon
+will contain the ammo as well.",SHDX_HELP_MENU3,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
 New Game,MNU_SHARDDX_NEWGAME,,,,,,,,Nuevo juego,,,,,,,,,,,,,,,
 Game States,MNU_SHARDDX_SSTATES,,,,,,,,Estados del juego,,,,,,,,,,,,,,,
@@ -129,9 +143,9 @@ Options,MNU_SHARDDX_OPTIONS,,,,,,,,Opciones,,,,,,,,,,,,,,,
 Help Me,MNU_SHARDDX_README,,,,,,,,Ayudame,,,,,,,,,,,,,,,
 Exit To System,MNU_SHARDDX_QUIT,,,,,,,,Salir al sistema,,,,,,,,,,,,,,,
 "More Options (Tilt++, DD2)",OPTMENU_NEWOPTIONS,,,,,,,,"Más opciones (Tilt++, DD2)",,,,,,,,,,,,,,,
-Daytime Drama 2,OPTMNU_DAYTIMEDRAMA2,,,,,,,,Daytime Drama 2,,,,,,,,,,,,,,,
-Daytime Drama 2 Specific,MNU_SHARDDX_SPECIFIC,,,,,,,,Específica Daytime Drama 2,,,,,,,,,,,,,,,
-Daytime Drama 2 Controls,OPTMNU_DD2CONTROLS,,,,,,,,,,,,,,,,,,,,,,,
+Scoot Hard DX,OPTMNU_DAYTIMEDRAMA2,,,,,,,,Daytime Drama 2,,,,,,,,,,,,,,,
+Scoot Hard DX Specific,MNU_SHARDDX_SPECIFIC,,,,,,,,Específica Daytime Drama 2,,,,,,,,,,,,,,,
+Scoot Hard DX Controls,OPTMNU_SHDXCONTROLS,,,,,,,,,,,,,,,,,,,,,,,
 Dialogue and Cutscene Options,OPTMNU_DIALOGCUTSCENEOPT,,,,,,,,,,,,,,,,,,,,,,,
 Help Screen,MNU_SHARDDX_HELP,,,,,,,,,,,,,,,,,,,,,,,
 Quick Kick,CNTRLMNU_QUICKKICK,,,,,,,,,,,,,,,,,,,,,,,
@@ -162,9 +176,16 @@ Total Time,TXT_IMTOTALTIME,,,,,,,,Tiempo Total,,,,,,,,,,,,,,,
 Press any key to continue...,TXT_PRESSAKEY,,,,,,,,Pulse cualquier tecla para continuar...,,,,,,,,,,,,,,,
 Credits,MNU_SHARDDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 WAFFLE IRON STUDIOS,SHDX_CREDITS_HEADER_WIS,,,,,,,,,,,,,,,,,,,,,,,
-Creative Director and Design Lead: SanyaWaffles,SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
+"Creative Director and Design Lead: SanyaWaffles
+
+Voice of Scootaloo: Alabeanz@Tumblr.com
+Voice of Surprise Pony/Low Guard Female: Kelsie Finefeather
+
+Special Thanks To: Jinzo",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
 "Textures: Ancient Aliens, OTEX, Duke Nukem 3D, Shadow Warrior
+
+Placeholder music: AstroCreep's Mac Wolf3D Music
 
 Sounds: Quake HiRes Pack, Source Engine, Tomb Raider
 
@@ -172,7 +193,7 @@ Fonts: Revue, Daidoh Remix, Crewniverse
 
 Code: AI code based on Kinsie's FauxDM
 Additional Code by Marisa Kirisame, Nash Muhandes Chronos ""phantombeta"" Ouroboros,
-Accensus
+Mikk & Accensus
 
 Inspired by the fic Rainbow Factory by AuoraDawn",SHDX_CREDITS_ADD,,,,,,,,,,,,,,,,,,,,,,,
 Are you sure you want to quit?,SHDX_QUIT1,,,,,,,,,,,,,,,,,,,,,,,
@@ -289,7 +310,7 @@ Fortunately for Scootaloo, she survived the fall. The guard was not so lucky.",S
 "She finds a two way CB radio and a hoof blaster on the dead guard, as well
 as his utility belt. The CB radio might be useful to call for help. Surely someone
 out there could help her. However, she can't get a signal from here. She'd need to
-get somewhere tall and out in the open. She'd have to get out in the open.",SHDX_INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
+get somewhere tall and out in the open.",SHDX_INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
 "Arming herself with the blaster and strapping the utility belt up, she sees a door
 ahead. Not knowing at all what is behind that door, she has no idea. Her goal is
 simple - survive and rescue Orion, and Aurora if she can. There's no telling what

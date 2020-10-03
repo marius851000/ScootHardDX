@@ -17,7 +17,8 @@ class SHDX_TitlemapEvent : EventHandler
 	ui int seconds;
 	
 	const SECONDS_SPLASHSCREEN = 1;
-	const SECONDS_TITLESCREEN = 10;
+	const SECONDS_DISCLAIMER = 10;
+	const SECONDS_TITLESCREEN = 24;
 	const SECONDS_ADVISORY = (SECONDS_TITLESCREEN + 4);
 	const SECONDS_MAX = 120;
 	
@@ -30,6 +31,13 @@ class SHDX_TitlemapEvent : EventHandler
 	{
 		S_ChangeMusic("W_TITLE");
 	}
+	
+	/*
+	ui void PlayDisclaimerSound()
+	{
+		if(!CVar.GetCvar('shdx_copyrightcensor', players[consoleplayer]).GetBool())
+			S_StartSound("disclaimer/ooga", CHAN_BODY, CHANF_DEFAULT, 1, ATTN_NORM);
+	} */
 	
 	ui void DrawBGImage(string texturepath)
 	{
@@ -124,6 +132,29 @@ class SHDX_TitlemapEvent : EventHandler
 							DTA_VirtualHeight, 480);
 	}
 	
+	ui void DrawDisclaimerString()
+	{
+		Font fnt = "smallfont";
+		String disc = StringTable.Localize("$SHDX_TITLEMAP_DISCLAIMER");
+		BrokenLines l = fnt.BreakLines(disc, 640);
+		int maxlen = 0;
+		for ( int i = 0; i < l.Count(); i++ )
+		{
+			int len = fnt.StringWidth(l.StringAt(i));
+			if ( len > maxlen ) maxlen = len;
+		}
+		int h = fnt.GetHeight();
+		int y = h * 10;
+		for ( int i = 0; i < l.Count(); i++ )
+		{
+			int len = fnt.StringWidth(l.StringAt(i));
+			Screen.DrawText(fnt, Font.CR_FIRE, (640 - len)/2., y, l.StringAt(i),
+							DTA_VirtualWidth, 640,
+							DTA_VirtualHeight, 480);
+			y += h;
+		}
+	}
+	
 	ui void DrawAdvisoryString()
 	{
 		Font fnt = "smallfont";
@@ -147,6 +178,11 @@ class SHDX_TitlemapEvent : EventHandler
 			if (seconds == SECONDS_SPLASHSCREEN - 1)
 				PlayBootMusic();
 			
+			/*
+			if (seconds == SECONDS_DISCLAIMER - 1)
+				PlayDisclaimerSound();
+			*/
+			
 			if (seconds == SECONDS_TITLESCREEN - 1)
 				PlayTitleMusic();
 			
@@ -164,10 +200,15 @@ class SHDX_TitlemapEvent : EventHandler
 			if (seconds >= 0)
 				ClearBlack();
 			
-			if (seconds >= SECONDS_SPLASHSCREEN && seconds < SECONDS_TITLESCREEN)
+			if (seconds >= SECONDS_SPLASHSCREEN && seconds < SECONDS_DISCLAIMER)
 			{
 				DrawBGImage("graphics/WISPLASH.png");
 				DrawBootInformation();
+			}
+			
+			if (seconds >= SECONDS_DISCLAIMER && seconds < SECONDS_TITLESCREEN)
+			{
+				DrawDisclaimerString();
 			}
 			
 			if (seconds >= SECONDS_TITLESCREEN)

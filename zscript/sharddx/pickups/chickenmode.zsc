@@ -18,6 +18,8 @@ Class SHDX_ChickenFlash : SHDX_Actor
 	Default
 	{
 		+NOBLOCKMAP
+		Renderstyle "Add";
+		Alpha 0.67;
 	}
 	
 	States
@@ -34,6 +36,8 @@ Class SHDX_ChickenFlash2 : SHDX_Actor
 	Default
 	{
 		+NOBLOCKMAP
+		Renderstyle "Add";
+		Alpha 0.67;
 	}
 	
 	States

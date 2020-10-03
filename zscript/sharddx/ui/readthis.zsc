@@ -62,6 +62,7 @@ class SHDX_ReadThisMenu : GenericMenu
 	{
 		PAGE_MENU1,
 		PAGE_MENU2,
+		PAGE_MENU3,
 		NUM_HELP_PAGES
 	}
 
@@ -98,6 +99,10 @@ class SHDX_ReadThisMenu : GenericMenu
 			case PAGE_MENU2:
 				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU2");
 				txt = StringTable.Localize("$SHDX_HELP_MENU2");
+				break;
+			case PAGE_MENU3:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU3");
+				txt = StringTable.Localize("$SHDX_HELP_MENU3");
 				break;
 		}
 		

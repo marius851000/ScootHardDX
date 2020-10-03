@@ -35,3 +35,5 @@ doors/metalc			"sounds/doom_door_close.ogg"
 // End Animated Door Noises
 
 world/splash			"sounds/splash02.ogg"	// Splashing noise
+
+disclaimer/ooga			"sounds/ooga.ogg"
