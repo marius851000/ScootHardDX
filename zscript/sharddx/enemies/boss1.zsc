@@ -79,7 +79,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			SURP AA 10 A_Look;
 			Loop;
 		See:
-			SURP A 0 A_SHDX_SendOLToAllPlayers(SHDX_ONELINER_BOSS_CHANCE, "surprisestart", OLSSF_FORCEONELINER);
+			SURP A 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "surprisestart", OLSSF_FORCEONELINER);
 		See1:
 			SURP A 0 A_StartSound(SeeSound, CHAN_VOICE, attenuation:ATTN_NONE);
 		See2:
@@ -185,7 +185,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			SURP L 5 A_NoBlocking;
 			SURP M 5 A_SpawnGibsFx(self);
 			SURP O 5;
-			SURP O 0 A_SHDX_SendOLToAllPlayers(SHDX_ONELINER_BOSS_CHANCE, "surpriseend", OLSSF_FORCEONELINER);
+			SURP O 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "surpriseend", OLSSF_FORCEONELINER);
 			SURP P 220;
 			SURP P 1 A_DD2_BossPlayCutscene();
 			SURP P -1 A_DD2_BossEndLevel();

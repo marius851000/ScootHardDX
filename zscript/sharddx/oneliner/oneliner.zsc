@@ -24,25 +24,6 @@ enum OneLinerFlags
 
 extend class SHDX_Enemy
 {
-	void A_SHDX_SendOLToAllPlayers(int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT)
-	{
-		PlayerInfo pl;
-		for (int i = 0; i < MAXPLAYERS; i++)
-		{
-			if (playeringame[i])
-			{
-				pl = players[i];
-				if (pl && pl.mo)
-				{
-					let shdxpl = SHDX_PlayerPawn(pl.mo);
-					if (shdxpl)
-					{
-						A_SHDX_SendOLToPlayerPawn(shdxpl, r, snd, flags);
-					}
-				}
-			}
-		}
-	}
 	void A_SHDX_SendOLToPlayerPawn(SHDX_PlayerPawn pp, int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT, bool useprefix = true)
 	{
 		String finalsnd;
@@ -67,16 +48,17 @@ extend class SHDX_Enemy
 	 *		off a one liner.
 	 *	***********************************************/
 	void A_SHDX_GivePlayerOneLiner(int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT)
-	{		
+	{
 		if (!target)
 			return;
 			
-		if (!iscorpse)
+		if (iscorpse)
 			return;
 		
 		let SHDXpl = SHDX_PlayerPawn(target);
 		if (SHDXpl)
 		{
+			Console.PrintF("is playerpawn");
 			A_SHDX_SendOLToPlayerPawn(SHDXpl, r, snd, flags);
 		}
 		else

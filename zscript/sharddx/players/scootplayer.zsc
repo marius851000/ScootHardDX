@@ -117,7 +117,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Melee:
 		Missile:
-			SCOO FGH 5 BRIGHT;
+			SCOO FGH 2 BRIGHT;
 			Goto Spawn;
 			
 		Pain:
