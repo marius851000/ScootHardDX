@@ -58,7 +58,6 @@ extend class SHDX_Enemy
 		let SHDXpl = SHDX_PlayerPawn(target);
 		if (SHDXpl)
 		{
-			Console.PrintF("is playerpawn");
 			A_SHDX_SendOLToPlayerPawn(SHDXpl, r, snd, flags);
 		}
 		else
