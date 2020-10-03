@@ -44,7 +44,7 @@ Class SHDX_PowerBulletProof : SHDX_PowerProtection
 {
 	Default
 	{
-		DamageFactor "Bullet", 0.50;
+		DamageFactor "Bullet", 0.25;
 	}
 }
 
