@@ -8,15 +8,21 @@ grunt1/death2				"sounds/enemies/guard/g_die2.ogg"
 grunt1/pain					"sounds/enemies/guard/g_die3.ogg"
 $random	grunt1/death		{ grunt1/death1	grunt1/death2}
 
-grunt2/sight1				"sounds/enemies/guard/g2_see1.ogg"
-grunt2/sight2				"sounds/enemies/guard/g2_see2.ogg"
-grunt2/sight3				"sounds/enemies/guard/g2_see3.ogg"
+grunt2/sight1				"sounds/enemies/guard/kelsie/g2_see1.ogg"
+grunt2/sight2				"sounds/enemies/guard/kelsie/g2_see2.ogg"
+grunt2/sight3				"sounds/enemies/guard/kelsie/g2_see3.ogg"
 $random	grunt2/sight		{ grunt2/sight1	grunt2/sight2 grunt2/sight3 }
 
-grunt2/death1				"sounds/enemies/guard/g2_die1.ogg"
-grunt2/death2				"sounds/enemies/guard/g2_die3.ogg"
-grunt2/pain					"sounds/enemies/guard/g2_die2.ogg"
-$random	grunt2/death		{ grunt2/death1	grunt2/death2 }
+grunt2/death1				"sounds/enemies/guard/kelsie/g2_dead1.ogg"
+grunt2/death2				"sounds/enemies/guard/kelsie/g2_dead2.ogg"
+grunt2/death3				"sounds/enemies/guard/kelsie/g2_dead3.ogg"
+$random	grunt2/death		{ grunt2/death1	grunt2/death2 grunt2/death3 }
+
+grunt2/active1				"sounds/enemies/guard/kelsie/g2_active1.ogg"
+grunt2/active2				"sounds/enemies/guard/kelsie/g2_active2.ogg"
+$random	grunt2/active		{ grunt2/active1 grunt2/active2 }
+
+grunt2/pain					"sounds/enemies/guard/kelsie/g2_pain.ogg"
 
 grunt/attack				"sounds/weapons/pistol.ogg"
 
@@ -38,12 +44,21 @@ pegapol/death			"sounds/enemies/pegpol/pp_die.ogg"
 pegapol/attack			"sounds/weapons/smg_fire.ogg"
 
 // BOSS #1 - Surprise
-boss1/sight				"sounds/enemies/surprise/b1_aha.ogg"
+boss1/sight1			"sounds/enemies/surprise/kelsie/cupcake_time.ogg"
+boss1/sight2			"sounds/enemies/surprise/kelsie/surprise.ogg"
+boss1/sight3			"sounds/enemies/surprise/kelsie/surprise_motherfucker.ogg"
 boss1/laugh				"sounds/enemies/surprise/b1_laugh.ogg"
-boss1/stomp				THUD
-boss1/pain				"sounds/enemies/surprise/b1_die2.ogg"
-boss1/taunt				"sounds/enemies/surprise/b1_bcaw.ogg"
-boss1/death				"sounds/enemies/surprise/b1_die.ogg"			// hmmm....
+boss1/stomp				"sounds/THUD.ogg"
+boss1/pain				"sounds/enemies/surprise/kelsie/ow.ogg"
+boss1/taunt1			"sounds/enemies/surprise/kelsie/i_can_hear_you_breathing.ogg"
+boss1/taunt2			"sounds/enemies/surprise/kelsie/lunchbox.ogg"
+boss1/taunt3			"sounds/enemies/surprise/kelsie/youre_toast.ogg"
+boss1/taunt4			"sounds/enemies/surprise/kelsie/laugh1.ogg"
+boss1/taunt5			"sounds/enemies/surprise/kelsie/laugh2.ogg"
+boss1/taunt6			"sounds/enemies/surprise/kelsie/laugh3.ogg"
+boss1/playerdied1		"sounds/enemies/surprise/kelsie/i_hope_you_saved.ogg"
+boss1/playerdied2		"sounds/enemies/surprise/kelsie/thats_all_folks.ogg"
+boss1/death				"sounds/enemies/surprise/kelsie/brother_no.ogg"			// hmmm....
 boss1/tornado			"sounds/weapons/tornado_projectile.ogg"
 $limit boss1/tornado	1
 

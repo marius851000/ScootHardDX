@@ -274,6 +274,12 @@ Class SHDX_Enemy : SHDX_Actor
 		A_NoBlocking();
 	}
 	
+	void A_NewBossScream()
+	{
+		A_StartSound(DeathSound, CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+		A_NoBlocking();
+	}
+	
 	void A_NewXScream(bool playnormalscream = true)
 	{
 		A_StartSound("misc/splatx", CHAN_6);
