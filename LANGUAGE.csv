@@ -288,85 +288,150 @@ Winding Halls,SHDX_E1A2,,,,,,,,,,,,,,,,,,,,,,,
 Loading Zone,SHDX_E1A3,,,,,,,,,,,,,,,,,,,,,,,
 Ending,SHDX_ENDING,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission,,,,,,,,,,,,,,,,,,,,,,
-"Due to their importance in weather control and other tasks, there's a certain bit of
-nationalism and pride within the Pegasi race, and thus within the Pegasi city of
-Cloudsdale within Equestria. However, something changed recently that made
-that even more profound. And things got really dark at the Cloudsdale Weather
-Corporation, which became more militaristic. Pegasi across Equestria were
-suddenly required to do fitness exams, and if they failed, go through some
-rigorous training program at the monolithic facilities. However, there is no
-training program, as one foal is about to find out.",SHDX_INTRO_1,,,,,,,,,,,,,,,,,,,,,,,
-"Meet Scootaloo, she, and her friend Orion Solstice and another pegasi by
-the name of Aurora Dawn all failed their exams. Scootaloo and the others
-enter the Cloudsdale Weather Corporation. They're given a tour… an odd,
-foreboding tour by a colt by the name of Dr. Atmosphere. Sensing something
+"Due to their importance in weather control
+and other tasks, there's a certain bit of
+nationalism and pride within the Pegasi
+race, and thus within the Pegasi city of
+Cloudsdale within Equestria. However,
+something changed recently that made
+that even more profound. And things got
+really dark at the Cloudsdale Weather
+Corporation, which became more
+militaristic.",SHDX_INTRO_1A,,,,,,,,,,,,,,,,,,,,,,,
+"Pegasi across Equestria were
+suddenly required to do fitness exams,
+and if they failed, go through some
+rigorous training program at the monolithic
+facilities. However, there is no
+training program, as one foal is
+about to find out.",SHDX_INTRO_1B,,,,,,,,,,,,,,,,,,,,,,,
+"Meet Scootaloo, she, and her friend
+Orion Solstice and another pegasi by
+the name of Aurora Dawn all failed
+their exams. Scootaloo and the others
+enter the Cloudsdale Weather Corporation.
+They're given a tour… an odd,
+foreboding tour by a colt by the name of
+Dr. Atmosphere. Sensing something
 sinister, Scootaloo hatches a plan.",SHDX_INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
-"During the tour, she wanders off into one of the bathrooms that are under
-construction. A guard chases after her. She wrestles with the guard in the
-construction zone, before exerting enough force to snap his neck. The two
-fall down a ventilation shaft thirty floors to the surface - to the Clousdale
-Weather Corporation's ground location. Cloudsdale had two locations -
-a physical location, just north of Tchpsor, Boredomdai, and the floating
-part which was more mobile. It had stopped being mobile as of late.
-Fortunately for Scootaloo, she survived the fall. The guard was not so lucky.",SHDX_INTRO_3,,,,,,,,,,,,,,,,,,,,,,,
-"She finds a two way CB radio and a hoof blaster on the dead guard, as well
-as his utility belt. The CB radio might be useful to call for help. Surely someone
-out there could help her. However, she can't get a signal from here. She'd need to
+"During the tour, she wanders off into one
+of the bathrooms that are under
+construction. A guard chases after her.
+She wrestles with the guard in the
+construction zone, before exerting
+enough force to snap his neck. The two
+fall down a ventilation shaft thirty floors
+to the surface - to the Clousdale
+Weather Corporation's ground location.",SHDX_INTRO_3A,,,,,,,,,,,,,,,,,,,,,,,
+"Cloudsdale had two locations -
+a physical location, just north of Tchpsor,
+Boredomdai, and the floating
+part which was more mobile. It had stopped
+being mobile as of late.
+Fortunately for Scootaloo, she
+survived the fall. The guard was not so lucky.",SHDX_INTRO_3B,,,,,,,,,,,,,,,,,,,,,,,
+"She finds a two way CB radio and a
+hoof blaster on the dead guard, as well
+as his utility belt. The CB radio might be
+useful to call for help. Surely someone
+out there could help her. However, she
+can't get a signal from here. She'd need to
 get somewhere tall and out in the open.",SHDX_INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
-"Arming herself with the blaster and strapping the utility belt up, she sees a door
-ahead. Not knowing at all what is behind that door, she has no idea. Her goal is
-simple - survive and rescue Orion, and Aurora if she can. There's no telling what
-she's going to find. Despite what the suits say, she's been trained by the best -
-Rainbow Dash - even if she can't fly very well, she can kick ass. She took down
+"Arming herself with the blaster and
+strapping the utility belt up, she sees a door
+ahead. Not knowing at all what is behind that
+door, she has no idea. Her goal is
+simple - survive and rescue Orion, and
+Aurora if she can. There's no telling what
+she's going to find.",SHDX_INTRO_5A,,,,,,,,,,,,,,,,,,,,,,,
+"Despite what the suits
+say, she's been trained by the best -
+Rainbow Dash - even if she can't fly
+very well, she can kick ass. She took down
 one guard, what's another couple more?
 
-""I gotta get outta here!""",SHDX_INTRO_5,,,,,,,,,,,,,,,,,,,,,,,
-"After taking down Surprise, Scootaloo looks at the door behind her with
-determination. She can taste the first bit of freedom from this place. If only
-she was able to fly.",SHDX_EP1END_1,,,,,,,,,,,,,,,,,,,,,,,
-"She climbs a radio tower. She knows neighboring Boredomdai might be able
-to help contact mainland Equestria. She manages to get ahold of someone.
-Not holding her breath, she climbs back down. Soon, however, she hears radio
-chatter from the Cloudsdale Weather Corporation - Equestrian forces arrive.
-Immediately Pegapol guards open fire on them. Scootaloo can hear it now -
-Equestrian forces are calling in backup. It's going to be war. She'll be rescued
-eventually, she just needs to survive long enough.",SHDX_EP1END_2,,,,,,,,,,,,,,,,,,,,,,,
-"Soon, Dr. Atmosphere is informed about his sister, Surprise, who died at the
-hooves of Scootaloo. He is, to put it mildly, pissed off and wants nothing more
-than your blood. You even hear him cursing you on one of the CB radio channels.",SHDX_EP1END_3,,,,,,,,,,,,,,,,,,,,,,,
-"Eventually you find a computer room. One of the screens lights up. You are
-shocked at who it is. It looks like Rainbow Dash. No! It can't be! This has to
-be some sort of trick by the Pegasi Reich, surely.
+""I gotta get outta here!""",SHDX_INTRO_5B,,,,,,,,,,,,,,,,,,,,,,,
+"After taking down Surprise, Scootaloo
+looks at the door behind her with
+determination. She can taste the
+first bit of freedom from this place.
 
-""Well, hello Scootaloo. It appears you're causing trouble for your big sister.""
-She says with a malicious grin.
+If only she was able to fly.",SHDX_EP1END_1,,,,,,,,,,,,,,,,,,,,,,,
+"She climbs a radio tower. She knows
+neighboring Boredomdai might be able
+to help contact mainland Equestria.
+She manages to get ahold of someone.
+Not holding her breath, she climbs back
+down.",SHDX_EP1END_2A,,,,,,,,,,,,,,,,,,,,,,,
+"Soon, however, she hears radio
+chatter from the Cloudsdale Weather
+Corporation - Equestrian forces arrive.
+Immediately Pegapol guards open fire
+on them. Scootaloo can hear it now -
+Equestrian forces are calling in backup.
+It's going to be war. She'll be rescued
+eventually, she just needs to survive
+long enough.",SHDX_EP1END_2B,,,,,,,,,,,,,,,,,,,,,,,
+"Soon, Dr. Atmosphere is informed
+about his sister, Surprise, who died
+at the hooves of Scootaloo. He is,
+to put it mildly, pissed off and wants
+nothing more than your blood. You
+even hear him cursing you on one
+of the CB radio channels.",SHDX_EP1END_3,,,,,,,,,,,,,,,,,,,,,,,
+"Eventually you find a computer room.
+One of the screens lights up. You are
+shocked at who it is. It looks like
+Rainbow Dash. No! It can't be! This has to
+be some sort of trick by the Pegasi Reich,
+surely.
 
-Scootaloo starts crying after an intense amount of shock. ""I THOUGHT
-YOU LOVED ME!""
+""Well, hello Scootaloo. It appears you're
+causing trouble for your big sister."" She
+says with a malicious grin..",SHDX_EP1END_4A,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo starts crying after an intense
+amount of shock. ""I THOUGHT YOU
+LOVED ME!""
 
-The rainbow maned pony didn't acknowledge. ""Surrender now, Scootaloo.""",SHDX_EP1END_4,,,,,,,,,,,,,,,,,,,,,,,
-"""There's nowhere to go. You try to leave, you get caught in some nasty
-crossfire. You stay in here, you'll certainly die.""",SHDX_EP1END_5,,,,,,,,,,,,,,,,,,,,,,,
-"""...Oh, and speaking of dying, next time I contact you, say goodbye
+The rainbow maned pony didn't
+acknowledge. ""Surrender now,
+Scootaloo.""",SHDX_EP1END_4B,,,,,,,,,,,,,,,,,,,,,,,
+"""There's nowhere to go. You try to
+leave, you get caught in some nasty
+crossfire. You stay in here, you'll
+certainly die.""",SHDX_EP1END_5,,,,,,,,,,,,,,,,,,,,,,,
+"""...Oh, and speaking of dying, next
+time I contact you, say goodbye
 to one of your friends!""
 
-Scootaloo saw Aurora and Orion in the back. They were terrified
-and confused. Aurora was crying.
+Scootaloo saw Aurora and Orion in
+the back. They were terrified and
+confused. Aurora was crying.
 
-""YOU LEAVE THEM ALONE!""
+""YOU LEAVE THEM ALONE!""",SHDX_EP1END_6A,,,,,,,,,,,,,,,,,,,,,,,
+"The dictatorial pony laughed.
+""Nonsense. What fun would that be.
+You have sixty minutes to comply,
+bitch."" The screen then turned off.
 
-The dictatorial pony laughed. ""Nonsense. What fun would that be. You
-have sixty minutes to comply, bitch."" The screen then turned off.
-
-Scootaloo knew what she had to do. She had to rescue them. Even if
-it meant running into Dr. Atmosphere. She was really upset at the
-betrayal of Rainbow Dash, but her friends depended on her more
-than ever.",SHDX_EP1END_6,,,,,,,,,,,,,,,,,,,,,,,
-"Meanwhile in neighboring Tchpsor, an off duty cop by the name
-of Sanya K. Waffles is visiting a local bar. Someone tells them
+Scootaloo knew what she had to
+do. She had to rescue them. Even
+if it meant running into Dr.
+Atmosphere. She was really
+upset at the betrayal of Rainbow
+Dash, but her friends depended
+on her more than ever.",SHDX_EP1END_6B,,,,,,,,,,,,,,,,,,,,,,,
+"Meanwhile in neighboring Tchpsor,
+an off duty cop by the name
+of Sanya K. Waffles is visiting
+a local bar. Someone tells them
 to turn on the news.
 
-""Cloudsdale and Equestria are at war!"" They said.
-
-Sanya couldn't believe it. War so close to her home. She
-wondered what would happen if it spilled over into Boredomdai...",SHDX_EP1END_7,,,,,,,,,,,,,,,,,,,,,,,
+""Cloudsdale and Equestria
+are at war!"" The random
+patron said.",SHDX_EP1END_7A,,,,,,,,,,,,,,,,,,,,,,,
+"Sanya couldn't believe it.
+War so close to her home.
+She wondered what would
+happen if it spilled over into
+Boredomdai...",SHDX_EP1END_7B,,,,,,,,,,,,,,,,,,,,,,,

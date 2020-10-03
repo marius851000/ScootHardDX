@@ -18,6 +18,8 @@ Class SHDX_MissileWeapon : SHDX_Weapon
 	{
 		Super.DoEffect();
 		
+		// remove missile weapons once all ammo is
+		// used up
 		if (AmmoType1 && Owner.CountInv(AmmoType1) <= 0)
 		{
 			if (!AmmoType2 || (AmmoType2 && Owner.CountInv(AmmoType2) <= 0))
@@ -29,20 +31,37 @@ Class SHDX_MissileWeapon : SHDX_Weapon
 	
 	override bool TryPickup (in out Actor toucher)
 	{
+		// Don't pick up if player is currently a chicken
+		if (toucher is "SHDX_ChickenPlayer")
+			return false;
 		
+		// See if player currently has another Missile Weapon
+		// if player currently has another weapon, press
+		// the use key to pick up a weapon instead (only
+		// needs to be done if you have one equipped
 		let w = toucher.FindInventory("SHDX_MissileWeapon", true);
 		if (w)
 		{
+			// check input...
 			if (toucher.player && (toucher.player.cmd.buttons & BT_USE && !(toucher.player.oldbuttons & BT_USE)))
 			{
-				toucher.A_DropInventory(w.GetClass());
+				// use built in function to drop inventory
+				let ww = toucher.DropInventory(w);
+				if (ww)
+				{
+					// don't want the weapon to go flying off
+					// into a different direction
+					ww.A_Stop();
+				}
 				
 				return Super.TryPickup(toucher);
 			}
 			
+			// don't pick up...
 			return false;
 		}
 		
+		// if no conditions are met, treat as normal item pickup
 		return Super.TryPickup(toucher);
 	}
 	
@@ -50,6 +69,10 @@ Class SHDX_MissileWeapon : SHDX_Weapon
 	{
 		if (dropper)
 		{
+			// Remove ammo from player. This doesn't seem to
+			// be done automatically with A_DropInventory
+			// so we must do it here. Oddly it seems the
+			// ammo is in fact dropped though...
 			Ammo a1, a2;
 			if (ammotype1)
 				a1 = Ammo(dropper.FindInventory(ammotype1));

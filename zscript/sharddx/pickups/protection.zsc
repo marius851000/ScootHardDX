@@ -146,16 +146,6 @@ Class SHDX_WeatherproofArmor : SHDX_PowerProtectionGiver
 		+INVENTORY.AUTOACTIVATE
 	}
 	
-	override void DoEffect()
-	{
-		Super.DoEffect();
-		
-		if (Owner && EffectTics == 1)
-		{
-			Owner.A_StartSound("powerup/disappear", 13);
-		}
-	}
-	
 	States
 	{
 		Spawn:

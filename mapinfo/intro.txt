@@ -10,8 +10,14 @@ Intermission IntroEpisode1
 	{
 		Background = "graphics/cutscenes/intro/intro_1.png"
 		Music = "POW"
-		TextColor = "Red"
-		Text = "$SHDX_INTRO_1"
+		TextColor = "Cyan"
+		Text = "$SHDX_INTRO_1A"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/intro/intro_1.png"
+		TextColor = "Cyan"
+		Text = "$SHDX_INTRO_1B"
 	}
 	Image
 	{
@@ -21,7 +27,7 @@ Intermission IntroEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/intro/intro_2.png"
-		TextColor = "Red"
+		TextColor = "Green"
 		Text = "$SHDX_INTRO_2"
 	}
 	Image
@@ -32,8 +38,14 @@ Intermission IntroEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/intro/intro_3.png"
-		TextColor = "Red"
-		Text = "$SHDX_INTRO_3"
+		TextColor = "Green"
+		Text = "$SHDX_INTRO_3A"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/intro/intro_3.png"
+		TextColor = "Green"
+		Text = "$SHDX_INTRO_3B"
 	}
 	Image
 	{
@@ -43,7 +55,7 @@ Intermission IntroEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/intro/intro_4.png"
-		TextColor = "Red"
+		TextColor = "Green"
 		Text = "$SHDX_INTRO_4"
 	}
 	Image
@@ -54,8 +66,14 @@ Intermission IntroEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/intro/intro_5.png"
-		TextColor = "Red"
-		Text = "$SHDX_INTRO_5"
+		TextColor = "Green"
+		Text = "$SHDX_INTRO_5A"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/intro/intro_5.png"
+		TextColor = "Green"
+		Text = "$SHDX_INTRO_5B"
 	}
 	Image
 	{

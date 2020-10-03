@@ -11,7 +11,7 @@ Intermission EndEpisode1
 		Background = "graphics/cutscenes/end1/end1_1.png"
 		Music = "WONDERIN"
 		Text = "$SHDX_EP1END_1"
-		TextColor = "Red"
+		TextColor = "Green"
 	}
 	Image
 	{
@@ -21,8 +21,14 @@ Intermission EndEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end1/end1_2.png"
-		Text = "$SHDX_EP1END_2"
-		TextColor = "Red"
+		Text = "$SHDX_EP1END_2A"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_2.png"
+		Text = "$SHDX_EP1END_2B"
+		TextColor = "Green"
 	}
 	Image
 	{
@@ -33,7 +39,7 @@ Intermission EndEpisode1
 	{
 		Background = "graphics/cutscenes/end1/end1_3.png"
 		Text = "$SHDX_EP1END_3"
-		TextColor = "Red"
+		TextColor = "Green"
 	}
 	Image
 	{
@@ -43,8 +49,14 @@ Intermission EndEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end1/end1_4.png"
-		Text = "$SHDX_EP1END_4"
-		TextColor = "Red"
+		Text = "$SHDX_EP1END_4A"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_4.png"
+		Text = "$SHDX_EP1END_4B"
+		TextColor = "Green"
 	}
 	Image
 	{
@@ -55,7 +67,7 @@ Intermission EndEpisode1
 	{
 		Background = "graphics/cutscenes/end1/end1_5.png"
 		Text = "$SHDX_EP1END_5"
-		TextColor = "Red"
+		TextColor = "Green"
 	}
 	Image
 	{
@@ -65,8 +77,14 @@ Intermission EndEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end1/end1_6.png"
-		Text = "$SHDX_EP1END_6"
-		TextColor = "Red"
+		Text = "$SHDX_EP1END_6A"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_6.png"
+		Text = "$SHDX_EP1END_6B"
+		TextColor = "Green"
 	}
 	Image
 	{
@@ -76,8 +94,14 @@ Intermission EndEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end1/end1_7.png"
-		Text = "$SHDX_EP1END_7"
-		TextColor = "Red"
+		Text = "$SHDX_EP1END_7A"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_7.png"
+		Text = "$SHDX_EP1END_7B"
+		TextColor = "Green"
 	}
 	Image
 	{
