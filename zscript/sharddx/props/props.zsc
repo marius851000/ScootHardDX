@@ -181,10 +181,9 @@ Class SHDX_ExplosiveBarrel : SHDX_ExplodeyProp
 			EXPL A 0
 			{
 				SHDX_Utilities.DoExplosion(self, 128, 0, 128, 0, DE_NOTMISSILE, 'Explosive');
+				A_SpawnItemEx("SHDX_Explosiveness", 0, 0, 16);
 			}
-			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
-			EXPL A 0 Bright A_StartSound("world/barrelx", CHAN_BODY);
-			EXPL BCDEFGHI 3 Bright;
+			TNT1 AAAAAA 5;
 			Stop;
 	}
 }

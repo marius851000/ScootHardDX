@@ -3,7 +3,7 @@
 $playeralias    scootaloo  male    *death      scootaloo/death
 $playeralias    scootaloo  male    *xdeath     scootaloo/death
 $playersound    scootaloo  male    *gibbed     "sounds/slop.ogg"
-$playeralias    scootaloo  male    *pain100    "sounds/scootaloo/SCOOPAI3.ogg"
+$playeralias    scootaloo  male    *pain100    "sounds/scootaloo/SCOO_OW1.ogg"
 $playersounddup scootaloo  male    *pain75     *pain100
 $playersounddup scootaloo  male    *pain50     *pain100
 $playersounddup scootaloo  male    *pain25     *pain100
@@ -16,7 +16,7 @@ $playersound    scootaloo  male    *usefail    "sounds/usefail.ogg"
 $playeralias    scootaloo  female    *death      scootaloo/death
 $playeralias    scootaloo  female    *xdeath     scootaloo/death
 $playersound    scootaloo  female    *gibbed     "sounds/slop.ogg"
-$playeralias    scootaloo  female    *pain100    "sounds/scootaloo/SCOOPAI3.ogg"
+$playeralias    scootaloo  female    *pain100    "sounds/scootaloo/SCOO_OW1.ogg"
 $playersounddup scootaloo  female    *pain75     *pain100
 $playersounddup scootaloo  female    *pain50     *pain100
 $playersounddup scootaloo  female    *pain25     *pain100
@@ -29,7 +29,7 @@ $playersound    scootaloo  female    *usefail    "sounds/usefail.ogg"
 $playeralias    scootaloo  other    *death      scootaloo/death
 $playeralias    scootaloo  other    *xdeath     scootaloo/death
 $playersound    scootaloo  other    *gibbed     "sounds/slop.ogg"
-$playeralias    scootaloo  other    *pain100	"sounds/scootaloo/SCOOPAI3.ogg"
+$playeralias    scootaloo  other    *pain100	"sounds/scootaloo/SCOO_OW1.ogg"
 $playersounddup scootaloo  other    *pain75     *pain100
 $playersounddup scootaloo  other    *pain50     *pain100
 $playersounddup scootaloo  other    *pain25     *pain100
@@ -56,13 +56,10 @@ scootaloo/voiceover8	"sounds/scootaloo/scoots08.ogg"
 scootaloo/voiceover9	"sounds/scootaloo/scoots09.ogg"
 scootaloo/voiceover10	"sounds/scootaloo/scoots10.ogg"
 
-scootaloo/event01		"sounds/scootaloo/SCEVNT01.ogg"
-scootaloo/event02		"sounds/scootaloo/SCEVNT02.ogg"
-scootaloo/event03		"sounds/scootaloo/SCEVNT03.ogg"
+scootaloo/event01			"sounds/scootaloo/SCEVNT01.ogg"
+scootaloo/event02			"sounds/scootaloo/SCEVNT02.ogg"
 scootaloo/surprisestart		"sounds/scootaloo/SCEVNT03.ogg"
 scootaloo/surpriseend		"sounds/scootaloo/SCEVNT04.ogg"
-scootaloo/eventboss2	"sounds/scootaloo/SCEVNT05.ogg"
 scootaloo/atmospherestart	"sounds/scootaloo/SCEVNT05.ogg"
-scootaloo/atmosphereend	"sounds/scootaloo/SCEVNT06.ogg"
-scootaloo/event06		"sounds/scootaloo/SCEVNT06.ogg"
-scootaloo/eventboss3	"sounds/scootaloo/SCEVNT07.ogg"
+scootaloo/atmosphereend		"sounds/scootaloo/SCEVNT06.ogg"
+scootaloo/eventboss3		"sounds/scootaloo/SCEVNT07.ogg"

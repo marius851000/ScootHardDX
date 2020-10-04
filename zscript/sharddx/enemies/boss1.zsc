@@ -79,14 +79,13 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			SURP AA 10 A_Look;
 			Loop;
 		See:
-			SURP A 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "surprisestart", OLSSF_FORCEONELINER);
-		See1:
+			SURP A 0 A_SetInvulnerable;
 			SURP A 0 A_StartSound(SeeSound, CHAN_VOICE, attenuation:ATTN_NONE);
+			SURP A 35;
+			SURP A 0 A_UnSetInvulnerable;
+		See1:
+			SURP A 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "surprisestart", OLSSF_FORCEONELINER);
 		See2:
-			SURP A 4 A_Chase(null, null, CHF_DONTMOVE);
-			SURP A 4 A_Chase(null, null, CHF_DONTMOVE);
-			SURP A 4 A_Chase(null, null, CHF_DONTMOVE);
-			SURP A 4 A_Chase(null, null, CHF_DONTMOVE);
 			SURP A 4 A_Chase(null, null, CHF_DONTMOVE);
 			SURP A 4 A_Chase(null, null, CHF_DONTMOVE);
 			SURP A 4 A_Chase(null, null, CHF_DONTMOVE);

@@ -7,14 +7,16 @@ DoomEdNums
 	6004 = SHDX_HighGuardMale
 	6005 = SHDX_HighGuardFemale
 	6006 = SHDX_PegapolMale
-	// 6007 = 
+	
 	6008 = SHDX_Engineer
-	// 6009 = SHDX_Engineer
+	6009 = SHDX_ZombieNormal
+	6010 = SHDX_ZombieExplosive
 	
 	6050 = SHDX_BossSpot
 	6051 = SHDX_SurpriseBoss
 	6052 = SHDX_DrAtmosphereBoss
-	6053 = SHDX_PegasusDevice
+	6053 = SHDX_AtmosphereZombieSpot
+	6054 = SHDX_PegasusDevice
 	
 	6500 = SHDX_SubmachineGun
 	6502 = SHDX_MissileLauncher

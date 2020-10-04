@@ -191,18 +191,6 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 					gravity = GetDefaultByType("SHDX_ScootalooPlayer").Gravity;
 				}
 			}
-			
-			if (forwardmove)
-			{
-				Bob(Angle, cmd.forwardmove * bobfactor / 256., true);
-				ForwardThrust(forwardmove, Angle);
-			}
-			if (sidemove)
-			{
-				let a = Angle - 90;
-				Bob(a, cmd.sidemove * bobfactor / 256., false);
-				Thrust(sidemove, a);
-			}
 		}
 	}
 	

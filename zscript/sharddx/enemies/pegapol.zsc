@@ -42,7 +42,6 @@ Class SHDX_PegapolMale : SHDX_Enemy
 	}
 	
 	int flyingmode;
-	int flyingtime;
 	
 	
 	void A_DropItemsPegapol()
@@ -185,7 +184,7 @@ Class SHDX_PegapolMale : SHDX_Enemy
 		Death.Weather:
 		Death.Extreme:
 		XDeath:
-			GIBX B 1
+			GIBX A 3
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsPegapol();

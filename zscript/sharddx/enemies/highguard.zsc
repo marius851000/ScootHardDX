@@ -106,7 +106,7 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 		Death.Weather:
 		Death.Extreme:
 		XDeath:
-			GIBX B 1
+			GIBX A 3
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsHighGuard();

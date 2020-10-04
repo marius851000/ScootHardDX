@@ -107,17 +107,6 @@ Class SHDX_PegasusDevice : SHDX_Boss
 	}
 }
 
-Class SHDX_Explosiveness : SHDX_Actor
-{
-	States
-	{
-		Spawn:
-			EXP2 A 0 NoDelay A_StartSound("world/barrelx", CHAN_BODY);
-			EXP2 ABCDEFGHIJK 3 bright A_Stop;
-			stop;
-	}
-}
-
 Class SHDX_PDPRainbowBall : SHDX_Projectile
 {
 	Default

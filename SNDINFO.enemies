@@ -67,6 +67,8 @@ boss2/pain1				"sounds/enemies/atmos/atmos_ow.ogg"
 boss2/pain2				"sounds/enemies/atmos/atmosow2.ogg"
 $random boss2/pain		{ boss2/pain1 boss2/pain2 }
 boss2/death				"sounds/enemies/atmos/atmosdie.ogg"
+boss2/stomp				"sounds/THUD.ogg"
+boss2/tornado			"sounds/weapons/tornado_projectile.ogg"
 
 boss3/sight				"sounds/enemies/pdevice/pdp_see1.ogg"
 boss3/death				"sounds/enemies/pdevice/pdp_die1.ogg"
@@ -90,3 +92,11 @@ engineer/miss			"sounds/weapons/destablizer_full.ogg"
 engineer/death1			"sounds/enemies/engie/en_die1.ogg"
 engineer/death2			"sounds/enemies/engie/en_die2.ogg"
 $random engineer/death			{ engineer/death1 engineer/death2}
+
+zombie/attack			"sounds/enemies/zombie/zombie_throw.ogg"
+zombie/shotx			"sounds/enemies/zombie/zombie_shotx.ogg"
+zombie/sight			"sounds/enemies/zombie/zombie_sight.ogg"
+zombie/active			"sounds/enemies/zombie/zombie_active.ogg"
+zombie/pain				"sounds/enemies/zombie/zombie_pain.ogg"
+
+zombie2/scream			"sounds/enemies/zombie/zombie_aaaa.ogg"
