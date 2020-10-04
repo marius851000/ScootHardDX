@@ -1,12 +1,18 @@
-grunt1/sight1				"sounds/enemies/guard/g_see1.ogg"
-grunt1/sight2				"sounds/enemies/guard/g_see2.ogg"
-grunt1/sight3				"sounds/enemies/guard/g_see3.ogg"
+grunt1/sight1				"sounds/enemies/guard/ben/g_see1.ogg"
+grunt1/sight2				"sounds/enemies/guard/ben/g_see2.ogg"
+grunt1/sight3				"sounds/enemies/guard/ben/g_see3.ogg"
 $random	grunt1/sight		{ grunt1/sight1	grunt1/sight2 grunt1/sight3 }
 
-grunt1/death1				"sounds/enemies/guard/g_die1.ogg"
-grunt1/death2				"sounds/enemies/guard/g_die2.ogg"
-grunt1/pain					"sounds/enemies/guard/g_die3.ogg"
+grunt1/death1				"sounds/enemies/guard/ben/g_die1.ogg"
+grunt1/death2				"sounds/enemies/guard/ben/g_die2.ogg"
+grunt1/pain					"sounds/enemies/guard/ben/g_die3.ogg"
 $random	grunt1/death		{ grunt1/death1	grunt1/death2}
+
+grunt2/active				"sounds/enemies/guard/ben/g_active1.ogg"
+grunt2/active				"sounds/enemies/guard/ben/g_active2.ogg"
+$random	grunt/active		{ grunt/active1 grunt/active2 }
+
+grunt/pain					"sounds/enemies/guard/ben/g_pain.ogg"
 
 grunt2/sight1				"sounds/enemies/guard/kelsie/g2_see1.ogg"
 grunt2/sight2				"sounds/enemies/guard/kelsie/g2_see2.ogg"
@@ -36,18 +42,27 @@ hguard1/death				"sounds/enemies/high/hg_die1.ogg"
 
 hguard/attack			"sounds/weapons/smg_fire.ogg"
 
-pegapol/sight1			"sounds/enemies/pegpol/pp_see1.ogg"
-pegapol/sight2			"sounds/enemies/pegpol/pp_see2.ogg"
+pegapol/sight1			"sounds/enemies/pegapol/pp_see1.ogg"
+pegapol/sight2			"sounds/enemies/pegapol/pp_see2.ogg"
 $random pegapol/sight	{ pegapol/sight1 pegapol/sight2 }
-pegapol/pain			dsempty	// needs replaced?
-pegapol/death			"sounds/enemies/pegpol/pp_die.ogg"
+pegapol/pain1			"sounds/enemies/pegapol/pp_pain1.ogg"
+pegapol/pain2			"sounds/enemies/pegapol/pp_pain2.ogg"
+$random pegapol/pain	{ pegapol/pain1 pegapol/pain2 }
+pegapol/death1			"sounds/enemies/pegapol/pp_die1.ogg"
+pegapol/death2			"sounds/enemies/pegapol/pp_die2.ogg"
+pegapol/death3			"sounds/enemies/pegapol/pp_die3.ogg"
+$random	pegapol/death	{ pegapol/death1 pegapol/death2 pegapol/death3 }
 pegapol/attack			"sounds/weapons/smg_fire.ogg"
+pegapol/active1			"sounds/enemies/pegapol/pp_active1.ogg"
+pegapol/active2			"sounds/enemies/pegapol/pp_active2.ogg"
+pegapol/active3			"sounds/enemies/pegapol/pp_active3.ogg"
+$random	pegapol/active	{ pegapol/active1 pegapol/active2 pegapol/active3 }
+
 
 // BOSS #1 - Surprise
 boss1/sight1			"sounds/enemies/surprise/kelsie/cupcake_time.ogg"
 boss1/sight2			"sounds/enemies/surprise/kelsie/surprise.ogg"
 boss1/sight3			"sounds/enemies/surprise/kelsie/surprise_motherfucker.ogg"
-boss1/laugh				"sounds/enemies/surprise/b1_laugh.ogg"
 boss1/stomp				"sounds/THUD.ogg"
 boss1/pain				"sounds/enemies/surprise/kelsie/ow.ogg"
 boss1/taunt1			"sounds/enemies/surprise/kelsie/i_can_hear_you_breathing.ogg"
@@ -83,15 +98,19 @@ $limit boss3/meleehit	1
 
 engineer/sight1			"sounds/enemies/engie/en_see1.ogg"
 engineer/sight2			"sounds/enemies/engie/en_see2.ogg"
-$random engineer/sight			{ engineer/sight1 engineer/sight2}
+$random engineer/sight  { engineer/sight1 engineer/sight2}
 engineer/death			"sounds/enemies/engie/en_death.ogg"
 engineer/attack			"sounds/weapons/plasma_fire.ogg"
 engineer/shotx			"sounds/weapons/plasma_shotx.ogg"
 engineer/melee			"sounds/weapons/destablizer_hit.ogg"
 engineer/miss			"sounds/weapons/destablizer_full.ogg"
+engineer/pain			"sounds/enemies/engie/en_pain.ogg"
 engineer/death1			"sounds/enemies/engie/en_die1.ogg"
 engineer/death2			"sounds/enemies/engie/en_die2.ogg"
-$random engineer/death			{ engineer/death1 engineer/death2}
+$random engineer/death { engineer/death1 engineer/death2}
+engineer/active1		"sounds/enemies/engie/en_active1.ogg"
+engineer/active2		"sounds/enemies/engie/en_active2.ogg"
+$random engineer/active	{ engineer/active1 engineer/active2 }
 
 zombie/attack			"sounds/enemies/zombie/zombie_throw.ogg"
 zombie/shotx			"sounds/enemies/zombie/zombie_shotx.ogg"
