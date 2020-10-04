@@ -49,6 +49,13 @@ Class SHDX_PowerSBaHJ : PowerSpeed
 		
 		Owner.A_SetPitch(Owner.pitch + rpitch);
 		Owner.A_SetRoll(Owner.roll + rpitch);
+		
+		if (EffectTics % 35 == 0)
+		{
+			String hjcolor = String.Format("%02x %02x %02x", Random[SBaHJ](0,255), Random[SBaHJ](0,255), Random[SBaHJ](0,255));
+			Owner.A_SetBlend(hjcolor, 0.25, 105);
+		}
+		
 		// FadeTo(Random(0, 255), Random(0, 255), Random(0, 255), 0.5, 1.0);
 		
 		if (Owner.FindInventory("SHDX_ChickenMorph"))
@@ -65,7 +72,7 @@ Class SHDX_PowerSBaHJ : PowerSpeed
 		{
 			Owner.A_SetPitch(0);
 			Owner.A_SetRoll(0);
-			A_StartSound("powerup/disappear", CHAN_BODY);
+			Owner.A_StartSound("powerup/disappear", SHDXCHAN_POWERUP);
 		}
 		
 		Super.DoEffect();
