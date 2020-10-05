@@ -27,6 +27,44 @@ Class SHDX_Health : Health
 		Scale 0.12;
 		Inventory.PickupSound "pickup/healthfood";
 	}
+	
+	override void PlayPickupSound (Actor toucher)
+	{
+		double atten;
+		int chan;
+		int flags = 0;
+
+		if (bNoAttenPickupSound)
+		{
+			atten = ATTN_NONE;
+		}
+		/*
+		else if ((ItemFlags & IF_FANCYPICKUPSOUND) &&
+			(toucher == NULL || toucher->CheckLocalView()))
+		{
+			atten = ATTN_NONE;
+		}
+		*/
+		else
+		{
+			atten = ATTN_NORM;
+		}
+
+		if (toucher != NULL && toucher.CheckLocalView())
+		{
+			chan = CHAN_ITEM;
+			flags = CHANF_NOPAUSE | CHANF_MAYBE_LOCAL;
+		}
+		else
+		{
+			chan = CHAN_ITEM;
+			flags = CHANF_MAYBE_LOCAL;
+		}
+		
+		flags |= CHANF_OVERLAP;
+		
+		toucher.A_StartSound(PickupSound, chan, flags, 1, atten);
+	}
 }
 
 // Base Key Object Sets scale, pickup noise and size
@@ -42,5 +80,96 @@ Class SHDX_Key : Key
 		Height 24;
 		Scale 0.15;
 		Inventory.PickupSound "pickup/key";
+	}
+	
+	override void PlayPickupSound (Actor toucher)
+	{
+		double atten;
+		int chan;
+		int flags = 0;
+
+		if (bNoAttenPickupSound)
+		{
+			atten = ATTN_NONE;
+		}
+		/*
+		else if ((ItemFlags & IF_FANCYPICKUPSOUND) &&
+			(toucher == NULL || toucher->CheckLocalView()))
+		{
+			atten = ATTN_NONE;
+		}
+		*/
+		else
+		{
+			atten = ATTN_NORM;
+		}
+
+		if (toucher != NULL && toucher.CheckLocalView())
+		{
+			chan = CHAN_ITEM;
+			flags = CHANF_NOPAUSE | CHANF_MAYBE_LOCAL;
+		}
+		else
+		{
+			chan = CHAN_ITEM;
+			flags = CHANF_MAYBE_LOCAL;
+		}
+		
+		flags |= CHANF_OVERLAP;
+		
+		toucher.A_StartSound(PickupSound, chan, flags, 1, atten);
+	}
+}
+
+
+Class SHDX_PowerupGiver : PowerupGiver
+{
+	Default
+	{
+		//$NotAngled
+		//$Category "Keys"
+		//$Color 13
+
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+	}
+	
+	override void PlayPickupSound (Actor toucher)
+	{
+		double atten;
+		int chan;
+		int flags = 0;
+
+		if (bNoAttenPickupSound)
+		{
+			atten = ATTN_NONE;
+		}
+		/*
+		else if ((ItemFlags & IF_FANCYPICKUPSOUND) &&
+			(toucher == NULL || toucher->CheckLocalView()))
+		{
+			atten = ATTN_NONE;
+		}
+		*/
+		else
+		{
+			atten = ATTN_NORM;
+		}
+
+		if (toucher != NULL && toucher.CheckLocalView())
+		{
+			chan = CHAN_ITEM;
+			flags = CHANF_NOPAUSE | CHANF_MAYBE_LOCAL;
+		}
+		else
+		{
+			chan = CHAN_ITEM;
+			flags = CHANF_MAYBE_LOCAL;
+		}
+		
+		flags |= CHANF_OVERLAP;
+		
+		toucher.A_StartSound(PickupSound, chan, flags, 1, atten);
 	}
 }

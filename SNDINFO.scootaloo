@@ -8,7 +8,7 @@ $playersounddup scootaloo  male    *pain75     *pain100
 $playersounddup scootaloo  male    *pain50     *pain100
 $playersounddup scootaloo  male    *pain25     *pain100
 $playersound    scootaloo  male    *grunt      DSEMPTY
-$playersound	scootaloo  male    *land       DSEMPTY
+$playersound	scootaloo  male    *land       "sounds/p_land.ogg"
 $playersound    scootaloo  male    *jump       DSEMPTY
 $playersound    scootaloo  male    *fist       DSEMPTY
 $playersound    scootaloo  male    *usefail    "sounds/usefail.ogg"
@@ -21,7 +21,7 @@ $playersounddup scootaloo  female    *pain75     *pain100
 $playersounddup scootaloo  female    *pain50     *pain100
 $playersounddup scootaloo  female    *pain25     *pain100
 $playersound    scootaloo  female    *grunt      DSEMPTY
-$playersound	scootaloo  female    *land       DSEMPTY
+$playersound	scootaloo  female    *land       "sounds/p_land.ogg"
 $playersound    scootaloo  female    *jump       DSEMPTY
 $playersound    scootaloo  female    *fist       DSEMPTY
 $playersound    scootaloo  female    *usefail    "sounds/usefail.ogg"
@@ -34,7 +34,7 @@ $playersounddup scootaloo  other    *pain75     *pain100
 $playersounddup scootaloo  other    *pain50     *pain100
 $playersounddup scootaloo  other    *pain25     *pain100
 $playersound    scootaloo  other    *grunt      DSEMPTY
-$playersound	scootaloo  other    *land       DSEMPTY
+$playersound	scootaloo  other    *land       "sounds/p_land.ogg"
 $playersound    scootaloo  other    *jump       DSEMPTY
 $playersound    scootaloo  other    *fist       DSEMPTY
 $playersound    scootaloo  other    *usefail    "sounds/usefail.ogg"

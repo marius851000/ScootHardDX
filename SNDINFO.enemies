@@ -58,44 +58,6 @@ pegapol/active2			"sounds/enemies/pegapol/pp_active2.ogg"
 pegapol/active3			"sounds/enemies/pegapol/pp_active3.ogg"
 $random	pegapol/active	{ pegapol/active1 pegapol/active2 pegapol/active3 }
 
-
-// BOSS #1 - Surprise
-boss1/sight1			"sounds/enemies/surprise/kelsie/cupcake_time.ogg"
-boss1/sight2			"sounds/enemies/surprise/kelsie/surprise.ogg"
-boss1/sight3			"sounds/enemies/surprise/kelsie/surprise_motherfucker.ogg"
-boss1/stomp				"sounds/THUD.ogg"
-boss1/pain				"sounds/enemies/surprise/kelsie/ow.ogg"
-boss1/taunt1			"sounds/enemies/surprise/kelsie/i_can_hear_you_breathing.ogg"
-boss1/taunt2			"sounds/enemies/surprise/kelsie/lunchbox.ogg"
-boss1/taunt3			"sounds/enemies/surprise/kelsie/youre_toast.ogg"
-boss1/taunt4			"sounds/enemies/surprise/kelsie/laugh1.ogg"
-boss1/taunt5			"sounds/enemies/surprise/kelsie/laugh2.ogg"
-boss1/taunt6			"sounds/enemies/surprise/kelsie/laugh3.ogg"
-boss1/playerdied1		"sounds/enemies/surprise/kelsie/i_hope_you_saved.ogg"
-boss1/playerdied2		"sounds/enemies/surprise/kelsie/thats_all_folks.ogg"
-boss1/death				"sounds/enemies/surprise/kelsie/brother_no.ogg"			// hmmm....
-boss1/tornado			"sounds/weapons/tornado_projectile.ogg"
-$limit boss1/tornado	1
-
-boss2/sight				"sounds/enemies/atmos/atmossee.ogg"
-boss2/pain1				"sounds/enemies/atmos/atmos_ow.ogg"
-boss2/pain2				"sounds/enemies/atmos/atmosow2.ogg"
-$random boss2/pain		{ boss2/pain1 boss2/pain2 }
-boss2/death				"sounds/enemies/atmos/atmosdie.ogg"
-boss2/stomp				"sounds/THUD.ogg"
-boss2/tornado			"sounds/weapons/tornado_projectile.ogg"
-
-boss3/sight				"sounds/enemies/pdevice/pdp_see1.ogg"
-boss3/death				"sounds/enemies/pdevice/pdp_die1.ogg"
-boss3/active1			"sounds/enemies/pdevice/pdp_act1.ogg"
-boss3/active2			"sounds/enemies/pdevice/pdp_act2.ogg"
-boss3/active3			"sounds/enemies/pdevice/pdp_act3.ogg"
-$random boss3/active	{ boss3/active1 boss3/active2 boss3/active3 }
-boss3/meleehit			"sounds/saw_hit.ogg"
-$limit boss3/meleehit	1
-boss3/meleemiss			"sounds/saw_miss.ogg"		
-$limit boss3/meleehit	1
-
 engineer/sight1			"sounds/enemies/engie/en_see1.ogg"
 engineer/sight2			"sounds/enemies/engie/en_see2.ogg"
 $random engineer/sight  { engineer/sight1 engineer/sight2}
