@@ -12,52 +12,6 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-Class SHDX_AtmosphereZombieSpot : SHDX_Actor
-{
-	Default
-	{
-		//$Category "Monsters"
-		//$Sprite ZMCLB0
-		//$Title "Dr. Atmosphere Zombie Spawning Spot"
-		Radius 16;
-		Height 56;
-	}
-	
-	States
-	{
-		Spawn:
-			ZMCL A 4;
-			Loop;
-		RaiseTheDead:
-			ZMCL B 0 A_StartSound("world/thunder");
-			ZMCL BCBC 2 Bright;
-			ZMCL C 0
-			{
-				A_SpawnItemEx("SHDX_ZombieGround", flags:SXF_NOCHECKPOSITION);
-			}
-			Goto Spawn;
-	}
-}
-
-Class SHDX_ZombieGround : SHDX_Actor
-{
-	Default
-	{
-	}
-	
-	States
-	{
-		Spawn:
-			ZMBI Q 0 NoDelay A_StartSound("zombie/rise");
-			ZMBI QRST 4;
-			ZMBI T 0
-			{
-				A_SpawnItemEx("SHDX_ZombieNormal", flags:SXF_NOCHECKPOSITION);
-			}
-			Stop;
-	}
-}
-
 Class SHDX_AtmosphereTornado : SHDX_SurpriseTornado
 {
 	Default
@@ -89,7 +43,7 @@ Class SHDX_AtmosphereTornado : SHDX_SurpriseTornado
 	}
 }
 
-Class SHDX_AtmosphereFloorArc : SHDX_Projectile
+Class SHDX_FloorArc : SHDX_Projectile
 {
 	Default
 	{
@@ -168,9 +122,20 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		SHDX_Boss.CutsceneToPlay 'EndEpisode2';
 	}
 	
+	override void Tick()
+	{
+		Super.Tick();
+		if (cooldowntaunt > 0)
+		{
+			cooldowntaunt--;
+		}
+	}
+	
 	int flyingmode;
 	
 	const ATMOSFLY = 20;
+	
+	int cooldowntaunt;
 	
 	void A_FlyTowardsTarget(double speedtofly = ATMOSFLY)
 	{
@@ -186,17 +151,26 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	
 	void A_SpawnZombiesFromSpots()
 	{
-		ThinkerIterator deadraiserit = ThinkerIterator.Create("SHDX_AtmosphereZombieSpot");
-		SHDX_AtmosphereZombieSpot raiserspot;
+		ThinkerIterator deadraiserit = ThinkerIterator.Create("SHDX_ZombieSpot");
+		SHDX_ZombieSpot raiserspot;
 		
 		// iterate through the spots
-		while (raiserspot = SHDX_AtmosphereZombieSpot(deadraiserit.Next()))
+		while (raiserspot = SHDX_ZombieSpot(deadraiserit.Next()))
 		{
 			// if spot exists
 			if (raiserspot)
 			{
 				raiserspot.SetStateLabel("RaiseTheDead");
 			}
+		}
+	}
+	
+	void A_AtmosphereTaunt()
+	{
+		if (cooldowntaunt <= 0)
+		{
+			A_StartSound("boss2/taunt"..Random[DrAtmosphere](1,11), CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+			cooldowntaunt = 300;
 		}
 	}
 	
@@ -207,7 +181,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			Loop;
 		See:
 			ATMO A 0 A_SetInvulnerable;
-			ATMO A 50;
+			ATMO A 425;
 		See1:
 			ATMO B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "atmospherestart", OLSSF_FORCEONELINER);
 			ATMO B 0 A_UnSetInvulnerable();
@@ -219,7 +193,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 				
 				return ResolveState(null);
 			}
-			ATMO BCDC 2 A_Chase;
+			ATMO BCDCBCD 2 A_Chase;
 			ATMO E 0 A_Jump(32, "StartFlying");
 			Loop;
 		See2.Flying:
@@ -243,9 +217,9 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			}
 			Goto See2.Flying;
 		Missile:
-			ATMO M 0 A_Jump(256, "Missile.Stomp", "Missile.TriIce");
-		Missile.Normal:
-			ATMO M 0 A_StartSound("boss2/ice", CHAN_VOICE);
+			ATMO M 0 A_Jump(256, "Missile.Stomp", "Missile.TriIce", "Missile.Ice");
+		Missile.Ice:
+			ATMO M 0 A_AtmosphereTaunt;
 			ATMO M 5 A_FaceTarget;
 			ATMO N 2 Bright A_SpawnProjectile("SHDX_AtmosphereHailBall");
 			ATMO OM 2;
@@ -255,11 +229,11 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO OM 2;
 			goto See2;
 		Missile.TriIce:
-			ATMO M 0 A_StartSound("boss2/triice", CHAN_VOICE);
+			ATMO M 0 A_AtmosphereTaunt;
 			ATMO M 10 A_FaceTarget;
-			ATMO N 0 Bright
+			ATMO N 4 Bright
 			{
-				for (int i = 0; i < -32; i += 16)
+				for (int i = -32; i < 32; i += 16)
 				{
 					A_SpawnProjectile("SHDX_AtmosphereHailBall", angle:i);
 				}
@@ -267,16 +241,16 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO O 5 Bright;
 			goto See2;
 		Missile.Stomp:
-			ATMO P 4;
+			ATMO P 4 A_AtmosphereTaunt;
 			ATMO Q 5;
 			ATMO Q 0 A_StartSound("boss2/stomp", CHAN_BODY);
 			ATMO Q 0 A_Jump(256, "Missile.Stomp.Electric", "Missile.Stomp.Tornado", "Missile.Stomp.RaiseTheDead");
 		Missile.Stomp.Electric:
 			ATMO R 8
 			{
-				A_SpawnProjectile("SHDX_AtmosphereFloorArc", angle: -24);
-				A_SpawnProjectile("SHDX_AtmosphereFloorArc");
-				A_SpawnProjectile("SHDX_AtmosphereFloorArc", angle: 24);
+				A_SpawnProjectile("SHDX_FloorArc", spawnofs_xy: -32);
+				A_SpawnProjectile("SHDX_FloorArc");
+				A_SpawnProjectile("SHDX_FloorArc", spawnofs_xy: 32);
 			}
 			Goto See2;
 		Missile.Stomp.Tornado:
@@ -286,10 +260,12 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			}
 			Goto See2;
 		Missile.Stomp.RaiseTheDead:
+			ATMO T 0 A_StartSound("boss2/risetaunt", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 			ATMO T 8 A_SpawnZombiesFromSpots();
+			ATMO T 15;
 			Goto See2;
 		Missile.Flying:
-			ATMO H 0 A_StartSound("boss2/ice", CHAN_VOICE);
+			ATMO H 0 A_AtmosphereTaunt;
 			ATMO H 5 A_FaceTarget;
 			ATMO I 2 Bright
 			{
@@ -385,18 +361,6 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO Y 1 A_DD2_BossPlayCutscene();
 			ATMO Y -1 A_DD2_BossEndLevel();
 			Stop;
-	}
-}
-
-Class SHDX_DrAtmosFx1 : SHDX_Actor
-{
-	States
-	{
-		Spawn:
-			ATFX A 0 A_FadeTo(0.0, 0.1, true);
-			ATFX A 0 A_SetScale((scale.X+0.1), scale.Y);
-			ATFX ABC 3;
-			loop;
 	}
 }
 

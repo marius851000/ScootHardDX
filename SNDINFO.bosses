@@ -17,15 +17,33 @@ boss1/tornado			"sounds/weapons/tornado_projectile.ogg"
 $limit boss1/tornado	1
 
 // BOSS #2 - Dr. Hide Atmosphere
-boss2/sight				"sounds/enemies/atmos/atmossee.ogg"
-boss2/pain1				"sounds/enemies/atmos/atmos_ow.ogg"
-boss2/pain2				"sounds/enemies/atmos/atmosow2.ogg"
-$random boss2/pain		{ boss2/pain1 boss2/pain2 }
-boss2/death				"sounds/enemies/atmos/atmosdie.ogg"
+boss2/sight				"sounds/enemies/atmos/redsoldier55/at_intro2.ogg"
+boss2/pain1				"sounds/enemies/atmos/redsoldier55/at_pain1.ogg"
+boss2/pain2				"sounds/enemies/atmos/redsoldier55/at_pain2.ogg"
+boss2/pain3				"sounds/enemies/atmos/redsoldier55/at_pain3.ogg"
+$random boss2/pain		{ boss2/pain1 boss2/pain2 boss2/pain3 }
+boss2/death				"sounds/enemies/atmos/redsoldier55/at_death.ogg"
 boss2/stomp				"sounds/THUD.ogg"
 boss2/tornado			"sounds/weapons/tornado_projectile.ogg"
+boss2/taunt1			"sounds/enemies/atmos/redsoldier55/at_taunt1.ogg"
+boss2/taunt2			"sounds/enemies/atmos/redsoldier55/at_taunt2.ogg"
+boss2/taunt3			"sounds/enemies/atmos/redsoldier55/at_taunt3.ogg"
+boss2/taunt4			"sounds/enemies/atmos/redsoldier55/at_taunt4.ogg"
+boss2/taunt5			"sounds/enemies/atmos/redsoldier55/at_taunt5.ogg"
+boss2/taunt6			"sounds/enemies/atmos/redsoldier55/at_taunt6.ogg"
+boss2/taunt7			"sounds/enemies/atmos/redsoldier55/at_taunt7.ogg"
+boss2/taunt8			"sounds/enemies/atmos/redsoldier55/at_taunt8.ogg"
+boss2/taunt9			"sounds/enemies/atmos/redsoldier55/at_taunt9.ogg"
+boss2/taunt10			"sounds/enemies/atmos/redsoldier55/at_taunt10.ogg"
+boss2/playerdied1		"sounds/enemies/atmos/redsoldier55/at_deathtaunt1.ogg"
+boss2/playerdied2		"sounds/enemies/atmos/redsoldier55/at_deathtaunt2.ogg"
+boss2/playerdied3		"sounds/enemies/atmos/redsoldier55/at_deathtaunt3.ogg"
+boss2/playerdied4		"sounds/enemies/atmos/redsoldier55/at_deathtaunt4.ogg"
+boss2/risetaunt			"sounds/enemies/atmos/redsoldier55/at_risetaunt1.ogg"
+
 
 // Boss #3 - Pegasus Device Prototype
+/*
 boss3/sight				"sounds/enemies/pdevice/pdp_see1.ogg"
 boss3/death				"sounds/enemies/pdevice/pdp_die1.ogg"
 boss3/active1			"sounds/enemies/pdevice/pdp_act1.ogg"
@@ -36,3 +54,13 @@ boss3/meleehit			"sounds/saw_hit.ogg"
 $limit boss3/meleehit	1
 boss3/meleemiss			"sounds/saw_miss.ogg"		
 $limit boss3/meleehit	1
+*/
+
+// Boss #3 - Maimbow Undash
+maimbow/sight			"sounds/enemies/undash/undash01.ogg"
+maimbow/taunt1			"sounds/enemies/undash/undash05.ogg"
+maimbow/taunt2			"sounds/enemies/undash/undash03.ogg"
+maimbow/taunt3			"sounds/enemies/undash/undash07.ogg"
+maimbow/taunt4			"sounds/enemies/undash/undash08.ogg"
+maimbow/death			"sounds/enemies/undash/undash_death.ogg"
+maimbow/chaingun		"sounds/chaingun.ogg"

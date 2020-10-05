@@ -89,7 +89,7 @@ Class SHDX_FillyMissile : SHDX_Projectile
 	States
 	{
 		Spawn:
-			ROCK A 1 A_SeekerMissile(5, 5, SMF_LOOK, 256, 10);
+			MISL A 1 A_SeekerMissile(5, 5, SMF_LOOK, 256, 10);
 			Loop;
 		
 		Death:

@@ -1,0 +1,376 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_RainbowFloorArc : SHDX_Projectile
+{
+	Default
+	{
+		Radius 16;
+		Height 56;
+		Speed 12;
+		Damage 8;
+		+MISSILE
+		+DROPOFF
+		+RIPPER
+		+NOEXPLODEFLOOR
+		+STEPMISSILE
+		MaxStepHeight 16;
+		Projectile;
+		+FLOORHUGGER
+		
+		DamageType "RainbowX";
+		
+		RenderStyle "Add";
+		Alpha 0.67;
+		
+		SeeSound "weapons/rainbower2";
+		DeathSound "weapons/rainbowerx";
+	}
+	States
+	{
+		Spawn:
+			RBOW A 1;
+			Loop;
+		Death:
+			TNT1 A 0;
+			Stop;
+	}
+}
+
+Class SHDX_MaimbowUndashBoss : SHDX_Boss
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite MBOWA0
+		//$Title "Boss 3 - Maimbow Undash"
+		
+		Health 3500;
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 12;
+		PainChance "Explosive", 256;
+		PainChance "Bullet", 256;
+		DamageFactor "Bullet", 0.05;
+		DamageFactor "Explosive", 0.75;
+		DamageFactor "Chicken", 0.00;
+		DamageFactor "ChickenX", 0.00;
+		DamageFactor "Rainbower", 0.10;
+		DamageFactor "RainbowerX", 0.10;
+		DamageFactor "Ice", 0.00;
+		SeeSound "maimbow/sight";
+		DeathSound "maimbow/death";
+		Obituary "$SHDX_OB_MAIMBOW";
+		Tag "$SHDX_TAG_MAIMBOW";
+		
+		+DONTRIP
+		+NOICEDEATH
+		
+		+SHDX_Boss.TriggerLevelEnd
+		+SHDX_Boss.TriggerCutscene
+		
+		SHDX_Boss.CutsceneToPlay 'EndEpisode3';
+	}
+	
+	int flyingmode;
+	
+	const MAIMBOWFLY = 20;
+	
+	void A_FlyTowardsTarget(double speedtofly = MAIMBOWFLY)
+	{
+		if (!target) return;
+		
+		if (speedtofly <= 0) speedtofly = MAIMBOWFLY;
+		
+		A_FaceTarget();
+		
+		VelFromAngle(speedtofly);
+		Vel.Z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, speedtofly);
+	}
+	
+	void A_SpawnZombiesFromSpots()
+	{
+		ThinkerIterator deadraiserit = ThinkerIterator.Create("SHDX_ZombieSpot");
+		SHDX_ZombieSpot raiserspot;
+		
+		// iterate through the spots
+		while (raiserspot = SHDX_ZombieSpot(deadraiserit.Next()))
+		{
+			// if spot exists
+			if (raiserspot)
+			{
+				raiserspot.SetStateLabel("RaiseTheDead");
+			}
+		}
+	}
+	
+	void A_MaimbowFireTwoRocketMissiles()
+	{
+		A_SpawnProjectile("SHDX_Missile", spawnofs_xy:-8);
+		A_SpawnProjectile("SHDX_Missile", spawnofs_xy:8);
+	}
+	
+	void A_MaimbowFireChaingunWithSound()
+	{
+		A_StartSound("maimbow/chaingun", CHAN_WEAPON);
+		A_CustomBulletAttack(5.6, 0.0, 1, 5, "SHDX_BulletPuff");
+	}
+	
+	void A_MaimbowTaunt()
+	{
+		A_StartSound("maimbow/taunt"..Random[Maimbow](1,3), CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+	}
+	
+	States
+	{
+		Spawn:
+			MBOW A 10 A_Look;
+			Loop;
+		See:
+			MBOW A 0 A_SetInvulnerable;
+			MBOW A 50;
+		See1:
+			MBOW B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "maimbowundashstart", OLSSF_FORCEONELINER);
+			MBOW B 0 A_UnSetInvulnerable();
+		See2:
+			MBOW B 0
+			{
+				if (flyingmode >= 1)
+					return ResolveState("See2.Flying");
+				
+				return ResolveState(null);
+			}
+			MBOW ABAC 2 A_Chase;
+			MBOW C 0 A_Jump(32, "StartFlying");
+			Loop;
+		See2.Flying:
+			MBOW IJKLIJKL 4 A_Chase(null, "Missile.Flying");
+			MBOW L 0
+			{
+				flyingmode++;
+				if (flyingmode >= 15)
+					return ResolveState("StopFlying");
+					
+				return ResolveState(null);
+			}
+			Loop;
+		StartFlying:
+			MBOW L 0
+			{
+				bNoGravity = true;
+				bFloat = true;
+				bCanJump = false;
+				flyingmode = 1;
+			}
+			Goto See2.Flying;
+		Missile:
+			ATMO M 0 A_Jump(256, "Missile.Stomp", "Missile.Rocket", "Missile.Chaingun");
+		Missile.Chaingun:
+			// ATMO M 0 A_StartSound("boss2/ice", CHAN_VOICE);
+			MBOW F 7
+			{
+				A_FaceTarget();
+				A_MaimbowTaunt();
+			}
+			MBOW G 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW H 3 Bright;
+			MBOW F 5 A_FaceTarget;
+			MBOW G 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW H 3 Bright;
+			MBOW F 5 A_FaceTarget;
+			MBOW G 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW H 3 Bright;
+			MBOW F 5 A_FaceTarget;
+			MBOW G 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW H 3 Bright;
+			goto See2;
+		Missile.Rocket:
+			// ATMO M 0 A_StartSound("boss2/triice", CHAN_VOICE);
+			MBOW A 10 A_FaceTarget;
+			MBOW D 4 Bright A_MaimbowFireTwoRocketMissiles;
+			MBOW E 5 Bright;
+			goto See2;
+		Missile.Stomp:
+			MBOW U 4;
+			MBOW V 5;
+			MBOW V 0 A_StartSound("boss2/stomp", CHAN_BODY);
+			MBOW V 0 A_Jump(256, "Missile.Stomp.Electric", "Missile.Stomp.RainbowX", "Missile.Stomp.Tornado", "Missile.Stomp.RaiseTheDead");
+		Missile.Stomp.Electric:
+			MBOW X 8
+			{
+				A_SpawnProjectile("SHDX_FloorArc", spawnofs_xy: -32);
+				A_SpawnProjectile("SHDX_FloorArc");
+				A_SpawnProjectile("SHDX_FloorArc", spawnofs_xy: 32);
+			}
+			Goto See2;
+		Missile.Stomp.RainbowX:
+			MBOW Y 8
+			{
+				A_SpawnProjectile("SHDX_RainbowFloorArc", spawnofs_xy: -64);
+				A_SpawnProjectile("SHDX_RainbowFloorArc", spawnofs_xy: -32);
+				A_SpawnProjectile("SHDX_RainbowFloorArc");
+				A_SpawnProjectile("SHDX_RainbowFloorArc", spawnofs_xy: 32);
+				A_SpawnProjectile("SHDX_RainbowFloorArc", spawnofs_xy: 32);
+			}
+			Goto See2;
+		Missile.Stomp.Tornado:
+			MBOW Z 8
+			{
+				A_SpawnProjectile("SHDX_AtmosphereTornado");
+			}
+			Goto See2;
+		Missile.Stomp.RaiseTheDead:
+			MBOW W 8 A_SpawnZombiesFromSpots();
+			Goto See2;
+		Missile.Flying:
+			MBOW I 0 A_Jump(256, "Missile.Flying.Rocket", "Missile.Flying.Chaingun");
+		Missile.Flying.Chaingun:
+			MBOW M 0
+			{
+				A_MaimbowTaunt();
+				A_FaceTarget();
+			}
+			MBOW MNOP 1 A_FaceTarget;
+			MBOW N 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_FlyTowardsTarget();
+			}
+			MBOW O 2 Bright A_FlyTowardsTarget;
+			MBOW P 2 A_FlyTowardsTarget;
+			MBOW M 5 A_FaceTarget;
+			MBOW N 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_FlyTowardsTarget();
+			}
+			MBOW O 2 Bright A_FlyTowardsTarget;
+			MBOW P 2 A_FlyTowardsTarget;
+			MBOW M 5 A_FaceTarget;
+			MBOW N 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_FlyTowardsTarget();
+			}
+			MBOW O 2 Bright A_FlyTowardsTarget;
+			MBOW P 2 A_FlyTowardsTarget;
+			goto See2;
+		Missile.Flying.Rocket:
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireTwoRocketMissiles();
+				A_FlyTowardsTarget();
+			}
+			MBOW S 2 Bright A_FlyTowardsTarget;
+			MBOW T 2 A_FlyTowardsTarget;
+			goto See2;
+		Pain:
+			MBO2 A 0
+			{
+				if (flyingmode >= 1)
+				{
+					return ResolveState("Pain.Flying");
+				}
+				
+				return ResolveState(null);
+			}
+		Pain1:
+			MBO2 A 3
+			{
+				A_Pain();
+				A_SetRenderStyle(1.0, STYLE_Stencil);
+				SetShade("6e0600");
+			}
+			MBO2 A 2
+			{
+				SetShade("f08010");
+			}
+			MBO2 A 1
+			{
+				SetShade("ffee6a");
+			}
+			MBO2 A 0
+			{
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				SetShade("ffffff");
+			}
+			Goto See2;
+		Pain.Flying:
+			MBOW I 3
+			{
+				A_Pain();
+				A_SetRenderStyle(1.0, STYLE_Stencil);
+				SetShade("6e0600");
+			}
+			MBOW I 2
+			{
+				SetShade("f08010");
+			}
+			MBOW I 1
+			{
+				SetShade("ffee6a");
+			}
+			MBOW I 0
+			{
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				SetShade("ffffff");
+			}
+			Goto StopFlying;
+		StopFlying:
+			MBOW I 0
+			{
+				flyingmode = 0;
+				bNoGravity = false;
+				bFloat = false;
+				bCanJump = true;
+			}
+			Goto Missile;
+		Death.Explosive:
+		Death.Weather:
+		Death.RainbowX:
+		XDeath:
+		Death:
+			MBO2 A 0
+			{
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				SetShade("ffffff");
+			}
+			MBO2 A 0 A_NewBossScream;
+			MBO2 A 105;
+			MBO2 B 5;
+			MBO2 C 5 A_SpawnGibsFx(self);
+			MBO2 DE 5;
+			// ATMO Y 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "atmosphereend", OLSSF_FORCEONELINER);
+			MBO2 F 220;
+			MBO2 F 1 A_DD2_BossPlayCutscene();
+			MBO2 F -1 A_DD2_BossEndLevel();
+			Stop;
+	}
+}
