@@ -8,11 +8,11 @@ grunt1/death2				"sounds/enemies/guard/ben/g_die2.ogg"
 grunt1/pain					"sounds/enemies/guard/ben/g_die3.ogg"
 $random	grunt1/death		{ grunt1/death1	grunt1/death2}
 
-grunt2/active				"sounds/enemies/guard/ben/g_active1.ogg"
-grunt2/active				"sounds/enemies/guard/ben/g_active2.ogg"
-$random	grunt/active		{ grunt/active1 grunt/active2 }
+grunt1/active				"sounds/enemies/guard/ben/g_active1.ogg"
+grunt1/active				"sounds/enemies/guard/ben/g_active2.ogg"
+$random	grunt1/active		{ grunt1/active1 grunt1/active2 }
 
-grunt/pain					"sounds/enemies/guard/ben/g_pain.ogg"
+grunt1/pain					"sounds/enemies/guard/ben/g_pain.ogg"
 
 grunt2/sight1				"sounds/enemies/guard/kelsie/g2_see1.ogg"
 grunt2/sight2				"sounds/enemies/guard/kelsie/g2_see2.ogg"
