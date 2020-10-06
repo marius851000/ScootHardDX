@@ -9,7 +9,7 @@ Intermission EndEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end1/end1_1.png"
-		Music = "WONDERIN"
+		Music = "D_HELL"
 		Text = "$SHDX_EP1END_1"
 		TextColor = "Green"
 	}

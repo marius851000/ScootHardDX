@@ -167,7 +167,7 @@ decal DD2_SmallScorch
 decal DD2_FrostScorch
 {
 	pic BLAST1
-	shade "00 00 ff"
+	shade "07 38 91"
 	x-scale 0.1
 	y-scale 0.1
 	randomflipx

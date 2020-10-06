@@ -21,7 +21,7 @@ class SHDX_StatusScreen : DoomStatusScreen
 
 		if (bcnt == 1)
 		{
-			S_ChangeMusic("W_TITLE", 0, false);
+			S_ChangeMusic("D_BVICT", 0, false);
 		}
 
 		checkForAccelerate();

@@ -26,7 +26,10 @@ Build,SHDX_TITLEMAP_FINAL2,,,,,,,,,,,,,,,,,,,,,,,
 GZDoom 4.5pre Compatible,SHDX_TITLEMAP_FINAL3,,,,,,,,Compatible con GZDoom 4.3.3,,,,,,,,,,,,,,,
 MultiProcessor Enabled,SHDX_TITLEMAP_MULTI,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Systems(TM) WaffleTower i7,SHDX_TITLEMAP_SANYAUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
-Pegasystems(TM) Scooterputer(TM),SHDX_TITLEMAP_SCOOTALOOUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
+"HAL: Version 1.12            1/07/2011
+HAL: Processor is a Pegasystem AE-1000 Compatible(TM) Rev. 3.3
+HAL: Pegasus Revision 2.4
+HAL: L2 cache is not installed.",SHDX_TITLEMAP_SCOOTALOOUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Cloudsdale Weather Corporation(TM) Cumulonimbus(TM) Workstation,SHDX_TITLEMAP_MAIMBOWUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Systems(TM) RubyStation 255n,SHDX_TITLEMAP_NAVYUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Bordeaux Technologies(TM) Warpstation 666n,SHDX_TITLEMAP_BORDEAUXUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
@@ -185,7 +188,7 @@ Special Thanks To: Jinzo",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
 "Textures: Ancient Aliens, OTEX, Duke Nukem 3D, Shadow Warrior
 
-Placeholder music: AstroCreep's Mac Wolf3D Music
+Music: Rodscorpion and Andromeda Hawking
 
 Sounds: Quake HiRes Pack, Source Engine, Tomb Raider
 
@@ -248,7 +251,7 @@ I warned you about about heights. I told you %o.,OB_FALLING,,,,,,,,,,,,,,,,,,,,,
 %o drank the bleach.,DD_OB_BLEACH,,,,,,,,,,,,,,,,,,,,,,,
 OH YEAH!!!!,DD_OB_OHYEAH,,,,,,,,,,,,,,,,,,,,,,,
 %o got brutalized by Ms. Surprise.,SHDX_OB_SURPRISE,,,,,,,,,,,,,,,,,,,,,,,
-%o got wrecked by Dr. Hide Atmosphere..,SHDX_OB_DRATMOS,,,,,,,,,,,,,,,,,,,,,,,
+%o got wrecked by Dr. Hide Atmosphere.,SHDX_OB_DRATMOS,,,,,,,,,,,,,,,,,,,,,,,
 %o got ground up by the Pegasus Device Prototype.,SHDX_OB_PEGASUSDEVICE,,,,,,,,,,,,,,,,,,,,,,,
 %o got destroyed by Maimbow Undash.,SHDX_OB_MAIMBOW,,,,,,,,,,,,,,,,,,,,,,,
 %o got electrocuted by an Engineer.,SHDX_OB_ENGINEER,,,,,,,,,,,,,,,,,,,,,,,
@@ -393,7 +396,7 @@ surely.
 
 ""Well, hello Scootaloo. It appears you're
 causing trouble for your big sister."" She
-says with a malicious grin..",SHDX_EP1END_4A,,,,,,,,,,,,,,,,,,,,,,,
+says with a malicious grin.",SHDX_EP1END_4A,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo starts crying after an intense
 amount of shock. ""I THOUGHT YOU
 LOVED ME!""
