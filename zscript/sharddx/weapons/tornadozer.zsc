@@ -53,12 +53,12 @@ Class SHDX_Tornadozer : SHDX_MissileWeapon
 			TORG A 1 A_Raise;
 			Loop;
 		Flash:
-			TORG A 1 A_Light1;
+			TNT1 A 1 A_Light1;
 			goto LightDone;
 		Fire: 
 			TORG A 3;
 			TORG A 3;
-			TORG A 2 A_SpawnProjectile("SHDX_TornadozerProjectile");
+			TORG A 2 A_FireProjectile("SHDX_TornadozerProjectile");
 			TORG A 5 A_ReFire;
 			Goto Ready;
 		Spawn:
