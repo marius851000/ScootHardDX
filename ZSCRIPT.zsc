@@ -50,7 +50,6 @@ version "4.3"
 #include "zscript/sharddx/enemies/boss1.zsc"
 #include "zscript/sharddx/enemies/boss2.zsc"
 #include "zscript/sharddx/enemies/zombiespot.zsc"
-// #include "zscript/sharddx/enemies/boss3.zsc"
 #include "zscript/sharddx/enemies/maimbow.zsc"
 
 #include "zscript/sharddx/fx/flash.zsc"
@@ -104,3 +103,4 @@ version "4.3"
 
 #include "zscript/sharddx/vending.zsc"
 #include "zscript/sharddx/jumppad.zsc"
+#include "zscript/sharddx/aurora.zsc"

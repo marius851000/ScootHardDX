@@ -71,4 +71,6 @@ DoomEdNums
 	
 	7000 = SHDX_JumpPad
 	7001 = SHDX_VendingMachine
+	7002 = SHDX_AuroraDawn
+	7003 = SHDX_AuroraSpot
 }

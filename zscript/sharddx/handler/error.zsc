@@ -101,6 +101,8 @@ Class SHDX_ErrorHandler : StaticEventHandler
 			else if ( timer == 140 )
 			{
 				Console.Printf("\cf"..StringTable.Localize("$SHDX_CRASHHARAM"));
+				
+				S_StartSound("error/sweetiebelle",9999,CHANF_UI|CHANF_NOPAUSE|CHANF_OVERLAP,1,ATTN_NONE);
 			}
 			else if ( timer == 350 )
 			{

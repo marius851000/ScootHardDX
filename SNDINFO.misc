@@ -37,3 +37,7 @@ doors/metalc			"sounds/doom_door_close.ogg"
 world/splash			"sounds/splash02.ogg"	// Splashing noise
 
 disclaimer/ooga			"sounds/ooga.ogg"
+
+aurora/sight			"sounds/aurora.ogg"
+
+error/sweetiebelle		"sounds/error_sweetie.ogg"
