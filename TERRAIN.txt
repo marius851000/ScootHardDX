@@ -111,19 +111,6 @@ terrain GreenSpectra
 	liquid
 }
 
-floor "NUKE1" PeptoLava
-
-floor "NUKE2" RegularNukage
-floor "NUKE3" RegularNukage
-
-floor "LAVA1" LavaFlows
-floor "LAVA2" LavaFlows
-
-floor "WATER1"	WaterDD
-floor "WATER2"	WaterDD
-floor "WATER3"	WaterDD
-floor "WATER4"	WaterDD
-floor "WATER5"	WaterDD
 floor "OWATER01" WaterDD
 
 floor "F_WATER" WaterDD
