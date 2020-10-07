@@ -1,52 +1,137 @@
-splash SHWater
+splash WaterSplashDD
 {
-	smallclass		WaterSplash
-	smallsound		world/splash
+	smallclass		SHDX_WaterSplashSmall
+	smallclip		12
+	smallsound		world/smallsplash
 
-	baseclass		WaterSplashBase
-	sound			world/splash
+	baseclass		SHDX_WaterSplashBig
+	chunkclass		SHDX_WaterSplashSmall
+	sound			world/watersplash
 	noalert
 }
 
-terrain SHWater
+splash SewageSplashDD
 {
-	splash			SHWater
-	footclip		4
-	liquid
-}
+	smallclass		SHDX_SludgeSplashSmall
+	smallclip		12
+	smallsound		world/smallsplash
 
-floor F_WATER SHWater
-floor F_WATER2 SHWater
-
-splash SHLava
-{
-	sound			world/lava
+	baseclass		SHDX_SludgeSplashBig
+	chunkclass		SHDX_SludgeSplashSmall
+	sound			world/watersplash
 	noalert
 }
 
-terrain SHLava
+splash PeptoSplashDD
 {
-	splash			SHLava
-	footclip		2
-	liquid
-	friction		0.75
+	smallclass		SHDX_DespairSplashSmall
+	smallclip		12
+	smallsound		world/smallsplash
 
-	damagetype              fire
-	damageamount            3
-	damagetimemask          5
+	baseclass		SHDX_DespairSplashBig
+	chunkclass		SHDX_DespairSplashSmall
+	sound			world/watersplash
+	noalert
 }
 
-floor F_LAVA SHLava
-
-terrain SHNukem
+splash LavaSplashDD
 {
-	footclip		2
-	liquid
-	friction		0.75
+	smallclass		SHDX_LavaSplashSmall
+	smallclip		12
+	smallsound		world/lavasizzle
 
-	damagetype              slime
-	damageamount            5
-	damagetimemask          35
+	baseclass		SHDX_LavaSplashBig
+	chunkclass		SHDX_LavaSplashSmall
+	sound			world/lavasizzle
+	noalert
 }
 
-floor F_NUKE SHNukem
+terrain WaterDD
+{
+	splash				WaterSplashDD
+	footclip			4
+	liquid
+	friction			1.4
+}
+
+terrain PeptoLava
+{
+	splash				PeptoSplashDD
+	footclip			4
+	liquid
+	friction			1.2
+	damagetype			PeptoSlime
+	damageamount		10
+	damagetimemask		7
+	AllowProtection
+}
+
+terrain RegularNukage
+{
+	splash				SewageSplashDD
+	footclip			4
+	liquid
+	friction			0.75
+	damagetype			RegularNukeSlime
+	damageamount		3
+	damagetimemask		31
+	AllowProtection
+}
+
+terrain LavaFlows
+{
+	splash				LavaSplashDD
+	footclip			4
+	liquid
+	// friction			0.5
+	damagetype			Fire
+	damageamount		6
+	damagetimemask		15
+	AllowProtection
+}
+
+terrain RedSpectra
+{
+	splash				LavaSplashDD
+	footclip			4
+	liquid
+}
+
+terrain BlueSpectra
+{
+	splash				WaterSplashDD
+	footclip			4
+	liquid
+}
+
+terrain GreenSpectra
+{
+	splash				SewageSplashDD
+	footclip			4
+	liquid
+}
+
+floor "NUKE1" PeptoLava
+
+floor "NUKE2" RegularNukage
+floor "NUKE3" RegularNukage
+
+floor "LAVA1" LavaFlows
+floor "LAVA2" LavaFlows
+
+floor "WATER1"	WaterDD
+floor "WATER2"	WaterDD
+floor "WATER3"	WaterDD
+floor "WATER4"	WaterDD
+floor "WATER5"	WaterDD
+floor "OWATER01" WaterDD
+
+floor "F_WATER" WaterDD
+floor "F_WATER2" WaterDD
+floor "F_LAVA" LavaFlows
+
+floor "BSPECF0" BlueSpectra
+floor "GSPECF0" GreenSpectra
+floor "RSPECF0" RedSpectra
+
+floor "F_NUKE" RegularNukage

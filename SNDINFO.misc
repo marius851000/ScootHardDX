@@ -22,6 +22,8 @@ $random world/thunder	{ world/thunder1	world/thunder2	world/thunder3 }
 
 world/barrelx			"sounds/boom2.ogg"		// Generic Barrel Exploding
 
+misc/explosion			"sounds/boom2.ogg"
+
 world/boing				"sounds/tpoline.ogg"		// Trampoline
 
 misc/teleport			"sounds/teleport.ogg"

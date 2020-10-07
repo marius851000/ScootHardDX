@@ -1,6 +1,7 @@
 map E2A1 lookup SHDX_E2A1
 {
 	sky1 = "SKY2"
+	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
 	sucktime = 1
@@ -15,6 +16,7 @@ map E2A1 lookup SHDX_E2A1
 map E2A2 lookup SHDX_E2A2
 {
 	sky1 = "SKY2"
+	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
 	sucktime = 1
@@ -29,6 +31,7 @@ map E2A2 lookup SHDX_E2A2
 map E2A3 lookup SHDX_E2A3
 {
 	sky1 = "SKY2"
+	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
 	sucktime = 1
@@ -43,6 +46,7 @@ map E2A3 lookup SHDX_E2A3
 map E2A4 lookup SHDX_E2A4
 {
 	sky1 = "SKY2"
+	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
 	sucktime = 1
@@ -62,7 +66,6 @@ map E2A5 lookup SHDX_E2A5
 	sucktime = 1
 	next = "E2A3"
 	secretnext = "E2A3"
-	lightning
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"

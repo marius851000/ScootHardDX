@@ -28,6 +28,13 @@ end
 	nostopcutoff
 end
 
+:DDPushwall
+	door 13
+	play		doors/pushwall
+	nostopcutoff
+end
+
+
 // Bushes
 
 :DDBushesOpen

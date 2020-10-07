@@ -57,7 +57,6 @@ Class SHDX_Actor : Actor
 		}
 	}
 	
-	
 	static void A_SpawnMetalJunkFx(Actor self)
 	{
 		if (!self)
@@ -66,6 +65,17 @@ Class SHDX_Actor : Actor
 		for (int i = 0; i < 32; i++)
 		{
 			self.A_SpawnItemEx("SHDX_MetalJunk", 0, 0, 32, Random[JunkFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](0.0, 360.0), SXF_ABSOLUTEANGLE);
+		}
+	}
+	
+	static void A_SpawnGlassJunkFx(Actor self)
+	{
+		if (!self)
+			return;
+			
+		for (int i = 0; i < 32; i++)
+		{
+			self.A_SpawnItemEx("SHDX_GlassJunk", 0, 0, 32, Random[JunkFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](0.0, 360.0), SXF_ABSOLUTEANGLE);
 		}
 	}
 	

@@ -234,3 +234,45 @@ decal GraffitiHelpUs 9
 	x-scale 0.12
 	y-scale 0.12
 }
+
+decal DryErase1 10
+{
+	pic "graphics/decals/dry_erase_1.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal DryErase2 11
+{
+	pic "graphics/decals/dry_erase_2.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal DryErase3 12
+{
+	pic "graphics/decals/dry_erase_3.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal PraiseTheFlock 13
+{
+	pic "graphics/decals/praise_the_flock.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal PegapolPoster 14
+{
+	pic "graphics/decals/pegapol_poster.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal GoldShield 15
+{
+	pic "graphics/decals/gold_shield.png"
+	x-scale 0.12
+	y-scale 0.12
+}

@@ -20,7 +20,7 @@ Class SHDX_Explosiveness : SHDX_Actor
 			EXPL A 3 Bright
 			{
 				A_Quake(2, 8, 0, 1096);
-				A_StartSound("world/barrelx", CHAN_BODY);
+				A_StartSound("misc/explosion", CHAN_BODY);
 				A_Stop();
 			}
 			EXPL BCDEFGHI 3 Bright A_Stop;

@@ -61,8 +61,11 @@ DoomEdNums
 	6722 = SHDX_WaterCooler
 	6723 = SHDX_TrashCan
 	6724 = SHDX_GreenCeilingLight
-	6725 = DD2_FlagDestroyableMedium
-	6726 = DD2_FlagDestroyableLarge
+	6725 = SHDX_FlagDestroyableMedium
+	6726 = SHDX_FlagDestroyableLarge
+	6727 = SHDX_OfficeChair
+	6728 = SHDX_OfficeCup
+	6729 = SHDX_OfficeCupStack
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

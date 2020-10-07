@@ -181,6 +181,7 @@ Class SHDX_ExplosiveBarrel : SHDX_ExplodeyProp
 			EXPL A 0
 			{
 				SHDX_Utilities.DoExplosion(self, 128, 0, 128, 0, DE_NOTMISSILE, 'Explosive');
+				A_StartSound("misc/explosion", CHAN_BODY);
 				A_SpawnItemEx("SHDX_Explosiveness", 0, 0, 16);
 			}
 			TNT1 AAAAAA 5;
@@ -256,9 +257,86 @@ Class SHDX_CoffeeMug : SHDX_Decoration
 		Death:
 			TNT1 A 0
 			{
-				A_StartSound("world/glassbreak");
+				A_StartSound("misc/glassbreak");
+				SHDX_Actor.A_SpawnGlassJunkFx(self);
+			}
+			Stop;
+	}
+}
+
+Class SHDX_OfficeChair : SHDX_Prop
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Office Chair"
+		//$Sprite OCHRA0
+		//$Category "Obstacles"
+		
+		Radius 11;
+		Height 32;
+		Health 15;
+		
+		+SHOOTABLE
+		+NOBLOOD
+		+PUSHABLE
+	}
+	
+	States
+	{
+		Spawn:
+			OCHR A -1;
+			Stop;
+			
+		Death:
+			OCHR A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
 				SHDX_Actor.A_SpawnMetalJunkFx(self);
 			}
+			Stop;
+	}
+}
+
+Class SHDX_OfficeCup : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Water Cooler Cup"
+		//$Sprite OCUPA0
+		//$Category "Decoration"
+		
+		Radius 4;
+		Height 8;
+	}
+	
+	States
+	{
+		Spawn:
+			OCUP N -1;
+			Stop;
+	}
+}
+
+Class SHDX_OfficeCupStack : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Water Cooler Cup Stack"
+		//$Sprite OCPSA0
+		//$Category "Decoration"
+		
+		Radius 4;
+		Height 20;
+	}
+	
+	States
+	{
+		Spawn:
+			OCPS N -1;
 			Stop;
 	}
 }

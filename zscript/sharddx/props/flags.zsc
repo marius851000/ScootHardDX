@@ -114,7 +114,7 @@ Class SHDX_FlagDestroyableSmall : SHDX_Decoration
 	}
 }
 
-Class DD2_FlagDestroyableMedium : SHDX_FlagDestroyableSmall
+Class SHDX_FlagDestroyableMedium : SHDX_FlagDestroyableSmall
 {
 	Default
 	{
@@ -135,7 +135,7 @@ Class DD2_FlagDestroyableMedium : SHDX_FlagDestroyableSmall
 	
 }
 
-Class DD2_FlagDestroyableLarge : SHDX_FlagDestroyableSmall
+Class SHDX_FlagDestroyableLarge : SHDX_FlagDestroyableSmall
 {
 	Default
 	{

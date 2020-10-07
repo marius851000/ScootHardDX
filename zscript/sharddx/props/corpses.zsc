@@ -28,7 +28,7 @@ Class SHDX_MaleGuardCorpse : SHDX_Decoration
 	States
 	{
 		Spawn:
-			GRD1 N -1 Bright;
+			GRD1 N -1;
 			Stop;
 	}
 }
@@ -49,7 +49,7 @@ Class SHDX_MaleGuardCorpse2 : SHDX_Decoration
 	States
 	{
 		Spawn:
-			GRD1 R -1 Bright;
+			GRD1 R -1;
 			Stop;
 	}
 }
@@ -70,7 +70,7 @@ Class SHDX_Skeleton : SHDX_Decoration
 	States
 	{
 		Spawn:
-			SKEL A -1 Bright;
+			SKEL A -1;
 			Stop;
 	}
 }
@@ -91,7 +91,7 @@ Class SHDX_SkeletonBloody : SHDX_Decoration
 	States
 	{
 		Spawn:
-			SKL2 A -1 Bright;
+			SKL2 A -1;
 			Stop;
 	}
 }

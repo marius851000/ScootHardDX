@@ -287,3 +287,16 @@ Class SHDX_ChickenFeather : SHDX_Actor
 			Stop;
 	}
 }
+
+Class SHDX_GlassJunk : SHDX_MetalJunk
+{
+	States
+	{
+		Spawn:
+			GLSS ABCD 2;
+			Loop;
+		Crash:
+			TNT1 A 0;
+			Stop;
+	}
+}

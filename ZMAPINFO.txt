@@ -2,6 +2,8 @@ include "mapinfo/gi.txt"
 
 include "mapinfo/doomednum.txt"
 
+include "mapinfo/spawnid.txt"
+
 include "mapinfo/defaultmap.txt"
 
 include "mapinfo/episodes.txt"

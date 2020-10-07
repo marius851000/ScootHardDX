@@ -21,6 +21,9 @@ texture RFALL01
 	
 warp2 flat F_WATER
 warp2 flat OWATER01
+warp2 flat BSPECF0
+warp2 flat GSPECF0
+warp2 flat RSPECF0
 warp2 flat F_WATER2
 warp2 flat F_NUKE
 warp2 flat F_LAVA
@@ -58,8 +61,8 @@ switch SW2S1 off sound switch/normbutn pic SW2S0 tics 0
 switch SW3S0 on sound switch/normbutn pic SW3S1 tics 0
 switch SW3S1 off sound switch/normbutn pic SW3S0 tics 0
 
-switch BGLASS_A on sound world/glassbreak pic BGLASS_B tics 0
-switch MIDGLASS on sound world/glassbreak pic GLSBRKNL tics 0
+switch BGLASS_A on sound misc/glassbreak pic BGLASS_B tics 0
+switch MIDGLASS on sound misc/glassbreak pic GLSBRKNL tics 0
 
 switch SW1GOTH1 on sound switches/normbutn pic SW2GOTH1 tics 0
 switch SW1GOTH2 off sound switches/normbutn pic SW1GOTH1 tics 0
@@ -87,3 +90,7 @@ texture M_CWC1
 	pic M_CWC4 tics 2
 	pic M_CWC3 tics 2
 	pic M_CWC2 tics 2
+
+Texture	RFALL_1  	Range	RFALL_4  	Tics 8
+Texture	GFALL_1  	Range	GFALL_4  	Tics 8
+Texture	BFALL_1  	Range	BFALL_4  	Tics 8

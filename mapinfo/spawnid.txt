@@ -1,0 +1,41 @@
+SpawnNums
+{
+	1 = SHDX_LowGuardMale
+	2 = SHDX_LowGuardFemale
+	3 = SHDX_HighGuardMale
+	4 = SHDX_HighGuardFemale
+	5 = SHDX_PegapolMale
+	
+	6 = SHDX_Engineer
+	7 = SHDX_ZombieNormal
+	8 = SHDX_ZombieExplosive
+	
+	9 = SHDX_SurpriseBoss
+	10 = SHDX_DrAtmosphereBoss
+	11 = SHDX_MaimbowUndashBoss
+	
+	12 = SHDX_SubmachineGun
+	13 = SHDX_MissileLauncher
+	14 = SHDX_FillySeeker
+	15 = SHDX_Rainbower
+	16 = SHDX_Tornadozer
+	17 = SHDX_HailerWeapon
+	
+	18 = SHDX_SilverBitCoin
+	19 = SHDX_GoldBitCoin
+	20 = SHDX_Sandwich
+	21 = SHDX_Applesauce
+	
+	22 = SHDX_ChickenMode
+	23 = SHDX_BulletproofArmor
+	24 = SHDX_FireproofArmor
+	25 = SHDX_WeatherproofArmor
+	
+	26 = SHDX_RedCard
+	27 = SHDX_BlueCard
+	28 = SHDX_GreenCard
+	29 = SHDX_ManagementCard
+	
+	100 = SHDX_GlassJunk
+	101 = SHDX_MetalJunk
+}
