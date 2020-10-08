@@ -29,6 +29,9 @@ OptionMenu "SHARDDXOptionsMenu"
 	Submenu "$OPTMNU_SOUND",			"SHDXSoundOptions"
 	Submenu "$OPTMNU_VIDEO",			"VideoModeMenu"
 	StaticText " "
+	Submenu "$OPTMNU_SHDXMENU",			"ScootHardDXMenu"
+	StaticText " "
+	StaticText " "
 	Submenu "$MNU_SHARDDX_ADVOPTIONS",	"OptionsMenu"
 }
 
@@ -191,14 +194,14 @@ ListMenu "SHARDDXSaveGameMenu"
 
 OptionMenu "ScootHardDXMenu"
 {
-	Title "$SHDX_SHDXMENU"
+	Title "$SHARDDX_SHDXMENU"
 	Position -32
 	
 	StaticText ""
-	StaticText "$MNU_SHDX_SPECIFIC"
+	StaticText "$MNU_SHARDDX_SPECIFIC"
 	
-	Option "$MNU_SHDX_MUTEPLAYER",		"shdx_snd_oneliners",	"OnOff"
-	Option "$MNU_SHDX_CUTSCENES",		"shdx_skipcutscenes",	"OnOff"
+	Option "$MNU_SHARDDX_MUTEPLAYER",		"shdx_snd_oneliners",	"OnOff"
+	Option "$MNU_SHARDDX_CUTSCENES",		"shdx_skipcutscenes",	"OnOff"
 	Option "$MNU_SHARDDX_COPYRIGHTCENSOR", "shdx_copyrightcensor", "OnOff"
 	Option "$MNU_SHARDDX_HQRIP",			"shdx_rip", 				"OnOFf"
 }
