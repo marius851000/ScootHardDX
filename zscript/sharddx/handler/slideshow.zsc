@@ -26,7 +26,10 @@ class SHDX_SlideshowHandler : EventHandler
 	}
 	
 	void DoCutscene()
-	{		
+	{
+		if (shdx_skipcutscenes && ExitLevelOnFinish)
+			level.ExitLevel(0, false);
+	
 		if (IntermissionPlayed)
 		{
 			if (ExitLevelOnFinish)
@@ -53,6 +56,7 @@ class SHDX_E1A0SlideshowHandler : SHDX_SlideshowHandler
 {
 	override void OnRegister()
 	{
+		Console.PrintF("SHDX_E1A0SlideshowHandler::OnRegister())");
 		InitSlideshowInfo('IntroEpisode1', true);
 	}
 }

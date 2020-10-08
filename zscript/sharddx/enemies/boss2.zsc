@@ -183,7 +183,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO A 0 A_SetInvulnerable;
 			ATMO A 425;
 		See1:
-			ATMO B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "atmospherestart", OLSSF_FORCEONELINER);
+			ATMO B 0 A_SHDX_SendOLToAllPlayers("atmospherestart", OLSSF_FORCEONELINER);
 			ATMO B 0 A_UnSetInvulnerable();
 		See2:
 			ATMO B 0

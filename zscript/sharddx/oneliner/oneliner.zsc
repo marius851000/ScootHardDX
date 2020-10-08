@@ -24,7 +24,7 @@ enum OneLinerFlags
 
 extend class SHDX_Enemy
 {
-	void A_SHDX_SendOLToPlayerPawn(SHDX_PlayerPawn pp, int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT, bool useprefix = true)
+	void A_SHDX_SendOLToPlayerPawn(SHDX_PlayerPawn pp, int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT)
 	{
 		String finalsnd;
 		if (Random[OneLiner](0, 100) <= r)
@@ -39,6 +39,23 @@ extend class SHDX_Enemy
 			// pp.A_Log("Oneliner: "..finalsnd);
 			
 			pp.A_OneLinerInit(finalsnd, flags);
+		}
+	}
+	
+	void A_SHDX_SendOLToAllPlayers(String snd = "", int flags = OLSSF_DEFAULT)
+	{
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo)
+			{
+				let pp = SHDX_PlayerPawn(pl.mo);
+				if (pp)
+				{
+					String finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
+					pp.A_OneLinerInit(finalsnd, flags);
+				}
+			}
 		}
 	}
 	/*	***********************************************

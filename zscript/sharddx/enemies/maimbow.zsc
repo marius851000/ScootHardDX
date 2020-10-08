@@ -184,7 +184,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW A 0 A_SetInvulnerable;
 			MBOW A 50;
 		See1:
-			MBOW B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "maimbowundashstart", OLSSF_FORCEONELINER);
+			MBOW B 0 A_SHDX_SendOLToAllPlayers("maimbowundashstart", OLSSF_FORCEONELINER);
 			MBOW B 0 A_UnSetInvulnerable();
 		See2:
 			MBOW B 0
