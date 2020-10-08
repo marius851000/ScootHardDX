@@ -3,6 +3,7 @@ weapons/pistolf			"sounds/weapons/pistol.ogg"	// Pistol Firing
 weapons/smgf			"sounds/weapons/smg_fire.ogg"	// SMG Firing
 weapons/rocketf			"sounds/weapons/rocket_launcher_fire.ogg"	// Rocket Firing
 weapons/rocketx			"sounds/boom2.ogg"		// Rocket Exploding
+weapons/rainbowerf		"sounds/weapons/rainbower.ogg"
 weapons/rainbowerx		"sounds/boom2.ogg"		// Rainbower Exploding
 weapons/rainbower2		"sounds/FLAME.ogg"		// Rainbower Fire Crackle
 weapons/tornadoch		"sounds/electric.ogg"	// needs a better sound

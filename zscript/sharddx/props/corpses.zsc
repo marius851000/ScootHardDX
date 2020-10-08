@@ -95,3 +95,26 @@ Class SHDX_SkeletonBloody : SHDX_Decoration
 			Stop;
 	}
 }
+
+
+
+Class SHDX_SurpriseCorpse : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Surprise Corpse"
+		//$Sprite SURPO0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			SURP P -1;
+			Stop;
+	}
+}

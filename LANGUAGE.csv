@@ -40,7 +40,7 @@ Precious Thing Workstation,SHDX_TITLEMAP_MARISAKUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Peridot Systems(TM) SpinelStation,SHDX_TITLEMAP_MISTERBAMANUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 No Unironically Fuck You Nukkus Go Away You Don't Get a HAL,SHDX_TITLEMAP_NUKKUSUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 "Scoot Hard DX is a fair use parody. My Little Pony: Friendship is Magic
-is owned by Hasbro. This is not endorsed by them not is meant to
+is owned by Hasbro. This is not endorsed by them nor is meant to
 replace any official product. It is also not intended for kids. It is intended
 for mature audiences, suggested 18+ years of age. Please support the
 official release.
@@ -51,9 +51,14 @@ based ironic humor. If these are not your thing, please shut off the
 game and stop playing. And certainly don't go onto ResetEra and
 bitch about it.
 
+None of the characters are meant to be role models. It's fiction.
+Fiction is not reality. Some of the things they would do would cause
+a person to get hurt, expelled, arrested, possibly deported. To put
+it another way: don't try any of this at home.
+
 Waffle Iron Studios takes no responsibility for loss of sanity or
 unironic comparisons to current year events. Please just enjoy
-the game. I created the prototype in 2014 for god's sake.",SHDX_TITLEMAP_DISCLAIMER,,,,,,,,,,,,,,,,,,,,,,,
+the game. I created the prototype in 2014 for God's sake.",SHDX_TITLEMAP_DISCLAIMER,,,,,,,,,,,,,,,,,,,,,,,
 WARNING: Satirical and Mature Content,SHDX_TITLEMAP_ADVISORY,,,,,,,,,,,,,,,,,,,,,,,
 Health,SHDX_HUD_HEALTH,,,,,,,,Salud,,,,,,,,,,,,,,,
 Armor,SHDX_HUD_ARMOR,,,Armour,,,,,Armadura,,,,,,,,,,,,,,,
@@ -182,13 +187,15 @@ Press any key to continue...,TXT_PRESSAKEY,,,,,,,,Pulse cualquier tecla para con
 Credits,MNU_SHARDDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 WAFFLE IRON STUDIOS,SHDX_CREDITS_HEADER_WIS,,,,,,,,,,,,,,,,,,,,,,,
 "Creative Director and Design Lead: SanyaWaffles
+Additional Level Design: Elliejojo
 
 Voice of Scootaloo: Alabeanz@Tumblr.com
 Voice of Surprise Pony/Low Guard Female: Kelsie Finefeather
+Voice of Dr. Atmosphere/High Guard Male: Redsoldier55
 
 Special Thanks To: Jinzo",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
-"Textures: Ancient Aliens, OTEX, Duke Nukem 3D, Shadow Warrior
+"Textures: Ancient Aliens, OTEX, Duke Nukem 3D, Shadow Warrior, Blood
 
 Music: Rodscorpion and Andromeda Hawking
 
@@ -273,10 +280,10 @@ OH YEAH!!!!,DD_OB_OHYEAH,,,,,,,,,,,,,,,,,,,,,,,
 %o got shocked by some live wires.,SHDX_OB_LIVEWIRES,,,,,,,,,,,,,,,,,,,,,,,
 ,,Map Strings,,,,,,,,,,,,,,,,,,,,,,
 Choose your difficulty,SHDX_SKILL_MENU,,,,,,,,,,,,,,,,,,,,,,,
-Easy,SHDX_SKILL1,,,,,,,,,,,,,,,,,,,,,,,
-Medium,SHDX_SKILL2,,,,,,,,,,,,,,,,,,,,,,,
-Hard,SHDX_SKILL3,,,,,,,,,,,,,,,,,,,,,,,
-Discourse,SHDX_SKILL4,,,,,,,,,,,,,,,,,,,,,,,
+Easy - Games Journalist,SHDX_SKILL1,,,,,,,,,,,,,,,,,,,,,,,
+Medium - Where's The Trigger?,SHDX_SKILL2,,,,,,,,,,,,,,,,,,,,,,,
+Hard - Bring It On!,SHDX_SKILL3,,,,,,,,,,,,,,,,,,,,,,,
+Discourse - I Am The Cleaner.,SHDX_SKILL4,,,,,,,,,,,,,,,,,,,,,,,
 "Fewest enemies, lowest aggression,
 less damage taken, and enemies have
 lower health. You'll probably want this
@@ -296,6 +303,17 @@ Intro,SHDX_E1A0,,,,,,,,,,,,,,,,,,,,,,,
 Construction Zone,SHDX_E1A1,,,,,,,,,,,,,,,,,,,,,,,
 Winding Halls,SHDX_E1A2,,,,,,,,,,,,,,,,,,,,,,,
 Loading Zone,SHDX_E1A3,,,,,,,,,,,,,,,,,,,,,,,
+Into The Factory,SHDX_E2A1,,,,,,,,,,,,,,,,,,,,,,,
+The Rain Generator,SHDX_E2A2,,,,,,,,,,,,,,,,,,,,,,,
+Reanimation Lab,SHDX_E2A3,,,,,,,,,,,,,,,,,,,,,,,
+Dr. Atmosphere,SHDX_E2A4,,,,,,,,,,,,,,,,,,,,,,,
+Glacial Flows,SHDX_E2A5,,,,,,,,,,,,,,,,,,,,,,,
+Tornado Keep,SHDX_E3A1,,,,,,,,,,,,,,,,,,,,,,,
+Pegasus Device,SHDX_E3A2,,,,,,,,,,,,,,,,,,,,,,,
+Pinnacle of Hate,SHDX_E3A3,,,,,,,,,,,,,,,,,,,,,,,
+Maimbow,SHDX_E3A4,,,,,,,,,,,,,,,,,,,,,,,
+Elevator Trouble,SHDX_E3A5,,,,,,,,,,,,,,,,,,,,,,,
+Credits,SHDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 Ending,SHDX_ENDING,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission,,,,,,,,,,,,,,,,,,,,,,
 "Due to their importance in weather control

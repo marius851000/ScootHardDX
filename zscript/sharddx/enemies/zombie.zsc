@@ -176,8 +176,8 @@ Class SHDX_ZombieExplosive : SHDX_Enemy
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite ZMBIA0
-		//$Title "Zombie (Normal)"
+		//$Sprite ZMBIE0
+		//$Title "Zombie (Explosive)"
 		Health 30;
 		Radius 20;
 		Height 56;

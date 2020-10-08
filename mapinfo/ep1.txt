@@ -35,7 +35,6 @@ map E1A2 lookup SHDX_E1A2
 	sucktime = 1
 	next = "E1A3"
 	music = "D_SYS"
-	// secretnext = "E1AS"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
@@ -47,9 +46,8 @@ map E1A3 lookup SHDX_E1A3
 	cluster = 1
 	par = 75
 	sucktime = 1
-	next = "EndTitle"
+	next = "E2A1"
 	music = "D_HORSE"
-	// next = E2A1
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"

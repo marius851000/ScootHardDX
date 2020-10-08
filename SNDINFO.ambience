@@ -1,2 +1,29 @@
 ambient/whirring		"sounds/ambient/WHIRHUM.ogg"
 $ambient 1 ambient/whirring point continuous 0.7
+
+ambience/waterfall		"sounds/ambient/waterfall0.ogg"
+$ambient 2 ambience/waterfall point continuous 0.7
+
+ambience/distantcombat	"sounds/ambient/distant_combat_0.ogg"
+$ambient 3 ambience/distantcombat point periodic 35 0.7
+
+ambience/ghosttown		"sounds/ambient/ghost_town_0.ogg"
+$ambient 4 ambience/ghosttown point continuous 0.7
+
+ambience/sewerdrips		"sounds/ambient/sewer_0.ogg"
+$ambient 5 ambience/sewerdrips	point random 2 5 1.0
+
+ambience/distantbooms	"sounds/ambient/distant_booms_0.ogg"
+$ambient 6 ambience/distantbooms point periodic 40 1.0
+
+ambience/quakecomputer	"sounds/ambient/quake_comp1.ogg"
+$ambient 7 ambience/quakecomputer point continuous 0.7
+
+ambience/quakedrip	"sounds/ambient/quake_drip1.ogg"
+$ambient 8 ambience/quakedrip point continuous 0.7
+
+ambience/quakedrone	"sounds/ambient/quake_drone6.ogg"
+$ambient 9 ambience/quakedrone point continuous 0.7
+
+ambience/quakewater "sounds/ambient/quake_water1.ogg"
+$ambient 10 ambience/quakewater point continuous 0.7

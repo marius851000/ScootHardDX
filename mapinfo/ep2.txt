@@ -50,8 +50,7 @@ map E2A4 lookup SHDX_E2A4
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "E2A4"
-	secretnext = "E2A5"
+	next = "EndTitle"
 	lightning
 	
 	ExitPic = "TITLEPIC"

@@ -25,4 +25,14 @@ class SHDX_Handler : EventHandler
 		// DrawBossBar();
 		DisplayRIP();
 	}
+	
+	override void PlayerDied(PlayerEvent e)
+	{
+		RIPPlayerDied(e);
+	}
+	
+	override void PlayerRespawned(PlayerEvent e)
+	{
+		RIPPlayerRespawned(e);
+	}
 }

@@ -38,7 +38,7 @@ class SHDX_Utilities play
 		
 		if (splitkeys.Size() == 2)
 		{
-			newkeys = String.Format(splitkeys[0].." \c-(".."\c-"..Stringtable.Localize("$DD2_KEYBINDOR").." "..splitkeys[1]..")\c-");
+			newkeys = String.Format(splitkeys[0].." \c-(".."\c-"..Stringtable.Localize("$SHDX_KEYBINDOR").." "..splitkeys[1]..")\c-");
 		}
 		else if (splitkeys.Size() == 1)
 		{

@@ -105,7 +105,7 @@ extend class SHDX_Handler
 		
 		if (p && p.mo)
 		{
-			if (Cvar.GetCvar('SHDX_rip', p).GetBool())
+			if (Cvar.GetCvar('shdx_rip', p).GetBool())
 			{
 				dorip = true;
 				ripseconds = 0;
