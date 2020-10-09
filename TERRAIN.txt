@@ -46,6 +46,78 @@ splash LavaSplashDD
 	noalert
 }
 
+splash SpectraRedDD
+{
+	smallclass		SHDX_SpectraSplashRedSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashRedBig
+	chunkclass		SHDX_SpectraSplashRedSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraOrangeDD
+{
+	smallclass		SHDX_SpectraSplashOrangeSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashOrangeBig
+	chunkclass		SHDX_SpectraSplashOrangeSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraYellowDD
+{
+	smallclass		SHDX_SpectraSplashYellowSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashYellowBig
+	chunkclass		SHDX_SpectraSplashYellowSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraGreenDD
+{
+	smallclass		SHDX_SpectraSplashGreenSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashGreenBig
+	chunkclass		SHDX_SpectraSplashGreenSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraBlueDD
+{
+	smallclass		SHDX_WaterSplashSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_WaterSplashBig
+	chunkclass		SHDX_WaterSplashSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraPurpleDD
+{
+	smallclass		SHDX_SpectraSplashPurpleSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashPurpleBig
+	chunkclass		SHDX_SpectraSplashPurpleSmall
+	sound			world/watersplash
+	noalert
+}
+
 terrain WaterDD
 {
 	splash				WaterSplashDD
@@ -92,21 +164,42 @@ terrain LavaFlows
 
 terrain RedSpectra
 {
-	splash				LavaSplashDD
+	splash				SpectraRedDD
 	footclip			4
 	liquid
 }
 
-terrain BlueSpectra
+terrain OrangeSpectra
 {
-	splash				WaterSplashDD
+	splash				SpectraOrangeDD
+	footclip			4
+	liquid
+}
+
+terrain YellowSpectra
+{
+	splash				SpectraYellowDD
 	footclip			4
 	liquid
 }
 
 terrain GreenSpectra
 {
-	splash				SewageSplashDD
+	splash				SpectraGreenDD
+	footclip			4
+	liquid
+}
+
+terrain BlueSpectra
+{
+	splash				SpectraBlueDD
+	footclip			4
+	liquid
+}
+
+terrain PurpleSpectra
+{
+	splash				SpectraPurpleDD
 	footclip			4
 	liquid
 }
@@ -117,8 +210,11 @@ floor "F_WATER" WaterDD
 floor "F_WATER2" WaterDD
 floor "F_LAVA" LavaFlows
 
-floor "BSPECF0" BlueSpectra
-floor "GSPECF0" GreenSpectra
 floor "RSPECF0" RedSpectra
+floor "OSPECF0" OrangeSpectra
+floor "YSPECF0" YellowSpectra
+floor "GSPECF0" GreenSpectra
+floor "BSPECF0" BlueSpectra
+floor "PUSPECF0" PurpleSpectra
 
 floor "F_NUKE" RegularNukage

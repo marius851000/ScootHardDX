@@ -148,3 +148,83 @@ Class SHDX_LavaSplashBig : SHDX_LavaSplash
 		Scale 0.2;
 	}
 }
+
+Class SHDX_SpectraSplashYellowSmall : SHDX_WaterSplashSmall
+{
+	Default
+	{
+		Translation "144:159=64:79";
+	}
+}
+
+Class SHDX_SpectraSplashYellowBig : SHDX_WaterSplashBig
+{
+	Default
+	{
+		Translation "144:159=64:79";
+	}
+}
+
+Class SHDX_SpectraSplashGreenSmall : SHDX_WaterSplashSmall
+{
+	Default
+	{
+		Translation "144:159=80:95";
+	}
+}
+
+Class SHDX_SpectraSplashGreenBig : SHDX_WaterSplashBig
+{
+	Default
+	{
+		Translation "144:159=80:95";
+	}
+}
+
+Class SHDX_SpectraSplashPurpleSmall : SHDX_WaterSplashSmall
+{
+	Default
+	{
+		Translation "144:159=160:175";
+	}
+}
+
+Class SHDX_SpectraSplashPurpleBig : SHDX_WaterSplashBig
+{
+	Default
+	{
+		Translation "144:159=160:175";
+	}
+}
+
+Class SHDX_SpectraSplashRedSmall : SHDX_WaterSplashSmall
+{
+	Default
+	{
+		Translation "144:159=16:31";
+	}
+}
+
+Class SHDX_SpectraSplashRedBig : SHDX_WaterSplashBig
+{
+	Default
+	{
+		Translation "144:159=16:31";
+	}
+}
+
+Class SHDX_SpectraSplashOrangeSmall : SHDX_WaterSplashSmall
+{
+	Default
+	{
+		Translation "144:159=32:47";
+	}
+}
+
+Class SHDX_SpectraSplashOrangeBig : SHDX_WaterSplashBig
+{
+	Default
+	{
+		Translation "144:159=32:47";
+	}
+}

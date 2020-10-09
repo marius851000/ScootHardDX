@@ -16,9 +16,6 @@ texture TV0_A
 	
 warp2 flat F_WATER
 warp2 flat OWATER01
-warp2 flat BSPECF0
-warp2 flat GSPECF0
-warp2 flat RSPECF0
 warp2 flat F_WATER2
 warp2 flat F_NUKE
 warp2 flat F_LAVA
@@ -66,5 +63,15 @@ texture M_CWC1
 	pic M_CWC2 tics 2
 
 Texture	RFALL_1  	Range	RFALL_4  	Tics 8
+Texture	OFALL_1  	Range	OFALL_4  	Tics 8
+Texture	YFALL_1  	Range	YFALL_4  	Tics 8
 Texture	GFALL_1  	Range	GFALL_4  	Tics 8
 Texture	BFALL_1  	Range	BFALL_4  	Tics 8
+Texture	PUFALL_1  	Range	PUFALL_4  	Tics 8
+
+warp2 flat RSPECF0
+warp2 flat OSPECF0
+warp2 flat YSPECF0
+warp2 flat GSPECF0
+warp2 flat BSPECF0
+warp2 flat PUSPECF0
