@@ -32,29 +32,14 @@ animateddoor door1a
 	pic door1d
 	pic door1e
 
-switch SW1_A on sound switches/normbutn pic SW1_B tics 0
-switch SW1_B off sound switches/exitbutn pic SW1_A tics 0
-
-switch SW2_A on sound switches/normbutn pic SW2_B tics 0
-switch SW2_B off sound switches/exitbutn pic SW2_A tics 0
-
-switch SW3_A on sound switches/normbutn pic SW3_B tics 0
-switch SW3_B off sound switches/exitbutn pic SW3_A tics 0
-
-switch SLSWB0 on sound switches/normbutn pic SLSWB1 tics 0
-switch SLSWB1 off sound switches/exitbutn pic SLSWB0 tics 0
-
-switch SLSWR0 on sound switches/normbutn pic SLSWR1 tics 0
-switch SLSWR1 off sound switches/exitbutn pic SLSWR0 tics 0
-
-switch SLSWY0 on sound switches/normbutn pic SLSWY1 tics 0
-switch SLSWY1 off sound switches/exitbutn pic SLSWY0 tics 0
-
 switch SW2S0 on sound switch/normbutn pic SW2S1 tics 0
 switch SW2S1 off sound switch/normbutn pic SW2S0 tics 0
 
 switch SW3S0 on sound switch/normbutn pic SW3S1 tics 0
 switch SW3S1 off sound switch/normbutn pic SW3S0 tics 0
+
+switch SW4S0 on sound switch/normbutn pic SW4S1 tics 0
+switch SW4S1 off sound switch/normbutn pic SW4S0 tics 0
 
 switch BGLASS_A on sound misc/glassbreak pic BGLASS_B tics 0
 switch MIDGLASS on sound misc/glassbreak pic GLSBRKNL tics 0
