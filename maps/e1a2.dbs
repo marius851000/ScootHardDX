@@ -17,8 +17,8 @@ maps
 		{
 		}
 		overrideceiltexture = false;
-		viewpositionx = -1098.65f;
-		defaulttoptexture = "DOOR72A";
+		viewpositionx = 532.9133f;
+		defaulttoptexture = "PBRIKBL2";
 		overrideceilheight = false;
 		useresourcesinreadonlymode = false;
 		overridebrightness = false;
@@ -39,14 +39,14 @@ maps
 		}
 		overridetoptexture = false;
 		overridebottomtexture = false;
-		defaultbottomtexture = "DOOR72A";
+		defaultbottomtexture = "PBRIKBL2";
 		defaultfloortexture = "FLOOR71P";
-		viewpositiony = 1619.648f;
-		defaultwalltexture = "DOOR72A";
+		viewpositiony = 1255.845f;
+		defaultwalltexture = "PBRIKBL2";
 		customceilheight = 128;
 		overridemiddletexture = false;
 		custombrightness = 196;
-		viewscale = 1.422176f;
+		viewscale = 0.1559042f;
 		
 		fieldtypes
 		{
