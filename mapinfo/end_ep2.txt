@@ -1,0 +1,131 @@
+Intermission EndEpisode2
+{
+	Fader
+	{
+		Background = "graphics/cutscenes/end2/end2_1.png"
+		Time = 2
+		FadeType = FadeIn
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_1.png"
+		Music = "D_SIREN"
+		Text = "$SHDX_EP2END_1"
+		TextColor = "Green"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_1.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_2.png"
+		Text = "$SHDX_EP2END_2"
+		TextColor = "Green"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_2.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_3.png"
+		Text = "$SHDX_EP2END_3"
+		TextColor = "Green"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_3.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_4.png"
+		Text = "$SHDX_EP2END_4"
+		TextColor = "Green"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_4.png"
+		Time = 10
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_5.png"
+		Time = 10
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_6.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_6.png"
+		Text = "$SHDX_EP2END_5"
+		TextColor = "Green"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_7.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_8.png"
+		Text = "$SHDX_EP2END_6"
+		TextColor = "Green"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_8.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_9.png"
+		Text = "$SHDX_EP2END_7"
+		TextColor = "Green"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_9.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_10.png"
+		Text = "$SHDX_EP2END_8"
+		TextColor = "Green"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_10.png"
+		Time = 10
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_11.png"
+		Text = "$SHDX_EP2END_9"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end2/end2_11.png"
+		Text = "$SHDX_EP2END_10"
+		TextColor = "Green"
+	}
+	Image
+	{
+		Background = "graphics/cutscenes/end2/end2_11.png"
+		Time = 10
+	}
+	Fader
+	{
+		Background = "graphics/cutscenes/end2/end2_11.png"
+		Time = 2
+		FadeType = FadeOut
+	}
+}

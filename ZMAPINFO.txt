@@ -21,3 +21,5 @@ include "mapinfo/ep3.txt"
 include "mapinfo/intro.txt"
 
 include "mapinfo/end_ep1.txt"
+
+include "mapinfo/end_ep2.txt"
