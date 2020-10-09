@@ -17,26 +17,8 @@ maps
 		{
 		}
 		overrideceiltexture = false;
-		viewpositionx = 292.3911f;
-		defaulttoptexture = "BLDGSID5";
-		
-		fieldtypes
-		{
-			
-			sector
-			{
-				rotationfloor = 1;
-				xscalefloor = 1;
-				ypanningceiling = 1;
-				ypanningfloor = 1;
-				xpanningceiling = 1;
-				yscalefloor = 1;
-				xpanningfloor = 1;
-				yscaleceiling = 1;
-				xscaleceiling = 1;
-				rotationceiling = 1;
-			}
-		}
+		viewpositionx = -8.839853f;
+		defaulttoptexture = "FZBKBKL4";
 		overrideceilheight = false;
 		useresourcesinreadonlymode = false;
 		overridebrightness = false;
@@ -57,13 +39,31 @@ maps
 		}
 		overridetoptexture = false;
 		overridebottomtexture = false;
-		defaultbottomtexture = "BLDGSID5";
+		defaultbottomtexture = "FZBKBKL4";
 		defaultfloortexture = "CONC00";
-		viewpositiony = -680.7332f;
-		defaultwalltexture = "BLDGSID5";
+		viewpositiony = -396.6889f;
+		defaultwalltexture = "FZBKBKL4";
 		customceilheight = 128;
 		overridemiddletexture = false;
 		custombrightness = 196;
 		viewscale = 0.2521673f;
+		
+		fieldtypes
+		{
+			
+			sector
+			{
+				xpanningceiling = 1;
+				ypanningceiling = 1;
+				rotationceiling = 1;
+				xscaleceiling = 1;
+				yscaleceiling = 1;
+				xpanningfloor = 1;
+				ypanningfloor = 1;
+				rotationfloor = 1;
+				xscalefloor = 1;
+				yscalefloor = 1;
+			}
+		}
 	}
 }
