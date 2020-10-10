@@ -205,18 +205,18 @@ Class SHDX_ZombieExplosive : SHDX_Enemy
 	States
 	{	
 		Spawn:
-			ZMBI A 10 A_Look;
+			ZMBE A 10 A_Look;
 			loop;
 		See:
-			ZMBI B 0 A_StartSound("zombie2/scream", CHAN_BODY, CHANF_LOOPING);
+			ZMBE B 0 A_StartSound("zombie2/scream", CHAN_BODY, CHANF_LOOPING);
 		See1:
-			ZMBI BCDEBCDE 2 A_Chase("Melee", null);
+			ZMBE BCDECDE 2 A_Chase("Melee", null);
 			Loop;
 		
 		Melee:
-			ZMBI E 5 A_SetTranslation('ExplodingZombie2');
-			ZMBI E 5 A_SetTranslation('ExplodingZombie3');
-			ZMBI E 5
+			ZMBE E 5 A_SetTranslation('ExplodingZombie2');
+			ZMBE E 5 A_SetTranslation('ExplodingZombie3');
+			ZMBE E 5
 			{
 				if (target && Distance3D(target) <= 128)
 				{
@@ -224,17 +224,17 @@ Class SHDX_ZombieExplosive : SHDX_Enemy
 				}
 				return ResolveState(null);
 			}
-			ZMBI E 5 A_SetTranslation('ExplodingZombie3');
-			ZMBI E 5 A_SetTranslation('ExplodingZombie2');
-			ZMBI E 0
+			ZMBE E 5 A_SetTranslation('ExplodingZombie3');
+			ZMBE E 5 A_SetTranslation('ExplodingZombie2');
+			ZMBE E 0
 			{
 				translation = startingtranslation;
 			}
 			Goto See1;
 		Melee.Detonate:
 
-			ZMBI E 5 A_SetTranslation('ExplodingZombie4');
-			ZMBI E 1 A_Die('Detonate');
+			ZMBE E 5 A_SetTranslation('ExplodingZombie4');
+			ZMBE E 1 A_Die('Detonate');
 		Death.Detonate:
 			GIBX A 0
 			{
