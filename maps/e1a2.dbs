@@ -17,7 +17,7 @@ maps
 		{
 		}
 		overrideceiltexture = false;
-		viewpositionx = -215.8136f;
+		viewpositionx = -762.9669f;
 		defaulttoptexture = "PBRIKBL2";
 		overrideceilheight = false;
 		useresourcesinreadonlymode = false;
@@ -41,12 +41,12 @@ maps
 		overridebottomtexture = false;
 		defaultbottomtexture = "PBRIKBL2";
 		defaultfloortexture = "FLOOR71P";
-		viewpositiony = 822.8134f;
+		viewpositiony = 313.4358f;
 		defaultwalltexture = "PBRIKBL2";
 		customceilheight = 128;
 		overridemiddletexture = false;
 		custombrightness = 196;
-		viewscale = 0.3425215f;
+		viewscale = 0.092251f;
 		
 		fieldtypes
 		{
