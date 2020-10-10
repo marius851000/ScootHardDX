@@ -29,7 +29,7 @@ class SHDX_TitlemapEvent : EventHandler
 	
 	ui void PlayTitleMusic()
 	{
-		S_ChangeMusic("D_ANAEM");
+		S_ChangeMusic("");
 	}
 	
 	/*

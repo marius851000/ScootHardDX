@@ -21,7 +21,7 @@ map E1A1 lookup SHDX_E1A1
 	sucktime = 1
 	next = "E1A2"
 	secretnext = "E1A5"
-	music = "D_MINUIT"
+	music = ""
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
@@ -47,7 +47,7 @@ map E1A3 lookup SHDX_E1A3
 	par = 75
 	sucktime = 1
 	next = "E2A1"
-	music = "D_HORSE"
+	music = ""
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"

@@ -9,7 +9,7 @@ Intermission IntroEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/intro/intro_1.png"
-		Music = "D_PENTIM"
+		Music = "D_SIREN"
 		TextColor = "Cyan"
 		Text = "$SHDX_INTRO_1A"
 	}
