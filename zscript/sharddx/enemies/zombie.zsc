@@ -245,7 +245,7 @@ Class SHDX_ZombieExplosive : SHDX_Enemy
 			{
 				A_StopSound(CHAN_BODY);
 				A_SHDX_ExtremeScreamAndUnblock();
-				SHDX_Utilities.DoExplosion(self, 128, 64, 128, flags:DE_NOTMISSILE);
+				SHDX_Utilities.DoExplosion(self, 128, 64, 128, flags:DE_NOTMISSILE, DamageType:'Explosive');
 				A_SpawnItemEx("SHDX_Explosiveness", 0, 0, 16);
 				A_SpawnGibsFx(self);
 			}
