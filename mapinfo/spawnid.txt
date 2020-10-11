@@ -38,4 +38,6 @@ SpawnNums
 	
 	100 = SHDX_GlassJunk
 	101 = SHDX_MetalJunk
+	
+	102 = SHDX_Explosiveness
 }
