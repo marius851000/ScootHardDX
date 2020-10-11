@@ -18,7 +18,7 @@ class SHDX_TitlemapEvent : EventHandler
 	
 	const SECONDS_SPLASHSCREEN = 1;
 	const SECONDS_DISCLAIMER = 10;
-	const SECONDS_TITLESCREEN = 24;
+	const SECONDS_TITLESCREEN = 40;
 	const SECONDS_ADVISORY = (SECONDS_TITLESCREEN + 4);
 	const SECONDS_MAX = 120;
 	
@@ -77,6 +77,10 @@ class SHDX_TitlemapEvent : EventHandler
 		else if (un ~== "scootaloo")
 		{
 			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_SCOOTALOOUSERNAME");
+		}
+		else if (un ~== "sweetie belle" || un ~== "sweetie bot")
+		{
+			returnedstring = StringTable.Localize("$SHDX_TITLEMAP_SWEETIEUSERNAME");
 		}
 		else if (un ~== "maimbow" || un ~== "maimbow undash")
 		{
