@@ -52,6 +52,7 @@ map E2A4 lookup SHDX_E2A4
 	sucktime = 1
 	next = "EndTitle"
 	lightning
+	EventHandlers = "SHDX_AtmosphereHandler"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"

@@ -165,6 +165,37 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		}
 	}
 	
+	
+	void A_KillZombiesAfter()
+	{
+		let hndlr = SHDX_AtmosphereHandler(EventHandler.Find("SHDX_AtmosphereHandler"));
+		if (hndlr)
+		{
+			for (int i = 0; i < hndlr.zombies.Size(); i++)
+			{
+				if (hndlr.zombies[i])
+				{
+					hndlr.zombies[i].A_Die('Extreme');
+				}
+			}
+		}
+	}
+	
+	// Check for items to steal
+	bool A_CheckZombieCount()
+	{
+		let hndlr = SHDX_AtmosphereHandler(EventHandler.Find("SHDX_AtmosphereHandler"));
+		if (hndlr)
+		{
+			if (hndlr.zombies.Size() >= 15)
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	void A_AtmosphereTaunt()
 	{
 		if (cooldowntaunt <= 0)
@@ -260,6 +291,13 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			}
 			Goto See2;
 		Missile.Stomp.RaiseTheDead:
+			ATMO T 0
+			{
+				if (A_CheckZombieCount())
+					return ResolveState("Missile.Stomp.Tornado");
+					
+				return ResolveState(null);
+			}
 			ATMO T 0 A_StartSound("boss2/risetaunt", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 			ATMO T 8 A_SpawnZombiesFromSpots();
 			ATMO T 15;
@@ -357,7 +395,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 				A_VictoryMusic();
 			}
 			ATMO U 105;
-			ATMO U 5;
+			ATMO U 5 A_KillZombiesAfter;
 			ATMO V 5 A_SpawnGibsFx(self);
 			ATMO WX 5;
 			ATMO Y 0 A_SHDX_SendOLToAllPlayers("atmosphereend", OLSSF_FORCEONELINER);

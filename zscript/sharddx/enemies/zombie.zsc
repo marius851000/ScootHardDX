@@ -23,8 +23,8 @@ Class SHDX_ZombieSpawner : RandomSpawner
 		scale 0.12;
 		Radius 20;
 		Height 56;
-		DropItem "SHDX_ZombieNormal";
-		DropItem "SHDX_ZombieExplosive";
+		DropItem "SHDX_ZombieNormal", 255, 13;
+		DropItem "SHDX_ZombieExplosive", 255, 2;
 	}
 }
 

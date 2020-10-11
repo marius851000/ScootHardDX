@@ -23,8 +23,8 @@ Class SHDX_HighGuardSpawner : RandomSpawner
 		scale 0.12;
 		Radius 20;
 		Height 56;
-		DropItem "SHDX_HighGuardMale";
-		DropItem "SHDX_HighGuardFemale";
+		DropItem "SHDX_HighGuardMale", 255, 7;
+		DropItem "SHDX_HighGuardFemale", 255, 13;
 	}
 }
 
