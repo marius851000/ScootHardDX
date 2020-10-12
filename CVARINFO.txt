@@ -3,4 +3,6 @@ server bool shdx_rip = true;
 server bool shdx_skipcutscenes = false;
 server bool shdx_showextrahitboxes = false;
 
+user bool shdx_bosshealthbar = true;
+
 server bool shdx_copyrightcensor = false;

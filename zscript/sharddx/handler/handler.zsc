@@ -18,12 +18,14 @@ class SHDX_Handler : EventHandler
 	{
 		// BossInfoTick();
 		DoRIPTick();
+		BossInfoTick();
 	}
 	
 	override void RenderOverlay (RenderEvent e)
 	{
 		// DrawBossBar();
 		DisplayRIP();
+		DrawBossBar();
 	}
 	
 	override void PlayerDied(PlayerEvent e)

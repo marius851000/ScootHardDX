@@ -1,0 +1,81 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+extend class SHDX_Handler
+{
+	// Boss Bar
+	transient SHDX_Boss bossmo;
+	transient bool bossfound;
+	
+	const HEALTHBAROFFS_Y = 64;
+	const HEALTHBARSIZE = 32;
+	const HEALTHBARBORDER = 2;
+	const HEALTHBARSEP = 6;
+	
+	void BossInfoTick()
+	{
+		if (bossfound && bossmo)
+		{
+			if (bossmo.health <= 0)
+			{
+				bossmo = null;
+				bossfound = false;
+			}
+		}
+	}
+	
+	ui void DrawBossBar()
+	{
+		if (!CVar.GetCvar('shdx_bosshealthbar', players[consoleplayer]).GetBool())
+			return;
+			
+		if (bossmo && bossmo.target && bossmo.target.health > 0)
+		{
+			Font fnt = "Bigfont";
+			String bossname = bossmo.GetTag();
+			int bosshp = bossmo.health;
+			int bossspawnhp = bossmo.GetSpawnHealth();
+			
+			if (bossspawnhp <= 0)
+				return;	// simply don't go further if we can't get the Spawn Health of the boss enemy
+			
+			int screenw = Screen.GetWidth();
+			int screenh = Screen.GetHeight();
+			
+			int screenhw = screenw / 2;
+			int screenhy = HEALTHBAROFFS_Y / 2;
+			
+			double bosshealthfrac = double(bosshp) / double(bossspawnhp);
+			
+			double bosshealthpct = bosshealthfrac * 100;
+			
+			String str = String.Format("%s: %.2f%%", bossname, bosshealthpct);
+			
+			
+			Color barcol = 0x00FF00;
+			if (bosshealthpct > 33 && bosshealthpct <= 67)
+			{
+				barcol = 0xFFFF00;
+			}
+			else if (bosshealthpct <= 33)
+			{
+				barcol = 0xFF0000;
+			}
+			
+			Screen.DrawText(fnt, Font.CR_YELLOW, screenhw, screenhy, str);
+			Screen.DrawThickLine(screenhw - HEALTHBARBORDER, screenhy + HEALTHBARSEP + HEALTHBARSIZE - HEALTHBARBORDER, screenhw + int(bosshealthpct * 2) + HEALTHBARBORDER, screenhy + HEALTHBARSEP + HEALTHBARSIZE - HEALTHBARBORDER , HEALTHBARSIZE + (HEALTHBARBORDER * 4), 0x000000);
+			Screen.DrawThickLine(screenhw, screenhy + HEALTHBARSEP + HEALTHBARSIZE, screenhw + int(bosshealthpct * 2), screenhy + HEALTHBARSEP + HEALTHBARSIZE, HEALTHBARSIZE, barcol);
+		}
+	}
+}

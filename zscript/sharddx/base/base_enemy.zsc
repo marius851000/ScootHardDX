@@ -342,6 +342,27 @@ Class SHDX_Boss : SHDX_Enemy
 	meta Name CutsceneToPlay;
 	Property CutsceneToPlay: CutsceneToPlay;
 	
+	int cooldowntaunt;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (cooldowntaunt > 0)
+		{
+			cooldowntaunt--;
+		}
+	}
+	
+	void A_SHDX_PlayBossTaunt(Sound snd, bool bypasscooldown = false)
+	{
+		if (cooldowntaunt > 0 && !bypasscooldown)
+			return;
+	
+		A_StartSound(snd, CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+		
+		cooldowntaunt = 300;
+	}
+	
 	void A_DD2_BossPlayCutscene()
 	{
 		if (shdx_skipcutscenes)
@@ -366,16 +387,16 @@ Class SHDX_Boss : SHDX_Enemy
 		S_ChangeMusic("D_GUARD", 0, false);
 	}
 	
-	/*
-	void A_DD2_SetToBossBarHUD()
+	
+	void A_SHDX_SetToBossBarHUD()
 	{
-		let hnd = DD2_Handler(EventHandler.Find("DD2_Handler"));
+		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		if (hnd)
 		{
 			hnd.bossmo = self;
 			hnd.bossfound = true;
 		}
-	} */
+	}
 	
 	States
 	{
