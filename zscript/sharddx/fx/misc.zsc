@@ -17,9 +17,9 @@ Class SHDX_Explosiveness : SHDX_Actor
 	States
 	{
 		Spawn:
-			EXPL A 3 Bright
+			EXPL A 3 Bright NoDelay
 			{
-				A_Quake(2, 8, 0, 1096);
+				A_Quake(2, 8, 0, 1096, "generic/nullvoid");
 				A_StartSound("misc/explosion", CHAN_BODY);
 				A_Stop();
 			}
