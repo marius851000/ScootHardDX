@@ -60,7 +60,7 @@ Class SHDX_Rainbower : SHDX_MissileWeapon
 		Fire:
 			RBWG A 0 A_GunFlash;
 			RBWG A 0 A_StartSound("weapons/rainbowerf", CHAN_WEAPON);
-			RBWG A 0 A_FireProjectile("SHDX_RainbowerProjectileA", 0, true, 0, -16);
+			RBWG A 0 A_FireProjectile("SHDX_RainbowerProjectileA");
 			RBWG C 6;
 			RBWG A 1;
 			RBWG A 0 A_ReFire;

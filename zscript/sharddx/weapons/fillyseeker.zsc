@@ -58,7 +58,11 @@ Class SHDX_FillySeeker : SHDX_MissileWeapon
 			goto LightDone;
 		Fire: 
 			HSKG A 3 A_GunFlash;
-			HSKG B 2 A_FireProjectile("SHDX_FillyMissile", 0, 8, 0, -16);
+			HSKG B 2
+			{
+				A_StartSound("weapons/fillyf", CHAN_WEAPON);
+				A_FireProjectile("SHDX_FillyMissile");
+			}
 			HSKG B 2;
 			HSKG B 2; // ACS_NamedExecute("SHDX_OutOfAmmo", 0, 2)
 			HSKG A 2;
@@ -82,19 +86,22 @@ Class SHDX_FillyMissile : SHDX_Projectile
 		+SCREENSEEKER
 		+SEEKERMISSILE
 		DamageType "Explosive";
-		SeeSound "weapons/rocketf";
-		DeathSound "weapons/rocketx";
+		// SeeSound "weapons/fillyf";
+		DeathSound "weapons/fillyx";
 	}
 	
 	States
 	{
 		Spawn:
+			MISL A 0 NoDelay A_StartSound("weapons/fillyh", CHAN_6, CHANF_LOOPING);
+		Spawn1:
 			MISL A 1 A_SeekerMissile(5, 5, SMF_LOOK, 256, 10);
 			Loop;
 		
 		Death:
 			EXPL A 0 Bright
 			{
+				A_StopSound(CHAN_6);
 				SHDX_Utilities.DoExplosion(self, 56, 32, 80);
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);

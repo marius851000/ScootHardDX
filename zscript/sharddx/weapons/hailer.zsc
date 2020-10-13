@@ -16,9 +16,9 @@ Class SHDX_HailAmmo : Ammo
 {
 	Default
 	{
-		Inventory.MaxAmount 10;
+		Inventory.MaxAmount 30;
 		Ammo.BackpackAmount 0;
-		Ammo.BackpackMaxAmount 10;
+		Ammo.BackpackMaxAmount 30;
 	}
 }
 
@@ -59,9 +59,12 @@ Class SHDX_HailerWeapon : SHDX_MissileWeapon
 			goto LightDone;
 		Fire: 
 			FRZG A 3;
-			FRZG B 0 A_FireProjectile("SHDX_HailBall", 0, false, -8);
-			FRZG B 0 A_FireProjectile("SHDX_HailBall", 0, false, 0);
-			FRZG B 2 A_FireProjectile("SHDX_HailBall", 0, true, 8);
+			FRZG B 2
+			{
+				A_FireProjectile("SHDX_HailBall", 0, false, -8);
+				A_FireProjectile("SHDX_HailBall", 0, false, 0);
+				A_FireProjectile("SHDX_HailBall", 0, true, 8);
+			}
 			FRZG A 3 A_ReFire;
 			Goto Ready;
 	}

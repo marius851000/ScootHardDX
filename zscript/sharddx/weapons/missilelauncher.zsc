@@ -58,7 +58,11 @@ Class SHDX_MissileLauncher : SHDX_MissileWeapon
 		Fire:
 			MISG A 3 A_GunFlash;
 			MISG B 2;
-			MISG B 4 A_FireProjectile("SHDX_Missile");
+			MISG B 4
+			{
+				A_StartSound("weapons/rocketf", CHAN_WEAPON);
+				A_FireProjectile("SHDX_Missile");
+			}
 			MISG B 1; // ACS_NamedExecute("SHDX_OutOfAmmo", 0, 1)
 			MISG B 0 A_ReFire;
 			Goto Ready;
@@ -79,7 +83,7 @@ Class SHDX_Missile : SHDX_Projectile
 		Projectile;
 		+RANDOMIZE
 		DamageType "Explosive";
-		SeeSound "weapons/rocketf";
+		// SeeSound "weapons/rocketf";
 		DeathSound "weapons/rocketx";
 		Obituary "$SHDX_OB_MISSILE";
 	}

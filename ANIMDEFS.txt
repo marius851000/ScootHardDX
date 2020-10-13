@@ -70,7 +70,11 @@ Texture	BFALL_1  	Range	BFALL_4  	Tics 8
 Texture	PUFALL_1  	Range	PUFALL_4  	Tics 8
 Texture	BFALL1  	Range	BFALL4  	Tics 8
 
-Texture SAWB_1      Range	SAWB_3		Tics 3 
+Texture SAWB_1      Range	SAWB_3		Tics 3
+
+texture DANCEF0
+	pic DANCEF0 tics 5
+	pic DANCEF1 tics 5
 
 warp2 flat RSPECF0
 warp2 flat OSPECF0

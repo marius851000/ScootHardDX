@@ -67,6 +67,7 @@ DoomEdNums
 	6728 = SHDX_OfficeCup
 	6729 = SHDX_OfficeCupStack
 	6730 = SHDX_SurpriseCorpse
+	6731 = SHDX_BloodPuddle
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

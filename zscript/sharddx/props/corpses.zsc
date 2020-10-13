@@ -96,8 +96,6 @@ Class SHDX_SkeletonBloody : SHDX_Decoration
 	}
 }
 
-
-
 Class SHDX_SurpriseCorpse : SHDX_Decoration
 {
 	Default
@@ -115,6 +113,27 @@ Class SHDX_SurpriseCorpse : SHDX_Decoration
 	{
 		Spawn:
 			SURP P -1;
+			Stop;
+	}
+}
+
+Class SHDX_BloodPuddle : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Blood Puddle"
+		//$Sprite BLPL
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			BLPL A -1;
 			Stop;
 	}
 }
