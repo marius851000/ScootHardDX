@@ -27,3 +27,24 @@ Class SHDX_Explosiveness : SHDX_Actor
 			Stop;
 	}
 }
+
+Class SHDX_BigExplosiveness : SHDX_Actor
+{
+	Default
+	{
+		Scale 0.48;
+	}
+	
+	States
+	{
+		Spawn:
+			EXPL A 3 Bright NoDelay
+			{
+				A_Quake(5, 8, 0, 4096, "generic/nullvoid");
+				A_StartSound("misc/explosion", CHAN_BODY, attenuation:ATTN_NONE);
+				A_Stop();
+			}
+			EXPL BCDEFGHI 3 Bright A_Stop;
+			Stop;
+	}
+}

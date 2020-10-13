@@ -40,4 +40,5 @@ SpawnNums
 	101 = SHDX_MetalJunk
 	
 	102 = SHDX_Explosiveness
+	103 = SHDX_BigExplosiveness
 }
