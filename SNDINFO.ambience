@@ -27,3 +27,10 @@ $ambient 9 ambience/quakedrone point continuous 0.7
 
 ambience/quakewater "sounds/ambient/quake_water1.ogg"
 $ambient 10 ambience/quakewater point continuous 0.7
+
+ambience/sawloop "sounds/saw_loop.ogg"
+$ambient 11 ambience/sawloop point continuous 0.7
+
+saw/shutoff	"sounds/saw_shutoff.ogg"
+
+pegasusdevice/alarm "sounds/alarm.ogg"
