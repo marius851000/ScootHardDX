@@ -17,7 +17,7 @@ map E3A2 lookup SHDX_E3A2
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "E3A2"
+	next = "E3A3"
 	secretnext = "E3A5"
 	
 	ExitPic = "TITLEPIC"
