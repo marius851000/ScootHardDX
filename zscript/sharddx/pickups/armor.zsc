@@ -1,0 +1,111 @@
+Class SHDX_BulletProofArmor : SHDX_Armor
+{
+	Default
+	{
+		//$Sprite ARM1A0
+		//$Title "Bulletproof Armor"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_BULLETARMOR";
+		Inventory.PickupSound "pickup/bulletvest";
+		Tag "$SHDX_TAG_BULLETPROOF";
+		
+		Inventory.Amount 100;
+		Inventory.MaxAmount 100;
+		Inventory.InterHubAmount 100;
+		SHDX_Armor.ArmorPriority 1;
+	}
+
+	override int HandleDamage( int damage, Name damageType, int flags )
+	{
+		double factor = .25;
+		return int(ceil(damage*factor));
+	}
+	
+	States
+	{
+		Spawn:
+			ARM1 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_FireProofArmor : SHDX_Armor
+{
+	Default
+	{
+		//$Sprite ARM2A0
+		//$Title "Fireproof Armor"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_FIREPROOF";
+		Inventory.PickupSound "pickup/firevest";
+		Tag "$SHDX_TAG_FIREPROOF";
+		DamageFactor "Explosive", 0.125;
+		Inventory.Amount 100;
+		Inventory.MaxAmount 100;
+		Inventory.InterHubAmount 100;
+		SHDX_Armor.ArmorPriority 2;
+	}
+
+	override int HandleDamage( int damage, Name damageType, int flags )
+	{
+		double factor;
+		if ((damageType == 'Fire') || (damageType == 'Slime') || (damageType == 'Explosive'))
+			factor = .125;
+			
+		return int(ceil(damage*factor));
+	}
+	
+	States
+	{
+		Spawn:
+			ARM2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_WeatherProofArmor : SHDX_Armor
+{
+	Default
+	{
+		//$Sprite ARM3A0
+		//$Title "Weatherproof Armor"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_WEATHERPROOF";
+		Inventory.PickupSound "pickup/weathervest";
+		Tag "$SHDX_TAG_WEATHERPROOF";
+		
+		Inventory.Amount 100;
+		Inventory.MaxAmount 100;
+		Inventory.InterHubAmount 100;
+		SHDX_Armor.ArmorPriority 3;
+	}
+
+	override int HandleDamage( int damage, Name damageType, int flags )
+	{
+		double factor;
+		
+		if ((damageType == 'Weather') || (damageType == 'RainbowX') || (damageType == 'Lightning'))
+			factor = .05;
+		
+		return int(ceil(damage*factor));
+	}
+	
+	States
+	{
+		Spawn:
+			ARM3 A -1;
+			Stop;
+	}
+}

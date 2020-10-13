@@ -1,0 +1,119 @@
+/*
+Copyright (c) 2020 Marisa Kirisame, UnSX Team
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+const CHAN_ITEMEXTRA = 99;
+
+Class SHDX_Armor : Armor
+{
+	int priority;
+
+	Property ArmorPriority : priority;
+
+	Default
+	{
+		+INVENTORY.AUTOACTIVATE;
+		+INVENTORY.UNTOSSABLE;
+		+INVENTORY.UNDROPPABLE;
+		+INVENTORY.KEEPDEPLETED;
+		// +INVENTORY.ALWAYSPICKUP;
+	}
+	
+	override void AttachToOwner( Actor other )
+	{
+		Super.AttachToOwner(other);
+		// find last armor that's better than us
+		Inventory found = null;
+		bool foundarmor = false;
+		for ( Inventory i=other.Inv; i; i=i.Inv )
+		{
+			if ( (i is 'SHDX_Armor') && (i != self) ) foundarmor = true;
+			if ( !(i is 'SHDX_Armor') || (i == self) || (SHDX_Armor(i).priority < priority) ) continue;
+			found = i;
+		}
+		if ( !found ) return;
+		// place ourselves right after it
+		Inventory saved = found.Inv;
+		found.Inv = self;
+		other.Inv = Inv;
+		Inv = saved;
+	}
+	
+	// for subclasses
+	virtual int HandleDamage( int damage, Name damageType, int flags )
+	{
+		return damage;
+	}
+	
+	override void AbsorbDamage( int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags )
+	{
+		int saved;
+		if ( (amount > 0) && !DamageTypeDefinition.IgnoreArmor(damageType) && (damage > 0) )
+		{
+			Owner.A_StartSound("armor/hit",CHAN_BODY,CHANF_DEFAULT,clamp(damage*.03,0.,1.),2.5);
+			saved = HandleDamage(damage,damageType,flags);
+			int healed = max(0,saved-damage);
+			saved = min(saved,damage);
+			if ( amount <= saved ) saved = amount;
+			newdamage -= saved;
+			if ( healed > 0 ) Owner.GiveBody(healed);
+			amount -= saved;
+			damage = newdamage;
+			if ( (amount <= (MaxAmount-default.Amount)))
+			{
+				while ( (amount <= (MaxAmount-default.Amount)))
+				{
+					Amount += default.Amount;
+					// absorb the extra damage too
+					saved = HandleDamage(damage,damageType,flags);
+					healed = max(0,saved-damage);
+					saved = min(saved,damage);
+					if ( amount <= saved ) saved = amount;
+					newdamage -= saved;
+					amount -= saved;
+					damage = newdamage;
+				}
+			}
+			else if ( amount <= 0 )
+			{
+				if ( damage > 0 ) newdamage = ApplyDamageFactors(GetClass(),damageType,damage,damage);
+				DepleteOrDestroy();
+				return;
+			}
+		}
+		
+		if ( damage > 0 ) newdamage = ApplyDamageFactors(GetClass(),damageType,damage,damage);
+	}
+}

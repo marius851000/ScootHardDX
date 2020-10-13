@@ -82,10 +82,29 @@ class SHDX_StatusBar : BaseStatusBar
 		DrawSHDXHudPart(_x, _y, "$SHDX_HUD_HEALTH", CPlayer.health, 3, Font.CR_RED);
 	}
 	
-	
 	protected void DrawSHDXActualBits(int _x, int _y)
 	{
-		DrawSHDXHudPart(_x, _y, "$SHDX_HUD_BITS", GetAmount("SHDX_BitCoin"), 3, Font.CR_GOLD);
+		DrawImage("graphics/hud/hud_coin.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+		DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BitCoin"), 3), (_x + 15, _y + 1), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+	}
+	
+	protected void DrawSHDXArmors(int _x, int _y)
+	{
+		if (GetAmount("SHDX_BulletProofArmor") > 0)
+		{
+			DrawImage("graphics/hud/hud_bulletproof.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BulletProofArmor"), 3), (_x + 15, _y + 1), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+		}
+		if (GetAmount("SHDX_FireProofArmor") > 0)
+		{
+			DrawImage("graphics/hud/hud_fireproof.png", (_x, _y + 10), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_FireProofArmor"), 3), (_x + 15, _y + 10), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+		}
+		if (GetAmount("SHDX_WeatherProofArmor") > 0)
+		{
+			DrawImage("graphics/hud/hud_weatherproof.png", (_x, _y + 20), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_WeatherProofArmor"), 3), (_x + 15, _y + 20), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+		}
 	}
 	
 	protected void DrawSHDXFrags(int _x, int _y)
@@ -100,11 +119,11 @@ class SHDX_StatusBar : BaseStatusBar
 		
 		if (a1)
 		{
-			DrawSHDXHudPart(_x, _y, "$SHDX_HUD_AMMO1", a1.Amount, 3, Font.CR_BLUE);
+			DrawSHDXHudPart(_x, _y, "$SHDX_HUD_AMMO1", a1.Amount, 3, Font.CR_CYAN);
 		}
 		if (a2 && a1 != a2)
 		{
-			DrawSHDXHudPart(_x + 60, _y, "$SHDX_HUD_AMMO2", a2.Amount, 3, Font.CR_BLUE);
+			DrawSHDXHudPart(_x + 60, _y, "$SHDX_HUD_AMMO2", a2.Amount, 3, Font.CR_CYAN);
 		}
 	}
 	
@@ -115,21 +134,6 @@ class SHDX_StatusBar : BaseStatusBar
 			let item = Powerup(iitem);
 			if (item != null)
 			{
-				let shdxbulletproof = SHDX_PowerBulletProof(item);
-				if (shdxbulletproof && !shdxbulletproof.isBlinking())
-				{
-					DrawImage("graphics/hud/hud_bulletproof.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-				}
-				let shdxfireproof = SHDX_PowerFireProof(item);
-				if (shdxfireproof && !shdxfireproof.isBlinking())
-				{
-					DrawImage("graphics/hud/hud_fireproof.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-				}
-				let shdxwxproof = SHDX_PowerWeatherProof(item);
-				if (shdxwxproof && !shdxwxproof.isBlinking())
-				{
-					DrawImage("graphics/hud/hud_weatherproof.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-				}
 				let shdxchickenmode = SHDX_ChickenMorph(item);
 				if (shdxchickenmode && !shdxchickenmode.isBlinking())
 				{
@@ -252,7 +256,8 @@ class SHDX_StatusBar : BaseStatusBar
 			// are 'drawn over' by subsequent functions
 			DrawSHDXActualHealth(0, MAINBAROFSY);
 			DrawSHDXActualBits(60, MAINBAROFSY);
-			DrawSHDXActualAmmo(120, MAINBAROFSY);
+			DrawSHDXArmors(110, MAINBAROFSY);
+			DrawSHDXActualAmmo(155, MAINBAROFSY);
 			
 			DrawSHDXPowers(200, MAINBAROFSY);
 			
@@ -275,6 +280,7 @@ class SHDX_StatusBar : BaseStatusBar
 			// Lower Left
 			DrawSHDXActualHealth(0, -40);
 			DrawSHDXActualBits(60, -40);
+			DrawSHDXArmors(80, -40);
 			// Lower Right
 			DrawSHDXActualAmmo(-128, -40);
 			

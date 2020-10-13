@@ -102,7 +102,7 @@ Class SHDX_FillyMissile : SHDX_Projectile
 			EXPL A 0 Bright
 			{
 				A_StopSound(CHAN_6);
-				SHDX_Utilities.DoExplosion(self, 56, 32, 80);
+				SHDX_Utilities.DoExplosion(self, 56, 32, 80, DamageType:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;

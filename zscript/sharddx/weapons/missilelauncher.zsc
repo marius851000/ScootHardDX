@@ -97,7 +97,7 @@ Class SHDX_Missile : SHDX_Projectile
 		Death:
 			EXPL A 0 Bright
 			{
-				SHDX_Utilities.DoExplosion(self, 64, 32, 96);
+				SHDX_Utilities.DoExplosion(self, 64, 32, 96, DamageType:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
