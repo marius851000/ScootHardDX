@@ -247,7 +247,7 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 		}
 		if (!(Level.maptime & 7))
 		{
-			thingtodmg.DamageMobj (self.target, self.target, 15, 'Wind');
+			thingtodmg.DamageMobj (self.target, self.target, 15, 'Weather');
 		}
 		return -1;
 	}

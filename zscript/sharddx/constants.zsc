@@ -34,6 +34,8 @@ const SHDXPLAYER_DIALOGUECHANNEL3 = 668;
 // Constant for RIP Sound Obit volume
 const SHDXPLAYER_RIPVOL		=	2.5;
 
+const CHAN_ARMORHIT = 99;
+
 const SHDXRUNNINGOUTTICS = 140;
 
 // Weapon Overlay IDs

@@ -34,8 +34,6 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-const CHAN_ITEMEXTRA = 99;
-
 Class SHDX_Armor : Armor
 {
 	int priority;
@@ -82,7 +80,7 @@ Class SHDX_Armor : Armor
 		int saved;
 		if ( (amount > 0) && !DamageTypeDefinition.IgnoreArmor(damageType) && (damage > 0) )
 		{
-			Owner.A_StartSound("armor/hit",CHAN_BODY,CHANF_DEFAULT,clamp(damage*.03,0.,1.),2.5);
+			Owner.A_StartSound("armor/hit",CHAN_ARMORHIT,CHANF_DEFAULT,clamp(damage*.03,0.,1.),2.5);
 			saved = HandleDamage(damage,damageType,flags);
 			int healed = max(0,saved-damage);
 			saved = min(saved,damage);
@@ -91,22 +89,7 @@ Class SHDX_Armor : Armor
 			if ( healed > 0 ) Owner.GiveBody(healed);
 			amount -= saved;
 			damage = newdamage;
-			if ( (amount <= (MaxAmount-default.Amount)))
-			{
-				while ( (amount <= (MaxAmount-default.Amount)))
-				{
-					Amount += default.Amount;
-					// absorb the extra damage too
-					saved = HandleDamage(damage,damageType,flags);
-					healed = max(0,saved-damage);
-					saved = min(saved,damage);
-					if ( amount <= saved ) saved = amount;
-					newdamage -= saved;
-					amount -= saved;
-					damage = newdamage;
-				}
-			}
-			else if ( amount <= 0 )
+			if ( amount <= 0 )
 			{
 				if ( damage > 0 ) newdamage = ApplyDamageFactors(GetClass(),damageType,damage,damage);
 				DepleteOrDestroy();

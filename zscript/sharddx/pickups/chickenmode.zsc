@@ -12,7 +12,6 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-
 Class SHDX_ChickenFlash : SHDX_Actor
 {
 	Default
@@ -211,6 +210,26 @@ Class SHDX_ChickenPlayer : SHDX_PlayerPawn
 		Player.MorphWeapon "SHDX_ChickenMouth";
 	}
 	
+	bool unmorphnexttic;
+	
+	void ForceUnMorph()
+	{
+		if (player)
+		{
+			UndoPlayerMorph(player, 0, true);
+		}
+	}
+	
+	override void PlayerThink()
+	{
+		Super.PlayerThink();
+		if (unmorphnexttic)
+		{
+			unmorphnexttic = false;
+			ForceUnMorph();
+		}
+	}
+	
 	States
 	{
 		Spawn:
@@ -247,8 +266,6 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 		+WEAPON.DONTBOB
 	}
 	
-	int chargeup;
-	
 	States
 	{
 		Ready:
@@ -261,43 +278,27 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 			BEAK A 1 A_Raise;
 			Loop;
 		Fire:
-			BEAK A 3
-			{
-				invoker.chargeup++;
-			}
-			BEAK A 0
-			{
-				if (invoker.chargeup >= 5)
-					return ResolveState("Fire.SuperCluck");
-					
-				return ResolveState(null);
-			}
-			BEAK A 10
-			{
-				double pitchtoshift = 1.0 + (invoker.chargeup * 0.1); 
-				A_StartSound("weapons/cluck", CHAN_AUTO, pitch:pitchtoshift);
-			}
-			BEAK A 0 A_ReFire;
-		Fire.Normal:
 			BEAK A 5 A_CustomPunch(6, false, 0, "SHDX_ChickenPuff");
-			BEAK B 1
-			{
-				invoker.chargeup = 0;
-			}
 			BEAK B 1;
-			BEAK A 0;
+			BEAK B 1;
+			BEAK A 2 A_ReFire;
 			Goto Ready;
-		Fire.SuperCluck:
+		AltFire:
 			BEAK A 0
 			{
-				A_Explode(350, 1024, false);
+				SHDX_Utilities.DoExplosion(invoker.Owner, 350, 32, 1024, flags:DE_NOTMISSILE, DamageType:'ChickenX');
 				A_StartSound("weapons/chickenx", CHAN_WEAPON);
 			}
-			BEAK B 5
+			BEAK B 5;
+			BEAK A 5;
+			BEAK A 0
 			{
-				invoker.chargeup = 0;
+				let o = SHDX_ChickenPlayer(invoker.Owner);
+				if (o)
+				{
+					o.unmorphnexttic = true;
+				}
 			}
-			BEAK A 1;
 			Goto Ready;
 	}
 }
