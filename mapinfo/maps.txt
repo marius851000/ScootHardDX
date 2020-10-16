@@ -74,6 +74,7 @@ map MAP05 lookup SHDX_MAP05
 	par = 45
 	sucktime = 1
 	next = "MAP06"
+	secretnext = "SECRET01"
 	lightning
 	
 	ExitPic = "TITLEPIC"
@@ -88,7 +89,6 @@ map MAP06 lookup SHDX_MAP06
 	par = 45
 	sucktime = 1
 	next = "MAP07"
-	secretnext = "SECRET01"
 	lightning
 	
 	ExitPic = "TITLEPIC"
