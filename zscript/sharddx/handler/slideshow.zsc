@@ -18,6 +18,7 @@ class SHDX_SlideshowHandler : EventHandler
 	bool ExitLevelOnFinish;		// Do we exit level on finish?
 	bool IntermissionPlayed;	// Has the intermission been played?
 	bool CutsceneDone;			// If we don't exit the level, mark cutscene as done
+	bool DestroyMe;				// Destory This;
 	
 	void InitSlideshowInfo(name intermission, bool exitonfinish = false)
 	{
@@ -49,6 +50,19 @@ class SHDX_SlideshowHandler : EventHandler
 	{
 		if (!CutsceneDone)
 			DoCutscene();
+		
+		if (CutsceneDone)
+		{
+			DestroyMe = true;
+		}
+		
+		if (DestroyMe)
+		{
+			if (!bDestroyed)
+				Destroy();
+				
+			return;
+		}
 	}
 }
 

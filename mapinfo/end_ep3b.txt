@@ -68,7 +68,7 @@ Intermission EndEpisode3Aurora
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3b/end3b_3.png"
-		Text = "$SHDX_EP3AEND_9"
+		Text = "$SHDX_EP3BEND_9"
 		TextColor = "Green"
 	}
 	Image
@@ -79,7 +79,7 @@ Intermission EndEpisode3Aurora
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3b/end3b_4.png"
-		Text = "$SHDX_EP3AEND_10"
+		Text = "$SHDX_EP3BEND_10"
 		TextColor = "Green"
 	}
 	Image
@@ -90,7 +90,7 @@ Intermission EndEpisode3Aurora
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3b/end3b_5.png"
-		Text = "$SHDX_EP3AEND_11"
+		Text = "$SHDX_EP3BEND_11"
 		TextColor = "Green"
 	}
 	Image

@@ -11,9 +11,9 @@ clearskills
 skill easy
 {
 	AutoUseHealth
-	AmmoFactor = 2
+	AmmoFactor = 1
 	ACSReturn = 0
-	DamageFactor = 0.75
+	DamageFactor = 0.50
 	EasyBossBrain
 	EasyKey
 	SpawnFilter = 1
@@ -22,19 +22,19 @@ skill easy
 	TextColor = "Blue"
 	MonsterHealth = 0.75
 	Key = "c"
-	DropAmmoFactor = 1.0
 }
 
 skill medium
 {
 	SpawnFilter = 2
 	ACSReturn = 1
+	DamageFactor = 1.0
 	Name = "$SHDX_SKILL2"
 	MustConfirm = "$SHDX_SKILLSURE2"
 	TextColor = "Green"
 	Key = "r"
+	MonsterHealth = 1.0
 	DefaultSkill
-	DropAmmoFactor = 1.0
 }
 
 skill hard
@@ -47,18 +47,17 @@ skill hard
 	TextColor = "Yellow"
 	Key = "a"
 	MonsterHealth = 1.25
-	DropAmmoFactor = 1.0
 }
 
-skill despair
+skill discourse
 {
 	Aggressiveness = 0.75
 	SpawnFilter = 3
 	ACSReturn = 3
+	DamageFactor = 1.5
 	Name = "$SHDX_SKILL4"
 	MustConfirm = "$SHDX_SKILLSURE4"
 	TextColor = "Red"
 	Key = "v"
 	MonsterHealth = 1.5
-	DropAmmoFactor = 1.0
 }
