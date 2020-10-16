@@ -1,0 +1,190 @@
+map MAP00 lookup SHDX_MAP00
+{
+	LevelNum = 0
+	Music = ""
+	Next = "MAP01"
+	EventHandlers = "SHDX_MAP00SlideshowHandler"
+	NoIntermission
+	NoAutosaveHint
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+	
+	Sky1 = "SKY1"
+}
+
+map MAP01 lookup SHDX_MAP01
+{
+	sky1 = "SKY1"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP02"
+	music = "D_SCANT"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map MAP02 lookup SHDX_MAP02
+{
+	sky1 = "SKY1"
+	cluster = 1
+	par = 75
+	sucktime = 1
+	next = "MAP03"
+	music = "D_SYS"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map MAP03 lookup SHDX_MAP03
+{
+	sky1 = "SKY1"
+	cluster = 1
+	par = 75
+	sucktime = 1
+	next = "MAP04"
+	music = ""
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map MAP04 lookup SHDX_MAP04
+{
+	sky1 = "SKY2"
+	sky2 = "SKY2A"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP05"
+	lightning
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map MAP05 lookup SHDX_MAP05
+{
+	sky1 = "SKY2"
+	sky2 = "SKY2A"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP06"
+	lightning
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map MAP06 lookup SHDX_MAP06
+{
+	sky1 = "SKY2"
+	sky2 = "SKY2A"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP07"
+	secretnext = "SECRET01"
+	lightning
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map MAP07 lookup SHDX_MAP07
+{
+	sky1 = "SKY2"
+	sky2 = "SKY2A"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP08"
+	lightning
+	EventHandlers = "SHDX_AtmosphereHandler"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map MAP08 lookup SHDX_MAP08
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP09"
+	secretnext = "SECRET02"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map MAP09 lookup SHDX_MAP09
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP10"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map MAP10 lookup SHDX_MAP10
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	deathsequence = "EndEpisode3Death"
+	next = "CREDITS"
+	secretnext = "CREDITS"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map SECRET02 lookup SHDX_SECRET02
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP08"
+	secretnext = "MAP09"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map CREDITS lookup SHDX_CREDITS
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "EndTitle"
+	secretnext = "EndTitle"
+	EventHandlers = "SHDX_CreditMapEvent"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map SECRET01 lookup SHDX_SECRET01
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP06"
+	secretnext = "MAP06"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}

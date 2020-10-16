@@ -52,11 +52,10 @@ class SHDX_SlideshowHandler : EventHandler
 	}
 }
 
-class SHDX_E1A0SlideshowHandler : SHDX_SlideshowHandler
+class SHDX_MAP00SlideshowHandler : SHDX_SlideshowHandler
 {
 	override void OnRegister()
 	{
-		Console.PrintF("SHDX_E1A0SlideshowHandler::OnRegister())");
 		InitSlideshowInfo('IntroEpisode1', true);
 	}
 }

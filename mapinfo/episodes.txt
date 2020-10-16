@@ -1,6 +1,6 @@
 // Episodes
 clearepisodes
-episode e1a0
+episode map00
 {
 	name = "$SHDX_EPISODE"
 	key = "s"
