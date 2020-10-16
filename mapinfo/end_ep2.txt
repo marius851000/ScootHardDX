@@ -124,7 +124,6 @@ Intermission EndEpisode2
 	}
 	Fader
 	{
-		Background = "graphics/cutscenes/end2/end2_11.png"
 		Time = 2
 		FadeType = FadeOut
 	}

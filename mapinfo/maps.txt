@@ -141,6 +141,7 @@ map MAP10 lookup SHDX_MAP10
 	cluster = 1
 	par = 45
 	sucktime = 1
+	EventHandlers = "SHDX_PreBoss3SlideshowHandler"
 	deathsequence = "EndEpisode3Death"
 	next = "CREDITS"
 	secretnext = "CREDITS"
