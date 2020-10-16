@@ -12,96 +12,75 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-mixin class PickupSoundOverride
+class SHDX_CreditMapEvent : EventHandler
 {
-	override void PlayPickupSound (Actor toucher)
+	ui int seconds;
+	
+	override void OnRegister()
 	{
-		double atten;
-		int chan;
-		int flags = 0;
-
-		if (bNoAttenPickupSound)
-		{
-			atten = ATTN_NONE;
-		}
-		/*
-		else if ((ItemFlags & IF_FANCYPICKUPSOUND) &&
-			(toucher == NULL || toucher->CheckLocalView()))
-		{
-			atten = ATTN_NONE;
-		}
-		*/
-		else
-		{
-			atten = ATTN_NORM;
-		}
-
-		if (toucher != NULL && toucher.CheckLocalView())
-		{
-			chan = CHAN_ITEM;
-			flags = CHANF_NOPAUSE | CHANF_MAYBE_LOCAL;
-		}
-		else
-		{
-			chan = CHAN_ITEM;
-			flags = CHANF_MAYBE_LOCAL;
-		}
-		
-		flags |= CHANF_OVERLAP;
-		
-		toucher.A_StartSound(PickupSound, chan, flags, 1, atten);
-	}
-}
-
-// Health Pickup actor
-Class SHDX_Health : Health
-{
-	Default
-	{
-		//$NotAngled
-		//$Category "Health and Armor"
-		//$Color 1
-		
-		Radius 14;
-		Height 28;
-		Scale 0.12;
-		Inventory.PickupSound "pickup/healthfood";
+		SetOrder(1);
 	}
 	
-	mixin PickupSoundOverride;
-}
-
-// Base Key Object Sets scale, pickup noise and size
-Class SHDX_Key : Key
-{
-	Default
+	ui void DrawImageWithOffsets(string texturepath, int x, int y, bool centered = false, double alpha = 1.0)
 	{
-		//$NotAngled
-		//$Category "Keys"
-		//$Color 13
-
-		Radius 12;
-		Height 24;
-		Scale 0.15;
-		Inventory.PickupSound "pickup/key";
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			int _rw, _rh;
+			[_rw, _rh] = TexMan.GetSize(rid);
+			Screen.DrawTexture(rid, false, x, y, 
+							DTA_VirtualWidth, 1920, DTA_VirtualHeight, 1080, DTA_CenterOffset, centered, DTA_Alpha, alpha);
+		}
 	}
 	
-	mixin PickupSoundOverride;
-}
-
-
-Class SHDX_PowerupGiver : PowerupGiver
-{
-	Default
+	ui void DrawCredit(String strloc, int x, int y, double alpha = 1.0)
 	{
-		//$NotAngled
-		//$Category "Keys"
-		//$Color 13
-
-		Radius 12;
-		Height 24;
-		Scale 0.12;
+		Screen.DrawText("smallfont", Font.CR_WHITE, x, y, StringTable.Localize(strloc),
+							DTA_VirtualWidth,  1920,
+							DTA_VirtualHeight, 1080,
+							DTA_Alpha, alpha);
 	}
 	
-	mixin PickupSoundOverride;
+	ui void ClearBlack()
+	{
+		Screen.Clear(0, 0, Screen.GetWidth(), Screen.GetHeight(), 0x000000);
+	}
+	
+	override void UITick()
+	{
+		if (!(level.time % TICRATE))
+		{			
+			seconds++;
+		}
+	}
+
+	// Override the RenderOverlay
+	override void RenderOverlay(RenderEvent e)
+	{
+		PlayerInfo p = players[consoleplayer];
+		
+		if (p && p.mo)
+		{
+			if (seconds >= 0)
+				ClearBlack();
+		}
+	}
+	
+	override void PlayerSpawned(PlayerEvent e)
+	{
+		PlayerInfo player = players[e.PlayerNumber];
+		if (player)
+		{
+			player.cheats |= CF_TOTALLYFROZEN;
+		}
+	}
+	
+	override void PlayerDisconnected(PlayerEvent e)
+	{
+		PlayerInfo player = players[e.PlayerNumber];
+		if (player)
+		{
+			player.cheats |= ~CF_TOTALLYFROZEN;
+		}
+	}
 }

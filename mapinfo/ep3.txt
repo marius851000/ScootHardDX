@@ -72,6 +72,7 @@ map CREDITS lookup SHDX_CREDITS
 	sucktime = 1
 	next = "EndTitle"
 	secretnext = "EndTitle"
+	EventHandlers = "SHDX_CreditMapEvent"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"

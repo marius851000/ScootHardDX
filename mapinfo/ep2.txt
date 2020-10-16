@@ -50,7 +50,7 @@ map E2A4 lookup SHDX_E2A4
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "EndTitle"
+	next = "E3A1"
 	lightning
 	EventHandlers = "SHDX_AtmosphereHandler"
 	

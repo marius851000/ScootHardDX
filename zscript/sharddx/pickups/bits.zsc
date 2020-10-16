@@ -12,7 +12,6 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-
 Class SHDX_BitCoin : Ammo
 {
 	Default
@@ -25,43 +24,7 @@ Class SHDX_BitCoin : Ammo
 		+Inventory.IgnoreSkill
 	}
 	
-	override void PlayPickupSound (Actor toucher)
-	{
-		double atten;
-		int chan;
-		int flags = 0;
-
-		if (bNoAttenPickupSound)
-		{
-			atten = ATTN_NONE;
-		}
-		/*
-		else if ((ItemFlags & IF_FANCYPICKUPSOUND) &&
-			(toucher == NULL || toucher->CheckLocalView()))
-		{
-			atten = ATTN_NONE;
-		}
-		*/
-		else
-		{
-			atten = ATTN_NORM;
-		}
-
-		if (toucher != NULL && toucher.CheckLocalView())
-		{
-			chan = CHAN_ITEM;
-			flags = CHANF_NOPAUSE | CHANF_MAYBE_LOCAL;
-		}
-		else
-		{
-			chan = CHAN_ITEM;
-			flags = CHANF_MAYBE_LOCAL;
-		}
-		
-		flags |= CHANF_OVERLAP;
-		
-		toucher.A_StartSound(PickupSound, chan, flags, 1, atten);
-	}
+	mixin PickupSoundOverride;
 }
 
 Class SHDX_SilverBitCoin : SHDX_BitCoin
@@ -83,8 +46,6 @@ Class SHDX_SilverBitCoin : SHDX_BitCoin
 			Stop;
 	}
 }
-
-
 
 Class SHDX_GoldBitCoin : SHDX_BitCoin
 {

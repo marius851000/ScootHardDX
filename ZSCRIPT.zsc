@@ -67,6 +67,7 @@ version "4.3"
 #include "zscript/sharddx/handler/slideshow.zsc"
 #include "zscript/sharddx/handler/zombie.zsc"
 #include "zscript/sharddx/handler/titlemap.zsc"
+#include "zscript/sharddx/handler/creditmap.zsc"
 
 #include "zscript/sharddx/oneliner/oneliner.zsc"
 

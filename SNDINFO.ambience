@@ -34,3 +34,6 @@ $ambient 11 ambience/sawloop point continuous 0.7
 saw/shutoff	"sounds/saw_shutoff.ogg"
 
 pegasusdevice/alarm "sounds/alarm.ogg"
+
+ambience/wind "sounds/ambience/wind.ogg"
+$ambient 12 ambience/wind point continuous 0.7

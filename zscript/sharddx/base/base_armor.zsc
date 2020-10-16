@@ -49,6 +49,8 @@ Class SHDX_Armor : Armor
 		// +INVENTORY.ALWAYSPICKUP;
 	}
 	
+	mixin PickupSoundOverride;
+	
 	override void AttachToOwner( Actor other )
 	{
 		Super.AttachToOwner(other);
