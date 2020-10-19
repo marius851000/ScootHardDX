@@ -1,0 +1,39 @@
+flickerlight SHDX_GoldSparkPuff1
+{
+    color 0.5 0.5 0.0
+    size 2
+    secondarySize 3
+    chance 0.8
+}
+
+flickerlight SHDX_GoldSparkPuff2
+{
+    color 0.5 0.5 0.0
+    size 4
+    secondarySize 6
+    chance 0.8
+}
+
+flickerlight SHDX_GoldSparkPuff3
+{
+    color 0.5 0.5 0.0
+    size 7
+    secondarySize 9
+    chance 0.8
+}
+
+flickerlight SHDX_GoldSparkPuff4
+{
+    color 0.5 0.5 0.0
+    size 8
+    secondarySize 10
+    chance 0.8
+}
+
+object SHDX_BulletPuff
+{
+    frame PUFFA { light SHDX_GoldSparkPuff1 }
+    frame PUFFB { light SHDX_GoldSparkPuff2 }
+    frame PUFFC { light SHDX_GoldSparkPuff3 }
+    frame PUFFD { light SHDX_GoldSparkPuff4 }
+}

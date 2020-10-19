@@ -177,6 +177,7 @@ decal DD2_FrostScorch
 generator SHDX_BulletPuff				SHDX_BulletChip1
 generator SHDX_FillyMissile				SHDX_MediumScorch
 generator SHDX_Missile					SHDX_Scorch
+generator SHDX_PlasmaBall				SHDX_MediumScorch
 generator SHDX_HailBall					DD2_FrostScorch
 
 decal CWCLogoColour 1

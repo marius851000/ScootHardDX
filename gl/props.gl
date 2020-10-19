@@ -1,0 +1,60 @@
+pointlight SHDX_TALLLAMP
+{
+    color 1.0 1.0 1.0
+    size 64
+	offset 0 52 0
+}
+
+object SHDX_Lamp
+{
+	frame LAMP { light SHDX_TALLLAMP }
+}
+
+pointlight SHDX_YELLOWLAMP
+{
+    color 1.0 1.0 0.0
+    size 64
+	offset 0 8 0
+}
+
+object SHDX_LittleCeilingLight
+{
+	frame CLIT { light SHDX_YELLOWLAMP }
+}
+
+object SHDX_LittleFloorLight
+{
+	frame FLT2 { light SHDX_YELLOWLAMP }
+}
+
+pointlight SHDX_SMALLLAMP
+{
+    color 1.0 1.0 1.0
+    size 64
+	offset 0 8 0
+}
+
+object SHDX_GreenCeilingLight
+{
+	frame CLT2 { light SHDX_SMALLLAMP }
+}
+
+pointlight SHDX_WIREFLICKER
+{
+    color 0.87 1.0 1.0
+    color 1.0 1.0 1.0
+    size 64
+	offset 0 8 0
+}
+
+object SHDX_Wires
+{
+    frame WIREB { light SHDX_WIREFLICKER }
+    frame WIREC { light SHDX_WIREFLICKER }
+}
+
+object SHDX_WiresFloor
+{
+    frame WIREE { light SHDX_WIREFLICKER }
+    frame WIREF { light SHDX_WIREFLICKER }
+}

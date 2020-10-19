@@ -1,0 +1,98 @@
+pulselight SHDX_TELEPORTFX
+{
+    color 0.0 0.75 1.0
+    size 32
+    secondarySize 48
+    interval 0.4
+}
+
+object SHDX_TeleportFog
+{
+	frame TFOG { light SHDX_TELEPORTFX }
+}
+
+pointlight SHDX_LIGHTNINGZOMBIESPOT
+{
+    color 1.0 1.0 0.0
+    size 64
+	offset 0 48 0
+}
+
+object SHDX_ZombieSpot
+{
+	frame ZMCLB { light SHDX_LIGHTNINGZOMBIESPOT }
+}
+
+pulselight SHDX_CHICKENFX
+{
+    color 0.502 0.0 0.502
+    size 32
+    secondarySize 48
+    interval 0.4
+}
+
+object SHDX_ChickenFlash
+{
+	frame CFLS { light SHDX_CHICKENFX }
+}
+
+object SHDX_ChickenFlash2
+{
+	frame CFLS { light SHDX_CHICKENFX }
+}
+
+object SHDX_Explosiveness
+{
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
+}
+
+flickerlight SHDX_BIGROCKET_X1
+{
+    color 1.0 0.7 0.0
+    size 256
+    secondarySize 288
+    chance 0.3
+}
+
+flickerlight SHDX_BIGROCKET_X2
+{
+    color 0.5 0.1 0.0
+    size 280
+    secondarySize 296
+    chance 0.3
+}
+
+flickerlight SHDX_BIGROCKET_X3
+{
+    color 0.3 0.0 0.0
+    size 300
+    secondarySize 344
+    chance 0.3
+}
+
+flickerlight SHDX_BIGROCKET_X4
+{
+    color 0.2 0.2 0.0
+    size 288
+    secondarySize 384
+    chance 0.3
+}
+
+object SHDX_BigExplosiveness
+{
+    frame EXPLA { light SHDX_BIGROCKET_X1 }
+    frame EXPLB { light SHDX_BIGROCKET_X1 }
+    frame EXPLC { light SHDX_BIGROCKET_X2 }
+    frame EXPLD { light SHDX_BIGROCKET_X2 }
+    frame EXPLE { light SHDX_BIGROCKET_X3 }
+    frame EXPLF { light SHDX_BIGROCKET_X3 }
+    frame EXPLG { light SHDX_BIGROCKET_X4 }
+    frame EXPLH { light SHDX_BIGROCKET_X4 }
+}

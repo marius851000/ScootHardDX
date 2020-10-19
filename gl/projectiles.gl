@@ -1,0 +1,44 @@
+flickerlight SHDX_PLASMAFLICKER
+{
+    color 0.87 1.0 1.0
+    size 24
+    secondarySize 48
+    chance 0.3
+}
+
+flickerlight SHDX_PLASMA_X1
+{
+    color 0.3 0.5 0.7
+    size 64
+    secondarySize 72
+    chance 0.4
+}
+
+flickerlight SHDX_PLASMA_X2
+{
+    color 0.3 0.5 0.7
+    size 80
+    secondarySize 88
+    chance 0.4
+}
+
+object SHDX_PlasmaBall
+{
+	frame PLASA { light SHDX_PLASMAFLICKER }
+	frame PLASB { light SHDX_PLASMAFLICKER }
+	frame PLASC { light SHDX_PLASMA_X1 }
+	frame PLASD { light SHDX_PLASMA_X2 }
+}
+
+flickerlight SHDX_ARCFLICKER
+{
+    color 0.87 1.0 1.0
+    size 24
+    secondarySize 48
+    chance 0.3
+}
+
+object SHDX_FloorArc
+{
+	frame ATLX { light SHDX_ARCFLICKER }
+}

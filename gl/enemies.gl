@@ -1,0 +1,31 @@
+object SHDX_HighGuardMale
+{
+	frame HIGHG { light SHDX_BULLETPUFF }
+}
+
+object SHDX_HighGuardFemale
+{
+	frame HIG2G { light SHDX_BULLETPUFF }
+}
+
+object SHDX_LowGuardMale
+{
+	frame GRD1G { light SHDX_BULLETPUFF }
+}
+
+object SHDX_LowGuardFemale
+{
+	frame GRD2G { light SHDX_BULLETPUFF }
+}
+
+object SHDX_PegapolMale
+{
+	frame PEGAG { light SHDX_BULLETPUFF }
+}
+
+object SHDX_MaimbowUndashBoss
+{
+	frame MBOWG { light SHDX_BULLETPUFF }
+	frame MBOWN { light SHDX_BULLETPUFF }
+}
+
