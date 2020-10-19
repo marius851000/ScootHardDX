@@ -155,18 +155,18 @@ Class SHDX_ZombieNormal : SHDX_Enemy
 			}
 			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			GIBX BC 5;
-			GIBX D -1;
+			GIBX D 1;
 			Stop;
 		Death.RainbowerX:
 			GIBR A 4;
 			GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			GIBR BC 4;
-			GIBR D -1;
+			GIBR D 1;
 			Stop;
 		Crush:
 			GIBX D 0 A_SHDX_SquishSound;
 			// GIBX D 1 A_SHDX_GivePlayerOneLiner;
-			GIBX D -1;
+			GIBX D 1;
 			Stop;
 	}
 }
@@ -255,18 +255,18 @@ Class SHDX_ZombieExplosive : SHDX_Enemy
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			}
 			GIBX BC 5;
-			GIBX D -1;
+			GIBX D 1;
 			Stop;
 		Death.RainbowerX:
 			GIBR A 4;
 			GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			GIBR BC 4;
-			GIBR D -1;
+			GIBR D 1;
 			Stop;
 		Crush:
 			GIBX D 0 A_SHDX_SquishSound;
 			// GIBX D 1 A_SHDX_GivePlayerOneLiner;
-			GIBX D -1;
+			GIBX D 1;
 			Stop;
 	}
 }

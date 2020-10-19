@@ -24,7 +24,7 @@ Class SHDX_Sandwich : SHDX_Health
 		Tag "$SHDX_TAG_SANDWICH";
 		
 		Radius 10;
-		Height 20;
+		Height 10;
 		
 		Inventory.PickupMessage "$SHDX_PICKUP_SANDWICH";
 	}
@@ -50,7 +50,7 @@ Class SHDX_Applesauce : SHDX_Health
 		Inventory.Amount 25;
 		Tag "$SHDX_TAG_APPLESAUCE";
 		Radius 12;
-		Height 20;
+		Height 12;
 		Inventory.PickupMessage "$SHDX_PICKUP_APPLESAUCE";
 		+SHOOTABLE
 		+NOTAUTOAIMED
@@ -83,7 +83,7 @@ Class SHDX_ApplesauceHot : SHDX_Health
 		Inventory.Amount 50;
 		Tag "$SHDX_TAG_APPLESAUCEHOT";
 		Radius 12;
-		Height 20;
+		Height 12;
 		Inventory.PickupMessage "$SHDX_PICKUP_APPLESAUCEHOT";
 	}
 	

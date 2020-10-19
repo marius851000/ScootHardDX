@@ -16,15 +16,18 @@ class SHDX_VendingMachine : SHDX_Actor
 {
 	Default
 	{
+		//$Category "Controllers"
 		//$Title "Vending Machine"
 		//$Sprite internal:action
-		//$Arg0 "Jump Velocity"
-		//$Arg0Default 32
-		//$Arg0Tooltip "Jump Pad Velocity to apply to player"	
 	}
 	
 	int nomoneycount;
 	bool nomoneytriggered;
+	
+	const VEND_APPLE_COST = 1;
+	const VEND_MEAL_COST = 5;
+	const VEND_EASY_MULTI = 1;
+	const VEND_HARD_MULTI = 5;
 	
 	override bool Used(Actor user)
 	{	
@@ -34,43 +37,51 @@ class SHDX_VendingMachine : SHDX_Actor
 			if (shdxpl.health < 100)
 			{
 				int bitcount = shdxpl.CountInv("SHDX_BitCoin");
-				if (bitcount > 0)
+				
+				int multiplier = G_SkillPropertyInt(SKILLP_ACSReturn) < 2 ? VEND_EASY_MULTI : VEND_HARD_MULTI;
+				
+				int applecost = VEND_APPLE_COST * multiplier;
+				int mealcost = VEND_MEAL_COST * multiplier;
+				
+				if (bitcount >= (applecost - 1))
 				{
-					if (bitcount >= 1 && bitcount <= 4)
+					if (bitcount >= applecost && bitcount <= (mealcost - 1))
 					{
 						shdxpl.A_GiveInventory("Health", 10);
-						shdxpl.A_TakeInventory("SHDX_BitCoin", 1);
-						A_StartSound("vending/dispense", 9);
+						shdxpl.A_TakeInventory("SHDX_BitCoin", applecost);
+						A_StartSound("vending/dispense", CHAN_VENDINGUSE);
 						shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_APPLE"));
 					}
-					else if (bitcount >= 5)
+					else if (bitcount >= mealcost)
 					{
 						shdxpl.A_GiveInventory("Health", 25);
-						shdxpl.A_TakeInventory("SHDX_BitCoin", 5);
-						A_StartSound("vending/dispense", 9);
+						shdxpl.A_TakeInventory("SHDX_BitCoin", mealcost);
+						A_StartSound("vending/dispense", CHAN_VENDINGUSE);
 						shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_HOTMEAL"));
 					}
 				}
 				else
 				{
-					nomoneycount++;
+					if (!nomoneytriggered)
+						nomoneycount++;
 					
 					if (nomoneycount > 10 && !nomoneytriggered)
 					{
-						A_StartSound("vending/failfilthyfrank", 9);
+						A_StartSound("vending/failfilthyfrank", CHAN_VENDINGUSE);
 						nomoneycount = 0;
 						nomoneytriggered = true;
 					}
 					else
 					{
-						A_StartSound("vending/fail", 9);
+						A_StartSound("vending/fail", CHAN_VENDINGUSE);
 					}
-					shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_NOBITS"));
+					
+					shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_NOTENOUGHBITS"));
 				}
 			}
 			else
 			{
-				A_StartSound("vending/fail", 9);
+				A_StartSound("vending/fail", CHAN_VENDINGUSE);
 				shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_NOTHUNGRY"));
 			}
 		}

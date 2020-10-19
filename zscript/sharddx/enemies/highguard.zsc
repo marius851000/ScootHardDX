@@ -50,10 +50,23 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 		Tag "$SHDX_TAG_HIGHGUARD";
 	}
 	
+	bool A_CheckDiscourseDrop()
+	{
+		if (G_SkillPropertyInt(SKILLP_ACSReturn) < 3)
+			return true;
+			
+		if (G_SkillPropertyInt(SKILLP_ACSReturn) >= 3 && Random[HighGuard](0, 100) >= 50)
+			return true;
+		
+		return false;
+	}
+	
 	void A_DropItemsHighGuard()
 	{
-		if (target && target.CountInv("SHDX_BitCoin") < 50)
+		if (target && target.CountInv("SHDX_BitCoin") < 50 && A_CheckDiscourseDrop())
+		{
 			A_SHDX_DropItem("SHDX_SilverBitCoin", false);
+		}
 		
 		if (target && target.CountInv("SHDX_SubmachineGun") < 1)
 			A_SHDX_DropItem("SHDX_SubmachineGun");

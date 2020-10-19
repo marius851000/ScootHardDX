@@ -75,6 +75,17 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		A_SHDX_PlayBossTaunt("boss1/taunt"..Random[Surprise](1,6));
 	}
 	
+	override void MarkPreCacheSounds()
+	{
+		Super.MarkPreCacheSounds();
+		Sound snd;
+		for (int i = 1; i < 7; i++)
+		{
+			snd = String.Format("boss1/taunt%d", i);
+			MarkSound(snd);
+		}
+	}
+	
 	States
 	{
 		Spawn:

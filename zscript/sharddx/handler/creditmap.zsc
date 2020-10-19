@@ -16,9 +16,28 @@ class SHDX_CreditMapEvent : EventHandler
 {
 	ui int seconds;
 	
+	const SECONDS_CREDITSTART = 1;
+	const SECONDS_CREDITEND = (SECONDS_CREDITSTART + 60);
+	const SECONDS_BORDEAUX_START = SECONDS_CREDITEND + 1;
+	const SECONDS_BORDEAUX_VOICE_START = SECONDS_BORDEAUX_START + 10;
+	const SECONDS_BODREAUX_END = SECONDS_BORDEAUX_VOICE_START + 16;
+	const SECONDS_MAX = SECONDS_BODREAUX_END + 1;
+	
 	override void OnRegister()
 	{
 		SetOrder(1);
+	}
+	
+	ui void DrawBGImage(string texturepath)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			int _rw, _rh;
+			[_rw, _rh] = TexMan.GetSize(rid);
+			Screen.DrawTexture(rid, false, 0, 0, 
+							DTA_VirtualWidth, 1920, DTA_VirtualHeight, 1080, DTA_FullscreenEx, 3);
+		}
 	}
 	
 	ui void DrawImageWithOffsets(string texturepath, int x, int y, bool centered = false, double alpha = 1.0)
@@ -33,11 +52,19 @@ class SHDX_CreditMapEvent : EventHandler
 		}
 	}
 	
+	ui void DrawCreditNumber(String str, int x, int y, double alpha = 1.0)
+	{
+		Screen.DrawText("smallfont", Font.CR_FIRE, x, y, str,
+							DTA_VirtualWidth,  640,
+							DTA_VirtualHeight, 480,
+							DTA_Alpha, alpha);
+	}
+	
 	ui void DrawCredit(String strloc, int x, int y, double alpha = 1.0)
 	{
-		Screen.DrawText("smallfont", Font.CR_WHITE, x, y, StringTable.Localize(strloc),
-							DTA_VirtualWidth,  1920,
-							DTA_VirtualHeight, 1080,
+		Screen.DrawText("smallfont", Font.CR_FIRE, x, y, StringTable.Localize(strloc),
+							DTA_VirtualWidth,  640,
+							DTA_VirtualHeight, 480,
 							DTA_Alpha, alpha);
 	}
 	
@@ -46,10 +73,45 @@ class SHDX_CreditMapEvent : EventHandler
 		Screen.Clear(0, 0, Screen.GetWidth(), Screen.GetHeight(), 0x000000);
 	}
 	
+	ui void PlayBordeauxSound()
+	{
+		S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_OVERLAP, 1, ATTN_NORM);
+		S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_OVERLAP, 1, ATTN_NORM);
+		S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_OVERLAP, 1, ATTN_NORM);
+	}
+	
+	ui void PlayCreditMusic()
+	{
+		S_ChangeMusic("D_HOPE");
+	}
+	
+	ui void PlayOdeSnuff()
+	{
+		S_ChangeMusic("D_DISC");
+	}
+	
 	override void UITick()
 	{
 		if (!(level.time % TICRATE))
-		{			
+		{
+			if (seconds == SECONDS_CREDITSTART - 1)
+			{
+				PlayCreditMusic();
+			}
+			if (seconds == SECONDS_BORDEAUX_START)
+			{
+				PlayOdeSnuff();
+			}	
+			if (seconds == SECONDS_BORDEAUX_VOICE_START)
+			{
+				PlayBordeauxSound();
+			}
+			
+			if (seconds == SECONDS_BODREAUX_END)
+			{
+				SendNetworkEvent("ExitLevel", 0, 0, 0);
+			}
+			
 			seconds++;
 		}
 	}
@@ -63,6 +125,29 @@ class SHDX_CreditMapEvent : EventHandler
 		{
 			if (seconds >= 0)
 				ClearBlack();
+			
+			if (seconds >= SECONDS_CREDITSTART && seconds < SECONDS_CREDITEND)
+			{
+				DrawBGImage("graphics/cutscenes/credits/teampic.png");
+				
+				DrawCreditNumber("1", 30, 100);
+				DrawCreditNumber("2", 110, 94);
+				DrawCreditNumber("3", 144, 125);
+				DrawCreditNumber("4", 280, 90);
+				DrawCreditNumber("5", 345, 116);
+				DrawCreditNumber("6", 441, 128);
+				DrawCreditNumber("7", 620, 143);
+				DrawCreditNumber("8", 152, 300);
+				DrawCreditNumber("9", 255, 322);
+				DrawCreditNumber("10", 450, 266);
+				
+				DrawCredit("$SHDX_CREDITPIC", 4, 440);
+			}
+			
+			if (seconds >= SECONDS_BORDEAUX_START && seconds < SECONDS_BODREAUX_END)
+			{
+				// TODO: Add Maimbow in hell...
+			}
 		}
 	}
 	
@@ -81,6 +166,14 @@ class SHDX_CreditMapEvent : EventHandler
 		if (player)
 		{
 			player.cheats |= ~CF_TOTALLYFROZEN;
+		}
+	}
+	
+	override void NetworkProcess(ConsoleEvent e)
+	{
+		if (e.Name ~== "ExitLevel")
+		{
+			level.ExitLevel(0, false);
 		}
 	}
 }

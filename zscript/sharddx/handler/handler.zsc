@@ -28,6 +28,11 @@ class SHDX_Handler : EventHandler
 		DrawBossBar();
 	}
 	
+	override void WorldThingSpawned(WorldEvent e)
+	{
+		ProcessBitCurrency(e);
+	}
+	
 	override void PlayerDied(PlayerEvent e)
 	{
 		RIPPlayerDied(e);

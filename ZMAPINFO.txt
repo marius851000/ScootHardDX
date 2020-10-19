@@ -1,5 +1,7 @@
 include "mapinfo/gi.txt"
 
+include "mapinfo/damage.txt"
+
 include "mapinfo/doomednum.txt"
 
 include "mapinfo/spawnid.txt"
@@ -7,6 +9,8 @@ include "mapinfo/spawnid.txt"
 include "mapinfo/defaultmap.txt"
 
 include "mapinfo/episodes.txt"
+
+include "mapinfo/skills.txt"
 
 include "mapinfo/cluster.txt"
 

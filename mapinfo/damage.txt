@@ -1,0 +1,30 @@
+DamageType LavaFloor
+{
+	Factor = 1.0
+}
+
+DamageType RegularNukeSlime
+{
+	Factor = 1.0
+}
+
+DamageType PeptoSlime
+{
+	Factor = 1.0
+	Obituary = "$DD_OB_DESPAIR"
+}
+
+DamageType Bleach
+{
+	Obituary = "$DD_OB_BLEACH"
+}
+
+DamageType Spectra
+{
+	Obituary = "$SHDX_OB_SPECTRA"
+}
+
+DamageType Stomping
+{
+	Factor = 1.0
+}

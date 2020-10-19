@@ -1,0 +1,55 @@
+// Skills
+clearskills
+skill easy
+{
+	AutoUseHealth
+	AmmoFactor = 1
+	ACSReturn = 0
+	DamageFactor = 0.50
+	EasyBossBrain
+	EasyKey
+	SpawnFilter = 1
+	Name = "$SHDX_SKILL1"
+	MustConfirm = "$SHDX_SKILLSURE1"
+	TextColor = "Blue"
+	MonsterHealth = 0.75
+	Key = "c"
+}
+
+skill medium
+{
+	SpawnFilter = 2
+	ACSReturn = 1
+	DamageFactor = 1.0
+	Name = "$SHDX_SKILL2"
+	MustConfirm = "$SHDX_SKILLSURE2"
+	TextColor = "Green"
+	Key = "r"
+	MonsterHealth = 1.0
+	DefaultSkill
+}
+
+skill hard
+{
+	Aggressiveness = 0.5
+	ACSReturn = 2
+	SpawnFilter = 3
+	Name = "$SHDX_SKILL3"
+	MustConfirm = "$SHDX_SKILLSURE3"
+	TextColor = "Yellow"
+	Key = "a"
+	MonsterHealth = 1.25
+}
+
+skill discourse
+{
+	Aggressiveness = 0.75
+	SpawnFilter = 3
+	ACSReturn = 3
+	DamageFactor = 1.5
+	Name = "$SHDX_SKILL4"
+	MustConfirm = "$SHDX_SKILLSURE4"
+	TextColor = "Red"
+	Key = "v"
+	MonsterHealth = 1.5
+}

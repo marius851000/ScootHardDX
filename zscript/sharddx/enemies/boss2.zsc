@@ -154,18 +154,18 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		}
 	}
 	
-	
 	void A_KillZombiesAfter()
 	{
-		let hndlr = SHDX_AtmosphereHandler(EventHandler.Find("SHDX_AtmosphereHandler"));
-		if (hndlr)
+		ThinkerIterator zombieit = ThinkerIterator.Create("SHDX_ZombieNormal");
+		SHDX_ZombieNormal zom;
+		
+		// iterate through the spots
+		while (zom = SHDX_ZombieNormal(zombieit.Next()))
 		{
-			for (int i = 0; i < hndlr.zombies.Size(); i++)
+			// if spot exists
+			if (zom)
 			{
-				if (hndlr.zombies[i])
-				{
-					hndlr.zombies[i].A_Die('Extreme');
-				}
+				zom.A_Die('Extreme');
 			}
 		}
 	}
@@ -188,6 +188,17 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	void A_AtmosphereTaunt()
 	{
 		A_SHDX_PlayBossTaunt("boss2/taunt"..Random[DrAtmosphere](1,11));
+	}
+	
+	override void MarkPreCacheSounds()
+	{
+		Super.MarkPreCacheSounds();
+		Sound snd;
+		for (int i = 1; i < 12; i++)
+		{
+			snd = String.Format("boss2/taunt%d", i);
+			MarkSound(snd);
+		}
 	}
 	
 	States

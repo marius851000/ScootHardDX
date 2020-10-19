@@ -93,8 +93,6 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		}
 		
 		Super.Tick();	// call any PlayerPawn Tick functionality
-		
-		// Console.PrintF("player.jumptics: "..player.jumptics);
 	}
 	
 	override void MovePlayer()
@@ -197,7 +195,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 	override void MarkPreCacheSounds()
 	{
 		Sound snd;
-		for (int i = 1; i < 33; i++)
+		for (int i = 1; i < 11; i++)
 		{
 			snd = String.Format("scootaloo/voiceover%d", i);
 			MarkSound(snd);

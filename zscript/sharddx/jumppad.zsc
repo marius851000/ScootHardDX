@@ -16,6 +16,7 @@ class SHDX_JumpPad : SecActHitFloor
 {
 	Default
 	{
+		//$Category "Controllers"
 		//$Title "Jump Pad"
 		//$Sprite internal:action
 		//$Arg0 "Jump Velocity"

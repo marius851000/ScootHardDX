@@ -62,6 +62,7 @@ version "4.3"
 
 #include "zscript/sharddx/handler/handler.zsc"
 #include "zscript/sharddx/handler/bossbar.zsc"
+#include "zscript/sharddx/handler/bits.zsc"
 #include "zscript/sharddx/handler/rip.zsc"
 #include "zscript/sharddx/handler/error.zsc"
 #include "zscript/sharddx/handler/slideshow.zsc"

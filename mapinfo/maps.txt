@@ -150,6 +150,19 @@ map MAP10 lookup SHDX_MAP10
 	EnterPic = "TITLEPIC"
 }
 
+map SECRET01 lookup SHDX_SECRET01
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "MAP06"
+	secretnext = "MAP06"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
 map SECRET02 lookup SHDX_SECRET02
 {
 	sky1 = "SKY2"
@@ -171,20 +184,8 @@ map CREDITS lookup SHDX_CREDITS
 	sucktime = 1
 	next = "EndTitle"
 	secretnext = "EndTitle"
+	nointermission
 	EventHandlers = "SHDX_CreditMapEvent"
-	
-	ExitPic = "TITLEPIC"
-	EnterPic = "TITLEPIC"
-}
-
-map SECRET01 lookup SHDX_SECRET01
-{
-	sky1 = "SKY2"
-	cluster = 1
-	par = 45
-	sucktime = 1
-	next = "MAP06"
-	secretnext = "MAP06"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"

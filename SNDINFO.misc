@@ -38,9 +38,13 @@ doors/metalc			"sounds/doom_door_close.ogg"
 
 world/splash			"sounds/splash02.ogg"	// Splashing noise
 
+world/quake				"sounds/quake.ogg"
+
 disclaimer/ooga			"sounds/ooga.ogg"
 
 aurora/sight			"sounds/aurora.ogg"
+
+credits/bordeaux		"sounds/bordeaux.ogg"
 
 armor/hit				"sounds/hullhit.ogg"
 

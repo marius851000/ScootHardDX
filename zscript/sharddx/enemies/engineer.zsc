@@ -62,9 +62,27 @@ Class SHDX_Engineer : SHDX_Enemy
 		Tag "$SHDX_TAG_ENGINEER";
 	}
 	
+	
+	bool A_CheckDiscourseDrop()
+	{
+		if (G_SkillPropertyInt(SKILLP_ACSReturn) < 3)
+			return true;
+			
+		if (G_SkillPropertyInt(SKILLP_ACSReturn) >= 3 && Random[Engineer](0, 100) >= 50)
+			return true;
+		
+		return false;
+	}
+	
 	void A_DropItemsEngie()
 	{
-		A_SHDX_DropItem("SHDX_GoldBitCoin", false);
+		if (target && target.CountInv("SHDX_BitCoin") < 50 && A_CheckDiscourseDrop())
+		{
+			if (G_SkillPropertyInt(SKILLP_ACSReturn) <= 2)
+				A_SHDX_DropItem("SHDX_GoldBitCoin", false);
+			else
+				A_SHDX_DropItem("SHDX_SilverBitCoin", false);
+		}
 	}
 	
 	States

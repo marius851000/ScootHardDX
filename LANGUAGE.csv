@@ -36,7 +36,7 @@ HAL: Processor is a Pegasystem AE-1000 Compatible(TM) Rev. 3.3
 HAL: Pegasus Revision 2.4
 HAL: L2 cache is not installed.",SHDX_TITLEMAP_SCOOTALOOUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Cloudsdale Weather Corporation(TM) Cumulonimbus(TM) Workstation,SHDX_TITLEMAP_MAIMBOWUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
-Sweetie Bot(TM) With Dynamic Servos Rev. 4.0,SHDX_TITLEMAP_SWEETIEUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
+Cutie Mark Acquisition Program(TM) Version 4.0,SHDX_TITLEMAP_SWEETIEUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Systems(TM) RubyStation 255n,SHDX_TITLEMAP_NAVYUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Bordeaux Technologies(TM) Warpstation 666n,SHDX_TITLEMAP_BORDEAUXUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Hat Kid Industries(TM) Work-N-Play System 1024,SHDX_TITLEMAP_ELLIEUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
@@ -78,7 +78,7 @@ or,SHDX_KEYBINDOR,,,,,,,,o,,,,,,,,,,,,,,,
 ,,Misc Messages,,,,,,,,,,,,,,,,,,,,,,
 Paid five bits for a hot meal.,SHDX_VENDING_HOTMEAL,,,,,,,,,,,,,,,,,,,,,,,
 Paid one bit for a Dole(R) apple.,SHDX_VENDING_APPLE,,,,,,,,,,,,,,,,,,,,,,,
-You have no money.,SHDX_VENDING_NOBITS,,,,,,,,,,,,,,,,,,,,,,,
+You don't have enough money.,SHDX_VENDING_NOTENOUGHBITS,,,,,,,,,,,,,,,,,,,,,,,
 You are not hungry.,SHDX_VENDING_NOTHUNGRY,,,,,,,,,,,,,,,,,,,,,,,
 Drank out of the water cooler.,SHDX_WATERCOOLER_USED,,,,,,,,,,,,,,,,,,,,,,,
 Water cooler is empty!,SHDX_WATERCOOLER_OUTOFUSES,,,,,,,,,,,,,,,,,,,,,,,
@@ -192,24 +192,30 @@ Press any key to continue...,TXT_PRESSAKEY,,,,,,,,Pulse cualquier tecla para con
 Credits,MNU_SHARDDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 WAFFLE IRON STUDIOS,SHDX_CREDITS_HEADER_WIS,,,,,,,,,,,,,,,,,,,,,,,
 "Creative Director and Design Lead: SanyaWaffles
+Additional Coding: Marisa Kirisame
+Additional Level Design, Sound Design: Elliejojo
+Additional Sound Detail: Jenna Pepper
 Music: RodScorpion
-Additional Level Design: Elliejojo
+Original Texture Work: Epic Acrylic and NeonBat
 
 Voice of Scootaloo: Alabeanz@Tumblr.com
 Voice of Surprise Pony/Low Guard Female: Kelsie Finefeather
+Voice of Low Guard Male: TheDexbyMan
 Voice of Dr. Atmosphere/High Guard Male: Redsoldier55
+Voice of Maimbow: Spoopyscarysarah
+Additional Voices: Earth
 
-Special Thanks To: Jinzo",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
+Special Thanks To: Jinzo for discovering the 2014 prototype!",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
 "Textures: Ancient Aliens, OTEX, Duke Nukem 3D, Shadow Warrior, Blood
 
-Sounds: Quake HiRes Pack, Source Engine, Tomb Raider
+Sounds: Quake HiRes Pack, Source Engine, Tomb Raider, Team Fortress 2,
+Serious Sam
 
 Fonts: Revue, Daidoh Remix, Crewniverse
 
 Code: AI code based on Kinsie's FauxDM
-Additional Code by Marisa Kirisame, Nash Muhandes Chronos ""phantombeta"" Ouroboros,
-Mikk & Accensus
+Additional Code by Nash Muhandes, Chronos ""phantombeta"" Ouroboros and Mikk
 
 Inspired by the fic Rainbow Factory by AuoraDawn",SHDX_CREDITS_ADD,,,,,,,,,,,,,,,,,,,,,,,
 Are you sure you want to quit?,SHDX_QUIT1,,,,,,,,,,,,,,,,,,,,,,,
@@ -246,8 +252,14 @@ SMG,SHDX_TAG_SMG,,,,,,,,,,,,,,,,,,,,,,,
 Missile Launcher,SHDX_TAG_MISSILELAUNCHER,,,,,,,,,,,,,,,,,,,,,,,
 Rainbower,SHDX_TAG_RAINBNOWER,,,,,,,,,,,,,,,,,,,,,,,
 Tornadozer,SHDX_TAG_TORNADOZER,,,,,,,,,,,,,,,,,,,,,,,
+,,RIP Sound Obituary,,,,,,,,,,,,,,,,,,,,,,
+[Da]        [Nyet],SHDX_RIPSO_DANYET,"Russian for ""Yes / No""",,,,,,,,,,,,,,,,,,,,,,
+DEEP HURTING,SHDX_RIPSO_DEEPHURTING,MST3K Reference,,,,,,,,,,,,,,,,,,,,,,
+loser,SHDX_RIPSO_LOSER,Lowtax is called a loser.,,,,,,,,,,,,,,,,,,,,,,
+YOU FUCKING IDIOT,SHDX_RIPSO_IDIOT,Reference to Joel of Vinesauce,,,,,,,,,,,,,,,,,,,,,,
 ,,Obituaries,,,,,,,,,,,,,,,,,,,,,,
 %o tried to swim in liquid despair.,DD_OB_DESPAIR,,,,,,,,,,,,,,,,,,,,,,,
+%o got atomized by spectra.,SHDX_OB_SPECTRA,,,,,,,,,,,,,,,,,,,,,,,
 %o hated doing the dishes.,OB_SUICIDE,,,,,,,,,,,,,,,,,,,,,,,
 I warned you about about heights. I told you %o.,OB_FALLING,,,,,,,,,,,,,,,,,,,,,,,
 %o got squashed,OB_CRUSH,,,,,,,,,,,,,,,,,,,,,,,
@@ -296,10 +308,11 @@ skill Eri.",SHDX_SKILLSURE1,"
 "A few more enemies, normal damage and
 health.",SHDX_SKILLSURE2,,,,,,,,,,,,,,,,,,,,,,,
 "Aggression is bumped up a bit. So is enemy
-health and enemy count.",SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
+health and enemy count. Vending machines
+also cost more.",SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
 "Aggression is much higher, enemies are maxed
-out on health. Only the most epic of gamers will
-play on this skill.",SHDX_SKILLSURE4,,,,,,,,,,,,,,,,,,,,,,,
+out on health. Coins are also very rare. Only the
+most epic of gamers will play on this skill.",SHDX_SKILLSURE4,,,,,,,,,,,,,,,,,,,,,,,
 Choose an episode,SHDX_EPISODE_MENU,,,,,,,,,,,,,,,,,,,,,,,
 Scoot Hard DX,SHDX_EP1STR,,,,,,,,,,,,,,,,,,,,,,,
 Titlemap,SHDX_TITLEMAP,,,,,,,,,,,,,,,,,,,,,,,
@@ -710,3 +723,8 @@ his answer to everything.
 This certainly won't have reprecuttions
 if her hunches are right... but that's
 another story.",SHDX_EP3BEND_11,,,,,,,,,,,,,,,,,,,,,,,
+,,Credits,,,,,,,,,,,,,,,,,,,,,,
+"1. Jenna Pepper 2. SanyaWaffles 3. EllieJojo 4. Kelsie Finefeather 5. RodScorpion
+6. NeonBat 7. Marisa Kirisame 8. TheDexbyMan 9. Epic Acrylic 10. Earth
+Not Pictured: Alabeanz, SpoopyScarySarah, Redsoldier55, AndromedaHawking",SHDX_CREDITPIC,,,,,,,,,,,,,,,,,,,,,,,
+TEAM SCOOT HARD DX THANKS YOU FOR PLAYING!,SHDX_CREDITPICHEADER,,,,,,,,,,,,,,,,,,,,,,,
