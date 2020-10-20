@@ -95,12 +95,11 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 			TORN ABCD 1 A_SeekerMissile(0, 35, SMF_LOOK, 256);
 			Loop;
 		Death:
-			TORN A 0
+			TORN A 3
 			{
 				A_FadeTo(0.0, 0.1, true);
-				A_SetScale(scale.x-0.1, scale.y);
 			}
-			TORN ABCD 3;
+			TORN BCD 3;
 			Loop;
 	}
 }

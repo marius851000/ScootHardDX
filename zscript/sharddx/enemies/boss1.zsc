@@ -219,12 +219,11 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 			TORN ABCD 1;
 			Loop;
 		Death:
-			TORN A 0
+			TORN A 3
 			{
 				A_FadeTo(0.0, 0.1, true);
-				A_SetScale((scale.X+0.1), scale.Y);
 			}
-			TORN ABCD 3;
+			TORN BCD 3;
 			loop;
 	}
 	
