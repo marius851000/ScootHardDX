@@ -14,16 +14,19 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 class SHDX_SlideshowHandler : EventHandler
 {
+	int tix;
 	name IntermissionToPlay;	// Intermission To Play
 	bool ExitLevelOnFinish;		// Do we exit level on finish?
 	bool IntermissionPlayed;	// Has the intermission been played?
 	bool CutsceneDone;			// If we don't exit the level, mark cutscene as done
+	bool AutosaveMe;			// autosave before destroying?
 	bool DestroyMe;				// Destory This;
 	
-	void InitSlideshowInfo(name intermission, bool exitonfinish = false)
+	void InitSlideshowInfo(name intermission, bool exitonfinish = false, bool autosave = false)
 	{
 		IntermissionToPlay = intermission;
 		ExitLevelOnFinish = exitonfinish;
+		AutosaveMe = autosave;
 	}
 	
 	void DoCutscene()
@@ -41,7 +44,7 @@ class SHDX_SlideshowHandler : EventHandler
 		
 		if (!shdx_skipcutscenes && !IntermissionPlayed)
 		{
-			level.StartIntermission(IntermissionToPlay, FSTATE_InLevel);
+			level.StartIntermission(IntermissionToPlay, FState_InLevel);
 			IntermissionPlayed = true;
 		}
 	}
@@ -53,6 +56,10 @@ class SHDX_SlideshowHandler : EventHandler
 		
 		if (CutsceneDone)
 		{
+			if (AutosaveMe)
+			{
+				level.MakeAutosave();
+			}
 			DestroyMe = true;
 		}
 		
@@ -78,6 +85,6 @@ class SHDX_PreBoss3SlideshowHandler : SHDX_SlideshowHandler
 {
 	override void OnRegister()
 	{
-		InitSlideshowInfo('PreBoss3', false);
+		InitSlideshowInfo('PreBoss3', false, true);
 	}
 }

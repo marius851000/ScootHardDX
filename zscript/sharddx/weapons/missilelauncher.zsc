@@ -52,8 +52,7 @@ Class SHDX_MissileLauncher : SHDX_MissileWeapon
 			MISG A 1 A_Raise;
 			Loop;
 		Flash:
-			MISF A 3 A_Light2;
-			MISF A 2 A_Light1;
+			MISF A 3 A_Light1;
 			goto LightDone;
 		Fire:
 			MISG A 3 A_GunFlash;

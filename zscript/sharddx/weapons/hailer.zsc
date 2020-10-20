@@ -89,7 +89,7 @@ Class SHDX_HailBall : SHDX_Projectile
 			HAIL A 1;
 			Loop;
 		Death:
-			HAIL B 2;
-			Stop;
+			HAIL B 1 A_FadeTo(0.00, 0.1, FTF_REMOVE);
+			Loop;
 	}
 }

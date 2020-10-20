@@ -1,6 +1,6 @@
 misc/splatx				"sounds/slop.ogg"
 // $volume misc/splatx		0.5
-gen/gibs				"sounds/SPLASH02.ogg"
+gen/gibs				"sounds/gib01.ogg"
 // $volume gen/gibs		0.3
 
 vending/fail			"sounds/ui/error.ogg"
