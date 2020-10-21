@@ -185,6 +185,11 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		return false;
 	}
 	
+	void A_AtmosphereSetBossMusic()
+	{
+		S_ChangeMusic("D_SAD");
+	}
+	
 	void A_AtmosphereTaunt()
 	{
 		A_SHDX_PlayBossTaunt("boss2/taunt"..Random[DrAtmosphere](1,11));
@@ -207,12 +212,21 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO A 10 A_Look;
 			Loop;
 		See:
-			ATMO A 0 A_SetInvulnerable;
+			ATMO A 0
+			{
+				A_SetInvulnerable();
+				A_AtmosphereSetBossMusic();
+				bCanJump = false;
+			}
 			ATMO A 425;
 		See1:
-			ATMO B 0 A_SHDX_SendOLToAllPlayers("atmospherestart", OLSSF_FORCEONELINER);
-			ATMO B 0 A_SHDX_SetToBossBarHUD;
-			ATMO B 0 A_UnSetInvulnerable;
+			ATMO B 0
+			{
+				A_SHDX_SendOLToAllPlayers("atmospherestart", OLSSF_FORCEONELINER);
+				A_SHDX_SetToBossBarHUD();
+				A_UnSetInvulnerable();
+				bCanJump = true;
+			}
 		See2:
 			ATMO B 0
 			{
@@ -383,6 +397,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		Death:
 			ATMO U 0
 			{
+				A_KillZombiesAfter();
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
 			}
@@ -392,7 +407,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 				A_VictoryMusic();
 			}
 			ATMO U 105;
-			ATMO U 5 A_KillZombiesAfter;
+			ATMO U 5;
 			ATMO V 5 A_SpawnGibsFx(self);
 			ATMO WX 5;
 			ATMO Y 0 A_SHDX_SendOLToAllPlayers("atmosphereend", OLSSF_FORCEONELINER);

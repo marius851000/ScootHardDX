@@ -46,7 +46,7 @@ map MAP03 lookup SHDX_MAP03
 	par = 75
 	sucktime = 1
 	next = "MAP04"
-	music = "D_SAD"
+	music = "D_SILENT"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
@@ -106,7 +106,7 @@ map MAP07 lookup SHDX_MAP07
 	par = 45
 	sucktime = 1
 	next = "MAP08"
-	music = "D_SAD"
+	music = "D_SILENT"
 	lightning
 	EventHandlers = "SHDX_AtmosphereHandler"
 	
@@ -148,7 +148,7 @@ map MAP10 lookup SHDX_MAP10
 	par = 45
 	sucktime = 1
 	EventHandlers = "SHDX_PreBoss3SlideshowHandler", "SHDX_AtmosphereHandler"
-	music = "D_SAD"
+	music = "D_SILENT"
 	next = "CREDITS"
 	secretnext = "CREDITS"
 	
