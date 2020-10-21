@@ -162,7 +162,7 @@ map SECRET01 lookup SHDX_SECRET01
 	cluster = 1
 	par = 45
 	sucktime = 1
-	music = "D_
+	music = ""
 	next = "MAP06"
 	secretnext = "MAP06"
 	
