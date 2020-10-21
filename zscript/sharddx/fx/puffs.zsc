@@ -29,6 +29,7 @@ Class SHDX_ChickenPuff : SHDX_BulletPuff
 		+NoGravity
 		+ActivatePCross
 		+AllowThruFlags
+		+PUFFONACTORS
 	}
 
 	States

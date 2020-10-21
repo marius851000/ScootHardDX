@@ -114,12 +114,14 @@ Class SHDX_ChickenPlayer : SHDX_PlayerPawn
 		
 		Player.JumpZ 14;
 		Player.ViewHeight 21;
-		Player.ForwardMove 1.22, 1.22;
-		Player.SideMove 1.22, 1.22;
+		Player.ForwardMove 1.22, 0.61;
+		Player.SideMove 1.22, 0.61;
 		Player.SpawnClass "Chicken";
-		Player.SoundClass "SoundClass";
+		Player.SoundClass "Chicken";
 		Player.DisplayName "Chicken";
 		Player.MorphWeapon "SHDX_ChickenMouth";
+		
+		Player.ColorRange 240, 254;
 	}
 	
 	bool unmorphnexttic;

@@ -155,7 +155,7 @@ class SHDX_StatusScreen : DoomStatusScreen
 		
 		str = lnametexts[0];
 		x = getXOffsetStringWidth(str);
-		screen.DrawText(BigFont, Font.CR_UNTRANSLATED, x, y, str, DTA_CleanNoMove, true);
+		screen.DrawText(BigFont, Font.CR_WHITE, x, y, str, DTA_CleanNoMove, true);
 		
 		y += GetBFontHeight();
 		
@@ -163,7 +163,7 @@ class SHDX_StatusScreen : DoomStatusScreen
 		x = getXOffsetStringWidth(str);
 		
 		// draw "Finished!"
-		screen.DrawText(BigFont, Font.CR_UNTRANSLATED, x, y, str, DTA_CleanNoMove, true);
+		screen.DrawText(BigFont, Font.CR_WHITE, x, y, str, DTA_CleanNoMove, true);
 		
 		int midx = screen.GetWidth() / 2;
 		
@@ -171,19 +171,19 @@ class SHDX_StatusScreen : DoomStatusScreen
 		
 		if (sp_state >= 2)
 		{
-			str = String.Format("%s :: %d / %d", Stringtable.Localize("$TXT_IMKILLS"), cnt_kills[0], wbs.maxkills);
+			str = String.Format("%s %d / %d", Stringtable.Localize("$TXT_IMKILLS"), cnt_kills[0], wbs.maxkills);
 			x = getXOffsetStringWidth(str);
 			
-			screen.DrawText(BigFont, Font.CR_UNTRANSLATED, x, y, str, DTA_CleanNoMove, true);
+			screen.DrawText(BigFont, Font.CR_WHITE, x, y, str, DTA_CleanNoMove, true);
 		}
 		
 		y += GetBFontHeight();
 		if (sp_state >= 4)
 		{
-			str =  String.Format("%s :: %d / %d", Stringtable.Localize("$TXT_IMSECRETS"), cnt_secret[0], wbs.maxsecret);
+			str =  String.Format("%s %d / %d", Stringtable.Localize("$TXT_IMSECRETS"), cnt_secret[0], wbs.maxsecret);
 			x = getXOffsetStringWidth(str);
 
-			screen.DrawText(BigFont, Font.CR_UNTRANSLATED, x, y, str, DTA_CleanNoMove, true);
+			screen.DrawText(BigFont, Font.CR_WHITE, x, y, str, DTA_CleanNoMove, true);
 		}	
 		
 		y += GetBFontHeight();
@@ -192,13 +192,13 @@ class SHDX_StatusScreen : DoomStatusScreen
 			str =  String.Format("%s %s", Stringtable.Localize("$TXT_IMTIME"), R3DGetTimeStamp(cnt_time));
 			x = getXOffsetStringWidth(str);
 			
-			screen.DrawText(BigFont, Font.CR_UNTRANSLATED, x, y, str, DTA_CleanNoMove, true);
+			screen.DrawText(BigFont, Font.CR_WHITE, x, y, str, DTA_CleanNoMove, true);
 			
 			str = String.Format("%s %s", Stringtable.Localize("$TXT_IMTOTALTIME"), R3DGetTimeStamp(cnt_total_time));
 			
 			x = getXOffsetStringWidth(str);
 			y += GetBFontHeight();
-			screen.DrawText(BigFont, Font.CR_UNTRANSLATED, x, y, str, DTA_CleanNoMove, true);
+			screen.DrawText(BigFont, Font.CR_WHITE, x, y, str, DTA_CleanNoMove, true);
 		}
 		if (sp_state >= 8)
 		{		
@@ -206,7 +206,7 @@ class SHDX_StatusScreen : DoomStatusScreen
 			
 			x = getXOffsetStringWidth(str);
 			y += GetBFontHeight();
-			screen.DrawText(BigFont, Font.CR_UNTRANSLATED, x, y, str, DTA_CleanNoMove, true);
+			screen.DrawText(BigFont, Font.CR_WHITE, x, y, str, DTA_CleanNoMove, true);
 		}
 	}
 }

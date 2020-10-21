@@ -95,7 +95,7 @@ extend class SHDX_Handler
 		// play game over music if the RIP is the Felix the Cat 'Het' rip
 		if (ripseconds == RIP_SAFE && typeofrip == RIP_FelixHet)
 		{
-			S_ChangeMusic("music/D_FLXOVR.vgz", 0, false, true);
+			S_ChangeMusic("music/D_FLXOVR.ogg", 0, false, true);
 		}
 	}
 	

@@ -43,15 +43,15 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		Player.WeaponSlot 2, "SHDX_SubmachineGun";
 		Player.WeaponSlot 3, "SHDX_MissileLauncher", "SHDX_FillySeeker", "SHDX_Tornadozer", "SHDX_Rainbower", "SHDX_HailerWeapon";
 
-		Player.ColorRange 144, 159;
-		Player.ColorSet 0, "$SHDX_SCOOTALOO_COLORSET1", 144, 159, 159;
-		Player.ColorSet 1, "$SHDX_SCOOTALOO_COLORSET2", 32, 47, 47;
-		Player.ColorSet 2, "$SHDX_SCOOTALOO_COLORSET3", 48, 63, 63;
-		Player.ColorSet 3, "$SHDX_SCOOTALOO_COLORSET4", 112, 127, 124;
-		Player.ColorSet 4, "$SHDX_SCOOTALOO_COLORSET5", 160, 175, 172;
-		Player.ColorSet 5, "$SHDX_SCOOTALOO_COLORSET6", 0, 15, 8;
-		Player.ColorSet 6, "$SHDX_SCOOTALOO_COLORSET7", 80, 95, 90;
-		Player.ColorSet 7, "$SHDX_SCOOTALOO_COLORSET8", 72, 79, 75;
+		Player.ColorRange 240, 254;
+		Player.ColorSet 0, "$SHDX_SCOOTALOO_COLORSET1", 250, 240, 254;
+		Player.ColorSet 1, "$SHDX_SCOOTALOO_COLORSET2", 24, 16, 31;
+		Player.ColorSet 2, "$SHDX_SCOOTALOO_COLORSET3", 54, 48, 63;
+		Player.ColorSet 3, "$SHDX_SCOOTALOO_COLORSET4", 88, 80, 95;
+		Player.ColorSet 4, "$SHDX_SCOOTALOO_COLORSET5", 120, 112, 127;
+		Player.ColorSet 5, "$SHDX_SCOOTALOO_COLORSET6", 150, 144, 159;
+		Player.ColorSet 6, "$SHDX_SCOOTALOO_COLORSET7", 180, 176, 190;
+		Player.ColorSet 7, "$SHDX_SCOOTALOO_COLORSET8", 100, 96, 111;
 		
 		Player.DamageScreenColor "FF0000", 0.70;
 		Player.DamageScreenColor "FFA500", 0.70, "Explosive";

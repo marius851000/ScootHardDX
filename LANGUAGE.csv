@@ -36,7 +36,7 @@ HAL: Processor is a Pegasystem AE-1000 Compatible(TM) Rev. 3.3
 HAL: Pegasus Revision 2.4
 HAL: L2 cache is not installed.",SHDX_TITLEMAP_SCOOTALOOUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Cloudsdale Weather Corporation(TM) Cumulonimbus(TM) Workstation,SHDX_TITLEMAP_MAIMBOWUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
-Cutie Mark Acquisition Program(TM) Version 4.0,SHDX_TITLEMAP_SWEETIEUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
+Marshmallow HAL 2.4 - Cutie Mark Acquisition Program(TM),SHDX_TITLEMAP_SWEETIEUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Systems(TM) RubyStation 255n,SHDX_TITLEMAP_NAVYUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Bordeaux Technologies(TM) Warpstation 666n,SHDX_TITLEMAP_BORDEAUXUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 Hat Kid Industries(TM) Work-N-Play System 1024,SHDX_TITLEMAP_ELLIEUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
@@ -76,8 +76,8 @@ from most recent save.",SHDX_RESTARTMSG2,,,,,,,,"para comenzar
 del estado de salvar más reciente",,,,,,,,,,,,,,,
 or,SHDX_KEYBINDOR,,,,,,,,o,,,,,,,,,,,,,,,
 ,,Misc Messages,,,,,,,,,,,,,,,,,,,,,,
-Paid five bits for a hot meal.,SHDX_VENDING_HOTMEAL,,,,,,,,,,,,,,,,,,,,,,,
-Paid one bit for a Dole(R) apple.,SHDX_VENDING_APPLE,,,,,,,,,,,,,,,,,,,,,,,
+Recieved a hot meal.,SHDX_VENDING_HOTMEAL,,,,,,,,,,,,,,,,,,,,,,,
+Recieved a Dole(R) apple.,SHDX_VENDING_APPLE,,,,,,,,,,,,,,,,,,,,,,,
 You don't have enough money.,SHDX_VENDING_NOTENOUGHBITS,,,,,,,,,,,,,,,,,,,,,,,
 You are not hungry.,SHDX_VENDING_NOTHUNGRY,,,,,,,,,,,,,,,,,,,,,,,
 Drank out of the water cooler.,SHDX_WATERCOOLER_USED,,,,,,,,,,,,,,,,,,,,,,,
@@ -109,15 +109,16 @@ You procured a missile launcher.,SHDX_PICKUP_MISSILELAUNCHER,,,,,,,,,,,,,,,,,,,,
 You recovered a Rainbower!,SHDX_PICKUP_RAINBOWER,,,,,,,,,,,,,,,,,,,,,,,
 You took a Tornadozer!,SHDX_PICKUP_TORNADOZER,,,,,,,,,,,,,,,,,,,,,,,
 ,,Scootaloo Color Sets,,,,,,,,,,,,,,,,,,,,,,
-Mauve,SHDX_SCOOTALOO_COLORSET1,,,,,,,,,,,,,,,,,,,,,,,
-Green,SHDX_SCOOTALOO_COLORSET2,,,,,,,,,,,,,,,,,,,,,,,
-Blue,SHDX_SCOOTALOO_COLORSET3,,,,,,,,,,,,,,,,,,,,,,,
-Yellow,SHDX_SCOOTALOO_COLORSET4,,,,,,,,,,,,,,,,,,,,,,,
-Purple,SHDX_SCOOTALOO_COLORSET5,,,,,,,,,,,,,,,,,,,,,,,
-Grey,SHDX_SCOOTALOO_COLORSET6,,,,,,,,,,,,,,,,,,,,,,,
+Normal,SHDX_SCOOTALOO_COLORSET1,,,,,,,,,,,,,,,,,,,,,,,
+Red,SHDX_SCOOTALOO_COLORSET2,,,,,,,,,,,,,,,,,,,,,,,
+Blonde,SHDX_SCOOTALOO_COLORSET3,,,,,,,,,,,,,,,,,,,,,,,
+Green,SHDX_SCOOTALOO_COLORSET4,,,,,,,,,,,,,,,,,,,,,,,
+Cyan,SHDX_SCOOTALOO_COLORSET5,,,,,,,,,,,,,,,,,,,,,,,
+Blue,SHDX_SCOOTALOO_COLORSET6,,,,,,,,,,,,,,,,,,,,,,,
 Brown,SHDX_SCOOTALOO_COLORSET7,,,,,,,,,,,,,,,,,,,,,,,
-Teal,SHDX_SCOOTALOO_COLORSET8,,,,,,,,,,,,,,,,,,,,,,,
+Army,SHDX_SCOOTALOO_COLORSET8,,,,,,,,,,,,,,,,,,,,,,,
 ,,Help Screen,,,,,,,,,,,,,,,,,,,,,,
+Left/Right Click or Use Arrow Keys To Cycle Screens,SHDX_HELP_MOVETIP,,,,,,,,,,,,,,,,,,,,,,,
 USING THE MENUS,SHDX_HELP_HEADER_MENU1,,,,,,,,,,,,,,,,,,,,,,,
 "Scoot Hard DX can be configured using the menus.
 
@@ -147,7 +148,53 @@ PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,,,,,,,,,,,,,
 
 Either use up your shots first, or swap it out by walking over another weapon
 and pressing the use key (default is E) to swap it out. The dropped weapon
-will contain the ammo as well.",SHDX_HELP_MENU3,,,,,,,,,,,,,,,,,,,,,,,
+will contain the ammo as well.
+
+Bullet Weapons:
+Blaster - You start with this weapon. Never runs out of ammo.
+Submachine Gun - Renders your blaster obsolete. Rapid fire goodness. Infinite ammo too.
+
+Missile Weapons:
+Missile Launcher - Shoots a straight firing missile. Contains 10 shots.
+Fillyseeker - Shoots a homing missile. Contains 7 shots.
+Rainbower - Portable Death. Contains 5 shots.
+Tornadozer - A tornado that instagibs anything less than a boss. Contains 5 shots.
+Hailer - Shoots several freezing projectiles at once. Contains 30 shots.",SHDX_HELP_MENU3,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (VENDING),SHDX_HELP_HEADER_MENU4,,,,,,,,,,,,,,,,,,,,,,,
+"Vending Machines cost 1 bit for an apple, 5 for a hot meal on Easy. This is
+increased by 2x on Medium, and 3x on Hard and Discourse. On Discourse
+coins are very rare, making using vending machines less of an option. Whee
+for capitalism! (Note: Sanya is not a Communist either so hush)
+
+To use a vending machine, go up to one and press use. If you don't have enough
+bits, or aren't hungry, it will tell you so.",SHDX_HELP_MENU4,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (OBJECTIVES),SHDX_HELP_HEADER_MENU5,,,,,,,,,,,,,,,,,,,,,,,
+"Fuck up anything that moves and get to the exit.
+
+On some levels it might be a bit more complex than that, namely the Pegasus
+Device. It shouldn't be too hard to blow it up unless you work for Polygon.
+Just look around the place for ways to destroy it.
+
+On some levels there might be a Boss enemy. This enemy is tougher than a
+normal enemy and is necessary to beat the level and progress. They have
+specific patterns you must master and look out for.",SHDX_HELP_MENU5,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (KEYS),SHDX_HELP_HEADER_MENU6,,,,,,,,,,,,,,,,,,,,,,,
+"Red, Green and Blue Keys are required to unlock areas of the level. To unlock
+the exit, you must find a Management Keycard. This also can be used to unlock
+the safety protocols on the Pegasus Device.",SHDX_HELP_MENU6,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (GLIDING),SHDX_HELP_HEADER_MENU7,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo can't fly, but she can glide. Jump and hold down the jump key (default
+is spacebar) and move forward to glide around. Some secrets require being able
+to master this. You can look around while you are in the air, but you can't change
+direction while you are gliding.",SHDX_HELP_MENU7,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (ARMOR SYSTEM),SHDX_HELP_HEADER_MENU8,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo can equip three armor types.
+
+Bulletproof Armor - Provides resistance to bullets.
+Fireproof Armor - Provides resistance to explosives.
+Weatherproof Armor - Provides resistance to lightning and wind.
+
+These can stack (Thanks Marisa!). Picking up one gives you 100.",SHDX_HELP_MENU8,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
 New Game,MNU_SHARDDX_NEWGAME,,,,,,,,Nuevo juego,,,,,,,,,,,,,,,
 Game States,MNU_SHARDDX_SSTATES,,,,,,,,Estados del juego,,,,,,,,,,,,,,,
@@ -203,7 +250,8 @@ Voice of Surprise Pony/Low Guard Female: Kelsie Finefeather
 Voice of Low Guard Male: TheDexbyMan
 Voice of Dr. Atmosphere/High Guard Male: Redsoldier55
 Voice of Maimbow: Spoopyscarysarah
-Additional Voices: Earth
+Additional Voices: AndromedaHawking
+Blue Globe Intern: Earth
 
 Special Thanks To: Jinzo for discovering the 2014 prototype!",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
@@ -308,13 +356,14 @@ lower health. You'll probably want this
 skill Eri.",SHDX_SKILLSURE1,"
 ",,,,,,,,,,,,,,,,,,,,,,
 "A few more enemies, normal damage and
-health.",SHDX_SKILLSURE2,,,,,,,,,,,,,,,,,,,,,,,
+health. Vending machines cost 2x more.",SHDX_SKILLSURE2,,,,,,,,,,,,,,,,,,,,,,,
 "Aggression is bumped up a bit. So is enemy
 health and enemy count. Vending machines
-also cost more.",SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
+cost 3x more.",SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
 "Aggression is much higher, enemies are maxed
-out on health. Coins are also very rare. Only the
-most epic of gamers will play on this skill.",SHDX_SKILLSURE4,,,,,,,,,,,,,,,,,,,,,,,
+out on health. Not only do vending machines cost
+3x more, but coins are rarer now.  Only the most
+epic of gamers will play on this skill.",SHDX_SKILLSURE4,,,,,,,,,,,,,,,,,,,,,,,
 Choose an episode,SHDX_EPISODE_MENU,,,,,,,,,,,,,,,,,,,,,,,
 Scoot Hard DX,SHDX_EP1STR,,,,,,,,,,,,,,,,,,,,,,,
 Titlemap,SHDX_TITLEMAP,,,,,,,,,,,,,,,,,,,,,,,

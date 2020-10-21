@@ -46,7 +46,7 @@ map MAP03 lookup SHDX_MAP03
 	par = 75
 	sucktime = 1
 	next = "MAP04"
-	music = ""
+	music = "D_SAD"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
@@ -60,6 +60,7 @@ map MAP04 lookup SHDX_MAP04
 	par = 45
 	sucktime = 1
 	next = "MAP05"
+	music = "D_SCANT"
 	lightning
 	
 	ExitPic = "TITLEPIC"
@@ -72,6 +73,7 @@ map MAP05 lookup SHDX_MAP05
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
+	music = "D_SYS"
 	sucktime = 1
 	next = "MAP06"
 	secretnext = "SECRET01"
@@ -89,6 +91,7 @@ map MAP06 lookup SHDX_MAP06
 	par = 45
 	sucktime = 1
 	next = "MAP07"
+	music = "D_SCANT"
 	lightning
 	
 	ExitPic = "TITLEPIC"
@@ -103,6 +106,7 @@ map MAP07 lookup SHDX_MAP07
 	par = 45
 	sucktime = 1
 	next = "MAP08"
+	music = "D_SAD"
 	lightning
 	EventHandlers = "SHDX_AtmosphereHandler"
 	
@@ -117,6 +121,7 @@ map MAP08 lookup SHDX_MAP08
 	par = 45
 	sucktime = 1
 	next = "MAP09"
+	music = "D_SYS"
 	secretnext = "SECRET02"
 	
 	ExitPic = "TITLEPIC"
@@ -130,6 +135,7 @@ map MAP09 lookup SHDX_MAP09
 	par = 45
 	sucktime = 1
 	next = "MAP10"
+	music = "D_SCANT"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
@@ -141,8 +147,8 @@ map MAP10 lookup SHDX_MAP10
 	cluster = 1
 	par = 45
 	sucktime = 1
-	EventHandlers = "SHDX_PreBoss3SlideshowHandler"
-	deathsequence = "EndEpisode3Death"
+	EventHandlers = "SHDX_PreBoss3SlideshowHandler", "SHDX_AtmosphereHandler"
+	music = "D_SAD"
 	next = "CREDITS"
 	secretnext = "CREDITS"
 	
@@ -156,6 +162,7 @@ map SECRET01 lookup SHDX_SECRET01
 	cluster = 1
 	par = 45
 	sucktime = 1
+	music = "D_
 	next = "MAP06"
 	secretnext = "MAP06"
 	

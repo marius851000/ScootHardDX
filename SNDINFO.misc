@@ -26,6 +26,8 @@ misc/explosion			"sounds/boom2.ogg"
 
 world/boing				"sounds/tpoline.ogg"		// Trampoline
 
+weapons/chickenhit		"sounds/peck_hit.ogg"
+
 misc/teleport			"sounds/teleport.ogg"
 misc/foodcook			"sounds/FRIED01.ogg"		// Frying noise
 world/lava				"sounds/FRIED01.ogg"		// When in lava, you'll burn...

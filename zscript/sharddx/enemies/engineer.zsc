@@ -58,25 +58,14 @@ Class SHDX_Engineer : SHDX_Enemy
 		DeathSound "engineer/death";
 		ActiveSound "engineer/active";
 		Obituary "$SHDX_OB_ENGINEER";
+		Species "Pegasi";
 		// DropItem "SHBitCoinPickupGold" 127
 		Tag "$SHDX_TAG_ENGINEER";
 	}
 	
-	
-	bool A_CheckDiscourseDrop()
-	{
-		if (G_SkillPropertyInt(SKILLP_ACSReturn) < 3)
-			return true;
-			
-		if (G_SkillPropertyInt(SKILLP_ACSReturn) >= 3 && Random[Engineer](0, 100) >= 50)
-			return true;
-		
-		return false;
-	}
-	
 	void A_DropItemsEngie()
 	{
-		if (target && target.CountInv("SHDX_BitCoin") < 50 && A_CheckDiscourseDrop())
+		if (target && target.CountInv("SHDX_BitCoin") < 50)
 		{
 			if (G_SkillPropertyInt(SKILLP_ACSReturn) <= 2)
 				A_SHDX_DropItem("SHDX_GoldBitCoin", false);

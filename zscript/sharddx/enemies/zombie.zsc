@@ -95,6 +95,7 @@ Class SHDX_ZombieNormal : SHDX_Enemy
 		
 		Obituary "$SHDX_OB_ZOMBIE";
 		Tag "$SHDX_TAG_ZOMBIE";
+		Species "Zombie";
 		
 		+AllowPain
 		-SHDX_Enemy.CanJump
@@ -188,6 +189,8 @@ Class SHDX_ZombieExplosive : SHDX_Enemy
 		
 		Obituary "$SHDX_OB_EXPLODINGZOMBIE";
 		Tag "$SHDX_TAG_EXPLODINGZOMBIE";
+		
+		Species "Zombie";
 		
 		+NoPain
 		-SHDX_Enemy.CanJump

@@ -27,7 +27,8 @@ class SHDX_VendingMachine : SHDX_Actor
 	const VEND_APPLE_COST = 1;
 	const VEND_MEAL_COST = 5;
 	const VEND_EASY_MULTI = 1;
-	const VEND_HARD_MULTI = 5;
+	const VEND_MEDIUM_MULTI = 2;
+	const VEND_HARD_MULTI = 3;
 	
 	override bool Used(Actor user)
 	{	
@@ -38,14 +39,29 @@ class SHDX_VendingMachine : SHDX_Actor
 			{
 				int bitcount = shdxpl.CountInv("SHDX_BitCoin");
 				
-				int multiplier = G_SkillPropertyInt(SKILLP_ACSReturn) < 2 ? VEND_EASY_MULTI : VEND_HARD_MULTI;
+				int multiplier;
 				
-				int applecost = VEND_APPLE_COST * multiplier;
-				int mealcost = VEND_MEAL_COST * multiplier;
+				int skill = G_SkillPropertyInt(SKILLP_ACSReturn);
+				
+				if (skill == 0)
+					multiplier = VEND_EASY_MULTI;
+				if (skill == 1)
+					multiplier = VEND_MEDIUM_MULTI;
+				if (skill >= 2)
+					multiplier = VEND_HARD_MULTI;
+				
+				// Console.PrintF("skill: "..skill);
+				// Console.PrintF("multiplier: "..skill);
+				
+				int applecost = int(VEND_APPLE_COST * multiplier);
+				int mealcost = int(VEND_MEAL_COST * multiplier);
+				
+				// Console.PrintF("applecost: "..applecost);
+				// Console.PrintF("mealcost: "..mealcost);
 				
 				if (bitcount >= (applecost - 1))
 				{
-					if (bitcount >= applecost && bitcount <= (mealcost - 1))
+					if (bitcount >= applecost && bitcount < mealcost)
 					{
 						shdxpl.A_GiveInventory("Health", 10);
 						shdxpl.A_TakeInventory("SHDX_BitCoin", applecost);

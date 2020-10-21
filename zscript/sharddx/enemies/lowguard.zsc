@@ -47,22 +47,12 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 		PainChance 200;
 		Obituary "$SHDX_OB_LOWGUARD";
 		Tag "$SHDX_TAG_LOWGUARD";
-	}
-	
-	bool A_CheckDiscourseDrop()
-	{
-		if (G_SkillPropertyInt(SKILLP_ACSReturn) < 3)
-			return true;
-			
-		if (G_SkillPropertyInt(SKILLP_ACSReturn) >= 3 && Random[LowGuard](0, 100) >= 50)
-			return true;
-		
-		return false;
+		Species "Pegasi";
 	}
 	
 	void A_DropItemsLowGuard()
 	{
-		if (target && target.CountInv("SHDX_BitCoin") < 50 && A_CheckDiscourseDrop())
+		if (target && target.CountInv("SHDX_BitCoin") < 50)
 		{
 			A_SHDX_DropItem("SHDX_SilverBitCoin", false);
 		}

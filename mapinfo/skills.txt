@@ -11,7 +11,7 @@ skill easy
 	SpawnFilter = 1
 	Name = "$SHDX_SKILL1"
 	MustConfirm = "$SHDX_SKILLSURE1"
-	TextColor = "Blue"
+	TextColor = "Cyan"
 	MonsterHealth = 0.75
 	Key = "c"
 }

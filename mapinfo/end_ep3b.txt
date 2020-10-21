@@ -9,7 +9,7 @@ Intermission EndEpisode3Aurora
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3b/end3b_1.png"
-		Music = "D_SIREN"
+		Music = "D_HOPE"
 		Text = "$SHDX_EP3BEND_1"
 		TextColor = "Green"
 	}
