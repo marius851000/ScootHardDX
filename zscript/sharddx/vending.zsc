@@ -60,7 +60,7 @@ class SHDX_VendingMachine : SHDX_Actor
 				// Console.PrintF("applecost: "..applecost);
 				// Console.PrintF("mealcost: "..mealcost);
 				
-				if (bitcount >= (applecost - 1))
+				if (bitcount >= (applecost))
 				{
 					if (bitcount >= applecost && bitcount < mealcost)
 					{
@@ -84,13 +84,13 @@ class SHDX_VendingMachine : SHDX_Actor
 					
 					if (nomoneycount > 10 && !nomoneytriggered)
 					{
-						A_StartSound("vending/failfilthyfrank", CHAN_VENDINGUSE);
+						A_StartSound("vending/failfilthyfrank", CHAN_VENDINGUSE, CHANF_OVERLAP);
 						nomoneycount = 0;
 						nomoneytriggered = true;
 					}
 					else
 					{
-						A_StartSound("vending/fail", CHAN_VENDINGUSE);
+						A_StartSound("vending/fail", CHAN_VENDINGUSE, CHANF_OVERLAP);
 					}
 					
 					shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_NOTENOUGHBITS"));

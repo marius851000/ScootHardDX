@@ -98,6 +98,7 @@ Class SHDX_Hitbox : SHDX_Actor
 					damage = 0;
 				}
 			} */
+			
 			if (iscorpse)
 			{
 				damagetopass = mod;
@@ -178,7 +179,10 @@ Class SHDX_Hitbox : SHDX_Actor
 				// this emulates Duke 3D's corpses
 				if (iscorpse)
 				{
-					master.SetStateLabel("Death.Extreme");
+					if (damagetopass == 'RainbowerX')
+						master.SetStateLabel("Death.RainbowerX");
+					else
+						master.SetStateLabel("Death.Extreme");
 					Destroy();
 				}
 				else
