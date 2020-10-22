@@ -129,7 +129,7 @@ class SHDX_CreditMapEvent : EventHandler
 			{
 				DrawBGImage("graphics/cutscenes/credits/teampic.png");
 				
-				DrawCreditNumber("1", 30, 100);
+				DrawCreditNumber("1", 20, 100);
 				DrawCreditNumber("2", 110, 94);
 				DrawCreditNumber("3", 144, 125);
 				DrawCreditNumber("4", 280, 90);
@@ -139,6 +139,9 @@ class SHDX_CreditMapEvent : EventHandler
 				DrawCreditNumber("8", 152, 300);
 				DrawCreditNumber("9", 255, 322);
 				DrawCreditNumber("10", 450, 266);
+				
+				
+				DrawCredit("$SHDX_CREDITPICHEADER", 32, 424);
 				
 				DrawCredit("$SHDX_CREDITPIC", 4, 440);
 			}
