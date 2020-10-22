@@ -50,6 +50,11 @@ hguard1/pain1				"sounds/enemies/high/redsoldier55/hg_pain1.ogg"
 hguard1/pain2				"sounds/enemies/high/redsoldier55/hg_pain2.ogg"
 $random hguard1/pain		{ hguard1/pain1 hguard1/pain2 }
 
+$alias hguard2/sight hguard1/sight
+$alias hguard2/active hguard1/active
+$alias hguard2/death hguard1/death
+$alias hguard2/pain	hguard1/pain
+
 // Todo: Female High Guard Sounds
 
 hguard/attack			"sounds/weapons/smg_fire.ogg"
