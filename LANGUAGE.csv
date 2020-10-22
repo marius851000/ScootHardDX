@@ -118,7 +118,7 @@ Blue,SHDX_SCOOTALOO_COLORSET6,,,,,,,,,,,,,,,,,,,,,,,
 Brown,SHDX_SCOOTALOO_COLORSET7,,,,,,,,,,,,,,,,,,,,,,,
 Army,SHDX_SCOOTALOO_COLORSET8,,,,,,,,,,,,,,,,,,,,,,,
 ,,Help Screen,,,,,,,,,,,,,,,,,,,,,,
-Left/Right Click or Use Arrow Keys To Cycle Screens,SHDX_HELP_MOVETIP,,,,,,,,,,,,,,,,,,,,,,,
+"Left/Right Click or Use Arrow Keys To Cycle Screens, ESC to Escape",SHDX_HELP_MOVETIP,,,,,,,,,,,,,,,,,,,,,,,
 USING THE MENUS,SHDX_HELP_HEADER_MENU1,,,,,,,,,,,,,,,,,,,,,,,
 "Scoot Hard DX can be configured using the menus.
 
