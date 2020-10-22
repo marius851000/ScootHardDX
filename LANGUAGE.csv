@@ -62,7 +62,7 @@ it another way: don't try any of this at home.
 
 Waffle Iron Studios takes no responsibility for loss of sanity or
 unironic comparisons to current year events. Please just enjoy
-the game. I created the prototype in 2014 for God's sake.",SHDX_TITLEMAP_DISCLAIMER,,,,,,,,,,,,,,,,,,,,,,,
+the game. Sanya created the prototype in 2014 for God's sake.",SHDX_TITLEMAP_DISCLAIMER,,,,,,,,,,,,,,,,,,,,,,,
 WARNING: Satirical and Mature Content,SHDX_TITLEMAP_ADVISORY,,,,,,,,,,,,,,,,,,,,,,,
 Health,SHDX_HUD_HEALTH,,,,,,,,Salud,,,,,,,,,,,,,,,
 Armor,SHDX_HUD_ARMOR,,,Armour,,,,,Armadura,,,,,,,,,,,,,,,
@@ -171,6 +171,9 @@ bits, or aren't hungry, it will tell you so.",SHDX_HELP_MENU4,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (OBJECTIVES),SHDX_HELP_HEADER_MENU5,,,,,,,,,,,,,,,,,,,,,,,
 "Fuck up anything that moves and get to the exit.
 
+Find secrets along the way. Check for pushwalls. These can contain
+hidden caches of goods. Also always check the vent ducts. Always.
+
 On some levels it might be a bit more complex than that, namely the Pegasus
 Device. It shouldn't be too hard to blow it up unless you work for Polygon.
 Just look around the place for ways to destroy it.
@@ -195,6 +198,13 @@ Fireproof Armor - Provides resistance to explosives.
 Weatherproof Armor - Provides resistance to lightning and wind.
 
 These can stack (Thanks Marisa!). Picking up one gives you 100.",SHDX_HELP_MENU8,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (CHICKEN MODE),SHDX_HELP_HEADER_MENU9,,,,,,,,,,,,,,,,,,,,,,,
+"Occasionally you might find hidden, or in plain sight, mystical buckets of chicken
+labeled 'EFS'. These Eldritch buckets of chicken grant you the ability to become
+an invincible chicken for about half a minute.
+
+Fire - Peck their brains out
+Alt Fire - channel all your power into a Clustercluck. This reverts you back after.",SHDX_HELP_MENU9,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
 New Game,MNU_SHARDDX_NEWGAME,,,,,,,,Nuevo juego,,,,,,,,,,,,,,,
 Game States,MNU_SHARDDX_SSTATES,,,,,,,,Estados del juego,,,,,,,,,,,,,,,
@@ -619,7 +629,7 @@ and the legacy of the Pegasi! I wanted
 her to suffer... I wanted her to be miserable...
 so I weaseled my way up the Cloudsdale
 Weather Corporation and hatched a plan...
-to get back at not just her... but you as well!",SHDX_EP3AEND_2,,,,,,,,,,,,,,,,,,,,,,,
+to get back at not just her... but you as well!""",SHDX_EP3AEND_2,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo took a step back. She couldn't
 believe it.
 
@@ -684,7 +694,7 @@ and the legacy of the Pegasi! I wanted
 her to suffer... I wanted her to be miserable...
 so I weaseled my way up the Cloudsdale
 Weather Corporation and hatched a plan...
-to get back at not just her... but you as well!",SHDX_EP3BEND_2,,,,,,,,,,,,,,,,,,,,,,,
+to get back at not just her... but you as well!""",SHDX_EP3BEND_2,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo took a step back. She couldn't
 believe it.
 
@@ -726,9 +736,9 @@ assured, I'm going to help ensure this
 never happens again. Anywhere. Got it?""
 
 Maimbow sheds a tear. ""Rainbow did
-good. Rolling Thunder, Farewell.""
+good.""
 
-She gasps and dies.",SHDX_EP3BEND_6,,,,,,,,,,,,,,,,,,,,,,,
+She gasps her last breath, then dies.",SHDX_EP3BEND_6,,,,,,,,,,,,,,,,,,,,,,,
 "Equestrian forces entered the room.
 Scootaloo, with a renewed sense of
 purpose, looks at her new friend.

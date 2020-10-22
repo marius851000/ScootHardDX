@@ -1,3 +1,5 @@
+$pitchshiftrange 0
+
 pickup/powerup			"sounds/items/get_powerup.ogg"	// Powerup Pickup
 pickup/generic			"sounds/items/generic_pickup.ogg"		// Generic Pickup
 pickup/weapon			"sounds/items/weapon_pickup.ogg"

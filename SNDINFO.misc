@@ -11,6 +11,7 @@ vending/watercooler		"sounds/water_cooler.ogg"
 misc/secret				"sounds/secret.ogg"
 
 weapons/chickenmiss		DSEMPTY		// Nothing!
+$pitchshiftrange 0
 
 misc/chat2				"sounds/ui/tink.ogg"		// Chat Tink Sound
 

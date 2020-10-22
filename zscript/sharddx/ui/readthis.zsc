@@ -68,6 +68,7 @@ class SHDX_ReadThisMenu : GenericMenu
 		PAGE_MENU6,
 		PAGE_MENU7,
 		PAGE_MENU8,
+		PAGE_MENU9,
 		NUM_HELP_PAGES
 	}
 
@@ -141,6 +142,10 @@ class SHDX_ReadThisMenu : GenericMenu
 				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU8");
 				txt = StringTable.Localize("$SHDX_HELP_MENU8");
 				break;
+			case PAGE_MENU9:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU9");
+				txt = StringTable.Localize("$SHDX_HELP_MENU9");
+				break;
 		}
 		
 		screen.DrawText(bigfont, Font.CR_RED, 0, 0, hdr,
@@ -168,6 +173,10 @@ class SHDX_ReadThisMenu : GenericMenu
 		if (page == PAGE_MENU8)
 		{
 			DrawImageWithOffsets("HELPARMR", 0, 128);
+		}
+		if (page == PAGE_MENU9)
+		{
+			DrawImageWithOffsets("HELPEFS", 0, 128);
 		}
 							
 		

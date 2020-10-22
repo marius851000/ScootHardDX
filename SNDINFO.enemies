@@ -1,3 +1,5 @@
+$pitchshiftrange 0
+
 grunt1/sight1				"sounds/enemies/guard/ben/g_see1.ogg"
 grunt1/sight2				"sounds/enemies/guard/ben/g_see2.ogg"
 grunt1/sight3				"sounds/enemies/guard/ben/g_see3.ogg"

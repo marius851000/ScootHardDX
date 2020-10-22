@@ -1,3 +1,5 @@
+$pitchshiftrange 0
+
 // Rest-In-Peace Sound Obituaries
 epitaph/blank			DSEMPTY								// JIC We Need a null one.
 

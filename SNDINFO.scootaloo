@@ -1,4 +1,5 @@
 // Scootaloo Player Pawn
+$pitchshiftrange 0
 
 $playeralias    scootaloo  male    *death      scootaloo/death
 $playeralias    scootaloo  male    *xdeath     scootaloo/death

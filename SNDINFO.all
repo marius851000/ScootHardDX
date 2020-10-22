@@ -1,2 +1,4 @@
+$pitchshiftrange 0
+
 generic/nullvoid		DSEMPTY					// null sound
 

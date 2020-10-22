@@ -1,3 +1,5 @@
+$pitchshiftrange 0
+
 // BOSS #1 - Surprise
 boss1/sight1			"sounds/enemies/surprise/kelsie/cupcake_time.ogg"
 boss1/sight2			"sounds/enemies/surprise/kelsie/surprise.ogg"

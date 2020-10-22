@@ -1,3 +1,5 @@
+$pitchshiftrange 0
+
 ambient/whirring		"sounds/ambient/WHIRHUM.ogg"
 $ambient 1 ambient/whirring point continuous 0.7
 

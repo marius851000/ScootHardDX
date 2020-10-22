@@ -35,7 +35,8 @@ class SHDX_VendingMachine : SHDX_Actor
 		let shdxpl = SHDX_PlayerPawn(user);
 		if (shdxpl && shdxpl.player)
 		{
-			if (shdxpl.health < 100)
+			int healthdiff = shdxpl.MaxHealth - shdxpl.health;
+			if (healthdiff > 0)
 			{
 				int bitcount = shdxpl.CountInv("SHDX_BitCoin");
 				

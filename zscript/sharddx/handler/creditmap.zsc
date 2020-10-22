@@ -76,8 +76,7 @@ class SHDX_CreditMapEvent : EventHandler
 	ui void PlayBordeauxSound()
 	{
 		S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_OVERLAP, 1, ATTN_NORM);
-		S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_OVERLAP, 1, ATTN_NORM);
-		S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_OVERLAP, 1, ATTN_NORM);
+		// S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_OVERLAP, 1, ATTN_NORM);
 	}
 	
 	ui void PlayCreditMusic()
@@ -85,9 +84,9 @@ class SHDX_CreditMapEvent : EventHandler
 		S_ChangeMusic("D_HOPE");
 	}
 	
-	ui void PlayOdeSnuff()
+	ui void ShutOffMusic()
 	{
-		S_ChangeMusic("D_DISC");
+		S_ChangeMusic("");
 	}
 	
 	override void UITick()
@@ -100,7 +99,7 @@ class SHDX_CreditMapEvent : EventHandler
 			}
 			if (seconds == SECONDS_BORDEAUX_START)
 			{
-				PlayOdeSnuff();
+				ShutOffMusic();
 			}	
 			if (seconds == SECONDS_BORDEAUX_VOICE_START)
 			{

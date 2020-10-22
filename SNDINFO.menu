@@ -1,3 +1,5 @@
+$pitchshiftrange 0
+
 // Tiitlemap Stuff and Credits stuff
 titlemap/wisjingle					"sounds/ui/wisjingle.ogg"
 $alias titlemap/advisory misc/crushed1
