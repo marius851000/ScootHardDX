@@ -60,6 +60,14 @@ $random thunder_sound_random
 
 $alias world/thunder thunder_sound_random
 
+$attenuation thunder_sound_random 0.3
+$rolloff thunder_sound_random linear 1500 4000
+
+rain_sound "sounds/rain_sound.ogg"
+
+$rolloff rain_sound linear 150 400
+
+
 disclaimer/ooga			"sounds/ooga.ogg"
 
 aurora/sight			"sounds/aurora.ogg"

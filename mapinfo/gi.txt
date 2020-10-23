@@ -54,5 +54,5 @@ gameinfo
 	
 	statusbarclass = "SHDX_StatusBar"
 	
-	AddEventHandlers = "SHDX_Handler", "SHDX_ErrorHandler", "SHDX_ReadThisHijacker"
+	AddEventHandlers = "SHDX_Handler", "SHDX_ErrorHandler", "SHDX_ReadThisHijacker", "weather_event"
 }

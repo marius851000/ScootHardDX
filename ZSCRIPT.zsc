@@ -31,6 +31,8 @@ version "4.3"
 #include "zscript/sharddx/utilities/unicode.zsc"
 #include "zscript/sharddx/utilities/hitbox.zsc"
 
+#include "zscript/sharddx/libraries/we4ther_eff3cts/includer.zc"
+
 #include "zscript/sharddx/base/base_actor.zsc"
 #include "zscript/sharddx/base/base_armor.zsc"
 #include "zscript/sharddx/base/base_enemy.zsc"
