@@ -67,7 +67,6 @@ rain_sound "sounds/rain_sound.ogg"
 
 $rolloff rain_sound linear 150 400
 
-
 disclaimer/ooga			"sounds/ooga.ogg"
 
 aurora/sight			"sounds/aurora.ogg"

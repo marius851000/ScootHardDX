@@ -154,13 +154,13 @@ Class SHDX_ZombieNormal : SHDX_Enemy
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnGibsFx(self);
 			}
-			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			// GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			GIBX BC 5;
 			GIBX D 1;
 			Stop;
 		Death.RainbowerX:
 			GIBR A 4;
-			GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			// GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			GIBR BC 4;
 			GIBR D 1;
 			Stop;
