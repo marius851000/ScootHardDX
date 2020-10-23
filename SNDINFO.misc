@@ -76,4 +76,6 @@ credits/bordeaux		"sounds/bordeaux.ogg"
 
 armor/hit				"sounds/hullhit.ogg"
 
+misc/explosionpegasusdevice	"sounds/pegadevice_explosion.ogg"
+
 error/sweetiebelle		"sounds/error_sweetie.ogg"

@@ -20,7 +20,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		TeleFogSourceType "SHDX_TeleportFog";
 		TeleFogDestType "SHDX_TeleportFog";
 		
-		Scale 0.14;
+		Scale 0.10;
 		
 		Speed 1;
 		Health 100;

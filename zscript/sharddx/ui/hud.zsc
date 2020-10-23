@@ -280,11 +280,11 @@ class SHDX_StatusBar : BaseStatusBar
 			// Lower Left
 			DrawSHDXActualHealth(0, -40);
 			DrawSHDXActualBits(60, -40);
-			DrawSHDXArmors(80, -40);
+			DrawSHDXArmors(100, -40);
 			// Lower Right
 			DrawSHDXActualAmmo(-128, -40);
 			
-			DrawSHDXPowers(-320, 40);
+			DrawSHDXPowers(-200, 40);
 			
 			if (deathmatch)
 			{

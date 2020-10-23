@@ -27,7 +27,7 @@ Class SHDX_BulletProofArmor : SHDX_Armor
 		Inventory.PickupSound "pickup/bulletvest";
 		Tag "$SHDX_TAG_BULLETPROOF";
 		
-		DamageFactor "Bullet", 0.5;
+		DamageFactor "Bullet", 0.75;
 		
 		Inventory.Amount 100;
 		Inventory.MaxAmount 100;
@@ -39,7 +39,7 @@ Class SHDX_BulletProofArmor : SHDX_Armor
 	{
 		double factor;
 		if (damageType == 'Bullet')
-			factor = .5;
+			factor = .25;
 		return int(ceil(damage*factor));
 	} 
 	
@@ -65,9 +65,9 @@ Class SHDX_FireProofArmor : SHDX_Armor
 		Inventory.PickupMessage "$SHDX_PICKUP_FIREPROOF";
 		Inventory.PickupSound "pickup/firevest";
 		Tag "$SHDX_TAG_FIREPROOF";
-		DamageFactor "Explosive", 0.25;
-		DamageFactor "Fire", 0.25;
-		DamageFactor "Slime", 0.25;
+		DamageFactor "Explosive", 0.5;
+		DamageFactor "Fire", 0.5;
+		DamageFactor "Slime", 0.5;
 		Inventory.Amount 100;
 		Inventory.MaxAmount 100;
 		Inventory.InterHubAmount 100;
@@ -78,7 +78,7 @@ Class SHDX_FireProofArmor : SHDX_Armor
 	{
 		double factor;
 		if ((damageType == 'Fire') || (damageType == 'Slime') || (damageType == 'Explosive'))
-			factor = .25;
+			factor = .5;
 			
 		return int(ceil(damage*factor));
 	}

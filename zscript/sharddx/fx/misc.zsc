@@ -41,7 +41,7 @@ Class SHDX_BigExplosiveness : SHDX_Actor
 			EXPL A 3 Bright NoDelay
 			{
 				A_Quake(5, 8, 0, 4096, "generic/nullvoid");
-				A_StartSound("misc/explosion", CHAN_7, attenuation:ATTN_NONE);
+				A_StartSound("misc/explosionpegasusdevice", CHAN_7, attenuation:ATTN_NONE);
 				A_Stop();
 			}
 			EXPL BCDEFGHI 3 Bright A_Stop;

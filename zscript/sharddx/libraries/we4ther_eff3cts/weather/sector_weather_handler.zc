@@ -350,6 +350,7 @@ private void check_for_rain()
 //happens before thundser sound
 private void lighting_bright_flash()
 {
+	/*
     for(int i = 0; i < MAXPLAYERS; i++)
     {
         PlayerInfo p = players[i];
@@ -359,13 +360,14 @@ private void lighting_bright_flash()
             p.mo.a_setblend("FF, FF, FF", 1, 10);
        }
     }
+	*/
 }
 
 private void try_lighting()
 {
     if(CWE_weather_type == CWE_RAIN)
     {
-        if(random(0, 500) <= 1 && weather_sound) 
+        if(random[WeatherFx](0, 500) <= 1 && weather_sound) 
         {
             if(thunder_and_lighting(weather_sound).turn_on_lighting() )
                 lighting_bright_flash();
