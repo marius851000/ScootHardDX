@@ -39,7 +39,7 @@ Class SHDX_SubmachineGun : SHDX_Weapon
 			SMGG A 1 A_Raise;
 			Loop;
 		Flash:
-			SMGF A 3 A_Light1;
+			SMGF A 2 A_Light1;
 			goto LightDone;
 		Fire:
 			SMGG A 0
@@ -49,9 +49,10 @@ Class SHDX_SubmachineGun : SHDX_Weapon
 				A_FireBullets(2.0, 0, 1, 8, "SHDX_BulletPuff", FBF_NORANDOMPUFFZ);
 				A_StartSound("weapons/smgf", CHAN_WEAPON);
 			}
-			SMGG A 3;
-			SMGG A 3 A_RemoveLight('SMGLight');
-			SMGG A 4 A_ReFire;
+			SMGG A 2;
+			SMGG A 2 A_RemoveLight('SMGLight');
+			SMGG B 2;
+			SMGG B 4 A_ReFire;
 			goto Ready;
 		Spawn:
 			GUN3 A -1;
