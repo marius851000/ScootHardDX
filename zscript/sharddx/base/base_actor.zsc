@@ -86,7 +86,7 @@ Class SHDX_Actor : Actor
 			
 		for (int i = 0; i < 20; i++)
 		{
-			self.A_SpawnItemEx("SHDX_AshGibs", 0, 0, 32, Random[AshFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](0.0, 360.0), SXF_ABSOLUTEANGLE);
+			A_DD2_SpawnGib(self, "SHDX_AshGibs");
 		}
 	}
 	
@@ -97,7 +97,7 @@ Class SHDX_Actor : Actor
 			
 		for (int i = 0; i < 32; i++)
 		{
-			self.A_SpawnItemEx("SHDX_MetalJunk", 0, 0, 32, Random[JunkFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](0.0, 360.0), SXF_ABSOLUTEANGLE);
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk");
 		}
 	}
 	
@@ -108,7 +108,7 @@ Class SHDX_Actor : Actor
 			
 		for (int i = 0; i < 32; i++)
 		{
-			self.A_SpawnItemEx("SHDX_GlassJunk", 0, 0, 32, Random[JunkFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](3.0, 5.0), Random[AshFx](0.0, 360.0), SXF_ABSOLUTEANGLE);
+			A_DD2_SpawnGib(self, "SHDX_GlassJunk");
 		}
 	}
 	
@@ -119,7 +119,7 @@ Class SHDX_Actor : Actor
 		
 		for (int i = 0; i < 16; i++)
 		{
-			self.A_SpawnItemEx("SHDX_ChickenFeather", 0, 0, 16, Random[FeatherFx](3.0, 5.0), Random[FeatherFx](3.0, 5.0), Random[FeatherFx](3.0, 5.0), Random[FeatherFx](0.0, 360.0), SXF_ABSOLUTEANGLE);
+			A_DD2_SpawnGib(self, "SHDX_ChickenFeather");
 		}
 	}
 	

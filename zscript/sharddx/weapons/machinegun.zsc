@@ -39,7 +39,7 @@ Class SHDX_SubmachineGun : SHDX_Weapon
 			SMGG A 1 A_Raise;
 			Loop;
 		Flash:
-			SMGF A 2 A_Light1;
+			SMGF A 1 A_Light1;
 			goto LightDone;
 		Fire:
 			SMGG A 0
