@@ -212,8 +212,6 @@ terrain PurpleSpectra
 
 floor "OWATER01" WaterDD
 
-floor "F_WATER" WaterDD
-floor "F_WATER2" WaterDD
 floor "F_LAVA" LavaFlows
 
 floor "RSPECF0" RedSpectra

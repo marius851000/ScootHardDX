@@ -29,7 +29,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		Mass 100;
 		PainChance 255;
 		
-		Friction 0.995;
+		Friction 0.98;
 		
 		BloodType "SHDX_Blood", "SHDX_Blood", "SHDX_Blood";
 		
@@ -66,8 +66,8 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Player.TeleportFreezeTime 0;
 		
-		Player.ForwardMove 2, 1;
-		Player.SideMove 2, 1;
+		Player.ForwardMove 2.2, 1.1;
+		Player.SideMove 2.2, 1.1;
 		
 		Player.ViewHeight 26;
 		Player.AttackZOffset 8;

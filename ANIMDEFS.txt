@@ -13,8 +13,7 @@ texture TV0_A
 	pic TV0_B tics 2
 	pic TV0_C tics 2
 	pic TV0_D tics 2
-	
-warp2 flat F_WATER
+
 warp2 flat OWATER01
 warp2 flat F_WATER2
 warp2 flat F_NUKE
@@ -41,13 +40,6 @@ switch SW4S1 off sound switch/normbutn pic SW4S0 tics 0
 switch BGLASS_A on sound misc/glassbreak pic BGLASS_B tics 0
 switch MIDGLASS on sound misc/glassbreak pic GLSBRKNL tics 0
 
-switch SW1GOTH1 on sound switches/normbutn pic SW2GOTH1 tics 0
-switch SW1GOTH2 off sound switches/normbutn pic SW1GOTH1 tics 0
-switch SW1GOTH2 on sound switches/normbutn pic SW2GOTH2 tics 0
-switch SW2GOTH2 off sound switches/normbutn pic SW1GOTH2 tics 0
-
-switch VENT_A on sound misc/ventbust pic VENT_B tics 0
-switch VENT_C on sound misc/ventbust pic VENT_D tics 0
 switch VENT_E on sound misc/ventbust pic VENT_F tics 0
 
 texture M_CWC1
