@@ -42,9 +42,6 @@ class SHDX_CreditsMenu : GenericMenu
 	bool isrclick;
 	int pagedir;
 	
-	const BASE_RES_WIDTH = 640;
-	const BASE_RES_HEIGHT = 400;
-	
 	enum EHelpPage
 	{
 		PAGE_WIS,
@@ -88,13 +85,24 @@ class SHDX_CreditsMenu : GenericMenu
 				break;
 		}
 		
+		Vector2 hs = (2, 2);
+		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		
 		screen.DrawText(bigfont, Font.CR_RED, 0, 0, hdr,
-							DTA_VirtualWidth,  BASE_RES_WIDTH,
-							DTA_VirtualHeight, BASE_RES_HEIGHT);
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
 		
 		screen.DrawText(fnt, Font.CR_FIRE, 0, bigfont.GetHeight() * 1.5, txt,
-							DTA_VirtualWidth,  BASE_RES_WIDTH,
-							DTA_VirtualHeight, BASE_RES_HEIGHT);
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
+							
+		
+		screen.DrawText(fnt, Font.CR_RED, 0, ss.y - fnt.GetHeight(), StringTable.Localize("$SHDX_HELP_MOVETIP"),
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
 	}
 
 	override void Drawer()

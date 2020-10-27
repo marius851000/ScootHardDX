@@ -46,8 +46,10 @@ class SHDX_TitlemapEvent : EventHandler
 			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
 			int _rw, _rh;
 			[_rw, _rh] = TexMan.GetSize(rid);
+			
+			Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
 			Screen.DrawTexture(rid, false, 0, 0, 
-							DTA_VirtualWidth, 1920, DTA_VirtualHeight, 1080, DTA_FullscreenEx, 3);
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_FullscreenEx, 3);
 		}
 	}
 	
@@ -58,8 +60,10 @@ class SHDX_TitlemapEvent : EventHandler
 			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
 			int _rw, _rh;
 			[_rw, _rh] = TexMan.GetSize(rid);
+			
+			Vector2 ss = (Screen.GetWidth(),Screen.GetHeight());
 			Screen.DrawTexture(rid, false, x, y, 
-							DTA_VirtualWidth, 1920, DTA_VirtualHeight, 1080, DTA_CenterOffset, centered);
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered);
 		}
 	}
 	
@@ -131,9 +135,12 @@ class SHDX_TitlemapEvent : EventHandler
 														StringTable.Localize("$SHDX_BUILDNUM"), halstr,
 														StringTable.Localize("$SHDX_TITLEMAP_FINAL3"), mp);
 		}
+		Vector2 hs = (2, 2);
+		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
 		Screen.DrawText("newsmallfont", Font.CR_WHITE, 0, 0, lawg,
-							DTA_VirtualWidth,  640,
-							DTA_VirtualHeight, 480);
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
 	}
 	
 	ui void DrawDisclaimerString()
@@ -148,13 +155,26 @@ class SHDX_TitlemapEvent : EventHandler
 			if ( len > maxlen ) maxlen = len;
 		}
 		int h = fnt.GetHeight();
-		int y = h * 10;
+		int y = h * 2;
+		Vector2 hs = (2, 2);
+		hs.x -= (l.Count() * .025);
+		hs.y -= (l.Count() * .025);
+		if (hs.x <= 0)
+		{
+			hs.x = .1;
+		}
+		if (hs.y <= 0)
+		{
+			hs.y = .1;
+		}
+		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
 		for ( int i = 0; i < l.Count(); i++ )
 		{
 			int len = fnt.StringWidth(l.StringAt(i));
-			Screen.DrawText(fnt, Font.CR_FIRE, (640 - len)/2., y, l.StringAt(i),
-							DTA_VirtualWidth, 640,
-							DTA_VirtualHeight, 480);
+			Screen.DrawText(fnt, Font.CR_FIRE, int(ss.x - len)/2., y, l.StringAt(i),
+							DTA_VirtualWidthF, ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
 			y += h;
 		}
 	}
@@ -165,9 +185,12 @@ class SHDX_TitlemapEvent : EventHandler
 		int h = fnt.GetHeight();
 		String adv = StringTable.Localize("$SHDX_TITLEMAP_ADVISORY");
 		int len = fnt.StringWidth(adv) / 2;
-		Screen.DrawText(fnt, Font.CR_RED, 320 - len, 480 - h, adv,
-								DTA_VirtualWidth,  640,
-								DTA_VirtualHeight, 480);
+		Vector2 hs = (2, 2);
+		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		Screen.DrawText(fnt, Font.CR_RED, (ss.x/2 - len), ss.y - h, adv,
+								DTA_VirtualWidthF,  ss.x,
+								DTA_VirtualHeightF, ss.y,
+								DTA_KeepRatio, true);
 	}
 	
 	ui void ClearBlack()
@@ -218,7 +241,8 @@ class SHDX_TitlemapEvent : EventHandler
 			if (seconds >= SECONDS_TITLESCREEN)
 			{
 				DrawBGImage("graphics/titlepic.png");
-				DrawImageWithOffsets("graphics/scoot_hard_dx_logo.png", 1920 / 2, 1080 / 7, true);
+				Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
+				DrawImageWithOffsets("graphics/scoot_hard_dx_logo.png", (ss.x / 2), (ss.y / 7), true);
 				DrawAdvisoryString();
 			}
 		}

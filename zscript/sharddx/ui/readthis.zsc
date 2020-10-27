@@ -55,9 +55,6 @@ class SHDX_ReadThisMenu : GenericMenu
 	bool isrclick;
 	int pagedir;
 	
-	const BASE_RES_WIDTH = 640;
-	const BASE_RES_HEIGHT = 400;
-	
 	enum EHelpPage
 	{
 		PAGE_MENU1,
@@ -94,8 +91,11 @@ class SHDX_ReadThisMenu : GenericMenu
 			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
 			int _rw, _rh;
 			[_rw, _rh] = TexMan.GetSize(rid);
+		
+			Vector2 hs = (2, 2);
+			Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
 			Screen.DrawTexture(rid, false, x, y, 
-							DTA_VirtualWidth, BASE_RES_WIDTH, DTA_VirtualHeight, BASE_RES_HEIGHT, DTA_CenterOffset, centered);
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered);
 		}
 	}
 	
@@ -148,13 +148,19 @@ class SHDX_ReadThisMenu : GenericMenu
 				break;
 		}
 		
+		
+		Vector2 hs = (2, 2);
+		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		
 		screen.DrawText(bigfont, Font.CR_RED, 0, 0, hdr,
-							DTA_VirtualWidth,  BASE_RES_WIDTH,
-							DTA_VirtualHeight, BASE_RES_HEIGHT);
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
 		
 		screen.DrawText(fnt, Font.CR_FIRE, 0, bigfont.GetHeight() * 1.5, txt,
-							DTA_VirtualWidth,  BASE_RES_WIDTH,
-							DTA_VirtualHeight, BASE_RES_HEIGHT);
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
 		
 		if (page == PAGE_MENU3)
 		{
@@ -180,9 +186,10 @@ class SHDX_ReadThisMenu : GenericMenu
 		}
 							
 		
-		screen.DrawText(fnt, Font.CR_RED, 0, BASE_RES_HEIGHT - fnt.GetHeight(), StringTable.Localize("$SHDX_HELP_MOVETIP"),
-							DTA_VirtualWidth,  BASE_RES_WIDTH,
-							DTA_VirtualHeight, BASE_RES_HEIGHT);
+		screen.DrawText(fnt, Font.CR_RED, 0, ss.y - fnt.GetHeight(), StringTable.Localize("$SHDX_HELP_MOVETIP"),
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
 	}
 
 	override void Drawer()

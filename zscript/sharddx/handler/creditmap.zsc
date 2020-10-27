@@ -35,8 +35,10 @@ class SHDX_CreditMapEvent : EventHandler
 			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
 			int _rw, _rh;
 			[_rw, _rh] = TexMan.GetSize(rid);
+			
+			Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
 			Screen.DrawTexture(rid, false, 0, 0, 
-							DTA_VirtualWidth, 1920, DTA_VirtualHeight, 1080, DTA_FullscreenEx, 3);
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_FullscreenEx, 3);
 		}
 	}
 	
@@ -47,24 +49,32 @@ class SHDX_CreditMapEvent : EventHandler
 			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
 			int _rw, _rh;
 			[_rw, _rh] = TexMan.GetSize(rid);
+			
+			Vector2 ss = (Screen.GetWidth(),Screen.GetHeight());
 			Screen.DrawTexture(rid, false, x, y, 
-							DTA_VirtualWidth, 1920, DTA_VirtualHeight, 1080, DTA_CenterOffset, centered, DTA_Alpha, alpha);
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered);
 		}
 	}
 	
 	ui void DrawCreditNumber(String str, int x, int y, double alpha = 1.0)
 	{
+		Vector2 hs = (2, 2);
+		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
 		Screen.DrawText("smallfont", Font.CR_FIRE, x, y, str,
-							DTA_VirtualWidth,  640,
-							DTA_VirtualHeight, 480,
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true,
 							DTA_Alpha, alpha);
 	}
 	
 	ui void DrawCredit(String strloc, int x, int y, double alpha = 1.0)
 	{
+		Vector2 hs = (2, 2);
+		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
 		Screen.DrawText("smallfont", Font.CR_FIRE, x, y, StringTable.Localize(strloc),
-							DTA_VirtualWidth,  640,
-							DTA_VirtualHeight, 480,
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true,
 							DTA_Alpha, alpha);
 	}
 	
@@ -129,6 +139,11 @@ class SHDX_CreditMapEvent : EventHandler
 			{
 				DrawBGImage("graphics/cutscenes/credits/teampic.png");
 				
+				
+				Vector2 hs = (2, 2);
+				Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+				
+				/*
 				DrawCreditNumber("1", 20, 100);
 				DrawCreditNumber("2", 110, 94);
 				DrawCreditNumber("3", 144, 125);
@@ -139,11 +154,11 @@ class SHDX_CreditMapEvent : EventHandler
 				DrawCreditNumber("8", 152, 300);
 				DrawCreditNumber("9", 255, 322);
 				DrawCreditNumber("10", 450, 266);
+				*/
 				
+				DrawCredit("$SHDX_CREDITPICHEADER", 0, ss.y - 54);
 				
-				DrawCredit("$SHDX_CREDITPICHEADER", 32, 424);
-				
-				DrawCredit("$SHDX_CREDITPIC", 4, 440);
+				DrawCredit("$SHDX_CREDITPIC", 0, ss.y - 40);
 			}
 			
 			if (seconds >= SECONDS_BORDEAUX_START && seconds < SECONDS_BODREAUX_END)
