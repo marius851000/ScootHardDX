@@ -28,25 +28,32 @@ class SHDX_Utilities play
 {	
 	static clearscope String GetStringForKeyBind(String bind)
 	{
-		int k1, k2;
-		[k1, k2] = Bindings.GetKeysForCommand(bind);
-		String keys = KeyBindings.NameKeys(k1, k2);
+		Array<int> keys;
+		Bindings.GetAllKeysForCommand(keys, bind);
+		String keysstr = KeyBindings.NameAllKeys(keys);
 		Array<String> splitkeys;
-		keys.Split(splitkeys, ", ");
+		keysstr.Split(splitkeys, ", ");
 		
 		String newkeys;
 		
-		if (splitkeys.Size() == 2)
+		// If there's no keys defined, just print null
+		if (splitkeys.Size() <= 0)
 		{
-			newkeys = String.Format(splitkeys[0].." \c-(".."\c-"..Stringtable.Localize("$SHDX_KEYBINDOR").." "..splitkeys[1]..")\c-");
+			return String.Format("\c-null\c-");
 		}
-		else if (splitkeys.Size() == 1)
+		
+		// Iterate over keys+buttons and print them out nicely
+		for (int i = 0; i < splitkeys.Size(); i++)
 		{
-			newkeys = splitkeys[0];
-		}
-		else
-		{
-			newkeys = "null";
+			if (i != 0)
+			{
+				newkeys = String.Format("\c-"..newkeys.."\c-"..", ".."\c-");
+			}
+			if (i == splitkeys.Size() - 1)
+			{
+				newkeys = String.Format("\c-"..newkeys.."\c-"..StringTable.Localize("$SHDX_KEYBINDOR").." ".."\c-");
+			}
+			newkeys = String.Format("\c-"..newkeys.."\c-"..splitkeys[i].."\c-");
 		}
 		
 		return newkeys;
