@@ -24,12 +24,12 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Speed 1;
 		Health 100;
-		Radius 16;
+		Radius 13;
 		Height 34;
 		Mass 100;
 		PainChance 255;
 		
-		Friction 0.98;
+		Friction 0.99;
 		
 		BloodType "SHDX_Blood", "SHDX_Blood", "SHDX_Blood";
 		

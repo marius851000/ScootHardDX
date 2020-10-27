@@ -20,6 +20,7 @@ Bridge Raised!,SHDX_BRIGDE_RAISED,,,,,,,,,,,,,,,,,,,,,,,
 BETA,SHDX_BETA_HUD_STRING,,,,,,,,,,,,,,,,,,,,,,,
 Error! Invalid Help Screen at %d,SHDX_HELP_SCREEN_ERROR,,,,,,,,,,,,,,,,,,,,,,,
 I guess you don't watch Puffin Forest...,SHDX_OBELISK_MSG,Puffin Forest is a Youtuber who does DND stuff,,,,,,,Supongo que no ves Puffin Forest...,,,,,,,,,,,,,,"Nemyslím si, že sledujete Puffinský les ...",
+Delayed Secret Opened!,SHDX_DELAYEDSECRET,,,,,,,,,,,,,,,,,,,,,,,
 More To Go!,SHDX_MORETOGO,,,,,,,,,,,,,,,,,,,,,,,
 Sequence Complete!,SHDX_SEQUENCECOMPLETE,,,,,,,,,,,,,,,,,,,,,,,
 Pegasus Device Put In Maintenance Mode.,SHDX_PEGASUS_DEVICE_UNLOCK,,,,,,,,,,,,,,,,,,,,,,,
@@ -148,7 +149,8 @@ PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,,,,,,,,,,,,,
 
 Either use up your shots first, or swap it out by walking over another weapon
 and pressing the use key (default is E) to swap it out. The dropped weapon
-will contain the ammo as well.
+will contain the ammo as well. If you pick up the same weapon you currently
+have, you will pick up the ammo from it rather than swap it out.
 
 Bullet Weapons:
 Blaster - You start with this weapon. Never runs out of ammo.

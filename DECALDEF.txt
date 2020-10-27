@@ -175,6 +175,10 @@ decal DD2_FrostScorch
 }
 
 generator SHDX_BulletPuff				SHDX_BulletChip1
+generator SHDX_LowGuardBullet			SHDX_BulletChip1
+generator SHDX_HighGuardBullet			SHDX_BulletChip1
+generator SHDX_PegapolBullet			SHDX_BulletChip1
+generator SHDX_MaimbowBullet			SHDX_BulletChip1
 generator SHDX_FillyMissile				SHDX_MediumScorch
 generator SHDX_Missile					SHDX_Scorch
 generator SHDX_PlasmaBall				SHDX_MediumScorch

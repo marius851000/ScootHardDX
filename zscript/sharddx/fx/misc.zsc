@@ -48,3 +48,24 @@ Class SHDX_BigExplosiveness : SHDX_Actor
 			Stop;
 	}
 }
+
+Class SHDX_BulletTrail : SHDX_Actor
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+NOTELEPORT
+		+CANNOTPUSH
+		+NODAMAGETHRUST
+		RenderStyle "Translucent";
+		Alpha 0.333;
+		Scale 0.12;
+	}
+	States
+	{
+		Spawn:
+			BRNG ABCD 2 Bright;
+			Stop;
+	}
+}

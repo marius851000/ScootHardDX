@@ -140,7 +140,7 @@ Class SHDX_Enemy : SHDX_Actor
 	{
 		if (leveltimemod == 8 && waterlevel >= 2 && health > 0)
 		{
-			A_FaceTarget(128);
+			A_FaceTarget();
 			if (JumpForwardVelocity > 0 && JumpUpVelocity > 0)
 			{
 				VelFromAngle(JumpForwardVelocity, angle);
@@ -167,20 +167,26 @@ Class SHDX_Enemy : SHDX_Actor
 		if (health <= 0)
 			return;
 		
-		if (ter && waterlevel > 0 || (pos.z == GetZAt(pos.x, pos.y) && ter.DamageMOD && !bFLOAT && leveltimemod >= ter.damagetimemask))
-		{				
-			DamageMobj(self, self, ter.damageamount * Random[TerrainHurt](2, 5), ter.DamageMOD, 0, 0);
-			
-			A_StartSound(PainSound);
-			if (Random[TerrainHurt](0, 3) == 1)
-				Vel3dFromAngle(speed * 2, angle, -35);
+		int dmg;
+		
+		if (ter)
+		{
+			if (waterlevel > 0 && (pos.z == GetZAt(pos.x, pos.y) && ter.damageamount > 0 && ter.DamageMOD && !bFLOAT && leveltimemod >= ter.damagetimemask))
+			{
+				dmg = DamageMobj(self, self, ter.damageamount * Random[TerrainHurt](2, 5), ter.DamageMOD, 0, 0);
+			}
 		}
 		if (CurSector.damageamount != 0 && leveltimemod >= CurSector.damageinterval)
 		{
 			if (waterlevel > 0 || (waterlevel == 0 && pos.z == GetZAt(pos.x, pos.y)))
 			{
-				DamageMobj(self, self, CurSector.damageamount, CurSector.damagetype, 0, 0);
+				dmg = DamageMobj(self, self, CurSector.damageamount, CurSector.damagetype, 0, 0);
 			}
+		}
+		
+		if (dmg > 0)
+		{
+			Vel3dFromAngle(speed * 2, angle, -35);
 		}
 	}
 	

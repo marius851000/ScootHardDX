@@ -40,7 +40,7 @@ Class SHDX_ZombieGibProjectile : SHDX_Projectile
 		Mass 30;
 		SeeSound "zombie/attack";
 		DeathSound "zombie/shotx";
-		Scale 0.1;
+		Scale 0.12;
 		Obituary "$SHDX_OB_ZOMBIEGIB";
 	}
 

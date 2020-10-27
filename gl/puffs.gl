@@ -30,8 +30,50 @@ flickerlight SHDX_GoldSparkPuff4
     chance 0.8
 }
 
+pointlight SHDX_BOOLET
+{
+    color 1.0 0.0 0.0
+    size 8
+}
+
 object SHDX_BulletPuff
 {
+    frame PUFFA { light SHDX_GoldSparkPuff1 }
+    frame PUFFB { light SHDX_GoldSparkPuff2 }
+    frame PUFFC { light SHDX_GoldSparkPuff3 }
+    frame PUFFD { light SHDX_GoldSparkPuff4 }
+}
+
+object SHDX_LowGuardBullet
+{
+    frame BULLA { light SHDX_BOOLET }
+    frame PUFFA { light SHDX_GoldSparkPuff1 }
+    frame PUFFB { light SHDX_GoldSparkPuff2 }
+    frame PUFFC { light SHDX_GoldSparkPuff3 }
+    frame PUFFD { light SHDX_GoldSparkPuff4 }
+}
+
+object SHDX_HighGuardBullet
+{
+    frame BULLA { light SHDX_BOOLET }
+    frame PUFFA { light SHDX_GoldSparkPuff1 }
+    frame PUFFB { light SHDX_GoldSparkPuff2 }
+    frame PUFFC { light SHDX_GoldSparkPuff3 }
+    frame PUFFD { light SHDX_GoldSparkPuff4 }
+}
+
+object SHDX_PegapolBullet
+{
+    frame BULLA { light SHDX_BOOLET }
+    frame PUFFA { light SHDX_GoldSparkPuff1 }
+    frame PUFFB { light SHDX_GoldSparkPuff2 }
+    frame PUFFC { light SHDX_GoldSparkPuff3 }
+    frame PUFFD { light SHDX_GoldSparkPuff4 }
+}
+
+object SHDX_MaimbowBullet
+{
+    frame BULLA { light SHDX_BOOLET }
     frame PUFFA { light SHDX_GoldSparkPuff1 }
     frame PUFFB { light SHDX_GoldSparkPuff2 }
     frame PUFFC { light SHDX_GoldSparkPuff3 }

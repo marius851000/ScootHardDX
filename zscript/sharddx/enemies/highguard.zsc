@@ -12,6 +12,39 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+Class SHDX_HighGuardBullet : FastProjectile
+{
+	Default
+	{
+		Speed 120;
+		Radius 8;
+		Height 8;
+		DamageFunction Random[HighGuard](3,7);
+		DamageType "Bullet";
+		Scale 0.12;
+		MissileType "SHDX_BulletTrail";
+		MissileHeight 8;
+		RenderStyle "Translucent";
+		Alpha 0.667;
+		
+		+CANNOTPUSH
+		+NODAMAGETHRUST
+		+SPAWNSOUNDSOURCE
+		//+ALLOWTHRUFLAGS
+		//+THRUSPECIES
+		//+MTHRUSPECIES
+		+BloodSplatter
+	}
+	States
+	{
+		Spawn:
+			BULL A 4 Bright;
+			Loop;
+		Death:
+			PUFF ABCD 4 Bright;
+			Stop;
+	}
+}
 
 Class SHDX_HighGuardSpawner : RandomSpawner
 {
@@ -62,6 +95,12 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 			A_SHDX_DropItem("SHDX_SubmachineGun");
 	}
 	
+	void A_HighGuardFire()
+	{
+		A_StartSound("hguard/attack", CHAN_WEAPON);
+		A_SpawnProjectile("SHDX_HighGuardBullet", 32);
+	}
+	
 	States
 	{		
 		Spawn:
@@ -72,11 +111,9 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 			Loop;
 		Missile:
 			HIGH F 2 A_FaceTarget;
-			HIGH G 0 bright A_StartSound("hguard/attack", CHAN_WEAPON);
-			HIGH GH 4 bright A_CustomBulletAttack(1, 0.0, 1, random[HighGuard](3,6)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			HIGH GH 4 Bright A_HighGuardFire;
 			HIGH IF 2 A_FaceTarget;
-			HIGH G 0 bright A_StartSound("hguard/attack", CHAN_WEAPON);
-			HIGH GH 4 bright A_CustomBulletAttack(1, 0.0, 1, random[HighGuard](3,6)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			HIGH GH 4 Bright A_HighGuardFire;
 			HIGH I 2;
 			Goto See;
 		Pain:
@@ -157,11 +194,9 @@ Class SHDX_HighGuardFemale : SHDX_HighGuardMale
 			Loop;
 		Missile:
 			HIG2 F 2 A_FaceTarget;
-			HIG2 G 0 bright A_StartSound("hguard/attack", CHAN_WEAPON);
-			HIG2 GH 4 bright A_CustomBulletAttack(1, 0.0, 1, random[HighGuard](3,6)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			HIG2 GH 4 Bright A_HighGuardFire;
 			HIG2 IF 2 A_FaceTarget;
-			HIG2 G 0 bright A_StartSound("hguard/attack", CHAN_WEAPON);
-			HIG2 GH 4 bright A_CustomBulletAttack(1, 0.0, 1, random[HighGuard](3,6)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			HIG2 GH 4 Bright A_HighGuardFire;
 			HIG2 I 2;
 			Goto See;
 		Pain:
@@ -188,7 +223,7 @@ Class SHDX_HighGuardFemale : SHDX_HighGuardMale
 				A_DropItemsHighGuard();
 			}
 			HIG2 N 5;
-			HIG2 O -1;
+			HIG2 O -1 A_SetCorpseShootable;
 			Stop;
 	}
 }

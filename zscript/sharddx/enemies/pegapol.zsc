@@ -12,6 +12,40 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+Class SHDX_PegapolBullet : FastProjectile
+{
+	Default
+	{
+		Speed 120;
+		Radius 8;
+		Height 8;
+		DamageFunction Random[Pegapol](4,8);
+		DamageType "Bullet";
+		Scale 0.12;
+		MissileType "SHDX_BulletTrail";
+		MissileHeight 8;
+		RenderStyle "Translucent";
+		Alpha 0.667;
+		
+		+CANNOTPUSH
+		+NODAMAGETHRUST
+		+SPAWNSOUNDSOURCE
+		//+ALLOWTHRUFLAGS
+		//+THRUSPECIES
+		//+MTHRUSPECIES
+		+BloodSplatter
+	}
+	States
+	{
+		Spawn:
+			BULL A 4 Bright;
+			Loop;
+		Death:
+			PUFF ABCD 4 Bright;
+			Stop;
+	}
+}
+
 Class SHDX_PegapolMale : SHDX_Enemy
 {
 	Default
@@ -53,6 +87,12 @@ Class SHDX_PegapolMale : SHDX_Enemy
 		
 		if (target && target.CountInv("SHDX_SubmachineGun") <= 0)
 			A_SHDX_DropItem("SHDX_SubmachineGun");
+	}
+	
+	void A_PegapolFire()
+	{
+		A_StartSound("pegapol/attack", CHAN_WEAPON);
+		A_SpawnProjectile("SHDX_PegapolBullet", 16);
 	}
 	
 	States
@@ -105,14 +145,11 @@ Class SHDX_PegapolMale : SHDX_Enemy
 				return ResolveState(null);
 			}
 			PEGA F 5 A_FaceTarget;
-			PEGA G 0 A_StartSound("pegapol/attack", CHAN_WEAPON);
-			PEGA GH 2 bright A_CustomBulletAttack(1, 0.0, 1, random[Pegapol](2,4)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			PEGA GH 2 Bright A_PegapolFire;
 			PEGA IF 2 A_FaceTarget;
-			PEGA G 0 A_StartSound("pegapol/attack", CHAN_WEAPON);
-			PEGA GH 2 bright A_CustomBulletAttack(1, 0.0, 1, random[Pegapol](2,4)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			PEGA GH 2 Bright A_PegapolFire;
 			PEGA IF 2 A_FaceTarget;
-			PEGA G 0 A_StartSound("pegapol/attack", CHAN_WEAPON);
-			PEGA GH 2 bright A_CustomBulletAttack(1, 0.0, 1, random[Pegapol](2,4)*1, "SHDX_BulletPuff", 0, CBAF_NORANDOM);
+			PEGA GH 2 Bright A_PegapolFire;
 			PEGA IF 2 A_FaceTarget;
 			Goto See;
 		Missile.Flying:
