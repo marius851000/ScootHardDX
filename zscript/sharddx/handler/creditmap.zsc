@@ -156,7 +156,7 @@ class SHDX_CreditMapEvent : EventHandler
 				DrawCreditNumber("10", 450, 266);
 				*/
 				
-				DrawCredit("$SHDX_CREDITPICHEADER", 0, ss.y - 54);
+				DrawCredit("$SHDX_CREDITPICHEADER", 0, 0);
 				
 				DrawCredit("$SHDX_CREDITPIC", 0, ss.y - 40);
 			}

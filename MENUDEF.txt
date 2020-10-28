@@ -8,7 +8,7 @@ DefaultListMenu
 ListMenu "MainMenu"
 {
 	Position 96, 54
-	StaticPatch 12, 12, "M_SHDX"
+	StaticPatch 48, 12, "M_SHDX"
 	TextItem "$MNU_SHARDDX_NEWGAME",		"n",	"PlayerclassMenu"
 	TextItem "$MNU_SHARDDX_SSTATES",		"s",	"SHARDDXGameFilesMenu"
 	TextItem "$MNU_SHARDDX_OPTIONS",		"o",	"SHARDDXOptionsMenu"
@@ -144,7 +144,7 @@ ListMenu "SkillMenu"
 	Linespacing 20
 	
 	StaticTextCentered 160, 10, "$SHDX_SKILL_MENU"
-	Position 80, 44
+	Position 100, 44
 }
 
 ListMenu "SHARDDXGameFilesMenu"
@@ -152,7 +152,7 @@ ListMenu "SHARDDXGameFilesMenu"
 	StaticTextCentered 160, 10, "$MNU_SHARDDX_SSTATES"
 	Linespacing 20
 	
-	Position 110, 44
+	Position 125, 44
 	TextItem "$MNU_SHARDDX_LOADGAME", "l", "SHARDDXLoadGameMenu"
 	TextItem "$MNU_SHARDDX_SAVEGAME", "s", "SHARDDXSaveGameMenu"
 }

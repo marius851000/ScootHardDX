@@ -149,7 +149,7 @@ class SHDX_ReadThisMenu : GenericMenu
 		}
 		
 		
-		Vector2 hs = (2, 2);
+		Vector2 hs = (1.25, 1.25);
 		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
 		
 		screen.DrawText(bigfont, Font.CR_RED, 0, 0, hdr,
@@ -164,13 +164,13 @@ class SHDX_ReadThisMenu : GenericMenu
 		
 		if (page == PAGE_MENU3)
 		{
-			DrawImageWithOffsets("HELPSMG", 24, 276);
-			DrawImageWithOffsets("HELPGUNS", 128, 256);
+			DrawImageWithOffsets("HELPSMG", 0, 144);
+			DrawImageWithOffsets("HELPGUNS", 0, 176);
 		}
 		if (page == PAGE_MENU4)
 		{
-			DrawImageWithOffsets("HELPVEND", 0, 128);
-			DrawImageWithOffsets("HELPBITS", 128, 128);
+			DrawImageWithOffsets("HELPVEND", 0, 96);
+			DrawImageWithOffsets("HELPBITS", 128, 144);
 		}
 		if (page == PAGE_MENU6)
 		{

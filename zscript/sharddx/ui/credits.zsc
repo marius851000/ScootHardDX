@@ -85,7 +85,7 @@ class SHDX_CreditsMenu : GenericMenu
 				break;
 		}
 		
-		Vector2 hs = (2, 2);
+		Vector2 hs = (1.25, 1.25);
 		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
 		
 		screen.DrawText(bigfont, Font.CR_RED, 0, 0, hdr,

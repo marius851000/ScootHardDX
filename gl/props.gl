@@ -58,3 +58,16 @@ object SHDX_WiresFloor
     frame WIREE { light SHDX_WIREFLICKER }
     frame WIREF { light SHDX_WIREFLICKER }
 }
+
+flickerlight SHDX_TOASTER
+{
+    color 1.0 0.7 0.0
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+object SHDX_WoodenToaster
+{
+	frame WTSR { light SHDX_TOASTER }
+}

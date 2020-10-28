@@ -3,8 +3,8 @@
 
 Graphic "M_SHDX", 1308, 198
 {
-	XScale 4.000
-	YScale 4.000
+	XScale 6.000
+	YScale 6.000
 	Patch "GRAPHICS/SCOOT_HARD_DX_LOGO.PNG", 0, 0
 }
 

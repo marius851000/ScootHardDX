@@ -135,7 +135,7 @@ class SHDX_TitlemapEvent : EventHandler
 														StringTable.Localize("$SHDX_BUILDNUM"), halstr,
 														StringTable.Localize("$SHDX_TITLEMAP_FINAL3"), mp);
 		}
-		Vector2 hs = (2, 2);
+		Vector2 hs = (1, 1);
 		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
 		Screen.DrawText("newsmallfont", Font.CR_WHITE, 0, 0, lawg,
 							DTA_VirtualWidthF,  ss.x,
@@ -241,8 +241,8 @@ class SHDX_TitlemapEvent : EventHandler
 			if (seconds >= SECONDS_TITLESCREEN)
 			{
 				DrawBGImage("graphics/titlepic.png");
-				Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
-				DrawImageWithOffsets("graphics/scoot_hard_dx_logo.png", (ss.x / 2), (ss.y / 7), true);
+				// Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
+				// DrawImageWithOffsets("graphics/scoot_hard_dx_logo.png", (ss.x / 2), (ss.y / 7), true);
 				DrawAdvisoryString();
 			}
 		}

@@ -46,9 +46,9 @@ Peridot Systems(TM) SpinelStation,SHDX_TITLEMAP_MISTERBAMANUSERNAME,,,,,,,,,,,,,
 No Unironically Fuck You Nukkus Go Away You Don't Get a HAL,SHDX_TITLEMAP_NUKKUSUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 "Scoot Hard DX is a fair use parody. My Little Pony: Friendship is Magic
 is owned by Hasbro. This is not endorsed by them nor is meant to
-replace any official product. It is also not intended for kids. It is intended
-for mature audiences, suggested 18+ years of age. Please support the
-official release.
+replace any official product. It is also not intended for kids  It is
+intended for mature audiences, suggested 18+ years of age.
+Please support the official release.
 
 Scoot Hard DX has wanton and gratituous violence, dark themes
 including but not limited to dealing with authoritarianism, and edgy
@@ -154,7 +154,7 @@ have, you will pick up the ammo from it rather than swap it out.
 
 Bullet Weapons:
 Blaster - You start with this weapon. Never runs out of ammo.
-Submachine Gun - Renders your blaster obsolete. Rapid fire goodness. Infinite ammo too.
+Submachine Gun - Rapid fire goodness. Infinite ammo.
 
 Missile Weapons:
 Missile Launcher - Shoots a straight firing missile. Contains 10 shots.
@@ -360,10 +360,10 @@ OH YEAH!!!!,DD_OB_OHYEAH,,,,,,,,,,,,,,,,,,,,,,,
 %o got shocked by some live wires.,SHDX_OB_LIVEWIRES,,,,,,,,,,,,,,,,,,,,,,,
 ,,Map Strings,,,,,,,,,,,,,,,,,,,,,,
 Choose your difficulty,SHDX_SKILL_MENU,,,,,,,,,,,,,,,,,,,,,,,
-Easy - Games Journalist,SHDX_SKILL1,,,,,,,,,,,,,,,,,,,,,,,
-Medium - Where's The Trigger?,SHDX_SKILL2,,,,,,,,,,,,,,,,,,,,,,,
-Hard - Bring It On!,SHDX_SKILL3,,,,,,,,,,,,,,,,,,,,,,,
-Discourse - I Am The Cleaner.,SHDX_SKILL4,,,,,,,,,,,,,,,,,,,,,,,
+Games Journalist,SHDX_SKILL1,,,,,,,,,,,,,,,,,,,,,,,
+Where's The Trigger?,SHDX_SKILL2,,,,,,,,,,,,,,,,,,,,,,,
+Bring It On!,SHDX_SKILL3,,,,,,,,,,,,,,,,,,,,,,,
+The Cleaner,SHDX_SKILL4,,,,,,,,,,,,,,,,,,,,,,,
 "Fewest enemies, lowest aggression,
 less damage taken, and enemies have
 lower health. You'll probably want this
