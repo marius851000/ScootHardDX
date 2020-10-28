@@ -66,6 +66,7 @@ class SHDX_ReadThisMenu : GenericMenu
 		PAGE_MENU7,
 		PAGE_MENU8,
 		PAGE_MENU9,
+		PAGE_MENU10,
 		NUM_HELP_PAGES
 	}
 
@@ -92,8 +93,10 @@ class SHDX_ReadThisMenu : GenericMenu
 			int _rw, _rh;
 			[_rw, _rh] = TexMan.GetSize(rid);
 		
-			Vector2 hs = (2, 2);
-			Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+			double hs;
+			if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+			else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+			Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 			Screen.DrawTexture(rid, false, x, y, 
 							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered);
 		}
@@ -146,11 +149,17 @@ class SHDX_ReadThisMenu : GenericMenu
 				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU9");
 				txt = StringTable.Localize("$SHDX_HELP_MENU9");
 				break;
+			case PAGE_MENU10:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU10");
+				txt = StringTable.Localize("$SHDX_HELP_MENU10");
+				break;
 		}
 		
-		
-		Vector2 hs = (1.25, 1.25);
-		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		// Marisa K saves my ass again...
+		double hs;
+		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		
 		screen.DrawText(bigfont, Font.CR_RED, 0, 0, hdr,
 							DTA_VirtualWidthF,  ss.x,
@@ -164,29 +173,31 @@ class SHDX_ReadThisMenu : GenericMenu
 		
 		if (page == PAGE_MENU3)
 		{
-			DrawImageWithOffsets("HELPSMG", 0, 144);
-			DrawImageWithOffsets("HELPGUNS", 0, 176);
+			DrawImageWithOffsets("HELPSMG", 32, 144);
 		}
 		if (page == PAGE_MENU4)
 		{
-			DrawImageWithOffsets("HELPVEND", 0, 96);
+			DrawImageWithOffsets("HELPGUNS", 32, 144);
+		}
+		if (page == PAGE_MENU5)
+		{
+			DrawImageWithOffsets("HELPVEND", 32, 144);
 			DrawImageWithOffsets("HELPBITS", 128, 144);
 		}
-		if (page == PAGE_MENU6)
+		if (page == PAGE_MENU7)
 		{
-			DrawImageWithOffsets("HELPKEYS", 0, 128);
-		}
-		if (page == PAGE_MENU8)
-		{
-			DrawImageWithOffsets("HELPARMR", 0, 128);
+			DrawImageWithOffsets("HELPKEYS", 32, 128);
 		}
 		if (page == PAGE_MENU9)
 		{
-			DrawImageWithOffsets("HELPEFS", 0, 128);
+			DrawImageWithOffsets("HELPARMR", 32, 128);
+		}
+		if (page == PAGE_MENU10)
+		{
+			DrawImageWithOffsets("HELPEFS", 32, 128);
 		}
 							
-		
-		screen.DrawText(fnt, Font.CR_RED, 0, ss.y - fnt.GetHeight(), StringTable.Localize("$SHDX_HELP_MOVETIP"),
+		Screen.DrawText(fnt, Font.CR_RED, 0, ss.y - fnt.GetHeight(), StringTable.Localize("$SHDX_HELP_MOVETIP"),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true);

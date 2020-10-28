@@ -53,20 +53,6 @@ class SHDX_TitlemapEvent : EventHandler
 		}
 	}
 	
-	ui void DrawImageWithOffsets(string texturepath, int x, int y, bool centered = false)
-	{
-		if (texturepath.Length() > 0)
-		{
-			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
-			int _rw, _rh;
-			[_rw, _rh] = TexMan.GetSize(rid);
-			
-			Vector2 ss = (Screen.GetWidth(),Screen.GetHeight());
-			Screen.DrawTexture(rid, false, x, y, 
-							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered);
-		}
-	}
-	
 	ui bool, String GetHalForUserName()
 	{
 		bool haldetected = false;
@@ -135,8 +121,10 @@ class SHDX_TitlemapEvent : EventHandler
 														StringTable.Localize("$SHDX_BUILDNUM"), halstr,
 														StringTable.Localize("$SHDX_TITLEMAP_FINAL3"), mp);
 		}
-		Vector2 hs = (1, 1);
-		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		double hs;
+		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		Screen.DrawText("newsmallfont", Font.CR_WHITE, 0, 0, lawg,
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
@@ -156,18 +144,10 @@ class SHDX_TitlemapEvent : EventHandler
 		}
 		int h = fnt.GetHeight();
 		int y = h * 2;
-		Vector2 hs = (2, 2);
-		hs.x -= (l.Count() * .025);
-		hs.y -= (l.Count() * .025);
-		if (hs.x <= 0)
-		{
-			hs.x = .1;
-		}
-		if (hs.y <= 0)
-		{
-			hs.y = .1;
-		}
-		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		double hs;
+		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		for ( int i = 0; i < l.Count(); i++ )
 		{
 			int len = fnt.StringWidth(l.StringAt(i));
@@ -185,8 +165,10 @@ class SHDX_TitlemapEvent : EventHandler
 		int h = fnt.GetHeight();
 		String adv = StringTable.Localize("$SHDX_TITLEMAP_ADVISORY");
 		int len = fnt.StringWidth(adv) / 2;
-		Vector2 hs = (2, 2);
-		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		double hs;
+		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		Screen.DrawText(fnt, Font.CR_RED, (ss.x/2 - len), ss.y - h, adv,
 								DTA_VirtualWidthF,  ss.x,
 								DTA_VirtualHeightF, ss.y,
@@ -241,8 +223,7 @@ class SHDX_TitlemapEvent : EventHandler
 			if (seconds >= SECONDS_TITLESCREEN)
 			{
 				DrawBGImage("graphics/titlepic.png");
-				// Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
-				// DrawImageWithOffsets("graphics/scoot_hard_dx_logo.png", (ss.x / 2), (ss.y / 7), true);
+				Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
 				DrawAdvisoryString();
 			}
 		}

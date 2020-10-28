@@ -85,8 +85,10 @@ class SHDX_CreditsMenu : GenericMenu
 				break;
 		}
 		
-		Vector2 hs = (1.25, 1.25);
-		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		double hs;
+		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		
 		screen.DrawText(bigfont, Font.CR_RED, 0, 0, hdr,
 							DTA_VirtualWidthF,  ss.x,
