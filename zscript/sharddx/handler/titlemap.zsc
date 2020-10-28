@@ -143,11 +143,11 @@ class SHDX_TitlemapEvent : EventHandler
 			if ( len > maxlen ) maxlen = len;
 		}
 		int h = fnt.GetHeight();
-		int y = h * 2;
 		double hs;
 		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
 		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
 		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
+		int y = ((ss.y - h*l.Count()) / 2);
 		for ( int i = 0; i < l.Count(); i++ )
 		{
 			int len = fnt.StringWidth(l.StringAt(i));
