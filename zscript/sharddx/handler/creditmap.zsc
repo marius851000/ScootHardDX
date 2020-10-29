@@ -69,12 +69,8 @@ class SHDX_CreditMapEvent : EventHandler
 							DTA_Alpha, alpha);
 	}
 	
-	ui void DrawCredit(String strloc, int x, int y, double alpha = 1.0)
+	ui void DrawCredit(String strloc, int x, int y, Vector2 ss, double alpha = 1.0)
 	{
-		double hs;
-		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
-		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
-		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		Screen.DrawText("smallfont", Font.CR_FIRE, x, y, StringTable.Localize(strloc),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
@@ -161,14 +157,19 @@ class SHDX_CreditMapEvent : EventHandler
 				DrawCreditNumber("10", 450, 266);
 				*/
 				
-				DrawCredit("$SHDX_CREDITPICHEADER", 0, 0);
+				DrawCredit("$SHDX_CREDITPICHEADER", 0, 0, ss);
 				
-				DrawCredit("$SHDX_CREDITPIC", 0, ss.y - 40);
+				DrawCredit("$SHDX_CREDITPIC", 0, ss.y - 40, ss);
 			}
 			
-			if (seconds >= SECONDS_BORDEAUX_START && seconds < SECONDS_BODREAUX_END)
+			if (seconds >= SECONDS_BORDEAUX_START && seconds < SECONDS_BORDEAUX_VOICE_START)
 			{
-				// TODO: Add Maimbow in hell...
+				DrawBGImage("graphics/cutscenes/credits/maimbow1.png");
+			}
+			
+			if (seconds >= SECONDS_BORDEAUX_VOICE_START && seconds < SECONDS_BODREAUX_END)
+			{
+				DrawBGImage("graphics/cutscenes/credits/maimbow2.png");
 			}
 		}
 	}

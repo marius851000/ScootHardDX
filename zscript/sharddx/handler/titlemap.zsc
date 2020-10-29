@@ -32,13 +32,6 @@ class SHDX_TitlemapEvent : EventHandler
 		S_ChangeMusic("D_SOMB");
 	}
 	
-	/*
-	ui void PlayDisclaimerSound()
-	{
-		if(!CVar.GetCvar('shdx_copyrightcensor', players[consoleplayer]).GetBool())
-			S_StartSound("disclaimer/ooga", CHAN_BODY, CHANF_DEFAULT, 1, ATTN_NORM);
-	} */
-	
 	ui void DrawBGImage(string texturepath)
 	{
 		if (texturepath.Length() > 0)
@@ -103,7 +96,7 @@ class SHDX_TitlemapEvent : EventHandler
 		return haldetected, returnedstring;
 	}
 	
-	ui void DrawBootInformation()
+	ui void DrawBootInformation(Vector2 ss)
 	{
 		bool hal;
 		String halstr;
@@ -121,17 +114,13 @@ class SHDX_TitlemapEvent : EventHandler
 														StringTable.Localize("$SHDX_BUILDNUM"), halstr,
 														StringTable.Localize("$SHDX_TITLEMAP_FINAL3"), mp);
 		}
-		double hs;
-		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
-		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
-		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		Screen.DrawText("newsmallfont", Font.CR_WHITE, 0, 0, lawg,
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true);
 	}
 	
-	ui void DrawDisclaimerString()
+	ui void DrawDisclaimerString(Vector2 ss)
 	{
 		Font fnt = "smallfont";
 		String disc = StringTable.Localize("$SHDX_TITLEMAP_DISCLAIMER");
@@ -143,10 +132,6 @@ class SHDX_TitlemapEvent : EventHandler
 			if ( len > maxlen ) maxlen = len;
 		}
 		int h = fnt.GetHeight();
-		double hs;
-		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
-		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
-		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		int y = ((ss.y - h*l.Count()) / 2);
 		for ( int i = 0; i < l.Count(); i++ )
 		{
@@ -159,16 +144,12 @@ class SHDX_TitlemapEvent : EventHandler
 		}
 	}
 	
-	ui void DrawAdvisoryString()
+	ui void DrawAdvisoryString(Vector2 ss)
 	{
 		Font fnt = "smallfont";
 		int h = fnt.GetHeight();
 		String adv = StringTable.Localize("$SHDX_TITLEMAP_ADVISORY");
 		int len = fnt.StringWidth(adv) / 2;
-		double hs;
-		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
-		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
-		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		Screen.DrawText(fnt, Font.CR_RED, (ss.x/2 - len), ss.y - h, adv,
 								DTA_VirtualWidthF,  ss.x,
 								DTA_VirtualHeightF, ss.y,
@@ -209,22 +190,26 @@ class SHDX_TitlemapEvent : EventHandler
 			if (seconds >= 0)
 				ClearBlack();
 			
+			double hs;
+			if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+			else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+			Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
+			
 			if (seconds >= SECONDS_SPLASHSCREEN && seconds < SECONDS_DISCLAIMER)
 			{
 				DrawBGImage("graphics/WISPLASH.png");
-				DrawBootInformation();
+				DrawBootInformation(ss);
 			}
 			
 			if (seconds >= SECONDS_DISCLAIMER && seconds < SECONDS_TITLESCREEN)
 			{
-				DrawDisclaimerString();
+				DrawDisclaimerString(ss);
 			}
 			
 			if (seconds >= SECONDS_TITLESCREEN)
 			{
 				DrawBGImage("graphics/titlepic.png");
-				Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
-				DrawAdvisoryString();
+				DrawAdvisoryString(ss);
 			}
 		}
 	}
