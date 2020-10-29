@@ -95,6 +95,11 @@ Class SHDX_PegapolMale : SHDX_Enemy
 		A_SpawnProjectile("SHDX_PegapolBullet", 16);
 	}
 	
+	void A_FlapWings()
+	{
+		A_StartSound("pegapol/wings", CHAN_6);
+	}
+	
 	States
 	{
 		Spawn:
@@ -118,7 +123,24 @@ Class SHDX_PegapolMale : SHDX_Enemy
 			}
 			Loop;
 		See.Flying:
-			PEGA OPQROPQR 4 A_Chase;
+			PEGA O 4
+			{
+				A_Chase();
+				A_FlapWings();
+			}
+			PEGA PQR 4
+			{
+				A_Chase();
+			}
+			PEGA O 4
+			{
+				A_Chase();
+				A_FlapWings();
+			}
+			PEGA PQR 4
+			{
+				A_Chase();
+			}
 			PEGA R 0
 			{
 				flyingmode++;
@@ -153,9 +175,17 @@ Class SHDX_PegapolMale : SHDX_Enemy
 			PEGA IF 2 A_FaceTarget;
 			Goto See;
 		Missile.Flying:
-			PEGA O 0 A_FaceTarget;
-			PEGA OPQR 5 A_SkullAttack(15);
-			PEGA R 5 A_JumpIfTargetInsideMeleeRange("Missile.StopFlying");
+			PEGA O 0
+			{
+				A_FaceTarget();
+				A_StartSound("pegapol/charge", CHAN_7);
+				A_FlapWings();
+			}
+			PEGA OPQR 5
+			{
+				A_SkullAttack(15);
+			}
+			PEGA R 0 A_JumpIfTargetInsideMeleeRange("Missile.StopFlying");
 			Loop;
 		Missile.StopFlying:
 			PEGA R 0

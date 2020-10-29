@@ -206,6 +206,11 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		}
 	}
 	
+	void A_FlapWings()
+	{
+		A_StartSound("boss2/wings", CHAN_6);
+	}
+	
 	States
 	{
 		Spawn:
@@ -239,7 +244,24 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO E 0 A_Jump(32, "StartFlying");
 			Loop;
 		See2.Flying:
-			ATMO EFGHEFGH 4 A_Chase(null, "Missile.Flying");
+			ATMO E 4
+			{
+				A_Chase(null, "Missile.Flying");
+				A_FlapWings();
+			}
+			ATMO FGH 4
+			{
+				A_Chase(null, "Missile.Flying");
+			}
+			ATMO E 4
+			{
+				A_Chase(null, "Missile.Flying");
+				A_FlapWings();
+			}
+			ATMO FGH 4
+			{
+				A_Chase(null, "Missile.Flying");
+			}
 			ATMO H 0
 			{
 				flyingmode++;
@@ -315,13 +337,21 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			Goto See2;
 		Missile.Flying:
 			ATMO H 0 A_AtmosphereTaunt;
-			ATMO H 5 A_FaceTarget;
+			ATMO H 5
+			{
+				A_FaceTarget();
+				A_StartSound("boss2/charge", CHAN_7);
+				A_FlapWings();
+			}
 			ATMO I 2 Bright
 			{
 				A_SpawnProjectile("SHDX_AtmosphereHailBall");
 				A_FlyTowardsTarget(15);
 			}
-			ATMO IJ 2 A_FlyTowardsTarget(15);
+			ATMO IJ 2
+			{
+				A_FlyTowardsTarget(15);
+			}
 			ATMO K 2 Bright
 			{
 				A_SpawnProjectile("SHDX_AtmosphereHailBall");

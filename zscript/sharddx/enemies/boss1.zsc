@@ -212,6 +212,7 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 		Height 56;
 		Speed 8;
 		Damage 10;
+		DamageType "Weather";
 		+MISSILE
 		+DROPOFF
 		+RIPPER
@@ -269,7 +270,7 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 				thingtodmg.Vel.Z = 12;
 			}
 		}
-		if (!(Level.maptime & 7))
+		if (!(Level.maptime & 4))
 		{
 			thingtodmg.DamageMobj (self.target, self.target, 15, 'Weather');
 		}

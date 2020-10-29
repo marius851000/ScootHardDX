@@ -58,8 +58,10 @@ class SHDX_CreditMapEvent : EventHandler
 	
 	ui void DrawCreditNumber(String str, int x, int y, double alpha = 1.0)
 	{
-		Vector2 hs = (2, 2);
-		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		double hs;
+		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		Screen.DrawText("smallfont", Font.CR_FIRE, x, y, str,
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
@@ -69,8 +71,10 @@ class SHDX_CreditMapEvent : EventHandler
 	
 	ui void DrawCredit(String strloc, int x, int y, double alpha = 1.0)
 	{
-		Vector2 hs = (2, 2);
-		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		double hs;
+		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 		Screen.DrawText("smallfont", Font.CR_FIRE, x, y, StringTable.Localize(strloc),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
@@ -139,9 +143,10 @@ class SHDX_CreditMapEvent : EventHandler
 			{
 				DrawBGImage("graphics/cutscenes/credits/teampic.png");
 				
-				
-				Vector2 hs = (2, 2);
-				Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+				double hs;
+				if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+				else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+				Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
 				
 				/*
 				DrawCreditNumber("1", 20, 100);
