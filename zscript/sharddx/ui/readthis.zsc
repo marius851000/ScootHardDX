@@ -21,7 +21,7 @@ SOFTWARE.
 */
 
 /*
-Copyright 2020 Sanya K. Waffles
+Copyright 2020 Sanya K. Waffles and Accensus
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -173,7 +173,7 @@ class SHDX_ReadThisMenu : GenericMenu
 		
 		if (page == PAGE_MENU3)
 		{
-			DrawImageWithOffsets("HELPSMG", 32, 144);
+			DrawImageWithOffsets("HELPSMG", 32, 160);
 		}
 		if (page == PAGE_MENU4)
 		{
@@ -308,3 +308,216 @@ class SHDX_ReadThisMenu : GenericMenu
 		return Super.OnUIEvent(ev);
 	}
 }
+
+
+/*
+
+Class SHDX_ReadThisPage
+{
+	String strlocheader;
+	String strlocpage;
+	String texture1;
+	String texture2;
+}
+
+class SHDX_ReadThisMenu : GenericMenu
+{
+	ui Array<SHDX_ReadThisPage> pages;
+	ui int pagenumber;
+	bool isrclick;
+	
+	ui void AddPage(String hdr, String txt, String texturename1 = "", String texturename2 = "")
+	{
+		let page = new("SHDX_ReadThisPage");
+		
+		page.strlocheader = hdr;
+		page.strlocpage = txt;
+		page.texture1 = texturename1;
+		page.texture2 = texturename2;
+		
+		pages.Push(page);
+	}
+
+	override void Init(Menu parent)
+	{
+		Super.Init(parent);
+		AddPage("$SHDX_HELP_HEADER_MENU1", "$SHDX_HELP_MENU1");
+		AddPage("$SHDX_HELP_HEADER_MENU2", "$SHDX_HELP_MENU2");
+		AddPage("$SHDX_HELP_HEADER_MENU3", "$SHDX_HELP_MENU3", "HELPSMG");
+		AddPage("$SHDX_HELP_HEADER_MENU4", "$SHDX_HELP_MENU4", "HELPGUNS");
+		AddPage("$SHDX_HELP_HEADER_MENU5", "$SHDX_HELP_MENU5", "HELPVEND", "HELPBITS");
+		AddPage("$SHDX_HELP_HEADER_MENU6", "$SHDX_HELP_MENU6");
+		AddPage("$SHDX_HELP_HEADER_MENU7", "$SHDX_HELP_MENU7", "HELPKEYS");
+		AddPage("$SHDX_HELP_HEADER_MENU8", "$SHDX_HELP_MENU8");
+		AddPage("$SHDX_HELP_HEADER_MENU9", "$SHDX_HELP_MENU9", "HELPARMR");
+		AddPage("$SHDX_HELP_HEADER_MENU10", "$SHDX_HELP_MENU10", "HELPEFS");
+		pagenumber = 0;
+	}
+
+	override void Drawer()
+	{
+		Super.Drawer();
+
+		if (GetCurrentMenu() == self)
+		{
+			let PrevArrow = TexMan.CheckForTexture("PREVARRW", TexMan.Type_MiscPatch);
+			let NextArrow = TexMan.CheckForTexture("NEXTARRW", TexMan.Type_MiscPatch);
+			int W = Screen.GetWidth();
+			int H = Screen.GetHeight();
+			int W2 = W / 2;
+			int H2 = H / 2;
+
+			int BaseX = int(W * 0.2);
+			int BaseY = 40;
+			int BaseW = W - BaseX * 2;
+			int Spacing = 10;
+
+			// ----- CATEGORY -----
+			int CatW = BaseW;
+			int CatH = 60;
+			Screen.Dim("00FF00", 0.75, BaseX, BaseY, CatW, CatH);
+
+			// Text.
+			string PageHeader = GetPageHeader();
+			Screen.DrawText(BigFont, Font.CR_RED, BaseX + (CatW - BigFont.StringWidth(PageHeader) * CleanXfac_1) / 2, BaseY + CatH / 2 - ((BigFont.GetHeight() - 4) * CleanYfac_1) / 2, PageHeader, DTA_CleanNoMove_1, true);
+			
+			string PageText = GetPageText();
+			
+			int PageX = BaseX;
+			int PageY = BaseY + CatH + 20;
+			int PageW = BaseW;
+			int PageH = CatH + Spacing;
+			BrokenLines PageLines = SmallFont.BreakLines(PageText, (PageW) / CleanXfac_1);
+			int LinesCount = PageLines.Count();
+			int PageH2 = (LinesCount * (SmallFont.GetHeight() + 6)) + (Spacing * 2);
+			
+			int PageXDim = PageX;
+			int PageYDim = PageY;
+			
+			Screen.Dim("00FF00", 0.75, PageXDim, PageYDim, PageW, PageH2);
+			for (int i = 0; i < LinesCount; ++i)
+			{
+				Screen.DrawText(SmallFont, Font.CR_RED, PageX+Spacing, PageY + Spacing + ((SmallFont.GetHeight() + 6) * i), PageLines.StringAt(i), DTA_CleanNoMove_1, true);
+			}
+		}
+	}
+	
+	private ui vector2 GetBoxedSize(vector2 size, int boxSize)
+	{
+		size /= max(size.X, size.Y);
+		size *= boxSize;
+		return size;
+	}
+
+	private ui string GetPageHeader()
+	{
+		if (pagenumber < pages.Size())
+		{
+			return StringTable.Localize(pages[pagenumber].strlocheader);
+		}
+
+		return "ERROR!!!";
+	}
+	
+	private ui string GetPageText()
+	{
+		if (pagenumber < pages.Size())
+		{
+			return StringTable.Localize(pages[pagenumber].strlocpage);
+		}
+
+		return "ERROR!!!";
+	}
+	
+	private ui string, string GetPageTextureNames()
+	{
+		if (pagenumber < pages.Size())
+		{
+			return pages[pagenumber].texture1, pages[pagenumber].texture2;
+		}
+
+		return "", "";
+	}
+	
+	private ui void PageLeft()
+	{
+		MenuSound("menu/choose");
+		if (--pagenumber < 0)
+		{
+			pagenumber = pages.Size() - 1;
+		}
+	}
+	
+	private ui void PageRight()
+	{
+		MenuSound("menu/choose");
+		if (++pagenumber == pages.Size())
+		{
+			pagenumber = 0;
+		}
+	}
+	
+	override bool MenuEvent(int mkey, bool fromcontroller)
+	{
+		switch (mkey)
+		{
+			case MKEY_Enter:
+			case MKEY_Right:
+			case MKEY_Down:
+			case MKEY_PageDown:
+				PageRight();
+				return true;
+				break;
+			case MKEY_Clear:
+			case MKEY_Left:
+			case MKEY_Up:
+			case MKEY_PageUp:
+				PageLeft();
+				return true;
+				break;
+		}
+		return Super.MenuEvent(mkey, fromcontroller);
+	}
+	
+	override bool OnUIEvent(UIEvent ev)
+	{
+		int y;
+		bool res;
+		switch (ev.type)
+		{
+			case UIEvent.Type_WheelDown:
+				return MenuEvent(MKEY_Enter, true);
+				break;
+			case UIEvent.Type_WheelUp:
+				return MenuEvent(MKEY_Clear, true);
+				break;
+			case UIEvent.Type_LButtonDown:
+				isrclick = false;
+				return Super.OnUIEvent(ev);
+			case UIEvent.Type_RButtonDown:
+				isrclick = true;
+				// copy over what base mnenus do for left click
+				y = ev.MouseY;
+				res = MouseEventBack(MOUSE_Click, ev.MouseX, y);
+				if (res) y = -1;
+				res |= MouseEvent(MOUSE_Click, ev.MouseX, y);
+				if (res) SetCapture(true);
+				return false;
+				break;
+			case UIEvent.Type_RButtonUp:
+				// copy over what base menus do for left release
+				if (mMouseCapture)
+				{
+					SetCapture(false);
+					y = ev.MouseY;
+					res = MouseEventBack(MOUSE_Release, ev.MouseX, y);
+					if (res) y = -1;
+					res |= MouseEvent(MOUSE_Release, ev.MouseX, y);
+				}
+				return false;
+				break;	
+		}
+		return Super.OnUIEvent(ev);
+	}
+}
+*/

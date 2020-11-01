@@ -29,7 +29,7 @@ Pegasus Device Overheating!,SHDX_PEGASUS_DEVICE_2,,,,,,,,,,,,,,,,,,,,,,,
 ,,Titlemap,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Studios(TM) Scoot Hard DX(TM),SHDX_TITLEMAP_FINAL1,,,,,,,,,,,,,,,,,,,,,,,
 Build,SHDX_TITLEMAP_FINAL2,,,,,,,,,,,,,,,,,,,,,,,
-GZDoom 4.5pre Compatible,SHDX_TITLEMAP_FINAL3,,,,,,,,Compatible con GZDoom 4.3.3,,,,,,,,,,,,,,,
+GZDoom 4.5 Compatible,SHDX_TITLEMAP_FINAL3,,,,,,,,Compatible con GZDoom 4.3.3,,,,,,,,,,,,,,,
 MultiProcessor Enabled,SHDX_TITLEMAP_MULTI,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Systems(TM) WaffleTower i7,SHDX_TITLEMAP_SANYAUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 "HAL: Version 1.12            1/07/2011
@@ -126,8 +126,8 @@ USING THE MENUS,SHDX_HELP_HEADER_MENU1,,,,,,,,,,,,,,,,,,,,,,,
 Press Escape to bring up the menu. Press F1 to bring up this screen.
 
 NEW GAME: starts a new game. Pick your difficulty and go.
-GAME STATES: save your current game, or load a current one. Previous
-saves don't work between versions of the game.
+GAME STATES: save your current game, or load a current one.
+Previous saves don't work between versions of the game.
 OPTIONS: configure and tweak Scoot Hard DX or GZDoom
 HELP SCREEN: this help screen
 CREDITS: the people who worked on the game.
@@ -143,14 +143,16 @@ HUD OPTIONS: configure default crosshair and HUD options
 PLAYER SETUP: configure your player settings (name, gender, etc)
 SOUND OPTIONS: configure your sound settings
 SET VIDEO MODE: change video settings/resolution
-GZDOOM OPTIONS (ADVANCED): the original, more advanced GZDoom menu",SHDX_HELP_MENU2,,,,,,,,,,,,,,,,,,,,,,,
+GZDOOM OPTIONS (ADVANCED): the original, more advanced
+GZDoom menu",SHDX_HELP_MENU2,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,,,,,,,,,,,,,
 "You can only carry one one missile weapon at a time.
 
-Either use up your shots first, or swap it out by walking over another weapon
-and pressing the use key (default is E) to swap it out. The dropped weapon
-will contain the ammo as well. If you pick up the same weapon you currently
-have, you will pick up the ammo from it rather than swap it out.
+Either use up your shots first, or swap it out by walking over
+another weapon and pressing the use key (default is E) to swap
+it out. The dropped weapon will contain the ammo as well. If you
+pick up the same weapon you currently have, you will pick up
+the ammo from it rather than swap it out.
 
 Bullet Weapons:
 Blaster - You start with this weapon. Never runs out of ammo.
@@ -163,34 +165,40 @@ Rainbower - Portable Death. Contains 5 shots.
 Tornadozer - A tornado that instagibs anything less than a boss. Contains 5 shots.
 Hailer - Shoots several freezing projectiles at once. Contains 30 shots.",SHDX_HELP_MENU4,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (VENDING),SHDX_HELP_HEADER_MENU5,,,,,,,,,,,,,,,,,,,,,,,
-"Vending Machines cost 1 bit for an apple, 5 for a hot meal on Easy. This is
-increased by 2x on Medium, and 3x on Hard and Discourse. On Discourse
-coins are very rare, making using vending machines less of an option. Whee
-for capitalism! (Note: Sanya is not a Communist either so hush)
+"Vending Machines cost 1 bit for an apple, 5 for a hot meal on
+Easy. This is increased by 2x on Medium, and 3x on Hard and
+Discourse. On Discourse coins are very rare, making using
+vending machines less of an option. Whee for capitalism!
+(Note: Sanya is not a Communist either so hush)
 
-To use a vending machine, go up to one and press use. If you don't have enough
-bits, or aren't hungry, it will tell you so.",SHDX_HELP_MENU5,,,,,,,,,,,,,,,,,,,,,,,
+To use a vending machine, go up to one and press use. If
+you don't have enough bits, or aren't hungry, it will tell you so.",SHDX_HELP_MENU5,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (OBJECTIVES),SHDX_HELP_HEADER_MENU6,,,,,,,,,,,,,,,,,,,,,,,
 "Fuck up anything that moves and get to the exit.
 
-Find secrets along the way. Check for pushwalls. These can contain
-hidden caches of goods. Also always check the vent ducts. Always.
+Find secrets along the way. Check for pushwalls.
+These can contain hidden caches of goods. Also always
+check the vent ducts. Always.
 
-On some levels it might be a bit more complex than that, namely the Pegasus
-Device. It shouldn't be too hard to blow it up unless you work for Polygon.
-Just look around the place for ways to destroy it.
+On some levels it might be a bit more complex than that,
+namely the Pegasus Device. It shouldn't be too hard to blow it
+up unless you work for Polygon. Just look around the place for
+ways to destroy it.
 
-On some levels there might be a Boss enemy. This enemy is tougher than a
-normal enemy and is necessary to beat the level and progress. They have
-specific patterns you must master and look out for.",SHDX_HELP_MENU6,,,,,,,,,,,,,,,,,,,,,,,
+On some levels there might be a Boss enemy. This enemy is
+tougher than a normal enemy and is necessary to beat the level
+and progress. They have specific patterns you must master and
+look out for.",SHDX_HELP_MENU6,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (KEYS),SHDX_HELP_HEADER_MENU7,,,,,,,,,,,,,,,,,,,,,,,
-"Red, Green and Blue Keys are required to unlock areas of the level. To unlock
-the exit, you must find a Management Keycard. This also can be used to unlock
-the safety protocols on the Pegasus Device.",SHDX_HELP_MENU7,,,,,,,,,,,,,,,,,,,,,,,
+"Red, Green and Blue Keys are required to unlock areas of the
+level. To unlock the exit, you must find a Management Keycard.
+This also can be used to unlock the safety protocols on the
+Pegasus Device.",SHDX_HELP_MENU7,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (GLIDING),SHDX_HELP_HEADER_MENU8,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo can't fly, but she can glide. Jump and hold down the jump key (default
-is spacebar) and move forward to glide around. Some secrets require being able
-to master this. You can look around while you are in the air, but you can't change
+"Scootaloo can't fly, but she can glide. Jump and hold down the
+jump key (default is spacebar) and move forward to glide around.
+Some secrets require being able to master this. You can look
+around while you are in the air, but you can't change
 direction while you are gliding.",SHDX_HELP_MENU8,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (ARMOR SYSTEM),SHDX_HELP_HEADER_MENU9,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo can equip three armor types.
@@ -199,14 +207,16 @@ Bulletproof Armor - Provides resistance to bullets.
 Fireproof Armor - Provides resistance to explosives.
 Weatherproof Armor - Provides resistance to lightning and wind.
 
-These can stack (Thanks Marisa!). Picking up one gives you 100.",SHDX_HELP_MENU9,,,,,,,,,,,,,,,,,,,,,,,
+These can stack. Picking up one gives you 100.",SHDX_HELP_MENU9,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (CHICKEN MODE),SHDX_HELP_HEADER_MENU10,,,,,,,,,,,,,,,,,,,,,,,
-"Occasionally you might find hidden, or in plain sight, mystical buckets of chicken
-labeled 'EFS'. These Eldritch buckets of chicken grant you the ability to become
+"Occasionally you might find hidden, or in plain sight,
+mystical buckets of chicken labeled 'EFS'. These Eldritch
+buckets of chicken grant you the ability to become
 an invincible chicken for about half a minute.
 
 Fire - Peck their brains out!
-Alt Fire - channel all your power into a Clustercluck. This reverts you back after.",SHDX_HELP_MENU10,,,,,,,,,,,,,,,,,,,,,,,
+Alt Fire - channel all your power into a Clustercluck. This
+reverts you back after.",SHDX_HELP_MENU10,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
 New Game,MNU_SHARDDX_NEWGAME,,,,,,,,Nuevo juego,,,,,,,,,,,,,,,
 Game States,MNU_SHARDDX_SSTATES,,,,,,,,Estados del juego,,,,,,,,,,,,,,,

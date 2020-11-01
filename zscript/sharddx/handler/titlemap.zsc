@@ -46,6 +46,21 @@ class SHDX_TitlemapEvent : EventHandler
 		}
 	}
 	
+	ui void DrawTitleHeader(string texturepath, int x, int y, bool centered = false)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
+			Vector2 size = TexMan.GetScaledSize(rid);
+			Vector2 scale = size * (floor(Screen.GetWidth()/640) * 0.33);
+			
+			Screen.DrawTexture(rid, false, x, y, 
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered,
+							DTA_DestWidth, int(scale.x), DTA_DestHeight, int(scale.y));
+		}
+	}
+	
 	ui bool, String GetHalForUserName()
 	{
 		bool haldetected = false;
@@ -209,6 +224,7 @@ class SHDX_TitlemapEvent : EventHandler
 			if (seconds >= SECONDS_TITLESCREEN)
 			{
 				DrawBGImage("graphics/titlepic.png");
+				DrawTitleHeader("graphics/scoot_hard_dx_logo.png", Screen.GetWidth() / 2, Screen.GetHeight() / 7, true);
 				DrawAdvisoryString(ss);
 			}
 		}
