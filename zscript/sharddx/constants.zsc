@@ -21,7 +21,7 @@ const SHDXPLAYER_BODYCHAN	=	CHAN_BODY | CHAN_UI;	// Constant flag for Misc. Soun
 const NAVY_MISSLE_SPAWNHEIGHT = 0;
 const ENEMY_MISSILE_SPAWNEHEIGHT = 32;
 
-const ATTN_BOSSTAUNT = 0.667;
+const ATTN_BOSSTAUNT = 0.5;
 
 // Constant for voice acting volume
 const SHDXPLAYER_VOICEVOL		=	4.0;

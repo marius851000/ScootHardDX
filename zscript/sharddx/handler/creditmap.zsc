@@ -69,9 +69,9 @@ class SHDX_CreditMapEvent : EventHandler
 							DTA_Alpha, alpha);
 	}
 	
-	ui void DrawCredit(String strloc, int x, int y, Vector2 ss, double alpha = 1.0)
+	ui void DrawCredit(String strloc, int x, int y, Vector2 ss, double alpha = 1.0, int fcolor = Font.CR_FIRE)
 	{
-		Screen.DrawText("smallfont", Font.CR_FIRE, x, y, StringTable.Localize(strloc),
+		Screen.DrawText("smallfont", fcolor, x, y, StringTable.Localize(strloc),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true,
@@ -157,7 +157,7 @@ class SHDX_CreditMapEvent : EventHandler
 				DrawCreditNumber("10", 450, 266);
 				*/
 				
-				DrawCredit("$SHDX_CREDITPICHEADER", 0, 0, ss);
+				DrawCredit("$SHDX_CREDITPICHEADER", 0, 0, ss, fcolor:Font.CR_RED);
 				
 				DrawCredit("$SHDX_CREDITPIC", 0, ss.y - 40, ss);
 			}

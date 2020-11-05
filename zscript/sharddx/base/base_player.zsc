@@ -91,6 +91,21 @@ Class SHDX_PlayerPawn : PlayerPawn
 		MarkPreCacheSounds();
 	}
 	
+	// Accensus provided me this
+	void AdjustFrictionForMovement()
+	{
+		if (player)
+		{
+			int buttons = player.cmd.buttons;
+			int oldbuttons = player.oldbuttons;
+
+			int ForwardMove = GetPlayerInput(INPUT_FORWARDMOVE);
+			int SideMove = GetPlayerInput(INPUT_SIDEMOVE);
+			bool Moving = (buttons & BT_FORWARD || buttons & BT_BACK || buttons & BT_MOVELEFT || buttons & BT_MOVERIGHT) || (ForwardMove != 0 || SideMove != 0);
+			Friction = player.onground && !Moving ? 0.93 : 1.00;
+		}
+	}
+	
 	override void Tick()
 	{
 		// to avoid something going on with "voodoo dolls" not performing right
@@ -106,6 +121,8 @@ Class SHDX_PlayerPawn : PlayerPawn
 		Super.Tick();	// call any PlayerPawn Tick functionality
 		
 		CheckOneLinerSoundOnPlayer();
+		
+		AdjustFrictionForMovement();
 		
 		A_OneLinerProcess();
 		

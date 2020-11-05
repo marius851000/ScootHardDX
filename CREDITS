@@ -1,0 +1,11 @@
+ZScript Credits and Licenses
+
+All original ZScript written by Sanya K. Waffles/Culp under 3 Clause BSD.
+
+AI subroutines under zscript/ddrama2/ai borrowed from TheKins and is under a 3 Clause BSD License. See FauxDM repo for details: https://github.com/TheKins/FauxDM/blob/master/LICENSE.txt
+
+Additional Event Handler, Menu Code and HUD code (c) Marisa Kirisame. Under the MIT License, used with permission.
+
+Player Friction Code (c) Accensus. Under the MIT License.
+
+Additional code (c) PhantomBeta and released into the public domain.

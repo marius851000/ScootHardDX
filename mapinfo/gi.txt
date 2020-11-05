@@ -1,5 +1,6 @@
 gameinfo
 {
+	PreCacheClasses = "weather_actor"
     titlepage = "TITLEPIC"
     titlemusic = ""
     titletime = 11
