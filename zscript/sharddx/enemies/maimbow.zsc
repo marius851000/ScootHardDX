@@ -190,7 +190,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	void A_MaimbowTaunt()
 	{
-		A_SHDX_PlayBossTaunt("maimbow/taunt"..Random[Maimbow](1,14));
+		A_SHDX_PlayBossTaunt("maimbow/taunt"..Random[Maimbow](1,16));
 	}
 	
 	void A_DD2_MaimbowBossPlayCutscene()

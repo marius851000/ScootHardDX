@@ -120,7 +120,7 @@ Class SHDX_ErrorHandler : StaticEventHandler
 	
 	override void NetworkProcess(ConsoleEvent e)
 	{
-		if (e.Name ~== "triggercrash" && e.isManual)
+		if (e.Name ~== "triggerabort" && e.isManual)
 		{
 			if (players[e.Player].mo)
 			{

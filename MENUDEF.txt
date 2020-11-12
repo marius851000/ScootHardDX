@@ -7,7 +7,7 @@ DefaultListMenu
 
 ListMenu "MainMenu"
 {
-	size clean
+	size 320, 240
 	Position 96, 54
 	StaticPatch 48, 12, "M_SHDX"
 	TextItem "$MNU_SHARDDX_NEWGAME",		"n",	"PlayerclassMenu"
@@ -133,7 +133,7 @@ OptionMenu "SHDXCustomizeControls"
 
 LISTMENU "EpisodeMenu"
 {
-	size clean
+	size 320, 240
 	NetgameMessage "$NEWGAME"
 	Linespacing 20
 	
@@ -143,7 +143,7 @@ LISTMENU "EpisodeMenu"
 
 ListMenu "SkillMenu"
 {
-	size clean
+	size 320, 240
 	Linespacing 20
 	
 	StaticTextCentered 160, 10, "$SHDX_SKILL_MENU"
@@ -152,7 +152,6 @@ ListMenu "SkillMenu"
 
 ListMenu "SHARDDXGameFilesMenu"
 {
-	size clean
 	StaticTextCentered 160, 10, "$MNU_SHARDDX_SSTATES"
 	Linespacing 20
 	

@@ -1,3 +1,5 @@
+$pitchshiftrange 0
+
 misc/splatx				"sounds/slop.ogg"
 // $volume misc/splatx		0.5
 gen/gibs				"sounds/gib01.ogg"
@@ -69,7 +71,13 @@ $rolloff rain_sound linear 150 400
 
 disclaimer/ooga			"sounds/ooga.ogg"
 
-aurora/sight			"sounds/aurora.ogg"
+aurora/sight1			"sounds/aurora.ogg"
+aurora/sight2			"sounds/aurora2.ogg"
+$random aurora/sight
+{
+	aurora/sight1
+	aurora/sight2
+}
 
 credits/bordeaux		"sounds/bordeaux.ogg"
 
