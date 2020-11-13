@@ -12,6 +12,38 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+Class SHDX_MaimbowMissile : SHDX_Missile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 20;
+		Damage 6;
+		Projectile;
+		+RANDOMIZE
+		DamageType "Explosive";
+		// SeeSound "weapons/rocketf";
+		DeathSound "weapons/rocketx";
+	}
+	
+	States
+	{
+		Spawn:
+			MISL A 1 Bright;
+			Loop;
+		
+		Death:
+			EXPL A 0 Bright
+			{
+				SHDX_Utilities.DoExplosion(self, 16, 32, 24, DamageType:'Explosive');
+			}
+			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
+			EXPL BCDEFGHI 3 Bright;
+			Stop;
+	}
+}
+
 Class SHDX_MaimbowBullet : FastProjectile
 {
 	Default
@@ -178,8 +210,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	void A_MaimbowFireTwoRocketMissiles()
 	{
-		A_SpawnProjectile("SHDX_Missile", spawnofs_xy:-12);
-		A_SpawnProjectile("SHDX_Missile", spawnofs_xy:12);
+		A_SpawnProjectile("SHDX_MaimbowMissile", spawnofs_xy:-12);
+		A_SpawnProjectile("SHDX_MaimbowMissile", spawnofs_xy:12);
 	}
 	
 	void A_MaimbowFireChaingunWithSound()
@@ -240,7 +272,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	{
 		Super.MarkPreCacheSounds();
 		Sound snd;
-		for (int i = 1; i < 5; i++)
+		for (int i = 1; i < 17; i++)
 		{
 			snd = String.Format("maimbow/taunt%d", i);
 			MarkSound(snd);

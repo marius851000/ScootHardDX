@@ -159,6 +159,13 @@ class SHDX_StatusBar : BaseStatusBar
 			DrawImage("graphics/hud/hud_key_mgmt.png", (_x + 12, _y + 12), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
 	}
 	
+	// Draw Aurora
+	protected void DrawSHDXAurora(int _x = 80, int _y = 172)
+	{
+		if (GetAmount("SHDX_FoundAurora"))
+			DrawImage("graphics/hud/hud_aurora.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+	}
+	
 	/* 
 	protected void DrawSHDXInventorySingle(int _x = 80, int _y = 172)
 	{
@@ -268,6 +275,7 @@ class SHDX_StatusBar : BaseStatusBar
 			else
 			{
 				DrawSHDXKeys(256, MAINBAROFSY);		// Draw keys next
+				DrawSHDXAurora(288, MAINBAROFSY);	// Draw aurora
 			}
 		}
 	}
@@ -293,6 +301,7 @@ class SHDX_StatusBar : BaseStatusBar
 			else
 			{
 				DrawSHDXKeys(-80, 0);
+				DrawSHDXAurora(-128, 0);
 			}
 		}
 	}
