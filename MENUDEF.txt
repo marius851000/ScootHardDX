@@ -152,6 +152,7 @@ ListMenu "SkillMenu"
 
 ListMenu "SHARDDXGameFilesMenu"
 {
+	size 320, 240
 	StaticTextCentered 160, 10, "$MNU_SHARDDX_SSTATES"
 	Linespacing 20
 	
