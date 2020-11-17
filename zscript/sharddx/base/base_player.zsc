@@ -106,6 +106,16 @@ Class SHDX_PlayerPawn : PlayerPawn
 		}
 	}
 	
+	void CheckForSecrets()
+	{
+		let s = CurSector;
+		if (s.IsSecret())
+		{
+			s.ClearSecret();
+			GiveSecret();
+		}
+	}
+	
 	override void Tick()
 	{
 		// to avoid something going on with "voodoo dolls" not performing right
@@ -119,6 +129,8 @@ Class SHDX_PlayerPawn : PlayerPawn
 		}
 		
 		Super.Tick();	// call any PlayerPawn Tick functionality
+		
+		CheckForSecrets();
 		
 		CheckOneLinerSoundOnPlayer();
 		
