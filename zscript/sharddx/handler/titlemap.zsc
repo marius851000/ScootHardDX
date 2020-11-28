@@ -147,7 +147,7 @@ class SHDX_TitlemapEvent : EventHandler
 			if ( len > maxlen ) maxlen = len;
 		}
 		int h = fnt.GetHeight();
-		int y = ((ss.y - h*l.Count()) / 2);
+		int y = ((int(ss.y) - h*l.Count()) / 2);
 		for ( int i = 0; i < l.Count(); i++ )
 		{
 			int len = fnt.StringWidth(l.StringAt(i));

@@ -12,28 +12,28 @@ Graphic "M_BACK", 168, 168
 {
 	XScale 4.000
 	YScale 4.000
-	Patch "M_BACK", 0, 0
+	Patch "graphics/back_graphic.png", 0, 0
 }
 
 Graphic "M_PAUSE", 394, 153
 {
 	XScale 4.000
 	YScale 4.000
-	Patch "M_PAUSE", 0, 0
+	Patch "graphics/paused_graphic.png", 0, 0
 }
 
 Graphic "M_CWC1", 232, 202
 {
 	XScale 8.000
 	YScale 8.000
-	Patch "M_CWC1", 0, 0
+	Patch "graphics/cwx.png", 0, 0
 }
 
 Graphic "M_CWC2", 232, 202
 {
 	XScale 8.000
 	YScale 8.000
-	Patch "M_CWC1", 0, 0
+	Patch "graphics/cwx.png", 0, 0
 	{
 		Blend "#FFFF80", 0.2
 	}
@@ -43,7 +43,7 @@ Graphic "M_CWC3", 232, 202
 {
 	XScale 8.000
 	YScale 8.000
-	Patch "M_CWC1", 0, 0
+	Patch "graphics/cwx.png", 0, 0
 	{
 		Blend "#FFFF80", 0.4
 	}
@@ -53,7 +53,7 @@ Graphic "M_CWC4", 232, 202
 {
 	XScale 8.000
 	YScale 8.000
-	Patch "M_CWC1", 0, 0
+	Patch "graphics/cwx.png", 0, 0
 	{
 		Blend "#FFFF80", 0.6
 	}
@@ -63,7 +63,7 @@ Graphic "M_CWC5", 232, 202
 {
 	XScale 8.000
 	YScale 8.000
-	Patch "M_CWC1", 0, 0
+	Patch "graphics/cwx.png", 0, 0
 	{
 		Blend "#FFFF80", 0.8
 	}
@@ -73,7 +73,7 @@ Graphic "M_CWC6", 232, 202
 {
 	XScale 8.000
 	YScale 8.000
-	Patch "M_CWC1", 0, 0
+	Patch "graphics/cwx.png", 0, 0
 	{
 		Blend "#FFFF80", 1.0
 	}

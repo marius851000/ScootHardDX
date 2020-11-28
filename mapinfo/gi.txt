@@ -27,7 +27,6 @@ gameinfo
     definventorymaxamount = 25
     defaultrespawntime = 12
     defaultdropstyle = 1
-    player5start = 4001
     pickupcolor = "d6 ba 45"
 	DimColor = "00 00 00"
     quitmessages = "$SHDX_QUIT1"
