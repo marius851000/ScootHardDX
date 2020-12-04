@@ -12,6 +12,60 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+Class SHDX_MeleePuff : SHDX_BulletPuff
+{
+	Default
+	{
+		ActiveSound "weapons/silent";
+		SeeSound "weapons/silent";
+		AttackSound "weapons/silent";
+		RenderStyle "None";
+
+		+NoBlockMap
+		+NoGravity
+		+Randomize
+		+PuffOnActors
+		+DontSplash
+		+ActivatePCross
+		-AllowParticles
+	}
+
+	States
+	{
+		Melee:
+		Crash:
+		Spawn:
+			TNT1 A 5;	// invisible
+			Stop;
+	}
+}
+
+Class SHDX_ScootalooQuickKick : SHDX_BaseQuickKick
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+	
+	States
+	{
+		FootKick:
+			HUFG A 0
+			{
+				invoker.iskicking = true;
+			}
+			HUFG A 3;
+			HUFG B 6 A_CustomPunch(Random[Kick](15,25), true, 0, "SHDX_MeleePuff", 64, 0, 0, "ArmorBonus", "weapons/kickhit");
+			HUFG A 3;
+			HUFG A 1
+			{
+				invoker.iskicking = false;
+				// A_TakeInventory("DD2_NearFrozenFlag", 1);
+			}
+			Stop;
+	}
+}
 
 Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 {
@@ -37,6 +91,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		Player.MaxHealth 100;
 		
 		Player.DisplayName "Scootaloo";
+		Player.StartItem "SHDX_ScootalooQuickKick";
 		Player.StartItem "SHDX_Blaster";
 		Player.SoundClass "scootaloo";
 		

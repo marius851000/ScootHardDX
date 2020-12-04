@@ -142,6 +142,16 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 			HIGH N 5;
 			HIGH O -1 A_SetCorpseShootable;
 			Stop;
+		Ice:
+			HIGH J 5
+			{
+				A_GenericFreezeDeath();
+			}
+			HIGH J 1
+			{
+				A_FreezeDeathChunks();
+			}
+			Wait;
 		Death.Explosive:
 		Death.Weather:
 		Death.Extreme:

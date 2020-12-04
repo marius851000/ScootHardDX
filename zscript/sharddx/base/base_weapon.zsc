@@ -45,3 +45,69 @@ Class SHDX_Weapon : Weapon
 	}
 }
 
+Class SHDX_BaseQuickKick : CustomInventory
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+	
+	bool iskicking;
+	bool iscrushing;
+	
+	override void DoEffect()
+	{
+		Super.DoEffect();
+			
+		if (owner && owner.health > 0 && owner.player)
+		{
+			if (owner.player.cmd.buttons & BT_USER1)
+			{
+				owner.UseInventory(self);
+				iskicking = true;
+			}
+		}
+	}
+		
+	States
+	{
+		Use:
+			TNT1 A 0
+			{
+				if (invoker.iskicking)
+				{
+					A_Overlay(SHDX_PSP_FOOTCRUSH, "FootKick", true);
+				}
+				else if (invoker.iscrushing)
+				{
+					A_Overlay(SHDX_PSP_FOOTCRUSH, "FootCrush", true);
+				}
+				A_OverlayOffset(SHDX_PSP_FOOTCRUSH, 0, 32);
+				A_OverlayFlags(SHDX_PSP_FOOTCRUSH, PSPF_ADDBOB, false);
+				A_OverlayFlags(SHDX_PSP_FOOTCRUSH, PSPF_PLAYERTRANSLATED, true);
+			}
+			Fail;
+	}
+}
+
+
+
+Class SHDX_NearFrozenFlag : Inventory
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+}
+
+/*
+Class SHDX_CrushFlag : Inventory
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+} */

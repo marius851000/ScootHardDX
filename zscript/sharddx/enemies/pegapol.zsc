@@ -249,6 +249,16 @@ Class SHDX_PegapolMale : SHDX_Enemy
 			PEGA M 5;
 			PEGA N -1 A_SetCorpseShootable;
 			Stop;
+		Ice:
+			PEGA S 5
+			{
+				A_GenericFreezeDeath();
+			}
+			PEGA S 5
+			{
+				A_FreezeDeathChunks();
+			}
+			Wait;
 		Death.Explosive:
 		Death.Weather:
 		Death.Extreme:

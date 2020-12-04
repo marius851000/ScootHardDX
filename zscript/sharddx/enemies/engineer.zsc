@@ -120,6 +120,16 @@ Class SHDX_Engineer : SHDX_Enemy
 			ENG1 P 5;
 			ENG1 Q -1 A_SetCorpseShootable;
 			Stop;
+		Ice:
+			ENG1 L 5
+			{
+				A_GenericFreezeDeath();
+			}
+			ENG1 L 1
+			{
+				A_FreezeDeathChunks();
+			}
+			Wait;
 		Death.Explosive:
 		Death.Weather:
 		Death.Extreme:
