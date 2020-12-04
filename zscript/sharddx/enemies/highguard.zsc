@@ -235,5 +235,15 @@ Class SHDX_HighGuardFemale : SHDX_HighGuardMale
 			HIG2 N 5;
 			HIG2 O -1 A_SetCorpseShootable;
 			Stop;
+		Ice:
+			HIG2 J 5
+			{
+				A_GenericFreezeDeath();
+			}
+			HIG2 J 1
+			{
+				A_FreezeDeathChunks();
+			}
+			Wait;
 	}
 }
