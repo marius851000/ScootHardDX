@@ -183,7 +183,7 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 	States
 	{
 		Ready:
-			BEAK A 1 A_WeaponReady;
+			BEAK A 1 A_WeaponReady(WRF_ALLOWUSER1);
 			Loop;
 		Deselect:
 			BEAK A 1 A_Lower;
@@ -197,6 +197,7 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 			BEAK B 1;
 			BEAK A 2 A_ReFire;
 			Goto Ready;
+		User1:
 		AltFire:
 			BEAK A 0
 			{
@@ -213,6 +214,7 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 					o.unmorphnexttic = true;
 				}
 			}
+			BEAK A 105;
 			Goto Ready;
 	}
 }

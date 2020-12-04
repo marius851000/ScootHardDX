@@ -48,6 +48,18 @@ Class SHDX_ScootalooQuickKick : SHDX_BaseQuickKick
 		Inventory.MaxAmount 1;
 	}
 	
+	override void DoEffect()
+	{
+
+			
+		if (owner && owner is "SHDX_ChickenPlayer")
+		{
+			return;
+		}
+		
+		Super.DoEffect();
+	}
+	
 	States
 	{
 		FootKick:
