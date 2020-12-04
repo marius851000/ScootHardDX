@@ -32,7 +32,8 @@ Build,SHDX_TITLEMAP_FINAL2,,,,,,,,,,,,,,,,,,,,,,,
 GZDoom 4.5 Compatible,SHDX_TITLEMAP_FINAL3,,,,,,,,Compatible con GZDoom 4.3.3,,,,,,,,,,,,,,,
 MultiProcessor Enabled,SHDX_TITLEMAP_MULTI,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Systems(TM) WaffleTower i7,SHDX_TITLEMAP_SANYAUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
-"HAL: Version 1.12            1/07/2011
+"
+HAL: Version 1.12            1/07/2011
 HAL: Processor is a Pegasystem AE-1000 Compatible(TM) Rev. 3.3
 HAL: Pegasus Revision 2.4
 HAL: L2 cache is not installed.",SHDX_TITLEMAP_SCOOTALOOUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
@@ -263,6 +264,7 @@ WAFFLE IRON STUDIOS,SHDX_CREDITS_HEADER_WIS,,,,,,,,,,,,,,,,,,,,,,,
 "Creative Director and Design Lead: SanyaWaffles
 Additional Coding: Marisa Kirisame
 Additional Level Design, Sound Design: Elliejojo
+Weapon Overhaul: Jona_Arts
 Music: RodScorpion
 Original Texture Work (WIP): Epic Acrylic and NeonBat
 
@@ -272,6 +274,7 @@ Voice of Low Guard Male: DRPReskins
 Voice of Dr. Atmosphere/High Guard Male: Redsoldier55
 Voice of Maimbow Undash, Aurora Dawn: Jenna Pepper
 Additional Voices: AndromedaHawking
+Beta Testing: Metal Neon
 Blue Globe Intern: Earth
 
 Special Thanks To: Jinzo for discovering the 2014 prototype!",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
@@ -802,5 +805,5 @@ another story.",SHDX_EP3BEND_11,,,,,,,,,,,,,,,,,,,,,,,
 ,,Credits,,,,,,,,,,,,,,,,,,,,,,
 "1. Jenna Pepper 2. SanyaWaffles 3. EllieJojo 4. Kelsie Finefeather 5. RodScorpion 6. NeonBat
 7. Marisa Kirisame 8. DRPReskins 9. Epic Acrylic 10. Earth
-Not Pictured: Alabeanz, Redsoldier55, AndromedaHawking",SHDX_CREDITPIC,,,,,,,,,,,,,,,,,,,,,,,
+Not Pictured: Alabeanz, Redsoldier55, Jona_Arts, Metal Neon, AndromedaHawking",SHDX_CREDITPIC,,,,,,,,,,,,,,,,,,,,,,,
 TEAM SCOOT HARD DX THANKS YOU FOR PLAYING!,SHDX_CREDITPICHEADER,,,,,,,,,,,,,,,,,,,,,,,
