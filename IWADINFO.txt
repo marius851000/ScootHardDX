@@ -1,6 +1,6 @@
 IWad
 {
-	Name = "Scoot Hard DX (BETA 3)"
+	Name = "Scoot Hard DX: Daytime Drama Zero (BETA 3)"
 	Autoname = "Scoot Hard DX"
 	Game = "Doom"
 	Config = "ScootHardDX"
