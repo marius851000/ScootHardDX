@@ -110,6 +110,7 @@ Class SHDX_WeatherProofArmor : SHDX_Armor
 		DamageFactor "RainbowX", 0.5;
 		DamageFactor "Lightning", 0.5;
 		DamageFactor "Ice", 0.5;
+		DamageFactor "Spectra", 0.25;
 		
 		Inventory.Amount 100;
 		Inventory.MaxAmount 100;
