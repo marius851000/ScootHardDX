@@ -39,14 +39,14 @@ world/splash			"sounds/splash02.ogg"	// Splashing noise
 
 world/quake				"sounds/quake.ogg"
 
-thunder_sound_1 "sounds/Lighting_Strike_1.ogg"
-thunder_sound_2 "sounds/Lighting_Strike_2.ogg"
-thunder_sound_3 "sounds/Lighting_Strike_3.ogg"
-thunder_sound_4 "sounds/Lighting_Strike_4.ogg"
-thunder_sound_5 "sounds/Lighting_Strike_5.ogg"
-thunder_sound_6 "sounds/Lighting_Strike_6.ogg"
-thunder_sound_7 "sounds/Lighting_Strike_7.ogg"
-thunder_sound_8 "sounds/Lighting_Strike_8.ogg"
+thunder_sound_1 "sounds/world/THUNDR01.ogg"
+thunder_sound_2 "sounds/world/THUNDR02.ogg"
+thunder_sound_3 "sounds/world/THUNDR03.ogg"
+thunder_sound_4 "sounds/world/THUNDR01.ogg"
+thunder_sound_5 "sounds/world/THUNDR02.ogg"
+thunder_sound_6 "sounds/world/THUNDR02.ogg"
+thunder_sound_7 "sounds/world/THUNDR03.ogg"
+thunder_sound_8 "sounds/world/THUNDR01.ogg"
 
 $random thunder_sound_random
 {
