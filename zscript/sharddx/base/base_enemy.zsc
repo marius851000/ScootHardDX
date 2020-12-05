@@ -87,7 +87,6 @@ Class SHDX_Enemy : SHDX_Actor
 		CheckForEnemyJump();
 		GetLevelTimeMask();
 		EnemySwim();
-		DoHurtSectorBasedDmg();
 	}
 	
 	// [SW] - Check if enemy can jump... this is a complex function
@@ -155,38 +154,6 @@ Class SHDX_Enemy : SHDX_Actor
 		else if (waterlevel == 1)
 		{
 			vel.z += 1;
-		}
-	}
-	
-	// [SW] - Loosely based on FauxDM's sector damage functions... I extended the
-	// hell out of it though and did alot of cleanup
-	virtual void DoHurtSectorBasedDmg()
-	{
-		TerrainDef ter = GetFloorTerrain();
-		
-		if (health <= 0)
-			return;
-		
-		int dmg;
-		
-		if (ter)
-		{
-			if (waterlevel > 0 && (pos.z == GetZAt(pos.x, pos.y) && ter.damageamount > 0 && ter.DamageMOD && !bFLOAT && leveltimemod >= ter.damagetimemask))
-			{
-				dmg = DamageMobj(self, self, ter.damageamount * Random[TerrainHurt](2, 5), ter.DamageMOD, 0, 0);
-			}
-		}
-		if (CurSector.damageamount != 0 && leveltimemod >= CurSector.damageinterval)
-		{
-			if (waterlevel > 0 || (waterlevel == 0 && pos.z == GetZAt(pos.x, pos.y)))
-			{
-				dmg = DamageMobj(self, self, CurSector.damageamount, CurSector.damagetype, 0, 0);
-			}
-		}
-		
-		if (dmg > 0)
-		{
-			Vel3dFromAngle(speed * 2, angle, -35);
 		}
 	}
 	

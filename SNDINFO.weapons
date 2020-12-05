@@ -16,5 +16,6 @@ weapons/hailx			"sounds/glass_break.ogg"
 
 weapons/cluck			"sounds/chicken01.ogg"		// Chicken Cluck Noise
 weapons/chickenx		"sounds/chicken04.ogg"		// Higher Pitched Chicken Noise
+weapons/chickenxno		"sounds/no.ogg"				// Dr. Robotnik No
 
 weapons/fillyh			"sounds/weapons/homingrocketflight.ogg"

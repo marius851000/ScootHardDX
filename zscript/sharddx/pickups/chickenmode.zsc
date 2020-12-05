@@ -202,9 +202,13 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 			BEAK A 0
 			{
 				SHDX_Utilities.DoExplosion(invoker.Owner, 350, 32, 1024, flags:DE_NOTMISSILE, DamageType:'ChickenX');
-				A_StartSound("weapons/chickenx", CHAN_WEAPON);
+				
+				Sound snd;
+				snd = Random[ChickenNo](0, 10) <= 1 ? "weapons/chickenxno" : "weapons/chickenx";  
+				
+				A_StartSound(snd, CHAN_WEAPON);
 			}
-			BEAK B 5;
+			BEAK B 8;
 			BEAK A 5;
 			BEAK A 0
 			{
