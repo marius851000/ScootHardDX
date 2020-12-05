@@ -124,6 +124,8 @@ Class SHDX_WeatherProofArmor : SHDX_Armor
 		
 		if ((damageType == 'Weather') || (damageType == 'RainbowX') || (damageType == 'Lightning') || (damageType == 'Ice'))
 			factor = .5;
+		else if ((damageType == 'Spectra'))
+			factor = .25;
 		
 		return int(ceil(damage*factor));
 	}
