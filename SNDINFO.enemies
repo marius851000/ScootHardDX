@@ -93,6 +93,9 @@ engineer/active1		"sounds/enemies/engie/en_active1.ogg"
 engineer/active2		"sounds/enemies/engie/en_active2.ogg"
 $random engineer/active	{ engineer/active1 engineer/active2 }
 
+zombie/spot				"sounds/world/THUNDR01.ogg"
+$limit zombie/spot 3
+
 zombie/attack			"sounds/enemies/zombie/zombie_throw.ogg"
 zombie/shotx			"sounds/enemies/zombie/zombie_shotx.ogg"
 zombie/sight			"sounds/enemies/zombie/zombie_sight.ogg"

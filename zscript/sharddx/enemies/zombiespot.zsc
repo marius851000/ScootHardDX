@@ -29,7 +29,7 @@ Class SHDX_ZombieSpot : SHDX_Actor
 			ZMCL A 4;
 			Loop;
 		RaiseTheDead:
-			ZMCL B 0 A_StartSound("world/thunder");
+			ZMCL B 0 A_StartSound("zombie/spot");
 			ZMCL BCBC 2 Bright;
 			ZMCL C 0
 			{
