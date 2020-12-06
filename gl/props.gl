@@ -42,7 +42,7 @@ object SHDX_GreenCeilingLight
 pointlight SHDX_WIREFLICKER
 {
     color 0.87 1.0 1.0
-    color 1.0 1.0 1.0
+    color 0.0 1.0 1.0
     size 64
 	offset 0 8 0
 }
