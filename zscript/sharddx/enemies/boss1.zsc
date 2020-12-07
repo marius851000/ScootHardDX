@@ -64,6 +64,8 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		SHDX_Boss.CutsceneToPlay 'EndEpisode1';
 	}
 	
+	bool floorlowered;
+	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
@@ -89,6 +91,27 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			snd = String.Format("boss1/taunt%d", i);
 			MarkSound(snd);
 		}
+	}
+	
+	void A_SurpriseLowerFloor()
+	{
+		// ACS_NamedExecute("MAP03_PeelAway", 0, 0, 0, 0);
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetTexture(Sector.floor, TexMan.CheckForTexture("GSPECF0", TexMan.Type_Flat));
+			level.CreateFloor(s, Floor.FloorLowerByValue, null, 8, 128);
+			s.SetGlowColor(Sector.floor, "00FF00");
+			s.SetGlowHeight(Sector.floor, 64);
+		}
+		Floor_LowerByValueTimes8(667,35,8);
+		floorlowered = true;
 	}
 	
 	States
@@ -121,6 +144,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			SURP A 4 A_Chase(null, null, CHF_DONTMOVE);
 			SURP A 0 A_Jump(96, "TeleportAbout");
 			Loop;
+			
 		Missile:
 			SURP B 3 A_FaceTarget;
 			SURP C 0 A_StartSound("boss1/stomp", CHAN_WEAPON);
@@ -144,6 +168,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			SURP HI 3;
 			goto TeleportAbout;
 		JustTeleported:
+			SURP D 0 A_SpawnItemEx("SHDX_TeleportFog", flags:SXF_NOCHECKPOSITION);
 			SURP D 3 A_SetTranslucent(1.0, 0);
 			SURP D 3 A_StartSound("boss1/active", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 			SURP A 3 A_Jump(128, "TeleportAbout");
@@ -156,6 +181,14 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			Goto See2;
 		Pain.Bullet:
 		Pain.Explosive:
+			SURP A 0
+			{
+				if (!floorlowered && health <= (SpawnHealth() / 2))
+				{
+					return ResolveState("SeeFloorPeelaway");
+				}
+				return ResolveState(null);
+			}
 			SURP A 5
 			{
 				A_StartSound("boss1/pain", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
@@ -174,6 +207,42 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			{
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
+			}
+			Goto TeleportAbout;
+			
+		
+		SeeFloorPeelaway:
+			SURP A 5
+			{
+				A_SetInvulnerable();
+				A_StartSound("boss1/pain", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+				A_SetRenderStyle(1.0, STYLE_Stencil);
+				SetShade("6e0600");
+			}
+			SURP A 5
+			{
+				SetShade("f08010");
+			}
+			SURP A 5
+			{
+				SetShade("ffee6a");
+			}
+			SURP A 0
+			{
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				SetShade("ffffff");
+			}
+			SURP A 0
+			{
+				A_StartSound("boss1/surprisefloorpeel", CHAN_VOICE, attenuation:ATTN_NONE);
+				bCanJump = false;
+			}
+			SURP A 150;
+			SURP A 0
+			{
+				A_SurpriseLowerFloor();
+				A_UnSetInvulnerable();
+				bCanJump = true;
 			}
 			Goto TeleportAbout;
 			
@@ -221,7 +290,7 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 		MaxStepHeight 16;
 		Projectile;
 		+SEEKERMISSILE
-		+FLOORHUGGER
+		// +FLOORHUGGER
 	}
 	States
 	{

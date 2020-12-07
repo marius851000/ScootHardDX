@@ -12,124 +12,10 @@ ListMenu "MainMenu"
 	StaticPatch 48, 12, "M_SHDX"
 	TextItem "$MNU_SHARDDX_NEWGAME",		"n",	"PlayerclassMenu"
 	TextItem "$MNU_SHARDDX_SSTATES",		"s",	"SHARDDXGameFilesMenu"
-	TextItem "$MNU_SHARDDX_OPTIONS",		"o",	"SHARDDXOptionsMenu"
+	TextItem "$MNU_SHARDDX_OPTIONS",		"o",	"OptionsMenu"
 	TextItem "$MNU_SHARDDX_HELP",		"h",	"SHDX_ReadThisMenu"
 	TextItem "$MNU_SHARDDX_CREDITS",		"c",	"SHDX_CreditsMenu"
 	TextItem "$MNU_SHARDDX_QUIT", 		"e",	"QuitMenu"
-}
-
-OptionMenu "SHARDDXOptionsMenu"
-{
-	Title "$OPTMNU_TITLE"
-	Submenu "$OPTMNU_CONTROLS",			"SHDXCustomizeControls"
-	Submenu "$OPTMNU_MOUSE",			"MouseOptions"
-	Submenu "$OPTMNU_JOYSTICK",			"JoystickOptions"
-	Submenu "$OPTMNU_HUD",				"SHDXHUDOptions"
-	StaticText " "
-	Submenu "$OPTMNU_PLAYER",			"NewPlayerMenu"
-	Submenu "$OPTMNU_SOUND",			"SHDXSoundOptions"
-	Submenu "$OPTMNU_VIDEO",			"VideoModeMenu"
-	StaticText " "
-	Submenu "$OPTMNU_SHDXMENU",			"ScootHardDXMenu"
-	StaticText " "
-	StaticText " "
-	Submenu "$MNU_SHARDDX_ADVOPTIONS",	"OptionsMenu"
-}
-
-OptionMenu "SHDXSoundOptions"
-{
-	Title "$SNDMNU_TITLE"
-	Slider "$MODMNU_MASTERVOLUME",		"snd_mastervolume", 0, 1, 0.05, 2
-	StaticText " "
-	Slider "$SNDMNU_SFXVOLUME",			"snd_sfxvolume", 0, 1, 0.05, 2
-	Slider "$SNDMNU_MUSICVOLUME",		"snd_musicvolume", 0, 1, 0.05, 2
-	StaticText " "
-	Slider "$SNDMNU_MENUVOLUME",		"snd_menuvolume", 0, 1, 0.05, 2
-	StaticText " "
-	StaticText " "
-	StaticText "$SHDX_MENU_ADVANCED_OPTIONS_NOTICE"
-}
-
-OptionMenu "SHDXHUDOptions"
-{
-	Title "$HUDMNU_TITLE"
-	Option "$HUDMNU_CROSSHAIRON",			"crosshairon", "OnOff"
-	Option "$HUDMNU_CROSSHAIR",				"crosshair", "Crosshairs"
-	ColorPicker "$HUDMNU_CROSSHAIRCOLOR", 	"crosshaircolor"
-	Option "$HUDMNU_CROSSHAIRHEALTH",		"crosshairhealth", "CrosshairHealthTypes"
-	Slider "$HUDMNU_CROSSHAIRSCALE",		"crosshairscale", 0.0, 2.0, 0.05, 2
-	StaticText " "
-	Submenu "$DSPLYMNU_SCOREBOARD", 		"ScoreboardOptions"
-	StaticText " "
-	Option "$HUDMNU_NAMETAGS",				"displaynametags", "DisplayTagsTypes"
-	Option "$HUDMNU_NAMETAGCOLOR",			"nametagcolor", "TextColors", "displaynametags"
-	StaticText " "
-	Slider "$DSPLYMNU_SCREENSIZE",				"screenblocks", 				3.0, 12.0, 1.0, 0
-	StaticText " "
-	StaticText " "
-	StaticText "$SHDX_MENU_ADVANCED_OPTIONS_NOTICE"
-}
-
-OptionMenu "SHDXCustomizeControls"
-{
-	Title "$OPTMNU_SHDXCONTROLS"
-	ScrollTop 2
-	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
-
-	StaticText ""
-	Control    "$CNTRLMNU_ATTACK"           , "+attack"
-	Control    "$CNTRLMNU_ALTATTACK"        , "+altattack"
-	Control    "$CNTRLMNU_QUICKKICK"        , "+user1"
-	
-	StaticText ""
-	Control    "$CNTRLMNU_NEXTWEAPON"     , "weapnext"
-	Control    "$CNTRLMNU_PREVIOUSWEAPON" , "weapprev"
-
-	StaticText ""
-	Control    "$CNTRLMNU_USE"              , "+use"
-
-	StaticText ""
-	Control    "$CNTRLMNU_FORWARD"          , "+forward"
-	Control    "$CNTRLMNU_BACK"             , "+back"
-	Control    "$CNTRLMNU_MOVELEFT"         , "+moveleft"
-	Control    "$CNTRLMNU_MOVERIGHT"        , "+moveright"
-
-	StaticText ""
-	Control    "$CNTRLMNU_TURNLEFT"         , "+left"
-	Control    "$CNTRLMNU_TURNRIGHT"        , "+right"
-
-	StaticText ""
-	Control    "$CNTRLMNU_JUMP"             , "+jump"
-	Control    "$CNTRLMNU_CROUCH"           , "+crouch"
-	Control    "$CNTRLMNU_TOGGLECROUCH"     , "crouch"
-	Control    "$CNTRLMNU_STRAFE"           , "+strafe"
-	
-	StaticText ""
-	Control    "$CNTRLMNU_AUTOMAP"         , "togglemap"
-
-	StaticText ""
-	Control    "$CNTRLMNU_OPEN_HELP"       , "menu_help"
-	Control    "$CNTRLMNU_OPEN_SAVE"       , "menu_save"
-	Control    "$CNTRLMNU_OPEN_LOAD"       , "menu_load"
-	Control    "$CNTRLMNU_OPEN_OPTIONS"    , "menu_options"
-	Control    "$CNTRLMNU_OPEN_DISPLAY"    , "menu_display"
-	Control    "$CNTRLMNU_EXIT_TO_MAIN"    , "menu_endgame"
-	Control    "$CNTRLMNU_MENU_QUIT"       , "menu_quit"
-
-	StaticText ""
-	Control    "$CNTRLMNU_QUICKSAVE"       , "quicksave"
-	Control    "$CNTRLMNU_QUICKLOAD"       , "quickload"
-	
-	StaticText ""
-	Control    "$CNTRLMNU_TOGGLE_MESSAGES" , "togglemessages"
-	
-	StaticText ""
-	Control    "$CNTRLMNU_SCREENSHOT"      , "screenshot"
-	Control    "$CNTRLMNU_CONSOLE"         , "toggleconsole"
-	Control    "$CNTRLMNU_PAUSE"           , "pause"
-	StaticText " "
-	StaticText " "
-	StaticText "$SHDX_MENU_ADVANCED_OPTIONS_NOTICE"
 }
 
 LISTMENU "EpisodeMenu"
@@ -186,6 +72,16 @@ OptionMenu "ScootHardDXMenu"
 	
 	Option "$MNU_SHARDDX_MUTEPLAYER",		"shdx_snd_oneliners",	"OnOff"
 	Option "$MNU_SHARDDX_CUTSCENES",		"shdx_skipcutscenes",	"OnOff"
-	Option "$MNU_SHARDDX_COPYRIGHTCENSOR", "shdx_copyrightcensor", "OnOff"
-	Option "$MNU_SHARDDX_HQRIP",			"shdx_rip", 				"OnOFf"
+	Option "$MNU_SHARDDX_COPYRIGHTCENSOR", "shdx_copyrightcensor",	"OnOff"
+	Option "$MNU_SHARDDX_HQRIP",			"shdx_rip",				"OnOFf"
+}
+
+AddOptionMenu OptionsMenu
+{
+	Submenu "$SHARDDX_SHDXMENU", "ScootHardDXMenu"
+}
+
+AddOptionMenu OptionsMenuSimple
+{
+	Submenu "$SHARDDX_SHDXMENU", "ScootHardDXMenu"
 }

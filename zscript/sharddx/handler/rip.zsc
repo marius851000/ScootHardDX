@@ -20,6 +20,7 @@ enum ERIPSoundObitTypes
 	RIP_DeepHurting,
 	RIP_LowtaxLoser,
 	RIP_Jeopardy,
+	RIP_YoureTerrible,
 };
 
 extend class SHDX_Handler
@@ -57,7 +58,7 @@ extend class SHDX_Handler
 		// be cool about fire safety RIP is being done
 		if (ripseconds == RIP_START && dorip)
 		{
-			typeofrip = Random[RIP](RIP_Normal, RIP_Jeopardy);
+			typeofrip = Random[RIP](RIP_Normal, RIP_YoureTerrible);
 			
 			// Start the felix the cat RIP
 			if (typeofrip == RIP_FelixHet)
@@ -83,6 +84,11 @@ extend class SHDX_Handler
 			{
 				S_ChangeMusic("music/D_JEOPTL.vgz", 0, false, true);
 				S_StartSound("epitaph/joelidiot", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
+			}
+			
+			if (typeofrip == RIP_YoureTerrible)
+			{
+				S_StartSound("epitaph/youreterrible", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
 			}
 			
 			// Other RIPs
@@ -165,6 +171,12 @@ extend class SHDX_Handler
 				{
 					DrawRIPText(p, StringTable.Localize("$SHDX_RIPSO_IDIOT"));
 				}
+				
+				// You're Terrible
+				if (typeofrip == RIP_YoureTerrible)
+				{
+					DrawGraphic("graphics/average_joe.png", Screen.GetWidth() / 2, Screen.GetHeight() / 2, true);
+				}
 			}
 		}
 	}
@@ -177,6 +189,21 @@ extend class SHDX_Handler
 			Screen.DrawText(fnt, fontcolor, 320 - int(fnt.StringWidth(text) / 2), 250, text,
 							DTA_VirtualWidth,  640,
 							DTA_VirtualHeight, 400);
+		}
+	}
+	
+	ui void DrawGraphic(string texturepath, int x, int y, bool centered = false)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
+			Vector2 size = TexMan.GetScaledSize(rid);
+			Vector2 scale = size * (floor(Screen.GetWidth()/640) * 0.33);
+			
+			Screen.DrawTexture(rid, false, x, y, 
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered,
+							DTA_DestWidth, int(scale.x), DTA_DestHeight, int(scale.y));
 		}
 	}
 }

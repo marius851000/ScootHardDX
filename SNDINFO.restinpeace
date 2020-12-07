@@ -8,6 +8,8 @@ epitaph/lowtax			"sounds/player/rip/lowtax_loser.ogg"	// Lowtax asking someone i
 epitaph/deephurting		"sounds/player/rip/deephurt.ogg"		// MST3K DEEP HURTING
 epitaph/joelidiot		"sounds/player/rip/joel_idiot.ogg"	// Joel reimagining the ending to SMW64 Bootleg
 
+epitaph/youreterrible	"sounds/player/rip/youre_terrible.ogg"	// Average Joe You're Terrible
+
 // Felix The Cat Game Over ones... yes, it's safe... though the game has gore why
 // the fuck would people complain if I stuck _THAT_ image in? To be honest people
 // are way too off put by things.
