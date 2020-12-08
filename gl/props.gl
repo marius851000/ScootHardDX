@@ -41,7 +41,6 @@ object SHDX_GreenCeilingLight
 
 pointlight SHDX_WIREFLICKER
 {
-    color 0.87 1.0 1.0
     color 0.0 1.0 1.0
     size 64
 	offset 0 8 0
@@ -65,9 +64,37 @@ flickerlight SHDX_TOASTER
     size 48
     secondarySize 56
     chance 0.3
+	offset 0 16 0
 }
 
 object SHDX_WoodenToaster
 {
 	frame WTSR { light SHDX_TOASTER }
+}
+
+flickerlight SHDX_TESLASINGLECOILFLICKER
+{
+    color 0.50 0.0 0.50
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+object SHDX_TeslaCoilSingle
+{
+	frame TSL2 { light SHDX_TESLASINGLECOILFLICKER }
+}
+
+flickerlight SHDX_TESLADOUBLECOILFLICKER
+{
+    color 0.0 1.0 1.0
+    size 48
+    secondarySize 56
+    chance 0.3
+	offset 0 16 0
+}
+
+object SHDX_TeslaCoilDouble
+{
+	frame TSLA { light SHDX_TESLADOUBLECOILFLICKER }
 }

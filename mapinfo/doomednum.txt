@@ -69,6 +69,8 @@ DoomEdNums
 	6730 = SHDX_SurpriseCorpse
 	6731 = SHDX_BloodPuddle
 	6732 = SHDX_WoodenToaster
+	6733 = SHDX_TeslaCoilSingle
+	6734 = SHDX_TeslaCoilDouble
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

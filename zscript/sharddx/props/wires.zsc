@@ -88,3 +88,51 @@ Class SHDX_WiresFloor : SHDX_Wires
 			Loop;
 	}
 }
+
+Class SHDX_TeslaCoilSingle : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Tesla Coil (Single)"
+		//$Sprite TSL2A0
+		//$Category "Light sources"
+		
+		Radius 32;
+		Height 24;
+		Scale 0.08;
+		
+		-Solid
+	}
+	
+	States
+	{
+		Spawn:
+			TSL2 AB 2 Bright;
+			Loop;
+	}
+}
+
+Class SHDX_TeslaCoilDouble : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Tesla Coil (Double)"
+		//$Sprite TSLAA0
+		//$Category "Light sources"
+		
+		Radius 32;
+		Height 24;
+		Scale 0.08;
+		
+		-Solid
+	}
+	
+	States
+	{
+		Spawn:
+			TSLA AB 2 Bright;
+			Loop;
+	}
+}
