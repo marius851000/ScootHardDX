@@ -106,7 +106,7 @@ map MAP07 lookup SHDX_MAP07
 	par = 45
 	sucktime = 1
 	next = "MAP08"
-	music = "D_SILENT"
+	music = "M_ATINT"
 	lightning
 	EventHandlers = "SHDX_AtmosphereHandler"
 	

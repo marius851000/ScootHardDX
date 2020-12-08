@@ -211,6 +211,11 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		A_StartSound("boss2/wings", CHAN_6);
 	}
 	
+	void A_AtmosphereVictoryMusic()
+	{
+		S_ChangeMusic("M_ATVIC", 0, false);
+	}
+	
 	States
 	{
 		Spawn:
@@ -434,9 +439,9 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO U 0
 			{
 				A_NewBossScream();
-				A_VictoryMusic();
+				A_AtmosphereVictoryMusic();
 			}
-			ATMO U 105;
+			ATMO U 150;
 			ATMO U 5;
 			ATMO V 5 A_SpawnGibsFx(self);
 			ATMO WX 5;
