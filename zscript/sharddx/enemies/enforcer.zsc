@@ -168,7 +168,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 		DamageFactor "Rainbower", 0.25;
 		DamageFactor "RainbowerX", 0.25;
 		
-		+SHIELDREFLECT
+		// +SHIELDREFLECT
 	}
 	
 	void A_ClusterGrenadeFire()
@@ -361,7 +361,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		DamageFactor "Rainbower", 0.25;
 		DamageFactor "RainbowerX", 0.25;
 		
-		+SHIELDREFLECT
+		// +SHIELDREFLECT
 	}
 	
 	void A_GrenadeFire()
