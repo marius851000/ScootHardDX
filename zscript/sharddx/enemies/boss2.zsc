@@ -50,10 +50,9 @@ Class SHDX_FloorArc : SHDX_Projectile
 		Radius 16;
 		Height 56;
 		Speed 8;
-		Damage 8;
+		Damage 6;
 		+MISSILE
 		+DROPOFF
-		+RIPPER
 		+NOEXPLODEFLOOR
 		+STEPMISSILE
 		MaxStepHeight 16;
