@@ -93,12 +93,9 @@ Class SHDX_Armor : Armor
 			damage = newdamage;
 			if ( amount <= 0 )
 			{
-				if ( damage > 0 ) newdamage = ApplyDamageFactors(GetClass(),damageType,damage,damage);
 				DepleteOrDestroy();
 				return;
 			}
 		}
-		
-		if ( damage > 0 ) newdamage = ApplyDamageFactors(GetClass(),damageType,damage,damage);
 	}
 }

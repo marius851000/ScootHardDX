@@ -27,8 +27,6 @@ Class SHDX_BulletProofArmor : SHDX_Armor
 		Inventory.PickupSound "pickup/bulletvest";
 		Tag "$SHDX_TAG_BULLETPROOF";
 		
-		DamageFactor "Bullet", 0.75;
-		
 		Inventory.Amount 100;
 		Inventory.MaxAmount 100;
 		Inventory.InterHubAmount 100;
@@ -65,9 +63,6 @@ Class SHDX_FireProofArmor : SHDX_Armor
 		Inventory.PickupMessage "$SHDX_PICKUP_FIREPROOF";
 		Inventory.PickupSound "pickup/firevest";
 		Tag "$SHDX_TAG_FIREPROOF";
-		DamageFactor "Explosive", 0.5;
-		DamageFactor "Fire", 0.5;
-		DamageFactor "Slime", 0.5;
 		Inventory.Amount 100;
 		Inventory.MaxAmount 100;
 		Inventory.InterHubAmount 100;
@@ -105,12 +100,6 @@ Class SHDX_WeatherProofArmor : SHDX_Armor
 		Inventory.PickupMessage "$SHDX_PICKUP_WEATHERPROOF";
 		Inventory.PickupSound "pickup/weathervest";
 		Tag "$SHDX_TAG_WEATHERPROOF";
-		
-		DamageFactor "Weather", 0.5;
-		DamageFactor "RainbowX", 0.5;
-		DamageFactor "Lightning", 0.5;
-		DamageFactor "Ice", 0.5;
-		DamageFactor "Spectra", 0.25;
 		
 		Inventory.Amount 100;
 		Inventory.MaxAmount 100;
