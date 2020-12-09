@@ -12,6 +12,9 @@ DoomEdNums
 	6009 = SHDX_ZombieNormal
 	6010 = SHDX_ZombieExplosive
 	
+	6011 = SHDX_HeavyEnforcer
+	6012 = SHDX_LightEnforcer
+	
 	6050 = SHDX_BossSpot
 	6051 = SHDX_SurpriseBoss
 	6052 = SHDX_DrAtmosphereBoss
