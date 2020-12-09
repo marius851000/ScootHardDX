@@ -7,6 +7,8 @@ user bool shdx_bosshealthbar = true;		// Show boss health bar
 
 server bool shdx_copyrightcensor = false;	// Hide copyright censor
 
+server bool shdx_grafnomode = false;		// Enable Graf No Mode
+
 // From MekBoss' Weather Effects. These aren't exposed to menus
 // as they shouldn't be needed to be changed except for
 // debugging purposes...

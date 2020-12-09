@@ -1,0 +1,1 @@
+alias lenochicken "shdx_grafnomode true; echo Le No Chicken Mode On"

@@ -204,7 +204,10 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 				SHDX_Utilities.DoExplosion(invoker.Owner, 350, 32, 1024, flags:DE_NOTMISSILE, DamageType:'ChickenX');
 				
 				Sound snd;
-				snd = Random[ChickenNo](0, 10) <= 1 ? "weapons/chickenxno" : "weapons/chickenx";  
+				if (!shdx_grafnomode)
+					snd = Random[ChickenNo](0, 10) <= 1 ? "weapons/chickenxno" : "weapons/chickenx"; 
+				else
+					snd = "weapons/chickenxno";
 				
 				A_StartSound(snd, CHAN_WEAPON);
 			}
