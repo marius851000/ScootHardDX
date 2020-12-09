@@ -304,12 +304,12 @@ Class SHDX_Grenade : SHDX_Projectile
 	States
 	{
 		Spawn:
-			CLST ABCD 1 Bright;
-			CLST D 0 Bright
+			GREN ABCD 1 Bright;
+			GREN D 0 Bright
 			{
 				bNoGravity = false;
 			}
-			CLST ABCD 1 Bright;
+			GREN ABCD 1 Bright;
 			Loop;
 		
 		Death:
