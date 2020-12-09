@@ -101,6 +101,7 @@ zombie/shotx			"sounds/enemies/zombie/zombie_shotx.ogg"
 zombie/sight			"sounds/enemies/zombie/zombie_sight.ogg"
 zombie/active			"sounds/enemies/zombie/zombie_active.ogg"
 zombie/pain				"sounds/enemies/zombie/zombie_pain.ogg"
+$limit zombie/sight 3
 
 zombie2/scream			"sounds/enemies/zombie/zombie_aaaa.ogg"
 
