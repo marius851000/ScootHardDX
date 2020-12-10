@@ -15,8 +15,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 extend class SHDX_Handler
 {
 	// Boss Bar
-	transient SHDX_Boss bossmo;
-	transient bool bossfound;
+	SHDX_Boss bossmo;
+	bool bossfound;
 	
 	const HEALTHBAROFFS_Y = 64;
 	const HEALTHBARSIZE = 32;
