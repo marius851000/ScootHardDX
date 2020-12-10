@@ -22,7 +22,7 @@ Class SHDX_ClusterGrenade : SHDX_Projectile
 		Damage 20;
 		DamageType "Explosive";
 		
-		Scale 0.14;
+		Scale 0.12;
 		Mass 25;
 		
 		BounceCount 3;
@@ -174,7 +174,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 	void A_ClusterGrenadeFire()
 	{
 		A_StartSound("enforcer/clusterbombf", CHAN_WEAPON);
-		A_SpawnProjectile("SHDX_ClusterGrenade", 40);
+		A_SpawnProjectile("SHDX_ClusterGrenade", 40, -4);
 	}
 	
 	States
@@ -367,7 +367,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 	void A_GrenadeFire()
 	{
 		A_StartSound("enforcer/grenadef", CHAN_WEAPON);
-		A_SpawnProjectile("SHDX_Grenade", 40);
+		A_SpawnProjectile("SHDX_Grenade", 40, -4);
 	}
 	
 	States
