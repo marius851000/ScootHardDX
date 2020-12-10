@@ -40,7 +40,7 @@ extend class SHDX_PlayerPawn
 		{
 			for (int i = 0; i < AllActorClasses.Size(); ++i)
 			{
-				if (AllActorClasses[i] is "SHDX_Armor")
+				if (AllActorClasses[i] is "SHDX_SuperArmor")
 				{
 					let armoritem = Inventory(Spawn(AllActorClasses[i]));
 					if (!armoritem.CallTryPickup (self))
