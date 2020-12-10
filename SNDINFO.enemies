@@ -71,9 +71,8 @@ pegapol/death3			"sounds/enemies/pegapol/pp_die3.ogg"
 $random	pegapol/death	{ pegapol/death1 pegapol/death2 pegapol/death3 }
 pegapol/attack			"sounds/weapons/smg_fire.ogg"
 pegapol/active1			"sounds/enemies/pegapol/pp_active1.ogg"
-pegapol/active2			"sounds/enemies/pegapol/pp_active2.ogg"
 pegapol/active3			"sounds/enemies/pegapol/pp_active3.ogg"
-$random	pegapol/active	{ pegapol/active1 pegapol/active2 pegapol/active3 }
+$random	pegapol/active	{ pegapol/active1 pegapol/active3 }
 pegapol/wings			"sounds/wing_flap.ogg"
 pegapol/charge			"sounds/wing_charge.ogg"
 
