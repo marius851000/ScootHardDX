@@ -38,6 +38,8 @@ DoomEdNums
 	6613 = SHDX_FireproofArmor
 	// 6614 = SHDX_SBaHJMode
 	6615 = SHDX_WeatherproofArmor
+	6616 = SHDX_BasicArmor
+	6617 = SHDX_SuperArmor
 	
 	6700 = SHDX_BlueVase
 	6701 = SHDX_PottedPlant

@@ -126,3 +126,137 @@ Class SHDX_WeatherProofArmor : SHDX_Armor
 			Stop;
 	}
 }
+
+Class SHDX_BasicArmor : Inventory
+{
+	Default
+	{
+		//$Sprite BARMA0
+		//$Title "Basic Armor"
+		//$NonAgnled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_BASICARMOR";
+		Inventory.PickupSound "pickup/armorvest";
+		Tag "$SHDX_TAG_BASICARMOR";
+	}
+	
+	override bool TryPickup(in out Actor toucher)
+	{
+		
+		SHDX_BulletProofArmor barmor = SHDX_BulletProofArmor(toucher.FindInventory("SHDX_BulletProofArmor"));
+		SHDX_FireProofArmor farmor = SHDX_FireProofArmor(toucher.FindInventory("SHDX_FireProofArmor"));
+		SHDX_WeatherProofArmor warmor = SHDX_WeatherProofArmor(toucher.FindInventory("SHDX_WeatherProofArmor"));
+		
+		if ((barmor && barmor.amount >= 50) && (farmor && farmor.amount >= 50) && (warmor && warmor.amount >= 50))
+		{
+			return false;
+		}
+		else
+		{
+			if (!barmor || barmor.amount < 50)
+			{
+				barmor = SHDX_BulletProofArmor(Spawn("SHDX_BulletProofArmor"));
+				barmor.amount = 50;
+				barmor.BecomeItem();
+				toucher.AddInventory(barmor);
+			}
+			
+			if (!farmor || farmor.amount < 50)
+			{
+				farmor = SHDX_FireProofArmor(Spawn("SHDX_FireProofArmor"));
+				farmor.amount = 50;
+				farmor.BecomeItem();
+				toucher.AddInventory(farmor);
+			}
+			
+			if (!warmor || warmor.amount < 50)
+			{
+				warmor = SHDX_WeatherProofArmor(Spawn("SHDX_WeatherProofArmor"));
+				warmor.amount = 50;
+				warmor.BecomeItem();
+				toucher.AddInventory(warmor);
+			}
+			
+			Destroy();
+		}
+		
+		return true;
+	}
+	
+	States
+	{
+		Spawn:
+			BARM A -1;
+			Stop;
+	}
+}
+
+Class SHDX_SuperArmor : Inventory
+{
+	Default
+	{
+		//$Sprite SARMA0
+		//$Title "Super Armor"
+		//$NonAgnled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_SUPERARMOR";
+		Inventory.PickupSound "pickup/armorvest";
+		Tag "$SHDX_TAG_SUPERARMOR";
+	}
+	
+	override bool TryPickup(in out Actor toucher)
+	{
+		
+		SHDX_BulletProofArmor barmor = SHDX_BulletProofArmor(toucher.FindInventory("SHDX_BulletProofArmor"));
+		SHDX_FireProofArmor farmor = SHDX_FireProofArmor(toucher.FindInventory("SHDX_FireProofArmor"));
+		SHDX_WeatherProofArmor warmor = SHDX_WeatherProofArmor(toucher.FindInventory("SHDX_WeatherProofArmor"));
+		
+		if ((barmor && barmor.amount >= 150) && (farmor && farmor.amount >= 150) && (warmor && warmor.amount >= 150))
+		{
+			return false;
+		}
+		else
+		{
+			if (!barmor || barmor.amount < 150)
+			{
+				barmor = SHDX_BulletProofArmor(Spawn("SHDX_BulletProofArmor"));
+				barmor.amount = 150;
+				barmor.BecomeItem();
+				toucher.AddInventory(barmor);
+			}
+			
+			if (!farmor || farmor.amount < 150)
+			{
+				farmor = SHDX_FireProofArmor(Spawn("SHDX_FireProofArmor"));
+				farmor.amount = 150;
+				farmor.BecomeItem();
+				toucher.AddInventory(farmor);
+			}
+			
+			if (!warmor || warmor.amount < 150)
+			{
+				warmor = SHDX_WeatherProofArmor(Spawn("SHDX_WeatherProofArmor"));
+				warmor.amount = 150;
+				warmor.BecomeItem();
+				toucher.AddInventory(warmor);
+			}
+			
+			Destroy();
+		}
+		
+		return true;
+	}
+	
+	States
+	{
+		Spawn:
+			SARM A -1;
+			Stop;
+	}
+}
