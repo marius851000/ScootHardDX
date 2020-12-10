@@ -167,7 +167,7 @@ terrain RedSpectra
 	splash				SpectraRedDD
 	footclip			4
 	damagetype			Spectra
-	damageamount		36
+	damageamount		18
 	damagetimemask		12
 	liquid
 }
@@ -177,7 +177,7 @@ terrain OrangeSpectra
 	splash				SpectraOrangeDD
 	footclip			4
 	damagetype			Spectra
-	damageamount		36
+	damageamount		18
 	damagetimemask		12
 	liquid
 }
@@ -187,7 +187,7 @@ terrain YellowSpectra
 	splash				SpectraYellowDD
 	footclip			4
 	damagetype			Spectra
-	damageamount		36
+	damageamount		18
 	damagetimemask		12
 	liquid
 }
@@ -207,7 +207,7 @@ terrain BlueSpectra
 	splash				SpectraBlueDD
 	footclip			4
 	damagetype			Spectra
-	damageamount		36
+	damageamount		18
 	damagetimemask		12
 	liquid
 }
@@ -217,7 +217,7 @@ terrain PurpleSpectra
 	splash				SpectraPurpleDD
 	footclip			4
 	damagetype			Spectra
-	damageamount		36
+	damageamount		18
 	damagetimemask		12
 	liquid
 }

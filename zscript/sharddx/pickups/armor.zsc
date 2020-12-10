@@ -37,7 +37,7 @@ Class SHDX_BulletProofArmor : SHDX_Armor
 	{
 		double factor;
 		if (damageType == 'Bullet')
-			factor = .25;
+			factor = .125;
 		return int(ceil(damage*factor));
 	} 
 	
@@ -73,7 +73,7 @@ Class SHDX_FireProofArmor : SHDX_Armor
 	{
 		double factor;
 		if ((damageType == 'Fire') || (damageType == 'Slime') || (damageType == 'Explosive'))
-			factor = .5;
+			factor = .25;
 			
 		return int(ceil(damage*factor));
 	}
@@ -112,9 +112,9 @@ Class SHDX_WeatherProofArmor : SHDX_Armor
 		double factor;
 		
 		if ((damageType == 'Weather') || (damageType == 'RainbowX') || (damageType == 'Lightning') || (damageType == 'Ice'))
-			factor = .5;
-		else if ((damageType == 'Spectra'))
 			factor = .25;
+		else if ((damageType == 'Spectra'))
+			factor = .125;
 		
 		return int(ceil(damage*factor));
 	}
