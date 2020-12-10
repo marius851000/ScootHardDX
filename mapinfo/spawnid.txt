@@ -27,9 +27,9 @@ SpawnNums
 	21 = SHDX_Applesauce
 	
 	22 = SHDX_ChickenMode
-	23 = SHDX_BulletproofArmor
-	24 = SHDX_FireproofArmor
-	25 = SHDX_WeatherproofArmor
+	23 = SHDX_BulletproofArmorPickup
+	24 = SHDX_FireproofArmorPickup
+	25 = SHDX_WeatherproofArmorPickup
 	
 	26 = SHDX_RedCard
 	27 = SHDX_BlueCard

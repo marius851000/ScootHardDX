@@ -90,20 +90,20 @@ class SHDX_StatusBar : BaseStatusBar
 	
 	protected void DrawSHDXArmors(int _x, int _y)
 	{
-		if (GetAmount("SHDX_BulletProofArmor") > 0)
+		if (GetAmount("SHDX_BulletProofBase") > 0)
 		{
 			DrawImage("graphics/hud/hud_bulletproof.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BulletProofArmor"), 3), (_x + 15, _y + 1), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BulletProofBase"), 3), (_x + 15, _y + 1), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
 		}
-		if (GetAmount("SHDX_FireProofArmor") > 0)
+		if (GetAmount("SHDX_FireProofBase") > 0)
 		{
 			DrawImage("graphics/hud/hud_fireproof.png", (_x, _y + 10), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_FireProofArmor"), 3), (_x + 15, _y + 10), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_FireProofBase"), 3), (_x + 15, _y + 10), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
 		}
-		if (GetAmount("SHDX_WeatherProofArmor") > 0)
+		if (GetAmount("SHDX_WeatherProofBase") > 0)
 		{
 			DrawImage("graphics/hud/hud_weatherproof.png", (_x, _y + 20), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_WeatherProofArmor"), 3), (_x + 15, _y + 20), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_WeatherProofBase"), 3), (_x + 15, _y + 20), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
 		}
 	}
 	

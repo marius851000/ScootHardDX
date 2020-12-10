@@ -34,10 +34,10 @@ DoomEdNums
 	6601 = SHDX_Applesauce
 	
 	6610 = SHDX_ChickenMode
-	6612 = SHDX_BulletproofArmor
-	6613 = SHDX_FireproofArmor
+	6612 = SHDX_BulletproofArmorPickup
+	6613 = SHDX_FireproofArmorPickup
 	// 6614 = SHDX_SBaHJMode
-	6615 = SHDX_WeatherproofArmor
+	6615 = SHDX_WeatherproofArmorPickup
 	6616 = SHDX_BasicArmor
 	6617 = SHDX_SuperArmor
 	

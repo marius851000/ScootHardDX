@@ -12,7 +12,54 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-Class SHDX_BulletProofArmor : SHDX_Armor
+Class SHDX_BulletProofBase : SHDX_Armor
+{
+	Default
+	{
+		Inventory.MaxAmount 150;
+		Inventory.InterHubAmount 150;
+		SHDX_Armor.ArmorPriority 1;
+	}
+
+	override int HandleDamage( int damage, Name damageType, int flags )
+	{
+		double factor;
+		if (damageType == 'Bullet')
+			factor = .125;
+		return int(ceil(damage*factor));
+	}
+}
+
+Class SHDX_BulletProofArmorShard : SHDX_BulletProofBase
+{
+	Default
+	{
+		//$Sprite ASR1A0
+		//$Title "Bulletproof Armor Shard"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_BULLETSHARD";
+		Inventory.PickupSound "pickup/shard";
+		Tag "$SHDX_TAG_BULLETSHARD";
+		
+		Inventory.Amount 5;
+		Inventory.MaxAmount 150;
+		Inventory.InterHubAmount 150;
+		SHDX_Armor.ArmorPriority 1;
+	} 
+	
+	States
+	{
+		Spawn:
+			ASR1 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_BulletProofArmorPickup : Inventory
 {
 	Default
 	{
@@ -26,20 +73,30 @@ Class SHDX_BulletProofArmor : SHDX_Armor
 		Inventory.PickupMessage "$SHDX_PICKUP_BULLETARMOR";
 		Inventory.PickupSound "pickup/bulletvest";
 		Tag "$SHDX_TAG_BULLETPROOF";
-		
-		Inventory.Amount 100;
-		Inventory.MaxAmount 100;
-		Inventory.InterHubAmount 100;
-		SHDX_Armor.ArmorPriority 1;
 	}
-
-	override int HandleDamage( int damage, Name damageType, int flags )
+	
+	override bool TryPickup(in out Actor toucher)
 	{
-		double factor;
-		if (damageType == 'Bullet')
-			factor = .125;
-		return int(ceil(damage*factor));
-	} 
+		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
+		
+		if ((barmor && barmor.amount >= 100))
+		{
+			return false;
+		}
+		else
+		{
+			if (!barmor || barmor.amount < 100)
+			{
+				barmor = SHDX_BulletProofBase(Spawn("SHDX_BulletProofBase"));
+				barmor.amount = 100;
+				barmor.BecomeItem();
+				toucher.AddInventory(barmor);
+			}			
+			Destroy();
+		}
+		
+		return true;
+	}
 	
 	States
 	{
@@ -49,7 +106,53 @@ Class SHDX_BulletProofArmor : SHDX_Armor
 	}
 }
 
-Class SHDX_FireProofArmor : SHDX_Armor
+Class SHDX_FireProofBase : SHDX_Armor
+{
+	Default
+	{
+		Inventory.MaxAmount 150;
+		Inventory.InterHubAmount 150;
+		SHDX_Armor.ArmorPriority 1;
+	}
+
+	override int HandleDamage( int damage, Name damageType, int flags )
+	{
+		double factor;
+		if ((damageType == 'Fire') || (damageType == 'Slime') || (damageType == 'Explosive'))
+			factor = .25;
+			
+		return int(ceil(damage*factor));
+	}
+}
+
+Class SHDX_FireProofArmorShard : SHDX_FireProofBase
+{
+	Default
+	{
+		//$Sprite ASR2A0
+		//$Title "Fireproof Armor Shard"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_FIRESHARD";
+		Inventory.PickupSound "pickup/shard";
+		Tag "$SHDX_TAG_FIRESHARD";
+		
+		Inventory.Amount 5;
+		SHDX_Armor.ArmorPriority 1;
+	} 
+	
+	States
+	{
+		Spawn:
+			ASR2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_FireProofArmorPickup : Inventory
 {
 	Default
 	{
@@ -63,19 +166,29 @@ Class SHDX_FireProofArmor : SHDX_Armor
 		Inventory.PickupMessage "$SHDX_PICKUP_FIREPROOF";
 		Inventory.PickupSound "pickup/firevest";
 		Tag "$SHDX_TAG_FIREPROOF";
-		Inventory.Amount 100;
-		Inventory.MaxAmount 100;
-		Inventory.InterHubAmount 100;
-		SHDX_Armor.ArmorPriority 2;
 	}
-
-	override int HandleDamage( int damage, Name damageType, int flags )
+	
+	override bool TryPickup(in out Actor toucher)
 	{
-		double factor;
-		if ((damageType == 'Fire') || (damageType == 'Slime') || (damageType == 'Explosive'))
-			factor = .25;
-			
-		return int(ceil(damage*factor));
+		SHDX_FireProofBase farmor = SHDX_FireProofBase(toucher.FindInventory("SHDX_FireProofBase"));
+		
+		if ((farmor && farmor.amount >= 100))
+		{
+			return false;
+		}
+		else
+		{
+			if (!farmor || farmor.amount < 100)
+			{
+				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
+				farmor.amount = 100;
+				farmor.BecomeItem();
+				toucher.AddInventory(farmor);
+			}			
+			Destroy();
+		}
+		
+		return true;
 	}
 	
 	States
@@ -86,7 +199,57 @@ Class SHDX_FireProofArmor : SHDX_Armor
 	}
 }
 
-Class SHDX_WeatherProofArmor : SHDX_Armor
+Class SHDX_WeatherProofBase : SHDX_Armor
+{
+	Default
+	{
+		Inventory.MaxAmount 150;
+		Inventory.InterHubAmount 150;
+		SHDX_Armor.ArmorPriority 1;
+	}
+
+	override int HandleDamage( int damage, Name damageType, int flags )
+	{
+		double factor;
+		
+		if ((damageType == 'Weather') || (damageType == 'RainbowX') || (damageType == 'Lightning') || (damageType == 'Ice'))
+			factor = .25;
+		else if ((damageType == 'Spectra'))
+			factor = .125;
+		
+		return int(ceil(damage*factor));
+	}
+}
+
+
+Class SHDX_WeatherProofArmorShard : SHDX_WeatherProofBase
+{
+	Default
+	{
+		//$Sprite ASR3A0
+		//$Title "Weatherproof Armor Shard"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_WEATHERSHARD";
+		Inventory.PickupSound "pickup/shard";
+		Tag "$SHDX_TAG_WEATHERSHARD";
+		
+		Inventory.Amount 5;
+		SHDX_Armor.ArmorPriority 1;
+	} 
+	
+	States
+	{
+		Spawn:
+			ASR3 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_WeatherProofArmorPickup : Inventory
 {
 	Default
 	{
@@ -100,23 +263,29 @@ Class SHDX_WeatherProofArmor : SHDX_Armor
 		Inventory.PickupMessage "$SHDX_PICKUP_WEATHERPROOF";
 		Inventory.PickupSound "pickup/weathervest";
 		Tag "$SHDX_TAG_WEATHERPROOF";
-		
-		Inventory.Amount 100;
-		Inventory.MaxAmount 100;
-		Inventory.InterHubAmount 100;
-		SHDX_Armor.ArmorPriority 3;
 	}
-
-	override int HandleDamage( int damage, Name damageType, int flags )
+	
+	override bool TryPickup(in out Actor toucher)
 	{
-		double factor;
+		SHDX_WeatherProofBase warmor = SHDX_WeatherProofBase(toucher.FindInventory("SHDX_WeatherProofBase"));
 		
-		if ((damageType == 'Weather') || (damageType == 'RainbowX') || (damageType == 'Lightning') || (damageType == 'Ice'))
-			factor = .25;
-		else if ((damageType == 'Spectra'))
-			factor = .125;
+		if ((warmor && warmor.amount >= 100))
+		{
+			return false;
+		}
+		else
+		{
+			if (!warmor || warmor.amount < 100)
+			{
+				warmor = SHDX_WeatherProofBase(Spawn("SHDX_WeatherProofBase"));
+				warmor.amount = 100;
+				warmor.BecomeItem();
+				toucher.AddInventory(warmor);
+			}			
+			Destroy();
+		}
 		
-		return int(ceil(damage*factor));
+		return true;
 	}
 	
 	States
@@ -146,9 +315,9 @@ Class SHDX_BasicArmor : Inventory
 	override bool TryPickup(in out Actor toucher)
 	{
 		
-		SHDX_BulletProofArmor barmor = SHDX_BulletProofArmor(toucher.FindInventory("SHDX_BulletProofArmor"));
-		SHDX_FireProofArmor farmor = SHDX_FireProofArmor(toucher.FindInventory("SHDX_FireProofArmor"));
-		SHDX_WeatherProofArmor warmor = SHDX_WeatherProofArmor(toucher.FindInventory("SHDX_WeatherProofArmor"));
+		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
+		SHDX_FireProofBase farmor = SHDX_FireProofBase(toucher.FindInventory("SHDX_FireProofBase"));
+		SHDX_WeatherProofBase warmor = SHDX_WeatherProofBase(toucher.FindInventory("SHDX_WeatherProofBase"));
 		
 		if ((barmor && barmor.amount >= 50) && (farmor && farmor.amount >= 50) && (warmor && warmor.amount >= 50))
 		{
@@ -158,7 +327,7 @@ Class SHDX_BasicArmor : Inventory
 		{
 			if (!barmor || barmor.amount < 50)
 			{
-				barmor = SHDX_BulletProofArmor(Spawn("SHDX_BulletProofArmor"));
+				barmor = SHDX_BulletProofBase(Spawn("SHDX_BulletProofBase"));
 				barmor.amount = 50;
 				barmor.BecomeItem();
 				toucher.AddInventory(barmor);
@@ -166,7 +335,7 @@ Class SHDX_BasicArmor : Inventory
 			
 			if (!farmor || farmor.amount < 50)
 			{
-				farmor = SHDX_FireProofArmor(Spawn("SHDX_FireProofArmor"));
+				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
 				farmor.amount = 50;
 				farmor.BecomeItem();
 				toucher.AddInventory(farmor);
@@ -174,7 +343,7 @@ Class SHDX_BasicArmor : Inventory
 			
 			if (!warmor || warmor.amount < 50)
 			{
-				warmor = SHDX_WeatherProofArmor(Spawn("SHDX_WeatherProofArmor"));
+				warmor = SHDX_WeatherProofBase(Spawn("SHDX_WeatherProofBase"));
 				warmor.amount = 50;
 				warmor.BecomeItem();
 				toucher.AddInventory(warmor);
@@ -213,9 +382,9 @@ Class SHDX_SuperArmor : Inventory
 	override bool TryPickup(in out Actor toucher)
 	{
 		
-		SHDX_BulletProofArmor barmor = SHDX_BulletProofArmor(toucher.FindInventory("SHDX_BulletProofArmor"));
-		SHDX_FireProofArmor farmor = SHDX_FireProofArmor(toucher.FindInventory("SHDX_FireProofArmor"));
-		SHDX_WeatherProofArmor warmor = SHDX_WeatherProofArmor(toucher.FindInventory("SHDX_WeatherProofArmor"));
+		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
+		SHDX_FireProofBase farmor = SHDX_FireProofBase(toucher.FindInventory("SHDX_FireProofBase"));
+		SHDX_WeatherProofBase warmor = SHDX_WeatherProofBase(toucher.FindInventory("SHDX_WeatherProofBase"));
 		
 		if ((barmor && barmor.amount >= 150) && (farmor && farmor.amount >= 150) && (warmor && warmor.amount >= 150))
 		{
@@ -225,7 +394,7 @@ Class SHDX_SuperArmor : Inventory
 		{
 			if (!barmor || barmor.amount < 150)
 			{
-				barmor = SHDX_BulletProofArmor(Spawn("SHDX_BulletProofArmor"));
+				barmor = SHDX_BulletProofBase(Spawn("SHDX_BulletProofBase"));
 				barmor.amount = 150;
 				barmor.BecomeItem();
 				toucher.AddInventory(barmor);
@@ -233,7 +402,7 @@ Class SHDX_SuperArmor : Inventory
 			
 			if (!farmor || farmor.amount < 150)
 			{
-				farmor = SHDX_FireProofArmor(Spawn("SHDX_FireProofArmor"));
+				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
 				farmor.amount = 150;
 				farmor.BecomeItem();
 				toucher.AddInventory(farmor);
@@ -241,7 +410,7 @@ Class SHDX_SuperArmor : Inventory
 			
 			if (!warmor || warmor.amount < 150)
 			{
-				warmor = SHDX_WeatherProofArmor(Spawn("SHDX_WeatherProofArmor"));
+				warmor = SHDX_WeatherProofBase(Spawn("SHDX_WeatherProofBase"));
 				warmor.amount = 150;
 				warmor.BecomeItem();
 				toucher.AddInventory(warmor);
