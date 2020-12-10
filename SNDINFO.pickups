@@ -13,6 +13,8 @@ pickup/weathervest		"sounds/items/wx_vest.ogg"
 
 pickup/armorvest		"sounds/items/armor.ogg"
 
+pickup/shard			"sounds/items/generic_pickup.ogg"
+
 powerup/disappear		"sounds/items/lose_powerup.ogg"	// Lose Powerup
 
 powerup/cmode			"sounds/items/chicken_dance_start.ogg"	// ChickenDance
