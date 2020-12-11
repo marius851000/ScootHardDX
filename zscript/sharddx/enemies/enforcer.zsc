@@ -168,6 +168,8 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 		DamageFactor "Rainbower", 0.25;
 		DamageFactor "RainbowerX", 0.25;
 		
+		-SHDX_Enemy.CanJump
+		
 		// +SHIELDREFLECT
 	}
 	
@@ -360,6 +362,8 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		DamageFactor "Explosive", 0.50;
 		DamageFactor "Rainbower", 0.25;
 		DamageFactor "RainbowerX", 0.25;
+		
+		-SHDX_Enemy.CanJump
 		
 		// +SHIELDREFLECT
 	}
