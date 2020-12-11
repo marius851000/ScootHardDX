@@ -33,7 +33,7 @@ map MAP02 lookup SHDX_MAP02
 	par = 75
 	sucktime = 1
 	next = "MAP03"
-	music = "D_ISO"
+	music = ""
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
@@ -73,7 +73,7 @@ map MAP05 lookup SHDX_MAP05
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
-	music = "D_ISO"
+	music = ""
 	sucktime = 1
 	next = "MAP06"
 	secretnext = "SECRET01"
@@ -121,7 +121,7 @@ map MAP08 lookup SHDX_MAP08
 	par = 45
 	sucktime = 1
 	next = "MAP09"
-	music = "D_ISO"
+	music = ""
 	secretnext = "SECRET02"
 	
 	ExitPic = "TITLEPIC"
