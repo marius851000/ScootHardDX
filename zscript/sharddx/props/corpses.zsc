@@ -112,7 +112,7 @@ Class SHDX_SurpriseCorpse : SHDX_Decoration
 	States
 	{
 		Spawn:
-			SURP P -1;
+			SURP M -1;
 			Stop;
 	}
 }
