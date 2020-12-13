@@ -3,9 +3,8 @@ DoomEdNums
 	6000 = SHDX_LowGuardSpawner
 	6001 = SHDX_LowGuardMale
 	6002 = SHDX_LowGuardFemale
-	6003 = SHDX_HighGuardSpawner
-	6004 = SHDX_HighGuardMale
-	6005 = SHDX_HighGuardFemale
+	6003 = SHDX_HighGuard
+	
 	6006 = SHDX_PegapolMale
 	
 	6008 = SHDX_Engineer

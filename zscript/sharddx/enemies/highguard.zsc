@@ -46,6 +46,7 @@ Class SHDX_HighGuardBullet : FastProjectile
 	}
 }
 
+/*
 Class SHDX_HighGuardSpawner : RandomSpawner
 {
 	Default
@@ -59,15 +60,15 @@ Class SHDX_HighGuardSpawner : RandomSpawner
 		DropItem "SHDX_HighGuardMale", 255, 7;
 		DropItem "SHDX_HighGuardFemale", 255, 13;
 	}
-}
+} */
 
-Class SHDX_HighGuardMale : SHDX_Enemy
+Class SHDX_HighGuard : SHDX_Enemy
 {
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite HIGHA0
-		//$Title "High Guard (Male)"
+		//$Sprite HIGHA1
+		//$Title "High Guard"
 		
 		Health 70;
 		Radius 20;
@@ -111,27 +112,23 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 			Loop;
 		Missile:
 			HIGH F 2 A_FaceTarget;
-			HIGH GH 4 Bright A_HighGuardFire;
-			HIGH IF 2 A_FaceTarget;
-			HIGH GH 4 Bright A_HighGuardFire;
-			HIGH I 2;
+			HIGH G 2 Bright A_HighGuardFire;
+			HIGH H 2;
+			HIGH F 2 A_FaceTarget;
+			HIGH G 2 Bright A_HighGuardFire;
+			HIGH H 2;
+			HIGH F 2 A_FaceTarget;
+			HIGH G 2 Bright A_HighGuardFire;
+			HIGH H 2;
+			HIGH F 2 A_FaceTarget;
+			HIGH G 2 Bright A_HighGuardFire;
+			HIGH H 2;
 			Goto See;
 		Pain:
-			HIGH I 0
-			{
-				if (Random[HighGuard](0, 100) < 50)
-					return ResolveState("Pain2");
-				
-				return ResolveState("Pain1");
-			}
-		Pain1:
-			HIGH J 3;
-			HIGH J 3 A_Pain;
-			Goto See;
-		Pain2:
 			HIGH K 3;
 			HIGH K 3 A_Pain;
 			Goto See;
+		Pain2:
 		Death:
 			HIGH L 5 A_NewScream;
 			HIGH M 5
@@ -143,11 +140,11 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 			HIGH O -1 A_SetCorpseShootable;
 			Stop;
 		Ice:
-			HIGH J 5
+			HIGH K 5
 			{
 				A_GenericFreezeDeath();
 			}
-			HIGH J 1
+			HIGH K 1
 			{
 				A_FreezeDeathChunks();
 			}
@@ -180,6 +177,7 @@ Class SHDX_HighGuardMale : SHDX_Enemy
 	}
 }
 
+/*
 Class SHDX_HighGuardFemale : SHDX_HighGuardMale
 {
 	Default
@@ -247,3 +245,4 @@ Class SHDX_HighGuardFemale : SHDX_HighGuardMale
 			Wait;
 	}
 }
+*/

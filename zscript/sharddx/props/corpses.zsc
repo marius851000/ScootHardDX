@@ -18,7 +18,7 @@ Class SHDX_MaleGuardCorpse : SHDX_Decoration
 	{
 		//$NotAngled
 		//$Title "Male Guard Corpse (Bloody)"
-		//$Sprite GRD1N0
+		//$Sprite GRD1L0
 		//$Category "Decoration"
 		
 		Radius 10;
@@ -28,7 +28,7 @@ Class SHDX_MaleGuardCorpse : SHDX_Decoration
 	States
 	{
 		Spawn:
-			GRD1 N -1;
+			GRD1 L -1;
 			Stop;
 	}
 }
@@ -39,7 +39,7 @@ Class SHDX_MaleGuardCorpse2 : SHDX_Decoration
 	{
 		//$NotAngled
 		//$Title "Male Guard Corpse (Not Bloody)"
-		//$Sprite GRD1R0
+		//$Sprite GRD1M0
 		//$Category "Decoration"
 		
 		Radius 10;
@@ -49,7 +49,7 @@ Class SHDX_MaleGuardCorpse2 : SHDX_Decoration
 	States
 	{
 		Spawn:
-			GRD1 R -1;
+			GRD1 M -1;
 			Stop;
 	}
 }

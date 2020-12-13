@@ -1,11 +1,6 @@
-object SHDX_HighGuardMale
+object SHDX_HighGuard
 {
 	frame HIGHG { light SHDX_BULLETPUFF }
-}
-
-object SHDX_HighGuardFemale
-{
-	frame HIG2G { light SHDX_BULLETPUFF }
 }
 
 object SHDX_LowGuardMale

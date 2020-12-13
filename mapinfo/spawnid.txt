@@ -2,8 +2,8 @@ SpawnNums
 {
 	1 = SHDX_LowGuardMale
 	2 = SHDX_LowGuardFemale
-	3 = SHDX_HighGuardMale
-	4 = SHDX_HighGuardFemale
+	3 = SHDX_HighGuard
+	
 	5 = SHDX_PegapolMale
 	
 	6 = SHDX_Engineer

@@ -51,7 +51,7 @@ Class SHDX_LowGuardSpawner : RandomSpawner
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite GRD1F0
+		//$Sprite GRD1G1
 		//$Title "Low Guard (Random)"
 		scale 0.12;
 		Radius 20;
@@ -66,7 +66,7 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite GRD1A0
+		//$Sprite GRD1A1
 		//$Title "Low Guard (Male)"
 		SeeSound "grunt1/sight";
 		PainSound "grunt1/pain";
@@ -108,33 +108,21 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 		Missile:
 			GRD1 F 10 A_FaceTarget;
 			GRD1 G 8 Bright A_LowGuardFire;
-			GRD1 H 4;
+			GRD1 F 4;
 			Goto See;
 		Pain:
-			GRD1 I 0
-			{
-				if (Random[LowGuard](0, 100) < 50)
-					return ResolveState("Pain2");
-				
-				return ResolveState("Pain1");
-			}
-		Pain1:
 			GRD1 I 3;
 			GRD1 I 3 A_Pain;
 			Goto See;
-		Pain2:
-			GRD1 J 3;
-			GRD1 J 3 A_Pain;
-			Goto See;
 		Death:
-			GRD1 K 5 A_NewScream;
-			GRD1 L 5
+			GRD1 I 5 A_NewScream;
+			GRD1 J 5
 			{
 				A_NoBlocking();
 				A_DropItemsLowGuard();
 			}
-			GRD1 M 5;
-			GRD1 N -1 A_SetCorpseShootable;
+			GRD1 K 5;
+			GRD1 L -1 A_SetCorpseShootable;
 			Stop;
 		Death.Explosive:
 		Death.Weather:
@@ -157,11 +145,11 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 			GIBR D -1;
 			Stop;
 		Ice:
-			GRD1 I 5
+			GRD1 H 5
 			{
 				A_GenericFreezeDeath();
 			}
-			GRD1 I 1
+			GRD1 H 1
 			{
 				A_FreezeDeathChunks();
 			}
@@ -179,7 +167,7 @@ Class SHDX_LowGuardFemale : SHDX_LowGuardMale
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite GRD2A0
+		//$Sprite GRD2A1
 		//$Title "Low Guard (Female)"
 		SeeSound "grunt2/sight";
 		PainSound "grunt2/pain";
@@ -198,43 +186,31 @@ Class SHDX_LowGuardFemale : SHDX_LowGuardMale
 		Missile:
 			GRD2 F 10 A_FaceTarget;
 			GRD2 G 8 Bright A_LowGuardFire;
-			GRD2 H 4;
+			GRD2 F 4;
 			Goto See;
 		Pain:
-			GRD2 I 0
-			{
-				if (Random[LowGuard](0, 100) < 50)
-					return ResolveState("Pain2");
-				
-				return ResolveState("Pain1");
-			}
-		Pain1:
-			GRD2 I 3;
-			GRD2 I 3 A_Pain;
-			Goto See;
-		Pain2:
-			GRD2 J 3;
-			GRD2 J 3 A_Pain;
+			GRD2 H 3;
+			GRD2 H 3 A_Pain;
 			Goto See;
 		Ice:
-			GRD2 I 5
+			GRD2 H 5
 			{
 				A_GenericFreezeDeath();
 			}
-			GRD2 I 1
+			GRD2 H 1
 			{
 				A_FreezeDeathChunks();
 			}
 			Wait;
 		Death:
-			GRD2 K 5 A_NewScream;
-			GRD2 L 5
+			GRD2 I 5 A_NewScream;
+			GRD2 J 5
 			{
 				A_NoBlocking();
 				A_DropItemsLowGuard();
 			}
-			GRD2 M 5;
-			GRD2 N -1 A_SetCorpseShootable;
+			GRD2 K 5;
+			GRD2 L -1 A_SetCorpseShootable;
 			Stop;
 	}
 }
