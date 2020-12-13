@@ -135,7 +135,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		DamageFactor "ChickenX", 0.00;
 		DamageFactor "Rainbower", 0.10;
 		DamageFactor "RainbowerX", 0.10;
-		DamageFactor "Ice", 0.00;
+		DamageFactor "Ice", 0.35;
 		SeeSound "maimbow/sight";
 		DeathSound "maimbow/death";
 		Obituary "$SHDX_OB_MAIMBOW";

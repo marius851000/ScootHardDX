@@ -104,7 +104,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		DamageFactor "ChickenX", 0.00;
 		DamageFactor "Rainbower", 0.10;
 		DamageFactor "RainbowerX", 0.10;
-		DamageFactor "Ice", 0.00;
+		DamageFactor "Ice", 0.35;
 		SeeSound "boss2/sight";
 		PainSound "boss2/pain";
 		DeathSound "boss2/death";
