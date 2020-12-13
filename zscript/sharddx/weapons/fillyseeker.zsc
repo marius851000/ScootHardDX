@@ -48,10 +48,10 @@ Class SHDX_FillySeeker : SHDX_MissileWeapon
 			HSKG A 1 A_WeaponReady;
 			LOOP;
 		Deselect:
-			HSKG A 1 A_Lower;
+			HSKG A 1 A_Lower(10);
 			LOOP;
 		Select:
-			HSKG A 1 A_Raise;
+			HSKG A 1 A_Raise(10);
 			Loop;
 		Flash:
 			HSKF A 2 A_Light1;

@@ -67,10 +67,10 @@ Class SHDX_SubmachineGun : SHDX_Weapon
 			Loop;
 		Deselect:
 			SMGG A 0 A_RemoveLight('SMGLight');
-			SMGG A 1 A_Lower;
+			SMGG A 1 A_Lower(10);
 			Wait;
 		Select:
-			SMGG A 1 A_Raise;
+			SMGG A 1 A_Raise(10);
 			Loop;
 		Flash:
 			SMGF A 1 A_Light1;

@@ -47,10 +47,10 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 			TORG A 1 A_WeaponReady;
 			LOOP;
 		Deselect: 
-			TORG A 1 A_Lower;
+			TORG A 1 A_Lower(10);
 			LOOP;
 		Select:
-			TORG A 1 A_Raise;
+			TORG A 1 A_Raise(8);
 			Loop;
 		Flash:
 			TNT1 A 1 A_Light1;

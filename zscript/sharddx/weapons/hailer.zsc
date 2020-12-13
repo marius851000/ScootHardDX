@@ -49,10 +49,10 @@ Class SHDX_HailerWeapon : SHDX_WeatherWeapon
 			FRZG A 1 A_WeaponReady;
 			LOOP;
 		Deselect: 
-			FRZG A 1 A_Lower;
+			FRZG A 1 A_Lower(10);
 			LOOP;
 		Select:
-			FRZG A 1 A_Raise;
+			FRZG A 1 A_Raise(10);
 			Loop;
 		Flash:
 			FRZF AB 1 A_Light1;

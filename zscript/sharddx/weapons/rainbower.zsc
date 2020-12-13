@@ -46,10 +46,10 @@ Class SHDX_Rainbower : SHDX_BFGWeapon
 			RBWG A 1 A_WeaponReady;
 			Loop;
 		Deselect:
-			RBWG A 1 A_Lower;
+			RBWG A 1 A_Lower(10);
 			Loop;
 		Select:
-			RBWG A 1 A_Raise;
+			RBWG A 1 A_Raise(8);
 			Loop;
 		Flash:
 			TNT1 A 8 A_Light1;
