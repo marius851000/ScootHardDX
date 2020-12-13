@@ -131,24 +131,24 @@ Class SHDX_WeatherWeapon : SHDX_Weapon
 		let w = SHDX_WeatherWeapon(toucher.FindInventory("SHDX_WeatherWeapon", true));
 		if (w)
 		{
+			// Pick up weapon for ammo if we have one all ready...
+			if (w.GetClass() == self.GetClass())
+			{
+				let ammo1 = Ammo(toucher.FindInventory(w.AmmoType1));
+				let ammo2 = Ammo(toucher.FindInventory(w.AmmoType2));
+				if ((ammo1 && ammo1.MaxAmount > ammo1.Amount) || (ammo2 && ammo2.MaxAmount > ammo2.Amount))
+				{
+					return Super.TryPickup(toucher);
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
 			// check input...
 			if (toucher.player && (toucher.player.cmd.buttons & BT_USE && !(toucher.player.oldbuttons & BT_USE)))
-			{
-				// Pick up weapon for ammo if we have one all ready...
-				if (w.GetClass() == self.GetClass())
-				{
-					let ammo1 = Ammo(toucher.FindInventory(w.AmmoType1));
-					let ammo2 = Ammo(toucher.FindInventory(w.AmmoType2));
-					if ((ammo1 && ammo1.MaxAmount > ammo1.Amount) || (ammo2 && ammo2.MaxAmount > ammo2.Amount))
-					{
-						return Super.TryPickup(toucher);
-					}
-					else
-					{
-						return false;
-					}
-				}
-				
+			{				
 				// use built in function to drop inventory
 				let ww = toucher.DropInventory(w);
 				if (ww)
@@ -187,24 +187,24 @@ Class SHDX_BFGWeapon : SHDX_Weapon
 		let w = SHDX_BFGWeapon(toucher.FindInventory("SHDX_BFGWeapon", true));
 		if (w)
 		{
+			// Pick up weapon for ammo if we have one all ready...
+			if (w.GetClass() == self.GetClass())
+			{
+				let ammo1 = Ammo(toucher.FindInventory(w.AmmoType1));
+				let ammo2 = Ammo(toucher.FindInventory(w.AmmoType2));
+				if ((ammo1 && ammo1.MaxAmount > ammo1.Amount) || (ammo2 && ammo2.MaxAmount > ammo2.Amount))
+				{
+					return Super.TryPickup(toucher);
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
 			// check input...
 			if (toucher.player && (toucher.player.cmd.buttons & BT_USE && !(toucher.player.oldbuttons & BT_USE)))
-			{
-				// Pick up weapon for ammo if we have one all ready...
-				if (w.GetClass() == self.GetClass())
-				{
-					let ammo1 = Ammo(toucher.FindInventory(w.AmmoType1));
-					let ammo2 = Ammo(toucher.FindInventory(w.AmmoType2));
-					if ((ammo1 && ammo1.MaxAmount > ammo1.Amount) || (ammo2 && ammo2.MaxAmount > ammo2.Amount))
-					{
-						return Super.TryPickup(toucher);
-					}
-					else
-					{
-						return false;
-					}
-				}
-				
+			{				
 				// use built in function to drop inventory
 				let ww = toucher.DropInventory(w);
 				if (ww)
