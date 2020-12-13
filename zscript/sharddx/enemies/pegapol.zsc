@@ -63,6 +63,8 @@ Class SHDX_PegapolMale : SHDX_Enemy
 		Damage 5;
 		DamageFactor "Bullet", 0.85;
 		DamageFactor "Explosive", 0.85;
+		DamageFactor "Lightning", 0.85;
+		DamageFactor "Ice", 0.50;
 		// DamageFactor "Rainbower", 0.25;
 		// DamageFactor "RainbowerX", 0.25;
 		SeeSound "pegapol/sight";
