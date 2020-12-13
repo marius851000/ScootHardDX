@@ -82,7 +82,7 @@ version "4.3"
 #include "zscript/sharddx/pickups/keys.zsc"
 #include "zscript/sharddx/pickups/armor.zsc"
 #include "zscript/sharddx/pickups/sbahj.zsc"
-#include "zscript/sharddx/pickups/missileweapon.zsc"
+#include "zscript/sharddx/pickups/weapon_system.zsc"
 
 #include "zscript/sharddx/props/props.zsc"
 #include "zscript/sharddx/props/light_sources.zsc"

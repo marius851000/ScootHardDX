@@ -22,7 +22,7 @@ Class SHDX_TornadozerAmmo : Ammo
 	}
 }
 
-Class SHDX_Tornadozer : SHDX_MissileWeapon
+Class SHDX_Tornadozer : SHDX_BFGWeapon
 {
 	Default
 	{

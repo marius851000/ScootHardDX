@@ -22,7 +22,7 @@ Class SHDX_SpectraAmmo : Ammo
 	}
 }
 
-Class SHDX_Rainbower : SHDX_MissileWeapon
+Class SHDX_Rainbower : SHDX_BFGWeapon
 {
 	Default
 	{

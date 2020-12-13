@@ -22,7 +22,7 @@ Class SHDX_HailAmmo : Ammo
 	}
 }
 
-Class SHDX_HailerWeapon : SHDX_MissileWeapon
+Class SHDX_HailerWeapon : SHDX_WeatherWeapon
 {
 	Default
 	{

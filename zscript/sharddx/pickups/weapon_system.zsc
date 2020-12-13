@@ -1,0 +1,227 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+mixin class SHDX_WeaponSystem
+{
+	override void OnDrop(Actor dropper)
+	{
+		if (dropper)
+		{
+			// Remove ammo from player. This doesn't seem to
+			// be done automatically with A_DropInventory
+			// so we must do it here. Oddly it seems the
+			// ammo is in fact dropped though...
+			Ammo a1, a2;
+			if (ammotype1)
+				a1 = Ammo(dropper.FindInventory(ammotype1));
+			if (ammotype2)
+				a2 = Ammo(dropper.FindInventory(ammotype2));
+			
+			if (a1)
+			{
+				ammogive1 = a1.amount;
+				dropper.RemoveInventory(a1);
+			}
+			
+			if (a2)
+			{
+				ammogive2 = a2.amount;
+				dropper.RemoveInventory(a2);
+			}
+		}
+	}
+
+	override void DoEffect()
+	{
+		Super.DoEffect();
+		
+		// remove missile weapons once all ammo is
+		// used up
+		if (AmmoType1 && Owner.CountInv(AmmoType1) <= 0)
+		{
+			if (!AmmoType2 || (AmmoType2 && Owner.CountInv(AmmoType2) <= 0))
+			{
+				Owner.RemoveInventory(self);
+			}
+		}
+	}
+}
+
+Class SHDX_MissileWeapon : SHDX_Weapon
+{
+	mixin SHDX_WeaponSystem;
+	
+	override bool TryPickup (in out Actor toucher)
+	{
+		// Don't pick up if player is currently a chicken
+		if (toucher is "SHDX_ChickenPlayer")
+			return false;
+		
+		// See if player currently has another Missile Weapon
+		// if player currently has another weapon, press
+		// the use key to pick up a weapon instead (only
+		// needs to be done if you have one equipped
+		let w = SHDX_MissileWeapon(toucher.FindInventory("SHDX_MissileWeapon", true));
+		if (w)
+		{
+			// Pick up weapon for ammo if we have one all ready...
+			if (w.GetClass() == self.GetClass())
+			{
+				let ammo1 = Ammo(toucher.FindInventory(w.AmmoType1));
+				let ammo2 = Ammo(toucher.FindInventory(w.AmmoType2));
+				if ((ammo1 && ammo1.MaxAmount > ammo1.Amount) || (ammo2 && ammo2.MaxAmount > ammo2.Amount))
+				{
+					return Super.TryPickup(toucher);
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
+			// check input...
+			if (toucher.player && (toucher.player.cmd.buttons & BT_USE && !(toucher.player.oldbuttons & BT_USE)))
+			{
+				// use built in function to drop inventory
+				let ww = toucher.DropInventory(w);
+				if (ww)
+				{
+					// don't want the weapon to go flying off
+					// into a different direction
+					ww.A_Stop();
+				}
+				
+				return Super.TryPickup(toucher);
+			}
+			
+			// don't pick up...
+			return false;
+		}
+		
+		// if no conditions are met, treat as normal item pickup
+		return Super.TryPickup(toucher);
+	}
+}
+
+Class SHDX_WeatherWeapon : SHDX_Weapon
+{
+	mixin SHDX_WeaponSystem;
+	
+	override bool TryPickup (in out Actor toucher)
+	{
+		// Don't pick up if player is currently a chicken
+		if (toucher is "SHDX_ChickenPlayer")
+			return false;
+		
+		// See if player currently has another Missile Weapon
+		// if player currently has another weapon, press
+		// the use key to pick up a weapon instead (only
+		// needs to be done if you have one equipped
+		let w = SHDX_WeatherWeapon(toucher.FindInventory("SHDX_WeatherWeapon", true));
+		if (w)
+		{
+			// check input...
+			if (toucher.player && (toucher.player.cmd.buttons & BT_USE && !(toucher.player.oldbuttons & BT_USE)))
+			{
+				// Pick up weapon for ammo if we have one all ready...
+				if (w.GetClass() == self.GetClass())
+				{
+					let ammo1 = Ammo(toucher.FindInventory(w.AmmoType1));
+					let ammo2 = Ammo(toucher.FindInventory(w.AmmoType2));
+					if ((ammo1 && ammo1.MaxAmount > ammo1.Amount) || (ammo2 && ammo2.MaxAmount > ammo2.Amount))
+					{
+						return Super.TryPickup(toucher);
+					}
+					else
+					{
+						return false;
+					}
+				}
+				
+				// use built in function to drop inventory
+				let ww = toucher.DropInventory(w);
+				if (ww)
+				{
+					// don't want the weapon to go flying off
+					// into a different direction
+					ww.A_Stop();
+				}
+				
+				return Super.TryPickup(toucher);
+			}
+			
+			// don't pick up...
+			return false;
+		}
+		
+		// if no conditions are met, treat as normal item pickup
+		return Super.TryPickup(toucher);
+	}
+}
+
+Class SHDX_BFGWeapon : SHDX_Weapon
+{
+	mixin SHDX_WeaponSystem;
+	
+	override bool TryPickup (in out Actor toucher)
+	{
+		// Don't pick up if player is currently a chicken
+		if (toucher is "SHDX_ChickenPlayer")
+			return false;
+		
+		// See if player currently has another Missile Weapon
+		// if player currently has another weapon, press
+		// the use key to pick up a weapon instead (only
+		// needs to be done if you have one equipped
+		let w = SHDX_BFGWeapon(toucher.FindInventory("SHDX_BFGWeapon", true));
+		if (w)
+		{
+			// check input...
+			if (toucher.player && (toucher.player.cmd.buttons & BT_USE && !(toucher.player.oldbuttons & BT_USE)))
+			{
+				// Pick up weapon for ammo if we have one all ready...
+				if (w.GetClass() == self.GetClass())
+				{
+					let ammo1 = Ammo(toucher.FindInventory(w.AmmoType1));
+					let ammo2 = Ammo(toucher.FindInventory(w.AmmoType2));
+					if ((ammo1 && ammo1.MaxAmount > ammo1.Amount) || (ammo2 && ammo2.MaxAmount > ammo2.Amount))
+					{
+						return Super.TryPickup(toucher);
+					}
+					else
+					{
+						return false;
+					}
+				}
+				
+				// use built in function to drop inventory
+				let ww = toucher.DropInventory(w);
+				if (ww)
+				{
+					// don't want the weapon to go flying off
+					// into a different direction
+					ww.A_Stop();
+				}
+				
+				return Super.TryPickup(toucher);
+			}
+			
+			// don't pick up...
+			return false;
+		}
+		
+		// if no conditions are met, treat as normal item pickup
+		return Super.TryPickup(toucher);
+	}
+}
