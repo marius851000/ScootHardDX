@@ -32,15 +32,15 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		//$Sprite SURPA0
 		//$Title "Boss 1 - Ms. Surprise"
 		
-		Health 1500;
+		Health 1200;
 		Radius 20;
 		Height 56;
 		Mass 100;
 		Speed 0;
 		
 		PainChance "Explosive", 256;
-		PainChance "Bullet", 256;
-		DamageFactor "Bullet", 0.05;
+		PainChance "Bullet", 128;
+		DamageFactor "Bullet", 0.50;
 		DamageFactor "Explosive", 0.75;
 		DamageFactor "Chicken", 0.00;
 		DamageFactor "ChickenX", 0.00;
