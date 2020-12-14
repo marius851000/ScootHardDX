@@ -85,6 +85,7 @@ Class SHDX_ZombieNormal : SHDX_Enemy
 		DamageFactor "Weather", 1.00;
 		DamageFactor "RainbowerX", 1.00;
 		DamageFactor "Explosive", 1.00;
+		DamageFactor "Ice", 1.00;
 		
 		PainChance 80;
 		PainChance "Normal", 80;
