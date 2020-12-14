@@ -92,7 +92,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		Health 100;
 		Radius 13;
 		Height 34;
-		Mass 100;
+		Mass 80;
 		PainChance 255;
 		
 		Friction 1.0;
@@ -132,12 +132,12 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Player.TeleportFreezeTime 0;
 		
-		Player.ForwardMove 2, 1;
-		Player.SideMove 2, 1;
+		Player.ForwardMove 2.4, 1.2;
+		Player.SideMove 2.4, 1.2;
 		
 		Player.ViewHeight 26;
 		Player.AttackZOffset 8;
-		Player.JumpZ 12;
+		Player.JumpZ 16;
 		
 		Player.AirCapacity 0;
 		
@@ -159,101 +159,27 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		}
 		
 		Super.Tick();	// call any PlayerPawn Tick functionality
-	}
-	
-	override void MovePlayer()
-	{
+		
 		let player = self.player;
 		UserCmd cmd = player.cmd;
-
-		// [RH] 180-degree turn overrides all other yaws
-		if (player.turnticks)
+		
+		if (player)
 		{
-			player.turnticks--;
-			Angle += (180. / TURN180_TICKS);
-		}
-		else
-		{
-			Angle += cmd.yaw * (360./65536.);
-		}
-
-		player.onground = (pos.z <= floorz) || bOnMobj || bMBFBouncer || (player.cheats & CF_NOCLIP2);
-
-		// killough 10/98:
-		//
-		// We must apply thrust to the player and bobbing separately, to avoid
-		// anomalies. The thrust applied to bobbing is always the same strength on
-		// ice, because the player still "works just as hard" to move, while the
-		// thrust applied to the movement varies with 'movefactor'.
-
-		if (cmd.forwardmove | cmd.sidemove)
-		{
-			double forwardmove, sidemove;
-			double bobfactor;
-			double friction, movefactor;
-			double fm, sm;
-
-			[friction, movefactor] = GetFriction();
-			bobfactor = friction < ORIG_FRICTION ? movefactor : ORIG_FRICTION_FACTOR;
-			
-			if (!player.onground && !bNoGravity && !waterlevel)
+			if (!player.onground && vel.z > 0)
 			{
-				// [RH] allow very limited movement if not on ground.
-				movefactor *= 0.25;
-				bobfactor*= 0.25;
-			}
-
-			fm = cmd.forwardmove;
-			sm = cmd.sidemove;
-			[fm, sm] = TweakSpeeds (fm, sm);
-			fm *= Speed / 256;
-			sm *= Speed / 256;
-
-			// When crouching, speed and bobbing have to be reduced
-			if (CanCrouch() && player.crouchfactor != 1)
-			{
-				fm *= player.crouchfactor;
-				sm *= player.crouchfactor;
-				bobfactor *= player.crouchfactor;
-			}
-
-			forwardmove = fm * movefactor * (35 / TICRATE);
-			sidemove = sm * movefactor * (35 / TICRATE);
-
-			if (forwardmove)
-			{
-				Bob(Angle, cmd.forwardmove * bobfactor / 256., true);
-				ForwardThrust(forwardmove, Angle);
-			}
-			if (sidemove)
-			{
-				let a = Angle - 90;
-				Bob(a, cmd.sidemove * bobfactor / 256., false);
-				Thrust(sidemove, a);
-			}
-
-			if (!(player.cheats & CF_PREDICTING) && (forwardmove != 0 || sidemove != 0))
-			{
-				PlayRunning ();
-			}
-
-			if (player.cheats & CF_REVERTPLEASE)
-			{
-				player.cheats &= ~CF_REVERTPLEASE;
-				player.camera = player.mo;
-			}
-			
-			
-			if (player && !player.onground && vel.z > 0)
-			{
-				if (player.cmd.buttons & BT_JUMP && player.jumptics <= -6)
+				if ((cmd.buttons & BT_JUMP) && player.jumptics <= -6)
 				{
-					gravity = 0.3;
+					gravity = 0.25;
 				}
 				else
 				{
 					gravity = GetDefaultByType("SHDX_ScootalooPlayer").Gravity;
 				}
+			}
+			
+			if (!(cmd.buttons & BT_JUMP))
+			{
+				gravity = GetDefaultByType("SHDX_ScootalooPlayer").Gravity;
 			}
 		}
 	}

@@ -19,6 +19,7 @@ map MAP01 lookup SHDX_MAP01
 	cluster = 1
 	par = 45
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP02"
 	music = "D_SCANT"
 	
@@ -32,6 +33,7 @@ map MAP02 lookup SHDX_MAP02
 	cluster = 1
 	par = 75
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP03"
 	music = ""
 	
@@ -45,6 +47,7 @@ map MAP03 lookup SHDX_MAP03
 	cluster = 1
 	par = 75
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP04"
 	music = "D_SILENT"
 	
@@ -59,6 +62,7 @@ map MAP04 lookup SHDX_MAP04
 	cluster = 1
 	par = 45
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP05"
 	music = "D_SCANT"
 	lightning
@@ -75,6 +79,7 @@ map MAP05 lookup SHDX_MAP05
 	par = 45
 	music = ""
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP06"
 	secretnext = "SECRET01"
 	lightning
@@ -90,6 +95,7 @@ map MAP06 lookup SHDX_MAP06
 	cluster = 1
 	par = 45
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP07"
 	music = "D_SCANT"
 	lightning
@@ -105,6 +111,7 @@ map MAP07 lookup SHDX_MAP07
 	cluster = 1
 	par = 45
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP08"
 	music = "M_ATINT"
 	lightning
@@ -120,6 +127,7 @@ map MAP08 lookup SHDX_MAP08
 	cluster = 1
 	par = 45
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP09"
 	music = ""
 	secretnext = "SECRET02"
@@ -134,6 +142,7 @@ map MAP09 lookup SHDX_MAP09
 	cluster = 1
 	par = 45
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP10"
 	music = "D_SCANT"
 	
@@ -147,6 +156,7 @@ map MAP10 lookup SHDX_MAP10
 	cluster = 1
 	par = 45
 	sucktime = 1
+	aircontrol = 0.6
 	EventHandlers = "SHDX_PreBoss3SlideshowHandler", "SHDX_AtmosphereHandler"
 	music = "D_SILENT"
 	next = "CREDITS"
@@ -162,6 +172,7 @@ map SECRET01 lookup SHDX_SECRET01
 	cluster = 1
 	par = 45
 	sucktime = 1
+	aircontrol = 0.6
 	music = ""
 	next = "MAP06"
 	secretnext = "MAP06"
@@ -176,6 +187,7 @@ map SECRET02 lookup SHDX_SECRET02
 	cluster = 1
 	par = 45
 	sucktime = 1
+	aircontrol = 0.6
 	next = "MAP08"
 	secretnext = "MAP09"
 	
