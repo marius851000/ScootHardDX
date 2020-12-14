@@ -137,7 +137,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Player.ViewHeight 26;
 		Player.AttackZOffset 8;
-		Player.JumpZ 16;
+		Player.JumpZ 14;
 		
 		Player.AirCapacity 0;
 		
