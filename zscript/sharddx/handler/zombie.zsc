@@ -14,17 +14,25 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 class SHDX_AtmosphereHandler : EventHandler
 {
-	const TIMETOCOPYARRAY = (35 * 10);
+	SHDX_DrAtmosphereBoss dratmos;
+	Array<SHDX_ZombieNormal> zombies;
+	
+	int zombietics;
+	
+	const TIMETOSPAWNZOMBIES = (TICRATE * 15);
+	const TIMETOCOPYARRAY = (TICRATE * 10);
 	
 	override void WorldTick()
 	{
 		// BossInfoTick();
 		PruneZombiesFromArray();
+		DrAtmosphereRoutine();
 	}
 	
 	override void WorldThingSpawned(WorldEvent e)
 	{
 		CheckIfSpawnedZombie(e.Thing);
+		CheckIfSpawnedAtmosphere(e.Thing);
 	}
 	
 	override void WorldThingDied(WorldEvent e)
@@ -32,14 +40,74 @@ class SHDX_AtmosphereHandler : EventHandler
 		CheckIfKilledZombie(e.Thing);
 	}
 	
-	Array<SHDX_ZombieNormal> zombies;
-	
 	void CheckIfSpawnedZombie(Actor a)
 	{
 		let z = SHDX_ZombieNormal(a);
 		if (z)
 		{
 			zombies.Push(z);
+		}
+	}
+	
+	void CheckIfSpawnedAtmosphere(Actor a)
+	{
+		let at = SHDX_DrAtmosphereBoss(a);
+		if (at)
+		{
+			dratmos = at;
+		}
+	}
+	
+	void DrAtmosphereRoutine()
+	{
+		if (dratmos)
+		{
+			if (dratmos.isactive)
+			{
+				zombietics++;
+				if (zombietics >= TIMETOSPAWNZOMBIES)
+				{
+					SpawnZombiesFromSpots();
+					zombietics = 0;
+				}
+				if (dratmos.health <= 0)
+				{
+					KillZombies();
+					dratmos = null;
+				}
+			}
+		}
+	}
+	
+	void KillZombies()
+	{
+		ThinkerIterator zombieit = ThinkerIterator.Create("SHDX_ZombieNormal");
+		SHDX_ZombieNormal zom;
+		
+		// iterate through the spots
+		while (zom = SHDX_ZombieNormal(zombieit.Next()))
+		{
+			// if spot exists
+			if (zom)
+			{
+				zom.A_Die('Extreme');
+			}
+		}
+	}
+	
+	void SpawnZombiesFromSpots()
+	{
+		ThinkerIterator deadraiserit = ThinkerIterator.Create("SHDX_ZombieSpot");
+		SHDX_ZombieSpot raiserspot;
+		
+		// iterate through the spots
+		while (raiserspot = SHDX_ZombieSpot(deadraiserit.Next()))
+		{
+			// if spot exists
+			if (raiserspot)
+			{
+				raiserspot.SetStateLabel("RaiseTheDead");
+			}
 		}
 	}
 	
