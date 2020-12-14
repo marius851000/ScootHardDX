@@ -7,7 +7,7 @@ defaultmap
 	SuckTime = 0	// We don't need no stinkin SuckTime
 
 	// Physics...
-	AirControl = 2
+	AirControl = 0.6
 	Gravity = 768
 	
 	Sky1 = "SKY1"
