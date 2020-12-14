@@ -235,6 +235,9 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			
 			s.SetFogDensity(200);
 			s.SetFade("390147");
+			TextureID skyid1 = TexMan.CheckForTexture("SKY3C", TexMan.Type_Any);
+			TextureID skyid2 = TexMan.CheckForTexture("SKY3A", TexMan.Type_Any);
+			level.ChangeSky(skyid1, skyid2);
 		}
 		// Floor_LowerByValueTimes8(667,35,8);
 		fogchanged = true;
