@@ -233,7 +233,8 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			
 			Sector s = level.Sectors[i];
 			
-			s.SetFogDensity(400);
+			s.SetFogDensity(200);
+			s.SetFade("390147");
 		}
 		// Floor_LowerByValueTimes8(667,35,8);
 		fogchanged = true;
