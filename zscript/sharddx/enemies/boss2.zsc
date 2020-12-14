@@ -125,6 +125,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	}
 	
 	bool isactive;
+	bool fogchanged;
 	
 	int flyingmode;
 	
@@ -219,6 +220,25 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	{
 		S_ChangeMusic("M_ATVIC", 0, false);
 	}
+	
+	void A_FogDensityMachine()
+	{
+		// ACS_NamedExecute("MAP03_PeelAway", 0, 0, 0, 0);
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(400);
+		}
+		// Floor_LowerByValueTimes8(667,35,8);
+		fogchanged = true;
+	}
+	
 	
 	States
 	{
@@ -362,6 +382,14 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO F 2;
 			goto See2;
 		Pain:
+			SURP A 0
+			{
+				if (!fogchanged && health <= (SpawnHealth() / 2))
+				{
+					A_FogDensityMachine();
+				}
+				return ResolveState(null);
+			}
 			ATMO S 0
 			{
 				if (flyingmode >= 1)
