@@ -36,7 +36,6 @@ Class SHDX_Rainbower : SHDX_BFGWeapon
 		Weapon.AmmoUse 1;
 		+Weapon.NoAutoFire
 		+Weapon.NoAutoAim
-		+Weapon.CheatNotWeapon
 		Obituary "$SHDX_OB_RAINBOWER";
 	}
 	

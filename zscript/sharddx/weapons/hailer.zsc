@@ -34,7 +34,6 @@ Class SHDX_HailerWeapon : SHDX_WeatherWeapon
 		Inventory.PickupMessage "$SHDX_PICKUP_HAILER";
 		+WEAPON.NOAUTOFIRE
 		+WEAPON.NOAUTOAIM
-		+WEAPON.CHEATNOTWEAPON
 		Weapon.AmmoGive 30;
 		Weapon.AmmoUse 1;
 		Weapon.AmmoType "SHDX_HailAmmo";
