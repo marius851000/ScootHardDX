@@ -125,14 +125,10 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Player.DamageScreenColor "FF0000", 0.70;
 		Player.DamageScreenColor "FFA500", 0.70, "Explosive";
-		Player.DamageScreenColor "F0509A", 0.70, "Warp";
 		Player.DamageScreenColor "FF5800", 0.50, "Fire";
-		Player.DamageScreenColor "CD7F32", 0.70, "Expand";
-		Player.DamageScreenColor "00FF00", 0.70, "Shrink";
-		Player.DamageScreenColor "0047AB", 0.70, "Webbing";
-		Player.DamageScreenColor "00FF00", 0.70, "Bleach";
-		Player.DamageScreenColor "00FF00", 0.70, "Cancer";
-		Player.DamageScreenColor "00FF00", 0.70, "Acid";
+		Player.DamageScreenColor "00FF00", 0.70, "Spectra";
+		Player.DamageScreenColor "00FFFF", 0.70, "Lightning";
+		Player.DamageScreenColor "A5F2F3", 0.70, "Ice";
 		
 		Player.TeleportFreezeTime 0;
 		

@@ -154,7 +154,7 @@ decal SHDX_MediumScorch
 	randomflipy
 }
 
-decal DD2_SmallScorch
+decal SHDX_SmallScorch
 {
 	pic BLAST1
 	shade "00 00 00"
@@ -164,10 +164,10 @@ decal DD2_SmallScorch
 	randomflipy
 }
 
-decal DD2_FrostScorch
+decal SHDX_FrostScorch
 {
 	pic BLAST1
-	shade "07 38 91"
+	shade "A5 F2 F3"
 	x-scale 0.1
 	y-scale 0.1
 	randomflipx
@@ -182,7 +182,7 @@ generator SHDX_MaimbowBullet			SHDX_BulletChip1
 generator SHDX_FillyMissile				SHDX_MediumScorch
 generator SHDX_Missile					SHDX_Scorch
 generator SHDX_PlasmaBall				SHDX_MediumScorch
-generator SHDX_HailBall					DD2_FrostScorch
+generator SHDX_HailBall					SHDX_FrostScorch
 
 decal CWCLogoColour 1
 {
