@@ -157,15 +157,19 @@ Class SHDX_ChickenPlayer : SHDX_PlayerPawn
 			CHKN FG 5;
 			Goto Spawn;
 			
+		No:
+			CHKN H 105;
+			Goto Spawn;
+			
 		Pain:
-			CHKN H 5;
-			CHKN H 5 A_Pain;
+			CHKN I 5;
+			CHKN I 5 A_Pain;
 			Goto See;
 		
 		Death:
-			CHKN I 2 A_Scream;
-			CHKN J 2;
-			CHKN K -1;
+			CHKN J 2 A_Scream;
+			CHKN KL 2;
+			CHKN M -1;
 			Stop;
 	}
 }
@@ -210,6 +214,12 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 					snd = "weapons/chickenxno";
 				
 				A_StartSound(snd, CHAN_WEAPON);
+					
+				let o = SHDX_ChickenPlayer(invoker.Owner);
+				if (o)
+				{
+					o.SetStateLabel("No");
+				}
 			}
 			BEAK B 8;
 			BEAK A 5;
