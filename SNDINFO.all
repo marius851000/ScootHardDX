@@ -2,3 +2,4 @@ $pitchshiftrange 0
 
 generic/nullvoid		DSEMPTY					// null sound
 
+$musicvolume "music/M_TCHERN.ogg" 0.80
