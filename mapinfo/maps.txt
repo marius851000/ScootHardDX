@@ -35,7 +35,7 @@ map MAP02 lookup SHDX_MAP02
 	sucktime = 1
 	aircontrol = 0.6
 	next = "MAP03"
-	music = ""
+	music = "M_TCHERN"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
@@ -77,7 +77,7 @@ map MAP05 lookup SHDX_MAP05
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
-	music = ""
+	music = "D_SILENT"
 	sucktime = 1
 	aircontrol = 0.6
 	next = "MAP06"
@@ -97,7 +97,7 @@ map MAP06 lookup SHDX_MAP06
 	sucktime = 1
 	aircontrol = 0.6
 	next = "MAP07"
-	music = "D_SCANT"
+	music = "M_TCHERN"
 	lightning
 	
 	ExitPic = "TITLEPIC"
@@ -129,7 +129,7 @@ map MAP08 lookup SHDX_MAP08
 	sucktime = 1
 	aircontrol = 0.6
 	next = "MAP09"
-	music = ""
+	music = "M_TCHERN"
 	secretnext = "SECRET02"
 	
 	ExitPic = "TITLEPIC"
