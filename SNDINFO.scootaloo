@@ -13,6 +13,8 @@ $playersound	scootaloo  male    *land       "sounds/p_land.ogg"
 $playersound    scootaloo  male    *jump       DSEMPTY
 $playersound    scootaloo  male    *fist       DSEMPTY
 $playersound    scootaloo  male    *usefail    "sounds/usefail.ogg"
+$playersound	scootaloo  male    *dive	   "sounds/dive.ogg"
+$playersound	scootaloo  male    *surface	   "sounds/dive.ogg"
 
 $playeralias    scootaloo  female    *death      scootaloo/death
 $playeralias    scootaloo  female    *xdeath     scootaloo/death
@@ -26,6 +28,8 @@ $playersound	scootaloo  female    *land       "sounds/p_land.ogg"
 $playersound    scootaloo  female    *jump       DSEMPTY
 $playersound    scootaloo  female    *fist       DSEMPTY
 $playersound    scootaloo  female    *usefail    "sounds/usefail.ogg"
+$playersound	scootaloo  female    *dive	     "sounds/dive.ogg"
+$playersound	scootaloo  female    *surface    "sounds/dive.ogg"
 
 $playeralias    scootaloo  other    *death      scootaloo/death
 $playeralias    scootaloo  other    *xdeath     scootaloo/death
@@ -39,6 +43,8 @@ $playersound	scootaloo  other    *land       "sounds/p_land.ogg"
 $playersound    scootaloo  other    *jump       DSEMPTY
 $playersound    scootaloo  other    *fist       DSEMPTY
 $playersound    scootaloo  other    *usefail    "sounds/usefail.ogg"
+$playersound	scootaloo  other    *dive	    "sounds/dive.ogg"
+$playersound	scootaloo  other    *surface	"sounds/dive.ogg"
 
 scootaloo/death1				"sounds/scootaloo/SCOODIE1.ogg"
 scootaloo/death2				"sounds/scootaloo/SCOODIE2.ogg"
