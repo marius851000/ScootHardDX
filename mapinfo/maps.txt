@@ -46,11 +46,11 @@ defaultmap
 	LightMode = 0
 }
 
-map MAP00 lookup SHDX_MAP00
+map INTRO lookup SHDX_INTRO
 {
 	LevelNum = 0
 	Music = ""
-	Next = "MAP01"
+	Next = "E1A1"
 	EventHandlers = "SHDX_MAP00SlideshowHandler"
 	NoIntermission
 	NoAutosaveHint
@@ -61,53 +61,53 @@ map MAP00 lookup SHDX_MAP00
 	Sky1 = "SKY1"
 }
 
-map MAP01 lookup SHDX_MAP01
+map E1A1 lookup SHDX_E1A1
 {
 	sky1 = "SKY1"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "MAP02"
+	next = "E1A2"
 	music = "D_SCANT"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
 }
 
-map MAP02 lookup SHDX_MAP02
+map E1A2 lookup SHDX_E1A2
 {
 	sky1 = "SKY1"
 	cluster = 1
 	par = 75
 	sucktime = 1
-	next = "MAP03"
+	next = "E1A4"
 	music = "M_TCHERN"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
 }
 
-map MAP03 lookup SHDX_MAP03
+map E1A4 lookup SHDX_E1A4
 {
 	sky1 = "SKY1"
 	cluster = 1
 	par = 75
 	sucktime = 1
-	next = "MAP04"
+	next = "E2A1"
 	music = "D_SILENT"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
 }
 
-map MAP04 lookup SHDX_MAP04
+map E2A1 lookup SHDX_E2A1
 {
 	sky1 = "SKY2"
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "MAP05"
+	next = "E2A2"
 	music = "D_SCANT"
 	lightning
 	
@@ -115,7 +115,7 @@ map MAP04 lookup SHDX_MAP04
 	EnterPic = "TITLEPIC"
 }
 
-map MAP05 lookup SHDX_MAP05
+map E2A2 lookup SHDX_E2A2
 {
 	sky1 = "SKY2"
 	sky2 = "SKY2A"
@@ -123,22 +123,22 @@ map MAP05 lookup SHDX_MAP05
 	par = 45
 	music = "D_SILENT"
 	sucktime = 1
-	next = "MAP06"
-	secretnext = "SECRET01"
+	next = "E2A4"
+	secretnext = "E2S1"
 	lightning
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
 }
 
-map MAP06 lookup SHDX_MAP06
+map E2A4 lookup SHDX_E2A4
 {
 	sky1 = "SKY2"
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "MAP07"
+	next = "E2A5"
 	music = "M_TCHERN"
 	lightning
 	
@@ -146,14 +146,14 @@ map MAP06 lookup SHDX_MAP06
 	EnterPic = "TITLEPIC"
 }
 
-map MAP07 lookup SHDX_MAP07
+map E2A5 lookup SHDX_E2A5
 {
 	sky1 = "SKY3"
 	sky2 = "SKY3A"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "MAP08"
+	next = "E3A2"
 	music = "M_ATINT"
 	lightning
 	EventHandlers = "SHDX_AtmosphereHandler"
@@ -162,13 +162,27 @@ map MAP07 lookup SHDX_MAP07
 	EnterPic = "TITLEPIC"
 }
 
-map MAP08 lookup SHDX_MAP08
+map E2S1 lookup SHDX_E2S1
 {
 	sky1 = "SKY2"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "MAP09"
+	music = ""
+	next = "E2A4"
+	secretnext = "E2A4"
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+}
+
+map E3A2 lookup SHDX_E3A2
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E3A3"
 	music = "M_TCHERN"
 	secretnext = "SECRET02"
 	
@@ -176,20 +190,20 @@ map MAP08 lookup SHDX_MAP08
 	EnterPic = "TITLEPIC"
 }
 
-map MAP09 lookup SHDX_MAP09
+map E3A3 lookup SHDX_E3A3
 {
 	sky1 = "SKY2"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "MAP10"
+	next = "E3A4"
 	music = "D_SCANT"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
 }
 
-map MAP10 lookup SHDX_MAP10
+map E3A4 lookup SHDX_E3A4
 {
 	sky1 = "SKY2"
 	cluster = 1
@@ -199,33 +213,6 @@ map MAP10 lookup SHDX_MAP10
 	music = "D_SILENT"
 	next = "CREDITS"
 	secretnext = "CREDITS"
-	
-	ExitPic = "TITLEPIC"
-	EnterPic = "TITLEPIC"
-}
-
-map SECRET01 lookup SHDX_SECRET01
-{
-	sky1 = "SKY2"
-	cluster = 1
-	par = 45
-	sucktime = 1
-	music = ""
-	next = "MAP06"
-	secretnext = "MAP06"
-	
-	ExitPic = "TITLEPIC"
-	EnterPic = "TITLEPIC"
-}
-
-map SECRET02 lookup SHDX_SECRET02
-{
-	sky1 = "SKY2"
-	cluster = 1
-	par = 45
-	sucktime = 1
-	next = "MAP08"
-	secretnext = "MAP09"
 	
 	ExitPic = "TITLEPIC"
 	EnterPic = "TITLEPIC"
