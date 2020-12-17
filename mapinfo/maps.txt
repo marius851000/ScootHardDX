@@ -1,3 +1,51 @@
+defaultmap
+{
+	Cluster = 1
+	
+	// Time
+	Par = 70
+	SuckTime = 0	// We don't need no stinkin SuckTime
+
+	// Physics...
+	AirControl = 0.6
+	Gravity = 768
+	
+	Sky1 = "SKY1"
+	
+	Music = ""
+	
+	ExitPic = "INTERPIC"
+	EnterPic = "INTERPIC"
+	
+	// Lightning/Appearance of Level
+	SmoothLighting
+	ClipMidTextures
+	
+	UsePlayerStartZ
+
+	// Player Properties
+	AllowJump
+	AllowCrouch
+	AllowFreelook
+	AirSupply = 0
+
+	// Monster/Activation Properties
+	LaxMonsterActivation
+	MissilesActivateImpactLines
+	
+	// OpenGL Only Options (GZDoom)
+	PixelRatio = 1.0	// 1.2 is Mode X (320x200 streched vertically to 320x240)
+	/* *************************
+	0 (Standard): bright lighting model and stronger fading in bright sectors.
+	1 (Bright): bright lighting model and weaker fading in bright sectors.
+	2 (Doom): dark lighting model and weaker fading in bright sectors but brightness nearby (req. GLSL)
+	3 (Dark): dark lighting model and weaker fading in bright sectors.
+	4 (Legacy): Emulates lighting of Legacy 1.4's GL renderer.
+	8 (Software): Emulates Doom software lighting, Requires GLSL 1.30 or greater (OpenGL 3.0+).
+	************************* */
+	LightMode = 0
+}
+
 map MAP00 lookup SHDX_MAP00
 {
 	LevelNum = 0
@@ -19,7 +67,6 @@ map MAP01 lookup SHDX_MAP01
 	cluster = 1
 	par = 45
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP02"
 	music = "D_SCANT"
 	
@@ -33,7 +80,6 @@ map MAP02 lookup SHDX_MAP02
 	cluster = 1
 	par = 75
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP03"
 	music = "M_TCHERN"
 	
@@ -47,7 +93,6 @@ map MAP03 lookup SHDX_MAP03
 	cluster = 1
 	par = 75
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP04"
 	music = "D_SILENT"
 	
@@ -62,7 +107,6 @@ map MAP04 lookup SHDX_MAP04
 	cluster = 1
 	par = 45
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP05"
 	music = "D_SCANT"
 	lightning
@@ -79,7 +123,6 @@ map MAP05 lookup SHDX_MAP05
 	par = 45
 	music = "D_SILENT"
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP06"
 	secretnext = "SECRET01"
 	lightning
@@ -95,7 +138,6 @@ map MAP06 lookup SHDX_MAP06
 	cluster = 1
 	par = 45
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP07"
 	music = "M_TCHERN"
 	lightning
@@ -111,7 +153,6 @@ map MAP07 lookup SHDX_MAP07
 	cluster = 1
 	par = 45
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP08"
 	music = "M_ATINT"
 	lightning
@@ -127,7 +168,6 @@ map MAP08 lookup SHDX_MAP08
 	cluster = 1
 	par = 45
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP09"
 	music = "M_TCHERN"
 	secretnext = "SECRET02"
@@ -142,7 +182,6 @@ map MAP09 lookup SHDX_MAP09
 	cluster = 1
 	par = 45
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP10"
 	music = "D_SCANT"
 	
@@ -156,7 +195,6 @@ map MAP10 lookup SHDX_MAP10
 	cluster = 1
 	par = 45
 	sucktime = 1
-	aircontrol = 0.6
 	EventHandlers = "SHDX_PreBoss3SlideshowHandler", "SHDX_AtmosphereHandler"
 	music = "D_SILENT"
 	next = "CREDITS"
@@ -172,7 +210,6 @@ map SECRET01 lookup SHDX_SECRET01
 	cluster = 1
 	par = 45
 	sucktime = 1
-	aircontrol = 0.6
 	music = ""
 	next = "MAP06"
 	secretnext = "MAP06"
@@ -187,7 +224,6 @@ map SECRET02 lookup SHDX_SECRET02
 	cluster = 1
 	par = 45
 	sucktime = 1
-	aircontrol = 0.6
 	next = "MAP08"
 	secretnext = "MAP09"
 	

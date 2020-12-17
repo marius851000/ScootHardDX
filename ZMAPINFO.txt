@@ -6,8 +6,6 @@ include "mapinfo/doomednum.txt"
 
 include "mapinfo/spawnid.txt"
 
-include "mapinfo/defaultmap.txt"
-
 include "mapinfo/episodes.txt"
 
 include "mapinfo/skills.txt"
