@@ -75,7 +75,7 @@ Class SHDX_PegapolMale : SHDX_Enemy
 		// DropItem "SHBitCoinPickupGold" 127
 		// DropItem "SHSubmachineGun" 32
 		Tag "$SHDX_TAG_PEGAPOL";
-		Species "Pegasi";
+		Species "Pony";
 	}
 	
 	int flyingmode;

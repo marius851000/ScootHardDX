@@ -57,7 +57,7 @@ Class SHDX_Engineer : SHDX_Enemy
 		DeathSound "engineer/death";
 		ActiveSound "engineer/active";
 		Obituary "$SHDX_OB_ENGINEER";
-		Species "Pegasi";
+		Species "Pony";
 		// DropItem "SHBitCoinPickupGold" 127
 		Tag "$SHDX_TAG_ENGINEER";
 	}

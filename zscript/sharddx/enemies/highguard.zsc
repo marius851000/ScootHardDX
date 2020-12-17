@@ -82,7 +82,7 @@ Class SHDX_HighGuard : SHDX_Enemy
 		ActiveSound "hguard1/active";
 		Obituary "$SHDX_OB_HIGHGUARD";
 		Tag "$SHDX_TAG_HIGHGUARD";
-		Species "Pegasi";
+		Species "Pony";
 	}
 	
 	void A_DropItemsHighGuard()
