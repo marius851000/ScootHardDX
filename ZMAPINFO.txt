@@ -10,6 +10,8 @@ include "mapinfo/episodes.txt"
 
 include "mapinfo/skills.txt"
 
+include "mapinfo/gamedefaults.txt"
+
 include "mapinfo/cluster.txt"
 
 include "mapinfo/titlemap.txt"
