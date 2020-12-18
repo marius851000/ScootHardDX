@@ -29,7 +29,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite SURPA0
+		//$Sprite SURPA1
 		//$Title "Boss 1 - Ms. Surprise"
 		
 		Health 1200;
@@ -246,7 +246,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 				A_StartSound("boss1/surprisefloorpeel", CHAN_VOICE, attenuation:ATTN_NONE);
 				bCanJump = false;
 			}
-			SURP H 150;
+			SURP H 220;
 			SURP H 0
 			{
 				A_SurpriseLowerFloor();
