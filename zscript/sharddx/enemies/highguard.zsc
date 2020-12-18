@@ -128,7 +128,6 @@ Class SHDX_HighGuard : SHDX_Enemy
 			HIGH K 3;
 			HIGH K 3 A_Pain;
 			Goto See;
-		Pain2:
 		Death:
 			HIGH L 5 A_NewScream;
 			HIGH M 5
@@ -246,3 +245,129 @@ Class SHDX_HighGuardFemale : SHDX_HighGuardMale
 	}
 }
 */
+
+Class SHDX_RocketGuardMissile : SHDX_Missile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 30;
+		Damage 6;
+		Projectile;
+		+RANDOMIZE
+		DamageType "Explosive";
+		SeeSound "weapons/rocketf";
+		DeathSound "weapons/rocketx";
+		Obituary "$SHDX_OB_MISSILE";
+	}
+	
+	States
+	{
+		Spawn:
+			MISL A 1 Bright;
+			Loop;
+		
+		Death:
+			EXPL A 0 Bright
+			{
+				SHDX_Utilities.DoExplosion(self, 24, 32, 64, DamageType:'Explosive');
+			}
+			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
+			EXPL BCDEFGHI 3 Bright;
+			Stop;
+	}
+}
+
+Class SHDX_RocketGuard : SHDX_HighGuard
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite HIGHI2
+		//$Title "Rocket Guard"
+		
+		Health 100;
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 8;
+		PainChance 96;
+		DamageFactor "Explosive", 0.50;
+		Obituary "$SHDX_OB_ROCKETGUARD";
+		Tag "$SHDX_TAG_ROCKETGUARD";
+		Species "Pony";
+		
+		Translation "96:111=17:21", "136:143=234:239";
+	}
+	
+	void A_DropItemsRocketGuard()
+	{
+		if (target && target.CountInv("SHDX_BitCoin") < 50)
+		{
+			A_SHDX_DropItem("SHDX_SilverBitCoin", false);
+		}
+	}
+	
+	void A_RocketGuardFire()
+	{
+		A_SpawnProjectile("SHDX_RocketGuardMissile", 32, -16);
+		A_SpawnProjectile("SHDX_RocketGuardMissile", 32, 16);
+	}
+	
+	States
+	{
+		Missile:
+			HIGH A 40
+			{
+				bNoPain = true;
+				A_StartSound("rocketguard/loading", CHAN_WEAPON, attenuation:0.5);
+				A_FaceTarget();
+			}
+			HIGH A 2 A_FaceTarget;
+			HIGH I 2 Bright A_RocketGuardFire;
+			HIGH J 2
+			{
+				bNoPain = false;
+			}
+			Goto See;
+		Pain:
+			HIGH K 3;
+			HIGH K 3 A_Pain;
+			Goto See;
+		Death:
+			HIGH L 5 A_NewScream;
+			HIGH M 5
+			{
+				A_NoBlocking();
+				A_DropItemsRocketGuard();
+			}
+			HIGH N 5;
+			HIGH O -1 A_SetCorpseShootable;
+			Stop;
+		Ice:
+			HIGH K 5
+			{
+				A_GenericFreezeDeath();
+			}
+			HIGH K 1
+			{
+				A_FreezeDeathChunks();
+			}
+			Wait;
+		Death.Explosive:
+		Death.Weather:
+		Death.Extreme:
+		XDeath:
+			GIBX A 3
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsRocketGuard();
+				A_SpawnGibsFx(self);
+			}
+			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBX BC 5;
+			GIBX D -1;
+			Stop;
+	}
+}

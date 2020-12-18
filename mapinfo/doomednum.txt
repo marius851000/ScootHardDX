@@ -14,6 +14,8 @@ DoomEdNums
 	6011 = SHDX_HeavyEnforcer
 	6012 = SHDX_LightEnforcer
 	
+	6013 = SHDX_RocketGuard
+	
 	6050 = SHDX_BossSpot
 	6051 = SHDX_SurpriseBoss
 	6052 = SHDX_DrAtmosphereBoss

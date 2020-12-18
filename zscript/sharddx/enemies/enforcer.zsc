@@ -141,6 +141,74 @@ Class SHDX_ClusterGrenade2 : SHDX_ClusterGrenade
 	}
 }
 
+Class SHDX_WhipProjectile : SHDX_Projectile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 50;
+		Damage 2;
+		Projectile;
+		+RANDOMIZE
+		DamageType "Whip";
+		SeeSound "enforcer/whipattack";
+		ActiveSound "enforcer/whipswish";
+		Translation "112:127=16:23";
+		
+		+SEEKERMISSILE
+	}
+	
+	override int DoSpecialDamage (Actor victim, int damage, Name damagetype)
+	{
+		if (victim != NULL && target != NULL && !victim.bDontThrust)
+		{
+			Vector3 thrust = victim.Vec3To(target);
+			victim.Vel += thrust.Unit() * (255. * 50 / max(victim.Mass, 1));
+		}
+		return damage;
+	}
+	
+	void A_WhipChain()
+	{
+		A_SeekerMissile(32, 4);
+		A_StartSound("enforcer/whipactive", CHAN_BODY);
+		Spawn("SHDX_WhipProjectile2", pos, ALLOW_REPLACE);
+		Spawn("SHDX_WhipProjectile2", Vec3Offset(-vel.x/2., -vel.y/2., -vel.z/2.), ALLOW_REPLACE);
+		Spawn("SHDX_WhipProjectile2", Vec3Offset(-vel.x, -vel.y, -vel.z), ALLOW_REPLACE);
+	}
+	
+	States
+	{
+		Spawn:
+			PLAS AB 2 Bright A_WhipChain;
+			Loop;
+		Death:
+			PLAS C 2 Bright;
+			PLAS DE 2;
+			Stop;
+	}
+}
+
+Class SHDX_WhipProjectile2 : SHDX_Actor
+{
+	Default
+	{
+		Scale 0.06;
+		Translation "112:127=16:23";
+		
+		+NOBLOCKMAP
+		+NOGRAVITY
+	}
+	
+	States
+	{
+		Spawn:
+			PLAS AB 10;
+			Stop;
+	}
+}
+
 Class SHDX_HeavyEnforcer : SHDX_Enemy
 {
 	Default
@@ -165,12 +233,21 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 		Species "Pony";
 		DamageFactor "Bullet", 0.25;
 		DamageFactor "Explosive", 0.50;
-		DamageFactor "Rainbower", 0.25;
-		DamageFactor "RainbowerX", 0.25;
+		DamageFactor "Rainbower", 0.1;
+		DamageFactor "RainbowerX", 0.1;
 		
 		-SHDX_Enemy.CanJump
 		
 		+SHIELDREFLECT
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (whipcooldown > 0 && level.time % TICRATE == 0)
+		{
+			whipcooldown--;
+		}
 	}
 	
 	void A_ClusterGrenadeFire()
@@ -178,6 +255,8 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 		A_StartSound("enforcer/clusterbombf", CHAN_WEAPON);
 		A_SpawnProjectile("SHDX_ClusterGrenade", 40, -4);
 	}
+	
+	int whipcooldown;
 	
 	States
 	{		
@@ -190,6 +269,14 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 		Missile:
 			ENFO B 0
 			{
+				if (target)
+				{
+					Vector3 vecd = LevelLocals.Vec3Diff(pos, target.pos);
+					if (whipcooldown <= 0 && vecd.z > height && !CheckMeleeRange() && Distance3D(target) <= 512)
+					{
+						return ResolveState("Missile.Whip");	
+					}
+				}
 				if (CheckMeleeRange())
 					return ResolveState("ShieldsUp");
 					
@@ -199,6 +286,16 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			ENFO F 2 A_FaceTarget;
 			ENFO G 4 Bright A_ClusterGrenadeFire;
 			Goto See;
+		Missile.Whip:
+			ENFO I 4 A_FaceTarget;
+			ENFO I 4
+			{
+				A_FaceTarget();
+				A_SpawnProjectile("SHDX_WhipProjectile");
+				whipcooldown = 5;
+			}
+			ENFO I 4;
+			Goto ShieldsUp;
 		Pain:
 			ENFO J 3;
 			ENFO J 3 A_Pain;
@@ -236,7 +333,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			}
 			ENFO M 5;
 			ENFO N 85;
-			ENFO O 0 A_StartSound("enforcer/collarbeep", CHAN_BODY);
+			ENFO O 0 A_StartSound("enforcer/collarbeep", CHAN_BODY, attenuation:0.5);
 			ENFO OPOPOP 5;
 			EXPL A 0
 			{
@@ -371,8 +468,8 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		Species "Pony";
 		DamageFactor "Bullet", 0.25;
 		DamageFactor "Explosive", 0.50;
-		DamageFactor "Rainbower", 0.25;
-		DamageFactor "RainbowerX", 0.25;
+		DamageFactor "Rainbower", 0.1;
+		DamageFactor "RainbowerX", 0.1;
 		
 		-SHDX_Enemy.CanJump
 		
@@ -442,7 +539,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 			}
 			ENF2 L 5;
 			ENF2 M 85;
-			ENF2 N 0 A_StartSound("enforcer/collarbeep", CHAN_BODY);
+			ENF2 N 0 A_StartSound("enforcer/collarbeep", CHAN_BODY, attenuation:0.5);
 			ENF2 NONONO 5;
 			EXPL A 0
 			{
