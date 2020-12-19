@@ -6,7 +6,7 @@ class SHDX_SurpriseHandler : EventHandler
 	
 	int rocketguardtics;
 	
-	const TIMETOSPAWNROCKETGUARDS = (TICRATE * 15);
+	const TIMETOSPAWNROCKETGUARDS = (TICRATE * 30);
 	const TIMETOCOPYARRAY = (TICRATE * 10);
 	
 	override void WorldTick()
