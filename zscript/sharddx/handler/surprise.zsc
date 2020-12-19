@@ -1,0 +1,139 @@
+class SHDX_SurpriseHandler : EventHandler
+{
+	SHDX_SurpriseBoss surpboss;
+	
+	Array<SHDX_RocketGuard> rgs;
+	
+	int rocketguardtics;
+	
+	const TIMETOSPAWNROCKETGUARDS = (TICRATE * 15);
+	const TIMETOCOPYARRAY = (TICRATE * 10);
+	
+	override void WorldTick()
+	{
+		// BossInfoTick();
+		PruneRocketGuardFromArray();
+		SurpriseRoutine();
+	}
+	
+	override void WorldThingSpawned(WorldEvent e)
+	{
+		CheckIfSpawnedRocketGuard(e.Thing);
+		CheckIfSpawnedSurprise(e.Thing);
+	}
+	
+	override void WorldThingDied(WorldEvent e)
+	{
+		CheckIfKilledRocketGuard(e.Thing);
+	}
+	
+	void CheckIfSpawnedRocketGuard(Actor a)
+	{
+		let r = SHDX_RocketGuard(a);
+		if (r)
+		{
+			rgs.Push(r);
+		}
+	}
+	
+	void CheckIfSpawnedSurprise(Actor a)
+	{
+		let s = SHDX_SurpriseBoss(a);
+		if (s)
+		{
+			surpboss = s;
+		}
+	}
+	
+	void SurpriseRoutine()
+	{		
+		if (surpboss)
+		{
+			if (surpboss.isactive)
+			{
+				rocketguardtics++;
+				if (rocketguardtics >= TIMETOSPAWNROCKETGUARDS)
+				{
+					SpawnRocketGuardsFromSpots();
+					rocketguardtics = 0;
+				}
+				if (surpboss.health <= 0)
+				{
+					KillRocketGuards();
+					surpboss = null;
+				}
+			}
+		}
+	}
+	
+	void KillRocketGuards()
+	{
+		ThinkerIterator rgit = ThinkerIterator.Create("SHDX_RocketGuard");
+		SHDX_RocketGuard rg;
+		
+		// iterate through the spots
+		while (rg = SHDX_RocketGuard(rgit.Next()))
+		{
+			// if spot exists
+			if (rg)
+			{
+				rg.A_Die('Extreme');
+			}
+		}
+	}
+	
+	void SpawnRocketGuardsFromSpots()
+	{
+		ThinkerIterator rgspotit = ThinkerIterator.Create("SHDX_RocketGuardSpot");
+		SHDX_RocketGuardSpot rgspot;
+		
+		// iterate through the spots
+		while (rgspot = SHDX_RocketGuardSpot(rgspotit.Next()))
+		{
+			// if spot exists
+			if (rgspot)
+			{
+				rgspot.SetStateLabel("SpawnInRocketGuard");
+			}
+		}
+	}
+	
+	void CheckIfKilledRocketGuard(Actor a)
+	{
+		let r = SHDX_RocketGuard(a);
+		if (r)
+		{
+			int s = rgs.Find(r);
+			
+			if (s >= rgs.Size())
+				return;
+				
+			rgs.Delete(s);
+		}
+	}
+	
+	void PruneRocketGuardFromArray()
+	{
+		if (level.time % TIMETOCOPYARRAY == 0)
+		{
+			int size = rgs.Size();
+			
+			if (size < 1)
+				return;
+			
+			if (rgs.Find(null) >= size)
+				return;
+			
+			Array<SHDX_RocketGuard> tempitems;
+			for (int i = 0; i < size; i++)
+			{
+				if (rgs[i] && rgs[i].health > 0)
+				{
+					tempitems.Push(rgs[i]);
+				}
+			}
+			
+			rgs.Move(tempitems);
+		}
+	}
+}

@@ -22,6 +22,7 @@ DoomEdNums
 	6052 = SHDX_DrAtmosphereBoss
 	6053 = SHDX_ZombieSpot
 	6054 = SHDX_MaimbowUndashBoss
+	6055 = SHDX_RocketGuardSpot
 	
 	6500 = SHDX_SubmachineGun
 	6502 = SHDX_MissileLauncher

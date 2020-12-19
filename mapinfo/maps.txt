@@ -38,6 +38,7 @@ map E1A4 lookup SHDX_E1A4
 	sucktime = 1
 	next = "E2A1"
 	music = "D_SILENT"
+	EventHandlers = "SHDX_SurpriseHandler"
 }
 
 map E2A1 lookup SHDX_E2A1
