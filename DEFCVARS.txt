@@ -7,7 +7,7 @@ name "Scootaloo"
 gender "female"
 dlg_musicvolume 0.2
 snd_sfxvolume 0.5
-snd_waterreverb false
+snd_waterreverb true
 snd_channels 256
 gl_lightmode 2
 gl_texture_filter 6
