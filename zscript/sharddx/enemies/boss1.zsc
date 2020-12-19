@@ -77,7 +77,12 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 	
 	void A_SurpriseSetBossMusic()
 	{
-		S_ChangeMusic("D_SAD");
+		S_ChangeMusic("M_SURP");
+	}
+	
+	void A_SurpriseSetBossVictoryMusic()
+	{
+		S_ChangeMusic("M_SURPV", 0, false);
 	}
 	
 	void A_SurpriseTaunt()	
@@ -265,14 +270,14 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
 				A_NewBossScream();
-				A_VictoryMusic();
+				A_SurpriseSetBossVictoryMusic();
 			}
 			SURP H 105;
 			SURP I 5 A_NoBlocking;
 			SURP J 5 A_SpawnGibsFx(self);
 			SURP KLM 5;
 			SURP M 0 A_SHDX_SendOLToAllPlayers("surpriseend", OLSSF_FORCEONELINER);
-			SURP M 105;
+			SURP M 235;
 			SURP M 1 A_DD2_BossPlayCutscene();
 			SURP M -1 A_DD2_BossEndLevel();
 			Stop;
