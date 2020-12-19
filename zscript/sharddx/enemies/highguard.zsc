@@ -378,7 +378,7 @@ Class SHDX_GrenadeGuard : SHDX_HighGuard
 	{
 		//$Category "Monsters"
 		//$Sprite HIGHJ2
-		//$Title "Rocket Guard"
+		//$Title "Grenade Guard"
 		
 		Health 100;
 		Radius 20;
