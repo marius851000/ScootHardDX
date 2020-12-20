@@ -300,6 +300,12 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			ENFO J 3;
 			ENFO J 3 A_Pain;
 			Goto ShieldsUp;
+		Pain.Lightning:
+			ENFO J 0 A_SetElectrocutionTranslation();
+			ENFO J 3;
+			ENFO J 3 A_Pain;
+			ENFO J 0 A_ResetTranslation();
+			Goto ShieldsUp;
 		ShieldsUp:
 			ENFO H 0
 			{
@@ -505,6 +511,12 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		Pain:
 			ENF2 I 3;
 			ENF2 I 3 A_Pain;
+			Goto ShieldsUp;
+		Pain.Lightning:
+			ENF2 I 0 A_SetElectrocutionTranslation();
+			ENF2 I 3;
+			ENF2 I 3 A_Pain;
+			ENF2 I 0 A_ResetTranslation();
 			Goto ShieldsUp;
 		ShieldsUp:
 			ENF2 H 0

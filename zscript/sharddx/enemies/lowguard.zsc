@@ -114,7 +114,14 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 			GRD1 H 3;
 			GRD1 H 3 A_Pain;
 			Goto See;
+		Pain.Lightning:
+			GRD1 H 0 A_SetElectrocutionTranslation();
+			GRD1 H 3;
+			GRD1 H 3 A_Pain;
+			GRD1 H 0 A_ResetTranslation();
+			Goto See;
 		Death:
+			GRD1 I 0 A_ResetTranslation();
 			GRD1 I 5 A_NewScream;
 			GRD1 J 5
 			{
@@ -128,6 +135,7 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 		Death.Weather:
 		Death.Extreme:
 		XDeath:
+			GIBX A 0 A_ResetTranslation();
 			GIBX A 3
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
@@ -192,6 +200,12 @@ Class SHDX_LowGuardFemale : SHDX_LowGuardMale
 			GRD2 H 3;
 			GRD2 H 3 A_Pain;
 			Goto See;
+		Pain.Lightning:
+			GRD2 H 0 A_SetElectrocutionTranslation();
+			GRD2 H 3;
+			GRD2 H 3 A_Pain;
+			GRD2 H 0 A_ResetTranslation();
+			Goto See;
 		Ice:
 			GRD2 H 5
 			{
@@ -203,6 +217,7 @@ Class SHDX_LowGuardFemale : SHDX_LowGuardMale
 			}
 			Wait;
 		Death:
+			GRD2 I 0 A_ResetTranslation();
 			GRD2 I 5 A_NewScream;
 			GRD2 J 5
 			{

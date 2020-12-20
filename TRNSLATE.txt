@@ -1,3 +1,5 @@
+Electrocution = "0:255=%[0.00,1.01,1.51]:[1.10,1.56,2.00]"
+
 ExplodingZombie2 = "96:111=32:47"
 ExplodingZombie3 = "96:111=16:31"
 ExplodingZombie4 = "96:111=16:23"

@@ -109,7 +109,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Player.WeaponSlot 1, "SHDX_Blaster";
 		Player.WeaponSlot 2, "SHDX_SubmachineGun";
-		Player.WeaponSlot 3, "SHDX_HailerWeapon";
+		Player.WeaponSlot 3, "SHDX_HailerWeapon", "SHDX_LightningGun";
 		Player.WeaponSlot 4, "SHDX_MissileLauncher", "SHDX_FillySeeker";
 		Player.WeaponSlot 5, "SHDX_Tornadozer", "SHDX_Rainbower"; 
 

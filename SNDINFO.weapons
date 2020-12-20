@@ -13,10 +13,12 @@ weapons/tornadoch		"sounds/electric.ogg"	// needs a better sound
 weapons/tornadof		"sounds/weapons/tornado_projectile.ogg"
 weapons/hailf			"sounds/electric.ogg"
 weapons/hailx			"sounds/glass_break.ogg"
+weapons/lightningf		"sounds/weapons/plasma_fire.ogg"
+weapons/lightningx		"sounds/weapons/plasma_shotx.ogg"
+
 
 weapons/cluck			"sounds/chicken01.ogg"		// Chicken Cluck Noise
 weapons/chickenx		"sounds/chicken04.ogg"		// Higher Pitched Chicken Noise
 weapons/chickenxno		"sounds/no.ogg"				// Dr. Robotnik No
 
 weapons/fillyh			"sounds/weapons/homingrocketflight.ogg"
-

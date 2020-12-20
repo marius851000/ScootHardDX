@@ -1,0 +1,103 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_LightningGunAmmo : Ammo
+{
+	Default
+	{
+		Inventory.MaxAmount 100;
+		Ammo.BackpackAmount 0;
+		Ammo.BackpackMaxAmount 100;
+	}
+}
+
+Class SHDX_LightningGun : SHDX_WeatherWeapon
+{
+	Default
+	{
+		//$Title "Lightning Gun"
+		//$Sprite LGUNA0
+		
+		Tag "$SHDX_TAG_LIGHTNINGGUN";
+		Weapon.SelectionOrder 500;
+		Inventory.PickupMessage "$SHDX_PICKUP_LIGHTNINGGUN";
+		+WEAPON.NOAUTOFIRE
+		+WEAPON.NOAUTOAIM
+		Weapon.AmmoGive 100;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoType "SHDX_LightningGunAmmo";
+		Obituary "$SHDX_OB_LIGHTNINGGUN";
+	}
+	States
+	{
+		Spawn: 
+			LGUN A -1;
+			LOOP;
+		Ready: 
+			LTGG A 1 A_WeaponReady;
+			LOOP;
+		Deselect: 
+			LTGG A 1 A_Lower(10);
+			LOOP;
+		Select:
+			LTGG A 1 A_Raise(10);
+			Loop;
+		Flash:
+			LTGF ABCDABCDAB 2 A_Light1;
+			goto LightDone;
+		Fire: 
+			LTGG A 0 A_GunFlash;
+			LTGG A 2 A_FireProjectile("SHDX_LightningGunPlasmaBall");
+			LTGG B 2;
+			LTGG C 2 A_FireProjectile("SHDX_LightningGunPlasmaBall");
+			LTGG D 2;
+			LTGG A 2 A_FireProjectile("SHDX_LightningGunPlasmaBall");
+			LTGG B 2;
+			LTGG C 2 A_FireProjectile("SHDX_LightningGunPlasmaBall");
+			LTGG D 2;
+			LTGG A 2 A_FireProjectile("SHDX_LightningGunPlasmaBall");
+			LTGG B 2;
+			LTGG CD 2;
+			LTGG A 0 A_ReFire;
+			Goto Ready;
+	}
+}
+
+
+Class SHDX_LightningGunPlasmaBall : SHDX_Projectile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 20;
+		Damage 6;
+		Projectile;
+		+RANDOMIZE
+		DamageType "Lightning";
+		SeeSound "weapons/lightningf";
+		DeathSound "weapons/lightningx";
+	}
+	
+	States
+	{
+		Spawn:
+			PLAS AB 1 Bright;
+			Loop;
+		Death:
+			PLAS C 2 Bright;
+			PLAS DE 2;
+			Stop;
+	}
+}

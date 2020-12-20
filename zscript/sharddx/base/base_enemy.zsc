@@ -70,6 +70,24 @@ Class SHDX_Enemy : SHDX_Actor
 	int leveltimemod;	// [SW] - Replaces Kinsie's timer mainly for debugging
 						// I put it here
 	
+	uint startingtranslation;
+	
+	override void BeginPlay()
+	{
+		startingtranslation = translation;
+		Super.BeginPlay();	// hmmm...
+	}
+	
+	void A_SetElectrocutionTranslation()
+	{
+		A_SetTranslation('Electrocution');
+	}
+	
+	void A_ResetTranslation()
+	{
+		translation = startingtranslation;
+	}
+	
 	// [SW] - Do Modulus instead of relying on timers
 	void GetLevelTimeMask()
 	{

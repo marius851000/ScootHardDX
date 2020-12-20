@@ -197,14 +197,7 @@ Class SHDX_ZombieExplosive : SHDX_Enemy
 		-SHDX_Enemy.CanJump
 	}
 	
-	int startingtranslation;
 	bool giveoneliner;
-	
-	override void BeginPlay()
-	{
-		startingtranslation = translation;
-		Super.BeginPlay();	// hmmm...
-	}
 	
 	States
 	{	
@@ -236,7 +229,6 @@ Class SHDX_ZombieExplosive : SHDX_Enemy
 			}
 			Goto See1;
 		Melee.Detonate:
-
 			ZMBE E 5 A_SetTranslation('ExplodingZombie4');
 			ZMBE E 1 A_Die('Detonate');
 		Death.Detonate:
