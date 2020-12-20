@@ -18,8 +18,8 @@ Class SHDX_MiniSentryHailBall : SHDX_HailBall
 	{
 		Radius 11;
 		Height 8;
-		Speed 24;
-		Damage 7;
+		Speed 20;
+		Damage 3;
 		DamageType "Ice";
 		SeeSound "weapons/hailf";
 		DeathSound "weapons/hailx";

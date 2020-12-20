@@ -164,7 +164,7 @@ Class SHDX_Engineer : SHDX_Enemy
 		Missile:
 			ENG1 F 0
 			{
-				if (!deployedsentry && target && CheckIfTargetInLOS(90, 0, 0, 0) && Distance3D(target) <= 768)
+				if (!deployedsentry && target && CheckIfTargetInLOS(90, 0, 0, 0))
 					return ResolveState("Sentry");
 					
 				return ResolveState(null);
