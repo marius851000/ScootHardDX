@@ -168,9 +168,10 @@ PLAYING THE GAME (WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4,,,,,,,,,,,,,,,,,,,,,
 "Missile Weapons:
 Missile Launcher - Shoots a straight firing missile. Contains 10 shots.
 Fillyseeker - Shoots a homing missile. Contains 7 shots.
+Hailer - Shoots several freezing projectiles at once. Contains 30 shots.
+Lightning Gun - Shoots lighting balls in volleys of five. Contains 100 shots.
 Rainbower - Portable Death. Contains 5 shots.
-Tornadozer - A tornado that instagibs anything less than a boss. Contains 5 shots.
-Hailer - Shoots several freezing projectiles at once. Contains 30 shots.",SHDX_HELP_MENU4,,,,,,,,,,,,,,,,,,,,,,,
+Tornadozer - A tornado that instagibs anything less than a boss. Contains 5 shots.",SHDX_HELP_MENU4,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (VENDING),SHDX_HELP_HEADER_MENU5,,,,,,,,,,,,,,,,,,,,,,,
 "Vending Machines cost 1 bit for an apple, 5 for a hot meal on
 Easy. This is increased by 2x on Medium, and 3x on Hard and
@@ -210,11 +211,11 @@ direction while you are gliding.",SHDX_HELP_MENU8,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (ARMOR SYSTEM),SHDX_HELP_HEADER_MENU9,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo can equip three armor types.
 
-Bulletproof Armor - Provides resistance to bullets.
-Fireproof Armor - Provides resistance to explosives.
-Weatherproof Armor - Provides resistance to lightning and wind.
-
-These can stack. Picking up one gives you 100.",SHDX_HELP_MENU9,,,,,,,,,,,,,,,,,,,,,,,
+Basic Armor - Provides 50 points of all three armors.
+Bulletproof Armor - Provides 100 points of bullet armor.
+Fireproof Armor - Provides 1000 points of fire armor.
+Weatherproof Armor - Provides 100 points of weather armor.
+Super Armor - Provides 150 points of all three armors.",SHDX_HELP_MENU9,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (CHICKEN MODE),SHDX_HELP_HEADER_MENU10,,,,,,,,,,,,,,,,,,,,,,,
 "Occasionally you might find hidden, or in plain sight,
 mystical buckets of chicken labeled 'EFS'. These Eldritch
