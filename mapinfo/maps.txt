@@ -2,58 +2,58 @@ map INTRO lookup SHDX_INTRO
 {
 	LevelNum = 0
 	Music = ""
-	Next = "E1A1"
-	EventHandlers = "SHDX_MAP00SlideshowHandler"
+	Next = "E1M1"
+	EventHandlers = "SHDX_IntroSlideshowHandler"
 	NoIntermission
 	NoAutosaveHint
 	
 	Sky1 = "SKY1"
 }
 
-map E1A1 lookup SHDX_E1A1
+map E1M1 lookup SHDX_E1A1
 {
 	sky1 = "SKY1"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "E1A2"
+	next = "E1M2"
 	music = "D_SCANT"
 }
 
-map E1A2 lookup SHDX_E1A2
+map E1M2 lookup SHDX_E1A2
 {
 	sky1 = "SKY1"
 	cluster = 1
 	par = 75
 	sucktime = 1
-	next = "E1A4"
+	next = "E1M4"
 	music = "M_TCHERN"
 }
 
-map E1A4 lookup SHDX_E1A4
+map E1M4 lookup SHDX_E1A4
 {
 	sky1 = "SKY1"
 	cluster = 1
 	par = 75
 	sucktime = 1
-	next = "E2A1"
+	next = "E2M1"
 	music = "D_SILENT"
 	EventHandlers = "SHDX_SurpriseHandler"
 }
 
-map E2A1 lookup SHDX_E2A1
+map E2M1 lookup SHDX_E2A1
 {
 	sky1 = "SKY2"
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "E2A2"
+	next = "E2M2"
 	music = "D_SCANT"
 	lightning
 }
 
-map E2A2 lookup SHDX_E2A2
+map E2M2 lookup SHDX_E2A2
 {
 	sky1 = "SKY2"
 	sky2 = "SKY2A"
@@ -61,12 +61,12 @@ map E2A2 lookup SHDX_E2A2
 	par = 45
 	music = "D_SILENT"
 	sucktime = 1
-	next = "E2A4"
+	next = "E2M4"
 	secretnext = "E2S1"
 	lightning
 }
 
-map E2A3 lookup SHDX_E2A3
+map E2M3 lookup SHDX_E2A3
 {
 	sky1 = "SKY2"
 	sky2 = "SKY2A"
@@ -74,30 +74,30 @@ map E2A3 lookup SHDX_E2A3
 	par = 45
 	music = "D_SILENT"
 	sucktime = 1
-	next = "E2A4"
+	next = "E2M4"
 	lightning
 }
 
-map E2A4 lookup SHDX_E2A4
+map E2M4 lookup SHDX_E2A4
 {
 	sky1 = "SKY2"
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "E2A5"
+	next = "E2M5"
 	music = "M_TCHERN"
 	lightning
 }
 
-map E2A5 lookup SHDX_E2A5
+map E2M5 lookup SHDX_E2A5
 {
 	sky1 = "SKY3"
 	sky2 = "SKY3A"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "E3A2"
+	next = "E3M2"
 	music = "M_ATINT"
 	lightning
 	EventHandlers = "SHDX_AtmosphereHandler"
@@ -110,43 +110,43 @@ map E2S1 lookup SHDX_E2S1
 	par = 45
 	sucktime = 1
 	music = ""
-	next = "E2A4"
-	secretnext = "E2A4"
+	next = "E2M4"
+	secretnext = "E2M4"
 }
 
-map E3A1 lookup SHDX_E3A1
+map E3M1 lookup SHDX_E3A1
 {
 	sky1 = "SKY2"
 	cluster = 1
 	par = 45
 	music = "D_SILENT"
 	sucktime = 1
-	next = "E3A2"
+	next = "E3M2"
 	lightning
 }
 
-map E3A2 lookup SHDX_E3A2
+map E3M2 lookup SHDX_E3A2
 {
 	sky1 = "SKY2"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "E3A3"
+	next = "E3M3"
 	music = "M_TCHERN"
 	secretnext = "SECRET02"
 }
 
-map E3A3 lookup SHDX_E3A3
+map E3M3 lookup SHDX_E3A3
 {
 	sky1 = "SKY2"
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "E3A4"
+	next = "E3M4"
 	music = "D_SCANT"
 }
 
-map E3A4 lookup SHDX_E3A4
+map E3M4 lookup SHDX_E3A4
 {
 	sky1 = "SKY2"
 	cluster = 1

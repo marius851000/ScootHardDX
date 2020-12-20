@@ -1,8 +1,7 @@
 version 219
-vid_preferbackend  1
 freelook true
 am_textured true
-wipetype 0
+wipetype 3
 name "Scootaloo"
 gender "female"
 dlg_musicvolume 0.2

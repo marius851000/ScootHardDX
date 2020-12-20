@@ -73,7 +73,7 @@ class SHDX_SlideshowHandler : EventHandler
 	}
 }
 
-class SHDX_MAP00SlideshowHandler : SHDX_SlideshowHandler
+class SHDX_IntroSlideshowHandler : SHDX_SlideshowHandler
 {
 	override void OnRegister()
 	{
