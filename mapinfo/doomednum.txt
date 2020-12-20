@@ -30,6 +30,7 @@ DoomEdNums
 	6506 = SHDX_Rainbower
 	6507 = SHDX_Tornadozer
 	6508 = SHDX_HailerWeapon
+	6509 = SHDX_LightningGun
 	
 	6590 = SHDX_SilverBitCoin
 	6591 = SHDX_GoldBitCoin
