@@ -100,7 +100,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		PainChance "Bullet", 128;
 		PainChance "Rainbower", 256;
 		PainChance "RainbowerX", 256;
-		PainChance "Ice", 128;
+		PainChance "Ice", 64;
 		DamageFactor "Bullet", 0.50;
 		DamageFactor "Explosive", 0.75;
 		DamageFactor "Chicken", 0.00;
