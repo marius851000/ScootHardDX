@@ -120,3 +120,5 @@ enforcer/grenadeb		"sounds/weapons/grenade_bounce.ogg"
 enforcer/grenadex		"sounds/boom2.ogg"
 enforcer/whipattack		"sounds/whip.ogg"
 enforcer/whipactive		"sounds/whipcrack.ogg"
+
+minisentry/explode		"sounds/boom2.ogg"

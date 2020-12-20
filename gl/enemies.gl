@@ -24,3 +24,15 @@ object SHDX_MaimbowUndashBoss
 	frame MBOWN { light SHDX_BULLETPUFF }
 }
 
+pointlight SHDX_MINISENTRYLIGHT
+{
+    color 0.0 1.0 0.0
+    size 48
+	offset 0 8 0
+}
+
+object SHDX_MiniSentry
+{
+	frame MSNTB { light SHDX_MINISENTRYLIGHT }
+	frame MSNTC { light SHDX_MINISENTRYLIGHT }
+}
