@@ -299,9 +299,10 @@ Class SHDX_Enemy : SHDX_Actor
 		SHDX_Utilities.AssignCorpseHitboxToEnemy(self);
 	}
 	
+	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		if (source == master || (source.GetSpecies() == 'Sentry' && GetSpecies() == 'Pony'))
+		if (source && source.GetSpecies() == 'Sentry' && GetSpecies() == 'Pony')
 		{
 			damage = 0;
 		}

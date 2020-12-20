@@ -40,8 +40,6 @@ Class SHDX_MiniSentry : SHDX_Enemy
 {
 	Default
 	{
-		SeeSound "minisentry/sight";
-		DeathSound "minisentry/death";
 		ActiveSound "minisentry/active";
 		Health 15;
 		Radius 12;
@@ -83,9 +81,20 @@ Class SHDX_MiniSentry : SHDX_Enemy
 			loop;
 		See:
 			MSNT AA 4 A_Chase(null, "Missile", CHF_DONTMOVE);
+			MSNT A 0
+			{
+				if (Random[Sentry](0, 3) == 1)
+				{
+					A_StartSound("minisentry/scan", CHAN_BODY);
+				}
+			}
 			Loop;
 		Missile:
-			MSNT A 5 A_FaceTarget;
+			MSNT A 5
+			{
+				A_FaceTarget();
+				A_StartSound("minisentry/spot", CHAN_BODY);
+			}
 			MSNT B 3 Bright A_MiniSentryFire;
 			MSNT C 3;
 			MSNT A 4 A_MonsterRefire(32, "See");

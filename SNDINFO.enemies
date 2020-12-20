@@ -121,4 +121,7 @@ enforcer/grenadex		"sounds/boom2.ogg"
 enforcer/whipattack		"sounds/whip.ogg"
 enforcer/whipactive		"sounds/whipcrack.ogg"
 
+minisentry/build		"sounds/enemies/sentry/build.ogg"
+minisentry/spot			"sounds/enemies/sentry/spot.ogg"
+minisentry/scan			"sounds/enemies/sentry/scan.ogg
 minisentry/explode		"sounds/boom2.ogg"
