@@ -481,6 +481,7 @@ Class SHDX_GrenadeGuard : SHDX_HighGuard
 			HIGH K 3 A_Pain;
 			Goto See;
 		Death:
+			HIGH L 0 A_ResetTranslation();
 			HIGH L 5 A_NewScream;
 			HIGH M 5
 			{
