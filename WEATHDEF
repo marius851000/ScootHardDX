@@ -6,7 +6,7 @@ map "level number"
 }
 */
 
-map 4
+map 5
 {
     weather = rain;
     intensity = 7;
