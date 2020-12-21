@@ -254,8 +254,8 @@ Press any key to continue...,TXT_PRESSAKEY,,,,,,,,Pulse cualquier tecla para con
 Credits,MNU_SHARDDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 WAFFLE IRON STUDIOS,SHDX_CREDITS_HEADER_WIS,,,,,,,,,,,,,,,,,,,,,,,
 "Creative Director and Design Lead: SanyaWaffles
-Additional Coding: Marisa Kirisame
 Additional Level Design, Sound Design: Elliejojo
+Additional Level Design: Philnemba
 Weapon Overhaul: Jona_Arts
 Music: Metal Neon & RodScorpion
 Original Texture Work (WIP): Epic Acrylic and NeonBat
@@ -264,27 +264,27 @@ Voice of Scootaloo: Alabeanz@Tumblr.com
 Voice of Surprise Pony/Low Guard Female: Kelsie Finefeather
 Voice of Low Guard Male: DRPReskins
 Voice of Dr. Atmosphere/High Guard Male: Redsoldier55
-Voice of Maimbow Undash, Aurora Dawn: Jenna Pepper
+Voice of Maimbow Undash/Aurora Dawn: Jenna Pepper
 Additional Voices: AndromedaHawking
-Beta Testing: Metal Neon
-Blue Globe Intern: Earth
 
-Special Thanks To: Jinzo for discovering the 2014 prototype!",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
+Beta Testers: Captain J, Earth, Soupernatural, T, TailTaless,
+Torino, Twily
+
+Special Thanks To: Jinzo and Zan",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
 "Textures: Ancient Aliens, OTEX, Duke Nukem 3D, Shadow Warrior, Blood
 
 Sounds: Quake HiRes Pack, Source Engine, Rise Of The Triad, Tomb Raider,
-Apeirogon, Wolfenstein 3-D Mac
+Apeirogon, Wolfenstein 3-D Mac, Halo 2
 
 Additional Voices: Team Fortress 2, Serious Sam
 
 Fonts: Revue, Daidoh Remix, Crewniverse
 
-Code: AI code based on Kinsie's FauxDM
 Libraries: Apeirogon's Weather Effects Library
-Additional Code by Accensus, Nash Muhandes, Chronos ""phantombeta"" Ouroboros
-and Mikk
-Original Prototype code based on Return of the Triad By el-zee.
+Additional Code by Accensus, Marisa Kirisame, Nash Muhandes,
+Chronos ""phantombeta"" Ouroboros and Mikk
+Original GZDoom Prototype code based on Return of the Triad By el-zee
 
 Inspired by the fic Rainbow Factory by AuroraDawn, which is inspired by the song
 Rainbow Factory by WoodenToaster",SHDX_CREDITS_ADD,,,,,,,,,,,,,,,,,,,,,,,
