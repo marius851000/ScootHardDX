@@ -386,6 +386,7 @@ Class SHDX_GuardGrenade : SHDX_Grenade
 {
 	Default
 	{
+		Damage 3;
 		BounceCount 3;
 		
 		Scale 0.12;
@@ -405,9 +406,8 @@ Class SHDX_GuardGrenade : SHDX_Grenade
 		Death:
 			EXPL A 3 Bright
 			{
-				A_StartSound("enforcer/grenadex", CHAN_WEAPON);
 				A_SetRenderStyle(0.9, STYLE_Add);
-				SHDX_Utilities.DoExplosion(self, 72, 128., 112, flags:DE_EXTRAZTHRUST);
+				SHDX_Utilities.DoExplosion(self, 48, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright
@@ -456,6 +456,7 @@ Class SHDX_GrenadeGuard : SHDX_HighGuard
 	
 	void A_GrenadeGuardFire()
 	{
+		A_StartSound("grenadeguard/fire", CHAN_5);
 		A_SpawnProjectile("SHDX_GuardGrenade", 32, -16);
 		A_SpawnProjectile("SHDX_GuardGrenade", 32, 16);
 	}

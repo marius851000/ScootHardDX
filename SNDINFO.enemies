@@ -57,6 +57,8 @@ $alias hguard2/pain	hguard1/pain
 
 rocketguard/loading			"sounds/rocket_load.ogg"
 
+grenadeguard/fire			"sounds/weapons/grenade_fire2.ogg"
+
 // Todo: Female High Guard Sounds
 
 hguard/attack			"sounds/weapons/smg_fire.ogg"
@@ -115,7 +117,7 @@ enforcer/death			"sounds/enemies/enforcers/death.ogg"
 enforcer/active			"sounds/enemies/enforcers/ff_out.ogg"
 enforcer/explode		"sounds/boom2.ogg"
 enforcer/collarbeep		"sounds/enemies/enforcers/collar_beep.ogg"
-enforcer/grenadef		"sounds/weapons/grenade_fire.ogg"
+enforcer/grenadef		"sounds/weapons/grenade_fire2.ogg"
 enforcer/grenadeb		"sounds/weapons/grenade_bounce.ogg"
 enforcer/grenadex		"sounds/boom2.ogg"
 enforcer/whipattack		"sounds/whip.ogg"

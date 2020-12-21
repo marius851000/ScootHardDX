@@ -387,7 +387,7 @@ Class SHDX_Grenade : SHDX_Projectile
 		Radius 7;
 		Height 14;
 		Speed 25;
-		Damage 10;
+		Damage 5;
 		DamageType "Explosive";
 		
 		Scale 0.14;
@@ -399,6 +399,7 @@ Class SHDX_Grenade : SHDX_Projectile
         WallBounceFactor 0.7;
 		
 		BounceSound "enforcer/grenadeb";
+		Deathsound "enforcer/grenadex";
 		
 		Gravity 0.75;
 		
@@ -438,9 +439,8 @@ Class SHDX_Grenade : SHDX_Projectile
 		Death:
 			EXPL A 3 Bright
 			{
-				A_StartSound("enforcer/grenadex", CHAN_WEAPON);
 				A_SetRenderStyle(0.9, STYLE_Add);
-				SHDX_Utilities.DoExplosion(self, 96, 128., 160, flags:DE_EXTRAZTHRUST);
+				SHDX_Utilities.DoExplosion(self, 48, 128., 128, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright
