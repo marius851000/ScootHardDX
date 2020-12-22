@@ -42,3 +42,6 @@ $ambient 12 ambience/wind point continuous 0.7
 
 ambience/map09alarm "sounds/ambient/map09_alarm.ogg"
 $ambient 13 ambience/map09alarm point continuous 1.0
+
+ambience/quakewind "sounds/ambient/quake_wind.ogg"
+$ambient 14 ambience/quakewind point continuous 0.7
