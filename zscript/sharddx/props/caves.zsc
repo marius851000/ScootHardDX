@@ -12,13 +12,13 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-Class SHDX_MaleGuardCorpse : SHDX_Decoration
+Class SHDX_Mushroom : SHDX_Decoration
 {
 	Default
 	{
 		//$NotAngled
-		//$Title "Male Guard Corpse (Bloody)"
-		//$Sprite GRD1L0
+		//$Title "Mushroom (Brown)"
+		//$Sprite MSH1A0
 		//$Category "Decoration"
 		
 		Radius 10;
@@ -28,18 +28,18 @@ Class SHDX_MaleGuardCorpse : SHDX_Decoration
 	States
 	{
 		Spawn:
-			GRD1 L -1;
+			MSH1 A -1;
 			Stop;
 	}
 }
 
-Class SHDX_MaleGuardCorpse2 : SHDX_Decoration
+Class SHDX_Mushroom2 : SHDX_Decoration
 {
 	Default
 	{
 		//$NotAngled
-		//$Title "Male Guard Corpse (Not Bloody)"
-		//$Sprite GRD1M0
+		//$Title "Mushroom (Spotted)"
+		//$Sprite MSH2A0
 		//$Category "Decoration"
 		
 		Radius 10;
@@ -49,91 +49,73 @@ Class SHDX_MaleGuardCorpse2 : SHDX_Decoration
 	States
 	{
 		Spawn:
-			GRD1 M -1;
+			MSH2 A -1;
 			Stop;
 	}
 }
 
-Class SHDX_Skeleton : SHDX_Decoration
+Class SHDX_MineCart : SHDX_Prop
 {
 	Default
 	{
 		//$NotAngled
-		//$Title "Skeleton"
-		//$Sprite SKELA0
-		//$Category "Decoration"
+		//$Title "Mine Cart"
+		//$Sprite MCRTA1A5
+		//$Category "Obstacles"
 		
-		Radius 10;
-		Height 10;
+		Radius 20;
+		Height 30;
 	}
 	
 	States
 	{
 		Spawn:
-			SKEL A -1;
+			MCRT A -1;
 			Stop;
 	}
 }
 
-Class SHDX_SkeletonBloody : SHDX_Decoration
+Class SHDX_PurpleCrystal : SHDX_Decoration
 {
 	Default
 	{
 		//$NotAngled
-		//$Title "Skeleton (Bloody)"
-		//$Sprite SKL2A0
+		//$Title "Purple Crystal"
+		//$Sprite CRS1A0
 		//$Category "Decoration"
 		
-		Radius 10;
-		Height 10;
+		Radius 12;
+		Height 40;
+		
+		+NoGravity
+		+SpawnCeiling
 	}
 	
 	States
 	{
 		Spawn:
-			SKL2 A -1;
+			CRS1 A -1;
 			Stop;
 	}
 }
 
-Class SHDX_SurpriseCorpse : SHDX_Decoration
+Class SHDX_GreenCrystal : SHDX_Decoration
 {
 	Default
 	{
 		//$NotAngled
-		//$Title "Surprise Corpse"
-		//$Sprite SURPM0
+		//$Title "Green Crystal"
+		//$Sprite CRS2A0
 		//$Category "Decoration"
 		
-		Radius 10;
-		Height 10;
+		Radius 12;
+		Height 24;
 	}
 	
 	States
 	{
 		Spawn:
-			SURP M -1;
-			Stop;
-	}
-}
-
-Class SHDX_BloodPuddle : SHDX_Decoration
-{
-	Default
-	{
-		//$NotAngled
-		//$Title "Blood Puddle"
-		//$Sprite BLPLA0
-		//$Category "Decoration"
-		
-		Radius 10;
-		Height 10;
-	}
-	
-	States
-	{
-		Spawn:
-			BLPL A -1;
+			CRS2 A -1;
 			Stop;
 	}
 }

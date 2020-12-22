@@ -218,7 +218,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite ENFOA0
+		//$Sprite ENFOA1
 		//$Title "Heavy Enforcer"
 		
 		Health 450;
@@ -462,7 +462,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite ENF2A0
+		//$Sprite ENF2A1
 		//$Title "Light Enforcer"
 		
 		Health 225;

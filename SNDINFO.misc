@@ -28,7 +28,7 @@ weapons/chickenhit		"sounds/peck_hit.ogg"
 misc/teleport			"sounds/teleport.ogg"
 misc/foodcook			"sounds/FRIED01.ogg"		// Frying noise
 world/lava				"sounds/FRIED01.ogg"		// When in lava, you'll burn...
-world/glassbreak		"sounds/glass_break.ogg"	// Breaking Glass Noise
+world/glassbreak		"sounds/glass_break.ogg"	// Breaking Glass Noise		
 
 // Animated Doors Noises
 doors/metalo			"sounds/doom_door_open.ogg"

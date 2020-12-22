@@ -51,7 +51,7 @@ Class SHDX_PegapolMale : SHDX_Enemy
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite PEGAA0
+		//$Sprite PEGAA1
 		//$Title "Pegapol (Male)"
 		Health 100;
 		Radius 20;

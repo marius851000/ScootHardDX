@@ -2,7 +2,6 @@ $pitchshiftrange 0
 
 // Tiitlemap Stuff and Credits stuff
 titlemap/wisjingle					"sounds/ui/wisjingle.ogg"
-$alias titlemap/advisory misc/crushed1
 
 menu/activate						"sounds/switches/switch_push.ogg"	// Activate a new menu
 menu/backup							"sounds/switches/switch_push.ogg"	// Backup to previous menu "sounds/env/platform_stop.ogg"

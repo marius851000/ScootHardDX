@@ -87,6 +87,7 @@ version "4.3"
 #include "zscript/sharddx/pickups/weapon_system.zsc"
 
 #include "zscript/sharddx/props/props.zsc"
+#include "zscript/sharddx/props/caves.zsc"
 #include "zscript/sharddx/props/light_sources.zsc"
 #include "zscript/sharddx/props/toilet.zsc"
 #include "zscript/sharddx/props/urinal.zsc"
