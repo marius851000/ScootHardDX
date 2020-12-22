@@ -70,7 +70,7 @@ Class SHDX_Blaster : SHDX_Weapon
 			PISG A 1 A_Raise(10);
 			Loop;
 		Flash:
-			PISF A 4 A_Light1;
+			PISF A 4 Bright A_Light1;
 			goto LightDone;
 		Fire:
 			PISG A 0

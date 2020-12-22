@@ -54,7 +54,7 @@ Class SHDX_FillySeeker : SHDX_MissileWeapon
 			HSKG A 1 A_Raise(10);
 			Loop;
 		Flash:
-			HSKF A 2 A_Light1;
+			HSKF A 2 Bright A_Light1;
 			goto LightDone;
 		Fire: 
 			HSKG A 3 A_GunFlash;

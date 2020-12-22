@@ -54,7 +54,7 @@ Class SHDX_HailerWeapon : SHDX_WeatherWeapon
 			FRZG A 1 A_Raise(10);
 			Loop;
 		Flash:
-			FRZF AB 1 A_Light1;
+			FRZF AB 1 Bright A_Light1;
 			goto LightDone;
 		Fire: 
 			FRZG A 3;

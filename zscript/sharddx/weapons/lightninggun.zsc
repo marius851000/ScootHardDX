@@ -61,7 +61,7 @@ Class SHDX_LightningGun : SHDX_WeatherWeapon
 			LTGG A 1 A_Raise(10);
 			Loop;
 		Flash:
-			LTGF ABCDABCDAB 2 A_Light1;
+			LTGF ABCDABCDAB 2 Bright A_Light1;
 			goto LightDone;
 		Fire: 
 			LTGG A 0 A_GunFlash;
