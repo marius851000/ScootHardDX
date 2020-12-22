@@ -40,7 +40,7 @@ map E1M3 lookup SHDX_E1A3
 	par = 75
 	sucktime = 1
 	next = "E1M4"
-	music = "M_TCHERN"
+	music = ""
 }
 
 
