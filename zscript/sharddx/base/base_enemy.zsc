@@ -103,8 +103,6 @@ Class SHDX_Enemy : SHDX_Actor
 	{
 		SetOldVelZ();
 		CheckForEnemyJump();
-		GetLevelTimeMask();
-		EnemySwim();
 	}
 	
 	// [SW] - Check if enemy can jump... this is a complex function
@@ -150,28 +148,6 @@ Class SHDX_Enemy : SHDX_Actor
 				// Set cooldown
 				jumpcooldown = TICRATE * Random[JumpCooldown](2,4);
 			}
-		}
-	}
-	
-	virtual void EnemySwim()
-	{
-		if (leveltimemod == 8 && waterlevel >= 2 && health > 0)
-		{
-			A_FaceTarget();
-			if (JumpForwardVelocity > 0 && JumpUpVelocity > 0)
-			{
-				VelFromAngle(JumpForwardVelocity, angle);
-				vel.z += JumpUpVelocity;
-			}
-			else
-			{
-				VelFromAngle(speed, angle);
-				vel.z += 16;
-			}
-		}
-		else if (waterlevel == 1)
-		{
-			vel.z += 1;
 		}
 	}
 	
