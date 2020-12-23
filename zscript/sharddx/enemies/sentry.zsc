@@ -58,9 +58,46 @@ Class SHDX_MiniSentry : SHDX_Enemy
 		-SHDX_Enemy.CanJump
 	}
 	
+	int delaytildeath;
+	
+	const MASTERLEFTDELAYTICS = TICRATE * 3;
+	
+	void CheckFloorForLava()
+	{
+		TextureID flat = CurSector.GetTexture(Sector.Floor);
+		String fs = TexMan.GetName(flat);
+		if (fs == "F_LAVA" && A_CheckSolidFooting2() && health > 0)
+		{
+			// The Floor Is Marxism- er, Lava
+			A_Die();
+		}
+	}
+	
+	void CheckIfMasterExists()
+	{
+		if (master && master.health > 0)
+		{
+			return;
+		}
+		
+		delaytildeath++;
+		
+		if (delaytildeath >= MASTERLEFTDELAYTICS && health > 0)
+		{
+			A_Die();
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		CheckFloorForLava();
+		CheckIfMasterExists();
+	}
+	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		if (source == master || source.GetSpecies() == 'Pony')
+		if (source && source == master || source && source.GetSpecies() == 'Pony')
 		{
 			damage = 0;
 		}
