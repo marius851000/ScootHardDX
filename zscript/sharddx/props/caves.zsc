@@ -119,3 +119,48 @@ Class SHDX_GreenCrystal : SHDX_Decoration
 			Stop;
 	}
 }
+
+Class SHDX_Stalagtite : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Stalagtite"
+		//$Sprite STALA0
+		//$Category "Decoration"
+		
+		Radius 16;
+		Height 40;
+		
+		+NoGravity
+		+SpawnCeiling
+	}
+	
+	States
+	{
+		Spawn:
+			STAL A -1;
+			Stop;
+	}
+}
+
+Class SHDX_Stalagmite : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Stalagmite"
+		//$Sprite STL2A0
+		//$Category "Decoration"
+		
+		Radius 16;
+		Height 40;
+	}
+	
+	States
+	{
+		Spawn:
+			STL2 A -1;
+			Stop;
+	}
+}

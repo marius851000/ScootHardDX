@@ -88,6 +88,8 @@ DoomEdNums
 	6737 = SHDX_MineCart
 	6738 = SHDX_PurpleCrystal
 	6739 = SHDX_GreenCrystal
+	6740 = SHDX_Stalagtite
+	6741 = SHDX_Stalagmite
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard
