@@ -20,8 +20,6 @@ epitaph/felixsafe2		"sounds/player/rip/felix/safe1.ogg"		// Official GS HQRIP st
 epitaph/felixsafe3		"sounds/player/rip/felix/safe2.ogg"		// Clerks - Doctor states it's very safe
 epitaph/felixsafe4		"sounds/player/rip/felix/safe3.ogg"		// Marathon Man - Dennis Hoffman says it's so safe you can't believe it.
 
-epitaph/felixgameover	"sounds/player/rip/felix/gameover.ogg"	// GAME OVER MAN GAME OVER.vgz.exe.wtf
-
 // Randomise the safe sounds
 $random	epitaph/felixsafe
 {
