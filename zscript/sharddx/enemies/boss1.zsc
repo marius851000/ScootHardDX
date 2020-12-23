@@ -145,12 +145,29 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			SURP A 0
 			{
 				// A_SHDX_SendOLToAllPlayers("surprisestart", OLSSF_FORCEONELINER);
-				A_UnSetInvulnerable();
+				// A_UnSetInvulnerable();
 				A_SHDX_SetToBossBarHUD();
-				bCanJump = true;
 				isactive = true;
 			}
 		See2:
+			SURP A 20
+			{
+				A_Chase(null, null, CHF_DONTMOVE);
+				A_FaceTarget();
+			}
+		TeleportAboutInitial:
+			SURP D 2 A_SetTranslucent(0.5, 0);
+			SURP D 1;
+			SURP D 0 A_Teleport("JustTeleportedInitial", "SHDX_BossSpot", "SHDX_NoFlash", 0);
+			SURP D 1;
+			Goto See3;
+		JustTeleportedInitial:
+			SURP D 0 A_UnSetInvulnerable();
+			SURP D 0 A_SpawnItemEx("SHDX_TeleportFog", flags:SXF_NOCHECKPOSITION);
+			SURP D 3 A_SetTranslucent(1.0, 0);
+			SURP D 3 A_StartSound("boss1/active", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+			goto Missile;
+		See3:
 			SURP A 20
 			{
 				A_Chase(null, null, CHF_DONTMOVE);
@@ -195,7 +212,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			SURP D 1;
 			SURP D 0 A_Teleport("JustTeleported", "SHDX_BossSpot", "SHDX_NoFlash", 0);
 			SURP D 1;
-			Goto See2;
+			Goto See3;
 		Pain.Bullet:
 		Pain.Explosive:
 		Pain.Rainbower:
@@ -230,7 +247,6 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			}
 			Goto TeleportAbout;
 			
-		
 		SeeFloorPeelaway:
 			SURP H 5
 			{
