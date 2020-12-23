@@ -88,11 +88,20 @@ Class SHDX_MiniSentry : SHDX_Enemy
 		}
 	}
 	
+	void CheckIfUnderWater()
+	{
+		if (waterlevel >= 2)
+		{
+			A_Die();
+		}
+	}
+	
 	override void Tick()
 	{
 		Super.Tick();
 		CheckFloorForLava();
 		CheckIfMasterExists();
+		CheckIfUnderWater();
 	}
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
