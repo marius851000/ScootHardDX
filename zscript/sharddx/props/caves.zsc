@@ -130,7 +130,7 @@ Class SHDX_Stalagtite : SHDX_Decoration
 		//$Category "Decoration"
 		
 		Radius 16;
-		Height 40;
+		Height 20;
 		
 		+NoGravity
 		+SpawnCeiling
@@ -154,7 +154,7 @@ Class SHDX_Stalagmite : SHDX_Decoration
 		//$Category "Decoration"
 		
 		Radius 16;
-		Height 40;
+		Height 20;
 	}
 	
 	States
