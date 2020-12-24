@@ -60,16 +60,16 @@ Class SHDX_MiniSentryBall : SHDX_Projectile
 			SNTB D 0 Bright
 			{
 				bNoGravity = false;
+				
+				if (target && target.health <= 0)
+					Destroy();
 			}
 			SNTB ABCD 1 Bright;
 			Loop;
 		
 		Death:
 			MSNT A 0 Bright
-			{
-				if (target && target.health <= 0)
-					Destroy();
-				
+			{				
 				A_StartSound("minisentry/build", CHAN_7, attenuation:0.5);
 				A_SetTranslucent(0.1);
 			}
@@ -81,9 +81,6 @@ Class SHDX_MiniSentryBall : SHDX_Projectile
 				{
 					return ResolveState("SpawnSentry");
 				}
-				
-				if (target && target.health <= 0)
-					Destroy();
 				
 				return ResolveState(null);
 			}
