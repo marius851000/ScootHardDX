@@ -14,6 +14,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 class SHDX_Handler : EventHandler
 {
+	override void PostUiTick()
+	{
+		DoSubtitles();
+	}
+	
 	override void WorldTick()
 	{
 		// BossInfoTick();

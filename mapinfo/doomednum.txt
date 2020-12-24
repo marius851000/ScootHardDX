@@ -36,6 +36,7 @@ DoomEdNums
 	6591 = SHDX_GoldBitCoin
 	6600 = SHDX_Sandwich
 	6601 = SHDX_Applesauce
+	6602 = SHDX_Cupcake
 	
 	6610 = SHDX_ChickenMode
 	6612 = SHDX_BulletproofArmorPickup

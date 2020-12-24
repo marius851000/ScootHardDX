@@ -8,6 +8,8 @@ user bool shdx_bosshealthbar = true;		// Show boss health bar
 server bool shdx_copyrightcensor = false;	// Hide copyright censor
 
 server bool shdx_grafnomode = false;		// Enable Graf No Mode
+user bool shdx_subtitles = true;			// Disable/Enable Subtitles.
+user int shdx_hudmargin = 0;
 
 // From MekBoss' Weather Effects. These aren't exposed to menus
 // as they shouldn't be needed to be changed except for

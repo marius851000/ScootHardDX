@@ -1,0 +1,58 @@
+ // The subtitle message handler and hudmessage hint message are from Marisa Kirisame's SWMM GZ project and under the
+ // MIT license.
+
+Class SHDX_Subtitle : HUDMessageBase
+{
+	String whichline;
+	int lifespan, curtime;
+	transient CVar safezone, lang;
+
+	static SHDX_Subtitle Make( String whichline, int lifespan )
+	{
+		let l = new("SHDX_Subtitle");
+		l.whichline = whichline;
+		l.curtime = l.lifespan = lifespan;
+		return l;
+	}
+
+	override bool Tick()
+	{
+		// if ( players[consoleplayer].Health <= 0 ) curtime = int.min;
+		curtime--;
+		return (curtime<-20);
+	}
+
+	override void Draw( int bottom, int visibility )
+	{
+		if ( !safezone ) safezone = CVar.GetCVar('shdx_hudmargin',players[consoleplayer]);
+		if ( !lang ) lang = CVar.GetCVar('language',players[consoleplayer]);
+		int margin = safezone.GetInt();
+		Vector2 hs = StatusBar.GetHUDScale();
+		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
+		String loc = StringTable.Localize(whichline);
+		if ( loc.Length() <= 0 ) return;	// don't draw empty strings
+		String locs = loc;
+		Font fnt = SmallFont;
+		if ( lang.GetString() ~== "jp" ) fnt = NewSmallFont;
+		// split so it can fit
+		BrokenLines l = fnt.BreakLines(locs,int(ss.x*.5));
+		int maxlen = 0;
+		for ( int i=0; i<l.Count(); i++ )
+		{
+			int len = fnt.StringWidth(l.StringAt(i));
+			if ( len > maxlen ) maxlen = len;
+		}
+		int h = fnt.GetHeight();
+		int fh = h*l.Count();
+		double alph = clamp((curtime/20.)+1.,0.,1.);
+		alph *= clamp((lifespan-curtime)/10.,0.,1.);
+		Screen.Dim("Black",alph*.8,int((Screen.GetWidth()-(maxlen+12)*hs.x)/2.),int(bottom-(margin+2+fh)*hs.y),int((maxlen+12)*hs.x),int((fh+4)*hs.y));
+		int yy = margin+fh;
+		for ( int i=0; i<l.Count(); i++ )
+		{
+			int len = fnt.StringWidth(l.StringAt(i));
+			Screen.DrawText(fnt,Font.CR_FIRE,(ss.x-len)/2.,(bottom/hs.y)-yy,l.StringAt(i),DTA_VirtualWidthF,ss.x,DTA_VirtualHeightF,ss.y,DTA_KeepRatio,true,DTA_Alpha,alph);
+			yy -= h;
+		}
+	}
+}

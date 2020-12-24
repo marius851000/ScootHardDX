@@ -1,0 +1,50 @@
+/*
+Copyright (c) 2020 Marisa Kirisame, UnSX Team
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+extend class SHDX_Handler
+{
+	// Subtitle Stuff
+	transient String subtitle;
+	transient int subtitletic, subtitlespan;
+	
+	static int AddSubtitle( String sub, int level, int slength = 5, int delay = 5 )
+	{
+		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		if (!hnd) return 0;
+		hnd.subtitle = sub;
+		hnd.subtitlespan = slength;
+		hnd.subtitletic = gametic+delay;
+		return hnd.subtitletic+hnd.subtitlespan;
+	}
+	
+	ui void DoSubtitles()
+	{
+		if (!CVar.GetCvar('shdx_subtitles', players[consoleplayer]).GetBool()) return;
+		
+		if ( (gametic == subtitletic) && (subtitle != "") && (players[consoleplayer].health > 0) )
+		{
+			let l = SHDX_Subtitle.Make(subtitle, subtitlespan);
+			StatusBar.AttachMessage(l,-3473);
+			// SendNetworkEvent("dd2bordeauxsubtitle."..subtitle,consoleplayer);
+		}
+	}	
+}

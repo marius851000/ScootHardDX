@@ -72,6 +72,7 @@ OptionMenu "ScootHardDXMenu"
 	
 	Option "$MNU_SHARDDX_MUTEPLAYER",		"shdx_snd_oneliners",	"OnOff"
 	Option "$MNU_SHARDDX_CUTSCENES",		"shdx_skipcutscenes",	"OnOff"
+	Option "$MNU_SHARDDX_SUBTITLES",		"shdx_subtitles",		"OnOff"
 	Option "$MNU_SHARDDX_COPYRIGHTCENSOR", "shdx_copyrightcensor",	"OnOff"
 	Option "$MNU_SHARDDX_HQRIP",			"shdx_rip",				"OnOFf"
 }
