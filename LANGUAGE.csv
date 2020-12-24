@@ -398,20 +398,11 @@ Games Journalist,SHDX_SKILL1,,,,,,,,,,,,,,,,,,,,,,,
 Where's The Trigger?,SHDX_SKILL2,,,,,,,,,,,,,,,,,,,,,,,
 Bring It On!,SHDX_SKILL3,,,,,,,,,,,,,,,,,,,,,,,
 The Cleaner,SHDX_SKILL4,,,,,,,,,,,,,,,,,,,,,,,
-"Fewest enemies, lowest aggression,
-less damage taken, and enemies have
-lower health. You'll probably want this
-skill Eri.",SHDX_SKILLSURE1,"
+"Fewest enemies, lowest aggression, less damage taken, and enemies have lower health. You'll probably want this skill Eri.",SHDX_SKILLSURE1,"
 ",,,,,,,,,,,,,,,,,,,,,,
-"A few more enemies, normal damage and
-health. Vending machines cost 2x more.",SHDX_SKILLSURE2,,,,,,,,,,,,,,,,,,,,,,,
-"Aggression is bumped up a bit. So is enemy
-health and enemy count. Vending machines
-cost 3x more.",SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
-"Aggression is much higher, enemies are maxed
-out on health. Not only do vending machines cost
-3x more, but coins are rarer now.  Only the most
-epic of gamers will play on this skill.",SHDX_SKILLSURE4,,,,,,,,,,,,,,,,,,,,,,,
+"A few more enemies, normal damage and health. Vending machines cost 2x more.",SHDX_SKILLSURE2,,,,,,,,,,,,,,,,,,,,,,,
+Aggression is bumped up a bit. So is enemy health and enemy count. Vending machines cost 3x more.,SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
+"Aggression is much higher, enemies are maxed out on health. Not only do vending machines cost 3x more, but coins are rarer now. Only the most epic of gamers will play on this skill.",SHDX_SKILLSURE4,,,,,,,,,,,,,,,,,,,,,,,
 Choose an episode,SHDX_EPISODE_MENU,,,,,,,,,,,,,,,,,,,,,,,
 Scoot Hard DX,SHDX_EP1STR,,,,,,,,,,,,,,,,,,,,,,,
 Titlemap,SHDX_TITLEMAP,,,,,,,,,,,,,,,,,,,,,,,
