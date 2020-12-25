@@ -121,7 +121,7 @@ Class SHDX_Engineer : SHDX_Enemy
 		SeeSound "engineer/sight";
 		PainSound "engineer/pain";
 		DeathSound "engineer/death";
-		ActiveSound "engineer/active";
+		// ActiveSound "engineer/active";
 		Obituary "$SHDX_OB_ENGINEER";
 		Species "Pony";
 		// DropItem "SHBitCoinPickupGold" 127

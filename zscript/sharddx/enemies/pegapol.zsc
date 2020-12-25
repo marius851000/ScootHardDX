@@ -70,7 +70,7 @@ Class SHDX_PegapolMale : SHDX_Enemy
 		SeeSound "pegapol/sight";
 		PainSound "pegapol/pain";
 		DeathSound "pegapol/death";
-		ActiveSound "pegapol/active";
+		// ActiveSound "pegapol/active";
 		Obituary "$SHDX_OB_PEGAPOL";
 		// DropItem "SHBitCoinPickupGold" 127
 		// DropItem "SHSubmachineGun" 32

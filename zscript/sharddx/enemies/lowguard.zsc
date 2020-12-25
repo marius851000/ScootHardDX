@@ -71,7 +71,7 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 		SeeSound "grunt1/sight";
 		PainSound "grunt1/pain";
 		DeathSound "grunt1/death";
-		ActiveSound "grunt1/active";
+		// ActiveSound "grunt1/active";
 		Health 25;
 		Radius 20;
 		Height 56;
@@ -180,7 +180,7 @@ Class SHDX_LowGuardFemale : SHDX_LowGuardMale
 		SeeSound "grunt2/sight";
 		PainSound "grunt2/pain";
 		DeathSound "grunt2/death";
-		ActiveSound "grunt2/active";
+		// ActiveSound "grunt2/active";
 	}
 	
 	States
