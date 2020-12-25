@@ -3,3 +3,8 @@ SARMA="voxels/SARMA.kvx"
 	Spin = 50
 	Scale = 3.0
 }
+
+MCRTA="voxels/MCRTA.kvx"
+{
+	Scale = 3.0
+}
