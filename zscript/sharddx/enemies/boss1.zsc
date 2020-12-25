@@ -250,6 +250,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		SeeFloorPeelaway:
 			SURP H 5
 			{
+				bNoPain = true;
 				A_SetInvulnerable();
 				A_StartSound("boss1/pain", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 				A_SetRenderStyle(1.0, STYLE_Stencil);
@@ -279,6 +280,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 				A_SurpriseLowerFloor();
 				A_UnSetInvulnerable();
 				bCanJump = true;
+				bNoPain = false;
 			}
 			Goto TeleportAbout;
 			
