@@ -68,23 +68,16 @@ Class SHDX_MiniSentryBall : SHDX_Projectile
 			Loop;
 		
 		Death:
-			MSNT A 0 Bright
+			MSNT E 0 Bright
 			{				
 				A_StartSound("minisentry/build", CHAN_7, attenuation:0.5);
-				A_SetTranslucent(0.1);
 			}
 		FadeLoop:
-			MSNT A 10 Bright
-			{
-				A_FadeTo(1.0, 0.1);
-				if (alpha >= 1.0)
-				{
-					return ResolveState("SpawnSentry");
-				}
-				
-				return ResolveState(null);
-			}
-			Loop;
+			MSNT E 6;
+			MSNT F 6;
+			MSNT G 6;
+			MSNT H 6;
+			MSNT A 116;
 		SpawnSentry:
 			MSNT A 0 Bright
 			{
