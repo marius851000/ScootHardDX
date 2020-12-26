@@ -173,7 +173,7 @@ class SHDX_ReadThisMenu : GenericMenu
 		
 		if (page == PAGE_MENU3)
 		{
-			DrawImageWithOffsets("HELPSMG", 32, 160);
+			DrawImageWithOffsets("HELPSMG", 32, 192);
 		}
 		if (page == PAGE_MENU4)
 		{
@@ -194,7 +194,7 @@ class SHDX_ReadThisMenu : GenericMenu
 		}
 		if (page == PAGE_MENU10)
 		{
-			DrawImageWithOffsets("HELPEFS", 32, 128);
+			DrawImageWithOffsets("HELPEFS", 32, 176);
 		}
 							
 		Screen.DrawText(fnt, Font.CR_RED, 0, ss.y - fnt.GetHeight(), StringTable.Localize("$SHDX_HELP_MOVETIP"),
