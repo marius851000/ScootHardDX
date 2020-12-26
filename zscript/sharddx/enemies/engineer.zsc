@@ -163,9 +163,13 @@ Class SHDX_Engineer : SHDX_Enemy
 			ENG1 A 10 A_Look;
 			Loop;
 		See:
-			ENG1 BCDEBCDE 4 A_Chase;
+			ENG1 B 0 A_StartSound("pony/walk", CHAN_BODY);
+			ENG1 BCDE 4 A_Chase;
+			ENG1 B 0 A_StartSound("pony/walk", CHAN_BODY);
+			ENG1 BCDE 4 A_Chase;
 			Loop;
 		Missile:
+			ENG1 F 0 A_StopSound(CHAN_BODY);
 			ENG1 F 0
 			{
 				if (!deployedsentry && target && CheckIfTargetInLOS(179, 0, 0, 0))

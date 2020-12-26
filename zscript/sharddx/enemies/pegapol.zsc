@@ -115,7 +115,10 @@ Class SHDX_PegapolMale : SHDX_Enemy
 				
 				return ResolveState(null);
 			}
-			PEGA BCDEBCDE 4 A_Chase;
+			PEGA B 0 A_StartSound("pony/walk", CHAN_BODY);
+			PEGA BCDE 4 A_Chase;
+			PEGA B 0 A_StartSound("pony/walk", CHAN_BODY);
+			PEGA BCDE 4 A_Chase;
 			PEGA E 0
 			{
 				if (random[Pegapol](0, 100) >= 72)
@@ -155,12 +158,14 @@ Class SHDX_PegapolMale : SHDX_Enemy
 		StartFlying:
 			PEGA O 0
 			{
+				A_StopSound(CHAN_BODY);
 				bNoGravity = true;
 				bFloat = true;
 				flyingmode = 1;
 			}
 			Goto See.Flying;
 		Missile:
+			PEGA F 0 A_StopSound(CHAN_BODY);
 			PEGA F 0
 			{
 				if (flyingmode >= 1)

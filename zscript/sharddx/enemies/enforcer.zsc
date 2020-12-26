@@ -268,9 +268,13 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			ENFO A 10 A_Look;
 			Loop;
 		See:
-			ENFO BCDEBCDE 4 A_Chase;
+			ENFO B 0 A_StartSound("pony/walk", CHAN_BODY);
+			ENFO BCDE 4 A_Chase;
+			ENFO B 0 A_StartSound("pony/walk", CHAN_BODY);
+			ENFO BCDE 4 A_Chase;
 			Loop;
 		Missile:
+			ENFO B 0 A_StopSound(CHAN_BODY);
 			ENFO B 0
 			{
 				if (target)
@@ -501,9 +505,13 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 			ENF2 A 10 A_Look;
 			Loop;
 		See:
-			ENF2 BCDEBCDE 4 A_Chase;
+			ENF2 B 0 A_StartSound("pony/walk", CHAN_BODY);
+			ENF2 BCDE 4 A_Chase;
+			ENF2 B 0 A_StartSound("pony/walk", CHAN_BODY);
+			ENF2 BCDE 4 A_Chase;
 			Loop;
 		Missile:
+			ENF2 B 0 A_StopSound(CHAN_BODY);
 			ENF2 B 0
 			{
 				if (CheckMeleeRange())

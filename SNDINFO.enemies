@@ -1,5 +1,8 @@
 $pitchshiftrange 0
 
+pony/walk					"sounds/clop_walk.ogg"
+pony/walk2					"sounds/clop_walk2.ogg"
+
 grunt1/sight1				"sounds/enemies/guard/ben/g_see1.ogg"
 grunt1/sight2				"sounds/enemies/guard/ben/g_see2.ogg"
 grunt1/sight3				"sounds/enemies/guard/ben/g_see3.ogg"
