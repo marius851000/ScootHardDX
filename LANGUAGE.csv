@@ -255,6 +255,7 @@ Press any key to continue...,TXT_PRESSAKEY,,,,,,,,Pulse cualquier tecla para con
 Credits,MNU_SHARDDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 WAFFLE IRON STUDIOS,SHDX_CREDITS_HEADER_WIS,,,,,,,,,,,,,,,,,,,,,,,
 "Creative Director and Design Lead: SanyaWaffles
+Secondary Creative Lead, Level Design: Metal Neon
 Additional Level Design, Sound Design: Elliejojo
 Additional Level Design: Philnemba
 Weapon Overhaul: Jona_Arts
@@ -283,6 +284,7 @@ Additional Voices: Team Fortress 2, Serious Sam
 Fonts: Revue, Daidoh Remix, Crewniverse
 
 Libraries: Apeirogon's Weather Effects Library
+
 Additional Code by Accensus, Marisa Kirisame, Nash Muhandes,
 Chronos ""phantombeta"" Ouroboros and Mikk
 Original GZDoom Prototype code based on Return of the Triad By el-zee
