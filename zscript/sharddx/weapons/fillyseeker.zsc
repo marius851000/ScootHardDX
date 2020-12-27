@@ -97,6 +97,7 @@ Class SHDX_FillySeeker : SHDX_MissileWeapon
 			LOOP;
 	}
 }
+
 Class SHDX_FillyMissile : SHDX_Projectile
 {
 	Default
@@ -249,7 +250,7 @@ Class SHDX_ClusterGrenadeFS2 : SHDX_ClusterGrenadeFS
 				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
 				A_SetScale(0.12, 0.12);
 				A_SetRenderStyle(0.9, STYLE_Add);
-				SHDX_Utilities.DoExplosion(self, 64, 64., 96, flags:DE_EXTRAZTHRUST);
+				SHDX_Utilities.DoExplosion(self, 96, 64., 128, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright
