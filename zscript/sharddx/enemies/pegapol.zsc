@@ -115,9 +115,9 @@ Class SHDX_PegapolMale : SHDX_Enemy
 				
 				return ResolveState(null);
 			}
-			PEGA B 0 A_StartSound("pony/walk", CHAN_BODY);
+			// PEGA B 0 A_StartSound("pony/walk", CHAN_BODY);
 			PEGA BCDE 4 A_Chase;
-			PEGA B 0 A_StartSound("pony/walk", CHAN_BODY);
+			// PEGA B 0 A_StartSound("pony/walk", CHAN_BODY);
 			PEGA BCDE 4 A_Chase;
 			PEGA E 0
 			{
