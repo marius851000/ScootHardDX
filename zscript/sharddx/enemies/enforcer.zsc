@@ -231,7 +231,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 		SeeSound "enforcer/sight";
 		PainSound "enforcer/pain";
 		DeathSound "enforcer/death";
-		// ActiveSound "enforcer/active";
+		ActiveSound "enforcer/active";
 		Obituary "$SHDX_OB_HEAVYENFORCER";
 		Tag "$SHDX_TAG_HEAVYENFORCER";
 		Species "Pony";
@@ -479,7 +479,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		SeeSound "enforcer/sight";
 		PainSound "enforcer/pain";
 		DeathSound "enforcer/death";
-		// ActiveSound "enforcer/active";
+		ActiveSound "enforcer/active";
 		Obituary "$SHDX_OB_LIGHTENFORCER";
 		Tag "$SHDX_TAG_LIGHTENFORCER";
 		Species "Pony";
