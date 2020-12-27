@@ -16,9 +16,9 @@ Class SHDX_HailAmmo : Ammo
 {
 	Default
 	{
-		Inventory.MaxAmount 30;
+		Inventory.MaxAmount 40;
 		Ammo.BackpackAmount 0;
-		Ammo.BackpackMaxAmount 30;
+		Ammo.BackpackMaxAmount 40;
 	}
 }
 
@@ -34,7 +34,7 @@ Class SHDX_HailerWeapon : SHDX_WeatherWeapon
 		Inventory.PickupMessage "$SHDX_PICKUP_HAILER";
 		+WEAPON.NOAUTOFIRE
 		+WEAPON.NOAUTOAIM
-		Weapon.AmmoGive 30;
+		Weapon.AmmoGive 40;
 		Weapon.AmmoUse1 1;
 		Weapon.AmmoUse2 1;
 		Weapon.AmmoType1 "SHDX_HailAmmo";
