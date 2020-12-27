@@ -84,11 +84,11 @@ Class SHDX_HailerWeapon : SHDX_WeatherWeapon
 			{
 				A_StartSound("weapons/hailerf2", CHAN_WEAPON);
 				
-				A_FireProjectile("SHDX_HailBall2", -4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
-				A_FireProjectile("SHDX_HailBall2", -2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
-				A_FireProjectile("SHDX_HailBall2", 0, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
-				A_FireProjectile("SHDX_HailBall2", 2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
-				A_FireProjectile("SHDX_HailBall2", 4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
+				A_FireProjectile("SHDX_HailBall2", -4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_FireProjectile("SHDX_HailBall2", -2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_FireProjectile("SHDX_HailBall2", 0, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_FireProjectile("SHDX_HailBall2", 2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_FireProjectile("SHDX_HailBall2", 4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
 			}
 			FRZG C 1;
 			FRZG A 3 A_ReFire;

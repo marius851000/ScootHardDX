@@ -83,11 +83,9 @@ Class SHDX_FillySeeker : SHDX_MissileWeapon
 			HSKG A 3 A_GunFlash;
 			HSKG B 2
 			{
-				A_StartSound("weapons/fillydrunkf", CHAN_WEAPON);
-				A_FireProjectile("SHDX_FillyMissileDrunk1", -6, true, -8);
-				A_FireProjectile("SHDX_FillyMissileDrunk2", -2, true, -4);
-				A_FireProjectile("SHDX_FillyMissileDrunk1", 2, true, 4);
-				A_FireProjectile("SHDX_FillyMissileDrunk2", 6, true, 8);
+				A_StartSound("weapons/grenadef", CHAN_WEAPON);
+				A_FireProjectile("SHDX_ClusterGrenadeFS");
+				A_TakeInventory("SHDX_SeekerMissileAmmo", 3);
 			}
 			HSKG B 2;
 			HSKG B 2; // ACS_NamedExecute("SHDX_OutOfAmmo", 0, 2)
@@ -99,7 +97,6 @@ Class SHDX_FillySeeker : SHDX_MissileWeapon
 			LOOP;
 	}
 }
-
 Class SHDX_FillyMissile : SHDX_Projectile
 {
 	Default
@@ -136,82 +133,135 @@ Class SHDX_FillyMissile : SHDX_Projectile
 	}
 }
 
-Class SHDX_FillyMissileDrunk1 : SHDX_Projectile
+Class SHDX_ClusterGrenadeFS : SHDX_Projectile
 {
 	Default
 	{
-		Radius 11;
-		Height 6;
-		Speed 60;
-		Damage 2;
-		Projectile;
-		+SCREENSEEKER
-		+SEEKERMISSILE
+		Radius 7;
+		Height 14;
+		Speed 25;
+		Damage 10;
 		DamageType "Explosive";
-		// SeeSound "weapons/fillyf";
-		DeathSound "weapons/fillyx";
+		
+		Scale 0.12;
+		Mass 25;
+		
+		BounceCount 5;
+		BounceType "Hexen";
+        BounceFactor 0.65;
+        WallBounceFactor 0.7;
+		
+		Gravity 0.75;
+		
+		BounceSound "enforcer/clusterbombb";
+		
+		+CanBounceWater
 	}
 	
+	override int SpecialMissileHit(Actor victim)
+	{
+		if (victim && victim != target)
+		{
+			let hbx = SHDX_Hitbox(victim);
+			if (hbx && hbx.iscorpse)
+			{
+				return 1;
+			}
+			
+			if (victim is "SHDX_Enemy")
+			{
+				return -1;
+			}
+		}
+		
+		return Super.SpecialMissileHit(victim);
+	}
+
 	States
 	{
 		Spawn:
-			MISL A 0 NoDelay A_StartSound("weapons/fillyh", CHAN_6, CHANF_LOOPING);
-		Spawn1:
-			MISL A 1
+			CLST ABCD 1 Bright;
+			CLST D 0 Bright
 			{
-				if (Random[Drunk](0, 5) <= 3)
-					A_SeekerMissile(5, 5, SMF_LOOK, 256, 10);
+				bNoGravity = false;
 			}
+			CLST ABCD 1 Bright;
 			Loop;
 		
 		Death:
-			EXPL A 0 Bright
+			EXPL A 3 Bright
 			{
-				A_StopSound(CHAN_6);
-				SHDX_Utilities.DoExplosion(self, 8, 32, 8, DamageType:'Explosive');
+				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
+				A_SetRenderStyle(0.9, STYLE_Add);
+				
+				for (int i = 0; i < 4; i++)
+				{
+					A_SpawnProjectile("SHDX_ClusterGrenadeFS2", 32, 0, Random[ClusterGrenade](0, 360), (CMF_AIMDIRECTION|CMF_TRACKOWNER), Random[ClusterGrenade](0, 90));
+				}
+				
+				SHDX_Utilities.DoExplosion(self, 128, 128., 192, flags:DE_EXTRAZTHRUST);
+				A_Stop();
 			}
-			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
-			EXPL BCDEFGHI 3 Bright;
+			EXPL B 3 Bright
+			{
+				A_Quake(2, 8, 0, 1096);
+				A_Stop();
+			}
+			EXPL CDEFGHI 3 Bright
+			{
+				A_FadeOut(0.1);
+				A_Stop();
+			}
 			Stop;
 	}
 }
 
-Class SHDX_FillyMissileDrunk2 : SHDX_Projectile
+Class SHDX_ClusterGrenadeFS2 : SHDX_ClusterGrenadeFS
 {
 	Default
 	{
-		Radius 11;
-		Height 6;
-		Speed 60;
-		Damage 2;
-		Projectile;
-		+SCREENSEEKER
-		+SEEKERMISSILE
+		Radius 4;
+		Height 7;
+		Speed 10;
+		Damage 5;
 		DamageType "Explosive";
-		// SeeSound "weapons/fillyf";
-		DeathSound "weapons/fillyx";
+		
+		Scale 0.08;
+		Mass 15;
+		
+		BounceCount 5;
+		BounceType "Hexen";
+        BounceFactor 0.65;
+        WallBounceFactor 0.7;
+		
+		Gravity 0.75;
+		
+		BounceSound "enforcer/clusterbombb";
+		
+		+CanBounceWater
 	}
-	
+
 	States
 	{
-		Spawn:
-			MISL A 0 NoDelay A_StartSound("weapons/fillyh", CHAN_6, CHANF_LOOPING);
-		Spawn1:
-			MISL A 1
-			{
-				if (Random[Drunk](0, 5) > 3)
-					A_SeekerMissile(5, 5, SMF_LOOK, 256, 10);
-			}
-			Loop;
-		
 		Death:
-			EXPL A 0 Bright
+			EXPL A 3 Bright
 			{
-				A_StopSound(CHAN_6);
-				SHDX_Utilities.DoExplosion(self, 8, 32, 8, DamageType:'Explosive');
+				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
+				A_SetScale(0.12, 0.12);
+				A_SetRenderStyle(0.9, STYLE_Add);
+				SHDX_Utilities.DoExplosion(self, 64, 64., 96, flags:DE_EXTRAZTHRUST);
+				A_Stop();
 			}
-			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
-			EXPL BCDEFGHI 3 Bright;
+			EXPL B 3 Bright
+			{
+				A_Quake(2, 8, 0, 1096);
+				A_Stop();
+			}
+			EXPL CDEFGHI 3 Bright
+			{
+				A_FadeOut(0.1);
+				A_Stop();
+			}
 			Stop;
 	}
 }
