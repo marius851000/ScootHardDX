@@ -84,11 +84,11 @@ Class SHDX_HailerWeapon : SHDX_WeatherWeapon
 			{
 				A_StartSound("weapons/hailerf2", CHAN_WEAPON);
 				
-				A_FireProjectile("SHDX_HailBall2", -4, true, Random[Hailer](-10, 10));
-				A_FireProjectile("SHDX_HailBall2", -2, true, Random[Hailer](-10, 10));
-				A_FireProjectile("SHDX_HailBall2", 0, true, Random[Hailer](-10, 10));
-				A_FireProjectile("SHDX_HailBall2", 2, true, Random[Hailer](-10, 10));
-				A_FireProjectile("SHDX_HailBall2", 4, true, Random[Hailer](-10, 10));
+				A_FireProjectile("SHDX_HailBall2", -4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
+				A_FireProjectile("SHDX_HailBall2", -2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
+				A_FireProjectile("SHDX_HailBall2", 0, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
+				A_FireProjectile("SHDX_HailBall2", 2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
+				A_FireProjectile("SHDX_HailBall2", 4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4));
 			}
 			FRZG C 1;
 			FRZG A 3 A_ReFire;
@@ -103,7 +103,7 @@ Class SHDX_HailBall : SHDX_Projectile
 		Radius 11;
 		Height 8;
 		Speed 24;
-		Damage 7;
+		Damage 6;
 		DamageType "Ice";
 		SeeSound "weapons/hailf";
 		DeathSound "weapons/hailx";
@@ -127,7 +127,7 @@ Class SHDX_HailBall2 : SHDX_Projectile
 		Radius 8;
 		Height 5;
 		Speed 36;
-		Damage 5;
+		Damage 6;
 		DamageType "Ice";
 		SeeSound "weapons/hailf";
 		DeathSound "weapons/hailx";

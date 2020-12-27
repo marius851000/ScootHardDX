@@ -143,7 +143,7 @@ Class SHDX_FillyMissileDrunk1 : SHDX_Projectile
 		Radius 11;
 		Height 6;
 		Speed 60;
-		Damage 4;
+		Damage 2;
 		Projectile;
 		+SCREENSEEKER
 		+SEEKERMISSILE
@@ -168,7 +168,7 @@ Class SHDX_FillyMissileDrunk1 : SHDX_Projectile
 			EXPL A 0 Bright
 			{
 				A_StopSound(CHAN_6);
-				SHDX_Utilities.DoExplosion(self, 16, 32, 16, DamageType:'Explosive');
+				SHDX_Utilities.DoExplosion(self, 8, 32, 8, DamageType:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
@@ -183,7 +183,7 @@ Class SHDX_FillyMissileDrunk2 : SHDX_Projectile
 		Radius 11;
 		Height 6;
 		Speed 60;
-		Damage 4;
+		Damage 2;
 		Projectile;
 		+SCREENSEEKER
 		+SEEKERMISSILE
@@ -208,7 +208,7 @@ Class SHDX_FillyMissileDrunk2 : SHDX_Projectile
 			EXPL A 0 Bright
 			{
 				A_StopSound(CHAN_6);
-				SHDX_Utilities.DoExplosion(self, 16, 32, 16, DamageType:'Explosive');
+				SHDX_Utilities.DoExplosion(self, 8, 32, 8, DamageType:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
