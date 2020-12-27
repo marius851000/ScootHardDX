@@ -1,21 +1,24 @@
 $pitchshiftrange 0
 
+weapons/blasterf		"sounds/weapons/blaster.ogg"	// Blaster Firing
 weapons/pistolf			"sounds/weapons/pistol.ogg"	// Pistol Firing
 weapons/smgf			"sounds/weapons/smg_fire.ogg"	// SMG Firing
 weapons/rocketf			"sounds/weapons/rocket_launcher_fire.ogg"	// Rocket Firing
 weapons/rocketx			"sounds/boom2.ogg"		// Rocket Exploding
+weapons/grenadef		"sounds/weapons/grenade_fire2.ogg"	// Grenade Fire
 weapons/fillyf			"sounds/weapons/homingrocketfire.ogg"
 weapons/fillyx			"sounds/boom2.ogg"
+weapons/fillydrunkf		"sounds/weapons/drunkfillyfire.ogg"
 weapons/rainbowerf		"sounds/weapons/rainbower.ogg"
 weapons/rainbowerx		"sounds/boom2.ogg"		// Rainbower Exploding
-weapons/rainbower2		"sounds/FLAME.ogg"		// Rainbower Fire Crackle
+weapons/rainbowerf2		"sounds/weapons/rainbower2.ogg"		// Rainbower Fire Crackle
 weapons/tornadoch		"sounds/electric.ogg"	// needs a better sound
 weapons/tornadof		"sounds/weapons/tornado_projectile.ogg"
 weapons/hailf			"sounds/electric.ogg"
 weapons/hailx			"sounds/glass_break.ogg"
+weapons/hailf2			"sounds/weapons/scatter_fire2.ogg"
 weapons/lightningf		"sounds/weapons/plasma_fire2.ogg"
 weapons/lightningx		"sounds/weapons/plasma_shotx.ogg"
-
 
 weapons/cluck			"sounds/chicken01.ogg"		// Chicken Cluck Noise
 weapons/chickenx		"sounds/chicken04.ogg"		// Higher Pitched Chicken Noise

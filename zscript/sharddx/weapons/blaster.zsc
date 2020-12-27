@@ -76,13 +76,12 @@ Class SHDX_Blaster : SHDX_Weapon
 			PISG A 0
 			{
 				A_GunFlash();
-				// A_FireBullets (3.5, 0, 1, 5, "SHDX_BulletPuff", FBF_NORANDOMPUFFZ);
-				A_FireProjectile("SHDX_ScootalooBlasterBullet");
-				A_StartSound("weapons/pistolf", CHAN_WEAPON);
+				A_FireBullets (1.0, 0, 1, 10, "SHDX_BulletPuff", FBF_NORANDOMPUFFZ);
+				A_StartSound("weapons/blasterf", CHAN_WEAPON);
 				A_AttachLightDef('BlasterLight', 'SHDX_BULLETPUFF');
 			}
-			PISG B 6;
-			PISG C 4 A_RemoveLight('BlasterLight');
+			PISG B 8;
+			PISG C 6 A_RemoveLight('BlasterLight');
 			PISG A 5 A_ReFire;
 			goto Ready;
 	}

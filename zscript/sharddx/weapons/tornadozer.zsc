@@ -36,8 +36,10 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 		+WEAPON.NOAUTOAIM
 		+WEAPON.CHEATNOTWEAPON
 		Weapon.AmmoGive 5;
-		Weapon.AmmoUse 1;
-		Weapon.AmmoType "SHDX_TornadozerAmmo";
+		Weapon.AmmoUse1 1;
+		Weapon.AmmoUse2 1;
+		Weapon.AmmoType1 "SHDX_TornadozerAmmo";
+		Weapon.AmmoType2 "SHDX_TornadozerAmmo";
 		Obituary "$SHDX_OB_TORNADOZER";
 	}
 	
@@ -59,6 +61,15 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 			TORG A 3;
 			TORG A 3;
 			TORG A 2 A_FireProjectile("SHDX_TornadozerProjectile");
+			TORG A 5 A_ReFire;
+			Goto Ready;
+		AltFlash:
+			TNT1 A 1 A_Light1;
+			goto LightDone;
+		AltFire: 
+			TORG A 3;
+			TORG A 3;
+			TORG A 2 A_FireProjectile("SHDX_TornadozerProjectile2");
 			TORG A 5 A_ReFire;
 			Goto Ready;
 		Spawn:
@@ -91,21 +102,23 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 	
 	const TICS_TILL_DISSIPATION = 260;
 	
+	state A_CheckTornadoTimer()
+	{
+		counter += 4;
+		
+		if (counter >= TICS_TILL_DISSIPATION)
+			return ResolveState("Death");
+			
+		return ResolveState(null);
+	}
+	
 	States
 	{
 		Spawn:
 			TORN A 0 NoDelay A_StartSound("weapons/tornadof", CHAN_BODY);
 		Spawn1:
 			TORN ABCD 1 A_SeekerMissile(0, 35, SMF_LOOK, 256);
-			TORN A 0
-			{
-				counter += 4;
-				
-				if (counter >= TICS_TILL_DISSIPATION)
-					return ResolveState("Death");
-					
-				return ResolveState(null);
-			}
+			TORN A 0 A_CheckTornadoTimer();
 			Loop;
 		Death:
 			TORN A 3
@@ -113,6 +126,29 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 				A_FadeTo(0.0, 0.1, true);
 			}
 			TORN BCD 3;
+			Loop;
+	}
+}
+
+
+Class SHDX_TornadozerProjectile2 : SHDX_TornadozerProjectile
+{
+	Default
+	{
+		Radius 10;
+		Height 50;
+		Speed 10;
+		DamageType "Weather";
+		Damage 7;
+	}
+	
+	States
+	{
+		Spawn:
+			TORN A 0 NoDelay A_StartSound("weapons/tornadof", CHAN_BODY);
+		Spawn1:
+			TORN ABCD 1;
+			TORN A 0 A_CheckTornadoTimer();
 			Loop;
 	}
 }

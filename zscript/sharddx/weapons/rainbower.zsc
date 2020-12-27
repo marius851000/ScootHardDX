@@ -16,9 +16,9 @@ Class SHDX_SpectraAmmo : Ammo
 {
 	Default
 	{
-		Inventory.MaxAmount 5;
+		Inventory.MaxAmount 50;
 		Ammo.BackpackAmount 0;
-		Ammo.BackpackMaxAmount 5;
+		Ammo.BackpackMaxAmount 50;
 	}
 }
 
@@ -31,9 +31,11 @@ Class SHDX_Rainbower : SHDX_BFGWeapon
 		Tag "$SHDX_TAG_RAINBNOWER";
 		Weapon.SelectionOrder 10;
 		Inventory.PickupMessage "$SHDX_PICKUP_RAINBOWER";
-		Weapon.AmmoType "SHDX_SpectraAmmo";
-		Weapon.AmmoGive 5;
-		Weapon.AmmoUse 1;
+		Weapon.AmmoType1 "SHDX_SpectraAmmo";
+		Weapon.AmmoType2 "SHDX_SpectraAmmo";
+		Weapon.AmmoGive 50;
+		Weapon.AmmoUse1 1;
+		Weapon.AmmoUse2 1;
 		+Weapon.NoAutoFire
 		+Weapon.NoAutoAim
 		Obituary "$SHDX_OB_RAINBOWER";
@@ -57,11 +59,28 @@ Class SHDX_Rainbower : SHDX_BFGWeapon
 			TNT1 A 6 A_Light1;
 			goto LightDone;
 		Fire:
+			RBWG A 0
+			{
+				if (CountInv("SHDX_SpectraAmmo") >= 10)
+					return ResolveState("Fire.HasAmmo");
+					
+				return ResolveState("Fire.LowAmmo");
+			}
+		Fire.HasAmmo:
 			RBWG A 0 A_GunFlash;
 			RBWG A 0 A_StartSound("weapons/rainbowerf", CHAN_WEAPON);
 			RBWG A 0 A_FireProjectile("SHDX_RainbowerProjectileA");
+			RBWG A 0 A_TakeInventory("SHDX_SpectraAmmo", 9);
 			RBWG C 6;
 			RBWG A 1;
+			RBWG A 0 A_ReFire;
+			Goto Ready;
+		Fire.LowAmmo:
+		AltFire:
+			RBWG A 0 A_GunFlash;
+			RBWG A 0 A_StartSound("weapons/rainbowerf2", CHAN_WEAPON);
+			RBWG A 0 A_FireProjectile("SHDX_RainbowFlameBall");
+			RBWG A 2;
 			RBWG A 0 A_ReFire;
 			Goto Ready;
 		Spawn:
@@ -149,6 +168,31 @@ Class SHDX_RainbowerFxA : SHDX_Actor
 			Loop;
 		Death:
 			RBWN BCD 4 Bright;
+			Stop;
+	}
+}
+
+
+Class SHDX_RainbowFlameBall : SHDX_Projectile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 30;
+		Damage 4;
+		DamageType "RainbowerX";
+		
+		+RIPPER
+	}
+	
+	States
+	{
+		Spawn:
+			RBWN A 5 Bright A_FadeTo(0.00, 0.1, FTF_REMOVE);
+			Loop;
+		Death:
+			RBWN BCD 5;
 			Stop;
 	}
 }
