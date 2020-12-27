@@ -5,7 +5,7 @@ pickup/generic			"sounds/items/generic_pickup.ogg"		// Generic Pickup
 pickup/weapon			"sounds/items/weapon_pickup.ogg"
 pickup/key				"sounds/items/key_pickup.ogg"		// Key Pickup
 $alias pickup/health	pickup/generic
-pickup/healthfood		"sounds/items/eat_food.ogg"			// Food Health Pickups
+pickup/healthfood		"sounds/eat.ogg"			// Food Health Pickups
 
 pickup/bulletvest		"sounds/items/bullet_vest.ogg"
 pickup/firevest			"sounds/items/fire_vest.ogg"
