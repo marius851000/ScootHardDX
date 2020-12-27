@@ -18,7 +18,7 @@ map E1M1 lookup SHDX_E1A1
 	par = 45
 	sucktime = 1
 	next = "E1M2"
-	music = "D_SCANT"
+	music = "M_SINT"
 	author = "SanyaWaffles, Metal Neon"
 }
 
@@ -55,7 +55,7 @@ map E1M4 lookup SHDX_E1A4
 	par = 75
 	sucktime = 1
 	next = "E2M1"
-	music = "D_SILENT"
+	music = "M_SINT"
 	EventHandlers = "SHDX_SurpriseHandler"
 	author = "SanyaWaffles, Metal Neon"
 }
@@ -69,7 +69,7 @@ map E2M1 lookup SHDX_E2A1
 	par = 45
 	sucktime = 1
 	next = "E2M2"
-	music = "D_SCANT"
+	music = "M_SINT"
 	author = "SanyaWaffles, Metal Neon"
 	lightning
 }
@@ -81,7 +81,7 @@ map E2M2 lookup SHDX_E2A2
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
-	music = "D_SILENT"
+	music = "M_SINT"
 	sucktime = 1
 	next = "E2M4"
 	secretnext = "E2S1"
@@ -96,7 +96,7 @@ map E2M3 lookup SHDX_E2A3
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
-	music = "D_SILENT"
+	music = "M_SINT"
 	sucktime = 1
 	next = "E2M4"
 	author = "Philnemba"
@@ -151,7 +151,7 @@ map E3M1 lookup SHDX_E3A1
 	sky1 = "SKY2"
 	cluster = 1
 	par = 45
-	music = "D_SILENT"
+	music = "M_SINT"
 	sucktime = 1
 	next = "E3M2"
 	lightning
@@ -179,7 +179,7 @@ map E3M3 lookup SHDX_E3A3
 	sucktime = 1
 	next = "E3M4"
 	author = "EllieJojo, SanyaWaffles"
-	music = "D_SCANT"
+	music = "M_SINT"
 }
 
 map E3M4 lookup SHDX_E3A4
@@ -190,7 +190,7 @@ map E3M4 lookup SHDX_E3A4
 	par = 45
 	sucktime = 1
 	EventHandlers = "SHDX_PreBoss3SlideshowHandler", "SHDX_AtmosphereHandler"
-	music = "D_SILENT"
+	music = "M_SINT"
 	next = "CREDITS"
 	author = "SanyaWaffles"
 	secretnext = "CREDITS"
