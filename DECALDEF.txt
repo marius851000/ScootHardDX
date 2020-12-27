@@ -175,14 +175,18 @@ decal SHDX_FrostScorch
 }
 
 generator SHDX_BulletPuff				SHDX_BulletChip1
+generator SHDX_ScootalooSMGBullet		SHDX_BulletChip1
 generator SHDX_LowGuardBullet			SHDX_BulletChip1
 generator SHDX_HighGuardBullet			SHDX_BulletChip1
 generator SHDX_PegapolBullet			SHDX_BulletChip1
 generator SHDX_MaimbowBullet			SHDX_BulletChip1
 generator SHDX_FillyMissile				SHDX_MediumScorch
 generator SHDX_Missile					SHDX_Scorch
+generator SHDX_MaimbowMissile			SHDX_Scorch
 generator SHDX_PlasmaBall				SHDX_MediumScorch
 generator SHDX_HailBall					SHDX_FrostScorch
+generator SHDX_HailBall2				SHDX_FrostScorch
+generator SHDX_MiniSentryHailBall		SHDX_FrostScorch
 
 decal CWCLogoColour 1
 {

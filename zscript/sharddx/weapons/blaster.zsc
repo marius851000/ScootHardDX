@@ -70,7 +70,7 @@ Class SHDX_Blaster : SHDX_Weapon
 			PISG A 1 A_Raise(10);
 			Loop;
 		Flash:
-			PISF A 4 Bright A_Light1;
+			PISF A 2 Bright A_Light1;
 			goto LightDone;
 		Fire:
 			PISG A 0
@@ -80,8 +80,11 @@ Class SHDX_Blaster : SHDX_Weapon
 				A_StartSound("weapons/blasterf", CHAN_WEAPON);
 				A_AttachLightDef('BlasterLight', 'SHDX_BULLETPUFF');
 			}
-			PISG B 8;
-			PISG C 6 A_RemoveLight('BlasterLight');
+			PISG A 2;
+			PISG B 2;
+			PISG C 3 A_RemoveLight('BlasterLight');
+			PISG D 3;
+			PISG CB 3;
 			PISG A 5 A_ReFire;
 			goto Ready;
 	}
