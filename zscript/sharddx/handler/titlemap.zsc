@@ -29,7 +29,7 @@ class SHDX_TitlemapEvent : EventHandler
 	
 	ui void PlayTitleMusic()
 	{
-		S_ChangeMusic("D_SOMB");
+		S_ChangeMusic("M_SHDX");
 	}
 	
 	ui void DrawBGImage(string texturepath)
@@ -184,7 +184,7 @@ class SHDX_TitlemapEvent : EventHandler
 				PlayDisclaimerSound();
 			*/
 			
-			if (seconds == SECONDS_TITLESCREEN - 1)
+			if (seconds == SECONDS_DISCLAIMER - 1)
 				PlayTitleMusic();
 			
 			seconds++;

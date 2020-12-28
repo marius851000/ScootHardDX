@@ -360,11 +360,6 @@ Class SHDX_Boss : SHDX_Enemy
 		}
 	}
 	
-	void A_VictoryMusic()
-	{
-		S_ChangeMusic("D_GUARD", 0, false);
-	}
-	
 	
 	void A_SHDX_SetToBossBarHUD()
 	{

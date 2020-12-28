@@ -91,7 +91,7 @@ class SHDX_CreditMapEvent : EventHandler
 	
 	ui void PlayCreditMusic()
 	{
-		S_ChangeMusic("D_HOPE");
+		S_ChangeMusic("");
 	}
 	
 	ui void ShutOffMusic()
