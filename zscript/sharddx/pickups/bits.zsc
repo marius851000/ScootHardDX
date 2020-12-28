@@ -12,19 +12,101 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-Class SHDX_BitCoin : Ammo
+Class SHDX_Bit : Inventory
 {
 	Default
 	{
 		Radius 10;
 		Height 16;
 		Scale 0.12;
-		Inventory.MaxAmount 50;
 		Inventory.PickupSound "pickup/generic";
 		+Inventory.IgnoreSkill
 	}
 	
 	mixin PickupSoundOverride;
+	
+	// This is basically how the ammo from GZDoom is handled
+	// but for our purposes...
+	
+	Class<SHDX_Bit> GetParentBit()
+	{
+		Class<Object> type = GetClass();
+		
+		while (type.GetParentClass() != "SHDX_Bit" && type.GetParentClass() != null)
+		{
+			type = type.GetParentClass();
+		}
+		
+		return (Class<SHDX_Bit>)(type);
+	}
+	
+	override Inventory CreateCopy (Actor other)
+	{
+		SHDX_Bit copy;
+		int amount = Amount;
+		
+		Class<Object> o = GetClass();
+		
+		let type = GetParentBit();
+		if (GetClass() != type && type != null)
+		{
+			if (!GoAway())
+				Destroy();
+				
+			copy = SHDX_Bit(Spawn(type));
+			copy.Amount = amount;
+			copy.BecomeItem();
+		}
+		else
+		{
+			copy = SHDX_Bit(Super.CreateCopy(other));
+			copy.Amount = amount;
+		}
+		
+		if (copy.Amount > copy.MaxAmount)
+		{
+			copy.Amount = copy.MaxAmount;
+		}
+		return copy;
+	}
+	
+	override bool HandlePickup (Inventory item)
+	{
+		let bitcoin = SHDX_Bit(item);
+		if (bitcoin != null && bitcoin.GetParentClass() == GetClass())
+		{
+			if (Amount < MaxAmount)
+			{
+				int recieving = bitcoin.amount;
+				
+				if (Amount > 0 && Amount + recieving < 0)
+				{
+					Amount = 0x7fffffff;
+				}
+				else
+				{
+					Amount += recieving;
+				}
+				if (Amount > MaxAmount)
+				{
+					Amount = MaxAmount;
+				}
+				
+				item.bPickupGood = true;
+			}
+			return true;
+		}
+		return false;
+	}
+}
+
+Class SHDX_BitCoin : SHDX_Bit
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 50;
+	}
 }
 
 Class SHDX_SilverBitCoin : SHDX_BitCoin

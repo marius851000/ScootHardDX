@@ -14,6 +14,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 extend class SHDX_PlayerPawn
 {
+	
 	override void CheatGive (String name, int amount)
 	{
 		Super.CheatGive(name, amount);
@@ -34,6 +35,33 @@ extend class SHDX_PlayerPawn
 		else if (name ~== "everything")
 		{
 			giveall = ALL_YESYES;
+		}
+		
+		if (giveall)
+		{
+			for (i = 0; i < AllActorClasses.Size(); ++i)
+			{
+				let bitc = (class<SHDX_Bit>)(AllActorClasses[i]);
+
+				if (bitc && GetDefaultByType(bitc).GetParentBit() == bitc)
+				{
+					let bititem = FindInventory(bitc);
+					if (bititem == NULL)
+					{
+						bititem = Inventory(Spawn(bitc));
+						bititem.AttachToOwner (self);
+						bititem.Amount = bititem.MaxAmount;
+					}
+					else if (bititem.Amount < bititem.MaxAmount)
+					{
+						bititem.Amount = bititem.MaxAmount;
+					}
+				}
+			}
+		}
+		else
+		{
+			return;
 		}
 		
 		if (giveall || name ~== "armor")
