@@ -46,7 +46,7 @@ Class SHDX_Lamp : SHDX_Prop
 			LAMP A 1;
 			TNT1 A 0
 			{
-				A_StartSound("world/glassbreak", CHAN_BODY);
+				A_StartSound("misc/glassbreak", CHAN_7);
 				
 				A_SpawnAshFx(self);
 			}
