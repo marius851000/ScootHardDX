@@ -18,7 +18,7 @@ Class SHDX_ZombieSpot : SHDX_Actor
 	{
 		//$Category "Monsters"
 		//$Sprite ZMCLB0
-		//$Title "Dr. Atmosphere Zombie Spawning Spot"
+		//$Title "Zombie Spawning Spot"
 		Radius 16;
 		Height 56;
 	}
@@ -33,27 +33,11 @@ Class SHDX_ZombieSpot : SHDX_Actor
 			ZMCL BCBC 2 Bright;
 			ZMCL C 0
 			{
-				A_SpawnItemEx("SHDX_ZombieGround", flags:SXF_NOCHECKPOSITION);
+				if (Random[ZombieSpawner](0, 4) > 1)
+					A_SpawnItemEx("SHDX_Zombie", flags:SXF_NOCHECKPOSITION);
+				else
+					A_SpawnItemEx("SHDX_RocketZombie", flags:SXF_NOCHECKPOSITION);
 			}
 			Goto Spawn;
-	}
-}
-
-Class SHDX_ZombieGround : SHDX_Actor
-{
-	Default
-	{
-	}
-	
-	States
-	{
-		Spawn:
-			ZMBI Q 0 NoDelay A_StartSound("zombie/rise");
-			ZMBI QRST 4;
-			ZMBI T 0
-			{
-				A_SpawnItemEx("SHDX_ZombieNormal", flags:SXF_NOCHECKPOSITION);
-			}
-			Stop;
 	}
 }

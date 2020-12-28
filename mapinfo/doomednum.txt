@@ -8,8 +8,8 @@ DoomEdNums
 	6006 = SHDX_PegapolMale
 	
 	6008 = SHDX_Engineer
-	6009 = SHDX_ZombieNormal
-	6010 = SHDX_ZombieExplosive
+	6009 = SHDX_Zombie
+	6010 = SHDX_RocketZombie
 	
 	6011 = SHDX_HeavyEnforcer
 	6012 = SHDX_LightEnforcer

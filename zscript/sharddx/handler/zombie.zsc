@@ -16,7 +16,7 @@ class SHDX_AtmosphereHandler : EventHandler
 {
 	SHDX_DrAtmosphereBoss dratmos;
 	SHDX_MaimbowUndashBoss mboss;
-	Array<SHDX_ZombieNormal> zombies;
+	Array<SHDX_Zombie> zombies;
 	
 	int zombietics;
 	
@@ -45,7 +45,7 @@ class SHDX_AtmosphereHandler : EventHandler
 	
 	void CheckIfSpawnedZombie(Actor a)
 	{
-		let z = SHDX_ZombieNormal(a);
+		let z = SHDX_Zombie(a);
 		if (z)
 		{
 			zombies.Push(z);
@@ -119,11 +119,11 @@ class SHDX_AtmosphereHandler : EventHandler
 	
 	void KillZombies()
 	{
-		ThinkerIterator zombieit = ThinkerIterator.Create("SHDX_ZombieNormal");
-		SHDX_ZombieNormal zom;
+		ThinkerIterator zombieit = ThinkerIterator.Create("SHDX_Zombie");
+		SHDX_Zombie zom;
 		
 		// iterate through the spots
-		while (zom = SHDX_ZombieNormal(zombieit.Next()))
+		while (zom = SHDX_Zombie(zombieit.Next()))
 		{
 			// if spot exists
 			if (zom)
@@ -151,7 +151,7 @@ class SHDX_AtmosphereHandler : EventHandler
 	
 	void CheckIfKilledZombie(Actor a)
 	{
-		let z = SHDX_ZombieNormal(a);
+		let z = SHDX_Zombie(a);
 		if (z)
 		{
 			int s = zombies.Find(z);
@@ -175,7 +175,7 @@ class SHDX_AtmosphereHandler : EventHandler
 			if (zombies.Find(null) >= size)
 				return;
 			
-			Array<SHDX_ZombieNormal> tempitems;
+			Array<SHDX_Zombie> tempitems;
 			for (int i = 0; i < size; i++)
 			{
 				if (zombies[i] && zombies[i].health > 0)

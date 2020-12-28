@@ -7,8 +7,8 @@ SpawnNums
 	5 = SHDX_PegapolMale
 	
 	6 = SHDX_Engineer
-	7 = SHDX_ZombieNormal
-	8 = SHDX_ZombieExplosive
+	7 = SHDX_Zombie
+	8 = SHDX_RocketZombie
 	
 	9 = SHDX_SurpriseBoss
 	10 = SHDX_DrAtmosphereBoss
@@ -35,6 +35,9 @@ SpawnNums
 	27 = SHDX_BlueCard
 	28 = SHDX_GreenCard
 	29 = SHDX_ManagementCard
+	
+	30 = SHDX_HeavyEnforcer
+	31 = SHDX_LightEnforcer
 	
 	100 = SHDX_GlassJunk
 	101 = SHDX_MetalJunk

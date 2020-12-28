@@ -12,22 +12,6 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-
-Class SHDX_ZombieSpawner : RandomSpawner
-{
-	Default
-	{
-		//$Category "Monsters"
-		//$Sprite ZMBIH0
-		//$Title "Zombie (Random)"
-		scale 0.12;
-		Radius 20;
-		Height 56;
-		DropItem "SHDX_ZombieNormal", 255, 13;
-		DropItem "SHDX_ZombieExplosive", 255, 2;
-	}
-}
-
 Class SHDX_ZombieGibProjectile : SHDX_Projectile
 {
 	Default
@@ -62,51 +46,58 @@ Class SHDX_ZombieGibProjectile : SHDX_Projectile
 	}
 }
 
-Class SHDX_ZombieNormal : SHDX_Enemy
+Class SHDX_Zombie : SHDX_Enemy
 {
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite ZMBIA0
+		//$Sprite ZOMBA2
 		//$Title "Zombie (Normal)"
 		SeeSound "zombie/sight";
 		PainSound "zombie/pain";
 		ActiveSound "zombie/active";
-		Health 10;
+		Health 50;
 		Radius 20;
 		Height 56;
 		Mass 100;
 		Speed 8;
 		
-		DamageFactor "Normal", 0.0;
-		DamageFactor "Bullet", 0.0;
+		DamageFactor "Normal", 1.00;
+		DamageFactor "Bullet", 1.00;
 		DamageFactor "Chicken", 1.00;
 		DamageFactor "ChickenX", 1.00;
 		DamageFactor "Weather", 1.00;
 		DamageFactor "RainbowerX", 1.00;
 		DamageFactor "Explosive", 1.00;
+		DamageFactor "Lightning", 0.50;
 		DamageFactor "Ice", 1.00;
 		
 		PainChance 80;
-		PainChance "Normal", 80;
-		PainChance "Bullet", 80;
-		PainChance "ChickenX", 0;
-		PainChance "RainbowerX", 0;
-		PainChance "Explosive", 0;
+		PainChance "Normal", 112;
+		PainChance "Bullet", 112;
+		PainChance "ChickenX", 112;
+		PainChance "RainbowerX", 112;
+		PainChance "Explosive", 160;
+		PainChance "Lightning", 160;
+		PainChance "Ice", 112;
 		
 		Obituary "$SHDX_OB_ZOMBIE";
 		Tag "$SHDX_TAG_ZOMBIE";
 		Species "Zombie";
 		
-		+AllowPain
 		-SHDX_Enemy.CanJump
 	}
+	
+	bool isdown;
+	int overchargecounter;
+	
 	// Purrmoid Pain
 	void A_DD2_ZombiePain()
 	{
 		A_Pain();
 		bNotAutoAimed = true;
 		bNoPain = true;
+		isdown = true;
 	}
 	
 	// Purrmoid 'coming out of it'
@@ -114,38 +105,85 @@ Class SHDX_ZombieNormal : SHDX_Enemy
 	{
 		bNotAutoAimed = false;
 		bNoPain = false;
+		isdown = false;
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if (isdown && (mod == 'Normal' || mod == 'Bullet' || mod == 'Weather' || mod == 'Ice'))
+			damage = 0;
+			
+		if (mod == 'Lightning')
+			overchargecounter++;
+		
+		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
 	}
 	
 	States
 	{	
 		Spawn:
-			ZMBI A 10 A_Look;
+			ZOMB A 10 A_Look;
 			loop;
 		See:
-			ZMBI BCDEBCDE 6 A_Chase;
+			ZOMB BCBCBCBC 10 A_Chase;
 			Loop;
 		Melee:
-			ZMBI F 10 A_FaceTarget;
-			ZMBI G 8;
-			ZMBI H 4 A_CustomMeleeAttack(Random[Zombie](3, 12), "zombie/melee", "zombie/miss", 'Melee', true);
+			ZOMB D 6 A_FaceTarget;
+			ZOMB E 4 A_CustomMeleeAttack(Random[Zombie](3, 12), "zombie/melee", "zombie/miss", 'Melee', true);
 			Goto See;
 		Missile:
-			ZMBI I 10 A_FaceTarget;
-			ZMBI J 6;
-			ZMBI K 4 A_SpawnProjectile("SHDX_ZombieGibProjectile");
+			ZOMB D 6 A_FaceTarget;
+			ZOMB E 4 A_SpawnProjectile("SHDX_ZombieGibProjectile");
 			Goto See;
 		Pain:
 		Pain.Normal:
 		Pain.Bullet:
-			ZMBI L 3 A_DD2_ZombiePain();		// feign death...
-			ZMBI LMNO 3;
-			ZMBI P 35 A_SetTics((35 * random[Zombie](4,6)));	// make it feign death
-			ZMBI P 2 A_StartSound(SeeSound, CHAN_BODY);
-			ZMBI ONM 2;
- 			ZMBI L 1 A_DD2_ZombieUnPain();	// resurrect!
+			ZOMB F 3 A_DD2_ZombiePain();		// feign death...
+			ZOMB GHI 3;
+			ZOMB J 35 A_SetTics((35 * random[Zombie](4,6)));	// make it feign death
+			ZOMB I 2 A_StartSound(SeeSound, CHAN_BODY);
+			ZOMB HG 2;
+ 			ZOMB F 1 A_DD2_ZombieUnPain();	// resurrect!
 			Goto See;
 		
+		Pain.Lightning:
+			ZOMB F 0 A_SetElectrocutionTranslation();
+			ZOMB F 3;
+			ZOMB F 3 A_Pain;
+			ZOMB F 0 A_ResetTranslation();
+			Goto See;
+			
+		Death.Lightning:
+			ZOMB F 0 A_SetElectrocutionTranslation();
+			ZOMB F 3 A_NewScream;
+			ZOMB F 35;
+			ZOMB F 0 A_ResetTranslation;
+			ZOMB F 0
+			{
+				if (overchargecounter >= 4)
+					return ResolveState("Death.Lightning.Overcharge");
+					
+				return ResolveState("Death.Lightning.Normal");
+			}
+		Death.Lightning.Overcharge:
+			EXPL A 0
+			{
+				SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
+				A_StartSound("enforcer/explode", CHAN_7);
+				// A_SHDX_ExtremeScreamAndUnblock();
+				A_SpawnGibsFx(self);
+			}
+			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
+			EXPL BCDEFGHI 3 Bright;
+			Stop;
+			
+		Death.Lightning.Normal:
 		Death:
+			ZOMB F 3 A_SHDX_ExtremeScreamAndUnblock();		// feign death...
+			ZOMB GHI 3;
+			ZOMB J -1 A_SetCorpseShootable;	// make it feign death
+			Stop;
+			
 		Death.Explosive:
 		Death.Weather:
 		Death.Extreme:
@@ -173,96 +211,106 @@ Class SHDX_ZombieNormal : SHDX_Enemy
 	}
 }
 
-Class SHDX_ZombieExplosive : SHDX_Enemy
+Class SHDX_RocketZombie : SHDX_Zombie
 {
 	Default
 	{
 		//$Category "Monsters"
-		//$Sprite ZMBEA0
-		//$Title "Zombie (Explosive)"
-		Health 30;
+		//$Sprite RZOMA2
+		//$Title "Zombie (Rocket)"
+		SeeSound "zombie/sight";
+		PainSound "zombie/pain";
+		ActiveSound "zombie/active";
+		Health 75;
 		Radius 20;
 		Height 56;
 		Mass 100;
-		Speed 12;
+		Speed 8;
 		
-		Translation "96:111=64:79";
-		
-		Obituary "$SHDX_OB_EXPLODINGZOMBIE";
-		Tag "$SHDX_TAG_EXPLODINGZOMBIE";
-		
+		Obituary "$SHDX_OB_ROCKETZOMBIE";
+		Tag "$SHDX_TAG_ROCKETZOMBIE";
 		Species "Zombie";
 		
-		+NoPain
 		-SHDX_Enemy.CanJump
 	}
 	
-	bool giveoneliner;
+	void A_RocketZombieFire()
+	{
+		A_SpawnProjectile("SHDX_RocketGuardMissile", 32, -16);
+		A_SpawnProjectile("SHDX_RocketGuardMissile", 32, 16);
+	}
 	
 	States
 	{	
 		Spawn:
-			ZMBE A 10 A_Look;
+			RZOM A 10 A_Look;
 			loop;
 		See:
-			ZMBE B 0 A_StartSound("zombie2/scream", CHAN_BODY, CHANF_LOOPING);
-		See1:
-			ZMBE BCDECDE 2 A_Chase("Melee", null);
+			RZOM BCBCBCBC 10 A_Chase;
 			Loop;
-		
+			
 		Melee:
-			ZMBE E 5 A_SetTranslation('ExplodingZombie2');
-			ZMBE E 5 A_SetTranslation('ExplodingZombie3');
-			ZMBE E 5
+		Missile:
+			RZOM A 40
 			{
-				if (target && Distance3D(target) <= 128)
-				{
-					return ResolveStatE("Melee.Detonate");
-				}
-				return ResolveState(null);
+				bNoPain = true;
+				A_StartSound("rocketguard/loading", CHAN_WEAPON, attenuation:0.5);
+				A_FaceTarget();
 			}
-			ZMBE E 5 A_SetTranslation('ExplodingZombie3');
-			ZMBE E 5 A_SetTranslation('ExplodingZombie2');
-			ZMBE E 0
+			RZOM A 2 A_FaceTarget;
+			RZOM D 2 Bright A_RocketZombieFire;
+			RZOM E 2
 			{
-				translation = startingtranslation;
+				bNoPain = false;
 			}
-			Goto See1;
-		Melee.Detonate:
-			ZMBE E 5 A_SetTranslation('ExplodingZombie4');
-			ZMBE E 1 A_Die('Detonate');
-		Death.Detonate:
-			GIBX A 0
+			Goto See;
+		Pain:
+		Pain.Normal:
+		Pain.Bullet:
+			RZOM F 3 A_DD2_ZombiePain();		// feign death...
+			RZOM GHI 3;
+			RZOM J 35 A_SetTics((35 * random[Zombie](4,6)));	// make it feign death
+			RZOM I 2 A_StartSound(SeeSound, CHAN_BODY);
+			RZOM HG 2;
+ 			RZOM F 1 A_DD2_ZombieUnPain();	// resurrect!
+			Goto See;
+		
+		Pain.Lightning:
+			RZOM F 0 A_SetElectrocutionTranslation();
+			RZOM F 3;
+			RZOM F 3 A_Pain;
+			RZOM F 0 A_ResetTranslation();
+			Goto See;
+			
+		Death.Lightning:
+			ZOMB F 0 A_SetElectrocutionTranslation();
+			RZOM F 3 A_NewScream;
+			RZOM F 35;
+			RZOM F 0 A_ResetTranslation;
+			RZOM F 0
 			{
-				giveoneliner = false;
+				if (overchargecounter >= 4)
+					return ResolveState("Death.Lightning.Overcharge");
+					
+				return ResolveState("Death.Lightning.Normal");
 			}
-		Death:
-			GIBX A 3
+		Death.Lightning.Overcharge:
+			EXPL A 0
 			{
-				A_StopSound(CHAN_BODY);
-				A_SHDX_ExtremeScreamAndUnblock();
-				SHDX_Utilities.DoExplosion(self, 128, 64, 128, flags:DE_NOTMISSILE, DamageType:'Explosive');
-				A_SpawnItemEx("SHDX_Explosiveness", 0, 0, 16);
+				SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
+				A_StartSound("enforcer/explode", CHAN_7);
+				// A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnGibsFx(self);
 			}
-			GIBX B 0
-			{
-				if (!giveoneliner)
-					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
-			}
-			GIBX BC 5;
-			GIBX D 1;
+			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
+			EXPL BCDEFGHI 3 Bright;
 			Stop;
-		Death.RainbowerX:
-			GIBR A 4;
-			GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
-			GIBR BC 4;
-			GIBR D 1;
-			Stop;
-		Crush:
-			GIBX D 0 A_SHDX_SquishSound;
-			// GIBX D 1 A_SHDX_GivePlayerOneLiner;
-			GIBX D 1;
+			
+		Death.Lightning.Normal:
+		Death:
+			RZOM F 3 A_SHDX_ExtremeScreamAndUnblock();		// feign death...
+			RZOM GHI 3;
+			RZOM J -1 A_SetCorpseShootable;	// make it feign death
 			Stop;
 	}
 }
