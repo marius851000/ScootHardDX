@@ -33,6 +33,8 @@ gamedefaults
 	LaxMonsterActivation
 	MissilesActivateImpactLines
 	
+	NoInfighting
+	
 	// OpenGL Only Options (GZDoom)
 	// 1.2 is Mode X (320x200 streched vertically to 320x240)
 	// PixelRatio = 1.0
