@@ -241,6 +241,7 @@ Copyright Censor Mode,MNU_SHARDDX_COPYRIGHTCENSOR,,,,,,,,Modo de censura de dere
 Nudity Censor Mode,MNU_SHARDDX_NUDITYCENSOR,,,,,,,,Modo de censura de desnudez,,,,,,,,,,,,,,,
 Offensive Censor Mode,MNU_SHARDDX_OFFENSIVECENSOR,,,,,,,,Modo de censura ofensivo,,,,,,,,,,,,,,,
 Render Voxels,MNU_SHARDDX_DRAWVOXELS,,,,,,,,,,,,,,,,,,,,,,,
+Skip Jingle + Disclaimer,MNU_SHARDDX_FASTBOOT,,,,,,,,,,,,,,,,,,,,,,,
 Censor Mode,MNU_SHARDDX_CENSOR,,,,,,,,Modo censurador,,,,,,,,,,,,,,,
 Hints,MNU_SHARDDX_DISABLEHINTS,,,,,,,,,,,,,,,,,,,,,,,
 Hide Beta Label,MNU_SHARDDX_HIDEBETALABEL,,,,,,,,,,,,,,,,,,,,,,,

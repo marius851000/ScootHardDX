@@ -15,6 +15,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 class SHDX_TitlemapEvent : EventHandler
 {
 	ui int seconds;
+	ui bool fastbootskip;
 	
 	const SECONDS_SPLASHSCREEN = 1;
 	const SECONDS_DISCLAIMER = 10;
@@ -30,6 +31,17 @@ class SHDX_TitlemapEvent : EventHandler
 	ui void PlayTitleMusic()
 	{
 		S_ChangeMusic("M_SHDX");
+	}
+	
+	ui bool GetFastBoot()
+	{
+		CVar fb = CVar.GetCvar('shdx_fastboot', players[consoleplayer]);
+		if (fb)
+		{
+			return fb.GetBool();
+		}
+		
+		return false;
 	}
 	
 	ui void DrawBGImage(string texturepath)
@@ -174,6 +186,13 @@ class SHDX_TitlemapEvent : EventHandler
 	
 	override void UITick()
 	{
+		if (!fastbootskip && GetFastBoot())
+		{
+			seconds = SECONDS_TITLESCREEN;
+			fastbootskip = true;
+			PlayTitleMusic();
+		}
+		
 		if (!(level.time % TICRATE))
 		{
 			if (seconds == SECONDS_SPLASHSCREEN - 1)

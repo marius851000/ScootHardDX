@@ -3,6 +3,8 @@ server bool shdx_rip = true;				// RIP Sound Obituary
 server bool shdx_skipcutscenes = false;		// Skip Cutscenes
 server bool shdx_showextrahitboxes = false;	// Debug - show flag/corpse hitboxes
 
+user bool shdx_fastboot = false;				// Skip WIS Jingle and Disclaimer
+
 user bool shdx_bosshealthbar = true;		// Show boss health bar
 
 server bool shdx_copyrightcensor = false;	// Hide copyright censor
