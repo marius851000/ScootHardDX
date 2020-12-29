@@ -3,13 +3,13 @@ Intermission EndEpisode3Aurora
 	Fader
 	{
 		Background = "graphics/cutscenes/end3b/end3b_1.png"
+		Music = ""
 		Time = 2
 		FadeType = FadeIn
 	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3b/end3b_1.png"
-		Music = ""
 		Text = "$SHDX_EP3BEND_1"
 		TextColor = "Green"
 	}
