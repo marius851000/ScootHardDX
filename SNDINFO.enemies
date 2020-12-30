@@ -34,7 +34,7 @@ $random	grunt2/active		{ grunt2/active1 grunt2/active2 }
 
 grunt2/pain					"sounds/enemies/guard/kelsie/g2_pain.ogg"
 
-grunt/attack				"sounds/weapons/pistol.ogg"
+grunt/attack				"sounds/weapons/revolver.ogg"
 
 hguard1/sight1				"sounds/enemies/high/redsoldier55/hg_see1.ogg"
 hguard1/sight2				"sounds/enemies/high/redsoldier55/hg_see2.ogg"
