@@ -109,9 +109,9 @@ Class SHDX_HighGuard : SHDX_Enemy
 			Loop;
 		See:
 			// HIGH B 0 A_StartSound("pony/walk", CHAN_BODY);
-			HIGH BCDE 4 A_Chase;
+			HIGH BCDE 4 A_SHDX_Chase;
 			// HIGH B 0 A_StartSound("pony/walk", CHAN_BODY);
-			HIGH BCDE 4 A_Chase;
+			HIGH BCDE 4 A_SHDX_Chase;
 			Loop;
 		Missile:
 			HIGH F 0 A_StopSound(CHAN_BODY);

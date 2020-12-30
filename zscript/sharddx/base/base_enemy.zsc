@@ -331,6 +331,42 @@ Class SHDX_Boss : SHDX_Enemy
 		}
 	}
 	
+	// basing this on MartinHowe's methods
+	virtual void A_SHDX_Chase(StateLabel meleest = null, StateLabel missilest = null, int flags = 0, Actor chasetarget = null, uint chasespeed = 0, uint chasedirchance = 16, double chasedirangle = 180)
+	{
+		// Determine targets
+		let navperson = (chasetarget ? chasetarget : goal);
+		let navspeed = (chasespeed ? chasespeed : speed);
+		
+		// Navigate to the actor
+		let oldgoal = goal;
+		let oldspeed = speed;
+		let oldtarget = target;
+		
+		goal = navperson;
+		speed = navspeed;
+		if ((chasedirangle < 180) && (Abs(AngleTo(navperson)) > chasedirangle))
+		{
+			target = navperson;
+			NewChaseDir();
+		}
+		target = null;
+		A_Chase(meleest, missilest, flags);
+		if (chasedirchance && (random[SHDXChase]() < chasedirchance - 1))
+		{
+			target = navperson;
+			NewChaseDir();
+		}
+		if ((chasedirangle < 180) && (Abs(AngleTo(navperson)) > chasedirangle))
+		{
+			target = navperson;
+			NewChaseDir();
+		}
+		goal = oldgoal;
+		speed = oldspeed;
+		target = oldtarget;
+	}
+	
 	void A_SHDX_PlayBossTaunt(Sound snd, bool bypasscooldown = false)
 	{
 		if (cooldowntaunt > 0 && !bypasscooldown)

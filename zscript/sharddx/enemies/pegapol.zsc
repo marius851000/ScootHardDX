@@ -116,9 +116,9 @@ Class SHDX_PegapolMale : SHDX_Enemy
 				return ResolveState(null);
 			}
 			// PEGA B 0 A_StartSound("pony/walk", CHAN_BODY);
-			PEGA BCDE 4 A_Chase;
+			PEGA BCDE 4 A_SHDX_Chase;
 			// PEGA B 0 A_StartSound("pony/walk", CHAN_BODY);
-			PEGA BCDE 4 A_Chase;
+			PEGA BCDE 4 A_SHDX_Chase;
 			PEGA E 0
 			{
 				if (random[Pegapol](0, 100) >= 72)
@@ -130,21 +130,21 @@ Class SHDX_PegapolMale : SHDX_Enemy
 		See.Flying:
 			PEGA O 4
 			{
-				A_Chase();
+				A_SHDX_Chase();
 				A_FlapWings();
 			}
 			PEGA PQR 4
 			{
-				A_Chase();
+				A_SHDX_Chase();
 			}
 			PEGA O 4
 			{
-				A_Chase();
+				A_SHDX_Chase();
 				A_FlapWings();
 			}
 			PEGA PQR 4
 			{
-				A_Chase();
+				A_SHDX_Chase();
 			}
 			PEGA R 0
 			{
