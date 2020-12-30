@@ -16,7 +16,7 @@ Class SHDX_PegapolBullet : FastProjectile
 {
 	Default
 	{
-		Speed 120;
+		Speed 100;
 		Radius 8;
 		Height 8;
 		DamageFunction Random[Pegapol](4,8);
@@ -175,13 +175,13 @@ Class SHDX_PegapolMale : SHDX_Enemy
 			}
 			PEGA F 5 A_FaceTarget;
 			PEGA G 2 Bright A_PegapolFire;
-			PEGA H 2 Bright;
+			PEGA H 2 Bright A_PegapolFire;
 			PEGA IF 2 A_FaceTarget;
 			PEGA G 2 Bright A_PegapolFire;
-			PEGA H 2 Bright;
+			PEGA H 2 Bright A_PegapolFire;
 			PEGA IF 2 A_FaceTarget;
 			PEGA G 2 Bright A_PegapolFire;
-			PEGA H 2 Bright;
+			PEGA H 2 Bright A_PegapolFire;
 			PEGA IF 2 A_FaceTarget;
 			Goto See;
 		Missile.Flying:
