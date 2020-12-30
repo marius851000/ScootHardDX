@@ -109,6 +109,8 @@ zombie/active			"sounds/enemies/zombie/zombie_active.ogg"
 zombie/pain				"sounds/enemies/zombie/zombie_pain.ogg"
 $limit zombie/sight 3
 
+zombie/overcharge		"sounds/zombie_whir.ogg"
+
 zombie2/scream			"sounds/enemies/zombie/zombie_aaaa.ogg"
 
 enforcer/clusterbombf	"sounds/weapons/grenade_fire.ogg"

@@ -1,6 +1,6 @@
 $pitchshiftrange 0
 
-weapons/blasterf		"sounds/weapons/blaster.ogg"	// Blaster Firing
+weapons/blasterf		"sounds/weapons/revolver.ogg"	// Blaster Firing
 weapons/pistolf			"sounds/weapons/pistol.ogg"	// Pistol Firing
 weapons/smgf			"sounds/weapons/smg_fire.ogg"	// SMG Firing
 weapons/rocketf			"sounds/weapons/rocket_launcher_fire.ogg"	// Rocket Firing
