@@ -269,9 +269,9 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			Loop;
 		See:
 			// ENFO B 0 A_StartSound("pony/walk", CHAN_BODY);
-			ENFO BCDE 4 A_SHDX_Chase;
+			ENFO BCDE 4 A_Chase;
 			// ENFO B 0 A_StartSound("pony/walk", CHAN_BODY);
-			ENFO BCDE 4 A_SHDX_Chase;
+			ENFO BCDE 4 A_Chase;
 			Loop;
 		Missile:
 			ENFO B 0 A_StopSound(CHAN_BODY);

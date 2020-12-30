@@ -232,29 +232,29 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 				return ResolveState(null);
 			}
 			// ATMO B 0 A_StartSound("pony/walk2", CHAN_BODY);
-			ATMO BCDE 2 A_SHDX_Chase;
+			ATMO BCDE 2 A_Chase;
 			// ATMO B 0 A_StartSound("pony/walk2", CHAN_BODY);
-			ATMO BCDE 2 A_SHDX_Chase;
+			ATMO BCDE 2 A_Chase;
 			ATMO E 0 A_Jump(32, "StartFlying");
 			Loop;
 		See2.Flying:
 			ATMO F 4
 			{
-				A_SHDX_Chase(null, "Missile.Flying");
+				A_Chase(null, "Missile.Flying");
 				A_FlapWings();
 			}
 			ATMO GHI 4
 			{
-				A_SHDX_Chase(null, "Missile.Flying");
+				A_Chase(null, "Missile.Flying");
 			}
 			ATMO F 4
 			{
-				A_SHDX_Chase(null, "Missile.Flying");
+				A_Chase(null, "Missile.Flying");
 				A_FlapWings();
 			}
 			ATMO GHI 4
 			{
-				A_SHDX_Chase(null, "Missile.Flying");
+				A_Chase(null, "Missile.Flying");
 			}
 			ATMO I 0
 			{

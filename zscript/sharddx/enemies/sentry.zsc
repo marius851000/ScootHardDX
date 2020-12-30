@@ -126,7 +126,7 @@ Class SHDX_MiniSentry : SHDX_Enemy
 			MSNT A 10 A_Look;
 			loop;
 		See:
-			MSNT AA 4 A_SHDX_Chase(null, "Missile", CHF_DONTMOVE);
+			MSNT AA 4 A_Chase(null, "Missile", CHF_DONTMOVE);
 			MSNT A 0
 			{
 				if (Random[Sentry](0, 3) == 1)
