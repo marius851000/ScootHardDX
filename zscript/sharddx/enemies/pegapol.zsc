@@ -174,11 +174,14 @@ Class SHDX_PegapolMale : SHDX_Enemy
 				return ResolveState(null);
 			}
 			PEGA F 5 A_FaceTarget;
-			PEGA GH 2 Bright A_PegapolFire;
+			PEGA G 2 Bright A_PegapolFire;
+			PEGA H 2 Bright;
 			PEGA IF 2 A_FaceTarget;
-			PEGA GH 2 Bright A_PegapolFire;
+			PEGA G 2 Bright A_PegapolFire;
+			PEGA H 2 Bright;
 			PEGA IF 2 A_FaceTarget;
-			PEGA GH 2 Bright A_PegapolFire;
+			PEGA G 2 Bright A_PegapolFire;
+			PEGA H 2 Bright;
 			PEGA IF 2 A_FaceTarget;
 			Goto See;
 		Missile.Flying:
