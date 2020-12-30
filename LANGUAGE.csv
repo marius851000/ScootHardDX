@@ -210,6 +210,13 @@ an invincible chicken for about half a minute.
 Fire - Peck their brains out!
 Alt Fire - channel all your power into a Clustercluck. This
 reverts you back after.",SHDX_HELP_MENU10,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+Heat up applesauce with explosives to get more health.,SHDX_TUTORIAL_POSTER_ROCKETFOOD,,,,,,,,,,,,,,,,,,,,,,,
+Every exit is guarded by a Management Access Card.,SHDX_TUTORIAL_POSTER_LOCKEDOUT,,,,,,,,,,,,,,,,,,,,,,,
+There are hazardous wires in some areas.,SHDX_TUTORIAL_POSTER_LIVEWIRES1,,,,,,,,,,,,,,,,,,,,,,,
+Some can be shut off with switches.,SHDX_TUTORIAL_POSTER_LIVEWIRES2,,,,,,,,,,,,,,,,,,,,,,,
+Use vending machines to get food for bits.,SHDX_TUTORIAL_POSTER_VENDING,,,,,,,,,,,,,,,,,,,,,,,
+Spectrum pools are hurtful to the touch.,SHDX_TUTORIAL_POSTER_SPECTRUM,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
 New Game,MNU_SHARDDX_NEWGAME,,,,,,,,Nuevo juego,,,,,,,,,,,,,,,
 Game States,MNU_SHARDDX_SSTATES,,,,,,,,Estados del juego,,,,,,,,,,,,,,,

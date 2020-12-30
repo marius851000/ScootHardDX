@@ -285,3 +285,38 @@ decal GoldShield 15
 	x-scale 0.12
 	y-scale 0.12
 }
+
+decal TutorialPosterRocketFood 16
+{
+	pic "graphics/decals/tutorial_poster_rocket_food.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterLockedOut 17
+{
+	pic "graphics/decals/tutorial_poster_locked_out.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterVending 18
+{
+	pic "graphics/decals/tutorial_poster_vending.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterSpectrum 19
+{
+	pic "graphics/decals/tutorial_poster_spectrum.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterLiveWires 20
+{
+	pic "graphics/decals/tutorial_poster_live_wires.png"
+	x-scale 0.12
+	y-scale 0.12
+}
