@@ -42,3 +42,4 @@ object SHDX_FloorArc
 {
 	frame ATLX { light SHDX_ARCFLICKER }
 }
+

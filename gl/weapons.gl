@@ -68,3 +68,17 @@ object SHDX_FillyMissile
     frame EXPLG { light SHDX_ROCKET_X4 }
     frame EXPLH { light SHDX_ROCKET_X4 }
 }
+
+
+flickerlight SHDX_RAINNOWERFLAME
+{
+    color 1.0 1.0 1.0
+    size 24
+    secondarySize 48
+    chance 0.3
+}
+
+object SHDX_RainbowFlameBall
+{
+	frame RBWN { light SHDX_RAINNOWERFLAME }
+}
