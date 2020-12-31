@@ -1,0 +1,34 @@
+#library "cookbook"
+#include "zcommon.acs"
+
+// Tutorial Poster Thing
+script "CBOOK_TUTORIAL_POSTER" (int i)
+{
+	switch(i)
+	{
+		case 0:
+			Print(l:"SHDX_TUTORIAL_POSTER_ROCKETFOOD");
+			break;
+		case 1:
+			Print(l:"SHDX_TUTORIAL_POSTER_LOCKEDOUT");
+			break;
+		case 2:
+			Print(l:"SHDX_TUTORIAL_POSTER_LIVEWIRES1", s:"\n", l:"SHDX_TUTORIAL_POSTER_LIVEWIRES2");
+			break;
+		case 3:
+			Print(l:"SHDX_TUTORIAL_POSTER_VENDING");
+			break;
+		case 4:
+			Print(l:"SHDX_TUTORIAL_POSTER_SPECTRUM");
+			break;
+		default:
+			break;
+
+	}
+}
+
+// Change Music function
+script "CBOOK_CHANGEMUSIC" (str mus)
+{
+	SetMusic(mus, 0);
+}
