@@ -145,6 +145,11 @@ Class SHDX_Zombie : SHDX_Enemy
 			ZOMB HG 2;
  			ZOMB F 1 A_DD2_ZombieUnPain();	// resurrect!
 			Goto See;
+			
+		Pain.Weather:
+			ZOMB F 3;		// feign death...
+ 			ZOMB F 3 A_Pain;	// resurrect!
+			Goto See;
 		
 		Pain.Lightning:
 			ZOMB F 0 A_SetElectrocutionTranslation();
