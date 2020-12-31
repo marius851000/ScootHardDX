@@ -18,9 +18,9 @@ class SHDX_TitlemapEvent : EventHandler
 	ui bool fastbootskip;
 	
 	const SECONDS_SPLASHSCREEN = 1;
-	const SECONDS_DISCLAIMER = 10;
-	const SECONDS_TITLESCREEN = 15;
-	const SECONDS_ADVISORY = (SECONDS_TITLESCREEN + 4);
+	const SECONDS_DISCLAIMER = 5;
+	const SECONDS_DISCLAIMERLENGTH = 5;
+	const SECONDS_TITLESCREEN = SECONDS_DISCLAIMER + SECONDS_DISCLAIMERLENGTH;
 	const SECONDS_MAX = 120;
 	
 	ui void PlayBootMusic()
@@ -197,11 +197,6 @@ class SHDX_TitlemapEvent : EventHandler
 		{
 			if (seconds == SECONDS_SPLASHSCREEN - 1)
 				PlayBootMusic();
-			
-			/*
-			if (seconds == SECONDS_DISCLAIMER - 1)
-				PlayDisclaimerSound();
-			*/
 			
 			if (seconds == SECONDS_DISCLAIMER - 1)
 				PlayTitleMusic();
