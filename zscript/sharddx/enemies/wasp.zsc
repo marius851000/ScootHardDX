@@ -60,7 +60,7 @@ Class SHDX_SpectraWaspBall : SHDX_Projectile
 
 	void A_SpawnPuddle()
 	{
-		Actor tfx = Spawn("SHDX_SpectraWaspPuddle", self.pos, ALLOW_REPLACE);
+		Actor tfx = Spawn("SHDX_SpectraWaspPuddle", (self.pos.x, self.pos.y, floorz), ALLOW_REPLACE);
 		tfx.master = self.target;
 		tfx.target = self.target;
 	}
@@ -188,7 +188,7 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 
 	void A_SpawnSpectrumPuddle()
 	{
-		Actor tfx = Spawn("SHDX_SpectraWaspPuddle", self.pos, ALLOW_REPLACE);
+		Actor tfx = Spawn("SHDX_SpectraWaspPuddle", (self.pos.x, self.pos.y, floorz), ALLOW_REPLACE);
 		tfx.master = self.target;
 		tfx.target = self.target;
 	}
@@ -219,12 +219,12 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 			
 		Missile.Laser:
 			WASP G 5 A_FaceTarget();
-			WASP H 5 Bright A_SpawnProjectile("SHDX_SpecraWaspLaser", 8);
-			WASP I 5 Bright A_FaceTarget();
-			WASP H 5 Bright A_SpawnProjectile("SHDX_SpecraWaspLaser", 8);
-			WASP I 5 Bright A_FaceTarget();
-			WASP H 5 Bright A_SpawnProjectile("SHDX_SpecraWaspLaser", 8);
-			WASP I 5 Bright;
+			WASP H 5 A_SpawnProjectile("SHDX_SpecraWaspLaser", 8);
+			WASP I 5 A_FaceTarget();
+			WASP H 5 A_SpawnProjectile("SHDX_SpecraWaspLaser", 8);
+			WASP I 5 A_FaceTarget();
+			WASP H 5 A_SpawnProjectile("SHDX_SpecraWaspLaser", 8);
+			WASP I 5;
 			Goto See;
 		
 		Death:
@@ -242,7 +242,11 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			}
 			WASP MN 5;
-			WASP O 0 A_SetCorpseShootable();
+			WASP O 0
+			{
+				A_SpawnSpectrumPuddle();
+				A_SetCorpseShootable();
+			}
 			WASP O -1;
 			Stop;
 		

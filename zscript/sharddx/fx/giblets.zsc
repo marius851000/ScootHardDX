@@ -237,7 +237,7 @@ Class SHDX_MetalJunk : SHDX_Actor
 		Radius 10;
 		Height 10;
 		Speed 0;
-		Scale 0.12;
+		Scale 0.15;
 		+FLOORCLIP
 		+NOBLOCKMONST
 		+SLIDESONWALLS

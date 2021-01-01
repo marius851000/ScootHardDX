@@ -36,3 +36,43 @@ object SHDX_MiniSentry
 	frame MSNTB { light SHDX_MINISENTRYLIGHT }
 	frame MSNTC { light SHDX_MINISENTRYLIGHT }
 }
+
+pointlight SHDX_SPECTRAWASPFIRE
+{
+    color 1.0 0.0 0.0
+    size 64
+	offset 0 16 0
+}
+
+object SHDX_SpectraWasp
+{
+	frame WASPH { light SHDX_SPECTRAWASPFIRE }
+	frame WASPI { light SHDX_SPECTRAWASPFIRE }
+}
+
+pointlight SHDX_SPECTRAWASPLASER
+{
+    color 1.0 0.0 0.0
+    size 32
+}
+
+object SHDX_SpecraWaspLaser
+{
+	frame SPLZ { light SHDX_SPECTRAWASPLASER }
+}
+
+object SHDX_SpectraWaspBall
+{
+	frame SPBL { light SHDX_SPECTRAWASPLASER }
+}
+
+pointlight SHDX_SPECTRAWASPPUDDLE
+{
+    color 1.0 0.0 0.0
+    size 64
+}
+
+object SHDX_SpectraWaspPuddle
+{
+	frame SPPL { light SHDX_SPECTRAWASPPUDDLE }
+}

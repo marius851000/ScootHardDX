@@ -18,6 +18,8 @@ Class SHDX_LiquidPuddle : SHDX_Decoration
 	{
 		Height 1;
 		Radius 8;
+		Mass 500;
+		Gravity 32.0;
 		
 		+FlatSprite
 		+RollSprite
