@@ -16,6 +16,7 @@ Class SHDX_MeleePuff : SHDX_BulletPuff
 {
 	Default
 	{
+		DamageType "Melee";
 		ActiveSound "weapons/silent";
 		SeeSound "weapons/silent";
 		AttackSound "weapons/silent";
