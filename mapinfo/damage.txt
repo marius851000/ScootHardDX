@@ -19,7 +19,7 @@ DamageType Bleach
 	Obituary = "$DD_OB_BLEACH"
 }
 
-DamageType Spectra
+DamageType Spectrum
 {
 	Obituary = "$SHDX_OB_SPECTRA"
 }

@@ -102,7 +102,7 @@ Class SHDX_RainbowerProjectileA : SHDX_Projectile
 		Mass 5000;
 		Projectile;
 		+Corpse;
-		DamageType "RainbowerX";
+		DamageType "Spectrum";
 		DeathSound "weapons/rainbowerx";
 	}
 	
@@ -155,7 +155,7 @@ Class SHDX_RainbowerFxA : SHDX_Actor
 		MaxStepHeight 16;
 		Damage 50;
 		Speed 35;
-		DamageType "RainbowerX";
+		DamageType "Spectrum";
 		RenderStyle "Add";
 		Alpha 0.7;
 		DeathSound "weapons/rainbowerx";
@@ -181,7 +181,7 @@ Class SHDX_RainbowFlameBall : SHDX_Projectile
 		Height 8;
 		Speed 20;
 		Damage 4;
-		DamageType "RainbowerX";
+		DamageType "Spectrum";
 		Mass 650;
 		
 		+RIPPER

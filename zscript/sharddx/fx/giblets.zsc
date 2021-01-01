@@ -259,6 +259,45 @@ Class SHDX_MetalJunk : SHDX_Actor
 }
 
 
+Class SHDX_MetalJunk1 : SHDX_MetalJunk
+{	
+	States
+	{
+		Spawn:
+			SGB1 AAAA 2;
+			Loop;
+	}
+}
+
+Class SHDX_MetalJunk2 : SHDX_MetalJunk
+{	
+	States
+	{
+		Spawn:
+			SGB2 AAAA 2;
+			Loop;
+	}
+}
+
+Class SHDX_MetalJunk3 : SHDX_MetalJunk
+{	
+	States
+	{
+		Spawn:
+			SGB3 AAAA 2;
+			Loop;
+	}
+}
+
+Class SHDX_MetalJunk4 : SHDX_MetalJunk
+{	
+	States
+	{
+		Spawn:
+			SGB4 AAAA 2;
+			Loop;
+	}
+}
 
 Class SHDX_ChickenFeather : SHDX_Actor
 {

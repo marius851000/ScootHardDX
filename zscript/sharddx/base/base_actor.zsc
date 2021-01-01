@@ -101,6 +101,20 @@ Class SHDX_Actor : Actor
 		}
 	}
 	
+	static void A_SpawnMetalJunk2Fx(Actor self)
+	{
+		if (!self)
+			return;
+			
+		for (int i = 0; i < 8; i++)
+		{
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk1");
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk2");
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk3");
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk4");
+		}
+	}
+	
 	static void A_SpawnGlassJunkFx(Actor self)
 	{
 		if (!self)

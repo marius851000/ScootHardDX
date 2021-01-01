@@ -129,15 +129,13 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		Speed 12;
 		PainChance "Explosive", 256;
 		PainChance "Bullet", 128;
-		PainChance "Rainbower", 256;
-		PainChance "RainbowerX", 256;
+		PainChance "Spectrum", 256;
 		PainChance "Ice", 64;
 		DamageFactor "Bullet", 0.50;
 		DamageFactor "Explosive", 0.75;
 		DamageFactor "Chicken", 0.00;
 		DamageFactor "ChickenX", 0.00;
-		DamageFactor "Rainbower", 0.10;
-		DamageFactor "RainbowerX", 0.10;
+		DamageFactor "Spectrum", 0.10;
 		DamageFactor "Ice", 0.35;
 		SeeSound "maimbow/sight";
 		DeathSound "maimbow/death";
@@ -503,7 +501,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			Goto Missile;
 		Death.Explosive:
 		Death.Weather:
-		Death.RainbowX:
+		Death.Spectrum:
 		XDeath:
 		Death:
 			MBOW \ 0

@@ -105,6 +105,14 @@ Class SHDX_Hitbox : SHDX_Actor
 				damage = 0;
 			}
 		}
+		else if (mod == 'Melee' && master.GetSpecies() == 'SpectraEnemy')
+		{
+			if (iscorpse)
+			{
+				damagetopass = mod;
+				damage = 0;
+			}
+		}
 		else
 		{
 			damagetopass = mod;
@@ -178,11 +186,12 @@ Class SHDX_Hitbox : SHDX_Actor
 				// master into it's Death.Extreme state
 				// this emulates Duke 3D's corpses
 				if (iscorpse)
-				{
-					if (damagetopass == 'RainbowerX')
-						master.SetStateLabel("Death.RainbowerX");
+				{					
+					if (damagetopass == 'Spectrum')
+						master.SetStateLabel("Death.Spectrum");
 					else
 						master.SetStateLabel("Death.Extreme");
+					
 					Destroy();
 				}
 				else

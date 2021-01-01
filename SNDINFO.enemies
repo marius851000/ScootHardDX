@@ -99,6 +99,18 @@ engineer/active1		"sounds/enemies/engie/en_active1.ogg"
 engineer/active2		"sounds/enemies/engie/en_active2.ogg"
 $random engineer/active	{ engineer/active1 engineer/active2 }
 
+spectrawasp/sight			"sounds/enemies/wasp/see.ogg"
+spectrawasp/active1			"sounds/enemies/wasp/active1.ogg"
+spectrawasp/active2			"sounds/enemies/wasp/active2.ogg"
+spectrawasp/active3			"sounds/enemies/wasp/active3.ogg"
+$random spectrawasp/active	{ spectrawasp/active1 spectrawasp/active2 spectrawasp/active3 }
+spectrawasp/death			"sounds/enemies/wasp/death.ogg"
+spectrawasp/pain			"sounds/enemies/wasp/pain.ogg"
+spectrawasp/attacklaserf	"sounds/enemies/wasp/fire.ogg"
+spectrawasp/attacklaserx	"sounds/weapons/plasma_shotx.ogg"
+spectrawasp/attackspectraf	"sounds/enemies/zombie/zombie_throw.ogg"
+spectrawasp/attackspectrax	"sounds/enemies/zombie/zombie_shotx.ogg"
+
 zombie/spot				"sounds/world/THUNDR01.ogg"
 $limit zombie/spot 3
 

@@ -17,6 +17,8 @@ DoomEdNums
 	6013 = SHDX_RocketGuard
 	6014 = SHDX_GrenadeGuard
 	
+	6015 = SHDX_SpectraWasp
+	
 	6050 = SHDX_BossSpot
 	6051 = SHDX_SurpriseBoss
 	6052 = SHDX_DrAtmosphereBoss
