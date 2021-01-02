@@ -260,7 +260,10 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 				A_NoBlocking();
 				A_StartSound("minisentry/explode", CHAN_7);
 				A_SpawnMetalJunk2Fx(self);
-				A_SpawnSpectrumPuddle();
+				
+				if (!iscorpse)
+					A_SpawnSpectrumPuddle();
+					
 				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
