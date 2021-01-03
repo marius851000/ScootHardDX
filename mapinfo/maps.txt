@@ -138,7 +138,7 @@ map E2S1 lookup SHDX_E2S1
 	cluster = 1
 	par = 45
 	sucktime = 1
-	music = ""
+	music = "M_RAIN"
 	next = "E2M4"
 	author = "SanyaWaffles"
 	secretnext = "E2M4"
