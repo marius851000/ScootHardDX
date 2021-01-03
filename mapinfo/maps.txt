@@ -81,7 +81,7 @@ map E2M2 lookup SHDX_E2A2
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
-	music = "M_SINT"
+	music = "M_RAIN"
 	sucktime = 1
 	next = "E2M4"
 	secretnext = "E2S1"
