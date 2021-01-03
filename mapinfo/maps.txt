@@ -86,7 +86,6 @@ map E2M2 lookup SHDX_E2A2
 	next = "E2M4"
 	secretnext = "E2S1"
 	author = "SanyaWaffles"
-	lightning
 }
 
 map E2M3 lookup SHDX_E2A3
