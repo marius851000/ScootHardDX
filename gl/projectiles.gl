@@ -22,12 +22,52 @@ flickerlight SHDX_PLASMA_X2
     chance 0.4
 }
 
+flickerlight SHDX_PLASMAFLICKER2
+{
+    color 0.87 1.0 1.0
+    size 48
+    secondarySize 64
+    chance 0.3
+}
+
+flickerlight SHDX_PLASMA_X3
+{
+    color 0.3 0.5 0.7
+    size 80
+    secondarySize 96
+    chance 0.4
+}
+
+flickerlight SHDX_PLASMA_X4
+{
+    color 0.3 0.5 0.7
+    size 96
+    secondarySize 112
+    chance 0.4
+}
+
 object SHDX_PlasmaBall
 {
 	frame PLASA { light SHDX_PLASMAFLICKER }
 	frame PLASB { light SHDX_PLASMAFLICKER }
 	frame PLASC { light SHDX_PLASMA_X1 }
 	frame PLASD { light SHDX_PLASMA_X2 }
+}
+
+object SHDX_LightningGunPlasmaBall
+{
+	frame PLASA { light SHDX_PLASMAFLICKER }
+	frame PLASB { light SHDX_PLASMAFLICKER }
+	frame PLASC { light SHDX_PLASMA_X1 }
+	frame PLASD { light SHDX_PLASMA_X2 }
+}
+
+object SHDX_LightningGunDisintegratingBall
+{
+	frame PLASA { light SHDX_PLASMAFLICKER2 }
+	frame PLASB { light SHDX_PLASMAFLICKER2 }
+	frame PLASC { light SHDX_PLASMA_X3 }
+	frame PLASD { light SHDX_PLASMA_X4 }
 }
 
 flickerlight SHDX_ARCFLICKER

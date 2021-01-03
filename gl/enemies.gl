@@ -48,6 +48,14 @@ object SHDX_SpectraWasp
 {
 	frame WASPH { light SHDX_SPECTRAWASPFIRE }
 	frame WASPI { light SHDX_SPECTRAWASPFIRE }
+	frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
 }
 
 pointlight SHDX_SPECTRAWASPLASER
