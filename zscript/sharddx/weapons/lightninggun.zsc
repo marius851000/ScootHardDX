@@ -144,7 +144,7 @@ Class SHDX_LightningGunDisintegratingBall : SHDX_Projectile
 				continue;
 			}
 				
-			if (!SHDX_Utilities.SphereIntersect(a, self.pos, radius*2))
+			if (!SHDX_Utilities.SphereIntersect(a, self.pos, radius*4))
 			{
 				continue;
 			}
