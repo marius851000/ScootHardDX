@@ -153,6 +153,18 @@ Class SHDX_LightningGunDisintegratingBall : SHDX_Projectile
 		}
 	}
 	
+	override int SpecialMissileHit(Actor victim)
+    {
+        let zomb = SHDX_Zombie(victim);
+		if (zomb)
+		{
+			zomb.overchargecounter = 4;
+			zomb.A_Die('Lightning');
+		}
+		
+       return Super.SpecialMissileHit(victim);
+    } 
+	
 	States
 	{
 		Spawn:
