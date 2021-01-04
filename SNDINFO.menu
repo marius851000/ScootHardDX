@@ -3,16 +3,15 @@ $pitchshiftrange 0
 // Tiitlemap Stuff and Credits stuff
 titlemap/wisjingle					"sounds/ui/wisjingle.ogg"
 
-menu/activate						"sounds/switches/switch_push.ogg"	// Activate a new menu
-menu/backup							"sounds/switches/switch_push.ogg"	// Backup to previous menu "sounds/env/platform_stop.ogg"
-menu/prompt							"sounds/switches/switch_push.ogg"	// Activate a prompt "menu"
-menu/cursor							"sounds/env/platform_move.ogg"		// Move cursor up/down
-menu/invalid						"sounds/trashcan_hit.ogg"		// Menu not available
-menu/choose							"sounds/weapons/pistol.ogg"	// Choose a menu item
-menu/clear							"sounds/switches/switch_reset.ogg"		// Close top menu
-menu/dismiss						"sounds/switches/switch_reset.ogg"		// Dismiss a prompt message
-menu/change							"sounds/env/platform_move.ogg"		// Select new value for option
-
+menu/activate						"sounds/ui/click.ogg"		// Activate a new menu
+menu/backup							"sounds/ui/backup.ogg"	// Backup to previous menu
+menu/prompt							"sounds/ui/notify.ogg"	// Activate a prompt "menu"
+menu/cursor							"sounds/ui/slide.ogg"		// Move cursor up/down
+menu/invalid						"sounds/ui/error.ogg"		// Menu not available
+menu/choose							"sounds/ui/accept.ogg"	// Choose a menu item
+menu/clear							"sounds/ui/woosh.ogg"		// Close top menu
+menu/dismiss						"sounds/ui/woosh.ogg"		// Dismiss a prompt message
+menu/change							"sounds/ui/slide.ogg"		// Select new value for option
 $volume menu/activate 0.7
 $volume menu/backup 0.7
 $volume menu/prompt 0.7
@@ -20,15 +19,17 @@ $volume menu/cursor 0.7
 $volume menu/invalid 0.7
 $volume menu/choose 0.7
 $volume menu/clear 0.7
+$volume menu/dismiss 0.7
+$volume menu/change 0.7
+
+$alias misc/chatdd					menu/prompt			// Chat Ping
 
 // Intermission
-$alias intermission/tick			menu/activate
-$alias intermission/cooptotal		menu/activate
-$alias intermission/nextstage		menu/choose
-$alias intermission/paststats		menu/clear
-$alias intermission/pastcoopstats	menu/clear
-$alias intermission/pastdmstats		menu/choose
+intermission/tick				"sounds/switches/switch_push.ogg"
+intermission/cooptotal			"sounds/switches/switch_push.ogg"
+intermission/nextstage			"sounds/weapons/pistol.ogg"
+intermission/paststats			"sounds/switches/switch_reset.ogg"
+intermission/pastcoopstats		"sounds/switches/switch_reset.ogg"
+intermission/pastdmstats		"sounds/weapons/pistol.ogg"
 
-$alias misc/quitdd					generic/nullvoid
-
-mac/crash						"sounds/ui/maccrash2.ogg"
+mac/crash							"sounds/ui/maccrash2.ogg"
