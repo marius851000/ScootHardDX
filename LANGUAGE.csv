@@ -125,19 +125,14 @@ OPTIONS: configure and tweak Scoot Hard DX or GZDoom
 HELP SCREEN: this help screen
 CREDITS: the people who worked on the game.
 EXIT TO SYSTEM: exit the game",SHDX_HELP_MENU1,,,,,,,,,,,,,,,,,,,,,,,
-USING THE MENUS (CONTINUED),SHDX_HELP_HEADER_MENU2,,,,,,,,,,,,,,,,,,,,,,,
-"Under the OPTIONS menu you have the following options:
+STORY IN A NUTSHELL,SHDX_HELP_HEADER_MENU2,,,,,,,,,,,,,,,,,,,,,,,
+"You are Scootaloo. Your mission is to escape
+the Cloudsdale Weather Corporation and take down
+the baddies running it. It won't be easy, all you need
+to do is Scoot Hard.
 
-CUSTOMIZE CONTROLS: you can customize the keys and
-buttons that control Scootaloo.
-MOUSE OPTIONS: fine tune your mouse settings
-JOYSTICK OPTIONS: fine tune your joystick settings
-HUD OPTIONS: configure default crosshair and HUD options
-PLAYER SETUP: configure your player settings (name, gender, etc)
-SOUND OPTIONS: configure your sound settings
-SET VIDEO MODE: change video settings/resolution
-GZDOOM OPTIONS (ADVANCED): the original, more advanced
-GZDoom menu",SHDX_HELP_MENU2,,,,,,,,,,,,,,,,,,,,,,,
+Reading this will give you hot tips on how to make the
+most of the available arsenal.",SHDX_HELP_MENU2,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,,,,,,,,,,,,,
 "You can only carry one one missile weapon at a time.
 
@@ -145,19 +140,65 @@ Either use up your shots first, or swap it out by walking over
 another weapon and pressing the use key (default is E) to swap
 it out. The dropped weapon will contain the ammo as well. If you
 pick up the same weapon you currently have, you will pick up
-the ammo from it rather than swap it out.
-
-Bullet Weapons:
-Blaster - You start with this weapon. Never runs out of ammo.
-Submachine Gun - Rapid fire goodness. Infinite ammo.",SHDX_HELP_MENU3,,,,,,,,,,,,,,,,,,,,,,,
+the ammo from it rather than swap it out.",SHDX_HELP_MENU3,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4,,,,,,,,,,,,,,,,,,,,,,,
-"Missile Weapons:
-Missile Launcher - Shoots a straight firing missile. Contains 10 shots.
-Fillyseeker - Shoots a homing missile. Contains 7 shots.
-Hailer - Shoots several freezing projectiles at once. Contains 30 shots.
-Lightning Gun - Shoots lighting balls in volleys of five. Contains 75 shots.
-Rainbower - Portable Death. Contains 5 shots.
-Tornadozer - A tornado that instagibs anything less than a boss. Contains 5 shots.",SHDX_HELP_MENU4,,,,,,,,,,,,,,,,,,,,,,,
+"Bullet Weapons:
+Blaster - You start with this weapon. Never runs out of ammo.
+Submachine Gun - Rapid fire goodness. Infinite ammo.",SHDX_HELP_MENU4,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (MISSILE WEAPONS),SHDX_HELP_HEADER_MENU4A,,,,,,,,,,,,,,,,,,,,,,,
+"Missile Launcher
+
+Primary Fire - Shoots a straight firing missile.
+Secondary Fire - Shoots a grenade that can bounce around.
+
+A basic rocket launcher.
+
+Contains 10 shots.",SHDX_HELP_MENU4A,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (MISSILE WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4B,,,,,,,,,,,,,,,,,,,,,,,
+"FillySeeker
+
+Primary Fire - Shoots a heat-seeking missile.
+Secondary Fire - Shoots a cluster grenade.
+
+A modified rocket launcher meant for crowd control.
+
+Contains 8 shots.",SHDX_HELP_MENU4B,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (WEATHER WEAPONS),SHDX_HELP_HEADER_MENU4C,,,,,,,,,,,,,,,,,,,,,,,
+"Hailer
+
+Primary Fire - Shoots a single freezing projectile.
+Secondary Fire - Shoots a spread of freezing projectiles.
+
+Enemies that can freeze will freeze solid.
+
+Contains 75 shots.",SHDX_HELP_MENU4C,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (WEATHER WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4D,,,,,,,,,,,,,,,,,,,,,,,
+"Lightning Gun
+
+Primary Fire - Shoots a volley of five lightning balls.
+Secondary Fire - Shoots a projectile that destroys projectiles.
+
+This weapon can overcharge certain enemies.
+
+Contains 75 shots.",SHDX_HELP_MENU4D,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (BIG WEAPONS),SHDX_HELP_HEADER_MENU4E,,,,,,,,,,,,,,,,,,,,,,,
+"Rainbower
+
+Primary Fire - Shoots a projectile that generates wave of rainbows.
+Secondary Fire - Shoots a stream of rainbow projectiles.
+
+This weapon can atomize most enemies.
+
+Contains 50 shots.",SHDX_HELP_MENU4E,,,,,,,,,,,,,,,,,,,,,,,
+PLAYING THE GAME (BIG WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4F,,,,,,,,,,,,,,,,,,,,,,,
+"Tornadozer
+
+Primary Fire - Shoots a tornado that homes in on enemies.
+Secondary Fire - Shoots a tornado that goes in a straight line.
+
+This weapon tears most enemies apart.
+
+Contains 5 shots.",SHDX_HELP_MENU4F,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (VENDING),SHDX_HELP_HEADER_MENU5,,,,,,,,,,,,,,,,,,,,,,,
 "Vending Machines cost 1 bit for an apple, 5 for a hot meal on
 Easy. This is increased by 2x on Medium, and 3x on Hard and
@@ -168,7 +209,7 @@ vending machines less of an option. Whee for capitalism!
 To use a vending machine, go up to one and press use. If
 you don't have enough bits, or aren't hungry, it will tell you so.",SHDX_HELP_MENU5,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (OBJECTIVES),SHDX_HELP_HEADER_MENU6,,,,,,,,,,,,,,,,,,,,,,,
-"Fuck up anything that moves and get to the exit.
+"Destroy up anything that moves and get to the exit.
 
 Find secrets along the way. Check for pushwalls.
 These can contain hidden caches of goods. Also always

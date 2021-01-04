@@ -61,6 +61,12 @@ class SHDX_ReadThisMenu : GenericMenu
 		PAGE_MENU2,
 		PAGE_MENU3,
 		PAGE_MENU4,
+		PAGE_MENU4A,
+		PAGE_MENU4B,
+		PAGE_MENU4C,
+		PAGE_MENU4D,
+		PAGE_MENU4E,
+		PAGE_MENU4F,
 		PAGE_MENU5,
 		PAGE_MENU6,
 		PAGE_MENU7,
@@ -129,6 +135,30 @@ class SHDX_ReadThisMenu : GenericMenu
 				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4");
 				txt = StringTable.Localize("$SHDX_HELP_MENU4");
 				break;
+			case PAGE_MENU4A:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4A");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4A");
+				break;
+			case PAGE_MENU4B:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4B");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4B");
+				break;
+			case PAGE_MENU4C:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4C");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4C");
+				break;
+			case PAGE_MENU4D:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4D");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4D");
+				break;
+			case PAGE_MENU4E:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4E");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4E");
+				break;
+			case PAGE_MENU4F:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4F");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4F");
+				break;
 			case PAGE_MENU5:
 				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU5");
 				txt = StringTable.Localize("$SHDX_HELP_MENU5");
@@ -171,13 +201,33 @@ class SHDX_ReadThisMenu : GenericMenu
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true);
 		
-		if (page == PAGE_MENU3)
-		{
-			DrawImageWithOffsets("HELPSMG", 32, 192);
-		}
 		if (page == PAGE_MENU4)
 		{
-			DrawImageWithOffsets("HELPGUNS", 32, 144);
+			DrawImageWithOffsets("HELPSMG", 32, 76);
+		}
+		if (page == PAGE_MENU4A)
+		{
+			DrawImageWithOffsets("HELPGUN2", 32, 144);
+		}
+		if (page == PAGE_MENU4B)
+		{
+			DrawImageWithOffsets("HELPGUN3", 32, 144);
+		}
+		if (page == PAGE_MENU4C)
+		{
+			DrawImageWithOffsets("HELPGUN4", 32, 144);
+		}
+		if (page == PAGE_MENU4D)
+		{
+			DrawImageWithOffsets("HELPGUN5", 32, 144);
+		}
+		if (page == PAGE_MENU4E)
+		{
+			DrawImageWithOffsets("HELPGUN6", 32, 144);
+		}
+		if (page == PAGE_MENU4F)
+		{
+			DrawImageWithOffsets("HELPGUN7", 32, 144);
 		}
 		if (page == PAGE_MENU5)
 		{
