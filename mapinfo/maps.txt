@@ -63,8 +63,8 @@ map E1M4 lookup SHDX_E1A4
 map E2M1 lookup SHDX_E2A1
 {
 	LevelNum = 5
-	sky1 = "SKY2"
-	sky2 = "SKY2A"
+	sky1 = "SKY4"
+	sky2 = "SKY4A"
 	cluster = 1
 	par = 45
 	sucktime = 1
