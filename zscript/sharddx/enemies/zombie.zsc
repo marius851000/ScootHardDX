@@ -198,6 +198,7 @@ Class SHDX_Zombie : SHDX_Enemy
 		XDeath:
 			GIBX B 3
 			{
+				A_ResetTranslation();
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnGibsFx(self);
 			}
@@ -206,6 +207,7 @@ Class SHDX_Zombie : SHDX_Enemy
 			GIBX D 1;
 			Stop;
 		Death.Spectrum:
+			GIBR A 0 A_ResetTranslation;
 			GIBR A 4;
 			// GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			GIBR BC 4;
@@ -326,6 +328,7 @@ Class SHDX_RocketZombie : SHDX_Zombie
 			
 		Death.Lightning.Normal:
 		Death:
+			RZOM F 0 A_ResetTranslation;
 			RZOM F 3 A_SHDX_ExtremeScreamAndUnblock();		// feign death...
 			RZOM GHI 3;
 			RZOM J -1 A_SetCorpseShootable;	// make it feign death
