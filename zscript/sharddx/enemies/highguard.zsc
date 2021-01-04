@@ -393,6 +393,8 @@ Class SHDX_GuardGrenade : SHDX_Grenade
 		Damage 3;
 		BounceCount 3;
 		
+		Translation "16:31=144:159";
+		
 		Scale 0.12;
 	}
 
