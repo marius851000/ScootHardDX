@@ -179,8 +179,8 @@ Class SHDX_RainbowFlameBall : SHDX_Projectile
 	{
 		Radius 11;
 		Height 8;
-		Speed 20;
-		Damage 4;
+		Speed 25;
+		Damage 10;
 		DamageType "Spectrum";
 		Mass 650;
 		

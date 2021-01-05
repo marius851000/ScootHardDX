@@ -133,7 +133,6 @@ Class SHDX_TornadozerProjectile2 : SHDX_TornadozerProjectile
 			TORN A 0 NoDelay A_StartSound("weapons/tornadof", CHAN_BODY);
 		Spawn1:
 			TORN ABCD 1;
-			TORN A 0 A_CheckTornadoTimer();
 			Loop;
 	}
 }
