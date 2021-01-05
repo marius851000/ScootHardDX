@@ -98,27 +98,12 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 		MaxStepHeight 16;
 	}
 	
-	int counter;
-	
-	const TICS_TILL_DISSIPATION = 260;
-	
-	state A_CheckTornadoTimer()
-	{
-		counter += 4;
-		
-		if (counter >= TICS_TILL_DISSIPATION)
-			return ResolveState("Death");
-			
-		return ResolveState(null);
-	}
-	
 	States
 	{
 		Spawn:
 			TORN A 0 NoDelay A_StartSound("weapons/tornadof", CHAN_BODY);
 		Spawn1:
 			TORN ABCD 1 A_SeekerMissile(0, 35, SMF_LOOK, 256);
-			TORN A 0 A_CheckTornadoTimer();
 			Loop;
 		Death:
 			TORN A 3
