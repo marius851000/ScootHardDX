@@ -4,12 +4,12 @@ Intermission PreBoss3
 	{
 		Background = "graphics/cutscenes/preboss/preboss1_1.png"
 		Time = 2
+		Music = "M_CUT1"
 		FadeType = FadeIn
 	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/preboss/preboss1_1.png"
-		Music = "D_SIREN"
 		TextColor = "Cyan"
 		Text = "$SHDX_EP3INTER_1"
 	}
