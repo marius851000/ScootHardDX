@@ -164,6 +164,12 @@ decal SHDX_SmallScorch
 	randomflipy
 }
 
+fader SHDX_FrostFade
+{
+   DecayStart 5;
+   DecayTime 10;
+}
+
 decal SHDX_FrostScorch
 {
 	pic BLAST1
@@ -172,6 +178,7 @@ decal SHDX_FrostScorch
 	y-scale 0.1
 	randomflipx
 	randomflipy
+	animator SHDX_FrostFade
 }
 
 generator SHDX_BulletPuff				SHDX_BulletChip1
