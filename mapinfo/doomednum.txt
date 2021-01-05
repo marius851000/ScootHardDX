@@ -18,6 +18,7 @@ DoomEdNums
 	6014 = SHDX_GrenadeGuard
 	
 	6015 = SHDX_SpectraWasp
+	6016 = SHDX_SpectraSentry
 	
 	6050 = SHDX_BossSpot
 	6051 = SHDX_SurpriseBoss
