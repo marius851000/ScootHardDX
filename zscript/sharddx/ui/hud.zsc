@@ -73,7 +73,7 @@ class SHDX_StatusBar : BaseStatusBar
 	protected void DrawSHDXHealth(int _x, int _y)
 	{
 		DrawImage("graphics/hud/hud_bigpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
-		DrawTexture(GetMugShot(5), (_x + 2, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawTexture(GetMugShot(4), (_x + 2, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
 		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (_x + 25, _y + 4), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
 	}
 	
