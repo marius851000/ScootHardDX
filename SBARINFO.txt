@@ -18,6 +18,11 @@ mugshot "Grin", health
 	EVL0A 70;
 }
 
+mugshot "Ouch", health
+{
+	OUCHA 35;
+}
+
 mugshot "God"
 {
 	GOD0 -1;

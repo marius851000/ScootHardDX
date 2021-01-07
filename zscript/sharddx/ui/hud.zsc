@@ -74,7 +74,7 @@ class SHDX_StatusBar : BaseStatusBar
 	{
 		DrawImage("graphics/hud/hud_bigpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
 		DrawTexture(GetMugShot(5), (_x + 2, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
-		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (_x + 27, _y + 4), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (_x + 25, _y + 4), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
 	}
 	
 	protected void DrawSHDXArmors(int _x, int _y)
@@ -226,11 +226,11 @@ class SHDX_StatusBar : BaseStatusBar
 			
 			if (deathmatch)
 			{
-				DrawSHDXFrags(-128, 0);
+				DrawSHDXFrags(-40, -32);
 			}
 			else
 			{
-				DrawSHDXKeys(-80, 0);
+				DrawSHDXKeys(-40, -32);
 			}
 		}
 	}
