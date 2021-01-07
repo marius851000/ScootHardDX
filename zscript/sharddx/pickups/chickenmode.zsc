@@ -121,6 +121,8 @@ Class SHDX_ChickenPlayer : SHDX_PlayerPawn
 		Player.DisplayName "Chicken";
 		Player.MorphWeapon "SHDX_ChickenMouth";
 		
+		Player.Face "STC";
+		
 		Player.ColorRange 240, 254;
 	}
 	

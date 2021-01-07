@@ -34,7 +34,7 @@ class SHDX_StatusBar : BaseStatusBar
 	override void Init()
 	{
 		Super.Init();
-		SetSize(40, 320, 200);
+		SetSize(32, 320, 200);
 		
 		// create fonts
 		mHUDFont = HUDFont.Create("HudFont");
@@ -70,185 +70,120 @@ class SHDX_StatusBar : BaseStatusBar
 		DrawImage("graphics/hud/hudbg.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
 	}
 	
-	protected void DrawSHDXHudPart(int _x, int _y, String localizestr, int number, int formatto=0, int translation=Font.CR_RED)
+	protected void DrawSHDXHealth(int _x, int _y)
 	{
-		DrawImage("graphics/hud/hud_part_back.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
-		DrawString(mSmallFont, StringTable.Localize(localizestr), (_x + 5, _y + 1), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
-		DrawString(mHUDFont, FormatNumber(number, formatto), (_x + 5, _y + 13), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, translation);
-	}
-	
-	protected void DrawSHDXActualHealth(int _x, int _y)
-	{
-		DrawSHDXHudPart(_x, _y, "$SHDX_HUD_HEALTH", CPlayer.health, 3, Font.CR_RED);
-	}
-	
-	protected void DrawSHDXActualBits(int _x, int _y)
-	{
-		DrawImage("graphics/hud/hud_coin.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-		DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BitCoin"), 3), (_x + 15, _y + 1), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+		DrawImage("graphics/hud/hud_bigpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawTexture(GetMugShot(5), (_x + 2, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (_x + 27, _y + 4), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
 	}
 	
 	protected void DrawSHDXArmors(int _x, int _y)
 	{
 		if (GetAmount("SHDX_BulletProofBase") > 0)
 		{
-			DrawImage("graphics/hud/hud_bulletproof.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BulletProofBase"), 3), (_x + 15, _y + 1), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+			DrawImage("graphics/hud/hud_smallpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawImage("graphics/hud/hud_bulletarmor.png", (_x + 8, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BulletProofBase"), 3), (_x + 2, _y + 16), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
 		}
 		if (GetAmount("SHDX_FireProofBase") > 0)
 		{
-			DrawImage("graphics/hud/hud_fireproof.png", (_x, _y + 10), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_FireProofBase"), 3), (_x + 15, _y + 10), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+			DrawImage("graphics/hud/hud_smallpart.png", (_x + 32, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawImage("graphics/hud/hud_firearmor.png", (_x + 40, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_FireProofBase"), 3), (_x + 34, _y + 16), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
 		}
 		if (GetAmount("SHDX_WeatherProofBase") > 0)
 		{
-			DrawImage("graphics/hud/hud_weatherproof.png", (_x, _y + 20), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_WeatherProofBase"), 3), (_x + 15, _y + 20), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_GOLD);
+			DrawImage("graphics/hud/hud_smallpart.png", (_x + 64, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawImage("graphics/hud/hud_wxarmor.png", (_x + 72, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_WeatherProofBase"), 3), (_x + 66, _y + 16), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
 		}
+	}
+	
+	protected void DrawSHDXBits(int _x, int _y)
+	{
+		DrawImage("graphics/hud/hud_smallpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawImage("graphics/hud/hud_coin.png", (_x + 7, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BitCoin"), 3), (_x + 3, _y + 16), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
 	}
 	
 	protected void DrawSHDXFrags(int _x, int _y)
 	{
-		DrawSHDXHUDPart(_x, _y, "$SHDX_HUD_FRAGS", CPlayer.FragCount, 3, Font.CR_GOLD);
+		DrawImage("graphics/hud/hud_bigpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawString(mSmallFont, StringTable.Localize("$SHDX_HUD_FRAGS"), (_x, _y + 5), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+		DrawString(mSmallFont, FormatNumber(CPlayer.FragCount, 3), (_x, _y + 14), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
 	}
 	
-	protected void DrawSHDXActualAmmo(int _x, int _y)
+	protected string GetSHDXWeaponIcon()
+	{
+		String ico;
+		let w = CPlayer.ReadyWeapon;
+		if (w is "SHDX_Blaster" || w is "SHDX_SubmachineGun")
+		{
+			ico = "graphics/hud/hud_bullets.png";
+		}
+		else if (w is "SHDX_MissileLauncher")
+		{
+			ico = "graphics/hud/hud_missile.png";
+		}
+		else if (w is "SHDX_FillySeeker")
+		{
+			ico = "graphics/hud/hud_fillyseeker.png";
+		}
+		else if (w is "SHDX_HailerWeapon")
+		{
+			ico = "graphics/hud/hud_hailer.png";
+		}
+		else if (w is "SHDX_LightningGun")
+		{
+			ico = "graphics/hud/hud_lightning.png";
+		}
+		else if (w is "SHDX_Rainbower")
+		{
+			ico = "graphics/hud/hud_rainbow.png";
+		}
+		else if (w is "SHDX_Tornadozer")
+		{
+			ico = "graphics/hud/hud_tornado.png";
+		}
+		return ico;
+	}
+	
+	protected void DrawSHDXAmmo(int _x, int _y)
 	{
 		Inventory a1, a2;
 		[a1, a2] = GetCurrentAmmo();
+		DrawImage("graphics/hud/hud_bigpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawImage(GetSHDXWeaponIcon(), (_x + 10, _y + 4), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
 		
+		// all built in weapons only have one ammo type
 		if (a1)
 		{
-			DrawSHDXHudPart(_x, _y, "$SHDX_HUD_AMMO1", a1.Amount, 3, Font.CR_CYAN);
-		}
-		if (a2 && a1 != a2)
-		{
-			DrawSHDXHudPart(_x + 60, _y, "$SHDX_HUD_AMMO2", a2.Amount, 3, Font.CR_CYAN);
-		}
-	}
-	
-	protected void DrawSHDXPowers(int _x, int _y)
-	{
-		for (let iitem = CPlayer.mo.Inv; iitem != NULL; iitem = iitem.Inv)
-		{
-			let item = Powerup(iitem);
-			if (item != null)
-			{
-				let shdxchickenmode = SHDX_ChickenMorph(item);
-				if (shdxchickenmode && !shdxchickenmode.isBlinking())
-				{
-					DrawImage("graphics/hud/hud_chickenmode.png", (_x + 24, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-				} 
-			}
+			DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (_x + 28, _y + 4), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
 		}
 	}
 	
 	// Draw Keys
 	protected void DrawSHDXKeys(int _x = 80, int _y = 172)
 	{
+		DrawImage("graphics/hud/hud_keyback.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		
 		if (GetAmount("SHDX_RedCard"))
-			DrawImage("graphics/hud/hud_key_red.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+			DrawImage("graphics/hud/hud_redkey.png", (_x + 3, _y + 3), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
 		
 		if (GetAmount("SHDX_GreenCard"))
-			DrawImage("graphics/hud/hud_key_green.png", (_x + 12, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+			DrawImage("graphics/hud/hud_greenkey.png", (_x + 17, _y + 3), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
 			
 		if (GetAmount("SHDX_BlueCard"))
-			DrawImage("graphics/hud/hud_key_blue.png", (_x, _y + 12), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+			DrawImage("graphics/hud/hud_bluekey.png", (_x + 3, _y + 17), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
 			
 		if (GetAmount("SHDX_ManagementCard"))
-			DrawImage("graphics/hud/hud_key_mgmt.png", (_x + 12, _y + 12), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
-	}
-	
-	// Draw Aurora
-	protected void DrawSHDXAurora(int _x = 80, int _y = 172)
-	{
+			DrawImage("graphics/hud/hud_mgmtkey.png", (_x + 17, _y + 17), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		
 		if (GetAmount("SHDX_FoundAurora"))
-			DrawImage("graphics/hud/hud_aurora.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+			DrawImage("graphics/hud/hud_aurora.png", (_x + 2, _y + 2), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
 	}
 	
-	/* 
-	protected void DrawSHDXInventorySingle(int _x = 80, int _y = 172)
-	{
-		if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
-		{
-			DrawInventoryIcon(CPlayer.mo.InvSel, (_x, _y), scale: (0.25, 0.25));
-			if (CPlayer.mo.InvSel.Amount > 1)
-			{
-				DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount), (_x + 8, _y-mIndexFont.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT, Font.CR_GOLD);
-			}
-		}
-	}
-	
-	void DrawSHDXInventoryBar(InventoryBarState parms, Vector2 position, int numfields, int flags = 0, double bgalpha = 1.)
-	{
-		TextureId bawx = TexMan.CheckForTexture("graphics/hud/inventory_back.png", TexMan.TYPE_MiscPatch);
-		TextureId selector = TexMan.CheckForTexture("graphics/hud/inventory_cursor.png", TexMan.TYPE_MiscPatch);
-		double width = parms.boxsize.X * numfields;
-		[position, flags] = AdjustPosition(position, flags, width, parms.boxsize.Y);
-		
-		CPlayer.mo.InvFirst = ValidateInvFirst(numfields);
-		if (CPlayer.mo.InvFirst == null) return;	// Player has no listed inventory items.
-		
-		Vector2 boxsize = parms.boxsize;
-		// First draw all the boxes
-		for(int i = 0; i < numfields; i++)
-		{
-			DrawTexture(bawx, position + (boxsize.X * i, 0), flags | DI_ITEM_LEFT_TOP, bgalpha, scale:(0.25, 0.25));
-		}
-		
-		// now the items and the rest
-		
-		Vector2 itempos = position + boxsize / 2;
-		Vector2 textpos = position + boxsize - (1, 1 + parms.amountfont.mFont.GetHeight());
-
-		int i = 0;
-		Inventory item;
-		for(item = CPlayer.mo.InvFirst; item != NULL && i < numfields; item = item.NextInv())
-		{
-			for(int j = 0; j < 2; j++)
-			{
-				if (j ^ !!(flags & DI_DRAWCURSORFIRST))
-				{
-					if (item == CPlayer.mo.InvSel)
-					{
-						double flashAlpha = bgalpha;
-						if (flags & DI_ARTIFLASH) flashAlpha *= itemflashFade;
-						DrawTexture(selector, position + parms.selectofs + (boxsize.X * i, 0), flags | DI_ITEM_LEFT_TOP, flashAlpha, scale:(0.25, 0.25));
-					}
-				}
-				else
-				{
-					DrawInventoryIcon(item, itempos + (boxsize.X * i, 0), flags | DI_ITEM_CENTER, scale: (0.25, 0.25));
-				}
-			}
-			
-			if (parms.amountfont != null && (item.Amount > 1 || (flags & DI_ALWAYSSHOWCOUNTERS)))
-			{
-				DrawString(mIndexFont, FormatNumber(item.Amount, 0, 5), textpos + (boxsize.X * i, 0), flags | DI_TEXT_ALIGN_RIGHT, parms.cr, parms.itemalpha);
-			}
-			i++;
-		}
-		// Is there something to the left?
-		if (CPlayer.mo.FirstInv() != CPlayer.mo.InvFirst)
-		{
-			DrawTexture(parms.left, position + (-parms.arrowoffset.X, parms.arrowoffset.Y), flags | DI_ITEM_RIGHT|DI_ITEM_VCENTER, scale: (0.12, 0.12));
-		}
-		// Is there something to the right?
-		if (item != NULL)
-		{
-			DrawTexture(parms.right, position + parms.arrowoffset + (width, 0), flags | DI_ITEM_LEFT|DI_ITEM_VCENTER, scale: (0.12, 0.12));
-		}
-	}
-	
-	protected void DrawSHDXInventory(int _x = 48, int _y = 160)
-	{
-		if (isInventoryBarVisible())
-		{
-			DrawSHDXInventoryBar(diparms, (_x, _y), 7, DI_ITEM_LEFT_TOP);
-		}
-	} */
-	
-	const MAINBAROFSY = 160;
+	const MAINBAROFSY = 168;
 	
 	protected void DrawMainBar(double TicFrac)
 	{
@@ -261,22 +196,19 @@ class SHDX_StatusBar : BaseStatusBar
 		{
 			// If this is like SBARINFO, things drawn first
 			// are 'drawn over' by subsequent functions
-			DrawSHDXActualHealth(0, MAINBAROFSY);
-			DrawSHDXActualBits(60, MAINBAROFSY);
-			DrawSHDXArmors(110, MAINBAROFSY);
-			DrawSHDXActualAmmo(155, MAINBAROFSY);
-			
-			DrawSHDXPowers(200, MAINBAROFSY);
+			DrawSHDXHealth(0, MAINBAROFSY);
+			DrawSHDXArmors(76, MAINBAROFSY);
+			DrawSHDXBits(180, MAINBAROFSY);
 			
 			if (deathmatch)
 			{
-				DrawSHDXFrags(236, MAINBAROFSY);
+				DrawSHDXFrags(212, MAINBAROFSY);
 			}
 			else
 			{
-				DrawSHDXKeys(256, MAINBAROFSY);		// Draw keys next
-				DrawSHDXAurora(288, MAINBAROFSY);	// Draw aurora
+				DrawSHDXKeys(212, MAINBAROFSY);		// Draw keys next
 			}
+			DrawSHDXAmmo(256, MAINBAROFSY);
 		}
 	}
 	
@@ -286,13 +218,11 @@ class SHDX_StatusBar : BaseStatusBar
 		{
 			
 			// Lower Left
-			DrawSHDXActualHealth(0, -40);
-			DrawSHDXActualBits(60, -40);
-			DrawSHDXArmors(100, -40);
+			DrawSHDXHealth(0, -32);
+			DrawSHDXBits(72, -32);
+			DrawSHDXArmors(112, -32);
 			// Lower Right
-			DrawSHDXActualAmmo(-128, -40);
-			
-			DrawSHDXPowers(-200, 40);
+			DrawSHDXAmmo(-140, -32);
 			
 			if (deathmatch)
 			{
@@ -301,7 +231,6 @@ class SHDX_StatusBar : BaseStatusBar
 			else
 			{
 				DrawSHDXKeys(-80, 0);
-				DrawSHDXAurora(-128, 0);
 			}
 		}
 	}

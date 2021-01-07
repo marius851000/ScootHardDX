@@ -1,0 +1,29 @@
+mugshot "Normal", health
+{
+	ST0A 17;
+}
+
+mugshot "Pain", health
+{
+	KILLA 35;
+}
+
+mugshot "Rampage", health
+{
+	EVL0A 1;
+}
+
+mugshot "Grin", health
+{
+	EVL0A 70;
+}
+
+mugshot "God"
+{
+	GOD0 -1;
+}
+
+mugshot "Death"
+{
+	DEAD0 -1;
+}

@@ -17,3 +17,4 @@ crosshair 1
 am_portaloverlay false
 cl_maxdecals 2560
 gl_ssao 1
+screenblocks 11

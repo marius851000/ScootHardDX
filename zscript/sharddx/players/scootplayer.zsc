@@ -142,6 +142,8 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Player.AirCapacity 0;
 		
+		Player.Face "STF";
+		
 		+NoSkin
 		
 		SHDX_PlayerPawn.OneLinerPrefix "scootaloo";
