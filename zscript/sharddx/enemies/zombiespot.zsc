@@ -33,7 +33,7 @@ Class SHDX_ZombieSpot : SHDX_Actor
 			ZMCL BCBC 2 Bright;
 			ZMCL C 0
 			{
-				if (Random[ZombieSpawner](0, 4) > 1)
+				if (Random[ZombieSpawner](0, 100) > 25)
 					A_SpawnItemEx("SHDX_Zombie", flags:SXF_NOCHECKPOSITION);
 				else
 					A_SpawnItemEx("SHDX_RocketZombie", flags:SXF_NOCHECKPOSITION);
