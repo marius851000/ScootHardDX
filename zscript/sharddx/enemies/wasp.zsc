@@ -114,7 +114,8 @@ Class SHDX_SpectraWaspPuddle : SHDX_LiquidPuddle
 	
 	override void Touch(Actor toucher)
 	{
-		toucher.DamageMobj(master, self, 15, 'Spectrum');
+		if (level.time % 12 == 0)
+			toucher.DamageMobj(master, self, 15, 'Spectrum');
 	}
 	
 	States
