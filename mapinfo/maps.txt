@@ -77,8 +77,7 @@ map E2M1 lookup SHDX_E2A1
 map E2M2 lookup SHDX_E2A2
 {
 	LevelNum = 6
-	sky1 = "SKY2"
-	sky2 = "SKY2A"
+	sky1 = "SKY5"
 	cluster = 1
 	par = 45
 	music = "M_RAIN"
