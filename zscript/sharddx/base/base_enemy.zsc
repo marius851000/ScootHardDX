@@ -42,7 +42,7 @@ Class SHDX_Enemy : SHDX_Actor
 		DamageFactor "Explosive", 1.00;
 		PainChance "Fire", 0;
 		SHDX_Enemy.JumpUpVelocity 16;
-		SHDX_Enemy.JumpForwardVelocity 32;
+		SHDX_Enemy.JumpForwardVelocity 16;
 		
 		Monster;
 		+FloorClip
