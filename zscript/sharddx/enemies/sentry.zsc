@@ -163,6 +163,9 @@ Class SHDX_SpectraSentry : SHDX_MiniSentry
 {
 	Default
 	{
+		//$Title "SpectraSentry"
+		//$Sprite SSENA2A8
+		
 		ActiveSound "minisentry/active";
 		Health 60;
 		Radius 14;
