@@ -36,7 +36,7 @@ Class SHDX_LightningGun : SHDX_WeatherWeapon
 		+WEAPON.NOAUTOAIM
 		Weapon.AmmoGive 75;
 		Weapon.AmmoUse1 1;
-		Weapon.AmmoUse2 25;
+		Weapon.AmmoUse2 1;
 		Weapon.AmmoType1 "SHDX_LightningGunAmmo";
 		Weapon.AmmoType2 "SHDX_LightningGunAmmo";
 		Obituary "$SHDX_OB_LIGHTNINGGUN";
@@ -52,6 +52,7 @@ Class SHDX_LightningGun : SHDX_WeatherWeapon
 	{
 		A_StartSound("weapons/lightningf", CHAN_WEAPON, CHANF_OVERLAP);
 		A_FireProjectile("SHDX_LightningGunDisintegratingBall");
+		A_TakeInventory("SHDX_LightningGunAmmo", 24);
 	}
 	
 	States
