@@ -90,12 +90,60 @@ pointlight SHDX_GRENADE1
 	offset 0 0 0
 }
 
+pointlight SHDX_GRENADECLUSTER
+{
+    color 1.0 0.0 0.0
+    size 48
+	offset 0 0 0
+}
+
+pointlight SHDX_GRENADECLUSTER2
+{
+    color 1.0 0.0 0.0
+    size 24
+	offset 0 0 0
+}
+
+object SHDX_ClusterGrenade
+{
+	frame CLST { light SHDX_GRENADECLUSTER }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
+}
+
+object SHDX_ClusterGrenade2
+{
+	frame CLST { light SHDX_GRENADECLUSTER2 }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
+}
+
 object SHDX_Grenade
 {
 	frame GREN { light SHDX_GRENADE1 }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
 }
 
-pointlight SHDX_GRENADEENF
+pointlight SHDX_GRENADEGUARD
 {
     color 0.0 0.0 1.0
     size 48
@@ -104,5 +152,13 @@ pointlight SHDX_GRENADEENF
 
 object SHDX_GuardGrenade
 {
-	frame GREN { light SHDX_GRENADEENF }
+	frame GREN { light SHDX_GRENADEGUARD }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
 }
