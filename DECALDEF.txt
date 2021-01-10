@@ -191,6 +191,8 @@ generator SHDX_FillyMissile				SHDX_MediumScorch
 generator SHDX_Missile					SHDX_Scorch
 generator SHDX_MaimbowMissile			SHDX_Scorch
 generator SHDX_PlasmaBall				SHDX_MediumScorch
+generator SHDX_LightningGunPlasmaBall	SHDX_MediumScorch
+generator SHDX_LightningGunDisintegratingBall	SHDX_Scorch
 generator SHDX_HailBall					SHDX_FrostScorch
 generator SHDX_HailBall2				SHDX_FrostScorch
 generator SHDX_MiniSentryHailBall		SHDX_FrostScorch

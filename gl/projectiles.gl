@@ -83,3 +83,26 @@ object SHDX_FloorArc
 	frame ATLX { light SHDX_ARCFLICKER }
 }
 
+pointlight SHDX_GRENADE1
+{
+    color 1.0 0.0 0.0
+    size 48
+	offset 0 0 0
+}
+
+object SHDX_Grenade
+{
+	frame GREN { light SHDX_GRENADE1 }
+}
+
+pointlight SHDX_GRENADEENF
+{
+    color 0.0 0.0 1.0
+    size 48
+	offset 0 0 0
+}
+
+object SHDX_GuardGrenade
+{
+	frame GREN { light SHDX_GRENADEENF }
+}
