@@ -37,12 +37,37 @@ Class SHDX_Sandwich : SHDX_Health
 	}
 }
 
+Class SHDX_Pizza : SHDX_Health
+{
+	Default
+	{
+		//$Sprite PZZAA0
+		//$Title "Pizza"
+		//$Category "Health and Armor"
+		
+		Inventory.Amount 25;
+		Tag "$SHDX_TAG_PIZZA";
+		
+		Radius 10;
+		Height 10;
+		
+		Inventory.PickupMessage "$SHDX_PICKUP_PIZZA";
+	}
+	
+	States
+	{
+		Spawn:
+			PZZA A -1;
+			Stop;
+	}
+}
+
 Class SHDX_Applesauce : SHDX_Health
 {
 	Default
 	{
 		//$Sprite SAUCA0
-		//$Title "Dole(R) Applesauce"
+		//$Title "Applesauce"
 		//$Category "Health and Armor"
 		
 		Health 10;

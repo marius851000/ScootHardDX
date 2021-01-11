@@ -40,6 +40,7 @@ DoomEdNums
 	6600 = SHDX_Sandwich
 	6601 = SHDX_Applesauce
 	6602 = SHDX_Cupcake
+	6603 = SHDX_Pizza
 	
 	6610 = SHDX_ChickenMode
 	6612 = SHDX_BulletproofArmorPickup

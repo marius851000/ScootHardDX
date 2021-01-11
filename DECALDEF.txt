@@ -329,3 +329,10 @@ decal TutorialPosterLiveWires 20
 	x-scale 0.12
 	y-scale 0.12
 }
+
+decal SewerCount 21
+{
+	pic "graphics/decals/sewercount.png"
+	x-scale 0.12
+	y-scale 0.12
+}

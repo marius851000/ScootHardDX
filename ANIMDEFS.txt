@@ -15,6 +15,7 @@ texture TV0_A
 	pic TV0_D tics 2
 
 warp2 flat OWATER01
+warp2 flat PWATER01
 warp2 flat F_WATER2
 warp2 flat F_NUKE
 warp2 flat F_LAVA
@@ -61,6 +62,7 @@ Texture	GFALL_1  	Range	GFALL_4  	Tics 8
 Texture	BFALL_1  	Range	BFALL_4  	Tics 8
 Texture	PUFALL_1  	Range	PUFALL_4  	Tics 8
 Texture	BFALL1  	Range	BFALL4  	Tics 8
+Texture	PWFALL_1  	Range	PWFALL_4  	Tics 8
 
 Texture SAWB_1      Range	SAWB_3		Tics 3
 
