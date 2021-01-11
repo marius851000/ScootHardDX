@@ -62,7 +62,7 @@ Texture	GFALL_1  	Range	GFALL_4  	Tics 8
 Texture	BFALL_1  	Range	BFALL_4  	Tics 8
 Texture	PUFALL_1  	Range	PUFALL_4  	Tics 8
 Texture	BFALL1  	Range	BFALL4  	Tics 8
-Texture	PWFALL_1  	Range	PWFALL_4  	Tics 8
+Texture	PWFALL1  	Range	PWFALL4  	Tics 8
 
 Texture SAWB_1      Range	SAWB_3		Tics 3
 
