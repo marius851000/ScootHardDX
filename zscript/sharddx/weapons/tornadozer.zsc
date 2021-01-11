@@ -85,17 +85,15 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 		Radius 5;
 		Height 25;
 		Scale 0.08;
-		Speed 20;
+		Speed 25;
 		DamageType "Weather";
-		Damage 6;
+		Damage 12;
 		Projectile;
 		BounceType "Hexen";
-		BounceCount 2;
+		BounceCount 4;
 		+MISSILE
 		+DROPOFF
-		+RIPPER
 		+NOEXPLODEFLOOR
-		+FLOORHUGGER
 		MaxStepHeight 16;
 	}
 	
@@ -107,6 +105,11 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 			TORN ABCD 1;
 			Loop;
 		Death:
+			EXPL A 0 Bright
+			{
+				SHDX_Utilities.DoExplosion(self, 32, 32, 64, DamageType:'Weather');
+			}
+		Death1:
 			TORN A 3
 			{
 				A_FadeTo(0.0, 0.1, true);
@@ -134,6 +137,7 @@ Class SHDX_TornadozerProjectile2 : SHDX_TornadozerProjectile
 		+RIPPER
 		+NOEXPLODEFLOOR
 		+FLOORHUGGER
+		+SEEKERMISSILE
 		MaxStepHeight 16;
 	}
 	
@@ -142,7 +146,7 @@ Class SHDX_TornadozerProjectile2 : SHDX_TornadozerProjectile
 		Spawn:
 			TORN A 0 NoDelay A_StartSound("weapons/tornadof", CHAN_BODY);
 		Spawn1:
-			TORN ABCD 1;
+			TORN ABCD 1 A_SeekerMissile(4, 4, SMF_LOOK);
 			Loop;
 		Death:
 			TORN A 3
