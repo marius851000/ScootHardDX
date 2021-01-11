@@ -186,7 +186,6 @@ Class SHDX_SpectraSentry : SHDX_MiniSentry
 	{
 		SHDX_Enemy.Tick();
 		CheckFloorForLava();
-		CheckIfUnderWater();
 	}
 	
 	States
