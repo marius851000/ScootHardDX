@@ -221,7 +221,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 		//$Sprite ENFOA1
 		//$Title "Heavy Enforcer"
 		
-		Health 450;
+		Health 350;
 		Radius 20;
 		Height 56;
 		Mass 100;
