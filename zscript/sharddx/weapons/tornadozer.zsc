@@ -37,7 +37,7 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 		+WEAPON.CHEATNOTWEAPON
 		Weapon.AmmoGive 6;
 		Weapon.AmmoUse1 1;
-		Weapon.AmmoUse2 2;
+		Weapon.AmmoUse2 1;
 		Weapon.AmmoType1 "SHDX_TornadozerAmmo";
 		Weapon.AmmoType2 "SHDX_TornadozerAmmo";
 		Obituary "$SHDX_OB_TORNADOZER";
@@ -57,6 +57,7 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 		Flash:
 			TNT1 A 1 A_Light1;
 			goto LightDone;
+		AltFire.LowAmmo:
 		Fire:
 			TORG A 3;
 			TORG A 3;
@@ -66,10 +67,22 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 		AltFlash:
 			TNT1 A 1 A_Light1;
 			goto LightDone;
-		AltFire: 
+		AltFire:
+			TORG A 0
+			{
+				if (CountInv("SHDX_TornadozerAmmo") >= 2)
+					return ResolveState("AltFire.HasAmmo");
+					
+				return ResolveState("AltFire.LowAmmo");
+			}
+		AltFire.HasAmmo:
 			TORG A 3;
 			TORG A 3;
-			TORG A 2 A_FireProjectile("SHDX_TornadozerProjectile2");
+			TORG A 2
+			{
+				A_FireProjectile("SHDX_TornadozerProjectile2");
+				A_TakeInventory("SHDX_TornadozerAmmo", 1);
+			}
 			TORG A 5 A_ReFire;
 			Goto Ready;
 		Spawn:

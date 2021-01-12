@@ -89,7 +89,7 @@ Class SHDX_LightningGun : SHDX_WeatherWeapon
 			LTGG A 0 A_ReFire;
 			Goto Ready;
 		AltFire:
-			RBWG A 0
+			LTGG A 0
 			{
 				if (CountInv("SHDX_LightningGunAmmo") >= 25)
 					return ResolveState("AltFire.HasAmmo");
