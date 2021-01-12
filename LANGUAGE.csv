@@ -172,7 +172,7 @@ Secondary Fire - Shoots a spread of freezing projectiles.
 
 Enemies that can freeze will freeze solid.
 
-Contains 75 shots.",SHDX_HELP_MENU4C,,,,,,,,,,,,,,,,,,,,,,,
+Contains 40 shots.",SHDX_HELP_MENU4C,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (WEATHER WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4D,,,,,,,,,,,,,,,,,,,,,,,
 "Lightning Gun
 
@@ -194,8 +194,9 @@ Contains 50 shots.",SHDX_HELP_MENU4E,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (BIG WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4F,,,,,,,,,,,,,,,,,,,,,,,
 "Tornadozer
 
-Primary Fire - Shoots a tornado that homes in on enemies.
-Secondary Fire - Shoots a tornado that goes in a straight line.
+Primary Fire - Shoots a tornado that ricochets and does massive
+damage on targets.
+Secondary Fire - Shoots a tornado that homes in on targets.
 
 This weapon tears most enemies apart.
 
