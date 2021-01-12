@@ -227,7 +227,7 @@ class SHDX_ReadThisMenu : GenericMenu
 		}
 		if (page == PAGE_MENU4F)
 		{
-			DrawImageWithOffsets("HELPGUN7", 32, 144);
+			DrawImageWithOffsets("HELPGUN7", 32, 160);
 		}
 		if (page == PAGE_MENU5)
 		{
