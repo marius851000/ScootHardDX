@@ -1,9 +1,5 @@
 SpawnNums
 {
-	1 = SHDX_LowGuardMale
-	2 = SHDX_LowGuardFemale
-	3 = SHDX_HighGuard
-	
 	5 = SHDX_PegapolMale
 	
 	6 = SHDX_Engineer
@@ -38,6 +34,65 @@ SpawnNums
 	
 	30 = SHDX_HeavyEnforcer
 	31 = SHDX_LightEnforcer
+	
+	32 = SHDX_LowGuardMale
+	33 = SHDX_LowGuardFemale
+	34 = SHDX_HighGuard
+	35 = SHDX_SpectraWasp
+	36 = SHDX_SpectraSentry
+	37 = SHDX_LightningGun
+	38 = SHDX_Pizza
+	39 = SHDX_Cupcake
+	40 = SHDX_RocketGuard
+	41 = SHDX_GrenadeGuard
+	42 = SHDX_BasicArmor
+	43 = SHDX_SuperArmor
+	44 = SHDX_BulletProofArmorShard
+	45 = SHDX_FireProofArmorShard
+	46 = SHDX_WeatherProofArmorShard
+	
+	47 = SHDX_BlueVase
+	48 = SHDX_PottedPlant
+	49 = SHDX_FlagPole
+	50 = SHDX_Lamp
+	51 = SHDX_Barrel1
+	52 = SHDX_Barrel2
+	53 = SHDX_ExplosiveBarrel
+	54 = SHDX_LittleCeilingLight
+	55 = SHDX_LittleFloorLight
+	56 = SHDX_Toilet
+	57 = SHDX_Urinal
+	58 = SHDX_MaleGuardCorpse
+	59 = SHDX_MaleGuardCorpse2
+	60 = SHDX_FlagPole2
+	61 = SHDX_FlagDestroyableSmall
+	62 = SHDX_Skeleton
+	63 = SHDX_SkeletonBloody
+	64 = SHDX_Wires
+	65 = SHDX_WiresFloor
+	66 = SHDX_Hook
+	67 = SHDX_Hook2
+	68 = SHDX_CoffeeMug
+	69 = SHDX_WaterCooler
+	70 = SHDX_TrashCan
+	71 = SHDX_GreenCeilingLight
+	72 = SHDX_FlagDestroyableMedium
+	73 = SHDX_FlagDestroyableLarge
+	74 = SHDX_OfficeChair
+	75 = SHDX_OfficeCup
+	76 = SHDX_OfficeCupStack
+	77 = SHDX_SurpriseCorpse
+	78 = SHDX_BloodPuddle
+	79 = SHDX_WoodenToaster
+	80 = SHDX_TeslaCoilSingle
+	81 = SHDX_TeslaCoilDouble
+	82 = SHDX_Mushroom
+	83 = SHDX_Mushroom2
+	84 = SHDX_MineCart
+	85 = SHDX_PurpleCrystal
+	86 = SHDX_GreenCrystal
+	87 = SHDX_Stalagtite
+	88 = SHDX_Stalagmite
 	
 	100 = SHDX_GlassJunk
 	101 = SHDX_MetalJunk

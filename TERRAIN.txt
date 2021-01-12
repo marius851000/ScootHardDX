@@ -126,6 +126,14 @@ terrain WaterDD
 	friction			1.4
 }
 
+terrain PWaterDD
+{
+	splash				SpectraGreenDD
+	footclip			4
+	liquid
+	friction			1.4
+}
+
 terrain PeptoLava
 {
 	splash				PeptoSplashDD
@@ -223,6 +231,7 @@ terrain PurpleSpectra
 }
 
 floor "OWATER01" WaterDD
+floor "PWATER01" PWaterDD
 
 floor "F_LAVA" LavaFlows
 
