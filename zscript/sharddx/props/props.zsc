@@ -340,3 +340,39 @@ Class SHDX_OfficeCupStack : SHDX_Decoration
 			Stop;
 	}
 }
+
+
+Class SHDX_DontrelPlush : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Dontrel Plush"
+		//$Sprite DOL0A0
+		//$Category "Decorations"
+		
+		Radius 5;
+		Height 10;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			DOL0 A -1;
+			Stop;
+			
+		Death:
+			DOL0 A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			DOL0 A 5;
+			Stop;
+	}
+}

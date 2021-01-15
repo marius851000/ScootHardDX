@@ -143,3 +143,48 @@ Class SHDX_WoodenToaster : SHDX_Decoration
 			Loop;
 	}
 }
+
+Class SHDX_LittleCeilingLightRed : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Little Ceiling Light (Red)"
+		//$Sprite CLT3A0
+		//$Category "Light sources"
+		
+		Radius 10;
+		Height 10;
+		
+		+SpawnCeiling
+		+NoGravity
+	}
+	
+	States
+	{
+		Spawn:
+			CLT3 A -1 Bright;
+			Stop;
+	}
+}
+
+Class SHDX_LittleFloorLightRed : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Little Floor Light (Red)"
+		//$Sprite FLT3A0
+		//$Category "Light sources"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			FLT3 A -1 Bright;
+			Stop;
+	}
+}

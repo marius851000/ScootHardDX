@@ -93,6 +93,9 @@ SpawnNums
 	86 = SHDX_GreenCrystal
 	87 = SHDX_Stalagtite
 	88 = SHDX_Stalagmite
+	89 = SHDX_LittleCeilingLightRed
+	90 = SHDX_LittleFloorLightRed
+	91 = SHDX_DontrelPlush
 	
 	100 = SHDX_GlassJunk
 	101 = SHDX_MetalJunk

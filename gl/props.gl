@@ -27,6 +27,23 @@ object SHDX_LittleFloorLight
 	frame FLT2 { light SHDX_YELLOWLAMP }
 }
 
+pointlight SHDX_REDLAMP
+{
+    color 1.0 0.0 0.0
+    size 64
+	offset 0 8 0
+}
+
+object SHDX_LittleCeilingLightRed
+{
+	frame CLT3 { light SHDX_REDLAMP }
+}
+
+object SHDX_LittleFloorLightRed
+{
+	frame FLT3 { light SHDX_REDLAMP }
+}
+
 pointlight SHDX_SMALLLAMP
 {
     color 1.0 1.0 1.0

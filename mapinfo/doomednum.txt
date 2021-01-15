@@ -95,6 +95,9 @@ DoomEdNums
 	6739 = SHDX_GreenCrystal
 	6740 = SHDX_Stalagtite
 	6741 = SHDX_Stalagmite
+	6742 = SHDX_LittleCeilingLightRed
+	6743 = SHDX_LittleFloorLightRed
+	6744 = SHDX_DontrelPlush
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard
