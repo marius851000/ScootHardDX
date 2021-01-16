@@ -349,7 +349,7 @@ Class SHDX_DontrelPlush : SHDX_Decoration
 		//$NotAngled
 		//$Title "Dontrel Plush"
 		//$Sprite DOL0A0
-		//$Category "Decorations"
+		//$Category "Decoration"
 		
 		Radius 5;
 		Height 10;
