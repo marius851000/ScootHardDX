@@ -188,3 +188,15 @@ object SHDX_GuardGrenade
     frame EXPLG { light SHDX_ROCKET_X4 }
     frame EXPLH { light SHDX_ROCKET_X4 }
 }
+
+object SHDX_AtmosphereHailBall
+{
+	frame HAILA { light SHDX_PLASMAFLICKER }
+	frame HAILB { light SHDX_PLASMA_X1 }
+}
+
+object SHDX_MiniSentryHailBall
+{
+	frame HAILA { light SHDX_PLASMAFLICKER }
+	frame HAILB { light SHDX_PLASMA_X1 }
+}

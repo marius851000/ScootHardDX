@@ -18,6 +18,13 @@ object SHDX_PegapolMale
 	frame PEGAG { light SHDX_BULLETPUFF }
 }
 
+pointlight SHDX_BOSSLIGHT
+{
+    color 1.0 1.0 1.0
+    size 80
+	offset 0 8 0
+}
+
 object SHDX_MaimbowUndashBoss
 {
 	frame MBOWG { light SHDX_BULLETPUFF }
@@ -84,3 +91,4 @@ object SHDX_SpectraWaspPuddle
 {
 	frame SPPL { light SHDX_SPECTRAWASPPUDDLE }
 }
+

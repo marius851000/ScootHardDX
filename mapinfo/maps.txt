@@ -84,7 +84,7 @@ map E2M2 lookup SHDX_E2A2
 	sucktime = 1
 	next = "E2M4"
 	secretnext = "E2S1"
-	author = "SanyaWaffles"
+	author = "SanyaWaffles, Metal Neon"
 }
 
 map E2M3 lookup SHDX_E2A3

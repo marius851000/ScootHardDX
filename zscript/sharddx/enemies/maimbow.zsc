@@ -246,6 +246,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			{
 				A_SetInvulnerable();
 				A_Look();
+				A_RemoveLight('maimbowlight');
 				isactive = false;
 			}
 			Loop;
@@ -264,6 +265,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_SHDX_SetToBossBarHUD();
 				bCanJump = true;
 				isactive = true;
+				A_AttachLightDef('maimbowlight', 'SHDX_BOSSLIGHT');
 			}
 		See2:
 			MBOW K 0
@@ -507,6 +509,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW \ 0
 			{
 				A_SetRenderStyle(1.0, STYLE_Normal);
+				A_RemoveLight('maimbowlight');
 				SetShade("ffffff");
 			}
 			MBOW \ 0

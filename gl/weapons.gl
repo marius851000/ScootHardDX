@@ -82,6 +82,18 @@ object SHDX_Grenade2
     frame EXPLH { light SHDX_ROCKET_X4 }
 }
 
+object SHDX_HailBall
+{
+	frame HAILA { light SHDX_PLASMAFLICKER }
+	frame HAILB { light SHDX_PLASMA_X1 }
+}
+
+object SHDX_HailBall2
+{
+	frame HAILA { light SHDX_PLASMAFLICKER }
+	frame HAILB { light SHDX_PLASMA_X1 }
+}
+
 flickerlight SHDX_RAINNOWERFLAME
 {
     color 1.0 1.0 1.0
@@ -93,4 +105,22 @@ flickerlight SHDX_RAINNOWERFLAME
 object SHDX_RainbowFlameBall
 {
 	frame RBWN { light SHDX_RAINNOWERFLAME }
+}
+
+object SHDX_RainbowerProjectileA
+{
+	frame RBWN { light SHDX_RAINNOWERFLAME }
+}
+
+flickerlight SHDX_RAINNOWERFLAME2
+{
+    color 1.0 1.0 1.0
+    size 48
+    secondarySize 96
+    chance 0.3
+}
+
+object SHDX_RainbowerFxA
+{
+	frame RBOW { light SHDX_RAINNOWERFLAME2 }
 }

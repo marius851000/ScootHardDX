@@ -200,6 +200,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		Spawn:
 			ATMO X 10
 			{
+				A_RemoveLight('atmoslight');
 				A_SetInvulnerable();
 				A_Look();
 				isactive = false;
@@ -218,6 +219,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 				A_SHDX_SendOLToAllPlayers("atmospherestart", OLSSF_FORCEONELINER);
 				A_SHDX_SetToBossBarHUD();
 				A_UnSetInvulnerable();
+				A_AttachLightDef('atmoslight', 'SHDX_BOSSLIGHT');
 				bCanJump = true;
 				isactive = true;
 			}
@@ -419,6 +421,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			{
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
+				A_RemoveLight('atmoslight');
 			}
 			ATMO S 0
 			{
