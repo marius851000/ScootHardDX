@@ -424,7 +424,7 @@ Class SHDX_LightEnforcerDormant : SHDX_Prop
 	{
 		//$Category "Obstacles"
 		//$Sprite ENFOQ1
-		//$Title "Heavy Enforcer Dormant"
+		//$Title "Light Enforcer Dormant"
 		
 		Radius 20;
 		Height 56;
