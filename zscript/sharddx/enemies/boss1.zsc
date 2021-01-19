@@ -270,7 +270,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 				A_StartSound("boss1/surprisefloorpeel", CHAN_VOICE, attenuation:ATTN_NONE);
 				bCanJump = false;
 			}
-			SURP H 130;
+			SURP H 180;
 			SURP H 0
 			{
 				A_SurpriseLowerFloor();
@@ -290,12 +290,15 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				A_RemoveLight('surpriselight');
 				SetShade("ffffff");
-				A_NewBossScream();
 				A_SurpriseSetBossVictoryMusic();
 			}
 			SURP H 105;
 			SURP I 5 A_NoBlocking;
-			SURP J 5 A_SpawnGibsFx(self);
+			SURP J 5
+			{
+				A_SpawnGibsFx(self);
+				A_NewBossScream();
+			}
 			SURP KLM 5;
 			SURP M 100;
 			SURP M 0 A_SHDX_SendOLToAllPlayers("surpriseend", OLSSF_FORCEONELINER);
