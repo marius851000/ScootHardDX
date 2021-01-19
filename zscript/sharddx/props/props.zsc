@@ -398,15 +398,14 @@ Class SHDX_CancerMouse : SHDX_Decoration
 	}
 }
 
-Class SHDX_HeavyEnforcerDormant : SHDX_Enemy
+Class SHDX_HeavyEnforcerDormant : SHDX_Prop
 {
 	Default
 	{
 		//$Category "Obstacles"
 		//$Sprite ENFOQ1
-		//$Title "Heavy Enforcer"
+		//$Title "Heavy Enforcer Dormant"
 		
-		Health 350;
 		Radius 20;
 		Height 56;
 	}
@@ -415,19 +414,18 @@ Class SHDX_HeavyEnforcerDormant : SHDX_Enemy
 	{		
 		Spawn:
 			ENFO Q -1;
-			Stop
+			Stop;
 	}
 }
 
-Class SHDX_LightEnforcerDormant : SHDX_Enemy
+Class SHDX_LightEnforcerDormant : SHDX_Prop
 {
 	Default
 	{
 		//$Category "Obstacles"
 		//$Sprite ENFOQ1
-		//$Title "Heavy Enforcer"
+		//$Title "Heavy Enforcer Dormant"
 		
-		Health 350;
 		Radius 20;
 		Height 56;
 	}
@@ -436,6 +434,28 @@ Class SHDX_LightEnforcerDormant : SHDX_Enemy
 	{		
 		Spawn:
 			ENF2 P -1;
-			Stop
+			Stop;
+	}
+}
+
+Class SHDX_TchernobogStatue : SHDX_Prop
+{
+	Default
+	{
+		//$Category "Obstacles"
+		//$Sprite TCHRA0
+		//$Title "Tchernobog Statue"
+		
+		Scale 0.67;
+		
+		Radius 48;
+		Height 112;
+	}
+	
+	States
+	{		
+		Spawn:
+			TCHR A -1;
+			Stop;
 	}
 }

@@ -21,7 +21,7 @@ class SHDX_WaterCooler : SHDX_Prop
 		//$Sprite WCLRA0
 	}
 	
-	const MAXUSES = 5;
+	const MAXUSES = 15;
 	int uses;
 	
 	override bool Used(Actor user)
@@ -31,7 +31,7 @@ class SHDX_WaterCooler : SHDX_Prop
 			
 		if (uses < MAXUSES)
 		{
-			user.A_GiveInventory("Health", 5);
+			user.A_GiveInventory("Health", 10);
 			A_StartSound("vending/watercooler", 9);
 			user.A_Log(StringTable.Localize("$SHDX_WATERCOOLER_USED"));
 			uses++;

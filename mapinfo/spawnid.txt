@@ -99,6 +99,7 @@ SpawnNums
 	92 = SHDX_CancerMouse
 	93 = SHDX_HeavyEnforcerDormant
 	94 = SHDX_LightEnforcerDormant
+	95 = SHDX_TchernobogStatue
 	
 	100 = SHDX_GlassJunk
 	101 = SHDX_MetalJunk
