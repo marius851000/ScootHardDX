@@ -397,3 +397,45 @@ Class SHDX_CancerMouse : SHDX_Decoration
 			Stop;
 	}
 }
+
+Class SHDX_HeavyEnforcerDormant : SHDX_Enemy
+{
+	Default
+	{
+		//$Category "Obstacles"
+		//$Sprite ENFOQ1
+		//$Title "Heavy Enforcer"
+		
+		Health 350;
+		Radius 20;
+		Height 56;
+	}
+	
+	States
+	{		
+		Spawn:
+			ENFO Q -1;
+			Stop
+	}
+}
+
+Class SHDX_LightEnforcerDormant : SHDX_Enemy
+{
+	Default
+	{
+		//$Category "Obstacles"
+		//$Sprite ENFOQ1
+		//$Title "Heavy Enforcer"
+		
+		Health 350;
+		Radius 20;
+		Height 56;
+	}
+	
+	States
+	{		
+		Spawn:
+			ENF2 P -1;
+			Stop
+	}
+}
