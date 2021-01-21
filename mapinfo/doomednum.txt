@@ -102,6 +102,8 @@ DoomEdNums
 	6746 = SHDX_HeavyEnforcerDormant
 	6747 = SHDX_LightEnforcerDormant
 	6748 = SHDX_TchernobogStatue
+	6749 = SHDX_Flask
+	6750 = SHDX_Beaker
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

@@ -100,6 +100,8 @@ SpawnNums
 	93 = SHDX_HeavyEnforcerDormant
 	94 = SHDX_LightEnforcerDormant
 	95 = SHDX_TchernobogStatue
+	96 = SHDX_Flask
+	97 = SHDX_Beaker
 	
 	100 = SHDX_GlassJunk
 	101 = SHDX_MetalJunk
