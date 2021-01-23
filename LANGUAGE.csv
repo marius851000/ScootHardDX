@@ -89,9 +89,9 @@ Picked up a Red Keycard.,SHDX_PICKUP_REDKEY,,,,,,,,,,,,,,,,,,,,,,,
 Picked up a Blue Keycard.,SHDX_PICKUP_BLUEKEY,,,,,,,,,,,,,,,,,,,,,,,
 Picked up a Green Keycard.,SHDX_PICKUP_GREENKEY,,,,,,,,,,,,,,,,,,,,,,,
 Picked up a Management Keycard.,SHDX_PICKUP_MANAGEMENTKEY,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Bulletproof Vest.,SHDX_PICKUP_BULLETARMOR,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Fireproof Vest.,SHDX_PICKUP_FIREPROOF,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Weatherproof Vest.,SHDX_PICKUP_WEATHERPROOF,,,,,,,,,,,,,,,,,,,,,,,
+Picked up Bulletproof Armor.,SHDX_PICKUP_BULLETARMOR,,,,,,,,,,,,,,,,,,,,,,,
+Picked up Fireproof Armor.,SHDX_PICKUP_FIREPROOF,,,,,,,,,,,,,,,,,,,,,,,
+Picked up Weatherproof Armor.,SHDX_PICKUP_WEATHERPROOF,,,,,,,,,,,,,,,,,,,,,,,
 Picked up Basic Armor.,SHDX_PICKUP_BASICARMOR,,,,,,,,,,,,,,,,,,,,,,,
 Picked up Super Armor.,SHDX_PICKUP_SUPERARMOR,,,,,,,,,,,,,,,,,,,,,,,
 Picked up Bulletproof Shard,SHDX_PICKUP_BULLETSHARD,,,,,,,,,,,,,,,,,,,,,,,
@@ -131,11 +131,9 @@ EXIT TO SYSTEM: exit the game",SHDX_HELP_MENU1,,,,,,,,,,,,,,,,,,,,,,,
 STORY IN A NUTSHELL,SHDX_HELP_HEADER_MENU2,,,,,,,,,,,,,,,,,,,,,,,
 "You are Scootaloo. Your mission is to escape
 the Cloudsdale Weather Corporation and take down
-the baddies running it. It won't be easy, all you need
-to do is Scoot Hard.
+the baddies running it. It won't be easy though.
 
-Reading this will give you hot tips on how to make the
-most of the available arsenal.",SHDX_HELP_MENU2,,,,,,,,,,,,,,,,,,,,,,,
+Reading this will give you hot tips(TM).",SHDX_HELP_MENU2,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,,,,,,,,,,,,,
 "You can only carry one one missile weapon at a time.
 
@@ -264,9 +262,9 @@ Use vending machines to get food for bits.,SHDX_TUTORIAL_POSTER_VENDING,,,,,,,,,
 Spectrum pools are hurtful to the touch.,SHDX_TUTORIAL_POSTER_SPECTRUM,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
 New Game,MNU_SHARDDX_NEWGAME,,,,,,,,Nuevo juego,,,,,,,,,,,,,,,
-Game States,MNU_SHARDDX_SSTATES,,,,,,,,Estados del juego,,,,,,,,,,,,,,,
-Load State,MNU_SHARDDX_LOADGAME,,,,,,,,Estado de carga,,,,,,,,,,,,,,,
-Save State,MNU_SHARDDX_SAVEGAME,,,,,,,,Guardar Estado,,,,,,,,,,,,,,,
+Load/Save Game,MNU_SHARDDX_SSTATES,,,,,,,,Estados del juego,,,,,,,,,,,,,,,
+Load Game,MNU_SHARDDX_LOADGAME,,,,,,,,Estado de carga,,,,,,,,,,,,,,,
+Save Game,MNU_SHARDDX_SAVEGAME,,,,,,,,Guardar Estado,,,,,,,,,,,,,,,
 Options,MNU_SHARDDX_OPTIONS,,,,,,,,Opciones,,,,,,,,,,,,,,,
 Help Me,MNU_SHARDDX_README,,,,,,,,Ayudame,,,,,,,,,,,,,,,
 Exit To System,MNU_SHARDDX_QUIT,,,,,,,,Salir al sistema,,,,,,,,,,,,,,,
@@ -321,8 +319,7 @@ Voice of Low Guard Male: DRPReskins
 Voice of Dr. Atmosphere/High Guard Male: Redsoldier55
 Voice of Maimbow Undash: Jenna Pepper
 
-Beta Testers: Captain J, Earth, Soupernatural, T, TailTaless,
-Torino, Twily
+Beta Testers: Captain J, Earth, Soupernatural, T, TailTaless, Twily
 
 Special Thanks To: Jinzo and Zan",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
@@ -400,7 +397,7 @@ YOU FUCKING IDIOT,SHDX_RIPSO_IDIOT,Reference to Joel of Vinesauce,,,,,,,,,,,,,,,
 Cupcake Says:,SHDX_CUPCAKE_SAYS,,,,,,,,,,,,,,,,,,,,,,,
 Baseball wrong. Pony with four balls cannot walk.,SHDX_CUPCAKE_01,,,,,,,,,,,,,,,,,,,,,,,
 Here's a fun activity! Drink the stuff beneath the sink and see who takes a nap first!,SHDX_CUPCAKE_02,,,,,,,,,,,,,,,,,,,,,,,
-Alstolfo is best boy.,SHDX_CUPCAKE_03,,,,,,,,,,,,,,,,,,,,,,,
+Astolfo is best boy.,SHDX_CUPCAKE_03,,,,,,,,,,,,,,,,,,,,,,,
 "Two zombies were eating Amy Schumer. One asked ""does this taste funny to you?"" The other went ""no"".",SHDX_CUPCAKE_04,,,,,,,,,,,,,,,,,,,,,,,
 Being a Discord mod is easy. Just ban everyone you disagree with.,SHDX_CUPCAKE_05,,,,,,,,,,,,,,,,,,,,,,,
 Carl the Llama x Dominika is a ship I can get by -SanyaWaffles,SHDX_CUPCAKE_06,,,,,,,,,,,,,,,,,,,,,,,
@@ -471,19 +468,20 @@ Titlemap,SHDX_TITLEMAP,,,,,,,,,,,,,,,,,,,,,,,
 Intro,SHDX_INTRO,,,,,,,,,,,,,,,,,,,,,,,
 Construction Zone,SHDX_E1A1,,,,,,,,,,,,,,,,,,,,,,,
 Winding Halls,SHDX_E1A2,,,,,,,,,,,,,,,,,,,,,,,
-Miner Offense,SHDX_E1A3,,,,,,,,,,,,,,,,,,,,,,,
+The Mines,SHDX_E1A3,,,,,,,,,,,,,,,,,,,,,,,
 The Mosh Pit,SHDX_E1A4,,,,,,,,,,,,,,,,,,,,,,,
+Episode 2 Cutscene,SHDX_E2A0,,,,,,,,,,,,,,,,,,,,,,,
 Into The Factory,SHDX_E2A1,,,,,,,,,,,,,,,,,,,,,,,
 The Rain Generator,SHDX_E2A2,,,,,,,,,,,,,,,,,,,,,,,
-Dammed If You Do,SHDX_E2A3,,,,,,,,,,,,,,,,,,,,,,,
+Cloudsdale Dam,SHDX_E2A3,,,,,,,,,,,,,,,,,,,,,,,
 Tchernobog Laboratory,SHDX_E2A4,,,,,,,,,,,,,,,,,,,,,,,
 Dr. Atmosphere,SHDX_E2A5,,,,,,,,,,,,,,,,,,,,,,,
 Colorful Hell,SHDX_E3A1,,,,,,,,,,,,,,,,,,,,,,,
 Pegasus Device,SHDX_E3A2,,,,,,,,,,,,,,,,,,,,,,,
 Pinnacle of Hate,SHDX_E3A3,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow,SHDX_E3A4,,,,,,,,,,,,,,,,,,,,,,,
-Glacial Flows,SHDX_E2S1,,,,,,,,,,,,,,,,,,,,,,,
-Elevator Trouble,SHDX_SECRET02,,,,,,,,,,,,,,,,,,,,,,,
+The Edge Of Insanity,SHDX_E2S1,,,,,,,,,,,,,,,,,,,,,,,
+Elevator Trouble,SHDX_E3S1,,,,,,,,,,,,,,,,,,,,,,,
 Credits,SHDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 Ending,SHDX_ENDING,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission,,,,,,,,,,,,,,,,,,,,,,
