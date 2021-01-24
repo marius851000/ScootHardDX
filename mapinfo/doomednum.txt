@@ -115,4 +115,30 @@ DoomEdNums
 	7001 = SHDX_VendingMachine
 	7002 = SHDX_AuroraDawn
 	7003 = SHDX_AuroraSpot
+	
+	7500 = SHDX_Cutscene1
+	7501 = SHDX_Cutscene2
+	7502 = SHDX_Cutscene3
+	7503 = SHDX_Cutscene4
+	7504 = SHDX_Cutscene5
+	
+	7510 = SHDX_DrAtmosphere1
+	7511 = SHDX_DrAtmosphere2
+	7512 = SHDX_DrAtmosphere3
+	7513 = SHDX_DrAtmosphere4
+	7514 = SHDX_DrAtmosphere5
+	7515 = SHDX_DrAtmosphere6
+	7516 = SHDX_DrAtmosphere7
+	7517 = SHDX_DrAtmosphere8
+	
+	7530 = SHDX_Maimbow1
+	7531 = SHDX_Maimbow2
+	7532 = SHDX_Maimbow3
+	7533 = SHDX_Maimbow4
+	7534 = SHDX_Maimbow5
+	7535 = SHDX_Maimbow6
+	7536 = SHDX_Maimbow7
+	7537 = SHDX_Maimbow8
+	7538 = SHDX_Maimbow9
+	7539 = SHDX_Maimbow10
 }

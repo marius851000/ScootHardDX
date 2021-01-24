@@ -1,0 +1,143 @@
+/*
+Copyright 2021 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+class SHDX_Maimbow1 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - Introduction"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/intro", StringTable.Localize("$SHDX_VOX_MAIMBOW_1"));
+	}
+}
+
+class SHDX_Maimbow2 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - SpectraWasp Intro"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/spectrawaspintro", StringTable.Localize("$SHDX_VOX_MAIMBOW_2"));
+	}
+}
+
+class SHDX_Maimbow3 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - SpectraWasp Death"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/spectrawaspdeath", StringTable.Localize("$SHDX_VOX_MAIMBOW_3"));
+	}
+}
+
+class SHDX_Maimbow4 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - Turn Back Now Scootaloo"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/turnbacknowscootaloo", StringTable.Localize("$SHDX_VOX_MAIMBOW_4"));
+	}
+}
+
+class SHDX_Maimbow5 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - Don't touch that!"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/donttouchthat", StringTable.Localize("$SHDX_VOX_MAIMBOW_5"));
+	}
+}
+
+class SHDX_Maimbow6 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - You ruined everything!"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/youruinedeverything", StringTable.Localize("$SHDX_VOX_MAIMBOW_6"));
+	}
+}
+
+class SHDX_Maimbow7 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - Pinnacle Of Hate Intro"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/pohintro", StringTable.Localize("$SHDX_VOX_MAIMBOW_7"));
+	}
+}
+
+class SHDX_Maimbow8 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - Pinnacle Of Hate Outro"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/pohoutro", StringTable.Localize("$SHDX_VOX_MAIMBOW_8"));
+	}
+}
+
+class SHDX_Maimbow9 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - Finale Intro 1"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/finaleintro1", StringTable.Localize("$SHDX_VOX_MAIMBOW_9"));
+	}
+}
+
+class SHDX_Maimbow10 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - Finale Intro 2"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/finaleintro2", StringTable.Localize("$SHDX_VOX_MAIMBOW_10"));
+	}
+}

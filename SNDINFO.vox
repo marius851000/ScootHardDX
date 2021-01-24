@@ -1,0 +1,28 @@
+$pitchshiftrange 0
+
+cutscne/vox/1									"sounds/vox/atmosphere/dr_atmos_cs2_1.ogg"
+cutscne/vox/2									"sounds/vox/maimbow/maimbow_cs2_1.ogg"
+cutscne/vox/3									"sounds/vox/atmosphere/dr_atmos_cs2_2.ogg"
+cutscne/vox/4									"sounds/vox/maimbow/maimbow_cs2_2.ogg"
+cutscne/vox/5									"sounds/vox/atmosphere/dr_atmos_cs2_3.ogg"
+
+atmosphere/vox/intro							"sounds/vox/atmosphere/dr_atmos_vox_intro_e2.ogg"
+atmosphere/vox/hamslices						"sounds/vox/atmosphere/dr_atmos_vox_ham_slices.ogg"
+atmosphere/vox/quitethemess						"sounds/vox/atmosphere/dr_atmos_vox_no_stopping.ogg"
+atmosphere/vox/youineptmule						"sounds/vox/atmosphere/dr_atmos_vox_mule.ogg"
+atmosphere/vox/imgoingtoaskyoutoleave			"sounds/vox/atmosphere/dr_atmos_vox_ask_leave.ogg"
+atmosphere/vox/youreallgoingtodieuphere			"sounds/vox/atmosphere/dr_atmos_vox_your_all_going_to_die.ogg"
+atmosphere/vox/youshouldknowitwasntmyidea		"sounds/vox/atmosphere/dr_atmos_vox_enforcers.ogg"
+atmosphere/vox/imisssurprise					"sounds/vox/atmosphere/dr_atmos_vox_surprise.ogg"
+
+maimbow/vox/intro								"sounds/vox/maimbow/maimbow_vox_e3_intro.ogg"
+maimbow/vox/spectrawaspintro					"sounds/vox/maimbow/maimbow_vox_sw_intro.ogg"
+maimbow/vox/spectrawaspdeath					"sounds/vox/maimbow/maimbow_vox_sw_killed.ogg"
+maimbow/vox/turnbacknowscootaloo				"sounds/vox/maimbow/maimbow_vox_pd_intro.ogg"
+maimbow/vox/donttouchthat						"sounds/vox/maimbow/maimbow_vox_pd_approach.ogg"
+maimbow/vox/youruinedeverything					"sounds/vox/maimbow/maimbow_vox_pd_end.ogg"
+maimbow/vox/pohintro							"sounds/vox/maimbow/maimbow_vox_poh_intro.ogg"
+maimbow/vox/pohoutro							"sounds/vox/maimbow/maimbow_vox_poh_end.ogg"
+maimbow/vox/finaleintro1						"sounds/vox/maimbow/maimbow_vox_boss_approach.ogg"
+maimbow/vox/finaleintro2						"sounds/vox/maimbow/maimbow_vox_boss_init.ogg"
+
