@@ -138,12 +138,10 @@ Class SHDX_Cupcake : SHDX_Health
 	{
 		if (toucher.health >= MaxAmount)
 			return Super.TryPickup(toucher);
-		
-		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
-		if (!hnd) return Super.TryPickup(toucher);
+			
 		String cupcakejokeloc = String.Format("%s%02d", "$SHDX_CUPCAKE_", Random[Cupcake](1, 10));
 		String str = String.Format("%s %s", StringTable.Localize("$SHDX_CUPCAKE_SAYS"), Stringtable.Localize(cupcakejokeloc));
-		hnd.AddSubtitle(str, 3, TICRATE * 10, 5);
+		toucher.A_Print(str, 10, 'smallfont');
 		
 		return Super.TryPickup(toucher);
 	}
