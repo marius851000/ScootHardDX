@@ -228,7 +228,7 @@ and progress. They have specific patterns you must master and
 look out for.",SHDX_HELP_MENU6,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (KEYS),SHDX_HELP_HEADER_MENU7,,,,,,,,,,,,,,,,,,,,,,,
 "Red, Green and Blue Keys are required to unlock areas of the
-level. To unlock the exit, you must find a Management Keycard.
+level. To unlock most exits, you must find a Management Key.
 This also can be used to unlock the safety protocols on the
 Pegasus Device.",SHDX_HELP_MENU7,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (GLIDING),SHDX_HELP_HEADER_MENU8,,,,,,,,,,,,,,,,,,,,,,,
@@ -262,19 +262,19 @@ Use vending machines to get food for bits.,SHDX_TUTORIAL_POSTER_VENDING,,,,,,,,,
 Spectrum pools are hurtful to the touch.,SHDX_TUTORIAL_POSTER_SPECTRUM,,,,,,,,,,,,,,,,,,,,,,,
 ,,Vox Subsystem,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: Mein fuhrer, the filly is rapidly approaching the pegasus device. Most of our forces are away from the facility, what should we do?",SHDX_VOX_CS2_1,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: Hm, is that so?… Release the enforcers.",SHDX_VOX_CS2_2,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: Hm, is that so? Release the enforcers.",SHDX_VOX_CS2_2,,,,,,,,,,,,,,,,,,,,,,,
 Dr. Atmosphere: They are a bit unstable. I think we need more time to test them.,SHDX_VOX_CS2_3,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: That bitch just waltzed in and killed your wife. And you’re just going to let her get away with that? Are you that weak?,SHDX_VOX_CS2_4,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: Oh I'm not weak... if you insist, but you’ll have to control them, as I’ll be in my lab far away from them. Show that bitch what they’re capable of, Mein fuhrer.",SHDX_VOX_CS2_5,,,,,,,,,,,,,,,,,,,,,,,
-"Dr. Atmosphere: Hello Scootaloo. It seems you're making a mess of this place. Oh, where are my manners. Let me introduce myself. I am Dr. Atmosphere, the head engineer of this facility. I'm also the husband of Surprise… you know, the business mare you slaughtered escaping the factory. I'm going to make you regret coming out of your mother's wretched womb…",SHDX_VOX_DRATMOS_1,,,,,,,,,,,,,,,,,,,,,,,
-Dr. Atmosphere: “I’M GONNA ENJOY THROWING YOU INTO THE PEGASUS DEVICE PUSSY FIRST. AND ENJOY SEEING YOUR HAM SLICES GET PULLED IN.”,SHDX_VOX_DRATMOS_2,,,,,,,,,,,,,,,,,,,,,,,
+"Dr. Atmosphere: Hello Scootaloo. It seems you're making a mess of this place. Oh, where are my manners. Let me introduce myself. I am Dr. Atmosphere, the head engineer of this facility. I'm also the husband of Surprise... you know, the business mare you slaughtered escaping the factory. I'm going to make you really regret coming out of your mother's wretched womb...",SHDX_VOX_DRATMOS_1,,,,,,,,,,,,,,,,,,,,,,,
+Dr. Atmosphere: I’M GONNA ENJOY THROWING YOU INTO THE PEGASUS DEVICE PUSSY FIRST. AND ENJOY SEEING YOUR HAM SLICES GET PULLED IN.,SHDX_VOX_DRATMOS_2,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: I see that you've made quite the mess on your little crusade. It’s no matter, all will be repaired in time. I really hope you know that there is no stopping the pegasus race. We'll continue on, without you that is.",SHDX_VOX_DRATMOS_3,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: You inept mule! You're going to die soon. Where the others have failed, I won't! I will gut you myself.",SHDX_VOX_DRATMOS_4,,,,,,,,,,,,,,,,,,,,,,,
 Dr. Atmosphere: I'm going to ask you to leave.,SHDX_VOX_DRATMOS_5,,,,,,,,,,,,,,,,,,,,,,,
 Dr. Atmosphere: You're all going to die up here. [laughs],SHDX_VOX_DRATMOS_6,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: You should know it wasn't my idea to unleash the enforcers on you. It was Maimbow's. However, I have something else in mind for you. [cackles]",SHDX_VOX_DRATMOS_7,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: I'm not going to lie, I miss Surprise. You took her from me...",SHDX_VOX_DRATMOS_8,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: Oh goodie, It's the little bitch that's been such a pain in my implanted balls. I am Maimbow Undash… you probably have figured out that I'm not your big sister… In fact, you could say that I’m your worst nightmare. Once I've dealt with you, I'm going to make Aurora watch... doesn't that sound oh so delightful? [laughs]",SHDX_VOX_MAIMBOW_1,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: Oh goodie, It's the little bitch that's been such a pain in my implanted balls. I am Maimbow Undash... you probably have figured out that I'm not your big sister… In fact, you could say that I’m your worst nightmare. Once I've dealt with you, I'm going to make Aurora watch... doesn't that sound oh so delightful? [laughs]",SHDX_VOX_MAIMBOW_1,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: You know, I never gave you the chance to say goodbye to Orion. I apologize for being so rude, you can have him, [laughs].",SHDX_VOX_MAIMBOW_2,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: How does it feel to kill one of your best friends? I think he said “I love you” while you slaughtered him. I hope you’re happy with yourself.,SHDX_VOX_MAIMBOW_3,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: Turn back now Scootaloo. You have no idea who or what you're messing with. We will prevail! We will win!,SHDX_VOX_MAIMBOW_4,,,,,,,,,,,,,,,,,,,,,,,
@@ -337,7 +337,7 @@ Weapon Overhaul: Jona_Arts
 Original Texture Work (WIP): Epic Acrylic and NeonBat
 
 Voice of Scootaloo: Alabeanz@Tumblr.com
-Voice of Low Guard Female, Aurora Dawn: Tabby
+Voice of Low Guard Female/Aurora Dawn: Tabby
 Voice of Surprise Pony: CakeofRage
 Voice of Low Guard Male: DRPReskins
 Voice of Dr. Atmosphere/High Guard Male: Redsoldier55
@@ -352,7 +352,7 @@ ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
 Sounds: Quake HiRes Pack, Source Engine, Rise Of The Triad, Tomb Raider,
 Apeirogon, Wolfenstein 3-D Mac, Halo 2
 
-Additional Voices: Team Fortress 2, Serious Sam
+Additional Voices: Team Fortress 2
 
 Fonts: Revue, Daidoh Remix, Crewniverse
 
@@ -424,7 +424,7 @@ Here's a fun activity! Drink the stuff beneath the sink and see who takes a nap 
 Astolfo is best boy.,SHDX_CUPCAKE_03,,,,,,,,,,,,,,,,,,,,,,,
 "Two zombies were eating Amy Schumer. One asked ""does this taste funny to you?"" The other went ""no"".",SHDX_CUPCAKE_04,,,,,,,,,,,,,,,,,,,,,,,
 Being a Discord mod is easy. Just ban everyone you disagree with.,SHDX_CUPCAKE_05,,,,,,,,,,,,,,,,,,,,,,,
-Carl the Llama x Dominika is a ship I can get by -SanyaWaffles,SHDX_CUPCAKE_06,,,,,,,,,,,,,,,,,,,,,,,
+Someone will be disappointed in this for sure. I legally cannot say who.,SHDX_CUPCAKE_06,,,,,,,,,,,,,,,,,,,,,,,
 Mudkip was here.,SHDX_CUPCAKE_07,,,,,,,,,,,,,,,,,,,,,,,
 Cool Whip is funny when Irish people say it.,SHDX_CUPCAKE_08,,,,,,,,,,,,,,,,,,,,,,,
 Do not visit fortniteburger.net,SHDX_CUPCAKE_09,,,,,,,,,,,,,,,,,,,,,,,
