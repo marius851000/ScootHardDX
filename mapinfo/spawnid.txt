@@ -102,6 +102,7 @@ SpawnNums
 	95 = SHDX_TchernobogStatue
 	96 = SHDX_Flask
 	97 = SHDX_Beaker
+	98 = SHDX_ZetaEnforcerDormant
 	
 	100 = SHDX_GlassJunk
 	101 = SHDX_MetalJunk

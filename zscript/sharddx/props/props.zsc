@@ -449,7 +449,7 @@ Class SHDX_TchernobogStatue : SHDX_Prop
 		Scale 0.67;
 		
 		Radius 48;
-		Height 112;
+		Height 144;
 	}
 	
 	States
@@ -522,6 +522,26 @@ Class SHDX_Beaker : SHDX_Decoration
 				A_StartSound("misc/glassbreak");
 				SHDX_Actor.A_SpawnGlassJunkFx(self);
 			}
+			Stop;
+	}
+}
+
+Class SHDX_ZetaEnforcerDormant : SHDX_Prop
+{
+	Default
+	{
+		//$Category "Obstacles"
+		//$Sprite ZETAA1
+		//$Title "Zeta Enforcer Dormant"
+		
+		Radius 20;
+		Height 56;
+	}
+	
+	States
+	{		
+		Spawn:
+			ZETA A -1;
 			Stop;
 	}
 }

@@ -104,13 +104,13 @@ map E2M3 lookup SHDX_E2A3
 map E2M4 lookup SHDX_E2A4
 {
 	LevelNum = 8
-	sky1 = "SKY2"
+	sky1 = "SKY6"
 	sky2 = "SKY2A"
 	cluster = 1
 	par = 45
 	sucktime = 1
 	next = "E2M5"
-	author = "SanyaWaffles, Jona_Arts"
+	author = "SanyaWaffles, Jona_Arts, Metal Neon"
 	music = "M_TCHERN"
 	lightning
 }
@@ -139,7 +139,6 @@ map E2S1 lookup SHDX_E2S1
 	sucktime = 1
 	music = "M_RAIN"
 	next = "E2M4"
-	author = "SanyaWaffles"
 	secretnext = "E2M4"
 }
 
