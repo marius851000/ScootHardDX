@@ -60,7 +60,7 @@ $random thunder_sound_random
     thunder_sound_8
 }
 
-$alias world/thunder thunder_sound_random
+$alias world/thunder thunder_sound_1
 
 $attenuation thunder_sound_random 0.3
 $rolloff thunder_sound_random linear 1500 4000
@@ -68,6 +68,8 @@ $rolloff thunder_sound_random linear 1500 4000
 rain_sound "sounds/rain_sound.ogg"
 
 $rolloff rain_sound linear 150 400
+
+$limit rain_sound 4
 
 disclaimer/ooga			"sounds/ooga.ogg"
 
