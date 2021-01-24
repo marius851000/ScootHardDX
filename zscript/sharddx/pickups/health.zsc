@@ -136,12 +136,12 @@ Class SHDX_Cupcake : SHDX_Health
 
 	override bool TryPickup(in out Actor toucher)
 	{
-		if (toucher.health >= MaxAmount)
-			return Super.TryPickup(toucher);
-			
-		String cupcakejokeloc = String.Format("%s%02d", "$SHDX_CUPCAKE_", Random[Cupcake](1, 10));
-		String str = String.Format("%s %s", StringTable.Localize("$SHDX_CUPCAKE_SAYS"), Stringtable.Localize(cupcakejokeloc));
-		toucher.A_Print(str, 10, 'smallfont');
+		if (toucher.health < MaxAmount)
+		{
+			String cupcakejokeloc = String.Format("%s%02d", "$SHDX_CUPCAKE_", Random[Cupcake](1, 10));
+			String str = String.Format("%s %s", StringTable.Localize("$SHDX_CUPCAKE_SAYS"), Stringtable.Localize(cupcakejokeloc));
+			toucher.A_Print(str, 10, 'smallfont');
+		}
 		
 		return Super.TryPickup(toucher);
 	}
