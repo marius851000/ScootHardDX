@@ -248,6 +248,15 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		A_StartSound("maimbow/wings", CHAN_6);
 	}
 	
+	override void Tick()
+	{
+		Super.Tick();
+		if (flyingmode > 0)
+			isflying = true;
+		else
+			isflying = false;
+	}
+	
 	override void MarkPreCacheSounds()
 	{
 		Super.MarkPreCacheSounds();

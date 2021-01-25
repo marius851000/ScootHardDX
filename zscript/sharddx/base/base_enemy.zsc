@@ -50,12 +50,17 @@ Class SHDX_Enemy : SHDX_Actor
 		+NoInfightSpecies
 		+LookAllAround
 		+SHDX_Enemy.CanJump
+		+SHDX_Enemy.CanSwim
 	}
 	
 	bool iscorpse;
+
+	bool hasjumped;
+	bool isflying;
 	
 	private int SHDXFlags;
 	flagdef CanJump: SHDXFlags, 0;
+	flagdef CanSwim: SHDXFlags, 1;
 	
 	meta int JumpUpVelocity;
 	Property JumpUpVelocity: JumpUpVelocity;
@@ -67,8 +72,6 @@ Class SHDX_Enemy : SHDX_Actor
 	
 	vector3 oldPos;		// This needs to remain
 	double oldVelZ;		// From ZDoom Wiki
-	int leveltimemod;	// [SW] - Replaces Kinsie's timer mainly for debugging
-						// I put it here
 	
 	uint startingtranslation;
 	
@@ -88,12 +91,6 @@ Class SHDX_Enemy : SHDX_Actor
 		translation = startingtranslation;
 	}
 	
-	// [SW] - Do Modulus instead of relying on timers
-	void GetLevelTimeMask()
-	{
-		leveltimemod = level.time % TICRATE;
-	}
-	
 	void SetOldVelZ()
 	{
 		oldVelZ = vel.z;
@@ -103,6 +100,7 @@ Class SHDX_Enemy : SHDX_Actor
 	{
 		SetOldVelZ();
 		CheckForEnemyJump();
+		CheckForEnemySwim();
 	}
 	
 	// [SW] - Check if enemy can jump... this is a complex function
@@ -121,6 +119,15 @@ Class SHDX_Enemy : SHDX_Actor
 		// Only do this if the enemy is in the See state.
 		if (!InStateSequence(CurState, ResolveState("See")))
 			return;
+
+		if (pos.z - floorz ~== 0)
+		{
+			hasjumped = false;
+		}
+		else if (hasjumped && pos.z - floorz > 16)
+		{
+			A_ChangeVelocity(2, 0, vel.z, CVF_REPLACE | CVF_RELATIVE);
+		}
 		
 		// if the enemy hasn't cooled down it's jump yet
 		// don't bother, decrement it
@@ -147,7 +154,27 @@ Class SHDX_Enemy : SHDX_Actor
 				
 				// Set cooldown
 				jumpcooldown = TICRATE * Random[JumpCooldown](2,4);
+				hasjumped = true;
 			}
+		}
+	}
+	
+	void CheckForEnemySwim()
+	{
+		if (!bCanSwim || isflying || health <= 0)
+			return;
+		
+		if (waterlevel >= 1)
+		{
+			bNoGravity = true;
+			bFloat = true;
+			FloatSpeed = 2;
+		}
+		else
+		{
+			bNoGravity = GetDefaultByType(GetClass()).bNoGravity;
+			bFloat = GetDefaultByType(GetClass()).bFloat;
+			FloatSpeed = GetDefaultByType(GetClass()).FloatSpeed;
 		}
 	}
 	

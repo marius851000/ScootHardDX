@@ -175,6 +175,7 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 		+NoIceDeath
 		
 		-SHDX_Enemy.CanJump
+		-SHDX_Enemy.CanSwim
 	}
 	
 	state A_SpectraWaspAttackChoose()

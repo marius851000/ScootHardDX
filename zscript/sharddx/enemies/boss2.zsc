@@ -127,6 +127,15 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	
 	int flyingmode;
 	
+	override void Tick()
+	{
+		Super.Tick();
+		if (flyingmode > 0)
+			isflying = true;
+		else
+			isflying = false;
+	}
+	
 	const ATMOSFLY = 20;
 	
 	void A_FlyTowardsTarget(double speedtofly = ATMOSFLY)

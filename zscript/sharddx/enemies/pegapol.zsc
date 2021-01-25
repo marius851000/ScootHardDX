@@ -80,6 +80,15 @@ Class SHDX_PegapolMale : SHDX_Enemy
 	
 	int flyingmode;
 	
+	override void Tick()
+	{
+		Super.Tick();
+		if (flyingmode > 0)
+			isflying = true;
+		else
+			isflying = false;
+	}
+	
 	void A_DropItemsPegapol()
 	{
 		if (target && target.CountInv("SHDX_BitCoin") < 50)

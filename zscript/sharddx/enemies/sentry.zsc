@@ -56,6 +56,7 @@ Class SHDX_MiniSentry : SHDX_Enemy
 		+NoIceDeath
 		
 		-SHDX_Enemy.CanJump
+		-SHDX_Enemy.CanSwim
 	}
 	
 	int delaytildeath;
