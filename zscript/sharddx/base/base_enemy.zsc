@@ -41,7 +41,7 @@ Class SHDX_Enemy : SHDX_Actor
 		DamageFactor "RainbowerX", 1.00;
 		DamageFactor "Explosive", 1.00;
 		PainChance "Fire", 0;
-		SHDX_Enemy.JumpUpVelocity 16;
+		SHDX_Enemy.JumpUpVelocity 18;
 		SHDX_Enemy.JumpForwardVelocity 16;
 		
 		Monster;
