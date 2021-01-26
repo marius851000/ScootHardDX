@@ -27,7 +27,6 @@ boss2/sight				"sounds/enemies/atmos/redsoldier55/at_intro2.ogg"
 boss2/pain1				"sounds/enemies/atmos/redsoldier55/at_pain1.ogg"
 boss2/pain2				"sounds/enemies/atmos/redsoldier55/at_pain2.ogg"
 boss2/pain3				"sounds/enemies/atmos/redsoldier55/at_pain3.ogg"
-$random boss2/pain		{ boss2/pain1 boss2/pain2 boss2/pain3 }
 boss2/death				"sounds/enemies/atmos/redsoldier55/at_death.ogg"
 boss2/stomp				"sounds/THUD.ogg"
 boss2/tornado			"sounds/weapons/tornado_projectile.ogg"
