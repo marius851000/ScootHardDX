@@ -130,6 +130,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		PainChance "Explosive", 256;
 		PainChance "Bullet", 128;
 		PainChance "Spectrum", 256;
+		PainChance "Lightning", 128;
 		PainChance "Ice", 64;
 		DamageFactor "Bullet", 0.50;
 		DamageFactor "Explosive", 0.75;

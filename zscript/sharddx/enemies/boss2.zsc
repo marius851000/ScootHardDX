@@ -98,6 +98,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		Speed 12;
 		PainChance "Explosive", 256;
 		PainChance "Bullet", 128;
+		PainChance "Lightning", 128;
 		PainChance "Spectrum", 256;
 		PainChance "Ice", 64;
 		DamageFactor "Bullet", 0.50;

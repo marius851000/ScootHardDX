@@ -40,6 +40,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		
 		PainChance "Explosive", 256;
 		PainChance "Bullet", 128;
+		PainChance "Lightning", 128;
 		PainChance "Spectrum", 256;
 		PainChance "Ice", 64;
 		DamageFactor "Bullet", 0.50;
