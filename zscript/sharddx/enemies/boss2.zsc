@@ -482,7 +482,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		Pain1:
 			ATMO S 3
 			{
-				A_Pain();
+				A_StartSound("boss2/pain"..Random[DrAtmosphere](1,3), CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 				A_SetRenderStyle(1.0, STYLE_Stencil);
 				SetShade("6e0600");
 			}
@@ -508,7 +508,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 				bNoGravity = false;
 				bFloat = false;
 				A_SetInvulnerable();
-				A_Pain();
+				A_StartSound("boss2/pain1", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 				A_SetRenderStyle(1.0, STYLE_Stencil);
 				SetShade("6e0600");
 			}
