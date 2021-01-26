@@ -183,7 +183,122 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	
 	void A_FogDensityMachine()
 	{
-		// ACS_NamedExecute("MAP03_PeelAway", 0, 0, 0, 0);
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(152);
+			s.SetFade("6f1306");
+			TextureID skyid1 = TexMan.CheckForTexture("SKY3C", TexMan.Type_Any);
+			TextureID skyid2 = TexMan.CheckForTexture("SKY3A", TexMan.Type_Any);
+			level.ChangeSky(skyid1, skyid2);
+		}
+		fogchanged = true;
+	}
+	
+	void A_FogScaleUp1()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(164);
+			s.SetFade("661011");
+		}
+	}
+	
+	void A_FogScaleUp2()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(172);
+			s.SetFade("610e16");
+		}
+	}
+	
+	void A_FogScaleUp3()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(178);
+			s.SetFade("580b21");
+		}
+	}
+	
+	void A_FogScaleUp4()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(182);
+			s.SetFade("540a27");
+		}
+	}
+	
+	void A_FogScaleUp5()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(192);
+			s.SetFade("4b0731");
+		}
+	}
+	
+	void A_FogScaleUp6()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(194);
+			s.SetFade("4b0731");
+		}
+	}
+	
+	void A_FogScaleUp7()
+	{
 		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
 		int i;
 		while (i = sit.Next())
@@ -195,14 +310,8 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			
 			s.SetFogDensity(200);
 			s.SetFade("390147");
-			TextureID skyid1 = TexMan.CheckForTexture("SKY3C", TexMan.Type_Any);
-			TextureID skyid2 = TexMan.CheckForTexture("SKY3A", TexMan.Type_Any);
-			level.ChangeSky(skyid1, skyid2);
 		}
-		// Floor_LowerByValueTimes8(667,35,8);
-		fogchanged = true;
 	}
-	
 	
 	States
 	{
@@ -357,7 +466,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			{
 				if (!fogchanged && health <= (SpawnHealth() / 2))
 				{
-					A_FogDensityMachine();
+					return ResolveState("SeeFogDensityMachine");
 				}
 				return ResolveState(null);
 			}
@@ -389,6 +498,49 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			{
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
+			}
+			Goto See2;
+			
+		SeeFogDensityMachine:
+			ATMO X 3
+			{
+				bNoPain = true;
+				bNoGravity = false;
+				bFloat = false;
+				A_SetInvulnerable();
+				A_Pain();
+				A_SetRenderStyle(1.0, STYLE_Stencil);
+				SetShade("6e0600");
+			}
+			ATMO X 2
+			{
+				SetShade("f08010");
+			}
+			ATMO X 1
+			{
+				SetShade("ffee6a");
+			}
+			ATMO X 0
+			{
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				SetShade("ffffff");
+				A_StartSound("boss2/atmospherelaugh", CHAN_VOICE, attenuation:ATTN_NONE);
+				A_FogDensityMachine();
+				bCanJump = false;
+			}
+			ATMO X 5 A_FogScaleUp1();
+			ATMO X 5 A_FogScaleUp2();
+			ATMO X 5 A_FogScaleUp3();
+			ATMO X 5 A_FogScaleUp4();
+			ATMO X 5 A_FogScaleUp5();
+			ATMO X 5 A_FogScaleUp6();
+			ATMO X 5 A_FogScaleUp7();
+			ATMO X 245;
+			ATMO X 0
+			{
+				A_UnSetInvulnerable();
+				bCanJump = true;
+				bNoPain = false;
 			}
 			Goto See2;
 		Pain.Flying:

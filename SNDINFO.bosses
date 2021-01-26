@@ -44,6 +44,7 @@ boss2/taunt10			"sounds/enemies/atmos/redsoldier55/at_taunt10.ogg"
 boss2/risetaunt			"sounds/enemies/atmos/redsoldier55/at_risetaunt1.ogg"
 boss2/wings				"sounds/wing_flap.ogg"
 boss2/charge			"sounds/wing_charge.ogg"
+boss2/atmospherelaugh	"sounds/enemies/atmos/redsoldier55/at_laugh.ogg"
 
 // Boss #3 - Maimbow Undash
 maimbow/sight			"sounds/enemies/undash/jenna/youre_just_a_bitch.ogg"
