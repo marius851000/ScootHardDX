@@ -1,3 +1,15 @@
+map TESTMAP "TESTMAP"
+{
+	LevelNum = 1
+	sky1 = "SKY1"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E1M1"
+	music = "M_SINT"
+	author = "It's a fucking Testmap"
+}
+
 map INTRO lookup SHDX_INTRO
 {
 	LevelNum = 0
