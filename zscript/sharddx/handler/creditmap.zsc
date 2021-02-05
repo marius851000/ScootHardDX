@@ -149,7 +149,6 @@ class SHDX_CreditMapEvent : EventHandler
 		{
 			if (e.Keyscan == keys[i])
 			{
-				Console.PrintF("pressing +use");
 				SendNetworkEvent("ToggleUseHold", e.Type == e.Type_KeyDown);
 			}
 		}
