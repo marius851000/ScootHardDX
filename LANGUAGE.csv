@@ -274,15 +274,15 @@ Dr. Atmosphere: I'm going to ask you to leave.,SHDX_VOX_DRATMOS_5,,,,,,,,,,,,,,,
 Dr. Atmosphere: You're all going to die up here.,SHDX_VOX_DRATMOS_6,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: You should know it wasn't my idea to unleash the enforcers on you. It was Maimbow's. However, I have something else in mind for you. [cackles]",SHDX_VOX_DRATMOS_7,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: I'm not going to lie, I miss Surprise. You took her from me...",SHDX_VOX_DRATMOS_8,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: Oh goodie, It's the little bitch that's been such a pain in my implanted balls. I am Maimbow Undash... you probably have figured out that I'm not your big sister… In fact, you could say that I’m your worst nightmare. Once I've dealt with you, I'm going to make Aurora watch... doesn't that sound oh so delightful? [laughs]",SHDX_VOX_MAIMBOW_1,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: Oh goodie, It's the little bitch that's been such a pain in my implanted balls. I am Maimbow Undash... you probably have figured out that I'm not your big sister… In fact, you could say that I'm your worst nightmare. Once I've dealt with you, I'm going to make Aurora watch... doesn't that sound oh so delightful? [laughs]",SHDX_VOX_MAIMBOW_1,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: You know, I never gave you the chance to say goodbye to Orion. I apologize for being so rude, you can have him, [laughs].",SHDX_VOX_MAIMBOW_2,,,,,,,,,,,,,,,,,,,,,,,
-Maimbow: How does it feel to kill one of your best friends? I think he said “I love you” while you slaughtered him. I hope you’re happy with yourself.,SHDX_VOX_MAIMBOW_3,,,,,,,,,,,,,,,,,,,,,,,
+Maimbow: How does it feel to kill one of your best friends? I think he said “I love you” while you slaughtered him. I hope you're happy with yourself.,SHDX_VOX_MAIMBOW_3,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: Turn back now Scootaloo. You have no idea who or what you're messing with. We will prevail! We will win!,SHDX_VOX_MAIMBOW_4,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: No! STOP. Don't touch that!,SHDX_VOX_MAIMBOW_5,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: You bitch! YOU RUINED EVERYTHING! I WILL KILL YOU WITH MY BARE HOOVES FOR THAT.,SHDX_VOX_MAIMBOW_6,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: YOU ABSOLUTE CUNT! I SPENT YEARS PLANNING MY REVENGE… I SPENT YEARS PLOTTING WITH OTHER PEGASI JUST LIKE ME TO PUT AN END TO INCOMPETENT FUCKS LIKE YOU. AND WHAT? FOR NOTHING. NO, YOU CANNOT STOP ME, I AM A GOD, AND I WILL SMITE YOU IF IT'S THE LAST THING I DO.",SHDX_VOX_MAIMBOW_7,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: You know… I'm not even mad… If I can kill you, all this will be worth it. All that matters is if you die and I can shame Rainbow Dash for what she did to me! She will see me for what I am, a god. [chuckles]",SHDX_VOX_MAIMBOW_8,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: I see that you’ve made it to my lair. You know I have a little surprise for you. Consider it a gift, before your untimely demise [laughs].",SHDX_VOX_MAIMBOW_9,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: I see that you've made it to my lair. You know I have a little surprise for you. Consider it a gift, before your untimely demise [laughs].",SHDX_VOX_MAIMBOW_9,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: Welcome, Scootaloo, to your surprise. We have a second device that is better than the first one. It's only a prototype, but I will finish it. But first… you must die!.",SHDX_VOX_MAIMBOW_10,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
 New Game,MNU_SHARDDX_NEWGAME,,,,,,,,Nuevo juego,,,,,,,,,,,,,,,
@@ -292,7 +292,7 @@ Save Game,MNU_SHARDDX_SAVEGAME,,,,,,,,Guardar Estado,,,,,,,,,,,,,,,
 Options,MNU_SHARDDX_OPTIONS,,,,,,,,Opciones,,,,,,,,,,,,,,,
 Help Me,MNU_SHARDDX_README,,,,,,,,Ayudame,,,,,,,,,,,,,,,
 Exit To System,MNU_SHARDDX_QUIT,,,,,,,,Salir al sistema,,,,,,,,,,,,,,,
-"More Options (Tilt++, DD2)",OPTMENU_NEWOPTIONS,,,,,,,,"Más opciones (Tilt++, DD2)",,,,,,,,,,,,,,,
+"More Options (Tilt, DD2)",OPTMENU_NEWOPTIONS,,,,,,,,"Más opciones (Tilt, DD2)",,,,,,,,,,,,,,,
 Scoot Hard DX,OPTMNU_SHDXMENU,,,,,,,,Daytime Drama 2,,,,,,,,,,,,,,,
 Scoot Hard DX Specific,MNU_SHARDDX_SPECIFIC,,,,,,,,Específica Daytime Drama 2,,,,,,,,,,,,,,,
 Scoot Hard DX,SHARDDX_SHDXMENU,,,,,,,,,,,,,,,,,,,,,,,
@@ -469,7 +469,7 @@ OH YEAH!!!!,DD_OB_OHYEAH,,,,,,,,,,,,,,,,,,,,,,,
 %o got blasted by %k.,SHDX_OB_BLASTER,,,,,,,,,,,,,,,,,,,,,,,
 %o got fillyseeked by %k.,SHDX_OB_FILLYSEEKER,,,,,,,,,,,,,,,,,,,,,,,
 %k froze %o today.,SHDX_OB_HAILER,,,,,,,,,,,,,,,,,,,,,,,
-%o got preforated by %k.,SHDX_OB_SMG,,,,,,,,,,,,,,,,,,,,,,,
+%o got perforated by %k.,SHDX_OB_SMG,,,,,,,,,,,,,,,,,,,,,,,
 %o got blown up by %k.,SHDX_OB_MISSILELAUNCHER,,,,,,,,,,,,,,,,,,,,,,,
 %o got atomized by %k.,SHDX_OB_RAINBOWER,,,,,,,,,,,,,,,,,,,,,,,
 %o got twisted apart by %k.,SHDX_OB_TORNADOZER,,,,,,,,,,,,,,,,,,,,,,,
@@ -536,13 +536,13 @@ foreboding tour by a colt with the name of
 Dr. Atmosphere. But something wasn't right,
 and Scootaloo felt it.",SHDX_INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
 "During the tour, she wanders off into one
-of the unfinished bathrooms. She is spooted by a 
-guard who chases after her in persuit.
+of the unfinished bathrooms. She is spotted by a 
+guard who chases after her in pursuit.
 She wrestles with the guard in the
 construction zone, before exerting
 enough force to overpower him. The two
 fall down a ventilation shaft thirty floors
-to the surface - to the Clousdale
+to the surface - to the Cloudsdale
 Weather Corporation's ground location.",SHDX_INTRO_3A,,,,,,,,,,,,,,,,,,,,,,,
 "Cloudsdale had two locations -
 a physical location, just north of Tchpsor,
@@ -569,7 +569,7 @@ Rainbow Dash - even if she can't fly
 very well, she can kick ass. She took down
 one guard, what's another couple more?",SHDX_INTRO_5B,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo was in shock, she was able to 
-take down not only Suprise, but an entire
+take down not only Surprise, but an entire
 platoon of Rocket Guards. Catching her breath,
 she carefully traverses the Crumbling room 
 and gets to the door. She can
@@ -735,7 +735,7 @@ whatever waits me beyond this,
 I deserve and I am ready for.""",SHDX_EP3AEND_5,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo contemplated for a moment.
 She couldn't bear to think about all the pain
-and misery Maimbow had broguht her.
+and misery Maimbow had brought her.
 She lost two of her friends to this bastard.
 
 She had her answer.
@@ -823,7 +823,7 @@ more blood. ""Forgive me... please...
 whatever waits me beyond this,
 I deserve and I am ready for.""",SHDX_EP3BEND_5,,,,,,,,,,,,,,,,,,,,,,,
 "Aurora, who had been quiet, spoke up.
-""Maimbow, I forgive you. I believe love can conquor
+""Maimbow, I forgive you. I believe love can conquer
 all evils in this world... if I were to let hate
 consume me, I'd be no better than you.""",SHDX_EP3BEND_6,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo thought for a moment. She then
