@@ -15,6 +15,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 class SHDX_CreditMapEvent : EventHandler
 {
 	ui int seconds;
+	bool ispressinguse;
+	int useticker;
 	bool aurorafound;
 	
 	const SECONDS_CREDITSTART = 1;
@@ -116,9 +118,43 @@ class SHDX_CreditMapEvent : EventHandler
 		}
 	}
 	
+	void CheckIfPressingUse()
+	{
+		if (ispressinguse)
+		{
+			if (++useticker > TICRATE * 5)
+			{
+				SendNetworkEvent("ExitLevel", 0, 0, 0);
+				useticker = 0;
+			}
+		}
+		else
+		{
+			useticker = 0;
+		}
+	}
+	
 	override void WorldTick()
 	{
 		CheckForAurora();
+		CheckIfPressingUse();
+	}
+	
+	override bool InputProcess(InputEvent e)
+	{
+		Array<int> keys;
+		Bindings.GetAllKeysForCommand(keys, "+use");
+		
+		for (int i = 0; i < keys.Size(); i++)
+		{
+			if (e.Keyscan == keys[i])
+			{
+				Console.PrintF("pressing +use");
+				SendNetworkEvent("ToggleUseHold", e.Type == e.Type_KeyDown);
+			}
+		}
+		
+		return false;
 	}
 	
 	override void UITick()
@@ -231,6 +267,11 @@ class SHDX_CreditMapEvent : EventHandler
 		if (e.Name ~== "ExitLevel")
 		{
 			level.ExitLevel(0, false);
+		}
+		
+		if (e.Name ~== "ToggleUseHold")
+		{
+			ispressinguse = e.Args[0];
 		}
 	}
 }
