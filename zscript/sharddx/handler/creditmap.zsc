@@ -15,8 +15,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 class SHDX_CreditMapEvent : EventHandler
 {
 	ui int seconds;
-	bool ispressinguse;
-	int useticker;
+	bool ispressinguse[MAXPLAYERS];
+	ui int useticker;
 	bool aurorafound;
 	
 	const SECONDS_CREDITSTART = 1;
@@ -118,9 +118,9 @@ class SHDX_CreditMapEvent : EventHandler
 		}
 	}
 	
-	void CheckIfPressingUse()
+	ui void CheckIfPressingUse()
 	{
-		if (ispressinguse)
+		if (ispressinguse[consoleplayer])
 		{
 			if (++useticker > TICRATE * 5)
 			{
@@ -137,7 +137,6 @@ class SHDX_CreditMapEvent : EventHandler
 	override void WorldTick()
 	{
 		CheckForAurora();
-		CheckIfPressingUse();
 	}
 	
 	override bool InputProcess(InputEvent e)
@@ -149,7 +148,7 @@ class SHDX_CreditMapEvent : EventHandler
 		{
 			if (e.Keyscan == keys[i])
 			{
-				SendNetworkEvent("ToggleUseHold", e.Type == e.Type_KeyDown);
+				SendNetworkEvent("ToggleUseHold", e.Type == e.Type_KeyDown, consoleplayer);
 			}
 		}
 		
@@ -158,6 +157,7 @@ class SHDX_CreditMapEvent : EventHandler
 	
 	override void UITick()
 	{
+		CheckIfPressingUse();
 		if (!(level.time % TICRATE))
 		{
 			if (seconds == SECONDS_CREDITSTART - 1)
@@ -270,7 +270,7 @@ class SHDX_CreditMapEvent : EventHandler
 		
 		if (e.Name ~== "ToggleUseHold")
 		{
-			ispressinguse = e.Args[0];
+			ispressinguse[e.Args[1]] = e.Args[0];
 		}
 	}
 }
