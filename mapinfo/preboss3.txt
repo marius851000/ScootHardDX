@@ -13,11 +13,6 @@ Intermission PreBoss3
 		TextColor = "Cyan"
 		Text = "$SHDX_EP3INTER_1"
 	}
-	Image
-	{
-		Background = "graphics/cutscenes/preboss/preboss1_1.png"
-		Time = 10
-	}
 	Fader
 	{
 		Time = 2

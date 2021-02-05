@@ -19,21 +19,11 @@ Intermission IntroEpisode1
 		TextColor = "Cyan"
 		Text = "$SHDX_INTRO_1B"
 	}
-	Image
-	{
-		Background = "graphics/cutscenes/intro/intro_1.png"
-		Time = 10
-	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/intro/intro_2.png"
 		TextColor = "Green"
 		Text = "$SHDX_INTRO_2"
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/intro/intro_2.png"
-		Time = 10
 	}
 	TextScreen
 	{
@@ -47,21 +37,11 @@ Intermission IntroEpisode1
 		TextColor = "Green"
 		Text = "$SHDX_INTRO_3B"
 	}
-	Image
-	{
-		Background = "graphics/cutscenes/intro/intro_3.png"
-		Time = 10
-	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/intro/intro_4.png"
 		TextColor = "Green"
 		Text = "$SHDX_INTRO_4"
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/intro/intro_4.png"
-		Time = 10
 	}
 	TextScreen
 	{
@@ -74,11 +54,6 @@ Intermission IntroEpisode1
 		Background = "graphics/cutscenes/intro/intro_5.png"
 		TextColor = "Green"
 		Text = "$SHDX_INTRO_5B"
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/intro/intro_5.png"
-		Time = 10
 	}
 	Fader
 	{

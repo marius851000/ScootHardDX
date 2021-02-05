@@ -33,36 +33,39 @@ Intermission EndEpisode3NoAurora
 	}
 	TextScreen
 	{
-		Background = "graphics/cutscenes/end3a/end3a_1.png"
+		Background = "graphics/cutscenes/end3a/end3a_2.png"
 		Text = "$SHDX_EP3AEND_5"
 		TextColor = "Green"
 	}
-	Image
-	{
-		Background = "graphics/cutscenes/end3a/end3a_1.png"
-		Time = 10
-	}
 	TextScreen
 	{
-		Background = "graphics/cutscenes/end3a/end3a_2.png"
+		Background = "graphics/cutscenes/end3a/end3a_3.png"
 		Text = "$SHDX_EP3AEND_6"
 		TextColor = "Green"
 	}
-	Image
-	{
-		Background = "graphics/cutscenes/end3a/end3a_2.png"
-		Time = 10
-	}
 	TextScreen
 	{
-		Background = "graphics/cutscenes/end3a/end3a_3.png"
+		Background = "graphics/cutscenes/end3a/end3a_4.png"
 		Text = "$SHDX_EP3AEND_7"
 		TextColor = "Green"
 	}
-	Image
+	TextScreen
 	{
-		Background = "graphics/cutscenes/end3a/end3a_3.png"
-		Time = 10
+		Background = "graphics/cutscenes/end3a/end3a_5.png"
+		Text = "$SHDX_EP3AEND_8"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_6.png"
+		Text = "$SHDX_EP3AEND_9"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_6.png"
+		Text = "$SHDX_EP3AEND_10"
+		TextColor = "Green"
 	}
 	Fader
 	{

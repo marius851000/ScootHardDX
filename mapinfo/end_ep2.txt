@@ -13,21 +13,11 @@ Intermission EndEpisode2
 		Text = "$SHDX_EP2END_1"
 		TextColor = "Green"
 	}
-	Image
-	{
-		Background = "graphics/cutscenes/end2/end2_1.png"
-		Time = 10
-	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end2/end2_2.png"
 		Text = "$SHDX_EP2END_2"
 		TextColor = "Green"
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/end2/end2_2.png"
-		Time = 10
 	}
 	TextScreen
 	{
@@ -37,29 +27,14 @@ Intermission EndEpisode2
 	}
 	Image
 	{
-		Background = "graphics/cutscenes/end2/end2_3.png"
+		Background = "graphics/cutscenes/end2/end2_4.png"
 		Time = 10
 	}
 	TextScreen
 	{
-		Background = "graphics/cutscenes/end2/end2_4.png"
+		Background = "graphics/cutscenes/end2/end2_5.png"
 		Text = "$SHDX_EP2END_4"
 		TextColor = "Green"
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/end2/end2_4.png"
-		Time = 10
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/end2/end2_5.png"
-		Time = 10
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/end2/end2_6.png"
-		Time = 10
 	}
 	TextScreen
 	{
@@ -67,60 +42,17 @@ Intermission EndEpisode2
 		Text = "$SHDX_EP2END_5"
 		TextColor = "Green"
 	}
-	Image
+	TextScreen
 	{
 		Background = "graphics/cutscenes/end2/end2_7.png"
-		Time = 10
-	}
-	TextScreen
-	{
-		Background = "graphics/cutscenes/end2/end2_8.png"
-		Text = "$SHDX_EP2END_6"
-		TextColor = "Green"
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/end2/end2_8.png"
-		Time = 10
-	}
-	TextScreen
-	{
-		Background = "graphics/cutscenes/end2/end2_9.png"
-		Text = "$SHDX_EP2END_7"
-		TextColor = "Green"
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/end2/end2_9.png"
-		Time = 10
-	}
-	TextScreen
-	{
-		Background = "graphics/cutscenes/end2/end2_10.png"
-		Text = "$SHDX_EP2END_8"
-		TextColor = "Green"
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/end2/end2_10.png"
-		Time = 10
-	}
-	TextScreen
-	{
-		Background = "graphics/cutscenes/end2/end2_11.png"
-		Text = "$SHDX_EP2END_9"
+		Text = "$SHDX_EP2END_6A"
 		TextColor = "Green"
 	}
 	TextScreen
 	{
-		Background = "graphics/cutscenes/end2/end2_11.png"
-		Text = "$SHDX_EP2END_10"
+		Background = "graphics/cutscenes/end2/end2_7.png"
+		Text = "$SHDX_EP2END_6B"
 		TextColor = "Green"
-	}
-	Image
-	{
-		Background = "graphics/cutscenes/end2/end2_11.png"
-		Time = 10
 	}
 	Fader
 	{

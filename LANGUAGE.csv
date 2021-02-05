@@ -573,9 +573,9 @@ one guard, what's another couple more?
 
 ""I gotta get outta here!""",SHDX_INTRO_5B,,,,,,,,,,,,,,,,,,,,,,,
 "After taking down Surprise, Scootaloo
-looks at the door behind her with
-determination. She can taste the
-first bit of freedom from this place.
+carefully traverses the trap Surprise had
+laid for her and gets to the door. She can
+taste the first bit of freedom from this place.
 
 If only she was able to fly.",SHDX_EP1END_1,,,,,,,,,,,,,,,,,,,,,,,
 "She climbs a radio tower. She knows
@@ -607,9 +607,7 @@ Rainbow Dash. No! It can't be! This has to
 be some sort of trick by the Pegasi Reich,
 surely.
 
-""Well, hello Scootaloo. It appears you're
-causing trouble for your big sister."" She
-says with a malicious grin.",SHDX_EP1END_4A,,,,,,,,,,,,,,,,,,,,,,,
+""Well, hello Scootaloo.",SHDX_EP1END_4A,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo was in shock. ""It can't
 be... my big sister wouldn't work
 for a place like this.""
@@ -627,12 +625,12 @@ to one of your friends!""
 
 Scootaloo saw Aurora and Orion in
 the back. They were terrified and
-confused. Aurora was crying.
+confused.
 
 ""YOU LEAVE THEM ALONE!""",SHDX_EP1END_6A,,,,,,,,,,,,,,,,,,,,,,,
 "The dictatorial pony laughed.
 ""Nonsense. What fun would that be.
-You have sixty minutes to comply,
+You have two hours to comply,
 bitch."" The screen then turned off.
 
 Scootaloo knew what she had to
@@ -642,101 +640,64 @@ Atmosphere. She was really
 upset at the betrayal of Rainbow
 Dash, but her friends depended
 on her more than ever.",SHDX_EP1END_6B,,,,,,,,,,,,,,,,,,,,,,,
-"Meanwhile in neighboring Tchpsor,
-an off duty cop by the name
-of Sanya K. Waffles is visiting
-a local bar. Someone tells them
-to turn on the news.
-
-""Cloudsdale and Equestria
-are at war!"" The random
-patron said.",SHDX_EP1END_7A,,,,,,,,,,,,,,,,,,,,,,,
-"Sanya couldn't believe it.
-War so close to her home.
-She wondered what would
-happen if it spilled over into
-Boredomdai...",SHDX_EP1END_7B,,,,,,,,,,,,,,,,,,,,,,,
-"After killing Dr. Atmosphere, his
-undead minions start to falter.
-Scoots wonders how long these
-experiments have been going on...",SHDX_EP2END_1,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo takes the elevator back down
-a floor. She sees a television screen.
-It's the head pony - the one that
-looks like Rainbow Dash. She's
-got Orion Solstice over the
-gaping maw of a machine.",SHDX_EP2END_2,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo takes the teleporter back to
+the main facility after killing the deranged
+Dr. Atmosphere. She sees a television
+screen. It's the head pony - the one that
+looks like Rainbow Dash. They've got Orion
+Solstice over the gaping maw of a machine.",SHDX_EP2END_1,,,,,,,,,,,,,,,,,,,,,,,
 """Scootaloo, you killed my top
 engineer... you ruined me,
-now I'll ruin you!""",SHDX_EP2END_3,,,,,,,,,,,,,,,,,,,,,,,
+now I'll ruin you!""",SHDX_EP2END_2,,,,,,,,,,,,,,,,,,,,,,,
 "Orion looks at the screen.
 ""Don't worry Scoots, I love
-you! Kick her flank!""
+you! Kick flank!""
 
 Scootaloo pounded on the TV
 screen. ""LET HIM GO YOU
 MONSTER!"" The authoritarian
-pegasi didn't even acknowledge.
+Pegasi didn't even acknowledge.
 Scootaloo was forced to watch
-it all, live.",SHDX_EP2END_4,,,,,,,,,,,,,,,,,,,,,,,
+it all, live.",SHDX_EP2END_3,,,,,,,,,,,,,,,,,,,,,,,
 "The machine spits out bright
-components - mainly red. Then,
-she sees Aurora behind the
-multicolored Pony. The
-evil dictator takes out a
-chaingun and fires it up in
-the air, Aurora starts crying.",SHDX_EP2END_5,,,,,,,,,,,,,,,,,,,,,,,
+components - mainly red. It's
+pumped into a weird looking
+machine.",SHDX_EP2END_4,,,,,,,,,,,,,,,,,,,,,,,
 """You see Scoots, that's what
 you get for fighting me. If you
 don't surrender, it's going to
-be Aurora next!""",SHDX_EP2END_6,,,,,,,,,,,,,,,,,,,,,,,
+be Aurora next!""",SHDX_EP2END_5,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo, trying not to cry
 at the loss of her friend,
 raises the CB radio and uses
 it.
 
-""Go buck yourself...""",SHDX_EP2END_7,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo trashes the floor. There
-was no guards around to see her,
-nor to try to stop her. At this point,
-Scootaloo has one goal in mind....
+""Go buck yourself...""",SHDX_EP2END_6A,,,,,,,,,,,,,,,,,,,,,,,
+"At this point, Scootaloo has one
+goal in mind....
 
 Rainbow... no, Maimbow... yeah,
-Maimbow... she must die for her
+Maimbow... they must die for their
 crimes. And that machine must
 be destroyed so that it will never,
-ever cause any more death.",SHDX_EP2END_8,,,,,,,,,,,,,,,,,,,,,,,
-"Meanwhile, a CB radio transmission
-comes in asking for who called in the
-report. Scootaloo answers, tells them
-everything... the forces keep pushing
-towards the front of the Cloudsdale
-Weather Corporation... however, she
-knows by the time they reach her
-she'll be at Maimbow's headquarters.",SHDX_EP2END_9,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo wonders... could this really
-be Rainbow Dash doing all this. It must
-be some sort of imposter.
-
-One way or another, she must stop
-this reign of terror...",SHDX_EP2END_10,,,,,,,,,,,,,,,,,,,,,,,
+ever cause any more death.",SHDX_EP2END_6B,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow is extremely angry at the loss
-of the Pegasus Device. She readies a
-surprise assault on Scootaloo. In her
-rage, she forgets Aurora. Aurora uses
+of the Pegasus Device. He readies a
+surprise assault on Scootaloo. In his
+rage, he forgets Aurora. Aurora uses
 this chance to get away. If she manages
 to survive or not... and if Scootaloo can
 find her...
 
-Maimbow is armed to the teeth. And she
+Maimbow is armed to the teeth. And he
 is not going to go down easily. It's do or die.",SHDX_EP3INTER_1,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo stands over Maimbow. Maimbow
 loses what appears to be a contact lens.
 
-Her eyes aren't a deep rosey color, but a
+His eyes aren't a deep rosey color, but a
 golden amber. Suddenly it hits Scootaloo
-it is Lightning Dust disguised as Rainbow
-Dash! Why would she do this?",SHDX_EP3AEND_1,,,,,,,,,,,,,,,,,,,,,,,
+Lightning Dust had changed her identity.
+But why?",SHDX_EP3AEND_1,,,,,,,,,,,,,,,,,,,,,,,
 """Why, Lightning Dust?""
 
 ""Because your so-called big sister ruined
@@ -759,7 +720,7 @@ pegasus who can't even fly! Who knew...
 the very thing that I hated so much would
 be the thing that would destroy me!""",SHDX_EP3AEND_3,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo stood in awe as Maimbow
-laid in her own blood.
+laid in his own blood.
 
 ""See Scootaloo, I knew you wouldn't
 pass those required exams... so I knew
@@ -771,37 +732,55 @@ all her fault!""
 
 Maimbow chuckled. ""I was such a
 dumbass. I let my hate blind me.""",SHDX_EP3AEND_4,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow faltered more as she lost
+"Maimbow faltered more as he lost
 more blood. ""Forgive me... please...
 whatever waits me beyond this,
-I deserve and I am ready for.""
+I deserve and I am ready for.""",SHDX_EP3AEND_5,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo contemplated for a moment.
+She couldn't bear to think about all the pain
+and misery Maimbow had broguht her.
+She lost two of her friends to this bastard.
 
-Scootaloo didn't answer. She couldn't
-bring herself to respond. She stayed quiet.
-Maimbow gasped for air... and died, not
-knowing how Scootaloo felt.",SHDX_EP3AEND_5,,,,,,,,,,,,,,,,,,,,,,,
-"Equestrian forces entered the room. They
-see Scootaloo, stunned and not doing
-very well. They carry her down. She
-doesn't say a word. All she can
-think about is her friends she
-lost in this horrible place.
+She had her answer.
 
-Orion... Aurora... and the fact
-she lost herself too.
+""I'll forgive you...""",SHDX_EP3AEND_6,,,,,,,,,,,,,,,,,,,,,,,
+"""..In hell.""",SHDX_EP3AEND_7,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow was thrown into the second
+barely functional Pegasus Device, head
+first. The machine pumped out every
+color known to Pegasikind. Scootaloo
+knew what she had to do.
 
-In The Rainbow Factory... where 
-not a single soul gets through.",SHDX_EP3AEND_6,,,,,,,,,,,,,,,,,,,,,,,
-"Meanwhile, Sanya is watching on TV
-as Scootaloo is carried out. She can't
-but help feel discontent with the outcome.",SHDX_EP3AEND_7,,,,,,,,,,,,,,,,,,,,,,,
+The Pegasi race was too sick to save.
+It was disgraced by the actions of the
+Cloudsdale Weather Corporation. It
+must end... with her.",SHDX_EP3AEND_8,,,,,,,,,,,,,,,,,,,,,,,
+"She got control of the enforcers and
+the SpectraWasps. She targeted
+the surviving workers of the Cloudsdale
+Weather Corporation. Those who didn't
+join her crusade against their own kind
+were immediately killed of, regardless of
+ability. Those who didn't see anything wrong
+with what the fascist corporation did were
+top priority.",SHDX_EP3AEND_9,,,,,,,,,,,,,,,,,,,,,,,
+"The loss of Orion and Aurora had pushed
+Scootaloo. The innocent filly no more, she
+was now as genocidal as Maimbow was.
+Maybe even more so - as she wanted no
+Pegasi to remain by the time she was done.
+Didn't matter if you could fly or not - every
+Pegasi was sick in her eyes.
+
+In the Rainbow Factory... where not a single
+soul gets through.",SHDX_EP3AEND_10,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo stands over Maimbow. Maimbow
 loses what appears to be a contact lens.
 
-Her eyes aren't a deep rosey color, but a
-golden amber. Suddenly it hits Scootaloo...
-it is Lightning Dust disguised as Rainbow
-Dash! Why would she do this?",SHDX_EP3BEND_1,,,,,,,,,,,,,,,,,,,,,,,
+His eyes aren't a deep rosey color, but a
+golden amber. Suddenly it hits Scootaloo
+Lightning Dust had changed her identity.
+But why?",SHDX_EP3BEND_1,,,,,,,,,,,,,,,,,,,,,,,
 """Why, Lightning Dust?""
 
 ""Because your so-called big sister ruined
@@ -824,7 +803,7 @@ pegasus who can't even fly! Who knew...
 the very thing that I hated so much would
 be the thing that would destroy me!""",SHDX_EP3BEND_3,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo stood in awe as Maimbow
-laid in her own blood.
+laid in his own blood.
 
 ""See Scootaloo, I knew you wouldn't
 pass those required exams... so I knew
@@ -839,67 +818,37 @@ dumbass. I let my hate blind me.""",SHDX_EP3BEND_4,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow faltered more as she lost
 more blood. ""Forgive me... please...
 whatever waits me beyond this,
-I deserve and I am ready for.""
-
-Aurora, who had been quiet, spoke up.
+I deserve and I am ready for.""",SHDX_EP3BEND_5,,,,,,,,,,,,,,,,,,,,,,,
+"Aurora, who had been quiet, spoke up.
 ""I forgive you. I believe love can conquor
 all evils in this world... if I were to let hate
-consume me, I'd be no better than you.""",SHDX_EP3BEND_5,,,,,,,,,,,,,,,,,,,,,,,
+consume me, I'd be no better than you.""",SHDX_EP3BEND_6,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo thought for a moment. She then
 spoke up. ""Aurora's right. I must end the
 cycle of hate somewhere. However, rest
 assured, I'm going to help ensure this
-never happens again. Anywhere. Got it?""
-
-Maimbow sheds a tear. ""Rainbow did
-good.""
-
-She gasps her last breath, then dies.",SHDX_EP3BEND_6,,,,,,,,,,,,,,,,,,,,,,,
-"Equestrian forces entered the room.
-Scootaloo, with a renewed sense of
-purpose, looks at her new friend.
-
-""I'm Scootaloo."" She says to Aurora.
+never happens again. Anywhere. Got it?""",SHDX_EP3BEND_7,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow sheds a tear. ""Rainbow did
+good.""",SHDX_EP3BEND_8,,,,,,,,,,,,,,,,,,,,,,,
+"He gasps her last breath, then dies.",SHDX_EP3BEND_9,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo, with a renewed sense of
+purpose, looks at her new friend. The
+two had survived the Cloudsdale
+Weather Corporation.",SHDX_EP3BEND_10,,,,,,,,,,,,,,,,,,,,,,,
+"""I'm Scootaloo."" She says to Aurora.
 
 ""I'm Aurora Dawn. Thanks for saving me.""
 
-The guard spoke up. ""Did Scootaloo really
-fight her way through the factory to save
-you?""
-
-Journalists overheard, but guards kept
-them at bay. Aurora and Scootaloo would
-have time for interviews later.",SHDX_EP3BEND_7,,,,,,,,,,,,,,,,,,,,,,,
-"Right now they needed time for themselves.
-As the two lone survivors of what the media
-would dub the Rainbow Factory of Terror,
-they needed their rest.
-
 Scootaloo and Aurora made a promise
-that day, to each other.",SHDX_EP3BEND_8,,,,,,,,,,,,,,,,,,,,,,,
-"Meanwhile, Sanya is watching on TV
-and sees Scootaloo and Aurora. While
-she wishes there were more survivors,
-she hears rumors about what Scootaloo
-did, and seeing Scootaloo packing heat...
-she is impressed that Scootaloo pulled
-all that off.",SHDX_EP3BEND_9,,,,,,,,,,,,,,,,,,,,,,,
-"""Way to go kiddo.""
+that day to each other... they'd remember
+Orion, and never forget what happened here.
 
-Sanya said with a smirk.",SHDX_EP3BEND_10,,,,,,,,,,,,,,,,,,,,,,,
-"Suddenly, Sanya gets a text. It's from
-Togami, her boss. The rich bureaucrat
-saw what happened and his superiors
-are worried about the same thing
-happening in Boredomdai. While
-Sanya shares those concerns, she
-knows how Togami works - cutting
-funding is how he works, that's
-his answer to everything.
+However, they also found it in their hearts
+to forgive and learn from this. Equestria
+would recover.
 
-This certainly won't have reprecuttions
-if her hunches are right... but that's
-another story.",SHDX_EP3BEND_11,,,,,,,,,,,,,,,,,,,,,,,
+Scootaloo wanted to get back home. She
+wanted to talk to Rainbow Dash...",SHDX_EP3BEND_11,,,,,,,,,,,,,,,,,,,,,,,
 ,,Credits,,,,,,,,,,,,,,,,,,,,,,
 "1. Jenna Pepper 2. SanyaWaffles 3. EllieJojo 4. Kelsie Finefeather 5. RodScorpion 6. NeonBat
 7. Marisa Kirisame 8. DRPReskins 9. Epic Acrylic 10. Earth
