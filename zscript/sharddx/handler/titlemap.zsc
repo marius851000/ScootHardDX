@@ -193,7 +193,7 @@ class SHDX_TitlemapEvent : EventHandler
 			PlayTitleMusic();
 		}
 		
-		if (!(gametic % TICRATE))
+		if (!(level.time % TICRATE))
 		{
 			if (seconds == SECONDS_SPLASHSCREEN - 1)
 				PlayBootMusic();
