@@ -15,6 +15,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 class SHDX_CreditMapEvent : EventHandler
 {
 	ui int seconds;
+	bool aurorafound;
 	
 	const SECONDS_CREDITSTART = 1;
 	const SECONDS_CREDITEND = (SECONDS_CREDITSTART + 60);
@@ -99,21 +100,51 @@ class SHDX_CreditMapEvent : EventHandler
 		S_ChangeMusic("");
 	}
 	
+	void CheckForAurora()
+	{
+		if (aurorafound)
+			return;
+		
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
+			{
+				aurorafound = true;
+				return;
+			}
+		}
+	}
+	
+	override void WorldTick()
+	{
+		CheckForAurora();
+	}
+	
 	override void UITick()
 	{
-		if (!(level.time % TICRATE))
+		if (!(gametic % TICRATE))
 		{
 			if (seconds == SECONDS_CREDITSTART - 1)
 			{
 				PlayCreditMusic();
 			}
-			if (seconds == SECONDS_BORDEAUX_START)
+			
+			if (seconds == SECONDS_CREDITEND && (!aurorafound || shdx_skipcutscenes))
 			{
-				ShutOffMusic();
-			}	
-			if (seconds == SECONDS_BORDEAUX_VOICE_START)
+				SendNetworkEvent("ExitLevel", 0, 0, 0);
+			}
+			
+			if (aurorafound)
 			{
-				PlayBordeauxSound();
+				if (seconds == SECONDS_BORDEAUX_START)
+				{
+					ShutOffMusic();
+				}	
+				if (seconds == SECONDS_BORDEAUX_VOICE_START)
+				{
+					PlayBordeauxSound();
+				}
 			}
 			
 			if (seconds == SECONDS_BODREAUX_END)
@@ -162,14 +193,17 @@ class SHDX_CreditMapEvent : EventHandler
 				DrawCredit("CREDITS TBD", 0, int(ss.y) - 40, ss);
 			}
 			
-			if (seconds >= SECONDS_BORDEAUX_START && seconds < SECONDS_BORDEAUX_VOICE_START)
+			if (aurorafound)
 			{
-				DrawBGImage("graphics/cutscenes/credits/maimbow1.png");
-			}
-			
-			if (seconds >= SECONDS_BORDEAUX_VOICE_START && seconds < SECONDS_BODREAUX_END)
-			{
-				DrawBGImage("graphics/cutscenes/credits/maimbow2.png");
+				if (seconds >= SECONDS_BORDEAUX_START && seconds < SECONDS_BORDEAUX_VOICE_START)
+				{
+					DrawBGImage("graphics/cutscenes/credits/maimbow1.png");
+				}
+				
+				if (seconds >= SECONDS_BORDEAUX_VOICE_START && seconds < SECONDS_BODREAUX_END)
+				{
+					DrawBGImage("graphics/cutscenes/credits/maimbow2.png");
+				}
 			}
 		}
 	}
