@@ -524,23 +524,23 @@ suddenly required to do fitness exams,
 and if they failed, go through some
 rigorous training program at the monolithic
 facilities. However, there is no
-training program, as one foal is
+training program, as one filly is
 about to find out.",SHDX_INTRO_1B,,,,,,,,,,,,,,,,,,,,,,,
-"Meet Scootaloo, she, and her friend
-Orion Solstice and another pegasi by
+"Meet Scootaloo. She, her friend
+Orion Solstice, and another pegasi by
 the name of Aurora Dawn all failed
 their exams. Scootaloo and the others
-enter the Cloudsdale Weather Corporation.
-They're given a tour... an odd,
+entered the Cloudsdale Weather Corporation.
+They were given a tour... an odd,
 foreboding tour by a colt with the name of
-Dr. Atmosphere. Sensing something
-sinister, Scootaloo hatches a plan.",SHDX_INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
+Dr. Atmosphere. But something wasn't right,
+and Scootaloo felt it.",SHDX_INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
 "During the tour, she wanders off into one
-of the bathrooms that are under
-construction. A guard chases after her.
+of the unfinished bathrooms. She is spooted by a 
+guard who chases after her in persuit.
 She wrestles with the guard in the
 construction zone, before exerting
-enough force to snap his neck. The two
+enough force to overpower him. The two
 fall down a ventilation shaft thirty floors
 to the surface - to the Clousdale
 Weather Corporation's ground location.",SHDX_INTRO_3A,,,,,,,,,,,,,,,,,,,,,,,
@@ -557,24 +557,22 @@ as his utility belt. The CB radio might be
 useful to call for help. Surely someone
 out there could help her. However, she
 can't get a signal from here. She'd need to
-get somewhere tall and out in the open.",SHDX_INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
+go somewhere tall and out in the open.",SHDX_INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
 "Arming herself with the blaster and
 strapping the utility belt up, she sees a door
-ahead. Not knowing at all what is behind that
-door, she has no idea. Her goal is
-simple - survive and rescue Orion, and
-Aurora if she can. There's no telling what
-she's going to find.",SHDX_INTRO_5A,,,,,,,,,,,,,,,,,,,,,,,
+ahead. Her goal is simple - survive and rescue
+ Orion, and Aurora if she can. There's no telling
+what unspeakable nightmares she'll encounter.",SHDX_INTRO_5A,,,,,,,,,,,,,,,,,,,,,,,
 "Despite what the suits
 say, she's been trained by the best -
 Rainbow Dash - even if she can't fly
 very well, she can kick ass. She took down
-one guard, what's another couple more?
-
-""I gotta get outta here!""",SHDX_INTRO_5B,,,,,,,,,,,,,,,,,,,,,,,
-"After taking down Surprise, Scootaloo
-carefully traverses the trap Surprise had
-laid for her and gets to the door. She can
+one guard, what's another couple more?",SHDX_INTRO_5B,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo was in shock, she was able to 
+take down not only Suprise, but an entire
+platoon of Rocket Guards. Catching her breath,
+she carefully traverses the Crumbling room 
+and gets to the door. She can
 taste the first bit of freedom from this place.
 
 If only she was able to fly.",SHDX_EP1END_1,,,,,,,,,,,,,,,,,,,,,,,
@@ -589,16 +587,15 @@ chatter from the Cloudsdale Weather
 Corporation - Equestrian forces arrive.
 Immediately Pegapol guards open fire
 on them. Scootaloo can hear it now -
-Equestrian forces are calling in backup.
+Equestrian forces are calling for backup.
 It's going to be war. She'll be rescued
 eventually, she just needs to survive
 long enough.",SHDX_EP1END_2B,,,,,,,,,,,,,,,,,,,,,,,
 "Soon, Dr. Atmosphere is informed
 about his wife, Surprise, who died
-at the hooves of Scootaloo. He is,
-to put it mildly, pissed off and wants
-nothing more than your blood. You
-even hear him cursing you on one
+at the hooves of Scootaloo. He will stop
+at nothing to gut you for what you have done.
+You even hear him cursing you on one
 of the CB radio channels.",SHDX_EP1END_3,,,,,,,,,,,,,,,,,,,,,,,
 "Eventually she finds a computer room.
 One of the screens lights up. She is
@@ -607,7 +604,7 @@ Rainbow Dash. No! It can't be! This has to
 be some sort of trick by the Pegasi Reich,
 surely.
 
-""Well, hello Scootaloo.",SHDX_EP1END_4A,,,,,,,,,,,,,,,,,,,,,,,
+""Well, hello Scootaloo.""",SHDX_EP1END_4A,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo was in shock. ""It can't
 be... my big sister wouldn't work
 for a place like this.""
@@ -616,11 +613,11 @@ The rainbow maned pony didn't
 acknowledge. ""Surrender now,
 Scootaloo.""",SHDX_EP1END_4B,,,,,,,,,,,,,,,,,,,,,,,
 """There's nowhere to go. You try to
-leave, you get caught in some nasty
-crossfire. You stay in here, you'll
+leave, and you'll be greeted with a barrage
+of bullets. You stay in here, and you'll most
 certainly die.""",SHDX_EP1END_5,,,,,,,,,,,,,,,,,,,,,,,
 """...Oh, and speaking of dying, next
-time I contact you, say goodbye
+time I contact you, you can say goodbye
 to one of your friends!""
 
 Scootaloo saw Aurora and Orion in
@@ -661,10 +658,10 @@ Scootaloo was forced to watch
 it all, live.",SHDX_EP2END_3,,,,,,,,,,,,,,,,,,,,,,,
 "The machine spits out bright
 components - mainly red. It's
-pumped into a weird looking
-machine.",SHDX_EP2END_4,,,,,,,,,,,,,,,,,,,,,,,
+pumped into a nightmarish
+contraption.",SHDX_EP2END_4,,,,,,,,,,,,,,,,,,,,,,,
 """You see Scoots, that's what
-you get for fighting me. If you
+you get for crossing me. If you
 don't surrender, it's going to
 be Aurora next!""",SHDX_EP2END_5,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo, trying not to cry
@@ -743,11 +740,12 @@ She lost two of her friends to this bastard.
 
 She had her answer.
 
-""I'll forgive you...""",SHDX_EP3AEND_6,,,,,,,,,,,,,,,,,,,,,,,
+""You know what, you're right. I'll forgive
+you...""",SHDX_EP3AEND_6,,,,,,,,,,,,,,,,,,,,,,,
 """..In hell.""",SHDX_EP3AEND_7,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow was thrown into the second
 barely functional Pegasus Device, head
-first. The machine pumped out every
+first. The machine puked out every
 color known to Pegasikind. Scootaloo
 knew what she had to do.
 
@@ -755,23 +753,27 @@ The Pegasi race was too sick to save.
 It was disgraced by the actions of the
 Cloudsdale Weather Corporation. It
 must end... with her.",SHDX_EP3AEND_8,,,,,,,,,,,,,,,,,,,,,,,
-"She got control of the enforcers and
-the SpectraWasps. She targeted
-the surviving workers of the Cloudsdale
-Weather Corporation. Those who didn't
-join her crusade against their own kind
-were immediately killed of, regardless of
-ability. Those who didn't see anything wrong
-with what the fascist corporation did were
-top priority.",SHDX_EP3AEND_9,,,,,,,,,,,,,,,,,,,,,,,
+"She got control of the Enforcers and
+the SpectraWasps. She swore to exterminate
+every last pegasi in equestria and beyond, starting
+with the remaining forces of the Cloudsdale Weather
+Corporation. Those who chose to surrender
+were gutted of their free will, and forced to
+serve in her burning crusade.",SHDX_EP3AEND_9,,,,,,,,,,,,,,,,,,,,,,,
 "The loss of Orion and Aurora had pushed
-Scootaloo. The innocent filly no more, she
-was now as genocidal as Maimbow was.
+Scootaloo to insanity. She was now just as 
+genocidal as Maimbow was.
 Maybe even more so - as she wanted no
-Pegasi to remain by the time she was done.
-Didn't matter if you could fly or not - every
-Pegasi was sick in her eyes.
+pegasi to remain by the time she was done.
+Once she's done with them, who knows what
+horrific crimes she'll continue to commit against
+life itself.
 
+Scootaloo is no more, her soul is but a fleeting
+memory, and her body an empty husk of her
+former self
+
+Here she will continue her war against life itself
 In the Rainbow Factory... where not a single
 soul gets through.",SHDX_EP3AEND_10,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo stands over Maimbow. Maimbow
@@ -820,7 +822,7 @@ more blood. ""Forgive me... please...
 whatever waits me beyond this,
 I deserve and I am ready for.""",SHDX_EP3BEND_5,,,,,,,,,,,,,,,,,,,,,,,
 "Aurora, who had been quiet, spoke up.
-""I forgive you. I believe love can conquor
+""Maimbow, I forgive you. I believe love can conquor
 all evils in this world... if I were to let hate
 consume me, I'd be no better than you.""",SHDX_EP3BEND_6,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo thought for a moment. She then
@@ -830,7 +832,8 @@ assured, I'm going to help ensure this
 never happens again. Anywhere. Got it?""",SHDX_EP3BEND_7,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow sheds a tear. ""Rainbow did
 good.""",SHDX_EP3BEND_8,,,,,,,,,,,,,,,,,,,,,,,
-"He gasps her last breath, then dies.",SHDX_EP3BEND_9,,,,,,,,,,,,,,,,,,,,,,,
+"He gasps his last breath, before his life slowly
+fades from his body.",SHDX_EP3BEND_9,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo, with a renewed sense of
 purpose, looks at her new friend. The
 two had survived the Cloudsdale
