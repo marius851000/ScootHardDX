@@ -262,7 +262,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	{
 		Super.MarkPreCacheSounds();
 		Sound snd;
-		for (int i = 1; i < 17; i++)
+		for (int i = 1; i < 16; i++)
 		{
 			snd = String.Format("maimbow/taunt%d", i);
 			MarkSound(snd);
