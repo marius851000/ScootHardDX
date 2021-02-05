@@ -30,6 +30,7 @@ extend class SHDX_Handler
 	transient int ripseconds;
 	transient int typeofrip;			// Type of high quality RIP
 	transient bool dorip;
+	transient bool restartmusic;
 	const MAXRIPNUMSECONDS = 30;
 	const RIP_START = 3;
 	const RIP_SAFE = 7;
@@ -70,6 +71,7 @@ extend class SHDX_Handler
 			if (typeofrip == RIP_FelixHet)
 			{
 				S_ChangeMusic("", 0, false, true);
+				restartmusic = true;
 				S_StartSound("epitaph/felixsafe", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
 			}
 			
@@ -88,6 +90,7 @@ extend class SHDX_Handler
 			// Start Joel SMW64 Bootleg RIP
 			if (typeofrip == RIP_Jeopardy)
 			{
+				restartmusic = true;
 				S_ChangeMusic("music/D_JEOPTL.vgz", 0, false, true);
 				S_StartSound("epitaph/joelidiot", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
 			}
@@ -99,6 +102,7 @@ extend class SHDX_Handler
 			
 			if (typeofrip == RIP_CatechumenGameOver)
 			{
+				restartmusic = true;
 				S_ChangeMusic("music/D_CCDETH.ogg", 0, false);
 			}
 			
@@ -135,12 +139,13 @@ extend class SHDX_Handler
 	{
 		PlayerInfo p = players[e.PlayerNumber];
 		
-		if (p && p.mo)
+		if (p && p.mo && restartmusic)
 		{
 			S_ChangeMusic("*", 0, true, true);
 			ripseconds = -1;
 			typeofrip = -1;
 			dorip = false;
+			restartmusic = false;
 		}
 		// ResetMusicFlags();
 	}
