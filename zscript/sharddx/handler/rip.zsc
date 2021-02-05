@@ -65,6 +65,7 @@ extend class SHDX_Handler
 			if (typeofrip == RIP_CatechumenGameOver)
 			{
 				S_ChangeMusic("", 0, false, true);
+				restartmusic = true;
 			}
 			
 			// Start the felix the cat RIP
