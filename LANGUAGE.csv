@@ -283,7 +283,7 @@ Maimbow: You bitch! YOU RUINED EVERYTHING! I WILL KILL YOU WITH MY BARE HOOVES F
 "Maimbow: YOU ABSOLUTE CUNT! I SPENT YEARS PLANNING MY REVENGE… I SPENT YEARS PLOTTING WITH OTHER PEGASI JUST LIKE ME TO PUT AN END TO INCOMPETENT FUCKS LIKE YOU. AND WHAT? FOR NOTHING. NO, YOU CANNOT STOP ME, I AM A GOD, AND I WILL SMITE YOU IF IT'S THE LAST THING I DO.",SHDX_VOX_MAIMBOW_7,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: You know… I'm not even mad… If I can kill you, all this will be worth it. All that matters is if you die and I can shame Rainbow Dash for what she did to me! She will see me for what I am, a god. [chuckles]",SHDX_VOX_MAIMBOW_8,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: I see that you've made it to my lair. You know I have a little surprise for you. Consider it a gift, before your untimely demise [laughs].",SHDX_VOX_MAIMBOW_9,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: Welcome, Scootaloo, to your surprise. We have a second device that is better than the first one. It's only a prototype, but I will finish it. But first… you must die!.",SHDX_VOX_MAIMBOW_10,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: Welcome, Scootaloo, to your surprise. We have a second device that is better than the first one. It's only a prototype, but I will finish it. But first… you must die!",SHDX_VOX_MAIMBOW_10,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
 New Game,MNU_SHARDDX_NEWGAME,,,,,,,,Nuevo juego,,,,,,,,,,,,,,,
 Load/Save Game,MNU_SHARDDX_SSTATES,,,,,,,,Estados del juego,,,,,,,,,,,,,,,
@@ -789,8 +789,9 @@ knew what she had to do.
 
 The Pegasi race was too sick to save.
 It was disgraced by the actions of the
-Cloudsdale Weather Corporation. It
-must end... with her.",SHDX_EP3AEND_8,,,,,,,,,,,,,,,,,,,,,,,
+Cloudsdale Weather Corporation.
+
+It must be purged.",SHDX_EP3AEND_8,,,,,,,,,,,,,,,,,,,,,,,
 "She got control of the Enforcers using Maimbow's
 amulet the SpectraWasps. She swore to exterminate
 every last pegasi in Equestria and beyond,

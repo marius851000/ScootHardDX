@@ -39,6 +39,7 @@ extend class SHDX_Enemy
 			// pp.A_Log("Oneliner: "..finalsnd);
 			
 			pp.A_OneLinerInit(finalsnd, flags);
+			pp.A_SetMugshotState("Grin");
 		}
 	}
 	
@@ -54,6 +55,7 @@ extend class SHDX_Enemy
 				{
 					String finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
 					pp.A_OneLinerInit(finalsnd, flags);
+					pp.A_SetMugshotState("Grin");
 				}
 			}
 		}
