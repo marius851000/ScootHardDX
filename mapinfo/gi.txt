@@ -23,7 +23,8 @@ gameinfo
     intermissionmusic = ""
     intermissioncounter = false
     dimcolor = "ff d7 00"
-    dimamount = 0.2
+    dimamount = 0.5
+	bluramount = 0.5
     definventorymaxamount = 25
     defaultrespawntime = 12
     defaultdropstyle = 1
