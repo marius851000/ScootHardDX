@@ -31,6 +31,8 @@ extend class SHDX_Handler
 	transient int typeofrip;			// Type of high quality RIP
 	transient bool dorip;
 	transient bool restartmusic;
+	transient bool stoprip;
+	transient bool respawned;
 	const MAXRIPNUMSECONDS = 30;
 	const RIP_START = 3;
 	const RIP_SAFE = 7;
@@ -60,6 +62,26 @@ extend class SHDX_Handler
 		// be cool about fire safety RIP is being done
 		if (ripseconds == RIP_START && dorip)
 		{
+			if (respawned)
+			{
+				if (restartmusic)
+				{
+					S_ChangeMusic("*", 0, true, true);
+					restartmusic = false;
+				}
+				
+				if (stoprip)
+				{
+					ripseconds = -1;
+					typeofrip = -1;
+					dorip = false;
+					stoprip = false;
+					respawned = false;
+					
+					return;
+				}
+			}
+			
 			typeofrip = Random[RIP](RIP_Normal, RIP_CatechumenGameOver);
 			
 			if (typeofrip == RIP_CatechumenGameOver)
@@ -140,13 +162,10 @@ extend class SHDX_Handler
 	{
 		PlayerInfo p = players[e.PlayerNumber];
 		
-		if (p && p.mo && restartmusic)
+		if (p && p.mo)
 		{
-			S_ChangeMusic("*", 0, true, true);
-			ripseconds = -1;
-			typeofrip = -1;
-			dorip = false;
-			restartmusic = false;
+			stoprip = true;
+			respawned = true;
 		}
 		// ResetMusicFlags();
 	}
