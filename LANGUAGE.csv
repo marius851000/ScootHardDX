@@ -508,7 +508,7 @@ The Edge Of Insanity,SHDX_E2S1,,,,,,,,,,,,,,,,,,,,,,,
 Elevator Trouble,SHDX_E3S1,,,,,,,,,,,,,,,,,,,,,,,
 Credits,SHDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 Ending,SHDX_ENDING,,,,,,,,,,,,,,,,,,,,,,,
-,,Intermission,,,,,,,,,,,,,,,,,,,,,,
+,,Intermission Intro,,,,,,,,,,,,,,,,,,,,,,
 "Due to their importance in weather control
 and other tasks, there's a certain bit of
 nationalism and pride within the Pegasi
@@ -568,6 +568,7 @@ say, she's been trained by the best -
 Rainbow Dash - even if she can't fly
 very well, she can kick ass. She took down
 one guard, what's another couple more?",SHDX_INTRO_5B,,,,,,,,,,,,,,,,,,,,,,,
+,,Intermission Episode 1 End,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo was in shock, she was able to 
 take down not only Surprise, but an entire
 platoon of Rocket Guards. Catching her breath,
@@ -579,9 +580,9 @@ If only she was able to fly.",SHDX_EP1END_1,,,,,,,,,,,,,,,,,,,,,,,
 "She climbs a radio tower. She knows
 neighboring Boredomdai might be able
 to help contact mainland Equestria.
-She manages to get ahold of someone.
-Not holding her breath, she climbs back
-down.",SHDX_EP1END_2A,,,,,,,,,,,,,,,,,,,,,,,
+She manages to get in contact with
+someone. Not holding her breath,
+she climbs back down.",SHDX_EP1END_2A,,,,,,,,,,,,,,,,,,,,,,,
 "Soon, however, she hears radio
 chatter from the Cloudsdale Weather
 Corporation - Equestrian forces arrive.
@@ -637,6 +638,38 @@ Atmosphere. She was really
 upset at the betrayal of Rainbow
 Dash, but her friends depended
 on her more than ever.",SHDX_EP1END_6B,,,,,,,,,,,,,,,,,,,,,,,
+,,Intermission Episode 2 Intro,,,,,,,,,,,,,,,,,,,,,,
+"Dr. Atmosphere needed to deal with
+this threat and fast!
+
+""Mein fuhrer, the filly is rapidly
+approaching the pegasus device.
+Most of our forces are away from
+the facility, what should we do?""",SHDX_EP1INTRO_1,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow calmly contemplated.
+
+""Hm, is that so? Release the
+enforcers.""
+
+""...They are a bit unstable. I
+think we need more time to
+test them."" Dr. Atmosphere
+uttered with caution in his
+voice.",SHDX_EP1INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
+"""That bitch just waltzed in
+and killed your wife. And
+you’re just going to let her
+get away with that? Are
+you that weak?""
+
+""Oh I'm not weak... if you
+insist, but you’ll have to
+control them, as I’ll be in
+my lab far away from them.
+Show that bitch what
+they’re capable of, Mein
+fuhrer.""",SHDX_EP1INTRO_3,,,,,,,,,,,,,,,,,,,,,,,
+,,Intermission Episode 2 End,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo takes the teleporter back to
 the main facility after killing the deranged
 Dr. Atmosphere. She sees a television
@@ -673,11 +706,12 @@ it.
 "At this point, Scootaloo has one
 goal in mind....
 
-Rainbow... no, Maimbow... yeah,
-Maimbow... they must die for their
-crimes. And that machine must
-be destroyed so that it will never,
+That pony, Rainbow Dash or not...
+they must die for their crimes.
+And that machine must be
+destroyed so that it will never,
 ever cause any more death.",SHDX_EP2END_6B,,,,,,,,,,,,,,,,,,,,,,,
+,,Intermission Pre Maimbow Fight,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow is extremely angry at the loss
 of the Pegasus Device. He readies a
 surprise assault on Scootaloo. In his
@@ -688,13 +722,16 @@ find her...
 
 Maimbow is armed to the teeth. And he
 is not going to go down easily. It's do or die.",SHDX_EP3INTER_1,,,,,,,,,,,,,,,,,,,,,,,
+,,Intermission Episode 3 End (Shared),,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo stands over Maimbow. Maimbow
 loses what appears to be a contact lens.
 
 His eyes aren't a deep rosey color, but a
-golden amber. Suddenly it hits Scootaloo
-Lightning Dust had changed her identity.
-But why?",SHDX_EP3AEND_1,,,,,,,,,,,,,,,,,,,,,,,
+golden amber. Suddenly it hits Scootaloo...
+It was Lightning Dust, the pony that
+Rainbow Dash got kicked out of the
+Wonderbolts! Lightning Dust had
+changed her identity. But why?",SHDX_EP3END_1,,,,,,,,,,,,,,,,,,,,,,,
 """Why, Lightning Dust?""
 
 ""Because your so-called big sister ruined
@@ -703,7 +740,7 @@ and the legacy of the Pegasi! I wanted
 her to suffer... I wanted her to be miserable...
 so I weaseled my way up the Cloudsdale
 Weather Corporation and hatched a plan...
-to get back at not just her... but you as well!""",SHDX_EP3AEND_2,,,,,,,,,,,,,,,,,,,,,,,
+to get back at not just her... but you as well!""",SHDX_EP3END_2,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo took a step back. She couldn't
 believe it.
 
@@ -715,7 +752,7 @@ hate overflow me... and for that, I have paid
 the price. I died at the hands of a disabled
 pegasus who can't even fly! Who knew...
 the very thing that I hated so much would
-be the thing that would destroy me!""",SHDX_EP3AEND_3,,,,,,,,,,,,,,,,,,,,,,,
+be the thing that would destroy me!""",SHDX_EP3END_3,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo stood in awe as Maimbow
 laid in his own blood.
 
@@ -728,11 +765,12 @@ down Rainbow Dash and tell her it was
 all her fault!""
 
 Maimbow chuckled. ""I was such a
-dumbass. I let my hate blind me.""",SHDX_EP3AEND_4,,,,,,,,,,,,,,,,,,,,,,,
+dumbass. I let my hate blind me.""",SHDX_EP3END_4,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow faltered more as he lost
 more blood. ""Forgive me... please...
 whatever waits me beyond this,
-I deserve and I am ready for.""",SHDX_EP3AEND_5,,,,,,,,,,,,,,,,,,,,,,,
+I deserve and I am ready for.""",SHDX_EP3END_5,,,,,,,,,,,,,,,,,,,,,,,
+,,Intermission Episode 3 End (Bad),,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo contemplated for a moment.
 She couldn't bear to think about all the pain
 and misery Maimbow had brought her.
@@ -753,8 +791,8 @@ The Pegasi race was too sick to save.
 It was disgraced by the actions of the
 Cloudsdale Weather Corporation. It
 must end... with her.",SHDX_EP3AEND_8,,,,,,,,,,,,,,,,,,,,,,,
-"She got control of the Enforcers and
-the SpectraWasps. She swore to exterminate
+"She got control of the Enforcers using Maimbow's
+amulet the SpectraWasps. She swore to exterminate
 every last pegasi in Equestria and beyond,
 starting with the remaining forces of the
 Cloudsdale Weather Corporation. Those who
@@ -777,51 +815,7 @@ former self.
 Here she will continue her war against life itself...
 In the Rainbow Factory... where not a single
 soul gets through.",SHDX_EP3AEND_10,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo stands over Maimbow. Maimbow
-loses what appears to be a contact lens.
-
-His eyes aren't a deep rosey color, but a
-golden amber. Suddenly it hits Scootaloo
-Lightning Dust had changed her identity.
-But why?",SHDX_EP3BEND_1,,,,,,,,,,,,,,,,,,,,,,,
-"""Why, Lightning Dust?""
-
-""Because your so-called big sister ruined
-me! What better way than to ruin her
-and the legacy of the Pegasi! I wanted
-her to suffer... I wanted her to be miserable...
-so I weaseled my way up the Cloudsdale
-Weather Corporation and hatched a plan...
-to get back at not just her... but you as well!""",SHDX_EP3BEND_2,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo took a step back. She couldn't
-believe it.
-
-""You did all this just to get back at me?
-Ponies have died because of you!""
-
-Maimbow started to falter. ""I know... I let
-hate overflow me... and for that, I have paid
-the price. I died at the hands of a disabled
-pegasus who can't even fly! Who knew...
-the very thing that I hated so much would
-be the thing that would destroy me!""",SHDX_EP3BEND_3,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo stood in awe as Maimbow
-laid in his own blood.
-
-""See Scootaloo, I knew you wouldn't
-pass those required exams... so I knew
-you'd end up here. and I'd be able to
-destroy you in that machine... and then
-I could some day amass an army to take
-down Rainbow Dash and tell her it was
-all her fault!""
-
-Maimbow chuckled. ""I was such a
-dumbass. I let my hate blind me.""",SHDX_EP3BEND_4,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow faltered more as she lost
-more blood. ""Forgive me... please...
-whatever waits me beyond this,
-I deserve and I am ready for.""",SHDX_EP3BEND_5,,,,,,,,,,,,,,,,,,,,,,,
+,,Intermission Episode 3 End (Good),,,,,,,,,,,,,,,,,,,,,,
 "Aurora, who had been quiet, spoke up.
 ""Maimbow, I forgive you. I believe love can conquer
 all evils in this world... if I were to let hate
@@ -835,10 +829,15 @@ never happens again. Anywhere. Got it?""",SHDX_EP3BEND_7,,,,,,,,,,,,,,,,,,,,,,,
 good.""",SHDX_EP3BEND_8,,,,,,,,,,,,,,,,,,,,,,,
 "He gasps his last breath, before his life slowly
 fades from his body.",SHDX_EP3BEND_9,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo sees some sort of amulet that
+Maimbow dropped. It has a weird symbol.
+It appears to be what Maimbow used to
+control the Enforcers. She breaks the
+amulet. She hopes that frees them.",SHDX_EP3BEND_10,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo, with a renewed sense of
 purpose, looks at her new friend. The
 two had survived the Cloudsdale
-Weather Corporation.",SHDX_EP3BEND_10,,,,,,,,,,,,,,,,,,,,,,,
+Weather Corporation.",SHDX_EP3BEND_11,,,,,,,,,,,,,,,,,,,,,,,
 """I'm Scootaloo."" She says to Aurora.
 
 ""I'm Aurora Dawn. Thanks for saving me.""
@@ -852,7 +851,7 @@ to forgive and learn from this. Equestria
 would recover.
 
 Scootaloo wanted to get back home. She
-wanted to talk to Rainbow Dash...",SHDX_EP3BEND_11,,,,,,,,,,,,,,,,,,,,,,,
+wanted to talk to Rainbow Dash...",SHDX_EP3BEND_12,,,,,,,,,,,,,,,,,,,,,,,
 ,,Credits,,,,,,,,,,,,,,,,,,,,,,
 "1. Jenna Pepper 2. SanyaWaffles 3. EllieJojo 4. Kelsie Finefeather 5. RodScorpion 6. NeonBat
 7. Marisa Kirisame 8. DRPReskins 9. Epic Acrylic 10. Earth

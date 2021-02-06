@@ -10,31 +10,31 @@ Intermission EndEpisode3NoAurora
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3a/end3a_1.png"
-		Text = "$SHDX_EP3AEND_1"
+		Text = "$SHDX_EP3END_1"
 		TextColor = "Green"
 	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3a/end3a_1.png"
-		Text = "$SHDX_EP3AEND_2"
+		Text = "$SHDX_EP3END_2"
 		TextColor = "Green"
 	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3a/end3a_1.png"
-		Text = "$SHDX_EP3AEND_3"
+		Text = "$SHDX_EP3END_3"
 		TextColor = "Green"
 	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3a/end3a_1.png"
-		Text = "$SHDX_EP3AEND_4"
+		Text = "$SHDX_EP3END_4"
 		TextColor = "Green"
 	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end3a/end3a_2.png"
-		Text = "$SHDX_EP3AEND_5"
+		Text = "$SHDX_EP3END_5"
 		TextColor = "Green"
 	}
 	TextScreen
