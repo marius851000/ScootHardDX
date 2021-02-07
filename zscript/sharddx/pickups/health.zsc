@@ -140,7 +140,7 @@ Class SHDX_Cupcake : SHDX_Health
 		{
 			String cupcakejokeloc = String.Format("%s%02d", "$SHDX_CUPCAKE_", Random[Cupcake](1, 10));
 			String str = String.Format("%s\n%s", StringTable.Localize("$SHDX_CUPCAKE_SAYS"), Stringtable.Localize(cupcakejokeloc));
-			toucher.A_Print(str, 10, 'smallfont');
+			toucher.A_Print(str, 15, 'smallfont');
 		}
 		
 		return Super.TryPickup(toucher);
