@@ -106,8 +106,7 @@ class SHDX_Vox : SHDX_Actor
 	
 	void A_SHDX_PlayVoxSound(int i)
 	{
-		A_StartSound(entries[i].snd, VOXCHANNELSND, CHANF_OVERLAP, 1.0, ATTN_NONE);
-		A_StartSound(entries[i].snd, VOXCHANNELSND, CHANF_OVERLAP, 1.0, ATTN_NONE);
+		A_StartSound(entries[i].snd, VOXCHANNELSND, CHANF_DEFAULT, 1.0, ATTN_NONE);
 		
 		SendSubtitleToHandler(entries[i].subtitle, entries[i].duration);
 	}
