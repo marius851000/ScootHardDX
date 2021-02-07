@@ -58,30 +58,31 @@ extend class SHDX_Handler
 	
 	void ProcessRIP()
 	{
+		// Check for if the player has
+		// respawned, and restart music if so...
+		if (respawned)
+		{
+			if (restartmusic)
+			{
+				S_ChangeMusic("*", 0, true, true);
+				restartmusic = false;
+			}
+			
+			if (stoprip)
+			{
+				ripseconds = -1;
+				typeofrip = -1;
+				dorip = false;
+				stoprip = false;
+				respawned = false;
+				
+				return;
+			}
+		}
 		// only do this if the seconds are 5. Don't do if the
 		// be cool about fire safety RIP is being done
 		if (ripseconds == RIP_START && dorip)
 		{
-			if (respawned)
-			{
-				if (restartmusic)
-				{
-					S_ChangeMusic("*", 0, true, true);
-					restartmusic = false;
-				}
-				
-				if (stoprip)
-				{
-					ripseconds = -1;
-					typeofrip = -1;
-					dorip = false;
-					stoprip = false;
-					respawned = false;
-					
-					return;
-				}
-			}
-			
 			typeofrip = Random[RIP](RIP_Normal, RIP_CatechumenGameOver);
 			
 			if (typeofrip == RIP_CatechumenGameOver)
