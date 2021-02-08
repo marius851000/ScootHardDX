@@ -104,6 +104,8 @@ SpawnNums
 	97 = SHDX_Beaker
 	98 = SHDX_ZetaEnforcerDormant
 	
+	99 = SHDX_PegaWiz
+	
 	100 = SHDX_GlassJunk
 	101 = SHDX_MetalJunk
 	

@@ -20,6 +20,8 @@ DoomEdNums
 	6015 = SHDX_SpectraWasp
 	6016 = SHDX_SpectraSentry
 	
+	6017 = SHDX_PegaWiz
+	
 	6050 = SHDX_BossSpot
 	6051 = SHDX_SurpriseBoss
 	6052 = SHDX_DrAtmosphereBoss
