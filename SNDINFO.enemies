@@ -74,7 +74,9 @@ pegapol/sight2			"sounds/enemies/pegapol/pp_see2.ogg"
 $random pegapol/sight	{ pegapol/sight1 pegapol/sight2 }
 pegapol/pain1			"sounds/enemies/pegapol/pp_pain1.ogg"
 pegapol/pain2			"sounds/enemies/pegapol/pp_pain2.ogg"
-$random pegapol/pain	{ pegapol/pain1 pegapol/pain2 }
+pegapol/pain3			"sounds/enemies/pegapol/pp_pain3.ogg"
+pegapol/pain4			"sounds/enemies/pegapol/pp_pain4.ogg"
+$random pegapol/pain	{ pegapol/pain1 pegapol/pain2 pegapol/pain3 pegapol/pain4 }
 pegapol/death1			"sounds/enemies/pegapol/pp_die1.ogg"
 pegapol/death2			"sounds/enemies/pegapol/pp_die2.ogg"
 pegapol/death3			"sounds/enemies/pegapol/pp_die3.ogg"
