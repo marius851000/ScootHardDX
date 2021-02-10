@@ -46,7 +46,7 @@ Class SHDX_PegapolBullet : FastProjectile
 	}
 }
 
-Class SHDX_PegapolMale : SHDX_Enemy
+Class SHDX_Pegapol : SHDX_Enemy
 {
 	Default
 	{
@@ -475,7 +475,7 @@ Class SHDX_TornadozerProjectilePegaWiz : SHDX_TornadozerProjectile2
 	}
 }
 
-Class SHDX_PegaWiz : SHDX_PegapolMale
+Class SHDX_PegaWiz : SHDX_Pegapol
 {
 	Default
 	{
@@ -501,10 +501,10 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 		
 		// DamageFactor "Rainbower", 0.25;
 		// DamageFactor "RainbowerX", 0.25;
-		SeeSound "pegapol/sight";
-		PainSound "pegapol/pain";
-		DeathSound "pegapol/death";
-		ActiveSound "pegapol/active";
+		SeeSound "pegawiz/sight";
+		PainSound "pegawiz/pain";
+		DeathSound "pegawiz/death";
+		ActiveSound "pegawiz/active";
 		Obituary "$SHDX_OB_PEGAWIZ";
 		// DropItem "SHBitCoinPickupGold" 127
 		// DropItem "SHSubmachineGun" 32
@@ -540,6 +540,8 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 			attacktype = PEGAWIZ_ATTACK_BULLET;
 		else
 			attacktype = PEGAWIZ_ATTACK_MELEE;
+			
+		A_Pain();
 		
 		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
 	}
@@ -588,7 +590,9 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 			PEGA E 0
 			{
 				if (random[Pegapol](0, 100) >= 72)
+				{
 					return ResolveState("StartFlying");
+				}
 				
 				return ResolveState(null);
 			}
@@ -676,15 +680,23 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 			PEGA F 0 A_PegaWizResetAttackType;
 			Goto See;
 		Missile.Explosive:
-			PEGA F 0 A_StopSound(CHAN_BODY);
-			PEGA F 5 A_FaceTarget;
+			PEGA F 0
+			{
+				A_StopSound(CHAN_BODY);
+				A_StartSound("pegawiz/fire", CHAN_VOICE);
+			}
+			PEGA F 15 A_FaceTarget;
 			PEGA G 2 Bright A_SpawnProjectile("SHDX_PegaWizExplosiveLine");
 			PEGA H 2 Bright;
 			PEGA I 2 A_PegaWizResetAttackType;
 			Goto See;
 		Missile.Ice:
-			PEGA F 0 A_StopSound(CHAN_BODY);
-			PEGA F 5 A_FaceTarget;
+			PEGA F 0
+			{
+				A_StopSound(CHAN_BODY);
+				A_StartSound("pegawiz/fire", CHAN_VOICE);
+			}
+			PEGA F 15 A_FaceTarget;
 			PEGA G 2 Bright A_PegaWizHailerShot();
 			PEGA H 2 Bright A_PegaWizHailerShot();
 			PEGA IF 2 A_FaceTarget;
@@ -694,16 +706,24 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 			PEGA F 0 A_PegaWizResetAttackType;
 			Goto See;
 		Missile.Lightning:
-			PEGA F 0 A_StopSound(CHAN_BODY);
-			PEGA F 5 A_FaceTarget;
+			PEGA F 0
+			{
+				A_StopSound(CHAN_BODY);
+				A_StartSound("pegawiz/fire", CHAN_VOICE);
+			}
+			PEGA F 15 A_FaceTarget;
 			PEGA G 2 Bright A_SpawnProjectile("SHDX_LightningGunDisintegratingBall");
 			PEGA H 2 Bright A_SpawnProjectile("SHDX_LightningGunDisintegratingBall");
 			PEGA IF 2 A_FaceTarget;
 			PEGA F 0 A_PegaWizResetAttackType;
 			Goto See;
 		Missile.Rainbower:
-			PEGA F 0 A_StopSound(CHAN_BODY);
-			PEGA F 5 A_FaceTarget;
+			PEGA F 0
+			{
+				A_StopSound(CHAN_BODY);
+				A_StartSound("pegawiz/fire", CHAN_VOICE);
+			}
+			PEGA F 15 A_FaceTarget;
 			PEGA G 2 Bright A_SpawnProjectile("SHDX_RainbowFlameBall");
 			PEGA H 2 Bright A_SpawnProjectile("SHDX_RainbowFlameBall");
 			PEGA IF 2 A_FaceTarget;
@@ -735,7 +755,7 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 			PEGA O 0
 			{
 				A_FaceTarget();
-				A_StartSound("pegapol/charge", CHAN_7);
+				A_StartSound("pegawiz/charge", CHAN_7);
 				A_FlapWings();
 			}
 			PEGA OPQR 5
@@ -783,12 +803,13 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 				{
 					mo.angle = angle;
 				}
+				A_StartSound("pegawiz/dodge", CHAN_VOICE);
 			}
 			PEGA S 3
 			{
 				VelFromAngle(speed, angle+90);
 			}
-			PEGA S 3 A_Pain;
+			PEGA S 3;
 			Goto Missile;
 		Pain2:
 			PEGA T 0
@@ -798,12 +819,13 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 				{
 					mo.angle = angle;
 				}
+				A_StartSound("pegawiz/dodge", CHAN_VOICE);
 			}
 			PEGA T 3
 			{
 				VelFromAngle(speed, angle-90);
 			}
-			PEGA T 3 A_Pain;
+			PEGA T 3;
 			Goto Missile;
 		Pain.Flying1:
 			PEGA S 0
@@ -813,8 +835,9 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 				{
 					mo.angle = angle;
 				}
+				A_StartSound("pegawiz/dodge", CHAN_VOICE);
 			}
-			PEGA S 3 A_Pain;
+			PEGA S 3;
 			Goto StopFlying;
 		Pain.Flying2:
 			PEGA T 0
@@ -824,8 +847,9 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 				{
 					mo.angle = angle;
 				}
+				A_StartSound("pegawiz/dodge", CHAN_VOICE);
 			}
-			PEGA T 3 A_Pain;
+			PEGA T 3;
 			Goto StopFlying;
 		StopFlying:
 			PEGA S 0
@@ -836,6 +860,7 @@ Class SHDX_PegaWiz : SHDX_PegapolMale
 			}
 			Goto See;
 		Death:
+		Death.Ice:
 			PEGA K 5 A_Scream;
 			PEGA L 5
 			{

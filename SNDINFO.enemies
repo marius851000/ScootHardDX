@@ -88,6 +88,39 @@ $random	pegapol/active	{ pegapol/active1 pegapol/active3 }
 pegapol/wings			"sounds/wing_flap.ogg"
 pegapol/charge			"sounds/wing_charge.ogg"
 
+pegawiz/sight1			"sounds/enemies/pegawiz/pw_sight1.ogg"
+pegawiz/sight2			"sounds/enemies/pegawiz/pw_sight2.ogg"
+pegawiz/sight3			"sounds/enemies/pegawiz/pw_sight3.ogg"
+pegawiz/sight4			"sounds/enemies/pegawiz/pw_sight4.ogg"
+pegawiz/sight5			"sounds/enemies/pegawiz/pw_sight5.ogg"
+$random pegawiz/sight	{ pegawiz/sight1 pegawiz/sight2 pegawiz/sight3 pegawiz/sight4 pegawiz/sight5 }
+pegawiz/pain1			"sounds/enemies/pegawiz/pw_pain1.ogg"
+pegawiz/pain2			"sounds/enemies/pegawiz/pw_pain2.ogg"
+pegawiz/pain3			"sounds/enemies/pegawiz/pw_pain3.ogg"
+pegawiz/pain4			"sounds/enemies/pegawiz/pw_pain4.ogg"
+$random pegawiz/pain	{ pegawiz/pain1 pegawiz/pain2 pegawiz/pain3 pegawiz/pain4 }
+pegawiz/death1			"sounds/enemies/pegawiz/pw_death1.ogg"
+pegawiz/death2			"sounds/enemies/pegawiz/pw_death2.ogg"
+pegawiz/death3			"sounds/enemies/pegawiz/pw_death3.ogg"
+pegawiz/death4			"sounds/enemies/pegawiz/pw_death4.ogg"
+pegawiz/death5			"sounds/enemies/pegawiz/pw_death5.ogg"
+$random	pegawiz/death	{ pegawiz/death1 pegawiz/death2 pegawiz/death3 pegawiz/death4 pegawiz/death5 }
+pegawiz/fire1			"sounds/enemies/pegawiz/pw_fire1.ogg"
+pegawiz/fire2			"sounds/enemies/pegawiz/pw_fire2.ogg"
+pegawiz/fire3			"sounds/enemies/pegawiz/pw_fire3.ogg"
+$random	pegawiz/fire	{ pegawiz/fire1 pegawiz/fire2 pegawiz/fire3 }
+pegapol/attack			"sounds/weapons/smg_fire.ogg"
+pegawiz/active1			"sounds/enemies/pegawiz/pw_active1.ogg"
+pegawiz/active2			"sounds/enemies/pegawiz/pw_active2.ogg"
+pegawiz/active3			"sounds/enemies/pegawiz/pw_active3.ogg"
+pegawiz/active4			"sounds/enemies/pegawiz/pw_active4.ogg"
+pegawiz/active5			"sounds/enemies/pegawiz/pw_active5.ogg"
+$random	pegawiz/active	{ pegawiz/active1 pegawiz/active2 pegawiz/active3 pegawiz/active4 pegawiz/active5 }
+pegawiz/wings			"sounds/wing_flap.ogg"
+pegawiz/charge			"sounds/wing_charge.ogg"
+pegawiz/dodge			"sounds/enemies/pegawiz/pw_dodge.ogg"
+pegawiz/startflying		"sounds/enemies/pegawiz/pw_fly.ogg"
+
 engineer/sight1			"sounds/enemies/engie/en_see1.ogg"
 engineer/sight2			"sounds/enemies/engie/en_see2.ogg"
 $random engineer/sight  { engineer/sight1 engineer/sight2}
@@ -133,10 +166,21 @@ zombie2/scream			"sounds/enemies/zombie/zombie_aaaa.ogg"
 enforcer/clusterbombf	"sounds/weapons/grenade_fire.ogg"
 enforcer/clusterbombb	"sounds/weapons/grenade_bounce.ogg"
 enforcer/clusterbombx	"sounds/boom2.ogg"
-enforcer/sight			"sounds/enemies/enforcers/sight.ogg"
-enforcer/shieldsup		"sounds/enemies/enforcers/shield.ogg"
-enforcer/death			"sounds/enemies/enforcers/death.ogg"
-enforcer/active			"sounds/enemies/enforcers/ff_out.ogg"
+enforcer/sight1			"sounds/enemies/enforcers/enf_sight1.ogg"
+enforcer/sight2			"sounds/enemies/enforcers/enf_sight2.ogg"
+$random enforcer/sight	{ enforcer/sight1 enforcer/sight2 }
+enforcer/shield			"sounds/enemies/enforcers/enf_shieldup.ogg"
+enforcer/shieldsup1		"sounds/enemies/enforcers/enf_shield1.ogg"
+enforcer/shieldsup2		"sounds/enemies/enforcers/enf_shield2.ogg"
+enforcer/shieldsup3		"sounds/enemies/enforcers/enf_shield3.ogg"
+$random enforcer/shieldsup	{ enforcer/shieldsup1 enforcer/shieldsup2 enforcer/shieldsup3 }
+enforcer/death1			"sounds/enemies/enforcers/enf_death1.ogg"
+enforcer/death2			"sounds/enemies/enforcers/enf_death2.ogg"
+$random enforcer/death	{ enforcer/death1 enforcer/death2 }
+enforcer/active1		"sounds/enemies/enforcers/enf_active1.ogg"
+enforcer/active2		"sounds/enemies/enforcers/enf_active2.ogg"
+$random enforcer/active	{ enforcer/active1 enforcer/active2 }
+enforcer/whipinit		"sounds/enemies/enforcers/enf_whip.ogg"
 enforcer/explode		"sounds/boom2.ogg"
 enforcer/collarbeep		"sounds/enemies/enforcers/collar_beep.ogg"
 enforcer/grenadef		"sounds/weapons/grenade_fire2.ogg"

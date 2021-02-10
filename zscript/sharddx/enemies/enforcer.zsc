@@ -294,7 +294,11 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			ENFO G 4 Bright A_ClusterGrenadeFire;
 			Goto See;
 		Missile.Whip:
-			ENFO I 4 A_FaceTarget;
+			ENFO I 4
+			{
+				A_StartSound("enforcer/whipinit", CHAN_VOICE);
+				A_FaceTarget();
+			}
 			ENFO I 4
 			{
 				A_FaceTarget();
@@ -321,7 +325,11 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			ENFO H 0
 			{
 				A_FaceTarget();
-				A_StartSound("enforcer/shieldsup", CHAN_WEAPON);
+				
+				A_StartSound("enforcer/shield", CHAN_WEAPON);
+				
+				if (Random[Enforcer](0, 100) <= 50)
+					A_StartSound("enforcer/shieldsup", CHAN_VOICE);
 			}
 			ENFO H 6
 			{
@@ -539,7 +547,11 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 			ENF2 H 0
 			{
 				A_FaceTarget();
-				A_StartSound("enforcer/shieldsup", CHAN_WEAPON);
+				
+				A_StartSound("enforcer/shield", CHAN_WEAPON);
+				
+				if (Random[Enforcer](0, 100) <= 50)
+					A_StartSound("enforcer/shieldsup", CHAN_VOICE);
 			}
 			ENF2 H 6
 			{

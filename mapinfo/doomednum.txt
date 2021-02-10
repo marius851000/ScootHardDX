@@ -5,7 +5,8 @@ DoomEdNums
 	6002 = SHDX_LowGuardFemale
 	6003 = SHDX_HighGuard
 	
-	6006 = SHDX_PegapolMale
+	6006 = SHDX_Pegapol
+	6007 = SHDX_PegaWiz
 	
 	6008 = SHDX_Engineer
 	6009 = SHDX_Zombie
@@ -19,8 +20,6 @@ DoomEdNums
 	
 	6015 = SHDX_SpectraWasp
 	6016 = SHDX_SpectraSentry
-	
-	6017 = SHDX_PegaWiz
 	
 	6050 = SHDX_BossSpot
 	6051 = SHDX_SurpriseBoss

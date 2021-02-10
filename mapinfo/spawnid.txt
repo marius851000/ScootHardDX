@@ -1,6 +1,6 @@
 SpawnNums
 {
-	5 = SHDX_PegapolMale
+	5 = SHDX_Pegapol
 	
 	6 = SHDX_Engineer
 	7 = SHDX_Zombie

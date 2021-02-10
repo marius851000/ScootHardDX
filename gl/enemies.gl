@@ -13,7 +13,7 @@ object SHDX_LowGuardFemale
 	frame GRD2G { light SHDX_BULLETPUFF }
 }
 
-object SHDX_PegapolMale
+object SHDX_Pegapol
 {
 	frame PEGAG { light SHDX_BULLETPUFF }
 }
@@ -92,3 +92,18 @@ object SHDX_SpectraWaspPuddle
 	frame SPPL { light SHDX_SPECTRAWASPPUDDLE }
 }
 
+pointlight SHDX_ENFORCERSHIELD
+{
+    color 1.0 0.0 0.0
+    size 64
+}
+
+object SHDX_HeavyEnforcer
+{
+	frame ENFOH { light SHDX_ENFORCERSHIELD }
+}
+
+object SHDX_LightEnforcer
+{
+	frame ENF2H { light SHDX_ENFORCERSHIELD }
+}
