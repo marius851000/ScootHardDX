@@ -81,7 +81,7 @@ map E2M1 lookup SHDX_E2A1
 	par = 45
 	sucktime = 1
 	next = "E2M2"
-	music = "M_TCAMB"
+	music = "M_FACT"
 	author = "SanyaWaffles, Metal Neon"
 	lightning
 }
