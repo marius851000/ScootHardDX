@@ -234,7 +234,7 @@ class SHDX_TitlemapEvent : EventHandler
 			if (seconds >= SECONDS_TITLESCREEN)
 			{
 				DrawBGImage("graphics/titlepic.png");
-				DrawTitleHeader("graphics/scoot_hard_dx_logo.png", Screen.GetWidth() / 2, Screen.GetHeight() / 7, true);
+				// DrawTitleHeader("graphics/scoot_hard_dx_logo.png", Screen.GetWidth() / 2, Screen.GetHeight() / 7, true);
 				DrawAdvisoryString(ss);
 			}
 		}
