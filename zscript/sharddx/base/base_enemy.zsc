@@ -398,6 +398,11 @@ Class SHDX_Boss : SHDX_Enemy
 		}
 	}
 	
+	void A_SHDX_BossSubtitle(String str, Sound snd)
+	{
+		SHDX_Vox.SendSubtitleToHandler(StringTable.Localize(str), SHDX_Vox.GetSecondsFromSound(snd));
+	}
+	
 	States
 	{
 		Raise:

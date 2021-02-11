@@ -66,12 +66,21 @@ class SHDX_Vox : SHDX_Actor
 		}
 	}
 	
-	void SendSubtitleToHandler(String sub, int length)
+	static void SendSubtitleToHandler(String sub, int length)
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		if (!hnd) return;
 		hnd.AddSubtitle(sub, 1, length, 5);
 	}
+	
+	static int GetSecondsFromSound(Sound snd)
+	{
+		if (int(snd))
+			return int(S_GetLength(snd) * Thinker.TICRATE);
+			
+		return 0;
+	}
+	
 	
 	void AddVoxEntry(Sound snd, string subtitle)
 	{
@@ -79,7 +88,7 @@ class SHDX_Vox : SHDX_Actor
 		
 		voxentry.snd = snd;
 		voxentry.subtitle = subtitle;
-		voxentry.duration = int(S_GetLength(snd) * Thinker.TICRATE);
+		voxentry.duration = SHDX_Vox.GetSecondsFromSound(snd);
 		
 		entries.Push(voxentry);
 	}
@@ -108,7 +117,7 @@ class SHDX_Vox : SHDX_Actor
 	{
 		A_StartSound(entries[i].snd, VOXCHANNELSND, CHANF_DEFAULT, 1.0, ATTN_NONE);
 		
-		SendSubtitleToHandler(entries[i].subtitle, entries[i].duration);
+		SHDX_Vox.SendSubtitleToHandler(entries[i].subtitle, entries[i].duration);
 	}
 	
 	void SetDeferOtherVoxObjects(bool val)

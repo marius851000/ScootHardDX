@@ -280,7 +280,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_RemoveLight('maimbowlight');
 				if (!saidspawnline)
 				{
-					A_SHDX_PlayBossTaunt("maimbow/spawn");
+					A_SHDX_PlayBossTaunt("maimbow/spawn", true);
+					A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_9", "maimbow/spawn");
 					saidspawnline = true;
 				}
 				isactive = false;
@@ -291,7 +292,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			{
 				A_MaimbowSetBossMusic();
 				bCanJump = false;
-				A_SHDX_PlayBossTaunt("maimbow/sight");
+				A_SHDX_PlayBossTaunt("maimbow/sight", true);
+				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_10", "maimbow/sight");
 			}
 			MBOW A 395;
 		See1:
@@ -403,7 +405,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		Missile.Stomp0:
 			MBOW Z 0 A_Jump(256, "Missile.Stomp.Electric");
 		Missile.Stomp.Electric:
-			MBOW "[" 8
+			MBOW [ 8
 			{
 				A_SpawnProjectile("SHDX_FloorArc", spawnofs_xy: -32);
 				A_SpawnProjectile("SHDX_FloorArc");
@@ -411,7 +413,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			Goto See2;
 		Missile.Stomp.RainbowX:
-			MBOW "[" 8
+			MBOW [ 8
 			{
 				A_SpawnProjectile("SHDX_RainbowFloorArc", spawnofs_xy: -64, angle: -32);
 				A_SpawnProjectile("SHDX_RainbowFloorArc", spawnofs_xy: -32, angle: -16);
@@ -552,7 +554,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW A 0
 			{
-				A_SHDX_PlayBossTaunt("maimbow/phase2", true);	// TODO: Jenna needs to do more of these...
+				A_SHDX_PlayBossTaunt("maimbow/phase2", true);
+				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_11", "maimbow/phase2");
 				bCanJump = false;
 			}
 			MBOW A 180;
@@ -575,7 +578,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW A 0
 			{
-				A_SHDX_PlayBossTaunt("maimbow/phase3", true);	// TODO: Jenna needs to do more of these...
+				A_SHDX_PlayBossTaunt("maimbow/phase3", true);
+				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_12", "maimbow/phase3");
 				bCanJump = false;
 			}
 			MBOW A 250;
@@ -613,7 +617,9 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		Pain1:
 			MBOW \ 3
 			{
-				A_StartSound("maimbow/pain", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+				if (Random[MaimbowPain](0, 100) <= 12)
+					A_StartSound("maimbow/pain", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+					
 				A_SetRenderStyle(1.0, STYLE_Stencil);
 				SetShade("6e0600");
 			}
@@ -634,7 +640,9 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		Pain.Flying:
 			MBOW K 3
 			{
-				A_StartSound("maimbow/pain", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+				if (Random[MaimbowPain](0, 100) <= 12)
+					A_StartSound("maimbow/pain", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+				
 				A_SetRenderStyle(1.0, STYLE_Stencil);
 				SetShade("6e0600");
 			}
@@ -675,6 +683,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW \ 0
 			{
 				A_NewBossScream();
+				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_13", DeathSound);
 				A_MaimbowVictoryMusic();
 			}
 			MBOW \ 105;

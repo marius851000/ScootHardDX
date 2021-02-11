@@ -269,6 +269,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
 				A_StartSound("boss1/surprisefloorpeel", CHAN_VOICE, attenuation:ATTN_NONE);
+				A_SHDX_BossSubtitle("$SHDX_VOX_SURPRISE_DROP", "boss1/surprisefloorpeel");
 				bCanJump = false;
 			}
 			SURP H 180;
@@ -299,6 +300,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			{
 				A_SpawnGibsFx(self);
 				A_NewBossScream();
+				A_SHDX_BossSubtitle("$SHDX_VOX_SURPRISE_DEATH", DeathSound);
 			}
 			SURP KLM 5;
 			SURP M 100;

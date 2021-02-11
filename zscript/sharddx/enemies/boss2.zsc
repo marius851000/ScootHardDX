@@ -107,7 +107,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		DamageFactor "ChickenX", 0.00;
 		DamageFactor "Spectrum", 0.10;
 		DamageFactor "Ice", 0.35;
-		SeeSound "boss2/sight";
+		// SeeSound "boss2/sight";
 		PainSound "boss2/pain";
 		DeathSound "boss2/death";
 		Obituary "$SHDX_OB_DRATMOS";
@@ -329,6 +329,8 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO X 0
 			{
 				A_AtmosphereSetBossMusic();
+				A_SHDX_PlayBossTaunt("boss2/sight", true);
+				A_SHDX_BossSubtitle("$SHDX_VOX_DRATMOS_9", "boss2/sight");
 				bCanJump = false;
 			}
 			ATMO X 425;
@@ -595,6 +597,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			{
 				A_SpawnGibsFx(self);
 				A_NewBossScream();
+				A_SHDX_BossSubtitle("$SHDX_VOX_DRATMOS_10", DeathSound);
 			}
 			ATMO UV 5;
 			ATMO W 55;
