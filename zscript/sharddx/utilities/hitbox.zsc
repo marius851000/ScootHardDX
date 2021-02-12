@@ -24,7 +24,7 @@ Class SHDX_Hitbox : SHDX_Actor
 		
 		+Shootable
 		+NoBlood
-		+IsMonster
+		// +IsMonster
 		+NoDamageThrust
 		+NoRadiusDmg
 		+NoGravity
