@@ -30,6 +30,7 @@ version "4.3"
 #include "zscript/sharddx/utilities/align.zsc"
 #include "zscript/sharddx/utilities/unicode.zsc"
 #include "zscript/sharddx/utilities/hitbox.zsc"
+#include "zscript/sharddx/utilities/md5.zsc"
 
 #include "zscript/sharddx/libraries/we4ther_eff3cts/includer.zc"
 
