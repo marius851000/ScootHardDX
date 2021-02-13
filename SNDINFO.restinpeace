@@ -47,6 +47,7 @@ epitaph/darthvader		"sounds/player/rip/darth_vader.ogg"		// NOOOOOOOOOOOOOOOOOOO
 epitaph/whythis			"sounds/player/rip/whythis.ogg"			// hi, Ben
 epitaph/markiplier		"sounds/player/rip/stfu.ogg"			// Markiplier telling you to STFU
 epitaph/muta			"sounds/player/rip/muta_laff.ogg"		// SomeOrdinaryGamers Laugh
+epitaph/cans			"sounds/player/rip/cans.wav"			// Cans.wav
 
 // Randomize these
 $random	epitaph/main
@@ -68,4 +69,5 @@ $random	epitaph/main
 	epitaph/whythis
 	epitaph/markiplier
 	epitaph/muta
+	epitaph/cans
 }
