@@ -331,9 +331,9 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	{
 		if (maimbowstage >= 2)
 		{
-			A_SpawnProjectile("SHDX_PegaWizExplosiveLine", angle:-30);
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine", angle:-12);
 			A_SpawnProjectile("SHDX_PegaWizExplosiveLine");
-			A_SpawnProjectile("SHDX_PegaWizExplosiveLine", angle:30);
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine", angle:12);
 		}
 		else
 		{
@@ -845,7 +845,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW W 2 Bright
 			{
-				A_SpawnProjectile("SHDX_PegaWizExplosiveLine");
+				A_MaimbowExplosionLine();
 				A_MaimbowResetAttackType();
 				A_FlyTowardsTarget();
 				A_FlapWings();
