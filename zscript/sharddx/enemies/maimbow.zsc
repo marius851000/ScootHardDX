@@ -381,7 +381,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	States
 	{
 		Spawn:
-			MBOW A 10 NoDelay
+			MBOW A 35 NoDelay
 			{
 				isactive = false;
 			}
