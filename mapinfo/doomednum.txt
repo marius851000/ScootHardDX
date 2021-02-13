@@ -106,6 +106,7 @@ DoomEdNums
 	6749 = SHDX_Flask
 	6750 = SHDX_Beaker
 	6751 = SHDX_ZetaEnforcerDormant
+	6752 = SHDX_SkeletonTCRGhost
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

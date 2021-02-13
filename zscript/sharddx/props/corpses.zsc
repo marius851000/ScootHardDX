@@ -96,6 +96,28 @@ Class SHDX_SkeletonBloody : SHDX_Decoration
 	}
 }
 
+// HE'S BEEN INFESTED BY BRONIES!!!!1111
+Class SHDX_SkeletonTCRGhost : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Skeleton (TCR Ghost)"
+		//$Sprite GHSTA0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			GHST A -1;
+			Stop;
+	}
+}
+
 Class SHDX_SurpriseCorpse : SHDX_Decoration
 {
 	Default
