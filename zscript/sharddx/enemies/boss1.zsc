@@ -67,7 +67,6 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 	}
 	
 	bool floorlowered;
-	bool isactive;
 	
 	override void PostBeginPlay()
 	{

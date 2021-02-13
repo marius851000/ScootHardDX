@@ -54,9 +54,11 @@ Class SHDX_Enemy : SHDX_Actor
 	}
 	
 	bool iscorpse;
+	bool isflying;
 
 	bool hasjumped;
-	bool isflying;
+	
+	bool skipintro;
 	
 	private int SHDXFlags;
 	flagdef CanJump: SHDXFlags, 0;
@@ -348,6 +350,10 @@ Class SHDX_Boss : SHDX_Enemy
 	Property CutsceneToPlay: CutsceneToPlay;
 	
 	int cooldowntaunt;
+	
+	bool isactive;
+	int flyingmode;
+	bool saidspawnline;
 	
 	override void Tick()
 	{

@@ -116,17 +116,13 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		+DONTRIP
 		+NOICEDEATH
 		
-		
 		+SHDX_Boss.TriggerLevelEnd
 		+SHDX_Boss.TriggerCutscene
 		
 		SHDX_Boss.CutsceneToPlay 'EndEpisode2';
 	}
 	
-	bool isactive;
 	bool fogchanged;
-	
-	int flyingmode;
 	
 	override void Tick()
 	{

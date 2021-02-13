@@ -147,10 +147,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		+NOICEDEATH
 	}
 	
-	int flyingmode;
-	bool saidspawnline;
-	bool isactive;
-	
 	int maimbowstage;
 	
 	const MAIMBOWFLY = 20;
