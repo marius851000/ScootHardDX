@@ -58,8 +58,6 @@ Class SHDX_Enemy : SHDX_Actor
 
 	bool hasjumped;
 	
-	bool skipintro;
-	
 	private int SHDXFlags;
 	flagdef CanJump: SHDXFlags, 0;
 	flagdef CanSwim: SHDXFlags, 1;
@@ -304,7 +302,6 @@ Class SHDX_Enemy : SHDX_Actor
 		SHDX_Utilities.AssignCorpseHitboxToEnemy(self);
 	}
 	
-	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		if (source && source.GetSpecies() == 'Sentry' && GetSpecies() == 'Pony')
@@ -354,6 +351,7 @@ Class SHDX_Boss : SHDX_Enemy
 	bool isactive;
 	int flyingmode;
 	bool saidspawnline;
+	bool skipintro;
 	
 	override void Tick()
 	{
@@ -393,7 +391,6 @@ Class SHDX_Boss : SHDX_Enemy
 		}
 	}
 	
-	
 	void A_SHDX_SetToBossBarHUD()
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
@@ -407,6 +404,33 @@ Class SHDX_Boss : SHDX_Enemy
 	void A_SHDX_BossSubtitle(String str, Sound snd)
 	{
 		SHDX_Vox.SendSubtitleToHandler(StringTable.Localize(str), SHDX_Vox.GetSecondsFromSound(snd));
+	}
+	
+	void A_SHDX_BossInactive()
+	{
+		isactive = false;
+	}
+	
+	void A_SHDX_BossSkipIntro()
+	{
+		skipintro = true;
+	}
+	
+	void A_SHDX_BossInit()
+	{
+		A_SHDX_SetToBossBarHUD();
+		A_UnSetInvulnerable();
+		A_AttachLightDef('atmoslight', 'SHDX_BOSSLIGHT');
+		bCanJump = true;	// All bosses can jump, so there's no need to do anything special with this.
+		isactive = true;
+	}
+	
+	state A_SHDX_BossJumpOverIntroState()
+	{
+		if (skipintro)
+			return ResolveState("See1A");
+			
+		return ResolveState(null);
 	}
 	
 	States

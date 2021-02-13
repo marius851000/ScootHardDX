@@ -15,7 +15,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 class SHDX_AtmosphereHandler : EventHandler
 {
 	SHDX_DrAtmosphereBoss dratmos;
-	SHDX_MaimbowUndashBoss mboss;
 	Array<SHDX_Zombie> zombies;
 	
 	int zombietics;
@@ -28,14 +27,12 @@ class SHDX_AtmosphereHandler : EventHandler
 		// BossInfoTick();
 		PruneZombiesFromArray();
 		DrAtmosphereRoutine();
-		MaimbowRoutine();
 	}
 	
 	override void WorldThingSpawned(WorldEvent e)
 	{
 		CheckIfSpawnedZombie(e.Thing);
 		CheckIfSpawnedAtmosphere(e.Thing);
-		CheckIfSpawnedMaimbow(e.Thing);
 	}
 	
 	override void WorldThingDied(WorldEvent e)
@@ -61,22 +58,8 @@ class SHDX_AtmosphereHandler : EventHandler
 		}
 	}
 	
-	void CheckIfSpawnedMaimbow(Actor a)
-	{
-		let m = SHDX_MaimbowUndashBoss(a);
-		if (m)
-		{
-			mboss = m;
-		}
-	}
-	
 	void DrAtmosphereRoutine()
 	{
-		// If Maimbow is present, don't bother as he has
-		// presidence...
-		if (mboss)
-			return;
-		
 		if (dratmos)
 		{
 			if (dratmos.isactive)
@@ -91,27 +74,6 @@ class SHDX_AtmosphereHandler : EventHandler
 				{
 					KillZombies();
 					dratmos = null;
-				}
-			}
-		}
-	}
-	
-	void MaimbowRoutine()
-	{
-		if (mboss)
-		{
-			if (mboss.isactive)
-			{
-				zombietics++;
-				if (zombietics >= TIMETOSPAWNZOMBIES)
-				{
-					SpawnZombiesFromSpots();
-					zombietics = 0;
-				}
-				if (mboss.health <= 0)
-				{
-					KillZombies();
-					mboss = null;
 				}
 			}
 		}

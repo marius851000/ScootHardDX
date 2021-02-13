@@ -313,18 +313,26 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	States
 	{
 		Spawn:
+			ATMO X 0 NoDelay
+			{
+				isactive = false;
+			}
+		Spawn1:
 			ATMO X 10
 			{
 				A_RemoveLight('atmoslight');
 				A_SetInvulnerable();
 				A_Look();
-				isactive = false;
 			}
 			Loop;
 		See:
 			ATMO X 0
 			{
 				A_AtmosphereSetBossMusic();
+			}
+			ATMO X 0 A_SHDX_BossJumpOverIntroState;
+			ATMO X 0
+			{
 				A_SHDX_PlayBossTaunt("boss2/sight", true);
 				A_SHDX_BossSubtitle("$SHDX_VOX_DRATMOS_9", "boss2/sight");
 				bCanJump = false;
@@ -334,12 +342,11 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO B 0
 			{
 				A_SHDX_SendOLToAllPlayers("atmospherestart", OLSSF_FORCEONELINER);
-				A_SHDX_SetToBossBarHUD();
-				A_UnSetInvulnerable();
-				A_AttachLightDef('atmoslight', 'SHDX_BOSSLIGHT');
-				bCanJump = true;
-				isactive = true;
+				
+				A_SHDX_BossSkipIntro();
 			}
+		See1A:
+			ATMO B 0 A_SHDX_BossInit;
 		See2:
 			ATMO B 0
 			{

@@ -102,7 +102,6 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 	
 	void A_SurpriseLowerFloor()
 	{
-		// ACS_NamedExecute("MAP03_PeelAway", 0, 0, 0, 0);
 		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
 		int i;
 		while (i = sit.Next())
@@ -117,19 +116,22 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			s.SetGlowColor(Sector.floor, "00FF00");
 			s.SetGlowHeight(Sector.floor, 64);
 		}
-		// Floor_LowerByValueTimes8(667,35,8);
 		floorlowered = true;
 	}
 	
 	States
 	{
 		Spawn:
+			SURP A 0 NoDelay
+			{
+				isactive = false;
+			}
+		Spawn1:
 			SURP AA 10
 			{
 				A_RemoveLight('surpriselight');
 				A_SetInvulnerable();
 				A_Look();
-				isactive = false;
 			}
 			Loop;
 		See:
