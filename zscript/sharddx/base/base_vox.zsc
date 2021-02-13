@@ -144,9 +144,6 @@ class SHDX_Vox : SHDX_Actor
 		if (triggered)
 			return;
 		
-		if (CVar.GetCVar('shdx_skipvox').GetBool())
-			return;
-		
 		triggered = true;
 	}
 	
