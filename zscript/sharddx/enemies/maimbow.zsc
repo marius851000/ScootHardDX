@@ -126,7 +126,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		Radius 20;
 		Height 56;
 		Mass 100;
-		Speed 12;
+		Speed 16;
 		PainChance "Explosive", 256;
 		PainChance "Bullet", 128;
 		PainChance "Spectrum", 256;
