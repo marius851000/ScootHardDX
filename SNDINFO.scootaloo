@@ -4,7 +4,7 @@ $pitchshiftrange 0
 $playeralias    scootaloo  male    *death      scootaloo/death
 $playeralias    scootaloo  male    *xdeath     scootaloo/death
 $playersound    scootaloo  male    *gibbed     "sounds/slop.ogg"
-$playeralias    scootaloo  male    *pain100    "sounds/scootaloo/SCOO_OW1.ogg"
+$playeralias    scootaloo  male    *pain100    scootaloo/pain
 $playersounddup scootaloo  male    *pain75     *pain100
 $playersounddup scootaloo  male    *pain50     *pain100
 $playersounddup scootaloo  male    *pain25     *pain100
@@ -19,7 +19,7 @@ $playersound	scootaloo  male    *surface	   "sounds/dive.ogg"
 $playeralias    scootaloo  female    *death      scootaloo/death
 $playeralias    scootaloo  female    *xdeath     scootaloo/death
 $playersound    scootaloo  female    *gibbed     "sounds/slop.ogg"
-$playeralias    scootaloo  female    *pain100    "sounds/scootaloo/SCOO_OW1.ogg"
+$playeralias    scootaloo  female    *pain100    scootaloo/pain
 $playersounddup scootaloo  female    *pain75     *pain100
 $playersounddup scootaloo  female    *pain50     *pain100
 $playersounddup scootaloo  female    *pain25     *pain100
@@ -34,7 +34,7 @@ $playersound	scootaloo  female    *surface    "sounds/dive.ogg"
 $playeralias    scootaloo  other    *death      scootaloo/death
 $playeralias    scootaloo  other    *xdeath     scootaloo/death
 $playersound    scootaloo  other    *gibbed     "sounds/slop.ogg"
-$playeralias    scootaloo  other    *pain100	"sounds/scootaloo/SCOO_OW1.ogg"
+$playeralias    scootaloo  other    *pain100	scootaloo/pain
 $playersounddup scootaloo  other    *pain75     *pain100
 $playersounddup scootaloo  other    *pain50     *pain100
 $playersounddup scootaloo  other    *pain25     *pain100
@@ -46,28 +46,61 @@ $playersound    scootaloo  other    *usefail    "sounds/usefail.ogg"
 $playersound	scootaloo  other    *dive	    "sounds/dive.ogg"
 $playersound	scootaloo  other    *surface	"sounds/dive.ogg"
 
-scootaloo/death1				"sounds/scootaloo/SCOODIE1.ogg"
-scootaloo/death2				"sounds/scootaloo/SCOODIE2.ogg"
-scootaloo/death3				"sounds/scootaloo/SCOODIE3.ogg"
-scootaloo/death4				"sounds/scootaloo/SCOODIE4.ogg"
-$random		scootaloo/death	{	scootaloo/death1	scootaloo/death2	scootaloo/death3	scootaloo/death4	}
+scootaloo/death1				"sounds/scootaloo/ScootScream.ogg"
+scootaloo/death2				"sounds/scootaloo/ScootThisStinks.ogg"
+$random		scootaloo/death	{	scootaloo/death1	scootaloo/death2	}
 
-scootaloo/voiceover1	"sounds/scootaloo/SCOOTS01.ogg"
-scootaloo/voiceover2	"sounds/scootaloo/SCOOTS02.ogg"
-scootaloo/voiceover3	"sounds/scootaloo/SCOOTS03.ogg"
-scootaloo/voiceover4	"sounds/scootaloo/SCOOTS04.ogg"
-scootaloo/voiceover5	"sounds/scootaloo/scoots05.ogg"
-scootaloo/voiceover6	"sounds/scootaloo/scoots06.ogg"
-scootaloo/voiceover7	"sounds/scootaloo/scoots07.ogg"
-scootaloo/voiceover8	"sounds/scootaloo/scoots08.ogg"
-scootaloo/voiceover9	"sounds/scootaloo/scoots09.ogg"
-scootaloo/voiceover10	"sounds/scootaloo/scoots10.ogg"
 
-scootaloo/event01			"sounds/scootaloo/SCEVNT01.ogg"
-scootaloo/event02			"sounds/scootaloo/SCEVNT02.ogg"
-scootaloo/surprisestart		"sounds/scootaloo/SCEVNT03.ogg"
-scootaloo/surpriseend		"sounds/scootaloo/SCEVNT04.ogg"
-scootaloo/atmospherestart	"sounds/scootaloo/SCEVNT05.ogg"
-scootaloo/atmosphereend		"sounds/scootaloo/SCEVNT06.ogg"
-scootaloo/eventboss3		"sounds/scootaloo/SCEVNT07.ogg"
-scootaloo/maimbowundashstart	"sounds/scootaloo/SCEVNT09.ogg"
+scootaloo/pain1				"sounds/scootaloo/ScootHurt1.ogg"
+scootaloo/pain2				"sounds/scootaloo/ScootHurt2.ogg"
+scootaloo/pain3				"sounds/scootaloo/ScootHurt3.ogg"
+scootaloo/pain4				"sounds/scootaloo/ScootHurt4.ogg"
+scootaloo/pain5				"sounds/scootaloo/ScootHurt5.ogg"
+scootaloo/pain6				"sounds/scootaloo/ScootHurt6.ogg"
+$random		scootaloo/pain	{	scootaloo/pain1	scootaloo/pain2 scootaloo/pain3 scootaloo/pain4 scootaloo/pain5 scootaloo/pain6	}
+
+scootaloo/voiceover1	"sounds/scootaloo/oneliners/ScootAddThatToScore.ogg"
+scootaloo/voiceover2	"sounds/scootaloo/oneliners/ScootBuckYouToo.ogg"
+scootaloo/voiceover3	"sounds/scootaloo/oneliners/ScootCallAMedic.ogg"
+scootaloo/voiceover4	"sounds/scootaloo/oneliners/ScootLaugh.ogg"
+scootaloo/voiceover5	"sounds/scootaloo/oneliners/ScootNoOneMess.ogg"
+scootaloo/voiceover6	"sounds/scootaloo/oneliners/ScootNoPainNoGain.ogg"
+scootaloo/voiceover7	"sounds/scootaloo/oneliners/ScootNotUselessNow.ogg"
+scootaloo/voiceover8	"sounds/scootaloo/oneliners/ScootScootastic.ogg"
+scootaloo/voiceover9	"sounds/scootaloo/oneliners/ScootScootForCelestia.ogg"
+scootaloo/voiceover10	"sounds/scootaloo/oneliners/ScootWhoWantsWing.ogg"
+scootaloo/voiceover11	"sounds/scootaloo/oneliners/ScootWrongChicken.ogg"
+
+scootaloo/explosive1	"sounds/scootaloo/oneliners/ScootBombsAway.ogg"
+scootaloo/explosive2	"sounds/scootaloo/oneliners/ScootYouFellToPieces.ogg"
+
+scootaloo/frozen1		"sounds/scootaloo/oneliners/ScootChillOut.ogg"
+scootaloo/frozen2		"sounds/scootaloo/oneliners/ScootCoolOff.ogg"
+scootaloo/frozen3		"sounds/scootaloo/oneliners/ScootFreeze.ogg"
+
+scootaloo/tornado1		"sounds/scootaloo/oneliners/ScootGoodnessGracious.ogg"
+scootaloo/tornado2		"sounds/scootaloo/oneliners/ScootItsATwister.ogg"
+scootaloo/tornado3		"sounds/scootaloo/oneliners/ScootNoPlaceLikeHome.ogg"
+
+scootaloo/rainbower		"sounds/scootaloo/oneliners/ScootTasteTheRainbow.ogg"
+
+scootaloo/lightning1	"sounds/scootaloo/oneliners/ScootShocking.ogg"
+scootaloo/lightning2	"sounds/scootaloo/oneliners/ScootZapApple.ogg"
+
+scootaloo/gottagetouttahere	"sounds/scootaloo/events/ScootGottaGetOut.ogg"
+scootaloo/surpriseexit		"sounds/scootaloo/events/ScootTheresTheExit.ogg"
+scootaloo/surprisestart		"sounds/scootaloo/events/ScootBuckMe.ogg"
+scootaloo/surpriseend		"sounds/scootaloo/events/ScootWhoSuprised.ogg"
+scootaloo/atmospherestart	"sounds/scootaloo/events/ScootWellSeeAboutThat.ogg"
+scootaloo/atmosphereend		"sounds/scootaloo/events/ScootSayHelloToYourWife.ogg"
+scootaloo/pegasusdevicefind			"sounds/scootaloo/events/ScootTimeEnd.ogg"
+scootaloo/pegasusdeviceexplosion	"sounds/scootaloo/events/ScootFireworks.ogg"
+scootaloo/maimbowundashstart	"sounds/scootaloo/events/ScootMaimbow.ogg"
+scootaloo/maimbowundashendgood	"sounds/scootaloo/events/ScootGiveItUpFor.ogg"
+scootaloo/maimbowundashendbad	"sounds/scootaloo/events/ScootAuroraNo.ogg"
+
+scootaloo/cancermouse1			"sounds/scootaloo/cancermouse/ScootHiCancerMouse.ogg"
+scootaloo/cancermouse2			"sounds/scootaloo/cancermouse/ScootThatWasntSoBad.ogg"
+scootaloo/cancermouse3			"sounds/scootaloo/cancermouse/ScootPlaseMakeItStop.ogg"
+scootaloo/cancermouse4			"sounds/scootaloo/cancermouse/ScootCanWeNot.ogg"
+scootaloo/cancermouse5			"sounds/scootaloo/cancermouse/ScootDontHaveTime.ogg"

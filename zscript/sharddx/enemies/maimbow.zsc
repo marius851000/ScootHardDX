@@ -78,42 +78,6 @@ Class SHDX_MaimbowBullet : FastProjectile
 	}
 }
 
-Class SHDX_RainbowFloorArc : SHDX_Projectile
-{
-	Default
-	{
-		Radius 16;
-		Height 56;
-		Speed 12;
-		Damage 8;
-		+MISSILE
-		+DROPOFF
-		+RIPPER
-		+NOEXPLODEFLOOR
-		+STEPMISSILE
-		MaxStepHeight 16;
-		Projectile;
-		+FLOORHUGGER
-		
-		DamageType "RainbowX";
-		
-		RenderStyle "Add";
-		Alpha 0.67;
-		
-		SeeSound "weapons/rainbower2";
-		DeathSound "weapons/rainbowerx";
-	}
-	States
-	{
-		Spawn:
-			RBOW A 1;
-			Loop;
-		Death:
-			TNT1 A 0;
-			Stop;
-	}
-}
-
 Class SHDX_MaimbowUndashBoss : SHDX_Boss
 {
 	Default
@@ -226,7 +190,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		maimbowstage = 2;
 	}
 	
-	void A_DD2_MaimbowBossPlayCutscene()
+	void A_SHDX_MaimbowBossPlayCutscene()
 	{
 		if (shdx_skipcutscenes)
 			return;
@@ -236,25 +200,43 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			PlayerInfo pl = players[i];
 			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
 			{
-				A_DD2_MaimbowPlayAuroraFoundCutscene();
+				A_SHDX_MaimbowPlayAuroraFoundCutscene();
 				return;
 			}
 		}
 		
-		A_DD2_MaimbowPlayAuroraNotFoundCutscene();
+		A_SHDX_MaimbowPlayAuroraNotFoundCutscene();
 	}
 	
-	void A_DD2_MaimbowPlayAuroraFoundCutscene()
+	void A_SHDX_MaimbowPlayAuroraFoundCutscene()
 	{
 		level.StartSlideShow('EndEpisode3Aurora');
 	}
 	
-	void A_DD2_MaimbowPlayAuroraNotFoundCutscene()
+	void A_SHDX_MaimbowPlayAuroraNotFoundCutscene()
 	{
 		level.StartSlideShow('EndEpisode3NoAurora');
 	}
 	
-	void A_DD2_MaimbowBossEndLevel()
+	void A_SHDX_MaimbowAuroraOL()
+	{
+		if (shdx_skipcutscenes)
+			return;
+		
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
+			{
+				A_SHDX_SendOLToAllPlayers("maimbowundashendgood", OLSSF_FORCEONELINER);
+				return;
+			}
+		}
+		
+		A_SHDX_SendOLToAllPlayers("maimbowundashendbad", OLSSF_FORCEONELINER);
+	}
+	
+	void A_SHDX_MaimbowBossEndLevel()
 	{
 		level.ExitLevel(0, false);
 	}
@@ -413,12 +395,14 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_10", "maimbow/sight");
 			}
 			MBOW A 395;
+		See0:
+			MBOW A 0 A_SHDX_SendOLToAllPlayers("maimbowundashstart", OLSSF_FORCEONELINER);
+			MBOW A 280;
 		See1:
 			MBOW A 0
 			{
 				A_SHDX_BossSkipIntro();
 			}
-			// MBOW A 0 A_SHDX_SendOLToAllPlayers("maimbowundashstart", OLSSF_FORCEONELINER);
 		See1A:
 			MBOW B 0 A_SHDX_BossInit;
 		See2:
@@ -1108,10 +1092,11 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBO2 A 5;
 			MBO2 B 5 A_SpawnGibsFx(self);
 			MBO2 CD 5;
-			// ATMO Y 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "atmosphereend", OLSSF_FORCEONELINER);
-			MBO2 E 220;
-			MBO2 E 1 A_DD2_MaimbowBossPlayCutscene();
-			MBO2 E -1 A_DD2_MaimbowBossEndLevel();
+			MBO2 E 120;
+			MBO2 E 0 A_SHDX_MaimbowAuroraOL;
+			MBO2 E 120;
+			MBO2 E 1 A_SHDX_MaimbowBossPlayCutscene();
+			MBO2 E -1 A_SHDX_MaimbowBossEndLevel();
 			Stop;
 	}
 }

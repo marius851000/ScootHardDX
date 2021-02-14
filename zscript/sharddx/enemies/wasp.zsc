@@ -241,7 +241,7 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 			}
 			WASP L 5
 			{
-				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
 			}
 			WASP MN 5;
 			WASP O 0

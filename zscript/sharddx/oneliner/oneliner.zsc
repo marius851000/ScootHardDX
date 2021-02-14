@@ -135,7 +135,7 @@ extend class SHDX_PlayerPawn
 		int r;
 		do
 		{
-			r =  Random[OneLiner](1, 10);
+			r =  Random[OneLiner](1, 11);
 		}
 		while (r == lastonelinernum)
 		

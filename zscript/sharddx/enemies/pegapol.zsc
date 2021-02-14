@@ -302,11 +302,24 @@ Class SHDX_Pegapol : SHDX_Enemy
 			{
 				A_NoBlocking();
 				A_DropItemsPegapol();
+				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
+			}
+			PEGA M 5;
+			PEGA N -1 A_SetCorpseShootable;
+			Stop;
+		Death.Lightning:
+			PEGA K 5 A_Scream;
+			PEGA L 5
+			{
+				A_NoBlocking();
+				A_DropItemsPegapol();
+				A_SHDX_LightningOneLiner();
 			}
 			PEGA M 5;
 			PEGA N -1 A_SetCorpseShootable;
 			Stop;
 		Ice:
+			PEGA S 0 A_SHDX_IceOneLiner;
 			PEGA S 5
 			{
 				A_GenericFreezeDeath();
@@ -317,28 +330,32 @@ Class SHDX_Pegapol : SHDX_Enemy
 			}
 			Wait;
 		Death.Explosive:
-		Death.Weather:
-		Death.Extreme:
-		XDeath:
 			GIBX A 3
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsPegapol();
 				A_SpawnGibsFx(self);
 			}
-			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
-			GIBX BC 5;
-			GIBX D -1;
-			Stop;
-		Death.Spectrum:
-			GIBR A 4;
-			GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
-			GIBR BC 4;
-			GIBR D -1;
-			Stop;
+			Goto Super::Death.Explosive;
+		Death.Weather:
+			GIBX A 3
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsPegapol();
+				A_SpawnGibsFx(self);
+			}
+			Goto Super::Death.Weather;
+		Death.Extreme:
+			GIBX A 3
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsPegapol();
+				A_SpawnGibsFx(self);
+			}
+			Goto Super::Death.Extreme;
 		Crush:
 			GIBX D 0 A_SHDX_SquishSound;
-			GIBX D 1 A_SHDX_GivePlayerOneLiner;
+			GIBX D 1;
 			GIBX D -1;
 			Stop;
 	}
@@ -859,6 +876,7 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 				bFloat = false;
 			}
 			Goto See;
+			
 		Death:
 		Death.Ice:
 			PEGA K 5 A_Scream;
@@ -866,24 +884,46 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 			{
 				A_NoBlocking();
 				A_DropItemsPegaWiz();
+				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
+			}
+			PEGA M 5;
+			PEGA N -1 A_SetCorpseShootable;
+			Stop;
+		Death.Lightning:
+			PEGA K 5 A_Scream;
+			PEGA L 5
+			{
+				A_NoBlocking();
+				A_DropItemsPegaWiz();
+				A_SHDX_LightningOneLiner();
 			}
 			PEGA M 5;
 			PEGA N -1 A_SetCorpseShootable;
 			Stop;
 		Death.Explosive:
-		Death.Weather:
-		Death.Extreme:
-		XDeath:
 			GIBX A 3
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsPegaWiz();
 				A_SpawnGibsFx(self);
 			}
-			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
-			GIBX BC 5;
-			GIBX D -1;
-			Stop;
+			Goto Super::Death.Explosive;
+		Death.Weather:
+			GIBX A 3
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsPegaWiz();
+				A_SpawnGibsFx(self);
+			}
+			Goto Super::Death.Weather;
+		Death.Extreme:
+			GIBX A 3
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsPegaWiz();
+				A_SpawnGibsFx(self);
+			}
+			Goto Super::Death.Extreme;
 	}
 }
 
