@@ -31,7 +31,7 @@ class SHDX_JumpPad : SecActHitFloor
 		if ((activationType & health) && CanTrigger(triggerer))
 		{
 			A_StartSound("world/boing", 9);
-			triggerer.vel.z += args[0];
+			triggerer.vel.z = args[0];
 		}
 		return false;
 	}
