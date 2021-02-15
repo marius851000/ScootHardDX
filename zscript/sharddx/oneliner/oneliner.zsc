@@ -151,7 +151,7 @@ extend class SHDX_PlayerPawn
 		timetosing = 0;
 	}
 	
-	const ATTN_ONELINER = 0.5;
+	const ATTN_ONELINER = 0.25;
 	
 	String A_GetDefaultVoiceOver()
 	{
@@ -240,8 +240,7 @@ extend class SHDX_PlayerPawn
 	
 	void A_OneLinerSound(Sound snd)
 	{		
-		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_OVERLAP, 4.0, ATTN_ONELINER);
-		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_OVERLAP, 4.0, ATTN_ONELINER);
+		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_DEFAULT, 4.0, ATTN_ONELINER);
 		
 		A_CheckIfOneLinerRequiresSubtitles(snd);
 	}
