@@ -124,6 +124,6 @@ class SHDX_ScootalooPegasusDeviceFireworks : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("scootaloo/pegasusdeviceexplosion", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E3M2_1"));
+		AddVoxEntry("scootaloo/pegasusdeviceexplosion", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E3M2_2"));
 	}
 }
