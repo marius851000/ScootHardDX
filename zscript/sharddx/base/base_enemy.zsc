@@ -314,32 +314,32 @@ Class SHDX_Enemy : SHDX_Actor
 	
 	void A_SHDX_ExplosiveOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
 	{
-		String ol = String.Format("explosive%d", Random[OneLiner](1, 12));
+		String ol = String.Format("explosive%d", Random[OneLiner](1, 16));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	
 	void A_SHDX_TornadozerOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
 	{
-		String ol = String.Format("tornado%d", Random[OneLiner](1, 13));
+		String ol = String.Format("tornado%d", Random[OneLiner](1, 17));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	
 	void A_SHDX_RainbowerOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
 	{		
-		String ol = String.Format("rainbower%d", Random[OneLiner](1, 11));
+		String ol = String.Format("rainbower%d", Random[OneLiner](1, 15));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	
 	
 	void A_SHDX_LightningOneLiner(int r = SHDX_ONELINER_NORMAL_CHANCE)
 	{
-		String ol = String.Format("lightning%d", Random[OneLiner](1, 12));
+		String ol = String.Format("lightning%d", Random[OneLiner](1, 16));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	
 	void A_SHDX_IceOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
 	{
-		String ol = String.Format("frozen%d", Random[OneLiner](1, 13));
+		String ol = String.Format("frozen%d", Random[OneLiner](1, 17));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	
