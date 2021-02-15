@@ -328,6 +328,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 		ShieldsUp:
 			ENFO H 0
 			{
+				A_ResetTranslation();
 				A_FaceTarget();
 				
 				A_StartSound("enforcer/shield", CHAN_WEAPON);
@@ -548,6 +549,8 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		ShieldsUp:
 			ENF2 H 0
 			{
+				A_ResetTranslation();
+				
 				A_FaceTarget();
 				
 				A_StartSound("enforcer/shield", CHAN_WEAPON);

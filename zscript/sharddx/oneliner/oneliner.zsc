@@ -75,8 +75,11 @@ extend class SHDX_Enemy
 					{
 						finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
 					}
+					
+					if (!(flags & OLSSF_NOGRIN))
+						pp.A_SetMugshotState("Grin");
+					
 					pp.A_OneLinerInit(finalsnd, flags);
-					pp.A_SetMugshotState("Grin");
 				}
 			}
 		}
@@ -131,20 +134,12 @@ extend class SHDX_PlayerPawn
 	int lockcount;
 	bool onelinermute;
 	bool bypassmute;
-	bool lowervolumeforoneliner;
-	bool queuevolumechange;
-	bool changevolumefordialog;
 	int onelinerflags;
 	int SavedTimes;
 	bool SavedTrigger;
 	
 	meta String OneLinerPrefix;
 	Property OneLinerPrefix: OneLinerPrefix;
-	
-	void CheckOneLinerSoundOnPlayer()
-	{
-		lowervolumeforoneliner = IsActorPlayingSound(SHDXPLAYER_DIALOGUECHANNEL1);
-	}
 	
 	void A_ResetIdleFromPain()
 	{
@@ -155,6 +150,7 @@ extend class SHDX_PlayerPawn
 	
 	String A_GetDefaultVoiceOver()
 	{
+		/*
 		int r;
 		do
 		{
@@ -163,6 +159,9 @@ extend class SHDX_PlayerPawn
 		while (r == lastonelinernum)
 		
 		lastonelinernum = r;
+		
+		return String.Format("voiceover%d", r);
+		*/
 		
 		return String.Format("voiceover%d", r);
 	}
@@ -270,17 +269,13 @@ extend class SHDX_PlayerPawn
 			onelinerhit = true;
 			
 			if (SHDX_Utilities.CheckSoundExists(onelinersnd))
-			{
 				A_OneLinerSound(onelinersnd);
-			}
 		}
 		
 		if (onelinerhit)
 		{
 			if (onelinercount > 0)
-			{
 				onelinercount--;
-			}
 			
 			if (onelinercount <= 0)
 			{

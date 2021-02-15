@@ -147,6 +147,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			{
 				A_SHDX_SendOLToAllPlayers("scootaloo/surprisestart", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				A_SHDX_SetToBossBarHUD();
+				A_SurpriseSetBossMusic();
 				isactive = true;
 			}
 		See2:

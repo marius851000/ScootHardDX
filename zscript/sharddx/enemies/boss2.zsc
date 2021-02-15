@@ -351,6 +351,8 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			{
 				A_SHDX_SendOLToAllPlayers("scootaloo/atmospherestart", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				
+				A_AtmosphereSetBossMusic()
+				;
 				A_SHDX_BossSkipIntro();
 			}
 		See1A:
