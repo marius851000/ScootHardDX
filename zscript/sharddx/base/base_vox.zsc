@@ -38,14 +38,9 @@ class SHDX_Vox : SHDX_Actor
 	
 	bool triggered;
 	bool idle;
-	bool voxdone;
+	bool voxplaying;
 	
 	const VOXCHANNELSND = 9999;
-	
-	virtual void SetupVoices()
-	{
-		
-	}
 	
 	override void BeginPlay()
 	{
@@ -131,7 +126,7 @@ class SHDX_Vox : SHDX_Actor
 					if (hndlr.voxobjs[i] && hndlr.voxobjs[i] != self && hndlr.voxobjs[i].triggered)
 					{
 						hndlr.voxobjs[i].A_StopSound(VOXCHANNELSND);
-						hndlr.voxobjs[i].voxdone = true;
+						hndlr.voxobjs[i].Destroy();
 					}
 				}
 			}
@@ -155,13 +150,17 @@ class SHDX_Vox : SHDX_Actor
 	{
 		Super.Tick();
 		
-		if (triggered && !voxdone)
+		if (triggered)
 		{
+			voxplaying = true;
 			StopOtherVoxObjects();
 			if (!idle)
 			{
 				if (betweensoundsduration == 0)
-				{					
+				{
+					if (sndindex == 0)
+						A_SHDX_SetPlayerMuted(true);
+					
 					if (soundplayinduration == 0)
 						A_SHDX_PlayVoxSound(sndindex);
 					
@@ -190,12 +189,18 @@ class SHDX_Vox : SHDX_Actor
 					soundplayinduration = 0;
 					if (sndindex >= entries.Size())
 					{
-						voxdone = true;
-						// SetDeferOtherVoxObjects(false);
+						A_SHDX_SetPlayerMuted(false);
+						voxplaying = false;
+						Destroy();
 						return;
 					}
 				}
 			}
 		}
-	}	
+	}
+	
+	virtual void SetupVoices()
+	{
+		
+	}
 }

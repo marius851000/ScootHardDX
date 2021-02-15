@@ -256,8 +256,6 @@ extend class SHDX_PlayerPawn
 	{
 		if (!A_CheckOneLinerCVar())
 			return;
-		
-		CheckIfVoxActive();
 			
 		if (onelinermute && !bypassmute)
 		{
@@ -292,45 +290,6 @@ extend class SHDX_PlayerPawn
 				onelinerhit = false;
 				onelinerflags = 0;
 				bypassmute = false;
-			}
-		}
-	}
-	
-	bool A_CheckIfInTitleMapOrCutscene()
-	{
-		bool ret;
-		
-		ret = bool(level.levelnum == 0);
-		
-		ret = CheckFrozen();
-		
-		if (level.MapName ~== "TITLEMAP" || level.MapName ~== "MAP00" || level.MapName ~== "ENDING")
-			ret = true;
-			
-		return ret;
-	}
-	
-	void CheckIfVoxActive()
-	{
-		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
-		if (hndlr)
-		{
-			if (hndlr.voxobjs.Size() > 0)
-			{
-				for (int i = 0; i < hndlr.voxobjs.Size(); i++)
-				{
-					if (hndlr.voxobjs[i])
-					{
-						if (hndlr.voxobjs[i].triggered && !hndlr.voxobjs[i].voxdone)
-						{
-							onelinermute = true;
-						}
-						else
-						{
-							onelinermute = false;
-						}
-					}
-				}
 			}
 		}
 	}
