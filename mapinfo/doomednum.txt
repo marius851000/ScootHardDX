@@ -117,6 +117,7 @@ DoomEdNums
 	7001 = SHDX_VendingMachine
 	7002 = SHDX_AuroraDawn
 	7003 = SHDX_AuroraSpot
+	7004 = SHDX_MirrorOneLiner
 	
 	7100 = SHDX_ScootalooE1M1
 	7101 = SHDX_ScootalooE1M4
