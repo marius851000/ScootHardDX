@@ -47,6 +47,7 @@ version "4.3"
 #include "zscript/sharddx/base/base_subtitles.zsc"
 #include "zscript/sharddx/base/base_splash.zsc"
 #include "zscript/sharddx/base/base_switchables.zsc"
+#include "zscript/sharddx/base/base_triggers.zsc"
 #include "zscript/sharddx/base/base_weapon.zsc"
 #include "zscript/sharddx/base/base_vox.zsc"
 

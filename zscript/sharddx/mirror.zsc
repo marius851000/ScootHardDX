@@ -29,13 +29,7 @@ class SHDX_MirrorOneLiner : SecActUseWall
 		pp.A_OneLinerInit(mirrorsnd, OLSSF_NOGRIN);
 	}
 	
-	
-	override bool CanTrigger (Actor triggerer)
-	{
-		return ((triggerer.player && !bFriendly) ||
-			(bAmbush && triggerer.bActivateMCross) ||
-			(bDormant && triggerer.bActivatePCross));
-	}
+	mixin SHDX_TriggerOverride;
 	
 	override bool TriggerAction (Actor triggerer, int activationType)
 	{
@@ -46,6 +40,37 @@ class SHDX_MirrorOneLiner : SecActUseWall
 			{
 				A_SHDX_SendMirrorOL(shdxpl);
 			}
+		}
+		return false;
+	}
+}
+
+class SHDX_SHSDLEasterEggOneLiner : SHDX_Actor 
+{
+	Default
+	{
+		//$Category "Controllers"
+		//$Title "Scoot Hard SDL Easter Egg One-Liner"
+		//$Sprite internal:action
+		
+		Radius 24;
+		Height 32;
+	}
+	
+	void A_SHDX_SendEasterEggOL(SHDX_PlayerPawn pp)
+	{
+		String eggol;	// Darlia?
+		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "thatsme");
+		
+		pp.A_OneLinerInit(eggol);
+	}
+	
+	override bool Used(Actor user)
+	{	
+		let shdxpl = SHDX_PlayerPawn(user);
+		if (shdxpl && shdxpl.player)
+		{
+			A_SHDX_SendEasterEggOL(shdxpl);
 		}
 		return false;
 	}
