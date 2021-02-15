@@ -121,6 +121,7 @@ Class SHDX_Engineer : SHDX_Enemy
 		Tag "$SHDX_TAG_ENGINEER";
 	}
 	
+	int user_bathroom;
 	bool deployedsentry;
 	SHDX_MiniSentry sentry;
 	
@@ -148,6 +149,11 @@ Class SHDX_Engineer : SHDX_Enemy
 					A_SHDX_DropItem("SHDX_SilverBitCoin", false);
 			}
 		}
+	}
+	
+	bool A_CheckIfBathroomEngie()
+	{
+		return (user_bathroom >= 1);
 	}
 	
 	States
@@ -212,7 +218,15 @@ Class SHDX_Engineer : SHDX_Enemy
 			ENG1 P 5
 			{
 				A_NoBlocking();
-				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
+				
+				if (user_bathroom >= 1)
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				}
+				else
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
+				}
 			}
 			ENG1 Q 5;
 			ENG1 R -1 A_SetCorpseShootable;
@@ -222,13 +236,31 @@ Class SHDX_Engineer : SHDX_Enemy
 			ENG1 P 5
 			{
 				A_NoBlocking();
-				A_SHDX_LightningOneLiner();
+				
+				if (A_CheckIfBathroomEngie())
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				}
+				else
+				{
+					A_SHDX_LightningOneLiner();
+				}
 			}
 			ENG1 Q 5;
 			ENG1 R -1 A_SetCorpseShootable;
 			Stop;
 		Ice:
-			ENG1 N 0 A_SHDX_IceOneLiner;
+			ENG1 N 0
+			{
+				if (A_CheckIfBathroomEngie())
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				}
+				else
+				{
+					A_SHDX_IceOneLiner();
+				}
+			}
 			ENG1 N 5
 			{
 				A_GenericFreezeDeath();
@@ -245,15 +277,18 @@ Class SHDX_Engineer : SHDX_Enemy
 				A_DropItemsEngie();
 				A_SpawnGibsFx(self);
 			}
-			Goto Super::Death.Explosive;
-		Death.Weather:
-			GIBX A 3
+			GIBX B 0
 			{
-				A_SHDX_ExtremeScreamAndUnblock();
-				A_DropItemsEngie();
-				A_SpawnGibsFx(self);
+				if (A_CheckIfBathroomEngie())
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				}
+				else
+				{
+					A_SHDX_ExplosiveOneLiner(SHDX_ONELINER_GIB_CHANCE);
+				}
 			}
-			Goto Super::Death.Weather;
+			Goto Super::Death.Extreme+2;
 		Death.Extreme:
 			GIBX A 3
 			{
@@ -261,7 +296,51 @@ Class SHDX_Engineer : SHDX_Enemy
 				A_DropItemsEngie();
 				A_SpawnGibsFx(self);
 			}
-			Goto Super::Death.Extreme;
+			GIBX B 0
+			{
+				if (A_CheckIfBathroomEngie())
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				}
+				else
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+				}
+			}
+			Goto Super::Death.Extreme+2;
+		Death.Weather:
+			GIBX A 3
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsEngie();
+				A_SpawnGibsFx(self);
+			}
+			GIBX B 0
+			{
+				if (A_CheckIfBathroomEngie())
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				}
+				else
+				{
+					A_SHDX_TornadozerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+				}
+			}
+			Goto Super::Death.Extreme+2;
+		Death.Spectrum:
+			GIBR A 4;
+			GIBR B 0
+			{
+				if (A_CheckIfBathroomEngie())
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				}
+				else
+				{
+					A_SHDX_RainbowerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+				}
+			}
+			Goto Super::Death.Spectrum+2;
 		Crush:
 			GIBX D 0 A_SHDX_SquishSound;
 			GIBX D 1;

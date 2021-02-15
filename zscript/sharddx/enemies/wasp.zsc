@@ -196,6 +196,11 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 		tfx.master = self.target;
 		tfx.target = self.target;
 	}
+	
+	bool A_CheckIfOrionWasp()
+	{
+		return (user_orionwasp >= 1);
+	}
 
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
@@ -244,7 +249,7 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 			}
 			WASP L 5
 			{
-				if (user_orionwasp >= 1)
+				if (A_CheckIfOrionWasp())
 				{
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/sorryorion", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				}
@@ -275,10 +280,8 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 				
 				if (!iscorpse)
 					A_SpawnSpectrumPuddle();
-					
 				
-				
-				if (user_orionwasp >= 1)
+				if (A_CheckIfOrionWasp())
 				{
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/sorryorion", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				}

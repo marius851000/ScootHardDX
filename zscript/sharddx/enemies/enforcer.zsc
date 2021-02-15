@@ -512,6 +512,11 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		A_SpawnProjectile("SHDX_Grenade", 40, -4);
 	}
 	
+	bool A_CheckIfFirstEnforcer()
+	{
+		return (user_firstenforcer >= 1);
+	}
+	
 	States
 	{		
 		Spawn:
@@ -584,7 +589,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 			{
 				A_NoBlocking();
 				
-				if (user_firstenforcer >= 1)
+				if (A_CheckIfFirstEnforcer())
 				{
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/enforcer", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				}
@@ -610,7 +615,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		Ice:
 			ENF2 I 0
 			{
-				if (user_firstenforcer >= 1)
+				if (A_CheckIfFirstEnforcer())
 				{
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/enforcer", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				}
