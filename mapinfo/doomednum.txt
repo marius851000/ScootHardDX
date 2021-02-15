@@ -118,11 +118,13 @@ DoomEdNums
 	7002 = SHDX_AuroraDawn
 	7003 = SHDX_AuroraSpot
 	
-	7500 = SHDX_Cutscene1
-	7501 = SHDX_Cutscene2
-	7502 = SHDX_Cutscene3
-	7503 = SHDX_Cutscene4
-	7504 = SHDX_Cutscene5
+	7100 = SHDX_ScootalooE1M1
+	7101 = SHDX_ScootalooE1M4
+	7102 = SHDX_ScootalooE2M4
+	7103 = SHDX_ScootalooCancerMouse
+	7104 = SHDX_ScootalooIlse
+	7105 = SHDX_ScootalooPegasusDeviceKey
+	7106 = SHDX_ScootalooPegasusDeviceFireworks
 	
 	7510 = SHDX_DrAtmosphere1
 	7511 = SHDX_DrAtmosphere2

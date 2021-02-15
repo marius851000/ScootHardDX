@@ -51,19 +51,6 @@ class SHDX_DrAtmosphere3 : SHDX_Vox
 	}
 }
 
-class SHDX_DrAtmosphere4 : SHDX_Vox
-{
-	Default
-	{
-		//$Title "Dr Atmosphere - You Inept Mule!"
-	}
-	
-	override void SetupVoices()
-	{
-		AddVoxEntry("atmosphere/vox/youineptmule", StringTable.Localize("$SHDX_VOX_DRATMOS_4"));
-	}
-}
-
 class SHDX_DrAtmosphere5 : SHDX_Vox
 {
 	Default

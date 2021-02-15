@@ -122,7 +122,7 @@ version "4.3"
 #include "zscript/sharddx/weapons/rainbower.zsc"
 #include "zscript/sharddx/weapons/tornadozer.zsc"
 
-#include "zscript/sharddx/vox/cutscene.zsc"
+#include "zscript/sharddx/vox/events.zsc"
 #include "zscript/sharddx/vox/atmosphere.zsc"
 #include "zscript/sharddx/vox/maimbow.zsc"
 

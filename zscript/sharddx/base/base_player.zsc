@@ -146,7 +146,5 @@ Class SHDX_PlayerPawn : PlayerPawn
 			// any per-second functions go here
 			PerSecondFunctions();
 		}
-		
-		ProcessIdle();
 	}
 }

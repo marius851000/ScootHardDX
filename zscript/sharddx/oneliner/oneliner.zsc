@@ -19,7 +19,11 @@ const SHDX_ONELINER_BOSS_CHANCE = 100;
 enum OneLinerFlags
 {
 	OLSSF_DEFAULT = 0,
-	OLSSF_FORCEONELINER = 1
+	OLSSF_FORCEONELINER = 1,
+	OLSSF_BYPASSMUTE = 2,
+	OLSSF_BYPASSPLAYERPREFIX = 4,
+	OLSSF_NOGRIN = 8,
+
 }
 
 extend class SHDX_Enemy
@@ -34,12 +38,21 @@ extend class SHDX_Enemy
 				snd = pp.A_GetDefaultVoiceOver();
 			}
 			
-			finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
+			if (flags & OLSSF_BYPASSPLAYERPREFIX)
+			{
+				finalsnd = snd;
+			}
+			else
+			{
+				finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
+			}
 			
 			// pp.A_Log("Oneliner: "..finalsnd);
 			
+			if (!(flags & OLSSF_NOGRIN))
+				pp.A_SetMugshotState("Grin");
+			
 			pp.A_OneLinerInit(finalsnd, flags);
-			pp.A_SetMugshotState("Grin");
 		}
 	}
 	
@@ -53,13 +66,22 @@ extend class SHDX_Enemy
 				let pp = SHDX_PlayerPawn(pl.mo);
 				if (pp)
 				{
-					String finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
+					String finalsnd;
+					if (flags & OLSSF_BYPASSPLAYERPREFIX)
+					{
+						finalsnd = snd;
+					}
+					else
+					{
+						finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
+					}
 					pp.A_OneLinerInit(finalsnd, flags);
 					pp.A_SetMugshotState("Grin");
 				}
 			}
 		}
 	}
+	
 	/*	***********************************************
 	 *			A_SHDX_GivePlayerOneLiner();
 	 *		Gives the player a token obbject
@@ -108,6 +130,7 @@ extend class SHDX_PlayerPawn
 	int timetosing;
 	int lockcount;
 	bool onelinermute;
+	bool bypassmute;
 	bool lowervolumeforoneliner;
 	bool queuevolumechange;
 	bool changevolumefordialog;
@@ -157,15 +180,70 @@ extend class SHDX_PlayerPawn
 		if (onelinercount <= 0 || onelinerflags & OLSSF_FORCEONELINER)
 			onelinercount = ONELINER_COOLDOWN_MAX;
 			
+		if (onelinerflags & OLSSF_BYPASSMUTE)
+			bypassmute = true;
+			
 		onelinerflags = flags;
 		
 		onelinersnd = snd;
+	}
+	
+	void A_SHDX_OLSubtitle(String str, Sound snd)
+	{
+		SHDX_Vox.SendSubtitleToHandler(StringTable.Localize(str), SHDX_Vox.GetSecondsFromSound(snd));
+	}
+	
+	// Check if oneliner requires subtitles
+	virtual void A_CheckIfOneLinerRequiresSubtitles(Sound snd)
+	{
+		if (snd == "scootaloo/surprisestart")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS1_1", snd);
+		}
+		else if (snd == "scootaloo/surpriseend")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS1_2", snd);
+		}
+		else if (snd == "scootaloo/enforcer")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_ENFORCER", snd);
+		}
+		else if (snd == "scootaloo/bathroom")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BATHROOM", snd);
+		}
+		else if (snd == "scootaloo/atmospherestart")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS2_1", snd);
+		}
+		else if (snd == "scootaloo/atmosphereend")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS2_2", snd);
+		}
+		else if (snd == "scootaloo/sorryorion")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_ORIONWASP", snd);
+		}
+		else if (snd == "scootaloo/maimbowundashstart")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_1", snd);
+		}
+		else if (snd == "scootaloo/maimbowundashendgood")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_2", snd);
+		}
+		else if (snd == "scootaloo/maimbowundashendbad")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_3", snd);
+		}
 	}
 	
 	void A_OneLinerSound(Sound snd)
 	{		
 		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_OVERLAP, 4.0, ATTN_ONELINER);
 		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_OVERLAP, 4.0, ATTN_ONELINER);
+		
+		A_CheckIfOneLinerRequiresSubtitles(snd);
 	}
 	
 	void A_StopOneLinerSound()
@@ -178,8 +256,10 @@ extend class SHDX_PlayerPawn
 	{
 		if (!A_CheckOneLinerCVar())
 			return;
+		
+		CheckIfVoxActive();
 			
-		if (onelinermute)
+		if (onelinermute && !bypassmute)
 		{
 			onelinercount = 0;
 			return;	
@@ -211,6 +291,7 @@ extend class SHDX_PlayerPawn
 				onelinersnd = "";
 				onelinerhit = false;
 				onelinerflags = 0;
+				bypassmute = false;
 			}
 		}
 	}
@@ -229,37 +310,27 @@ extend class SHDX_PlayerPawn
 		return ret;
 	}
 	
-	void ProcessIdle()
+	void CheckIfVoxActive()
 	{
-		if (!player)
-			return;
-			
-		if (health <= 0)
-			return;
-		
-		if (!A_CheckIfInTitleMapOrCutscene() && A_CheckOneLinerCVar() && !onelinermute)
+		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		if (hndlr)
 		{
-			bool checkmove = (!(player.cmd.forwardmove) && !(player.cmd.sidemove) && !(player.cmd.buttons & BT_FORWARD) && !(player.cmd.buttons & BT_BACK) && !(player.cmd.buttons & BT_MOVELEFT) && !(player.cmd.buttons & BT_MOVERIGHT));
-			bool checkatk = (!(player.cmd.buttons & BT_ATTACK) && !(player.cmd.buttons & BT_ALTATTACK));
-			bool checkuse =  (!(player.cmd.buttons & BT_USE));
-			
-			if (checkmove && checkatk && checkuse)
+			if (hndlr.voxobjs.Size() > 0)
 			{
-				timetosing++;
-			}
-			else
-			{
-				timetosing = 0;
-			}
-			
-			if (timetosing == ONELINER_TIME_TO_SING)
-			{
-				Sound snd1 = String.Format("%s/idle%d", OneLinerPrefix, Random[OneLiner](1, 14));
-				A_OneLinerInit(snd1);
-			}
-			if (timetosing >= ONELINER_TIME_TO_SING_END)
-			{
-				timetosing = 0;
+				for (int i = 0; i < hndlr.voxobjs.Size(); i++)
+				{
+					if (hndlr.voxobjs[i])
+					{
+						if (hndlr.voxobjs[i].triggered && !hndlr.voxobjs[i].voxdone)
+						{
+							onelinermute = true;
+						}
+						else
+						{
+							onelinermute = false;
+						}
+					}
+				}
 			}
 		}
 	}

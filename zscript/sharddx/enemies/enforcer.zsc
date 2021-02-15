@@ -373,6 +373,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			EXPL BCDEFGHI 3 Bright;
 			Stop;
 		Ice:
+			ENF2 I 0 A_SHDX_IceOneLiner;
 			ENFO J 5
 			{
 				A_GenericFreezeDeath();
@@ -498,6 +499,8 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		+SHIELDREFLECT
 	}
 	
+	int user_firstenforcer;
+	
 	void A_GrenadeFire()
 	{
 		A_StartSound("enforcer/grenadef", CHAN_WEAPON);
@@ -573,7 +576,15 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 			ENF2 K 5
 			{
 				A_NoBlocking();
-				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
+				
+				if (user_firstenforcer >= 1)
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/enforcer", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				}
+				else
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
+				}
 			}
 			ENF2 L 5;
 			ENF2 M 85;
@@ -590,6 +601,17 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 			EXPL BCDEFGHI 3 Bright;
 			Stop;
 		Ice:
+			ENF2 I 0
+			{
+				if (user_firstenforcer >= 1)
+				{
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/enforcer", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				}
+				else
+				{
+					A_SHDX_IceOneLiner();
+				}
+			}
 			ENF2 I 5
 			{
 				A_GenericFreezeDeath();

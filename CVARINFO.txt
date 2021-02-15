@@ -1,5 +1,5 @@
-server bool shdx_snd_oneliners = true;		// One Liners
-server bool shdx_rip = true;				// RIP Sound Obituary
+user bool shdx_snd_oneliners = true;		// One Liners
+user bool shdx_rip = true;				// RIP Sound Obituary
 server bool shdx_skipcutscenes = false;		// Skip Cutscenes
 server bool shdx_showextrahitboxes = false;	// Debug - show flag/corpse hitboxes
 
@@ -10,6 +10,7 @@ user bool shdx_bosshealthbar = true;		// Show boss health bar
 server bool shdx_copyrightcensor = false;	// Hide copyright censor
 
 server bool shdx_grafnomode = false;		// Enable Graf No Mode
+server bool shdx_skipvox = false;
 user bool shdx_subtitles = true;			// Disable/Enable Subtitles
 user int shdx_hudmargin = 0;				// hmmm...
 

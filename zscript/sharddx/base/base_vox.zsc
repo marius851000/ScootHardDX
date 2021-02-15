@@ -39,7 +39,6 @@ class SHDX_Vox : SHDX_Actor
 	bool triggered;
 	bool idle;
 	bool voxdone;
-	bool isdeferred;
 	
 	const VOXCHANNELSND = 9999;
 	
@@ -120,7 +119,7 @@ class SHDX_Vox : SHDX_Actor
 		SHDX_Vox.SendSubtitleToHandler(entries[i].subtitle, entries[i].duration);
 	}
 	
-	void SetDeferOtherVoxObjects(bool val)
+	void StopOtherVoxObjects()
 	{
 		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		if (hndlr)
@@ -129,9 +128,10 @@ class SHDX_Vox : SHDX_Actor
 			{
 				for (int i = 0; i < hndlr.voxobjs.Size(); i++)
 				{
-					if (hndlr.voxobjs[i] && hndlr.voxobjs[i] != self)
+					if (hndlr.voxobjs[i] && hndlr.voxobjs[i] != self && hndlr.voxobjs[i].triggered)
 					{
-						hndlr.voxobjs[i].isdeferred = val;
+						hndlr.voxobjs[i].A_StopSound(VOXCHANNELSND);
+						hndlr.voxobjs[i].voxdone = true;
 					}
 				}
 			}
@@ -144,6 +144,10 @@ class SHDX_Vox : SHDX_Actor
 		if (triggered)
 			return;
 		
+		// for debugging
+		if (CVar.GetCVar('shdx_skipvox').GetBool())
+			return;
+		
 		triggered = true;
 	}
 	
@@ -151,18 +155,13 @@ class SHDX_Vox : SHDX_Actor
 	{
 		Super.Tick();
 		
-		if (triggered && !isdeferred && !voxdone)
+		if (triggered && !voxdone)
 		{
-			SetDeferOtherVoxObjects(true);
+			StopOtherVoxObjects();
 			if (!idle)
 			{
 				if (betweensoundsduration == 0)
-				{
-					if (sndindex == 0)
-					{
-						A_SHDX_SetPlayerMuted(true);
-					}
-					
+				{					
 					if (soundplayinduration == 0)
 						A_SHDX_PlayVoxSound(sndindex);
 					
@@ -191,9 +190,8 @@ class SHDX_Vox : SHDX_Actor
 					soundplayinduration = 0;
 					if (sndindex >= entries.Size())
 					{
-						A_SHDX_SetPlayerMuted(false);
 						voxdone = true;
-						SetDeferOtherVoxObjects(false);
+						// SetDeferOtherVoxObjects(false);
 						return;
 					}
 				}
