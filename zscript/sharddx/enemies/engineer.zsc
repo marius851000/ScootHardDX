@@ -219,7 +219,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			{
 				A_NoBlocking();
 				
-				if (user_bathroom >= 1)
+				if (A_CheckIfBathroomEngie())
 				{
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				}
