@@ -170,7 +170,7 @@ Class SHDX_WhipProjectile : SHDX_Projectile
 			if (!vic.bDontThrust)
 			{
 				Vector3 force = vic.Vec3To(target);
-				vic.Vel += force.Unit() * (255. * 64 / max(v.Mass, 4));
+				vic.Vel += force.Unit() * (255. * 64 / max(vic.Mass, 4));
 			}
 		}
 		
