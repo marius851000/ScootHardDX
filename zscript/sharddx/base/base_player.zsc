@@ -132,8 +132,6 @@ Class SHDX_PlayerPawn : PlayerPawn
 		
 		CheckForSecrets();
 		
-		CheckOneLinerSoundOnPlayer();
-		
 		AdjustFrictionForMovement();
 		
 		A_OneLinerProcess();
