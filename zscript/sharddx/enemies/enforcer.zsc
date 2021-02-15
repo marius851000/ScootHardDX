@@ -163,14 +163,18 @@ Class SHDX_WhipProjectile : SHDX_Projectile
 		+SEEKERMISSILE
 	}
 	
-	override int DoSpecialDamage (Actor victim, int damage, Name damagetype)
+	override int DoSpecialDamage(Actor vic, int dmg, Name damagetype)
 	{
-		if (victim != NULL && target != NULL && !victim.bDontThrust)
+		if (vic && target)
 		{
-			Vector3 thrust = victim.Vec3To(target);
-			victim.Vel += thrust.Unit() * (255. * 50 / max(victim.Mass, 1));
+			if (!vic.bDontThrust)
+			{
+				Vector3 force = vic.Vec3To(target);
+				vic.Vel += force.Unit() * (255. * 64 / max(v.Mass, 4));
+			}
 		}
-		return damage;
+		
+		return dmg;
 	}
 	
 	void A_WhipChain()
