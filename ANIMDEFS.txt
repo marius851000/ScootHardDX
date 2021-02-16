@@ -14,12 +14,6 @@ texture TV0_A
 	pic TV0_C tics 2
 	pic TV0_D tics 2
 	
-texture TELE0_A
-	pic TELE0_A tics 5
-	pic TELE0_B tics 5
-	pic TELE0_C tics 5
-	pic TELE0_D tics 5
-	
 Texture	FFIELDM1	Range	FFIELDMA	Tics 2
 
 warp2 flat OWATER01
