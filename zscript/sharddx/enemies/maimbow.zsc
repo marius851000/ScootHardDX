@@ -394,6 +394,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_SHDX_PlayBossTaunt("maimbow/sight", true);
 				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_10", "maimbow/sight");
 			}
+			MBOW A 400;
 		See1:
 			MBOW A 0
 			{
