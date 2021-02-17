@@ -55,14 +55,15 @@ texture M_CWC1
 	pic M_CWC3 tics 2
 	pic M_CWC2 tics 2
 
-Texture	RFALL_1  	Range	RFALL_4  	Tics 8
-Texture	OFALL_1  	Range	OFALL_4  	Tics 8
-Texture	YFALL_1  	Range	YFALL_4  	Tics 8
-Texture	GFALL_1  	Range	GFALL_4  	Tics 8
-Texture	BFALL_1  	Range	BFALL_4  	Tics 8
-Texture	PUFALL_1  	Range	PUFALL_4  	Tics 8
-Texture	BFALL1  	Range	BFALL4  	Tics 8
-Texture	PWFALL1  	Range	PWFALL4  	Tics 8
+Texture	WFALL1  	Range	WFALL4  	Tics 4
+Texture	RFALL_1  	Range	RFALL_4  	Tics 4
+Texture	OFALL_1  	Range	OFALL_4  	Tics 4
+Texture	YFALL_1  	Range	YFALL_4  	Tics 4
+Texture	GFALL_1  	Range	GFALL_4  	Tics 4
+Texture	BFALL_1  	Range	BFALL_4  	Tics 4
+Texture	PUFALL_1  	Range	PUFALL_4  	Tics 4
+Texture	BFALL1  	Range	BFALL4  	Tics 4
+Texture	PWFALL1  	Range	PWFALL4  	Tics 4
 
 Texture SAWB_1      Range	SAWB_3		Tics 3
 
