@@ -118,6 +118,18 @@ splash SpectraPurpleDD
 	noalert
 }
 
+splash BloodDD
+{
+	smallclass		SHDX_SpectraSplashRedSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashRedBig
+	chunkclass		SHDX_SpectraSplashRedSmall
+	sound			world/watersplash
+	noalert
+}
+
 terrain WaterDD
 {
 	splash				WaterSplashDD
@@ -230,6 +242,13 @@ terrain PurpleSpectra
 	liquid
 }
 
+terrain Blood
+{
+	splash				BloodDD
+	footclip			4
+	liquid
+}
+
 floor "OWATER01" WaterDD
 floor "PWATER01" PWaterDD
 
@@ -243,3 +262,5 @@ floor "BSPECF0" BlueSpectra
 floor "PUSPECF0" PurpleSpectra
 
 floor "F_NUKE" RegularNukage
+
+floor "BLOODFLT" Blood
