@@ -120,12 +120,12 @@ splash SpectraPurpleDD
 
 splash BloodDD
 {
-	smallclass		SHDX_SpectraSplashRedSmall
+	smallclass		SHDX_BloodSplashRedSmall
 	smallclip		12
 	smallsound		world/smallsplash
 
-	baseclass		SHDX_SpectraSplashRedBig
-	chunkclass		SHDX_SpectraSplashRedSmall
+	baseclass		SHDX_BloodSplashRedBig
+	chunkclass		SHDX_BloodSplashRedSmall
 	sound			world/watersplash
 	noalert
 }
