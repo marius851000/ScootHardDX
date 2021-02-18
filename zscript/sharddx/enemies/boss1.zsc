@@ -45,8 +45,6 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		PainChance "Ice", 64;
 		DamageFactor "Bullet", 0.50;
 		DamageFactor "Explosive", 0.75;
-		DamageFactor "Chicken", 0.00;
-		DamageFactor "ChickenX", 0.00;
 		DamageFactor "Spectrum", 0.10;
 		DamageFactor "Ice", 0.35;
 		// SeeSound "boss1/sight";

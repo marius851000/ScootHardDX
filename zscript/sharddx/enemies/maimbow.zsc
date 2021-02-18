@@ -86,7 +86,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		//$Sprite MBOWA1
 		//$Title "Boss 3 - Maimbow Undash"
 		
-		Health 3500;
+		Health 5000;
 		Radius 20;
 		Height 56;
 		Mass 100;
@@ -97,11 +97,9 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		PainChance "Lightning", 128;
 		PainChance "Ice", 64;
 		DamageFactor "Bullet", 0.50;
-		DamageFactor "Explosive", 0.75;
-		DamageFactor "Chicken", 0.00;
-		DamageFactor "ChickenX", 0.00;
-		DamageFactor "Spectrum", 0.10;
-		DamageFactor "Ice", 0.35;
+		DamageFactor "Explosive", 0.67;
+		DamageFactor "Spectrum", 0.15;
+		DamageFactor "Ice", 0.67;
 		// SeeSound "maimbow/sight";
 		DeathSound "maimbow/death";
 		Obituary "$SHDX_OB_MAIMBOW";
