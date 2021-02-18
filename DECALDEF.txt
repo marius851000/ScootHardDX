@@ -336,3 +336,10 @@ decal SewerCount 21
 	x-scale 0.12
 	y-scale 0.12
 }
+
+decal AtmosphereScore 22
+{
+	pic "graphics/decals/atmosphere_music.png"
+	x-scale 0.08
+	y-scale 0.08
+}
