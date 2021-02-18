@@ -141,3 +141,16 @@ class SHDX_Maimbow10 : SHDX_Vox
 		AddVoxEntry("maimbow/vox/finaleintro2", StringTable.Localize("$SHDX_VOX_MAIMBOW_10"));
 	}
 }
+
+class SHDX_Maimbow14 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Maimbow - Laugh"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("maimbow/vox/laugh", StringTable.Localize("$SHDX_VOX_MAIMBOW_14"));
+	}
+}

@@ -147,4 +147,5 @@ DoomEdNums
 	7537 = SHDX_Maimbow8
 	7538 = SHDX_Maimbow9
 	7539 = SHDX_Maimbow10
+	7540 = SHDX_Maimbow14
 }
