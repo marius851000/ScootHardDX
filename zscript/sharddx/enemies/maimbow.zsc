@@ -842,113 +842,92 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW KLMN 1 A_FaceTarget;
 			MBOW KLMN 1 A_FaceTarget;
 			MBOW KLMN 1 A_FaceTarget;
-			MBOW Q 0 A_StartSound("maimbow/charge", CHAN_7);
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
 				A_MaimbowResetAttackType();
-				A_FlyTowardsTarget();
 				A_FlapWings();
 			}
-			MBOW S 2 Bright
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW T 2
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW Q 5
-			{
-				A_FaceTarget();
-			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
 				A_SHDX_PlayBossTaunt("maimbow/chainguncall");
-				A_FlyTowardsTarget();
 				A_FlapWings();
 			}
-			MBOW S 2 Bright
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW T 2
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW Q 5
-			{
-				A_FlyTowardsTarget();
-			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
-				A_FlyTowardsTarget();
 				A_FlapWings();
 			}
-			MBOW S 2 Bright
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW T 2
-			{
-				A_FlyTowardsTarget();
-			}
+			MBOW S 2 Bright;
+			MBOW T 2;
 			MBOW O 0
 			{
 				A_FaceTarget();
 			}
-			MBOW Q 0 A_StartSound("maimbow/charge", CHAN_7);
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
-				A_FlyTowardsTarget();
+				A_MaimbowResetAttackType();
 				A_FlapWings();
 			}
-			MBOW S 2 Bright
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
+			MBOW R 2 Bright
 			{
-				A_FlyTowardsTarget();
+				A_MaimbowFireChaingunWithSound();
+				A_SHDX_PlayBossTaunt("maimbow/chainguncall");
+				A_FlapWings();
 			}
-			MBOW T 2
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
+			MBOW R 2 Bright
 			{
-				A_FlyTowardsTarget();
+				A_MaimbowFireChaingunWithSound();
+				A_FlapWings();
 			}
-			MBOW Q 5
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW O 0
 			{
 				A_FaceTarget();
 			}
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
-				A_FlyTowardsTarget();
+				A_MaimbowResetAttackType();
 				A_FlapWings();
 			}
-			MBOW S 2 Bright
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW T 2
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW Q 5
-			{
-				A_FlyTowardsTarget();
-			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
-				A_FlyTowardsTarget();
+				A_SHDX_PlayBossTaunt("maimbow/chainguncall");
 				A_FlapWings();
 			}
-			MBOW S 2 Bright
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
+			MBOW R 2 Bright
 			{
-				A_FlyTowardsTarget();
+				A_MaimbowFireChaingunWithSound();
+				A_FlapWings();
 			}
-			MBOW T 2
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW O 0
 			{
-				A_FlyTowardsTarget();
+				A_FaceTarget();
 			}
 			MBOW O 0
 			{
