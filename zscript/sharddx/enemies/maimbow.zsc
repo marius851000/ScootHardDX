@@ -553,8 +553,9 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			Loop;
 		See:
+			MBOW A 80;
 			MBOW A 0 A_MaimbowSetBossMusic;
-			MBOW X 0 A_SHDX_BossJumpOverIntroState;
+			MBOW A 0 A_SHDX_BossJumpOverIntroState;
 			MBOW A 0
 			{
 				bCanJump = false;
