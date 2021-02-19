@@ -1062,6 +1062,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW W 2 Bright
 			{
 				A_MaimbowHailerAttack();
+				A_MaimbowResetAttackType();
 				A_FlyTowardsTarget();
 				A_FlapWings();
 			}
