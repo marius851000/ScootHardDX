@@ -12,13 +12,77 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+Class SHDX_BossSpot2 : SpecialSpot
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Boss Teleport Spot 2"
+		
+		+Invisible
+	}
+}
+
+Class SHDX_BossSpotMaimbowStage2 : SHDX_Actor
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Maimbow Stage 2 Spot"
+		
+		+Invisible
+		+NOBLOCKMAP
+	}
+}
+
+Class SHDX_BossSpotScootalooStage2 : SHDX_Actor
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Scootaloo Stage 2 Spot"
+		
+		+Invisible
+		+NOBLOCKMAP
+	}
+}
+
+Class SHDX_BossSpotMaimbowStage3 : SHDX_Actor
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Maimbow Stage 3 Spot"
+		
+		+Invisible
+		+NOBLOCKMAP
+	}
+}
+
+Class SHDX_BossSpotScootalooStage3 : SHDX_Actor
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Scootaloo Stage 3 Spot"
+		
+		+Invisible
+		+NOBLOCKMAP
+	}
+}
+
 Class SHDX_MaimbowMissile : SHDX_Missile
 {
 	Default
 	{
 		Radius 11;
 		Height 8;
-		Speed 20;
+		Speed 30;
 		Damage 6;
 		Projectile;
 		+RANDOMIZE
@@ -100,6 +164,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		DamageFactor "Explosive", 0.67;
 		DamageFactor "Spectrum", 0.15;
 		DamageFactor "Ice", 0.67;
+		DamageFactor "Disintegrate", 0.00;
 		// SeeSound "maimbow/sight";
 		DeathSound "maimbow/death";
 		Obituary "$SHDX_OB_MAIMBOW";
@@ -121,9 +186,19 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	const MAIMBOW_ATTACK_ICE = 3;
 	const MAIMBOW_ATTACK_RAINBOWER = 4;
 	const MAIMBOW_ATTACK_TORNADOZER = 5;
+	const MAIMBOW_ATTACK_CHAINGUN = 6;
+	
+	const MAIMBOWFLYCOUNT = 20;
+	const MAIMBOWFLYCOUNTTHIRDSTAGE = MAIMBOWFLYCOUNT * 3;
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
+		if (mod == 'Disintegrate')
+		{
+			A_Teleport("See2", "SHDX_BossSpot2", "SHDX_TeleportFog", 0);
+			return 0;
+		}
+		
 		if (attacktype == MAIMBOW_ATTACK_NONE)
 		{
 			if (mod  == 'Explosive')
@@ -136,6 +211,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				attacktype = MAIMBOW_ATTACK_RAINBOWER;
 			else if (mod == 'Weather')
 				attacktype = MAIMBOW_ATTACK_TORNADOZER;
+			else if (mod == 'Bullet')
+				attacktype = MAIMBOW_ATTACK_CHAINGUN;
 		}
 		
 		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
@@ -176,16 +253,17 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		A_SHDX_PlayBossTaunt("maimbow/taunt"..Random[Maimbow](1,16));
 	}
 	
-	void A_SetMaimbowStage1()
-	{
-		SetStateLabel("MaimbowTeleport1");
-		maimbowstage = 1;
-	}
-	
 	void A_SetMaimbowStage2()
 	{
+		SetStateLabel("MaimbowTeleport1");
+		maimbowstage = MAIMBOW_STAGE_2;
+	}
+	
+	void A_SetMaimbowStage3()
+	{
 		SetStateLabel("MaimbowTeleport2");
-		maimbowstage = 2;
+		A_Stage3Teleportation();
+		maimbowstage = MAIMBOW_STAGE_3;
 	}
 	
 	void A_SHDX_MaimbowBossPlayCutscene()
@@ -254,6 +332,88 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		A_StartSound("maimbow/wings", CHAN_6);
 	}
 	
+	void A_TeleportMaimbow(Vector3 p, double ang)
+	{
+		self.Teleport(p, ang, 0);
+	}
+	
+	const TELEPORT_OFFSET = 48;
+	
+	void A_TeleportPlayers(Vector3 p, double ang)
+	{
+		double ang2 = ang;
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo && pl.mo.player)
+			{
+				Vector3 pos2 = p;
+				if (i > 0)
+				{
+					ang2 += 22.5;
+					pos2.x = TELEPORT_OFFSET * cos(ang2);
+					pos2.y = TELEPORT_OFFSET * sin(ang2);
+				}
+				
+				players[i].mo.A_Stop();
+				players[i].mo.SetStateLabel("Spawn");
+				players[i].mo.vel.x = 0;
+				players[i].mo.vel.y = 0;
+				players[i].mo.vel.z = 0;
+				
+				pl.cheats |= CF_TOTALLYFROZEN;
+				
+				players[i].mo.A_SetBlend("FFFFFF", 1.0, 70);
+				players[i].mo.Teleport(pos2, ang2, 0);
+			}
+		}
+	}
+	
+	void A_UnfreezePlayers()
+	{
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo)
+			{
+				pl.cheats &= ~CF_TOTALLYFROZEN;
+			}
+		}
+	}
+	
+	void A_Stage2Teleportation()
+	{
+		let hnd = SHDX_MaimbowHandler(EventHandler.Find("SHDX_MaimbowHandler"));
+		if (hnd)
+		{
+			hnd.SetTickerForWasps();
+			if (hnd.stage2maimbowspot)
+			{
+				A_TeleportMaimbow(hnd.stage2maimbowspot.pos, hnd.stage2maimbowspot.angle);
+			}
+			if (hnd.stage2scootaloospot)
+			{
+				A_TeleportPlayers(hnd.stage2scootaloospot.pos, hnd.stage2scootaloospot.angle);
+			}
+		}
+	}
+	
+	void A_Stage3Teleportation()
+	{
+		let hnd = SHDX_MaimbowHandler(EventHandler.Find("SHDX_MaimbowHandler"));
+		if (hnd)
+		{
+			if (hnd.stage3maimbowspot)
+			{
+				A_TeleportMaimbow(hnd.stage3maimbowspot.pos, hnd.stage3maimbowspot.angle);
+			}
+			if (hnd.stage3scootaloospot)
+			{
+				A_TeleportPlayers(hnd.stage3scootaloospot.pos, hnd.stage3scootaloospot.angle);
+			}
+		}
+	}
+	
 	override void Tick()
 	{
 		Super.Tick();
@@ -277,7 +437,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	void A_MaimbowHailerAttack()
 	{
 		int ang = 16;
-		if (maimbowstage >= 2)
+		if (maimbowstage >= MAIMBOW_STAGE_3)
 		{
 			ang = 8;
 		}
@@ -291,7 +451,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	void A_MaimbowLightningAttack()
 	{
 		int ang = 16;
-		if (maimbowstage >= 2)
+		if (maimbowstage >= MAIMBOW_STAGE_3)
 		{
 			ang = 8;
 		}
@@ -309,7 +469,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	void A_MaimbowExplosionLine()
 	{
-		if (maimbowstage >= 2)
+		if (maimbowstage >= MAIMBOW_STAGE_3)
 		{
 			A_SpawnProjectile("SHDX_PegaWizExplosiveLine", angle:-12);
 			A_SpawnProjectile("SHDX_PegaWizExplosiveLine");
@@ -328,7 +488,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	void A_MaimbowFireTornadozer()
 	{
-		if (maimbowstage >= 2)
+		if (maimbowstage >= MAIMBOW_STAGE_3)
 		{
 			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz", spawnofs_xy:-16, angle:-30);
 			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz");
@@ -356,6 +516,15 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		bNoGravity = false;
 		bFloat = false;
 		bCanJump = true;
+	}
+	
+	void A_MaimbowWarpAboutSecondArena()
+	{
+		if (maimbowstage == MAIMBOW_STAGE_2)
+		{
+			if (Random[MaimbowTeleport](0, 255) < 56)
+				A_Teleport("See2", "SHDX_BossSpot", "SHDX_TeleportFog", 0);
+		}
 	}
 	
 	States
@@ -414,6 +583,15 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW BCDE 2 A_Chase;
 			// MBOW B 0 A_StartSound("pony/walk2", CHAN_BODY);
 			MBOW BCDE 2 A_Chase;
+			MBOW E 0 A_MaimbowWarpAboutSecondArena;
+			MBOW E 0
+			{
+				if (maimbowstage >= MAIMBOW_STAGE_3)
+				{
+					return ResolveState("StartFlying");
+				}
+				return ResolveState(null);
+			}
 			MBOW E 0 A_Jump(32, "StartFlying");
 			Loop;
 		See2.Flying:
@@ -423,10 +601,11 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_Chase(null, "Missile.Flying");
 			}
 			MBOW LMN 4 A_Chase(null, "Missile.Flying");
+			MBOW E 0 A_MaimbowWarpAboutSecondArena;
 			MBOW N 0
 			{
 				flyingmode++;
-				if (flyingmode >= 15)
+				if (maimbowstage <= MAIMBOW_STAGE_2 && flyingmode >= MAIMBOWFLYCOUNT)
 					return ResolveState("StopFlying");
 					
 				return ResolveState(null);
@@ -447,7 +626,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				if (attacktype > MAIMBOW_ATTACK_NONE)
 					return ResolveState("Missile.Retaliate");
 				
-				if (maimbowstage == 1)
+				if (maimbowstage == MAIMBOW_STAGE_2)
 					return ResolveState("Missile2");
 				
 				return ResolveState("Missile1");
@@ -465,6 +644,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_SHDX_PlayBossTaunt("maimbow/chainguncall");
 			}
 			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW H 0 Bright A_MaimbowResetAttackType();
 			MBOW I 3 Bright A_FaceTarget;
 			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
 			MBOW I 3 Bright A_FaceTarget;
@@ -568,12 +748,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW FG 2 Bright A_MaimbowHailerAttack();
 			Goto See2;
 		Missile.Retaliate.Lightning:
-			MBOW A 0
-			{
-				A_StopSound(CHAN_BODY);
-				A_StartSound("zombie/overcharge", CHAN_7);
-			}
-			MBOW A 24 A_FaceTarget;
+			MBOW A 5 A_FaceTarget;
 			MBOW F 0
 			{
 				A_MaimbowTaunt();
@@ -637,11 +812,16 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				if (attacktype > MAIMBOW_ATTACK_NONE)
 					return ResolveState("Missile.Flying.Retaliate");
 					
-				if (maimbowstage == 1)
+				if (maimbowstage == MAIMBOW_STAGE_3)
+					return ResolveState("Missile.Flying2");
+					
+				if (maimbowstage == MAIMBOW_STAGE_2)
 					return ResolveState("Missile.Flying1");
 				
 				return ResolveState("Missile.Flying0");
 			}
+		Missile.Flying2:
+			MBOW I 0 A_Jump(256, "Missile.Flying.Rocket");
 		Missile.Flying1:
 			MBOW I 0 A_Jump(256, "Missile.Flying.Rocket", "Missile.Flying.Chaingun");
 		Missile.Flying0:
@@ -660,6 +840,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
 				A_FlyTowardsTarget();
 				A_FlapWings();
 			}
@@ -811,12 +992,14 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 					case MAIMBOW_ATTACK_TORNADOZER:
 						return ResolveState("Missile.Flying.Retaliate.Tornadozer");
 						break;
+					case MAIMBOW_ATTACK_CHAINGUN:
+						return ResolveState("Missile.Flying.Chaingun");
+						break;
 					default:
-					case MAIMBOW_ATTACK_NONE:
 						break;
 				}
 				
-				return ResolveState("Missile.Flying.Chaingun");
+				return ResolveState("Missile.Flying.Rocket");
 			}
 		Missile.Flying.Retaliate.Explosive:
 			MBOW V 5
@@ -841,17 +1024,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			goto See2;
 		Missile.Flying.Retaliate.Lightning:
-			MBOW O 0
-			{
-				A_StartSound("zombie/overcharge", CHAN_7);
-				A_FaceTarget();
-			}
-			MBOW KLMN 1 A_FaceTarget;
-			MBOW KLMN 1 A_FaceTarget;
-			MBOW KLMN 1 A_FaceTarget;
-			MBOW KLMN 1 A_FaceTarget;
-			MBOW KLMN 1 A_FaceTarget;
-			MBOW N 0 A_StopSound(CHAN_7);
 			MBOW V 5
 			{
 				A_FaceTarget();
@@ -953,10 +1125,12 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW A 10
 			{
 				A_SetInvulnerable();
+				A_Stage2Teleportation();
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
 				A_RemoveLight('maimbowlight');
 			}
+			MBOW A 10 A_UnfreezePlayers;
 			MBOW A 0
 			{
 				A_SHDX_PlayBossTaunt("maimbow/phase2", true);
@@ -978,10 +1152,12 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW A 10
 			{
 				A_SetInvulnerable();
+				A_Stage3Teleportation();
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
 				A_RemoveLight('maimbowlight');
 			}
+			MBOW A 10 A_UnfreezePlayers;
 			MBOW A 0
 			{
 				A_SHDX_PlayBossTaunt("maimbow/phase3", true);
@@ -1001,13 +1177,13 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		Pain:
 			MBO2 A 0
 			{
-				if (maimbowstage == 0 && health <= (SpawnHealth() * 0.667))
-				{
-					A_SetMaimbowStage1();
-				}
-				if (maimbowstage == 1 && health <= (SpawnHealth() * 0.333))
+				if (maimbowstage == MAIMBOW_STAGE_1 && health <= (SpawnHealth() * 0.667))
 				{
 					A_SetMaimbowStage2();
+				}
+				if (maimbowstage == MAIMBOW_STAGE_2 && health <= (SpawnHealth() * 0.333))
+				{
+					A_SetMaimbowStage3();
 				}
 			}
 			MBO2 A 0

@@ -157,13 +157,12 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		TeleportAboutInitial:
 			SURP D 2 A_SetTranslucent(0.5, 0);
 			SURP D 1;
-			SURP D 0 A_Teleport("JustTeleportedInitial", "SHDX_BossSpot", "SHDX_NoFlash", 0);
+			SURP D 0 A_Teleport("JustTeleportedInitial", "SHDX_BossSpot", "SHDX_TeleportFog", 0);
 			SURP D 1;
 			Goto See3;
 		JustTeleportedInitial:
 			SURP D 0 A_UnSetInvulnerable();
 			SURP D 0 A_AttachLightDef('surpriselight', 'SHDX_BOSSLIGHT');
-			SURP D 0 A_SpawnItemEx("SHDX_TeleportFog", flags:SXF_NOCHECKPOSITION);
 			SURP D 3 A_SetTranslucent(1.0, 0);
 			SURP D 3 A_StartSound("boss1/active", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 			goto Missile;
@@ -382,33 +381,5 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 			thingtodmg.DamageMobj (self.target, self.target, 15, 'Weather');
 		}
 		return -1;
-	}
-}
-
-Class SHDX_RocketGuardSpot : SHDX_Actor
-{
-	Default
-	{
-		//$Category "Monsters"
-		//$Sprite ZMCLB0
-		//$Title "Surprise Rocket Guard Spawning Spot"
-		Radius 16;
-		Height 56;
-		
-		+NOBLOCKMAP
-	}
-	
-	States
-	{
-		Spawn:
-			TNT1 A 4;
-			Loop;
-		SpawnInRocketGuard:
-			TNT1 A 0
-			{
-				A_SpawnItemEx("SHDX_TeleportFog", flags:SXF_NOCHECKPOSITION);
-				A_SpawnItemEx("SHDX_RocketGuard", flags:SXF_NOCHECKPOSITION);
-			}
-			Goto Spawn;
 	}
 }

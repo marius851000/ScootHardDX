@@ -38,6 +38,10 @@ const CHAN_VENDINGUSE = 9;
 const CHAN_ARMORHIT = 99;
 
 const SHDXRUNNINGOUTTICS = 140;
+	
+const MAIMBOW_STAGE_1 = 0;
+const MAIMBOW_STAGE_2 = 1;
+const MAIMBOW_STAGE_3 = 2;
 
 // Weapon Overlay IDs
 // TODO: Add to Weapons class?

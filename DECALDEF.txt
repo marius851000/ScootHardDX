@@ -343,3 +343,76 @@ decal AtmosphereScore 22
 	x-scale 0.08
 	y-scale 0.08
 }
+
+
+
+// Blood Splat Decals
+decal PlaceableBloodSplat1 23
+{
+	pic BSPLAT1
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat2 24
+{
+	pic BSPLAT2
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat3 25
+{
+	pic BSPLAT3
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat4 26
+{
+	pic BSPLAT4
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat5 27
+{
+	pic BSPLAT5
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat6 28
+{
+	pic BSPLAT6
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat7 29
+{
+	pic BSPLAT7
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}

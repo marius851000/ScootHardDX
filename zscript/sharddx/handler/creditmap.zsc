@@ -257,7 +257,7 @@ class SHDX_CreditMapEvent : EventHandler
 		PlayerInfo player = players[e.PlayerNumber];
 		if (player)
 		{
-			player.cheats |= ~CF_TOTALLYFROZEN;
+			player.cheats &= ~CF_TOTALLYFROZEN;
 		}
 	}
 	
