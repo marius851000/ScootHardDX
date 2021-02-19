@@ -180,6 +180,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	int attacktype;
 	
+	int teleportcounter;
+	
 	const MAIMBOW_ATTACK_NONE = 0;
 	const MAIMBOW_ATTACK_EXPLOSIVE = 1;
 	const MAIMBOW_ATTACK_LIGHTNING = 2;
@@ -250,7 +252,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	void A_MaimbowTaunt()
 	{
-		A_SHDX_PlayBossTaunt("maimbow/taunt"..Random[Maimbow](1,16));
+		A_SHDX_PlayBossTaunt("maimbow/taunt"..Random[Maimbow](1,11));
 	}
 	
 	void A_SetMaimbowStage2()
@@ -523,12 +525,22 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		bCanJump = true;
 	}
 	
+	const MAIMBOW_TELEPORT_COUNTER_MAX = 6;
+	
 	void A_MaimbowWarpAboutSecondArena()
 	{
 		if (maimbowstage == MAIMBOW_STAGE_2)
 		{
-			if (Random[MaimbowTeleport](0, 255) < 56)
+			teleportcounter++;
+			
+			if (teleportcounter >= MAIMBOW_TELEPORT_COUNTER_MAX)
+				teleportcounter = MAIMBOW_TELEPORT_COUNTER_MAX;
+			
+			if (Random[MaimbowTeleport](0, 255) < 56 && teleportcounter >= MAIMBOW_TELEPORT_COUNTER_MAX)
+			{
+				teleportcounter = 0;
 				A_Teleport("See2", "SHDX_BossSpot", "SHDX_TeleportFog", 0);
+			}
 		}
 	}
 	
@@ -611,7 +623,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW N 0
 			{
 				flyingmode++;
-				if (maimbowstage <= MAIMBOW_STAGE_2 && flyingmode >= MAIMBOWFLYCOUNT)
+				
+				if ((maimbowstage >= MAIMBOW_STAGE_3 && flyingmode >= MAIMBOWFLYCOUNT * 2) || (maimbowstage <= MAIMBOW_STAGE_2 && flyingmode >= MAIMBOWFLYCOUNT))
 					return ResolveState("StopFlying");
 					
 				return ResolveState(null);
@@ -632,7 +645,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				if (attacktype > MAIMBOW_ATTACK_NONE)
 					return ResolveState("Missile.Retaliate");
 				
-				if (maimbowstage == MAIMBOW_STAGE_2)
+				if (maimbowstage >= MAIMBOW_STAGE_2)
 					return ResolveState("Missile2");
 				
 				return ResolveState("Missile1");
@@ -647,7 +660,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			{
 				A_FaceTarget();
 				A_StartSound("maimbow/chaingunwindup", CHAN_WEAPON);
-				A_SHDX_PlayBossTaunt("maimbow/chainguncall");
 			}
 			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
 			MBOW H 0 Bright A_MaimbowResetAttackType();
@@ -854,7 +866,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
-				A_SHDX_PlayBossTaunt("maimbow/chainguncall");
 				A_FlapWings();
 			}
 			MBOW S 2 Bright;
@@ -883,7 +894,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
-				A_SHDX_PlayBossTaunt("maimbow/chainguncall");
 				A_FlapWings();
 			}
 			MBOW S 2 Bright;
@@ -912,7 +922,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
-				A_SHDX_PlayBossTaunt("maimbow/chainguncall");
 				A_FlapWings();
 			}
 			MBOW S 2 Bright;
