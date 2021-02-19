@@ -434,6 +434,11 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		}
 	}
 	
+	void A_MaimbowAutosave()
+	{
+		level.MakeAutosave();
+	}
+	
 	void A_MaimbowHailerAttack()
 	{
 		int ang = 16;
@@ -1133,6 +1138,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_RemoveLight('maimbowlight');
 			}
 			MBOW A 10 A_UnfreezePlayers;
+			MBOW A 1 A_MaimbowAutosave;
 			MBOW A 0
 			{
 				A_SHDX_PlayBossTaunt("maimbow/phase2", true);
@@ -1160,6 +1166,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_RemoveLight('maimbowlight');
 			}
 			MBOW A 10 A_UnfreezePlayers;
+			MBOW A 1 A_MaimbowAutosave;
 			MBOW A 0
 			{
 				A_SHDX_PlayBossTaunt("maimbow/phase3", true);
