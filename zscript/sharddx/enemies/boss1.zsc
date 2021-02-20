@@ -90,6 +90,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 	override void MarkPreCacheSounds()
 	{
 		Super.MarkPreCacheSounds();
+		
 		Sound snd;
 		for (int i = 1; i < 7; i++)
 		{
@@ -102,6 +103,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 	{
 		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
 		int i;
+		
 		while (i = sit.Next())
 		{
 			if (i == -1)
@@ -114,6 +116,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			s.SetGlowColor(Sector.floor, "00FF00");
 			s.SetGlowHeight(Sector.floor, 64);
 		}
+		
 		floorlowered = true;
 	}
 	
@@ -219,9 +222,8 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			SURP A 0
 			{
 				if (!floorlowered && health <= (SpawnHealth() / 2))
-				{
 					return ResolveState("SeeFloorPeelaway");
-				}
+				
 				return ResolveState(null);
 			}
 			SURP H 5

@@ -43,8 +43,11 @@ Class SHDX_ErrorHandler : StaticEventHandler
 	override void WorldLoaded(WorldEvent e)
 	{
 		if (!e.IsSaveGame) return;
+		
 		let ti = ThinkerIterator.Create("SHDX_SaveVersionData", Thinker.STAT_STATIC);
+		
 		let svd = SHDX_SaveVersionData(ti.Next());
+		
 		if (!svd)
 		{
 			tainted = true;
@@ -52,7 +55,9 @@ Class SHDX_ErrorHandler : StaticEventHandler
 			Console.PrintF("\cg"..StringTable.Localize("$SHDX_WARNING").." \cj"..StringTable.Localize("$SHDX_LOADEDNOVERDATA"));
 			return;
 		}
+		
 		String cver = StringTable.Localize("$SHDX_BUILDNUM");
+		
 		if (svd.ver != cver)
 		{
 			tainted = true;
@@ -74,6 +79,7 @@ Class SHDX_ErrorHandler : StaticEventHandler
 		for (int i = 0; i < MAXPLAYERS; i++)
 		{
 			String un = players[i].GetUserName();
+			
 			if (un ~== "nukkus" || un ~== "haruka mishima")
 			{
 				Console.PrintF(StringTable.Localize("$SHDX_NUKKUSWARN"));
@@ -92,6 +98,7 @@ Class SHDX_ErrorHandler : StaticEventHandler
 		else if ( (gamestate == GS_FULLCONSOLE) && ((wasinmap && !players[consoleplayer].viewheight) || (timer > 0)) )
 		{
 			wasinmap = false;
+			
 			if ( timer == 1 )
 			{
 				Console.Printf("\cf"..StringTable.Localize("$SHDX_CRASHMESSAGE"));
@@ -108,6 +115,7 @@ Class SHDX_ErrorHandler : StaticEventHandler
 			{
 				Console.Printf("\cf"..StringTable.Localize("$SHDX_CRASHNOBRUTALDOOM"));
 			}
+			
 			timer++;
 		}
 	}
@@ -123,9 +131,7 @@ Class SHDX_ErrorHandler : StaticEventHandler
 		if (e.Name ~== "triggerabort" && e.isManual)
 		{
 			if (players[e.Player].mo)
-			{
 				players[e.Player].mo.ThrowAbortException(StringTable.Localize("$SHDX_MANUALCRASHABORT"));
-			}
 		}
 	}
 }

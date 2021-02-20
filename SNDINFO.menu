@@ -27,9 +27,10 @@ $alias misc/chatdd					menu/prompt			// Chat Ping
 // Intermission
 intermission/tick				"sounds/switches/switch_push.ogg"
 intermission/cooptotal			"sounds/switches/switch_push.ogg"
-intermission/nextstage			"sounds/weapons/pistol.ogg"
+intermission/nextstage			"sounds/weapons/blaster.ogg"
 intermission/paststats			"sounds/switches/switch_reset.ogg"
 intermission/pastcoopstats		"sounds/switches/switch_reset.ogg"
-intermission/pastdmstats		"sounds/weapons/pistol.ogg"
+intermission/pastdmstats		"sounds/weapons/blaster.ogg"
 
 mac/crash							"sounds/ui/maccrash2.ogg"
+error/sweetiebelle		"sounds/error_sweetie.ogg"

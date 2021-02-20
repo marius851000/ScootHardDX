@@ -108,9 +108,7 @@ Class SHDX_MiniSentry : SHDX_Enemy
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		if (source && source == master || source && source.GetSpecies() == 'Pony')
-		{
 			damage = 0;
-		}
 		
 		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
 	}
@@ -131,9 +129,7 @@ Class SHDX_MiniSentry : SHDX_Enemy
 			MSNT A 0
 			{
 				if (Random[Sentry](0, 3) == 1)
-				{
 					A_StartSound("minisentry/scan", CHAN_BODY);
-				}
 			}
 			Loop;
 		Missile:
@@ -230,7 +226,6 @@ Class SHDX_SpectraSentry : SHDX_MiniSentry
 			EXPL A 0
 			{
 				A_StartSound("minisentry/explode", CHAN_7);
-				// A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnMetalJunk2Fx(self);
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);

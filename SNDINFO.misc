@@ -30,11 +30,6 @@ misc/foodcook			"sounds/FRIED01.ogg"		// Frying noise
 world/lava				"sounds/FRIED01.ogg"		// When in lava, you'll burn...
 world/glassbreak		"sounds/glass_break.ogg"	// Breaking Glass Noise		
 
-// Animated Doors Noises
-doors/metalo			"sounds/doom_door_open.ogg"
-doors/metalc			"sounds/doom_door_close.ogg"
-// End Animated Door Noises
-
 world/splash			"sounds/splash02.ogg"	// Splashing noise
 
 world/quake				"sounds/quake.ogg"
@@ -71,10 +66,9 @@ $rolloff rain_sound linear 150 400
 
 $limit rain_sound 4
 
-disclaimer/ooga			"sounds/ooga.ogg"
-
 aurora/sight1			"sounds/aurora.ogg"
 aurora/sight2			"sounds/aurora2.ogg"
+
 $random aurora/sight
 {
 	aurora/sight1
@@ -86,5 +80,3 @@ credits/bordeaux		"sounds/bordeaux.ogg"
 armor/hit				"sounds/hullhit.ogg"
 
 misc/explosionpegasusdevice	"sounds/pegadevice_explosion.ogg"
-
-error/sweetiebelle		"sounds/error_sweetie.ogg"

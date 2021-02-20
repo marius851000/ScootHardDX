@@ -21,14 +21,12 @@ class SHDX_Handler : EventHandler
 	
 	override void WorldTick()
 	{
-		// BossInfoTick();
 		DoRIPTick();
 		BossInfoTick();
 	}
 	
 	override void RenderOverlay (RenderEvent e)
 	{
-		// DrawBossBar();
 		DisplayRIP();
 		DrawBossBar();
 	}

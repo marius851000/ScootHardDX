@@ -126,9 +126,7 @@ Class SHDX_MaimbowBullet : FastProjectile
 		+CANNOTPUSH
 		+NODAMAGETHRUST
 		+SPAWNSOUNDSOURCE
-		//+ALLOWTHRUFLAGS
-		//+THRUSPECIES
-		//+MTHRUSPECIES
+		
 		+BloodSplatter
 	}
 	States
@@ -165,7 +163,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		DamageFactor "Spectrum", 0.15;
 		DamageFactor "Ice", 0.67;
 		DamageFactor "Disintegrate", 0.00;
-		// SeeSound "maimbow/sight";
+		
 		DeathSound "maimbow/death";
 		Obituary "$SHDX_OB_MAIMBOW";
 		Tag "$SHDX_TAG_MAIMBOW";
@@ -378,27 +376,25 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		for (int i = 0; i < MAXPLAYERS; i++)
 		{
 			PlayerInfo pl = players[i];
+			
 			if (pl && pl.mo)
-			{
 				pl.cheats &= ~CF_TOTALLYFROZEN;
-			}
 		}
 	}
 	
 	void A_Stage2Teleportation()
 	{
 		let hnd = SHDX_MaimbowHandler(EventHandler.Find("SHDX_MaimbowHandler"));
+		
 		if (hnd)
 		{
 			hnd.SetTickerForWasps();
+			
 			if (hnd.stage2maimbowspot)
-			{
 				A_TeleportMaimbow(hnd.stage2maimbowspot.pos, hnd.stage2maimbowspot.angle);
-			}
+			
 			if (hnd.stage2scootaloospot)
-			{
 				A_TeleportPlayers(hnd.stage2scootaloospot.pos, hnd.stage2scootaloospot.angle);
-			}
 		}
 	}
 	
@@ -408,19 +404,17 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		if (hnd)
 		{
 			if (hnd.stage3maimbowspot)
-			{
 				A_TeleportMaimbow(hnd.stage3maimbowspot.pos, hnd.stage3maimbowspot.angle);
-			}
+			
 			if (hnd.stage3scootaloospot)
-			{
 				A_TeleportPlayers(hnd.stage3scootaloospot.pos, hnd.stage3scootaloospot.angle);
-			}
 		}
 	}
 	
 	override void Tick()
 	{
 		Super.Tick();
+		
 		if (flyingmode > 0)
 			isflying = true;
 		else
@@ -430,6 +424,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	override void MarkPreCacheSounds()
 	{
 		Super.MarkPreCacheSounds();
+		
 		Sound snd;
 		for (int i = 1; i < 16; i++)
 		{
@@ -446,10 +441,9 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	void A_MaimbowHailerAttack()
 	{
 		int ang = 16;
+		
 		if (maimbowstage >= MAIMBOW_STAGE_3)
-		{
 			ang = 8;
-		}
 		
 		for (int i = -32; i < 32; i += ang)
 		{
@@ -460,10 +454,9 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	void A_MaimbowLightningAttack()
 	{
 		int ang = 16;
+		
 		if (maimbowstage >= MAIMBOW_STAGE_3)
-		{
 			ang = 8;
-		}
 		
 		for (int i = -32; i < 32; i += ang)
 		{
@@ -599,10 +592,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				
 				return ResolveState(null);
 			}
-			// MBOW B 0 A_StartSound("pony/walk2", CHAN_BODY);
-			MBOW BCDE 2 A_Chase;
-			// MBOW B 0 A_StartSound("pony/walk2", CHAN_BODY);
-			MBOW BCDE 2 A_Chase;
+			MBOW BCDEBCDE 2 A_Chase;
 			MBOW E 0 A_MaimbowWarpAboutSecondArena;
 			MBOW E 0
 			{
@@ -671,7 +661,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_StartSound("maimbow/chaingunwindup", CHAN_WEAPON);
 			}
 			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
-			MBOW H 0 Bright A_MaimbowResetAttackType();
+			MBOW H 0 Bright A_MaimbowResetAttackType;
 			MBOW I 3 Bright A_FaceTarget;
 			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
 			MBOW I 3 Bright A_FaceTarget;
@@ -769,10 +759,10 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_MaimbowTaunt();
 			}
 			MBOW A 15 A_FaceTarget;
-			MBOW FG 2 Bright A_MaimbowHailerAttack();
+			MBOW FG 2 Bright A_MaimbowHailerAttack;
 			MBOW G 0 A_MaimbowResetAttackType;
 			MBOW A 2 A_FaceTarget;
-			MBOW FG 2 Bright A_MaimbowHailerAttack();
+			MBOW FG 2 Bright A_MaimbowHailerAttack;
 			Goto See2;
 		Missile.Retaliate.Lightning:
 			MBOW A 5 A_FaceTarget;
@@ -787,25 +777,13 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_MaimbowResetAttackType();
 			}
 			MBOW G 2 Bright;
-			MBOW F 2 Bright
-			{
-				A_MaimbowLightningAttack();
-			}
+			MBOW F 2 Bright	A_MaimbowLightningAttack;
 			MBOW G 2 Bright;
-			MBOW F 2 Bright
-			{
-				A_MaimbowLightningAttack();
-			}
+			MBOW F 2 Bright	A_MaimbowLightningAttack;
 			MBOW G 2 Bright;
-			MBOW F 2 Bright
-			{
-				A_MaimbowLightningAttack();
-			}
+			MBOW F 2 Bright	A_MaimbowLightningAttack;
 			MBOW G 2 Bright;
-			MBOW F 2 Bright
-			{
-				A_MaimbowLightningAttack();
-			}
+			MBOW F 2 Bright	A_MaimbowLightningAttack;
 			MBOW G 2 Bright;
 			MNOW A 2 A_FaceTarget;
 			Goto See2;
@@ -887,10 +865,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
-			MBOW O 0
-			{
-				A_FaceTarget();
-			}
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
@@ -915,10 +889,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
-			MBOW O 0
-			{
-				A_FaceTarget();
-			}
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
@@ -943,10 +913,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
-			MBOW O 0
-			{
-				A_FaceTarget();
-			}
 			MBOW O 0
 			{
 				A_StartSound("maimbow/chaingunwinddown", CHAN_WEAPON);
@@ -966,14 +932,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_FlyTowardsTarget();
 				A_FlapWings();
 			}
-			MBOW X 2 Bright
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW Y 2
-			{
-				A_FlyTowardsTarget();
-			}
+			MBOW X 2 A_FlyTowardsTarget;
+			MBOW Y 2 A_FlyTowardsTarget;
 			goto See2;
 		Missile.Flying.Retaliate:
 			MBOW A 0
@@ -1017,14 +977,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_FlyTowardsTarget();
 				A_FlapWings();
 			}
-			MBOW X 2 Bright
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW Y 2
-			{
-				A_FlyTowardsTarget();
-			}
+			MBOW X 2 Bright	A_FlyTowardsTarget;
+			MBOW Y 2 A_FlyTowardsTarget;
 			goto See2;
 		Missile.Flying.Retaliate.Lightning:
 			MBOW V 5
@@ -1074,10 +1028,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_MaimbowHailerAttack();
 				A_FlyTowardsTarget();
 			}
-			MBOW Y 2
-			{
-				A_FlyTowardsTarget();
-			}
+			MBOW Y 2 A_FlyTowardsTarget;
 			goto See2;
 		Missile.Flying.Retaliate.Rainbower:
 			MBOW V 5
@@ -1092,14 +1043,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_FlyTowardsTarget();
 				A_FlapWings();
 			}
-			MBOW X 2 Bright
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW Y 2
-			{
-				A_FlyTowardsTarget();
-			}
+			MBOW X 2 Bright A_FlyTowardsTarget;
+			MBOW Y 2 A_FlyTowardsTarget;
 			goto See2;
 		Missile.Flying.Retaliate.Tornadozer:
 			MBOW V 5
@@ -1114,14 +1059,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_FlyTowardsTarget();
 				A_FlapWings();
 			}
-			MBOW X 2 Bright
-			{
-				A_FlyTowardsTarget();
-			}
-			MBOW Y 2
-			{
-				A_FlyTowardsTarget();
-			}
+			MBOW X 2 Bright	A_FlyTowardsTarget;
+			MBOW Y 2 A_FlyTowardsTarget;
 			goto See2;
 			
 		MaimbowTeleport1:
@@ -1145,7 +1084,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW A 180;
 			MBOW B 0
 			{
-				// A_SHDX_SendOLToAllPlayers("maimbowundashstart", OLSSF_FORCEONELINER);
 				A_UnSetInvulnerable();
 				bCanJump = true;
 				A_AttachLightDef('maimbowlight', 'SHDX_BOSSLIGHT');
@@ -1173,7 +1111,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW A 250;
 			MBOW B 0
 			{
-				// A_SHDX_SendOLToAllPlayers("maimbowundashstart", OLSSF_FORCEONELINER);
 				A_UnSetInvulnerable();
 				bCanJump = true;
 				A_AttachLightDef('maimbowlight', 'SHDX_BOSSLIGHT');
@@ -1184,29 +1121,21 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBO2 A 0
 			{
 				if (maimbowstage == MAIMBOW_STAGE_1 && health <= (SpawnHealth() * 0.667))
-				{
 					A_SetMaimbowStage2();
-				}
+
 				if (maimbowstage == MAIMBOW_STAGE_2 && health <= (SpawnHealth() * 0.333))
-				{
 					A_SetMaimbowStage3();
-				}
 			}
 			MBO2 A 0
 			{
 				if (flyingmode >= 1)
-				{
 					return ResolveState("Pain.Flying");
-				}
 				
 				return ResolveState(null);
 			}
 		Pain1:
 			MBOW \ 3
 			{
-				// if (Random[MaimbowPain](0, 100) <= 12)
-				// 	A_StartSound("maimbow/pain", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
-					
 				A_SetRenderStyle(1.0, STYLE_Stencil);
 				SetShade("6e0600");
 			}
@@ -1227,9 +1156,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		Pain.Flying:
 			MBOW K 3
 			{
-				// if (Random[MaimbowPain](0, 100) <= 12)
-				//	A_StartSound("maimbow/pain", CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
-				
 				A_SetRenderStyle(1.0, STYLE_Stencil);
 				SetShade("6e0600");
 			}
@@ -1274,8 +1200,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBO2 E 120;
 			MBO2 E 0 A_SHDX_MaimbowAuroraOL;
 			MBO2 E 120;
-			MBO2 E 1 A_SHDX_MaimbowBossPlayCutscene();
-			MBO2 E -1 A_SHDX_MaimbowBossEndLevel();
+			MBO2 E 1 A_SHDX_MaimbowBossPlayCutscene;
+			MBO2 E -1 A_SHDX_MaimbowBossEndLevel;
 			Stop;
 	}
 }

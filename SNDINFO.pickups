@@ -7,15 +7,9 @@ pickup/key				"sounds/items/key_pickup.ogg"		// Key Pickup
 $alias pickup/health	pickup/generic
 pickup/healthfood		"sounds/eat.ogg"			// Food Health Pickups
 
-pickup/bulletvest		"sounds/items/bullet_vest.ogg"
-pickup/firevest			"sounds/items/fire_vest.ogg"
-pickup/weathervest		"sounds/items/wx_vest.ogg"
-
 pickup/armorvest		"sounds/items/armor.ogg"
 
 pickup/shard			"sounds/items/generic_pickup.ogg"
-
-powerup/disappear		"sounds/items/lose_powerup.ogg"	// Lose Powerup
 
 powerup/cmode			"sounds/items/chicken_dance_start.ogg"	// ChickenDance
 powerup/cmodedone		"sounds/items/chicken_dance_end.ogg"	// slowmo chickendance

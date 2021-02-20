@@ -79,18 +79,23 @@ Class SHDX_HailerWeapon : SHDX_WeatherWeapon
 			}
 		AltFire.HasAmmo:
 			FRZG A 3;
-			FRZG A 0 A_GunFlash;
-			FRZG B 5
+			FRZG A 5
 			{
-				A_StartSound("weapons/hailerf2", CHAN_WEAPON);
+				A_GunFlash();
+				A_StartSound("weapons/hailf2", CHAN_WEAPON);
 				
 				A_FireProjectile("SHDX_HailBall2", -4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
 				A_FireProjectile("SHDX_HailBall2", -2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
 				A_FireProjectile("SHDX_HailBall2", 0, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
 				A_FireProjectile("SHDX_HailBall2", 2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
 				A_FireProjectile("SHDX_HailBall2", 4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_WeaponOffset(25, 44, WOF_INTERPOLATE);
 			}
-			FRZG A 35;
+			FRZG A 5 A_WeaponOffset(30, 46, WOF_INTERPOLATE);
+			FRZG A 5 A_WeaponOffset(35, 48, WOF_INTERPOLATE);
+			FRZG A 15 A_WeaponOffset(40, 50, WOF_INTERPOLATE);
+			FRZG A 5 A_WeaponOffset(35, 48, WOF_INTERPOLATE);
+			FRZG A 5 A_WeaponOffset(1, 40, WOF_INTERPOLATE);
 			FRZG A 3 A_ReFire;
 			Goto Ready;
 	}

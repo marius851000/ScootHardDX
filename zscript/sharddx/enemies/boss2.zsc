@@ -349,8 +349,8 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			{
 				A_SHDX_SendOLToAllPlayers("scootaloo/atmospherestart", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				
-				A_AtmosphereSetBossMusic()
-				;
+				A_AtmosphereSetBossMusic();
+				
 				A_SHDX_BossSkipIntro();
 			}
 		See1A:
@@ -363,10 +363,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 				
 				return ResolveState(null);
 			}
-			// ATMO B 0 A_StartSound("pony/walk2", CHAN_BODY);
-			ATMO BCDE 2 A_Chase;
-			// ATMO B 0 A_StartSound("pony/walk2", CHAN_BODY);
-			ATMO BCDE 2 A_Chase;
+			ATMO BCDEBCDE 2 A_Chase;
 			ATMO E 0 A_Jump(32, "StartFlying");
 			Loop;
 		See2.Flying:

@@ -37,9 +37,7 @@ class SHDX_TitlemapEvent : EventHandler
 	{
 		CVar fb = CVar.GetCvar('shdx_fastboot', players[consoleplayer]);
 		if (fb)
-		{
 			return fb.GetBool();
-		}
 		
 		return false;
 	}

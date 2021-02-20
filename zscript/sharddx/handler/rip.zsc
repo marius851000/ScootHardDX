@@ -156,7 +156,6 @@ extend class SHDX_Handler
 				ripseconds = 0;
 			}
 		}
-		// ResetIsChristmasMusicFlags();
 	}
 	
 	void RIPPlayerRespawned(PlayerEvent e)
@@ -168,7 +167,6 @@ extend class SHDX_Handler
 			stoprip = true;
 			respawned = true;
 		}
-		// ResetMusicFlags();
 	}
 	
 	ui void DisplayRIP()
@@ -183,6 +181,7 @@ extend class SHDX_Handler
 				
 				DrawRIPText(p, saverestart, "BIGFONT", Font.CR_RED);
 			}
+			
 			if (dorip)
 			{
 				// Start the felix the cat RIP

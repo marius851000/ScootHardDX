@@ -344,8 +344,6 @@ decal AtmosphereScore 22
 	y-scale 0.08
 }
 
-
-
 // Blood Splat Decals
 decal PlaceableBloodSplat1 23
 {

@@ -73,18 +73,14 @@ class SHDX_SurpriseHandler : EventHandler
 	{
 		let r = SHDX_RocketGuard(a);
 		if (r)
-		{
 			rgs.Push(r);
-		}
 	}
 	
 	void CheckIfSpawnedSurprise(Actor a)
 	{
 		let s = SHDX_SurpriseBoss(a);
 		if (s)
-		{
 			surpboss = s;
-		}
 	}
 	
 	void SurpriseRoutine()
@@ -118,9 +114,7 @@ class SHDX_SurpriseHandler : EventHandler
 		{
 			// if spot exists
 			if (rg)
-			{
 				rg.A_Die('Extreme');
-			}
 		}
 	}
 	
@@ -134,9 +128,7 @@ class SHDX_SurpriseHandler : EventHandler
 		{
 			// if spot exists
 			if (rgspot)
-			{
 				rgspot.SetStateLabel("SpawnInRocketGuard");
-			}
 		}
 	}
 	
@@ -170,9 +162,7 @@ class SHDX_SurpriseHandler : EventHandler
 			for (int i = 0; i < size; i++)
 			{
 				if (rgs[i] && rgs[i].health > 0)
-				{
 					tempitems.Push(rgs[i]);
-				}
 			}
 			
 			rgs.Move(tempitems);

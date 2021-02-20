@@ -62,9 +62,8 @@ class SHDX_SlideshowHandler : EventHandler
 		if (CutsceneDone)
 		{
 			if (AutosaveMe)
-			{
 				level.MakeAutosave();
-			}
+			
 			DestroyMe = true;
 		}
 		

@@ -25,13 +25,10 @@ extend class SHDX_Handler
 	
 	void BossInfoTick()
 	{
-		if (bossfound && bossmo)
+		if (bossfound && bossmo && bossmo.health <= 0)
 		{
-			if (bossmo.health <= 0)
-			{
-				bossmo = null;
-				bossfound = false;
-			}
+			bossmo = null;
+			bossfound = false;
 		}
 	}
 	
@@ -99,7 +96,7 @@ extend class SHDX_Handler
 				hb = String.Format("%s%s", hb, "l");
 			}
 			
-			Screen.DrawText(fnt, Font.CR_FIRE, (ss.x/2 - len), 0, str,
+			Screen.DrawText(fnt, Font.CR_CYAN, (ss.x/2 - len), 0, str,
 								DTA_VirtualWidthF,  ss.x,
 								DTA_VirtualHeightF, ss.y,
 								DTA_KeepRatio, true);
@@ -110,9 +107,6 @@ extend class SHDX_Handler
 							DTA_VirtualWidthF, ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true);
-			
-			// Screen.DrawThickLine(screenhw - HEALTHBARBORDER, screenhy + HEALTHBARSEP + HEALTHBARSIZE - HEALTHBARBORDER, screenhw + int(bosshealthpct * 2) + HEALTHBARBORDER, screenhy + HEALTHBARSEP + HEALTHBARSIZE - HEALTHBARBORDER , HEALTHBARSIZE + (HEALTHBARBORDER * 4), 0x000000);
-			// Screen.DrawThickLine(screenhw, screenhy + HEALTHBARSEP + HEALTHBARSIZE, screenhw + int(bosshealthpct * 2), screenhy + HEALTHBARSEP + HEALTHBARSIZE, HEALTHBARSIZE, barcol);
 		}
 	}
 }

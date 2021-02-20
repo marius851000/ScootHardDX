@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Sanya K. Waffles
+Copyright 2020 Sanya K. Waffles and Marisa Kirisame
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -71,7 +71,7 @@ Class SHDX_BulletProofArmorPickup : Inventory
 		Height 24;
 		Scale 0.12;
 		Inventory.PickupMessage "$SHDX_PICKUP_BULLETARMOR";
-		Inventory.PickupSound "pickup/bulletvest";
+		Inventory.PickupSound "pickup/armorvest";
 		Tag "$SHDX_TAG_BULLETPROOF";
 	}
 	
@@ -164,7 +164,7 @@ Class SHDX_FireProofArmorPickup : Inventory
 		Height 24;
 		Scale 0.12;
 		Inventory.PickupMessage "$SHDX_PICKUP_FIREPROOF";
-		Inventory.PickupSound "pickup/firevest";
+		Inventory.PickupSound "pickup/armorvest";
 		Tag "$SHDX_TAG_FIREPROOF";
 	}
 	
@@ -261,7 +261,7 @@ Class SHDX_WeatherProofArmorPickup : Inventory
 		Height 24;
 		Scale 0.12;
 		Inventory.PickupMessage "$SHDX_PICKUP_WEATHERPROOF";
-		Inventory.PickupSound "pickup/weathervest";
+		Inventory.PickupSound "pickup/armorvest";
 		Tag "$SHDX_TAG_WEATHERPROOF";
 	}
 	

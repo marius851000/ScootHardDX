@@ -12,11 +12,9 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-const SHDXFL_CHUNKFLAGS		=	SXF_TransferTranslation | SXF_NoCheckPosition;	// Constant flag for gibs
-const SHDXFL_COINFLAGS		=	SXF_NoCheckPosition | SXF_AbsoluteVelocity;	// Constant flag for coins
-const SHDXFL_AMMOFLAGSFX		=	SXF_TransferPointers | SXF_NoCheckPosition | SXF_AbsoluteVelocity;	// Constant flag for Ammo Dropping Calls
-const SHDXPLAYER_VOICECHAN	=	CHAN_7 | CHAN_UI;	// Constant flag for Voice Overs (aren't savegame worthy)
-const SHDXPLAYER_BODYCHAN	=	CHAN_BODY | CHAN_UI;	// Constant flag for Misc. Sound Effects on the 'body' channel (aren't savegame worthy)
+const SHDXFL_CHUNKFLAGS		=	SXF_TransferTranslation | SXF_NoCheckPosition;						// Constant flag for gibs
+const SHDXFL_COINFLAGS		=	SXF_NoCheckPosition | SXF_AbsoluteVelocity;							// Constant flag for coins
+const SHDXFL_AMMOFLAGSFX	=	SXF_TransferPointers | SXF_NoCheckPosition | SXF_AbsoluteVelocity;	// Constant flag for Ammo Dropping Calls
 
 const NAVY_MISSLE_SPAWNHEIGHT = 0;
 const ENEMY_MISSILE_SPAWNEHEIGHT = 32;
@@ -32,7 +30,7 @@ const SHDXPLAYER_DIALOGUECHANNEL2 = 667;
 const SHDXPLAYER_DIALOGUECHANNEL3 = 668;
 
 // Constant for RIP Sound Obit volume
-const SHDXPLAYER_RIPVOL		=	2.5;
+const SHDXPLAYER_RIPVOL = 2.5;
 
 const CHAN_VENDINGUSE = 9;
 const CHAN_ARMORHIT = 99;

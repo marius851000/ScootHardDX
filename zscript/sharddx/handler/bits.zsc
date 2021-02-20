@@ -22,9 +22,7 @@ extend class SHDX_Handler
 		if (e.Thing is "SHDX_BitCoin")
 		{
 			if (Random[BitCoinProcess](0, 100) >= 50)
-			{
 				e.Thing.Destroy();
-			}
 		}
 	}
 }

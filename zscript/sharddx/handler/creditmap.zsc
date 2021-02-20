@@ -88,8 +88,7 @@ class SHDX_CreditMapEvent : EventHandler
 	
 	ui void PlayBordeauxSound()
 	{
-		S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_OVERLAP, 1, ATTN_NORM);
-		// S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_OVERLAP, 1, ATTN_NORM);
+		S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_DEFAULT, 1, ATTN_NORM);
 	}
 	
 	ui void PlayCreditMusic()
@@ -209,19 +208,6 @@ class SHDX_CreditMapEvent : EventHandler
 				if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
 				else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
 				Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
-				
-				/*
-				DrawCreditNumber("1", 20, 100);
-				DrawCreditNumber("2", 110, 94);
-				DrawCreditNumber("3", 144, 125);
-				DrawCreditNumber("4", 280, 90);
-				DrawCreditNumber("5", 345, 116);
-				DrawCreditNumber("6", 441, 128);
-				DrawCreditNumber("7", 620, 143);
-				DrawCreditNumber("8", 152, 300);
-				DrawCreditNumber("9", 255, 322);
-				DrawCreditNumber("10", 450, 266);
-				*/
 				
 				DrawCredit("CREDITS WIP", 0, 0, ss, fcolor:Font.CR_RED);
 				

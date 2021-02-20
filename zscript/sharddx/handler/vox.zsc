@@ -20,8 +20,6 @@ extend class SHDX_Handler
 	{
 		let vox = SHDX_Vox(a);
 		if (vox)
-		{
 			voxobjs.Push(vox);
-		}
 	}
 }

@@ -33,7 +33,6 @@ class SHDX_MaimbowHandler : EventHandler
 	
 	override void WorldTick()
 	{
-		// BossInfoTick();
 		PruneZombiesFromArray();
 		PruneRocketGuardFromArray();
 		MaimbowUndashRoutine();
@@ -57,9 +56,7 @@ class SHDX_MaimbowHandler : EventHandler
 	{
 		let z = SHDX_Zombie(a);
 		if (z)
-		{
 			zombies.Push(z);
-		}
 	}
 	
 	void CheckIfSpawnedMaimbow(Actor a)
@@ -135,9 +132,7 @@ class SHDX_MaimbowHandler : EventHandler
 		{
 			// if spot exists
 			if (enemy)
-			{
 				enemy.A_Die('Extreme');
-			}
 		}
 	}
 	
@@ -151,9 +146,7 @@ class SHDX_MaimbowHandler : EventHandler
 		{
 			// if spot exists
 			if (zom)
-			{
 				zom.A_Die('Extreme');
-			}
 		}
 	}
 	
@@ -167,9 +160,7 @@ class SHDX_MaimbowHandler : EventHandler
 		{
 			// if spot exists
 			if (raiserspot)
-			{
 				raiserspot.SetStateLabel("RaiseTheDead");
-			}
 		}
 	}
 	
@@ -203,9 +194,7 @@ class SHDX_MaimbowHandler : EventHandler
 			for (int i = 0; i < size; i++)
 			{
 				if (zombies[i] && zombies[i].health > 0)
-				{
 					tempitems.Push(zombies[i]);
-				}
 			}
 			
 			zombies.Move(tempitems);
@@ -217,9 +206,7 @@ class SHDX_MaimbowHandler : EventHandler
 	{
 		let r = SHDX_RocketGuard(a);
 		if (r)
-		{
 			rgs.Push(r);
-		}
 	}
 	
 	void KillRocketGuards()
@@ -232,9 +219,7 @@ class SHDX_MaimbowHandler : EventHandler
 		{
 			// if spot exists
 			if (rg)
-			{
 				rg.A_Die('Extreme');
-			}
 		}
 	}
 	
@@ -248,9 +233,7 @@ class SHDX_MaimbowHandler : EventHandler
 		{
 			// if spot exists
 			if (rgspot)
-			{
 				rgspot.SetStateLabel("SpawnInRocketGuard");
-			}
 		}
 	}
 	
