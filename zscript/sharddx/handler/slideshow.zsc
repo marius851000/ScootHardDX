@@ -31,8 +31,13 @@ class SHDX_SlideshowHandler : EventHandler
 	
 	void DoCutscene()
 	{
-		if (shdx_skipcutscenes && ExitLevelOnFinish)
-			level.ExitLevel(0, false);
+		if (shdx_skipcutscenes)
+		{
+			if (ExitLevelOnFinish)
+				level.ExitLevel(0, false);
+			else
+				DestroyMe = true;
+		}
 	
 		if (IntermissionPlayed)
 		{
