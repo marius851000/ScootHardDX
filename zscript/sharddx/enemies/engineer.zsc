@@ -117,7 +117,6 @@ Class SHDX_Engineer : SHDX_Enemy
 		ActiveSound "engineer/active";
 		Obituary "$SHDX_OB_ENGINEER";
 		Species "Pony";
-		// DropItem "SHBitCoinPickupGold" 127
 		Tag "$SHDX_TAG_ENGINEER";
 	}
 	

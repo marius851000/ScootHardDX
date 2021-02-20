@@ -113,7 +113,6 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		DamageFactor "Explosive", 0.75;
 		DamageFactor "Spectrum", 0.10;
 		DamageFactor "Ice", 0.35;
-		// SeeSound "boss2/sight";
 		PainSound "boss2/pain";
 		DeathSound "boss2/death";
 		Obituary "$SHDX_OB_DRATMOS";

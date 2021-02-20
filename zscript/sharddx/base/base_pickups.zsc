@@ -14,7 +14,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 mixin class PickupSoundOverride
 {
-	override void PlayPickupSound (Actor toucher)
+	override void PlayPickupSound(Actor toucher)
 	{
 		double atten;
 		int chan;
@@ -24,13 +24,6 @@ mixin class PickupSoundOverride
 		{
 			atten = ATTN_NONE;
 		}
-		/*
-		else if ((ItemFlags & IF_FANCYPICKUPSOUND) &&
-			(toucher == NULL || toucher->CheckLocalView()))
-		{
-			atten = ATTN_NONE;
-		}
-		*/
 		else
 		{
 			atten = ATTN_NORM;
@@ -82,7 +75,7 @@ Class SHDX_Key : Key
 
 		Radius 12;
 		Height 24;
-		Scale 0.15;
+		Scale 0.20;
 		Inventory.PickupSound "pickup/key";
 	}
 	

@@ -329,7 +329,6 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 		MaxStepHeight 16;
 		Projectile;
 		+SEEKERMISSILE
-		// +FLOORHUGGER
 	}
 	States
 	{
@@ -357,7 +356,6 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 			SetStateLabel("Death");
 	}
 	
-	// From Iron Lich...
 	override int DoSpecialDamage (Actor thingtodmg, int damage, Name damagetype)
 	{
 		int randVal;
@@ -371,8 +369,10 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 
 		if ((Level.maptime & 16) && !thingtodmg.bBoss && !thingtodmg.bDontThrust)
 		{
-			randVal = min(160, random[WhirlwindSeek]());
+			randVal = min(160, random[Tornado]());
+			
 			thingtodmg.Vel.Z += randVal / 32.;
+			
 			if (thingtodmg.Vel.Z > 12)
 			{
 				thingtodmg.Vel.Z = 12;
@@ -380,7 +380,7 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 		}
 		if (!(Level.maptime & 4))
 		{
-			thingtodmg.DamageMobj (self.target, self.target, 15, 'Weather');
+			thingtodmg.DamageMobj(self.target, self.target, 15, 'Weather');
 		}
 		return -1;
 	}

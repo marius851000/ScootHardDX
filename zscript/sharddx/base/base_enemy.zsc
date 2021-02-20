@@ -111,10 +111,6 @@ Class SHDX_Enemy : SHDX_Actor
 		// we wanna return early...
 		if (health <= 0 || !bCanJump || bFloat || !target)
 			return;
-			
-		// Check for slope
-		// if (CurSector.FloorPlane.isSlope())
-		//	return;
 		
 		// Only do this if the enemy is in the See state.
 		if (!InStateSequence(CurState, ResolveState("See")))
@@ -279,9 +275,7 @@ Class SHDX_Enemy : SHDX_Actor
 		A_StartSound("misc/splatx", CHAN_6);
 		
 		if (playnormalscream && !iscorpse)
-		{
 			A_StartSound(DeathSound, 9);
-		}
 	}
 	
 	void A_SHDX_ExtremeScreamAndUnblock()
@@ -305,41 +299,38 @@ Class SHDX_Enemy : SHDX_Actor
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		if (source && source.GetSpecies() == 'Sentry' && GetSpecies() == 'Pony')
-		{
 			damage = 0;
-		}
 		
 		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
 	}
 	
 	void A_SHDX_ExplosiveOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
 	{
-		String ol = String.Format("explosive%d", Random[OneLiner](1, 16));
+		String ol = String.Format("explosive%d", Random[OneLiner](1, 20));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	
 	void A_SHDX_TornadozerOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
 	{
-		String ol = String.Format("tornado%d", Random[OneLiner](1, 17));
+		String ol = String.Format("tornado%d", Random[OneLiner](1, 20));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	
 	void A_SHDX_RainbowerOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
 	{		
-		String ol = String.Format("rainbower%d", Random[OneLiner](1, 15));
+		String ol = String.Format("rainbower%d", Random[OneLiner](1, 20));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	
-	
 	void A_SHDX_LightningOneLiner(int r = SHDX_ONELINER_NORMAL_CHANCE)
 	{
-		String ol = String.Format("lightning%d", Random[OneLiner](1, 16));
+		String ol = String.Format("lightning%d", Random[OneLiner](1, 20));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	
 	void A_SHDX_IceOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
 	{
-		String ol = String.Format("frozen%d", Random[OneLiner](1, 17));
+		String ol = String.Format("frozen%d", Random[OneLiner](1, 20));
 		A_SHDX_GivePlayerOneLiner(r, ol);
 	}
 	

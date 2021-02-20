@@ -45,7 +45,6 @@ Class SHDX_MiniSentry : SHDX_Enemy
 		Radius 12;
 		Height 32;
 		Mass 100;
-		// Speed 8;
 		PainChance 200;
 		Obituary "$SHDX_OB_MINISENTRY";
 		Tag "$SHDX_TAG_MINISENTRY";
@@ -152,7 +151,6 @@ Class SHDX_MiniSentry : SHDX_Enemy
 			{
 				A_SetScale(0.08, 0.08);
 				A_StartSound("minisentry/explode", CHAN_7);
-				// A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnMetalJunk2Fx(self);
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);

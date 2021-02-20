@@ -17,7 +17,7 @@ boss1/taunt3			"sounds/enemies/surprise/eri/mopfloor.ogg"
 boss1/taunt4			"sounds/enemies/surprise/eri/laugh.ogg"
 boss1/taunt5			"sounds/enemies/surprise/eri/takethis.ogg"
 boss1/taunt6			"sounds/enemies/surprise/eri/wereback.ogg"
-boss1/death				"sounds/enemies/surprise/eri/avengeme.ogg"			// hmmm....
+boss1/death				"sounds/enemies/surprise/eri/avengeme.ogg"
 boss1/tornado			"sounds/weapons/tornado_projectile.ogg"
 $limit boss1/tornado	1
 boss1/surprisefloorpeel	"sounds/enemies/surprise/eri/dropthefloor.ogg"

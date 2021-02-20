@@ -163,7 +163,7 @@ extend class SHDX_PlayerPawn
 		return String.Format("voiceover%d", r);
 		*/
 		
-		return String.Format("voiceover%d", Random[OneLiner](1, 10));
+		return String.Format("voiceover%d", Random[OneLiner](1, 20));
 	}
 	
 	bool A_CheckOneLinerCVar()

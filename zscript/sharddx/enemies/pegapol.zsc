@@ -71,8 +71,6 @@ Class SHDX_Pegapol : SHDX_Enemy
 		DeathSound "pegapol/death";
 		ActiveSound "pegapol/active";
 		Obituary "$SHDX_OB_PEGAPOL";
-		// DropItem "SHBitCoinPickupGold" 127
-		// DropItem "SHSubmachineGun" 32
 		Tag "$SHDX_TAG_PEGAPOL";
 		Species "Pony";
 	}
@@ -707,11 +705,11 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 				A_StartSound("pegawiz/fire", CHAN_VOICE);
 			}
 			PEGA F 15 A_FaceTarget;
-			PEGA G 2 Bright A_PegaWizHailerShot();
-			PEGA H 2 Bright A_PegaWizHailerShot();
+			PEGA G 2 Bright A_PegaWizHailerShot;
+			PEGA H 2 Bright A_PegaWizHailerShot;
 			PEGA IF 2 A_FaceTarget;
-			PEGA G 2 Bright A_PegaWizHailerShot();
-			PEGA H 2 Bright A_PegaWizHailerShot();
+			PEGA G 2 Bright A_PegaWizHailerShot;
+			PEGA H 2 Bright A_PegaWizHailerShot;
 			PEGA IF 2 A_FaceTarget;
 			PEGA F 0 A_PegaWizResetAttackType;
 			Goto See;
@@ -724,6 +722,14 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 			PEGA F 15 A_FaceTarget;
 			PEGA G 2 Bright A_PegaWizLightningShot;
 			PEGA H 2 Bright;
+			PEGA G 2 Bright A_PegaWizLightningShot;
+			PEGA H 2 Bright;
+			PEGA G 2 Bright A_PegaWizLightningShot;
+			PEGA H 2 Bright;
+			PEGA G 2 Bright A_PegaWizLightningShot;
+			PEGA H 2 Bright;
+			PEGA G 2 Bright A_PegaWizLightningShot;
+			PEGA H 2 Bright;
 			PEGA IF 2 A_FaceTarget;
 			PEGA F 0 A_PegaWizResetAttackType;
 			Goto See;
@@ -734,16 +740,9 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 				A_StartSound("pegawiz/fire", CHAN_VOICE);
 			}
 			PEGA F 15 A_FaceTarget;
-			PEGA G 2 Bright A_SpawnProjectile("SHDX_RainbowFlameBall");
-			PEGA H 2 Bright A_SpawnProjectile("SHDX_RainbowFlameBall");
-			PEGA IF 2 A_FaceTarget;
-			PEGA G 2 Bright A_SpawnProjectile("SHDX_RainbowFlameBall");
-			PEGA H 2 Bright A_SpawnProjectile("SHDX_RainbowFlameBall");
-			PEGA IF 2 A_FaceTarget;
-			PEGA G 2 Bright A_SpawnProjectile("SHDX_RainbowFlameBall");
-			PEGA H 2 Bright A_SpawnProjectile("SHDX_RainbowFlameBall");
-			PEGA IF 2 A_FaceTarget;
-			PEGA F 0 A_PegaWizResetAttackType;
+			PEGA G 2 Bright A_SpawnProjectile("SHDX_RainbowerProjectileA");
+			PEGA HI 2 Bright;
+			PEGA F 2 A_PegaWizResetAttackType;
 			Goto See;
 		Missile.Tornadozer:
 			PEGA F 0 A_StopSound(CHAN_BODY);
