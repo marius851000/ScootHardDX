@@ -421,3 +421,45 @@ decal AtmosphereFamilyPic 30
 	x-scale 0.2
 	y-scale 0.2
 }
+
+decal MaimbowPortrait 31
+{
+	pic "graphics/decals/MaimbowPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal DrAtmospherePortrait 32
+{
+	pic "graphics/decals/DrAtmosPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal SurprisePortrait 33
+{
+	pic "graphics/decals/SurprisePortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal PinkLadyPortrait 34
+{
+	pic "graphics/decals/PinkLadyPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal WoodenToasterPortrait 35
+{
+	pic "graphics/decals/WoodenToasterPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal MaskedHorrorPortrait 36
+{
+	pic "graphics/decals/MaskedHorrorPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
