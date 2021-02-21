@@ -414,3 +414,10 @@ decal PlaceableBloodSplat7 29
 	randomflipx
 	randomflipy
 }
+
+decal AtmosphereFamilyPic 30
+{
+	pic "graphics/decals/atmosphere_family_pic.png"
+	x-scale 0.2
+	y-scale 0.2
+}
