@@ -198,7 +198,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		if (mod == 'Disintegrate')
 		{
 			A_Teleport("See2", "SHDX_BossSpot2", "SHDX_TeleportFog", 0);
-			return 0;
+			return Super.DamageMobj(inflictor, source, 0, mod, flags, angle);
 		}
 		
 		if (attacktype == MAIMBOW_ATTACK_NONE)
@@ -321,12 +321,22 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	void A_MaimbowSetBossMusic()
 	{
-		S_ChangeMusic("M_ATMO");
+		S_ChangeMusic("M_MBOW");
 	}
 	
 	void A_MaimbowVictoryMusic()
 	{
-		S_ChangeMusic("M_ATVIC", 0, false);
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
+			{
+				S_ChangeMusic("M_MVICG", 0, false);
+				return;
+			}
+		}
+		
+		S_ChangeMusic("M_MVICB", 0, false);
 	}
 	
 	void A_FlapWings()
@@ -1189,17 +1199,20 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW \ 0
 			{
-				A_NewBossScream();
-				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_13", DeathSound);
 				A_MaimbowVictoryMusic();
 			}
 			MBOW \ 105;
 			MBO2 A 5;
-			MBO2 B 5 A_SpawnGibsFx(self);
+			MBO2 B 5
+			{
+				A_SpawnGibsFx(self);
+				A_NewBossScream();
+				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_13", DeathSound);
+			}
 			MBO2 CD 5;
-			MBO2 E 120;
+			MBO2 E 150;
 			MBO2 E 0 A_SHDX_MaimbowAuroraOL;
-			MBO2 E 120;
+			MBO2 E 190;
 			MBO2 E 1 A_SHDX_MaimbowBossPlayCutscene;
 			MBO2 E -1 A_SHDX_MaimbowBossEndLevel;
 			Stop;

@@ -443,7 +443,7 @@ Class SHDX_PegaWizExplosiveLine2 : SHDX_Projectile
 			EXPL A 0 NoDelay Bright
 			{
 				A_StartSound("weapons/rocketx", CHAN_BODY);
-				SHDX_Utilities.DoExplosion(self, 32, 32, 128, DamageType:'Explosive', IgnoreMe:target);
+				SHDX_Utilities.DoExplosion(self, 24, 32, 96, DamageType:'Explosive', IgnoreMe:target);
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
