@@ -197,7 +197,7 @@ map E3M4 lookup SHDX_E3A4
 	cluster = 1
 	par = 45
 	sucktime = 1
-	EventHandlers = "SHDX_PreBoss3SlideshowHandler", "SHDX_MaimbowHandler"
+	EventHandlers = "SHDX_MaimbowHandler"
 	music = "M_FACT"
 	next = "CREDITS"
 	author = "SanyaWaffles, Metal Neon"

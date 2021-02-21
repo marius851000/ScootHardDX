@@ -84,11 +84,3 @@ class SHDX_IntroSlideshowHandler : SHDX_SlideshowHandler
 		InitSlideshowInfo('IntroEpisode1', true);
 	}
 }
-
-class SHDX_PreBoss3SlideshowHandler : SHDX_SlideshowHandler
-{
-	override void OnRegister()
-	{
-		InitSlideshowInfo('PreBoss3', false, true);
-	}
-}
