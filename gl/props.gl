@@ -89,6 +89,20 @@ object SHDX_WoodenToaster
 	frame WTSR { light SHDX_TOASTER }
 }
 
+flickerlight SHDX_PUMPKIN
+{
+    color 1.0 0.7 0.0
+    size 24
+    secondarySize 48
+    chance 0.3
+	offset 0 16 0
+}
+
+object SHDX_Pumpkin
+{
+	frame PUMP { light SHDX_PUMPKIN }
+}
+
 flickerlight SHDX_TESLASINGLECOILFLICKER
 {
     color 0.50 0.0 0.50

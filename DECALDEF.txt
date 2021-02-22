@@ -463,3 +463,52 @@ decal MaskedHorrorPortrait 36
 	x-scale 0.2
 	y-scale 0.2
 }
+
+decal EnforcerPoster 37
+{
+	pic "graphics/decals/enforcer_poster.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal SpectraWaspPoster 38
+{
+	pic "graphics/decals/spectrawasp_poster.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal CelestiaRedScare 39
+{
+	pic "graphics/decals/redscare_celestia.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal LunasRevolution 40
+{
+	pic "graphics/decals/lunas_revolution.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal DrAtmosphereMovie 41
+{
+	pic "graphics/decals/dr_atmos_movie.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal DrAtmosphereMovie 42
+{
+	pic "graphics/decals/maimbow_action.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal BigJohnsLuvShack 43
+{
+	pic "graphics/decals/big_johns_luv_shack.png"
+	x-scale 0.2
+	y-scale 0.2
+}

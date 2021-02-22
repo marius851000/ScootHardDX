@@ -112,6 +112,14 @@ DoomEdNums
 	6750 = SHDX_Beaker
 	6751 = SHDX_ZetaEnforcerDormant
 	6752 = SHDX_SkeletonTCRGhost
+	6753 = SHDX_Pumpkin
+	6754 = SHDX_Pickaxe
+	6755 = SHDX_StalagtiteIce
+	6756 = SHDX_StalagmiteIce
+	6757 = SHDX_WarningSign1
+	6758 = SHDX_WarningSign2
+	6779 = SHDX_Bucket
+	6780 = SHDX_Mop
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

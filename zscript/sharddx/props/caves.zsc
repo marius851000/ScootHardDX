@@ -75,6 +75,27 @@ Class SHDX_MineCart : SHDX_Prop
 	}
 }
 
+Class SHDX_Pickaxe : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Mine Cart"
+		//$Sprite MCRTA1A5
+		//$Category "Decoration"
+		
+		Radius 12;
+		Height 24;
+	}
+	
+	States
+	{
+		Spawn:
+			PAXE A -1;
+			Stop;
+	}
+}
+
 Class SHDX_PurpleCrystal : SHDX_Decoration
 {
 	Default
@@ -161,6 +182,50 @@ Class SHDX_Stalagmite : SHDX_Decoration
 	{
 		Spawn:
 			STL2 A -1;
+			Stop;
+	}
+}
+Class SHDX_StalagtiteIce : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Stalagtite Ice"
+		//$Sprite ISTLA0
+		//$Category "Decoration"
+		
+		Radius 16;
+		Height 20;
+		
+		+NoGravity
+		+SpawnCeiling
+	}
+	
+	States
+	{
+		Spawn:
+			ISTL A -1;
+			Stop;
+	}
+}
+
+Class SHDX_StalagmiteIce  : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Stalagmite Ice"
+		//$Sprite IST2A0
+		//$Category "Decoration"
+		
+		Radius 16;
+		Height 20;
+	}
+	
+	States
+	{
+		Spawn:
+			IST2 A -1;
 			Stop;
 	}
 }

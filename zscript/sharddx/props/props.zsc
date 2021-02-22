@@ -545,3 +545,109 @@ Class SHDX_ZetaEnforcerDormant : SHDX_Prop
 			Stop;
 	}
 }
+
+Class SHDX_WarningSign1 : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Warning Sign 1"
+		//$Sprite WSG1A0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 26;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			WSG1 A -1;
+			Stop;
+			
+		Death:
+			TNT1 A 0
+			{
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			TNT1 A 5;
+			Stop;
+	}
+}
+
+Class SHDX_WarningSign2 : SHDX_WarningSign1
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Warning Sign 2"
+		//$Sprite WSG2A0
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			WSG2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_Bucket : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Bucket"
+		//$Sprite BUCKA0
+		//$Category "Decoration"
+		
+		+SHOOTABLE
+		+NOBLOOD
+		
+		Radius 8;
+		Height 8;
+		Health 1;
+	}
+	
+	States
+	{
+		Spawn:
+			BUCK A -1;
+			Stop;
+			
+		Death:
+			TNT1 A 0
+			{
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			Stop;
+	}
+}
+
+Class SHDX_Mop : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Mop"
+		//$Sprite MOP0
+		//$Category "Decoration"
+		
+		Radius 12;
+		Height 36;
+	}
+	
+	States
+	{
+		Spawn:
+			MOP0 A -1;
+			Stop;
+	}
+}

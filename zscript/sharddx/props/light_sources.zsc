@@ -188,3 +188,24 @@ Class SHDX_LittleFloorLightRed : SHDX_Decoration
 			Stop;
 	}
 }
+
+Class SHDX_Pumpkin : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Pumpkin"
+		//$Sprite PUMPA0
+		//$Category "Light sources"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			PUMP A -1 Bright;
+			Stop;
+	}
+}
