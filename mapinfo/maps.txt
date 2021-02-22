@@ -168,14 +168,13 @@ map E3M1 lookup SHDX_E3A1
 map E3M2 lookup SHDX_E3A2
 {
 	LevelNum = 12
-	sky1 = "SKY2"
+	sky1 = "SKY5"
 	cluster = 1
 	par = 45
 	sucktime = 1
 	next = "E3M3"
-	author = "EllieJojo, SanyaWaffles"
+	author = "EllieJojo, SanyaWaffles, Metal Neon"
 	music = "M_DAM"
-	secretnext = "SECRET02"
 }
 
 map E3M3 lookup SHDX_E3A3
