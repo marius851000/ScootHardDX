@@ -637,7 +637,7 @@ Class SHDX_Mop : SHDX_Decoration
 	{
 		//$NotAngled
 		//$Title "Mop"
-		//$Sprite MOP0
+		//$Sprite MOP0A0
 		//$Category "Decoration"
 		
 		Radius 12;
