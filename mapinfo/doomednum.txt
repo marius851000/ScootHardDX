@@ -120,6 +120,11 @@ DoomEdNums
 	6758 = SHDX_WarningSign2
 	6779 = SHDX_Bucket
 	6780 = SHDX_Mop
+	6781 = SHDX_PopcornCup
+	6782 = SHDX_EmptyPopcornCups
+	6783 = SHDX_PopcornCupEmpty
+	6784 = SHDX_DrinkingCup1
+	6785 = SHDX_DrinkingCup1Side
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

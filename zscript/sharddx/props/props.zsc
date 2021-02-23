@@ -651,3 +651,114 @@ Class SHDX_Mop : SHDX_Decoration
 			Stop;
 	}
 }
+
+Class SHDX_PopcornCup : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Popcorn Cup"
+		//$Sprite PCRNA0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 20;
+		Mass 0;
+		VSpeed 0;
+
+		+NoGravity
+	}
+
+	States
+	{
+		Spawn:
+			PCRN A -1 NoDelay A_Stop;
+			Stop;
+	}
+}
+
+// Empty Popcorn Cups
+Class SHDX_EmptyPopcornCups : SHDX_PopcornCup
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Popcorn Cups - Empty"
+		//$Sprite PCRNB0
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			PCRN B -1 NoDelay A_Stop;
+			Stop;
+	}
+}
+
+// Empty Popcorn Cup
+Class SHDX_PopcornCupEmpty : SHDX_PopcornCup
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Popcorn Cup Empty"
+		//$Sprite PCRNC0
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			PCRN C -1 NoDelay A_Stop;
+			Stop;
+	}
+}
+
+
+Class SHDX_DrinkingCup : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Category "Decoration"
+		
+		Height 12;
+		Radius 10;
+	}
+}
+
+Class SHDX_DrinkingCup1 : SHDX_DrinkingCup
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Drinking Cup 1 (White 1)"
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			BCUP A -1;
+			Stop;
+	}
+}
+
+
+Class SHDX_DrinkingCup1Side : SHDX_DrinkingCup
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Drinking Cup 1 (White 2)"
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			BCUP B -1;
+			Stop;
+	}
+}

@@ -499,7 +499,7 @@ decal DrAtmosphereMovie 41
 	y-scale 0.2
 }
 
-decal DrAtmosphereMovie 42
+decal MaimbowAction 42
 {
 	pic "graphics/decals/maimbow_action.png"
 	x-scale 0.2
