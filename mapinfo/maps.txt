@@ -162,6 +162,7 @@ map E3M1 lookup SHDX_E3A1
 	music = "M_SINT"
 	sucktime = 1
 	next = "E3M2"
+	author = "SanyaWaffles"
 	lightning
 }
 
