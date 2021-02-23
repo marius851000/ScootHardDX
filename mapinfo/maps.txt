@@ -134,7 +134,7 @@ map E2M5 lookup SHDX_E2A5
 	cluster = 1
 	par = 45
 	sucktime = 1
-	next = "E3M2"
+	next = "E3M1"
 	author = "SanyaWaffles, Metal Neon"
 	music = "M_ATINT"
 	lightning
@@ -156,7 +156,7 @@ map E2S1 lookup SHDX_E2S1
 map E3M1 lookup SHDX_E3A1
 {
 	LevelNum = 11
-	sky1 = "SKY2"
+	sky1 = "SKY5"
 	cluster = 1
 	par = 45
 	music = "M_SINT"
