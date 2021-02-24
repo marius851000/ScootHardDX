@@ -367,8 +367,7 @@ WAFFLE IRON STUDIOS,SHDX_CREDITS_HEADER_WIS,,,,,,,,,,,,,,,,,,,,,,,
 Secondary Creative Lead, Music, Level Design: Metal Neon
 Additional Level Design, Sound Design: Elliejojo
 Additional Level Design: Philnemba
-Weapon Overhaul: Jona_Arts
-Original Texture Work (WIP): Epic Acrylic and NeonBat
+Weapon Design: Jona_Arts
 
 Voice of Scootaloo: Victoria Prater
 Voice of Low Guard Female/Aurora Dawn: Tabby
@@ -381,10 +380,8 @@ Beta Testers: Captain J, Earth, Soupernatural, T, TailTaless, Twily
 
 Special Thanks To: Jinzo and Zan",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
-"Textures: Ancient Aliens, OTEX, Duke Nukem 3D, Shadow Warrior, Blood
-
-Sounds: Quake HiRes Pack, Source Engine, Rise Of The Triad, Tomb Raider,
-Apeirogon, Wolfenstein 3-D Mac, Halo 2
+"Sounds: Quake HiRes Pack, Source Engine, Tomb Raider,
+Wolfenstein 3-D Mac, Halo 2
 
 Additional Voices: Team Fortress 2
 
@@ -396,8 +393,8 @@ Additional Code by Accensus, Marisa Kirisame, Nash Muhandes,
 Chronos ""phantombeta"" Ouroboros, 3saster, and Mikk
 Original GZDoom Prototype code based on Return of the Triad By el-zee
 
-Based on the fic Rainbow Factory by AuroraDawn, which is inspired by the song
-Rainbow Factory by WoodenToaster",SHDX_CREDITS_ADD,,,,,,,,,,,,,,,,,,,,,,,
+Loosely based on the fic Rainbow Factory by AuroraDawn, which is inspired
+by the song Rainbow Factory by WoodenToaster",SHDX_CREDITS_ADD,,,,,,,,,,,,,,,,,,,,,,,
 Are you sure you want to quit?,SHDX_QUIT1,,,,,,,,,,,,,,,,,,,,,,,
 ,,Tags,,,,,,,,,,,,,,,,,,,,,,
 Boss 1 - Surprise,SHDX_TAG_SURPRISE,,,,,,,,,,,,,,,,,,,,,,,
@@ -477,6 +474,7 @@ Lottery Numbers: 10-27-420-69-911,SHDX_CUPCAKE_13,,,,,,,,,,,,,,,,,,,,,,,
 "It's canon that Bugs Bunny is a
 struggling rapist now. Thank you
 broken copyright system on YouTube.",SHDX_CUPCAKE_14,,,,,,,,,,,,,,,,,,,,,,,
+You are both wrong. Pink Lady is best boy.,SHDX_CUPCAKE_15,,,,,,,,,,,,,,,,,,,,,,,
 ,,Obituaries,,,,,,,,,,,,,,,,,,,,,,
 %o tried to swim in liquid despair.,DD_OB_DESPAIR,,,,,,,,,,,,,,,,,,,,,,,
 %o got atomized into Spectrum.,SHDX_OB_SPECTRA,,,,,,,,,,,,,,,,,,,,,,,
@@ -492,9 +490,6 @@ I warned you about about heights. I told you %o.,OB_FALLING,,,,,,,,,,,,,,,,,,,,,
 "Don't fire that rocket too close next time, %",OB_R_SPLASH,,,,,,,,,,,,,,,,,,,,,,,
 "%o, you asshole. Watch the freaking blast radius!",OB_ROCKET,,,,,,,,,,,,,,,,,,,,,,,
 %o hated doing the dishes.,OB_KILLEDSELF,,,,,,,,,,,,,,,,,,,,,,,
-%o got mowed down by a despairium turret.,DD_OB_TURRET,,,,,,,,,,,,,,,,,,,,,,,
-%o drank the bleach.,DD_OB_BLEACH,,,,,,,,,,,,,,,,,,,,,,,
-OH YEAH!!!!,DD_OB_OHYEAH,,,,,,,,,,,,,,,,,,,,,,,
 %o got brutalized by Ms. Surprise.,SHDX_OB_SURPRISE,,,,,,,,,,,,,,,,,,,,,,,
 %o got wrecked by Dr. Hide Atmosphere.,SHDX_OB_DRATMOS,,,,,,,,,,,,,,,,,,,,,,,
 %o got ground up by the Pegasus Device Prototype.,SHDX_OB_PEGASUSDEVICE,,,,,,,,,,,,,,,,,,,,,,,
@@ -759,7 +754,13 @@ That pony, Rainbow Dash or not...
 they must die for their crimes.
 And that machine must be
 destroyed so that it will never,
-ever cause any more death.",SHDX_EP2END_6B,,,,,,,,,,,,,,,,,,,,,,,
+ever cause any more death.
+
+You go through a teleporter. It
+takes you not to another part
+of the facility, but to Cloudsdale's
+outer reaches. You must get through
+the city, and back into the factory.",SHDX_EP2END_6B,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Pre Maimbow Fight,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow is extremely angry at the loss
 of the Pegasus Device. He readies a
@@ -833,10 +834,10 @@ you...""",SHDX_EP3AEND_6,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow was thrown into the second
 barely functional Pegasus Device, head
 first. The machine puked out every
-color known to Pegasikind. Scootaloo
+color known to Pegasuskind. Scootaloo
 knew what she had to do.
 
-The Pegasi race was too sick to save.
+The Pegaus race was too sick to save.
 It was disgraced by the actions of the
 Cloudsdale Weather Corporation.
 
