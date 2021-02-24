@@ -11,9 +11,9 @@ weapons/fillydrunkf		"sounds/weapons/drunkfillyfire.ogg"
 weapons/rainbowerf		"sounds/weapons/rainbower.ogg"
 weapons/rainbowerx		"sounds/boom2.ogg"		// Rainbower Exploding
 weapons/rainbowerf2		"sounds/weapons/rainbower2.ogg"		// Rainbower Fire Crackle
-weapons/tornadoch		"sounds/electric.ogg"	// needs a better sound
+weapons/tornadof2		"sounds/weapons/tornado_fire.ogg"	// needs a better sound
 weapons/tornadof		"sounds/weapons/tornado_projectile.ogg"
-weapons/hailf			"sounds/electric.ogg"
+weapons/hailf			"sounds/weapons/ice_fire.ogg"
 weapons/hailx			"sounds/glass_break.ogg"
 weapons/hailf2			"sounds/weapons/scatter_fire2.ogg"
 weapons/lightningf		"sounds/weapons/plasma_fire2.ogg"

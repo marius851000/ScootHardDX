@@ -64,6 +64,7 @@ Class SHDX_HailerWeapon : SHDX_WeatherWeapon
 			FRZG A 0 A_GunFlash;
 			FRZG B 1
 			{
+				A_StartSound("weapons/hailf", CHAN_WEAPON);
 				A_FireProjectile("SHDX_HailBall", 0, true, 0);
 			}
 			FRZG C 1;
@@ -110,7 +111,7 @@ Class SHDX_HailBall : SHDX_Projectile
 		Speed 24;
 		Damage 7;
 		DamageType "Ice";
-		SeeSound "weapons/hailf";
+		// SeeSound "weapons/hailf";
 		DeathSound "weapons/hailx";
 	}
 	
@@ -134,7 +135,7 @@ Class SHDX_HailBall2 : SHDX_Projectile
 		Speed 36;
 		Damage 7;
 		DamageType "Ice";
-		SeeSound "weapons/hailf";
+		// SeeSound "weapons/hailf";
 		DeathSound "weapons/hailx";
 	}
 	

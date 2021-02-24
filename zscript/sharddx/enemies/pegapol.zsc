@@ -567,6 +567,7 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 	
 	void A_PegaWizHailerShot()
 	{
+		A_StartSound("weapons/hailf2", CHAN_WEAPON);
 		for (int i = -32; i < 32; i += 16)
 		{
 			A_SpawnProjectile("SHDX_AtmosphereHailBall", angle:i);

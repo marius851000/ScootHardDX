@@ -114,6 +114,7 @@ Class SHDX_MiniSentry : SHDX_Enemy
 	
 	void A_MiniSentryFire()
 	{
+		A_StartSound("weapons/hailf", CHAN_WEAPON);
 		A_SpawnProjectile("SHDX_MiniSentryHailBall", 12, -4);
 		A_SpawnProjectile("SHDX_MiniSentryHailBall", 12, 4);
 	}
@@ -180,6 +181,8 @@ Class SHDX_SpectraSentry : SHDX_MiniSentry
 	
 	void A_SentryFire()
 	{
+		A_StartSound("weapons/hailf", CHAN_WEAPON);
+		
 		A_SpawnProjectile("SHDX_MiniSentryHailBall", 36, -4);
 		A_SpawnProjectile("SHDX_MiniSentryHailBall", 36, 4);
 	}
