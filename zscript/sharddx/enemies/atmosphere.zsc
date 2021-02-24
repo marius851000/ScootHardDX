@@ -183,6 +183,24 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		S_ChangeMusic("M_ATVIC", 0, false);
 	}
 	
+	void A_ChangeSkyboxLight()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(668);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			// s.SetFogDensity(152);
+			s.SetFade("0065CA");
+			s.SetColor("294BD6");
+		}
+		fogchanged = true;
+	}
+	
 	void A_FogDensityMachine()
 	{
 		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
@@ -535,6 +553,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
 				A_StartSound("boss2/atmospherelaugh", CHAN_VOICE, attenuation:ATTN_NONE);
+				A_ChangeSkyboxLight();
 				A_FogDensityMachine();
 				bCanJump = false;
 			}
