@@ -68,9 +68,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 	}
 	
 	void A_NewPlayerPain()
-	{			
-		A_ResetIdleFromPain();
-		
+	{		
 		if (!IsActorPlayingSound(SHDXPLAYER_DIALOGUECHANNEL1))
 			A_StartSound("*pain100", CHAN_6);
 	}
