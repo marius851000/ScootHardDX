@@ -12,6 +12,8 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+const ARMOR_PICKUP_AMOUNT = 50;
+
 Class SHDX_BulletProofBase : SHDX_Armor
 {
 	Default
@@ -76,16 +78,16 @@ Class SHDX_BulletProofArmorPickup : Inventory
 	{
 		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
 		
-		if ((barmor && barmor.amount >= 50))
+		if ((barmor && barmor.amount >= ARMOR_PICKUP_AMOUNT))
 		{
 			return false;
 		}
 		else
 		{
-			if (!barmor || barmor.amount < 50)
+			if (!barmor || barmor.amount < ARMOR_PICKUP_AMOUNT)
 			{
 				barmor = SHDX_BulletProofBase(Spawn("SHDX_BulletProofBase"));
-				barmor.amount = 50;
+				barmor.amount = ARMOR_PICKUP_AMOUNT;
 				barmor.BecomeItem();
 				toucher.AddInventory(barmor);
 			}			
@@ -167,16 +169,16 @@ Class SHDX_FireProofArmorPickup : Inventory
 	{
 		SHDX_FireProofBase farmor = SHDX_FireProofBase(toucher.FindInventory("SHDX_FireProofBase"));
 		
-		if ((farmor && farmor.amount >= 50))
+		if ((farmor && farmor.amount >= ARMOR_PICKUP_AMOUNT))
 		{
 			return false;
 		}
 		else
 		{
-			if (!farmor || farmor.amount < 50)
+			if (!farmor || farmor.amount < ARMOR_PICKUP_AMOUNT)
 			{
 				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
-				farmor.amount = 50;
+				farmor.amount = ARMOR_PICKUP_AMOUNT;
 				farmor.BecomeItem();
 				toucher.AddInventory(farmor);
 			}			
@@ -259,16 +261,16 @@ Class SHDX_WeatherProofArmorPickup : Inventory
 	{
 		SHDX_WeatherProofBase warmor = SHDX_WeatherProofBase(toucher.FindInventory("SHDX_WeatherProofBase"));
 		
-		if ((warmor && warmor.amount >= 25))
+		if ((warmor && warmor.amount >= ARMOR_PICKUP_AMOUNT))
 		{
 			return false;
 		}
 		else
 		{
-			if (!warmor || warmor.amount < 25)
+			if (!warmor || warmor.amount < ARMOR_PICKUP_AMOUNT)
 			{
 				warmor = SHDX_WeatherProofBase(Spawn("SHDX_WeatherProofBase"));
-				warmor.amount = 25;
+				warmor.amount = ARMOR_PICKUP_AMOUNT;
 				warmor.BecomeItem();
 				toucher.AddInventory(warmor);
 			}			
@@ -302,39 +304,40 @@ Class SHDX_BasicArmor : Inventory
 		Tag "$SHDX_TAG_BASICARMOR";
 	}
 	
+	const BASIC_ARMOR_AMOUNT_GIVE = 25;
+	
 	override bool TryPickup(in out Actor toucher)
 	{
-		
 		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
 		SHDX_FireProofBase farmor = SHDX_FireProofBase(toucher.FindInventory("SHDX_FireProofBase"));
 		SHDX_WeatherProofBase warmor = SHDX_WeatherProofBase(toucher.FindInventory("SHDX_WeatherProofBase"));
 		
-		if ((barmor && barmor.amount >= 50) && (farmor && farmor.amount >= 50) && (warmor && warmor.amount >= 50))
+		if ((barmor && barmor.amount >= BASIC_ARMOR_AMOUNT_GIVE) && (farmor && farmor.amount >= BASIC_ARMOR_AMOUNT_GIVE) && (warmor && warmor.amount >= BASIC_ARMOR_AMOUNT_GIVE))
 		{
 			return false;
 		}
 		else
 		{
-			if (!barmor || barmor.amount < 50)
+			if (!barmor || barmor.amount < BASIC_ARMOR_AMOUNT_GIVE)
 			{
 				barmor = SHDX_BulletProofBase(Spawn("SHDX_BulletProofBase"));
-				barmor.amount = 50;
+				barmor.amount = BASIC_ARMOR_AMOUNT_GIVE;
 				barmor.BecomeItem();
 				toucher.AddInventory(barmor);
 			}
 			
-			if (!farmor || farmor.amount < 50)
+			if (!farmor || farmor.amount < BASIC_ARMOR_AMOUNT_GIVE)
 			{
 				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
-				farmor.amount = 50;
+				farmor.amount = BASIC_ARMOR_AMOUNT_GIVE;
 				farmor.BecomeItem();
 				toucher.AddInventory(farmor);
 			}
 			
-			if (!warmor || warmor.amount < 50)
+			if (!warmor || warmor.amount < BASIC_ARMOR_AMOUNT_GIVE)
 			{
 				warmor = SHDX_WeatherProofBase(Spawn("SHDX_WeatherProofBase"));
-				warmor.amount = 50;
+				warmor.amount = BASIC_ARMOR_AMOUNT_GIVE;
 				warmor.BecomeItem();
 				toucher.AddInventory(warmor);
 			}
@@ -369,39 +372,40 @@ Class SHDX_SuperArmor : Inventory
 		Tag "$SHDX_TAG_SUPERARMOR";
 	}
 	
+	const SUPER_ARMOR_AMOUNT = 100;
+	
 	override bool TryPickup(in out Actor toucher)
 	{
-		
 		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
 		SHDX_FireProofBase farmor = SHDX_FireProofBase(toucher.FindInventory("SHDX_FireProofBase"));
 		SHDX_WeatherProofBase warmor = SHDX_WeatherProofBase(toucher.FindInventory("SHDX_WeatherProofBase"));
 		
-		if ((barmor && barmor.amount >= 100) && (farmor && farmor.amount >= 100) && (warmor && warmor.amount >= 100))
+		if ((barmor && barmor.amount >= SUPER_ARMOR_AMOUNT) && (farmor && farmor.amount >= SUPER_ARMOR_AMOUNT) && (warmor && warmor.amount >= SUPER_ARMOR_AMOUNT))
 		{
 			return false;
 		}
 		else
 		{
-			if (!barmor || barmor.amount < 100)
+			if (!barmor || barmor.amount < SUPER_ARMOR_AMOUNT)
 			{
 				barmor = SHDX_BulletProofBase(Spawn("SHDX_BulletProofBase"));
-				barmor.amount = 100;
+				barmor.amount = SUPER_ARMOR_AMOUNT;
 				barmor.BecomeItem();
 				toucher.AddInventory(barmor);
 			}
 			
-			if (!farmor || farmor.amount < 100)
+			if (!farmor || farmor.amount < SUPER_ARMOR_AMOUNT)
 			{
 				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
-				farmor.amount = 100;
+				farmor.amount = SUPER_ARMOR_AMOUNT;
 				farmor.BecomeItem();
 				toucher.AddInventory(farmor);
 			}
 			
-			if (!warmor || warmor.amount < 100)
+			if (!warmor || warmor.amount < SUPER_ARMOR_AMOUNT)
 			{
 				warmor = SHDX_WeatherProofBase(Spawn("SHDX_WeatherProofBase"));
-				warmor.amount = 100;
+				warmor.amount = SUPER_ARMOR_AMOUNT;
 				warmor.BecomeItem();
 				toucher.AddInventory(warmor);
 			}
