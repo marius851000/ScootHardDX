@@ -32,3 +32,8 @@ script "CBOOK_CHANGEMUSIC" (str mus)
 {
 	SetMusic(mus, 0);
 }
+
+function bool GetSkipVoxCVar(void)
+{
+	return GetCVar("shdx_skipvox");
+}
