@@ -67,10 +67,6 @@ Texture	PWFALL1  	Range	PWFALL4  	Tics 4
 
 Texture SAWB_1      Range	SAWB_3		Tics 3
 
-texture DANCEF0
-	pic DANCEF0 tics 5
-	pic DANCEF1 tics 5
-
 warp2 flat RSPECF0
 warp2 flat OSPECF0
 warp2 flat YSPECF0
