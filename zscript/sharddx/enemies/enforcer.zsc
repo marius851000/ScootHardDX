@@ -78,7 +78,7 @@ Class SHDX_ClusterGrenade : SHDX_Projectile
 					A_SpawnProjectile("SHDX_ClusterGrenade2", 32, 0, Random[ClusterGrenade](0, 360), (CMF_AIMDIRECTION|CMF_TRACKOWNER), Random[ClusterGrenade](0, 90));
 				}
 				
-				SHDX_Utilities.DoExplosion(self, 96, 128., 160, flags:DE_EXTRAZTHRUST);
+				SHDX_Utilities.DoExplosion(self, 40, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright
@@ -128,7 +128,7 @@ Class SHDX_ClusterGrenade2 : SHDX_ClusterGrenade
 				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
 				A_SetScale(0.12, 0.12);
 				A_SetRenderStyle(0.9, STYLE_Add);
-				SHDX_Utilities.DoExplosion(self, 64, 64., 96, flags:DE_EXTRAZTHRUST);
+				SHDX_Utilities.DoExplosion(self, 32, 64., 72, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright
@@ -443,7 +443,7 @@ Class SHDX_Grenade : SHDX_Projectile
 			EXPL A 3 Bright
 			{
 				A_SetRenderStyle(0.9, STYLE_Add);
-				SHDX_Utilities.DoExplosion(self, 48, 128., 128, flags:DE_EXTRAZTHRUST);
+				SHDX_Utilities.DoExplosion(self, 24, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright

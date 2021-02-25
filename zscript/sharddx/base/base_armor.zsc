@@ -37,6 +37,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 Class SHDX_Armor : Armor
 {
 	int priority;
+	double armorfactor;
 
 	Property ArmorPriority : priority;
 
@@ -71,29 +72,40 @@ Class SHDX_Armor : Armor
 		Inv = saved;
 	}
 	
-	// for subclasses
-	virtual int HandleDamage( int damage, Name damageType, int flags )
+	virtual bool HandleDamage(int damage, Name damageType)
 	{
-		return damage;
+		return false;
 	}
 	
-	override void AbsorbDamage( int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags )
+	override void AbsorbDamage(int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags)
 	{
-		int saved;
-		if ( (amount > 0) && !DamageTypeDefinition.IgnoreArmor(damageType) && (damage > 0) )
+		bool canresist;
+		if ((amount > 0) && !DamageTypeDefinition.IgnoreArmor(damageType) && (damage > 0))
 		{
-			Owner.A_StartSound("armor/hit",CHAN_ARMORHIT,CHANF_DEFAULT,clamp(damage*.03,0.,1.),2.5);
-			saved = HandleDamage(damage,damageType,flags);
-			int healed = max(0,saved-damage);
-			saved = min(saved,damage);
-			if ( amount <= saved ) saved = amount;
-			newdamage -= saved;
-			if ( healed > 0 ) Owner.GiveBody(healed);
-			amount -= saved;
-			damage = newdamage;
-			if ( amount <= 0 )
+			Owner.A_StartSound("armor/hit", CHAN_ARMORHIT, CHANF_DEFAULT, clamp(damage*.03,0.,1.),2.5);
+			
+			canresist = HandleDamage(damage, damageType);
+			
+			if (canresist)
+			{
+				if (amount <= damage)
+				{
+					newdamage = (damage - amount);
+					DepleteOrDestroy();
+					Destroy();	// Possible bug? This needs to be called.
+					return;
+				}
+				else
+				{
+					amount -= damage;
+					newdamage = 0;
+				}
+			}
+			
+			if (amount <= 0)
 			{
 				DepleteOrDestroy();
+				Destroy();	// Possible bug? This needs to be called.
 				return;
 			}
 		}

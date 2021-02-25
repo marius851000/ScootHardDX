@@ -206,7 +206,7 @@ Class SHDX_RocketGuardMissile : SHDX_Missile
 		Death:
 			EXPL A 0 Bright
 			{
-				SHDX_Utilities.DoExplosion(self, 24, 32, 64, DamageType:'Explosive');
+				SHDX_Utilities.DoExplosion(self, 12, 32, 32, DamageType:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
