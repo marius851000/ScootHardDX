@@ -207,7 +207,8 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 		AltFire:
 			BEAK A 0
 			{
-				SHDX_Utilities.DoExplosion(invoker.Owner, 350, 32, 1024, flags:DE_NOTMISSILE, DamageType:'ChickenX');
+				A_Explode(360, 1024, flags:XF_NOTMISSILE, damagetype:'ChickenX');
+				// SHDX_Utilities.DoExplosion(invoker.Owner, 350, 32, 1024, flags:DE_NOTMISSILE, DamageType:'ChickenX');
 				
 				Sound snd;
 				if (!shdx_grafnomode)

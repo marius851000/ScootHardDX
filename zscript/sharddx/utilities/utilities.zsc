@@ -84,6 +84,7 @@ class SHDX_Utilities play
 	
 	// complete spherical and more accurate replacement of A_Explode
 	// 100% free of the buggery GZDoom's own splash damage has
+	/*
 	static play void DoExplosion( Actor Source, double Damage, double MomentumTransfer, double ExplosionRadius, double FullDamageRadius = 0., int flags = 0, Name DamageType = '', Actor ignoreme = null )
 	{
 		if ( !(flags&DE_NOSPLASH) ) Source.CheckSplash(ExplosionRadius);
@@ -143,6 +144,8 @@ class SHDX_Utilities play
 		}
 		// TODO destructible geometry support
 	}
+	
+	*/
 		
 	// DoExplosion except it does an impact sound if damage occurs.
 	static play void DoExplosionWithSound( Actor Source, double Damage, double MomentumTransfer, double ExplosionRadius, double FullDamageRadius = 0., int flags = 0, Name DamageType = '', Actor ignoreme = null, Sound sndtoplay = 0, int channel = CHAN_BODY )

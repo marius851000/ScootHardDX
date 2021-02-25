@@ -78,7 +78,8 @@ Class SHDX_ClusterGrenade : SHDX_Projectile
 					A_SpawnProjectile("SHDX_ClusterGrenade2", 32, 0, Random[ClusterGrenade](0, 360), (CMF_AIMDIRECTION|CMF_TRACKOWNER), Random[ClusterGrenade](0, 90));
 				}
 				
-				SHDX_Utilities.DoExplosion(self, 40, 128., 80, flags:DE_EXTRAZTHRUST);
+				A_Explode(28, 80, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 40, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright
@@ -128,7 +129,8 @@ Class SHDX_ClusterGrenade2 : SHDX_ClusterGrenade
 				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
 				A_SetScale(0.12, 0.12);
 				A_SetRenderStyle(0.9, STYLE_Add);
-				SHDX_Utilities.DoExplosion(self, 32, 64., 72, flags:DE_EXTRAZTHRUST);
+				A_Explode(16, 56, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 32, 64., 72, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright
@@ -366,7 +368,8 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			ENFO OPOPOP 5;
 			EXPL A 0
 			{
-				SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
+				A_Explode(176, 128, flags:XF_NOTMISSILE, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
 				A_StartSound("enforcer/explode", CHAN_7);
 				// A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnGibsFx(self);
@@ -443,7 +446,8 @@ Class SHDX_Grenade : SHDX_Projectile
 			EXPL A 3 Bright
 			{
 				A_SetRenderStyle(0.9, STYLE_Add);
-				SHDX_Utilities.DoExplosion(self, 24, 128., 80, flags:DE_EXTRAZTHRUST);
+				A_Explode(32, 80, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 24, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright
@@ -584,7 +588,8 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 			ENF2 NONONO 5;
 			EXPL A 0
 			{
-				SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
+				A_Explode(176, 128, flags:XF_NOTMISSILE, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
 				A_StartSound("enforcer/explode", CHAN_7);
 				// A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnGibsFx(self);

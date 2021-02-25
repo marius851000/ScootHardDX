@@ -180,7 +180,8 @@ Class SHDX_ExplosiveBarrel : SHDX_ExplodeyProp
 		Death:
 			EXPL A 0
 			{
-				SHDX_Utilities.DoExplosion(self, 128, 0, 128, 0, DE_NOTMISSILE, 'Explosive');
+				A_Explode(128, 128, flags:XF_NOTMISSILE, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 128, 0, 128, 0, DE_NOTMISSILE, 'Explosive');
 				A_StartSound("misc/explosion", CHAN_BODY);
 				A_SpawnItemEx("SHDX_Explosiveness", 0, 0, 16);
 			}

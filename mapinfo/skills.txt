@@ -21,6 +21,7 @@ skill medium
 	SpawnFilter = 2
 	ACSReturn = 1
 	DamageFactor = 1.0
+	Aggressiveness = 0.5
 	Name = "$SHDX_SKILL2"
 	MustConfirm = "$SHDX_SKILLSURE2"
 	TextColor = "Green"

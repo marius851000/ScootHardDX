@@ -135,7 +135,8 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 		Death:
 			EXPL A 0 Bright
 			{
-				SHDX_Utilities.DoExplosion(self, 32, 32, 64, DamageType:'Weather');
+				A_Explode(64, 64, damagetype:'Weather');
+				// SHDX_Utilities.DoExplosion(self, 32, 32, 64, DamageType:'Weather');
 			}
 		Death1:
 			TORN A 3

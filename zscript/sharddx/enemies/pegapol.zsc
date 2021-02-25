@@ -410,7 +410,8 @@ Class SHDX_PegaWizExplosiveLine : SHDX_Projectile
 		Death:
 			EXPL A 0 Bright
 			{
-				SHDX_Utilities.DoExplosion(self, 16, 32, 80, DamageType:'Explosive');
+				A_Explode(16, 80, flags:0, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 16, 32, 80, DamageType:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
@@ -426,7 +427,7 @@ Class SHDX_PegaWizExplosiveLine2 : SHDX_Projectile
 		Radius 11;
 		Height 8;
 		Speed 0;
-		Damage 20;
+		Damage 5;
 		Projectile;
 		+Corpse
 		+FloorHugger
@@ -443,7 +444,8 @@ Class SHDX_PegaWizExplosiveLine2 : SHDX_Projectile
 			EXPL A 0 NoDelay Bright
 			{
 				A_StartSound("weapons/rocketx", CHAN_BODY);
-				SHDX_Utilities.DoExplosion(self, 18, 32, 72, DamageType:'Explosive', IgnoreMe:target);
+				A_Explode(8, 72, flags:0, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 18, 32, 72, DamageType:'Explosive', IgnoreMe:target);
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;

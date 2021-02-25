@@ -100,7 +100,7 @@ Class SHDX_MaimbowMissile : SHDX_Missile
 		Death:
 			EXPL A 0 Bright
 			{
-				SHDX_Utilities.DoExplosion(self, 16, 32, 24, DamageType:'Explosive');
+				A_Explode(16, 32, damagetype:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;

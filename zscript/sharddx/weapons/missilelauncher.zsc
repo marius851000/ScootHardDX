@@ -112,7 +112,8 @@ Class SHDX_Missile : SHDX_Projectile
 		Death:
 			EXPL A 0 Bright
 			{
-				SHDX_Utilities.DoExplosion(self, 64, 32, 128, DamageType:'Explosive');
+				A_Explode(64, 128, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 64, 32, 128, DamageType:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
@@ -180,7 +181,8 @@ Class SHDX_Grenade2 : SHDX_Grenade
 			EXPL A 3 Bright
 			{
 				A_SetRenderStyle(0.9, STYLE_Add);
-				SHDX_Utilities.DoExplosion(self, 64, 128., 176, flags:DE_EXTRAZTHRUST);
+				A_Explode(64, 176, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 64, 128., 176, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
 			EXPL B 3 Bright

@@ -176,7 +176,7 @@ Class SHDX_FireProofArmorPickup : Inventory
 			if (!farmor || farmor.amount < 50)
 			{
 				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
-				farmor.amount = 100;
+				farmor.amount = 50;
 				farmor.BecomeItem();
 				toucher.AddInventory(farmor);
 			}			
