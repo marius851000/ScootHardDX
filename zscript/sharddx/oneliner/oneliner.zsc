@@ -127,7 +127,6 @@ extend class SHDX_PlayerPawn
 	const ONELINER_USE_LOCKED_MAX = 3;
 	
 	int onelinercount;		// One Liner Counter
-	int lastonelinernum;
 	bool onelinerhit;		// One Liner Flag
 	Sound onelinersnd;		// One Liner Sound
 	int timetosing;
@@ -141,28 +140,10 @@ extend class SHDX_PlayerPawn
 	meta String OneLinerPrefix;
 	Property OneLinerPrefix: OneLinerPrefix;
 	
-	void A_ResetIdleFromPain()
-	{
-		timetosing = 0;
-	}
-	
 	const ATTN_ONELINER = 0.25;
 	
 	String A_GetDefaultVoiceOver()
 	{
-		/*
-		int r;
-		do
-		{
-			r =  Random[OneLiner](1, 10);
-		}
-		while (r == lastonelinernum)
-		
-		lastonelinernum = r;
-		
-		return String.Format("voiceover%d", r);
-		*/
-		
 		return String.Format("voiceover%d", Random[OneLiner](1, 20));
 	}
 	
@@ -238,7 +219,7 @@ extend class SHDX_PlayerPawn
 	}
 	
 	void A_OneLinerSound(Sound snd)
-	{		
+	{
 		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_DEFAULT, 4.0, ATTN_ONELINER);
 		
 		A_CheckIfOneLinerRequiresSubtitles(snd);

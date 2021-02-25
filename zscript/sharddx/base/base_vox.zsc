@@ -69,7 +69,7 @@ class SHDX_Vox : SHDX_Actor
 	
 	static int GetSecondsFromSound(Sound snd)
 	{
-		if (int(snd))
+		if (SHDX_Utilities.CheckSoundExists(snd))
 			return int(S_GetLength(snd) * Thinker.TICRATE);
 			
 		return 0;
@@ -101,6 +101,8 @@ class SHDX_Vox : SHDX_Actor
 					if (npo)
 					{
 						npo.onelinermute = muted;
+						if (muted)
+							npo.A_StopSound(SHDXPLAYER_DIALOGUECHANNEL1);
 					}
 				}
 			}
