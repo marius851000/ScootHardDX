@@ -155,7 +155,7 @@ Class SHDX_LightningGunDisintegratingBall : SHDX_Projectile
 			if (abs(pos.x - a.pos.x) > blockdist || abs(pos.y - a.pos.y) > blockdist)
 				continue;
 			
-			if (a.pos.z + height < a.pos.z || a.pos.z + a.height < pos.z)
+			if (abs(a.pos.z - pos.z) > blockdist)
 				continue;
 			
 			a.Destroy();

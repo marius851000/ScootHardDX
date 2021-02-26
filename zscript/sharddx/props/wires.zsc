@@ -22,7 +22,7 @@ Class SHDX_Wires : SHDX_SwitchableDecoration
 		//$Category "Obstacles/Traps"
 		
 		Radius 32;
-		Height 24;
+		Height 16;
 		
 		Obituary "$SHDX_OB_LIVEWIRES";
 		
@@ -43,7 +43,7 @@ Class SHDX_Wires : SHDX_SwitchableDecoration
 	
 	void A_SHDX_HurtToTouch()
 	{
-		BlockThingsIterator bi = BlockThingsIterator.Create(self, radius / 4);
+		BlockThingsIterator bi = BlockThingsIterator.Create(self, radius / 2);
 		double blockdist;
 		
 		while (bi.Next())
@@ -61,7 +61,7 @@ Class SHDX_Wires : SHDX_SwitchableDecoration
 			if (abs(pos.x - a.pos.x) > blockdist || abs(pos.y - a.pos.y) > blockdist)
 				continue;
 			
-			if (a.pos.z + height < a.pos.z || a.pos.z + a.height < pos.z)
+			if (abs(a.pos.z - pos.z) > height)
 				continue;
 				
 			int damageamt = a.DamageMobj(self, self, Random[Wires](1, 10), 'Lightning', DMG_EXPLOSION, 0);
@@ -92,9 +92,6 @@ Class SHDX_WiresFloor : SHDX_Wires
 		//$Title "Wires (Floor)"
 		//$Sprite WIREE0
 		//$Category "Obstacles/Traps"
-		
-		Radius 32;
-		Height 24;
 		
 		-SpawnCeiling
 		-NoGravity
