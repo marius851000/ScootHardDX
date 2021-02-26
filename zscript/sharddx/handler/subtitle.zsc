@@ -26,7 +26,7 @@ extend class SHDX_Handler
 	transient String subtitle;
 	transient int subtitletic, subtitlespan;
 	
-	static int AddSubtitle( String sub, int level, int slength = 5, int delay = 5 )
+	static int AddSubtitle(String sub, int slength = 5, int delay = 5)
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		
@@ -45,7 +45,7 @@ extend class SHDX_Handler
 		if (!CVar.GetCvar('shdx_subtitles', players[consoleplayer]).GetBool())
 			return;
 		
-		if ( (gametic == subtitletic) && (subtitle != "") && (players[consoleplayer].health > 0) )
+		if ((gametic == subtitletic) && (subtitle != "") && (players[consoleplayer].health > 0))
 		{
 			let l = SHDX_Subtitle.Make(subtitle, subtitlespan);
 			

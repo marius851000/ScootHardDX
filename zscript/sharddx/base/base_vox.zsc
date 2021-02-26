@@ -64,7 +64,7 @@ class SHDX_Vox : SHDX_Actor
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		if (!hnd) return;
-		hnd.AddSubtitle(sub, 1, length, 5);
+		hnd.AddSubtitle(sub, length, 5);
 	}
 	
 	static int GetSecondsFromSound(Sound snd)

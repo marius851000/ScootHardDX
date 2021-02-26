@@ -1,26 +1,4 @@
 /*
-Copyright (c) 2020 Marisa Kirisame, UnSX Team
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/
-
-/*
 Copyright 2020 Sanya K. Waffles
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -36,11 +14,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 Class SHDX_Armor : Armor
 {
-	int priority;
-	double armorfactor;
-
-	Property ArmorPriority : priority;
-
 	Default
 	{
 		+INVENTORY.AUTOACTIVATE;
@@ -52,39 +25,18 @@ Class SHDX_Armor : Armor
 	
 	mixin PickupSoundOverride;
 	
-	override void AttachToOwner( Actor other )
-	{
-		Super.AttachToOwner(other);
-		// find last armor that's better than us
-		Inventory found = null;
-		bool foundarmor = false;
-		for ( Inventory i=other.Inv; i; i=i.Inv )
-		{
-			if ( (i is 'SHDX_Armor') && (i != self) ) foundarmor = true;
-			if ( !(i is 'SHDX_Armor') || (i == self) || (SHDX_Armor(i).priority < priority) ) continue;
-			found = i;
-		}
-		if ( !found ) return;
-		// place ourselves right after it
-		Inventory saved = found.Inv;
-		found.Inv = self;
-		other.Inv = Inv;
-		Inv = saved;
-	}
-	
-	virtual bool HandleDamage(int damage, Name damageType)
+	virtual bool CanResistDamage(Name damagetype)
 	{
 		return false;
 	}
 	
-	override void AbsorbDamage(int damage, Name damageType, out int newdamage, Actor inflictor, Actor source, int flags)
+	override void AbsorbDamage(int damage, Name damagetype, out int newdamage, Actor inflictor, Actor source, int flags)
 	{
 		bool canresist;
-		if ((amount > 0) && !DamageTypeDefinition.IgnoreArmor(damageType) && (damage > 0))
-		{
-			Owner.A_StartSound("armor/hit", CHAN_ARMORHIT, CHANF_DEFAULT, clamp(damage*.03,0.,1.),2.5);
-			
-			canresist = HandleDamage(damage, damageType);
+		
+		if ((amount > 0) && !DamageTypeDefinition.IgnoreArmor(damagetype) && (damage > 0))
+		{			
+			canresist = CanResistDamage(damagetype);
 			
 			if (canresist)
 			{
@@ -126,14 +78,16 @@ Class SHDX_Armor : Armor
 		return (Class<SHDX_Armor>)(type);
 	}
 	
-	override Inventory CreateCopy (Actor other)
+	override Inventory CreateCopy(Actor other)
 	{
 		SHDX_Armor copy;
+		
 		int amount = Amount;
 		
 		Class<Object> o = GetClass();
 		
 		let type = GetParentArmor();
+		
 		if (GetClass() != type && type != null)
 		{
 			if (!GoAway())
@@ -150,15 +104,15 @@ Class SHDX_Armor : Armor
 		}
 		
 		if (copy.Amount > copy.MaxAmount)
-		{
 			copy.Amount = copy.MaxAmount;
-		}
+		
 		return copy;
 	}
 	
-	override bool HandlePickup (Inventory item)
+	override bool HandlePickup(Inventory item)
 	{
 		let armoritem = SHDX_Armor(item);
+		
 		if (armoritem != null && armoritem.GetParentClass() == GetClass())
 		{
 			if (Amount < MaxAmount)
@@ -166,22 +120,19 @@ Class SHDX_Armor : Armor
 				int recieving = armoritem.amount;
 				
 				if (Amount > 0 && Amount + recieving < 0)
-				{
 					Amount = 0x7fffffff;
-				}
 				else
-				{
 					Amount += recieving;
-				}
+				
 				if (Amount > MaxAmount)
-				{
 					Amount = MaxAmount;
-				}
 				
 				item.bPickupGood = true;
 			}
+			
 			return true;
 		}
+		
 		return false;
 	}
 }

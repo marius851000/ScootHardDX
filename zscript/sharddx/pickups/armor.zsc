@@ -20,12 +20,11 @@ Class SHDX_BulletProofBase : SHDX_Armor
 	{
 		Inventory.MaxAmount 100;
 		Inventory.InterHubAmount 100;
-		SHDX_Armor.ArmorPriority 1;
 	}
 
-	override bool HandleDamage(int damage, Name damageType)
+	override bool CanResistDamage(Name damageType)
 	{
-		if (damage > 0 && (damageType == 'Bullet'))
+		if (damageType == 'Bullet')
 			return true;
 			
 		return false;
@@ -111,12 +110,11 @@ Class SHDX_FireProofBase : SHDX_Armor
 	{
 		Inventory.MaxAmount 100;
 		Inventory.InterHubAmount 100;
-		SHDX_Armor.ArmorPriority 1;
 	}
 
-	override bool HandleDamage(int damage, Name damageType)
+	override bool CanResistDamage(Name damageType)
 	{
-		if (damage > 0 && ((damageType == 'Fire') || (damageType == 'Slime') || (damageType == 'Explosive')))
+		if (damageType == 'Fire' || damageType == 'Slime' || damageType == 'Explosive')
 			return true;
 		
 		return false;
@@ -202,12 +200,11 @@ Class SHDX_WeatherProofBase : SHDX_Armor
 	{
 		Inventory.MaxAmount 100;
 		Inventory.InterHubAmount 100;
-		SHDX_Armor.ArmorPriority 1;
 	}
 
-	override bool HandleDamage(int damage, Name damageType)
+	override bool CanResistDamage(Name damageType)
 	{
-		if (damage > 0 && ((damageType == 'Weather') || (damageType == 'Lightning') || (damageType == 'Ice') || (damageType == 'Spectrum')))
+		if (damageType == 'Weather' || damageType == 'Lightning' || damageType == 'Ice' || damageType == 'Spectrum')
 			return true;
 		
 		return false;

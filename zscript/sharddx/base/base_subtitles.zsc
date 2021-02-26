@@ -1,5 +1,24 @@
- // The subtitle message handler and hudmessage hint message are from Marisa Kirisame's SWMM GZ project and under the
- // MIT license.
+/*
+Copyright (c) 2020 Marisa Kirisame, UnSX Team
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
 
 Class SHDX_Subtitle : HUDMessageBase
 {
@@ -24,17 +43,12 @@ Class SHDX_Subtitle : HUDMessageBase
 
 	override void Draw( int bottom, int visibility )
 	{
-		if ( !safezone ) safezone = CVar.GetCVar('shdx_hudmargin',players[consoleplayer]);
-		if ( !lang ) lang = CVar.GetCVar('language',players[consoleplayer]);
-		int margin = safezone.GetInt();
 		Vector2 hs = StatusBar.GetHUDScale();
 		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
 		String loc = StringTable.Localize(whichline);
 		if ( loc.Length() <= 0 ) return;	// don't draw empty strings
 		String locs = loc;
 		Font fnt = SmallFont;
-		if ( lang.GetString() ~== "jp" ) fnt = NewSmallFont;
-		// split so it can fit
 		BrokenLines l = fnt.BreakLines(locs,int(ss.x*.5));
 		int maxlen = 0;
 		for ( int i=0; i<l.Count(); i++ )
@@ -46,8 +60,8 @@ Class SHDX_Subtitle : HUDMessageBase
 		int fh = h*l.Count();
 		double alph = clamp((curtime/20.)+1.,0.,1.);
 		alph *= clamp((lifespan-curtime)/10.,0.,1.);
-		Screen.Dim("Black",alph*.8,int((Screen.GetWidth()-(maxlen+12)*hs.x)/2.),int(bottom-(margin+2+fh)*hs.y),int((maxlen+12)*hs.x),int((fh+4)*hs.y));
-		int yy = margin+fh;
+		Screen.Dim("Black",alph*.8,int((Screen.GetWidth()-(maxlen+12)*hs.x)/2.),int(bottom-(2+fh)*hs.y),int((maxlen+12)*hs.x),int((fh+4)*hs.y));
+		int yy = fh;
 		for ( int i=0; i<l.Count(); i++ )
 		{
 			int len = fnt.StringWidth(l.StringAt(i));
