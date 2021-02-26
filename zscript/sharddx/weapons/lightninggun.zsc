@@ -138,27 +138,25 @@ Class SHDX_LightningGunDisintegratingBall : SHDX_Projectile
 	{
 		Actor a;
 		ThinkerIterator ti = ThinkerIterator.Create("SHDX_Projectile");
-		while ( a = Actor(ti.Next()) )
+		double blockdist;
+		while (a = Actor(ti.Next()))
 		{
 			if (!a)
-			{
 				continue;
-			}
 			
 			if (a == self)
-			{
 				continue;
-			}
 			
 			if (a.target == self.target)
-			{
 				continue;
-			}
-				
-			if (!SHDX_Utilities.SphereIntersect(a, self.pos, radius*5))
-			{
+			
+			blockdist = radius + a.radius;
+							
+			if (abs(pos.x - a.pos.x) > blockdist || abs(pos.y - a.pos.y) > blockdist)
 				continue;
-			}
+			
+			if (a.pos.z + height < a.pos.z || a.pos.z + a.height < pos.z)
+				continue;
 			
 			a.Destroy();
 		}
