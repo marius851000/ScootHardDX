@@ -1,19 +1,12 @@
 default,Identifier,Remarks,Filter,eng enc ena enz eni ens enj enb enl ent enw,cs,de,el,eo,es,esm esn esg esc esa esd esv eso esr ess esf esl esy esz esb ese esh esi esu,fi,fr,hu,it,jp,ko,nl,pl,pt,ptg,ro,ru,sk,sr
 ,,Misc,,,,,,,,,,,,,,,,,,,,,,
 Manual Abort Triggered!,SHDX_MANUALCRASHABORT,,,,,,,,,,,,,,,,,,,,,,,
-Scoot Hard DX Has Aborted! Funny Waffle Iron Toilet Moment.,SHDX_CRASHMESSAGE,,,,,,,,,,,,,,,,,,,,,,,
-This is absolutely haram!,SHDX_CRASHHARAM,,,,,,,,,,,,,,,,,,,,,,,
-You loaded this with Brutal Doom? I told you not to dawg.,SHDX_CRASHBRUTALDOOM,,,,,,,,,,,,,,,,,,,,,,,
-"If you didn't trigger this manually, show a 100% halal screenshot to SanyaWaffles.",SHDX_CRASHNOBRUTALDOOM,,,,,,,,,,,,,,,,,,,,,,,
-Please don't take a dump in my DMs.,SHDX_NUKKUSWARN,,,,,,,,,,,,,,,,,,,,,,,
-SHDX_BossBarHandler tried reading a boss that has a spawnhealth of 0 or less,SHDX_EXCEPTIONBOSSHPSPAWNZERO,,,,,,,,,,,,,,,,,,,,,,,
-Brutal Doom is not halal.,SHDX_EXCEPTIONBRUTALDOOM,,,,,,,,,,,,,,,,,,,,,,,
-(No version information),SHDX_NOVERSION,,,,,,,,,,,,,,,,,,,,,,,
-WARNING!,SHDX_WARNING,,,,,,,,,,,,,,,,,,,,,,,
-Loaded save contains no version data. Issues may happen.,SHDX_LOADEDNOVERDATA,,,,,,,,,,,,,,,,,,,,,,,
-This savegame is from a different version of Scoot Hard DX. Issues may happen,SHDX_LOADEDDIFFERENTDATA,,,,,,,,,,,,,,,,,,,,,,,
-VOX SUBSYSTEM::voices and subtitles size mismatch in %s,SHDX_VOXSUBSYSTEMERROR1,,,,,,,,,,,,,,,,,,,,,,,
-VOX SUBSYSTEM::voices and durations size mismatch in %s,SHDX_VOXSUBSYSTEMERROR2,,,,,,,,,,,,,,,,,,,,,,,
+"Unhandled Exception Caught By GZDoom/Scoot Hard DX.
+
+Scoot Hard DX Has Aborted! Please Contact @WaffleIronCoop or @SanyaWaffles
+on Twitter, DM her on Discord with a bug report, or report it in any of the threads
+unless you manually triggered this. Give us a screenshot of this and as many
+details as possible about what happened.",SHDX_CRASHMESSAGE,,,,,,,,,,,,,,,,,,,,,,,
 You found a secret area!,SECRETMESSAGE,,,,,,,,Encontraste un area secreto!,,,,,,,,,,,,,,Našli ste skrytú oblasť!,
 Touchplate Triggered!,SHDX_TOUCHPLATE,,,,,,,,¡Placa Disparada!,,,,,,,,,,,,,,Dotyková doska je aktivovaná!,
 Bridge Raised!,SHDX_BRIGDE_RAISED,,,,,,,,,,,,,,,,,,,,,,,
