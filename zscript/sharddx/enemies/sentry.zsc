@@ -21,7 +21,7 @@ Class SHDX_MiniSentryHailBall : SHDX_HailBall
 		Speed 20;
 		Damage 3;
 		DamageType "Ice";
-		SeeSound "weapons/hailf";
+		// SeeSound "weapons/hailf";
 		DeathSound "weapons/hailx";
 	}
 	
