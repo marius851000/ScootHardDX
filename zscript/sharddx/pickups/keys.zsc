@@ -23,7 +23,6 @@ Class SHDX_RedCard : SHDX_Key
 		
 		Tag "$SHDX_TAG_REDKEY";
 		Inventory.PickupMessage "$SHDX_PICKUP_REDKEY";
-		Scale 0.06;
 	}
 	
 	States
@@ -46,7 +45,6 @@ Class SHDX_BlueCard : SHDX_Key
 		
 		Tag "$SHDX_TAG_BLUEKEY";
 		Inventory.PickupMessage "$SHDX_PICKUP_BLUEKEY";
-		Scale 0.06;
 	}
 	
 	States
@@ -69,7 +67,6 @@ Class SHDX_GreenCard : SHDX_Key
 		
 		Tag "$SHDX_TAG_GREENKEY";
 		Inventory.PickupMessage "$SHDX_PICKUP_GREENKEY";
-		Scale 0.06;
 	}
 	
 	States
@@ -94,7 +91,6 @@ Class SHDX_ManagementCard : SHDX_Key
 		
 		Tag "$SHDX_TAG_MANAGEMENTKEY";
 		Inventory.PickupMessage "$SHDX_PICKUP_MANAGEMENTKEY";
-		Scale 0.06;
 	}
 	
 	States

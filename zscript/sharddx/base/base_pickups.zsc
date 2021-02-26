@@ -73,9 +73,9 @@ Class SHDX_Key : Key
 		//$Category "Keys"
 		//$Color 13
 
-		Radius 12;
-		Height 24;
-		Scale 0.20;
+		Radius 16;
+		Height 32;
+		Scale 0.12;
 		Inventory.PickupSound "pickup/key";
 	}
 	
