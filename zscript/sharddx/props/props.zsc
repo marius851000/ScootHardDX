@@ -774,7 +774,7 @@ Class SHDX_Vines : SHDX_Decoration
 		//$Category "Decoration"
 		
 		Radius 24;
-		Height 56;
+		Height 48;
 		
 		+NoGravity
 		+SpawnCeiling
