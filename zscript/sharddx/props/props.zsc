@@ -763,3 +763,27 @@ Class SHDX_DrinkingCup1Side : SHDX_DrinkingCup
 			Stop;
 	}
 }
+
+Class SHDX_Vines : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Vines"
+		//$Sprite VINEA0
+		//$Category "Decoration"
+		
+		Radius 24;
+		Height 56;
+		
+		+NoGravity
+		+SpawnCeiling
+	}
+	
+	States
+	{
+		Spawn:
+			VINE A -1;
+			Stop;
+	}
+}
