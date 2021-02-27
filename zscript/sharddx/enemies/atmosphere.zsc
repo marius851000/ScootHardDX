@@ -637,7 +637,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO S 5;
 			ATMO T 5
 			{
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx(self, SGFX_SPAWNNOEXTRA);
 				A_NewBossScream();
 				A_SHDX_BossSubtitle("$SHDX_VOX_DRATMOS_10", DeathSound);
 			}

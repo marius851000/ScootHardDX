@@ -74,8 +74,8 @@ Class SHDX_Giblets : SHDX_Actor
 	States
 	{
 		Spawn:
-			GBLT GH 3;
-			GBLT H 0 A_SprayBlood;
+			GBLT ABCD 3;
+			GBLT D 0 A_SprayBlood;
 			Loop;
 		Crash:
 			BLOD A 0 A_Scream;
@@ -90,17 +90,6 @@ Class SHDX_BoneGibs : SHDX_Giblets
 	{
 		Radius 10;
 		Height 10;
-		Speed 0;
-		Scale 0.12;
-		Gravity 0.2;
-		+FLOORCLIP
-		+NOBLOCKMONST
-		+SLIDESONWALLS
-		+CORPSE
-		+RANDOMIZE
-		-SOLID
-		
-		DeathSound "gen/gibs";
 	}
 	
 	States
@@ -109,10 +98,74 @@ Class SHDX_BoneGibs : SHDX_Giblets
 			GBL0 ABCD 3;
 			GBL0 A 0 A_SprayBlood;
 			Loop;
-		Crash:
-			BLOD A 0 A_Scream;
-			BLOD ABCD 5;
-			Stop;
+	}
+}
+
+Class SHDX_HeadGib : SHDX_Giblets
+{
+	Default
+	{
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			GHED ABCD 3;
+			GHED A 0 A_SprayBlood;
+			Loop;
+	}
+}
+
+Class SHDX_ArmGib : SHDX_Giblets
+{
+	Default
+	{
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			GARM ABCD 3;
+			GARM A 0 A_SprayBlood;
+			Loop;
+	}
+}
+
+Class SHDX_LegGib : SHDX_Giblets
+{
+	Default
+	{
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			GLEG ABCD 3;
+			GLEG A 0 A_SprayBlood;
+			Loop;
+	}
+}
+
+Class SHDX_EyeGib : SHDX_Giblets
+{
+	Default
+	{
+		Radius 8;
+		Height 8;
+	}
+	
+	States
+	{
+		Spawn:
+			GBEY ABCD 3;
+			GBEY A 0 A_SprayBlood;
+			Loop;
 	}
 }
 
@@ -173,8 +226,8 @@ Class SHDX_WallGibFall : SHDX_Giblets
 			Loop;
 		Crash:
 		Death:
-			BLDT C 2 A_StartSound(DeathSound);
-			BLDT D 2;
+			BLOD C 2 A_StartSound(DeathSound);
+			BLOD D 2;
 			Stop;
 	}
 }

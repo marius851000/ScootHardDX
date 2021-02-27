@@ -299,7 +299,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			SURP I 5 A_NoBlocking;
 			SURP J 5
 			{
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx(self, SGFX_SPAWNNOEXTRA);
 				A_NewBossScream();
 				A_SHDX_BossSubtitle("$SHDX_VOX_SURPRISE_DEATH", DeathSound);
 			}
