@@ -40,6 +40,8 @@ Class SHDX_RocketGuardSpot : SHDX_Actor
 	}
 }
 
+// Eri coined this "The Simp Wall"
+
 class SHDX_SurpriseHandler : EventHandler
 {
 	SHDX_SurpriseBoss surpboss;

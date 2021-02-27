@@ -512,3 +512,38 @@ decal BigJohnsLuvShack 43
 	x-scale 0.2
 	y-scale 0.2
 }
+
+decal TutorialPosterAltFire 44
+{
+	pic "graphics/decals/tutorial_poster_altfire.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal TutorialPosterBridgeIsOut 45
+{
+	pic "graphics/decals/tutorial_poster_bridge.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal PeriodicTable 46
+{
+	pic "graphics/decals/periodic_table.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal SurpriseGraffiti 47
+{
+	pic "graphics/decals/touch_me_surprise.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal TorSymbol 48
+{
+	pic "graphics/decals/tor_symbol.png"
+	x-scale 0.2
+	y-scale 0.2
+}

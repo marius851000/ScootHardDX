@@ -118,6 +118,27 @@ Class SHDX_SkeletonTCRGhost : SHDX_Decoration
 	}
 }
 
+Class SHDX_SkeletonHighGuard : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Skeleton (High Guard)"
+		//$Sprite HSKLA0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			HSKL A -1;
+			Stop;
+	}
+}
+
 Class SHDX_SurpriseCorpse : SHDX_Decoration
 {
 	Default

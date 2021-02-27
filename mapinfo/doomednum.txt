@@ -126,6 +126,7 @@ DoomEdNums
 	6784 = SHDX_DrinkingCup1
 	6785 = SHDX_DrinkingCup1Side
 	6786 = SHDX_Vines
+	6787 = SHDX_SkeletonHighGuard
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard

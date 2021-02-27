@@ -21,6 +21,12 @@ script "CBOOK_TUTORIAL_POSTER" (int i)
 		case 4:
 			Print(l:"SHDX_TUTORIAL_POSTER_SPECTRUM");
 			break;
+		case 5:
+			Print(l:"SHDX_TUTORIAL_POSTER_ALTFIRE");
+			break;
+		case 6:
+			Print(l:"SHDX_TUTORIAL_POSTER_GLIDE1", s:"\n", l:"SHDX_TUTORIAL_POSTER_GLIDE2", s:"\n", l:"SHDX_TUTORIAL_POSTER_GLIDE3");
+			break;
 		default:
 			break;
 
