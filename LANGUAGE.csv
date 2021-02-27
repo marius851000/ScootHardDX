@@ -24,8 +24,8 @@ The way to the secret level is unlocked.,SHDX_SECRETLEVELUNLOCKED,,,,,,,,,,,,,,,
 ,,Titlemap,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Studios(TM) Scoot Hard DX(TM),SHDX_TITLEMAP_FINAL1,,,,,,,,,,,,,,,,,,,,,,,
 Build,SHDX_TITLEMAP_FINAL2,,,,,,,,,,,,,,,,,,,,,,,
-GZDoom 4.5 Compatible,SHDX_TITLEMAP_FINAL3,,,,,,,,Compatible con GZDoom 4.3.3,,,,,,,,,,,,,,,
-MultiProcessor Enabled,SHDX_TITLEMAP_MULTI,,,,,,,,,,,,,,,,,,,,,,,
+WI/GZDoom 4.6pre Compatible,SHDX_TITLEMAP_FINAL3,,,,,,,,Compatible con GZDoom 4.3.3,,,,,,,,,,,,,,,
+MultiThreaded Enabled,SHDX_TITLEMAP_MULTI,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Systems(TM) WaffleTower i7,SHDX_TITLEMAP_SANYAUSERNAME,,,,,,,,,,,,,,,,,,,,,,,
 "
 HAL: Version 1.12            1/07/2011
@@ -253,6 +253,10 @@ There are hazardous wires in some areas.,SHDX_TUTORIAL_POSTER_LIVEWIRES1,,,,,,,,
 Some can be shut off with switches.,SHDX_TUTORIAL_POSTER_LIVEWIRES2,,,,,,,,,,,,,,,,,,,,,,,
 Use vending machines to get food for bits.,SHDX_TUTORIAL_POSTER_VENDING,,,,,,,,,,,,,,,,,,,,,,,
 Spectrum pools are hurtful to the touch.,SHDX_TUTORIAL_POSTER_SPECTRUM,,,,,,,,,,,,,,,,,,,,,,,
+All weapons have an alt-fire. Check them out!,SHDX_TUTORIAL_POSTER_ALTFIRE,,,,,,,,,,,,,,,,,,,,,,,
+Hold down the jump button/key and move to glide around.,SHDX_TUTORIAL_POSTER_GLIDE1,,,,,,,,,,,,,,,,,,,,,,,
+You can also look around while doing this.,SHDX_TUTORIAL_POSTER_GLIDE2,,,,,,,,,,,,,,,,,,,,,,,
+Master the movement to overpower your enemies.,SHDX_TUTORIAL_POSTER_GLIDE3,,,,,,,,,,,,,,,,,,,,,,,
 ,,Vox Subsystem,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: I Gotta Get Outta Here!,SHDX_VOX_SCOOTALOO_E1M1,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: There's The Exit!,SHDX_VOX_SCOOTALOO_E1M4,,,,,,,,,,,,,,,,,,,,,,,
@@ -295,7 +299,7 @@ Dr. Atmosphere: I'm going to ask you to leave.,SHDX_VOX_DRATMOS_5,,,,,,,,,,,,,,,
 Dr. Atmosphere: You're all going to die up here.,SHDX_VOX_DRATMOS_6,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: You should know it wasn't my idea to unleash the enforcers on you. It was Maimbow's. However, I have something else in mind for you. [cackles]",SHDX_VOX_DRATMOS_7,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: I'm not going to lie, I miss Surprise. You took her from me...",SHDX_VOX_DRATMOS_8,,,,,,,,,,,,,,,,,,,,,,,
-"Dr. Atmosphere: [laughs meniacally] She's not dead, she can't be dead. I'll save her, I'll crush you, I'll crush you all, and I'll save her, and you won't leave the factory!",SHDX_VOX_DRATMOS_9,,,,,,,,,,,,,,,,,,,,,,,
+"Dr. Atmosphere: [laughs maniacally] She's not dead, she can't be dead. I'll save her, I'll crush you, I'll crush you all, and I'll save her, and you won't leave the factory!",SHDX_VOX_DRATMOS_9,,,,,,,,,,,,,,,,,,,,,,,
 Dr. Atmosphere: [in pain] PRAISE THE FLOCK!,SHDX_VOX_DRATMOS_10,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: Oh goodie, It's the little bitch that's been such a pain in my implanted balls. I am Maimbow Undash... you probably have figured out that I'm not your big sister… In fact, you could say that I'm your worst nightmare. Once I've dealt with you, I'm going to make Aurora watch... doesn't that sound oh so delightful? [laughs]",SHDX_VOX_MAIMBOW_1,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: You know, I never gave you the chance to say goodbye to Orion. I apologize for being so rude, you can have him, [laughs].",SHDX_VOX_MAIMBOW_2,,,,,,,,,,,,,,,,,,,,,,,
@@ -357,10 +361,10 @@ Press any key to continue...,TXT_PRESSAKEY,,,,,,,,Pulse cualquier tecla para con
 Credits,MNU_SHARDDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 WAFFLE IRON STUDIOS,SHDX_CREDITS_HEADER_WIS,,,,,,,,,,,,,,,,,,,,,,,
 "Creative Director and Design Lead: SanyaWaffles
-Secondary Creative Lead, Music, Level Design: Metal Neon
-Additional Level Design, Sound Design: Elliejojo
+Secondary Creative Lead, Music, Sound and Level Design: Metal Neon
+Additional Level Design, Additional Sound Design: Elliejojo
 Additional Level Design: Philnemba
-Weapon Design: Jona_Arts
+Additional Level and Weapon Design: Jona_Arts
 
 Voice of Scootaloo: Victoria Prater
 Voice of Low Guard Female/Aurora Dawn: Tabby
@@ -371,7 +375,7 @@ Voice of Maimbow Undash: Jenna Pepper
 
 Beta Testers: Captain J, Earth, Soupernatural, T, TailTaless, Twily
 
-Special Thanks To: Jinzo and Zan",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
+Special Thanks To: AuroraDawn, Jinzo and Zan",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
 "Sounds: Quake HiRes Pack, Source Engine, Tomb Raider,
 Wolfenstein 3-D Mac, Halo 2
@@ -383,10 +387,7 @@ Fonts: Revue, Daidoh Remix, Crewniverse
 Libraries: Apeirogon's Weather Effects Library
 
 Additional Code by Accensus, Chronos ""phantombeta"" Ouroboros,
-Mikk, Marisa Kirisame, and Nash Muhandes
-
-Loosely based on the fic Rainbow Factory by AuroraDawn, which is inspired
-by the song Rainbow Factory by WoodenToaster",SHDX_CREDITS_ADD,,,,,,,,,,,,,,,,,,,,,,,
+Mikk, Marisa Kirisame, and Nash Muhandes.",SHDX_CREDITS_ADD,,,,,,,,,,,,,,,,,,,,,,,
 Are you sure you want to quit?,SHDX_QUIT1,,,,,,,,,,,,,,,,,,,,,,,
 ,,Tags,,,,,,,,,,,,,,,,,,,,,,
 Boss 1 - Surprise,SHDX_TAG_SURPRISE,,,,,,,,,,,,,,,,,,,,,,,
@@ -452,8 +453,9 @@ One asked ""does this taste funny to you?""
 The other went ""no"".",SHDX_CUPCAKE_04,,,,,,,,,,,,,,,,,,,,,,,
 "Being a Discord mod is easy. Just ban
 everyone you disagree with.",SHDX_CUPCAKE_05,,,,,,,,,,,,,,,,,,,,,,,
-"Someone will be disappointed in this for sure.
-I legally cannot say who.",SHDX_CUPCAKE_06,,,,,,,,,,,,,,,,,,,,,,,
+"I am wanted in thirty-two states and fourty
+countries for war crimes I legally cannot
+disclose.",SHDX_CUPCAKE_06,,,,,,,,,,,,,,,,,,,,,,,
 Mudkip was here.,SHDX_CUPCAKE_07,,,,,,,,,,,,,,,,,,,,,,,
 Cool Whip is funny when Irish people say it.,SHDX_CUPCAKE_08,,,,,,,,,,,,,,,,,,,,,,,
 Do not visit fortniteburger.net,SHDX_CUPCAKE_09,,,,,,,,,,,,,,,,,,,,,,,
@@ -467,6 +469,55 @@ Lottery Numbers: 10-27-420-69-911,SHDX_CUPCAKE_13,,,,,,,,,,,,,,,,,,,,,,,
 struggling rapist now. Thank you
 broken copyright system on YouTube.",SHDX_CUPCAKE_14,,,,,,,,,,,,,,,,,,,,,,,
 You are both wrong. Pink Lady is best boy.,SHDX_CUPCAKE_15,,,,,,,,,,,,,,,,,,,,,,,
+"""51565310514ncghdgfuyr6-----------------""
+-Bunky",SHDX_CUPCAKE_16,,,,,,,,,,,,,,,,,,,,,,,
+"What if you wanted to go to Heaven, but
+God said ""Luna is not best princess.""",SHDX_CUPCAKE_17,,,,,,,,,,,,,,,,,,,,,,,
+"*Creates Communism*
+
+Karl, that kills people!",SHDX_CUPCAKE_18,,,,,,,,,,,,,,,,,,,,,,,
+Stupid Fucking Hamster Face.,SHDX_CUPCAKE_19,,,,,,,,,,,,,,,,,,,,,,,
+"No you bitches. Maimbow is best boy.
+
+Know your place, fucking trash!",SHDX_CUPCAKE_20,,,,,,,,,,,,,,,,,,,,,,,
+"25% off OGAY Brand Shampoo!
+
+Expires 12/31/2012",SHDX_CUPCAKE_21,,,,,,,,,,,,,,,,,,,,,,,
+"If there were two guys on the moon and
+one of them killed the other with a rock
+would that be fucked up or what?",SHDX_CUPCAKE_22,,,,,,,,,,,,,,,,,,,,,,,
+Bonjour.,SHDX_CUPCAKE_23,,,,,,,,,,,,,,,,,,,,,,,
+"Surprise complimented my mane today!
+
+SHE LOVES ME I KNOW IT.
+-High Guard #128",SHDX_CUPCAKE_24,,,,,,,,,,,,,,,,,,,,,,,
+"Is there really a Twitter style argument
+going on about who is best boy in these
+cupcakes?",SHDX_CUPCAKE_25,,,,,,,,,,,,,,,,,,,,,,,
+"If Bordeaux is so great then how's come she
+can't pronounce ""White Diamond"".",SHDX_CUPCAKE_26,,,,,,,,,,,,,,,,,,,,,,,
+"Help I am being forced to write Cupcake
+messages against my will for the
+Cloudsdale Weather Corporation. If I
+stop they throw me in the Pegasus
+Device. Please this isn't a meme
+it's a legit cry for help.",SHDX_CUPCAKE_27,,,,,,,,,,,,,,,,,,,,,,,
+Rainbow Factory > Cupcakes,SHDX_CUPCAKE_28,,,,,,,,,,,,,,,,,,,,,,,
+"Joe Biden passed an executive order
+banning direct to DVD/Blu-Ray movies.",SHDX_CUPCAKE_29,,,,,,,,,,,,,,,,,,,,,,,
+"Muffin had so much to say.
+
+RIP Muffin. :(",SHDX_CUPCAKE_30,,,,,,,,,,,,,,,,,,,,,,,
+#FreeCivvie,SHDX_CUPCAKE_31,,,,,,,,,,,,,,,,,,,,,,,
+"My girlfriend Jenna is wanted for
+liking boobs yet being on Twitter",SHDX_CUPCAKE_32,,,,,,,,,,,,,,,,,,,,,,,
+"Shoutout to Jenna, Ellie and Ben
+for letting me commit war crimes
+in Eastern Europe like the epic
+Gamer that I am. Love y'all.",SHDX_CUPCAKE_33,,,,,,,,,,,,,,,,,,,,,,,
+"He turns himself into a Pickle!
+His name is Pickle Rick.
+Funniest shit I've ever seen.",SHDX_CUPCAKE_34,,,,,,,,,,,,,,,,,,,,,,,
 ,,Obituaries,,,,,,,,,,,,,,,,,,,,,,
 %o tried to swim in liquid despair.,DD_OB_DESPAIR,,,,,,,,,,,,,,,,,,,,,,,
 %o got atomized into Spectrum.,SHDX_OB_SPECTRA,,,,,,,,,,,,,,,,,,,,,,,
