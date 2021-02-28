@@ -145,6 +145,8 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		
 		Player.Face "STF";
 		
+		Player.CrouchSprite "SCOC";
+		
 		+NoSkin
 		
 		SHDX_PlayerPawn.OneLinerPrefix "scootaloo";
