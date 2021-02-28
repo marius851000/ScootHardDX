@@ -113,8 +113,8 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			
 			s.SetTexture(Sector.floor, TexMan.CheckForTexture("GSPECF0", TexMan.Type_Flat));
 			level.CreateFloor(s, Floor.FloorLowerByValue, null, 8, 128);
-			s.SetGlowColor(Sector.floor, "00FF00");
-			s.SetGlowHeight(Sector.floor, 64);
+			// s.SetGlowColor(Sector.floor, "00FF00");
+			// s.SetGlowHeight(Sector.floor, 64);
 		}
 		
 		floorlowered = true;
