@@ -193,7 +193,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			ENG1 K 3;
 			Goto See;
 		Sentry:
-			ENG1 L 0 A_StartSound("engineer/sentry", CHAN_VOICE);
+			ENG1 L 0 A_StartSound("engineer/deploy", CHAN_VOICE);
 			ENG1 L 3 A_FaceTarget;
 			ENG1 M 5
 			{

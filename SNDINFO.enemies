@@ -114,18 +114,30 @@ pegawiz/startflying		"sounds/enemies/pegawiz/pw_fly.ogg"
 engineer/sight1			"sounds/enemies/engie/en_see1.ogg"
 engineer/sight2			"sounds/enemies/engie/en_see2.ogg"
 $random engineer/sight  { engineer/sight1 engineer/sight2}
-engineer/death			"sounds/enemies/engie/en_death.ogg"
+engineer/death1			"sounds/enemies/engie/en_dead1.ogg"
+engineer/death2			"sounds/enemies/engie/en_dead2.ogg"
+engineer/death3			"sounds/enemies/engie/en_dead3.ogg"
+engineer/death4			"sounds/enemies/engie/en_dead4.ogg"
+$random engineer/death  { engineer/death1 engineer/death2 engineer/death3  engineer/death4 }
+engineer/pain1			"sounds/enemies/engie/en_pain1.ogg"
+engineer/pain2			"sounds/enemies/engie/en_pain2.ogg"
+engineer/pain3			"sounds/enemies/engie/en_pain3.ogg"
+engineer/pain4			"sounds/enemies/engie/en_pain4.ogg"
+$random engineer/pain  { engineer/pain1 engineer/pain2 engineer/pain3  engineer/pain4 }
+engineer/active1		"sounds/enemies/engie/en_active1.ogg"
+engineer/active2		"sounds/enemies/engie/en_active2.ogg"
+engineer/active3		"sounds/enemies/engie/en_active3.ogg"
+engineer/active4		"sounds/enemies/engie/en_active4.ogg"
+$random engineer/active	{ engineer/active1 engineer/active2 engineer/active3 engineer/active4 }
+engineer/deploy1		"sounds/enemies/engie/en_deploy1.ogg"
+engineer/deploy2		"sounds/enemies/engie/en_deploy2.ogg"
+engineer/deploy3		"sounds/enemies/engie/en_deploy3.ogg"
+engineer/deploy4		"sounds/enemies/engie/en_deploy4.ogg"
+$random engineer/deploy	{ engineer/deploy1 engineer/deploy2 engineer/deploy3 engineer/deploy4 }
 engineer/attack			"sounds/weapons/plasma_fire.ogg"
 engineer/shotx			"sounds/weapons/plasma_shotx.ogg"
 engineer/melee			"sounds/weapons/destablizer_hit.ogg"
 engineer/miss			"sounds/weapons/destablizer_full.ogg"
-engineer/pain			"sounds/enemies/engie/en_pain.ogg"
-engineer/death1			"sounds/enemies/engie/en_die1.ogg"
-engineer/death2			"sounds/enemies/engie/en_die2.ogg"
-$random engineer/death { engineer/death1 engineer/death2}
-engineer/active1		"sounds/enemies/engie/en_active1.ogg"
-engineer/active2		"sounds/enemies/engie/en_active2.ogg"
-$random engineer/active	{ engineer/active1 engineer/active2 }
 
 spectrawasp/sight			"sounds/enemies/wasp/see.ogg"
 spectrawasp/active1			"sounds/enemies/wasp/active1.ogg"

@@ -326,52 +326,20 @@ private void check_for_rain()
     {
         cyclon_state |= CSE_RAINY;
 
-        for(uint i = 0; i < attached_sectors.size(); i++)
+        /* for(uint i = 0; i < attached_sectors.size(); i++)
         {
             attached_sectors[i].SetFade(color("b5b5ff") );
-        }
+        } */
     }
 
     if(CWE_weather_type != CWE_RAIN && (cyclon_state & CSE_RAINY) )
     {
         cyclon_state &= ~CSE_RAINY;
 
-        for(uint i = 0; i < attached_sectors.size(); i++)
+        /* for(uint i = 0; i < attached_sectors.size(); i++)
         {
             attached_sectors[i].SetFade(color("000000") );
-        }
-    }
-
-    try_lighting();
-}
-
-
-//bright flash from lighting
-//happens before thundser sound
-private void lighting_bright_flash()
-{
-	/*
-    for(int i = 0; i < MAXPLAYERS; i++)
-    {
-        PlayerInfo p = players[i];
-        
-       if(inside_sector_bbox(p.mo) )
-       {
-            p.mo.a_setblend("FF, FF, FF", 1, 10);
-       }
-    }
-	*/
-}
-
-private void try_lighting()
-{
-    if(CWE_weather_type == CWE_RAIN)
-    {
-        if(random[WeatherFx](0, 500) <= 1 && weather_sound) 
-        {
-            if(thunder_and_lighting(weather_sound).turn_on_lighting() )
-                lighting_bright_flash();
-        }
+        } */
     }
 }
 
@@ -382,7 +350,6 @@ override void tick()
 
     check_for_ashes();
     check_for_snow();
-    try_lighting();
 }
 
 }
