@@ -148,16 +148,16 @@ Class SHDX_ClusterGrenadeFS : SHDX_Projectile
 		Scale 0.12;
 		Mass 25;
 		
-		BounceCount 5;
-		BounceType "Hexen";
-        BounceFactor 0.65;
-        WallBounceFactor 0.7;
+		// BounceCount 5;
+		// BounceType "Hexen";
+       //  BounceFactor 0.65;
+       //  WallBounceFactor 0.7;
 		
 		Gravity 0.75;
 		
-		BounceSound "enforcer/clusterbombb";
+		// BounceSound "enforcer/clusterbombb";
 		
-		+CanBounceWater
+		// +CanBounceWater
 	}
 	
 	override int SpecialMissileHit(Actor victim)
