@@ -1167,6 +1167,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		Pain1:
 			MBOW \ 3
 			{
+				A_StartSound("maimbow/pain"..Random[Maimbow](1,3), CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 				A_SetRenderStyle(1.0, STYLE_Stencil);
 				SetShade("6e0600");
 			}
@@ -1187,6 +1188,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		Pain.Flying:
 			MBOW K 3
 			{
+				A_StartSound("maimbow/pain"..Random[Maimbow](1,3), CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 				A_SetRenderStyle(1.0, STYLE_Stencil);
 				SetShade("6e0600");
 			}

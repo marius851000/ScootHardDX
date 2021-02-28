@@ -405,6 +405,8 @@ Class SHDX_Boss : SHDX_Enemy
 		}
 	}
 	
+	const COOLDOWNTAUNTTICS = (TICRATE * 15);
+	
 	void A_SHDX_PlayBossTaunt(Sound snd, bool bypasscooldown = false)
 	{
 		if (cooldowntaunt > 0 && !bypasscooldown)
@@ -412,7 +414,7 @@ Class SHDX_Boss : SHDX_Enemy
 	
 		A_StartSound(snd, CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 		
-		cooldowntaunt = 300;
+		cooldowntaunt = COOLDOWNTAUNTTICS;
 	}
 	
 	void A_DD2_BossPlayCutscene()
