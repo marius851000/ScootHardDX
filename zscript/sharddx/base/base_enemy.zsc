@@ -405,7 +405,7 @@ Class SHDX_Boss : SHDX_Enemy
 		}
 	}
 	
-	const COOLDOWNTAUNTTICS = (TICRATE * 15);
+	const COOLDOWNTAUNTTICS = (TICRATE * 10);
 	
 	void A_SHDX_PlayBossTaunt(Sound snd, bool bypasscooldown = false)
 	{
