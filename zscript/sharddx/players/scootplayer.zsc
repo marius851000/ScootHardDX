@@ -130,6 +130,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		Player.DamageScreenColor "00FF00", 0.70, "Spectra";
 		Player.DamageScreenColor "00FFFF", 0.70, "Lightning";
 		Player.DamageScreenColor "A5F2F3", 0.70, "Ice";
+		Player.DamageScreenColor "FFFFFF", 0.00, "Falling";
 		
 		Player.TeleportFreezeTime 0;
 		
@@ -236,7 +237,7 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 				DDFunc_PlayerDiesXTreem();
 			}
 			GIBX A 4 A_XScream();
-			GIBX B A_PlayerScream()
+			GIBX B 4 A_PlayerScream();
 			GIBX BC 4;
 			GIBX D -1;
 			Stop;
@@ -250,13 +251,14 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		Death.Falling:
 			SCOO N 0 A_StopOneLinerSound;
 			SCOO N 35;
-			SCOO O 8
+			SCOO O 35;
 			SCOO N 8;
 			SCOO N 12;
 			SCOO P 15;
 			SCOO Q 15;
 			SCOO R 4 A_StartSound("scootaloo/death1", CHAN_VOICE);
 			SCOO ST 4;
+			TNT1 A 105;
 			TNT1 A -1;
 			Stop;
 		
