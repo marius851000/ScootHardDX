@@ -19,3 +19,5 @@ cl_maxdecals 2560
 gl_ssao 1
 screenblocks 11
 r_deathcamera 1
+crosshairhealth 0
+crosshaircolor "80 ff b4"
