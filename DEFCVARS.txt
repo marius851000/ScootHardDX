@@ -18,3 +18,4 @@ am_portaloverlay false
 cl_maxdecals 2560
 gl_ssao 1
 screenblocks 11
+r_deathcamera 1
