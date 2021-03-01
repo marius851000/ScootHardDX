@@ -516,15 +516,15 @@ decal BigJohnsLuvShack 43
 decal TutorialPosterAltFire 44
 {
 	pic "graphics/decals/tutorial_poster_altfire.png"
-	x-scale 0.2
-	y-scale 0.2
+	x-scale 0.12
+	y-scale 0.12
 }
 
 decal TutorialPosterBridgeIsOut 45
 {
 	pic "graphics/decals/tutorial_poster_bridge.png"
-	x-scale 0.2
-	y-scale 0.2
+	x-scale 0.12
+	y-scale 0.12
 }
 
 decal PeriodicTable 46
