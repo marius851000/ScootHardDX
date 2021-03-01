@@ -23,12 +23,51 @@ class SHDX_VendingMachine : SHDX_Actor
 	
 	int nomoneycount;
 	bool nomoneytriggered;
+	int nomoneycooldown;
 	
 	const VEND_APPLE_COST = 1;
 	const VEND_MEAL_COST = 5;
 	const VEND_EASY_MULTI = 1;
 	const VEND_MEDIUM_MULTI = 2;
 	const VEND_HARD_MULTI = 3;
+	
+	int A_GetVendingMachineCount()
+	{
+		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		if (!hnd) return 0;
+		
+		return hnd.vendingmachineusecount;
+	}
+	
+	void A_IncrementVendingMachineEasterEgg()
+	{
+		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		if (!hnd) return;
+		
+		hnd.vendingmachineusecount++;
+		
+		if (hnd.vendingmachineusecount >= 7)
+		{
+			hnd.vendingmachineusecount = 7;
+			hnd.vendingeastereggcompleted = true;
+		}
+	}
+	
+	bool A_CheckVendingMachineEasterEgg()
+	{
+		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		if (!hnd) return false;
+		
+		return hnd.vendingeastereggcompleted;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (nomoneycooldown > 0)
+			nomoneycooldown--;
+	}
 	
 	override bool Used(Actor user)
 	{	
@@ -79,14 +118,46 @@ class SHDX_VendingMachine : SHDX_Actor
 				}
 				else
 				{
-					if (!nomoneytriggered)
+					if (nomoneycooldown <= 0)
 						nomoneycount++;
 					
-					if (nomoneycount > 10 && !nomoneytriggered)
+					if (!A_CheckVendingMachineEasterEgg() && nomoneycount > 5 && nomoneycooldown <= 0)
 					{
-						A_StartSound("vending/failfilthyfrank", CHAN_VENDINGUSE, CHANF_OVERLAP);
+						A_IncrementVendingMachineEasterEgg();
+						
+						int sndnum = A_GetVendingMachineCount();
+						
+						String snd = "maimbow/vending"..sndnum;
+						
+						A_StartSound(snd, CHAN_VENDINGUSE, CHANF_OVERLAP, attenuation:0.5);
+						
+						if (sndnum == 7)
+						{
+							shdxpl.A_GiveInventory("Health", 25);
+							A_StartSound("vending/dispense", CHAN_VENDINGUSE, CHAN_OVERLAP);
+							shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_HOTMEAL"));
+						}
+						else
+						{
+							A_StartSound("vending/fail", CHAN_VENDINGUSE, CHANF_OVERLAP);
+						}
+						
 						nomoneycount = 0;
-						nomoneytriggered = true;
+						
+						if (sndnum == 1)
+							nomoneycooldown = (TICRATE * 5);
+						if (sndnum == 2)
+							nomoneycooldown = (TICRATE * 4);
+						if (sndnum == 3)
+							nomoneycooldown = (TICRATE * 7);
+						if (sndnum == 4)
+							nomoneycooldown = (TICRATE * 13);
+						if (sndnum == 5)
+							nomoneycooldown = (TICRATE * 5);
+						if (sndnum == 6)
+							nomoneycooldown = (TICRATE * 6);
+						if (sndnum == 7)
+							nomoneycooldown = (TICRATE * 6);
 					}
 					else
 					{
