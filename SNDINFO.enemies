@@ -113,7 +113,8 @@ pegawiz/startflying		"sounds/enemies/pegawiz/pw_fly.ogg"
 
 engineer/sight1			"sounds/enemies/engie/en_see1.ogg"
 engineer/sight2			"sounds/enemies/engie/en_see2.ogg"
-$random engineer/sight  { engineer/sight1 engineer/sight2}
+engineer/sight3			"sounds/enemies/engie/en_see3.ogg"
+$random engineer/sight  { engineer/sight1 engineer/sight2 engineer/sight3 }
 engineer/death1			"sounds/enemies/engie/en_dead1.ogg"
 engineer/death2			"sounds/enemies/engie/en_dead2.ogg"
 engineer/death3			"sounds/enemies/engie/en_dead3.ogg"
