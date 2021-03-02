@@ -21,3 +21,5 @@ screenblocks 11
 r_deathcamera 1
 crosshairhealth 0
 crosshaircolor "80 ff b4"
+autosavecount 8
+longsavemessages false
