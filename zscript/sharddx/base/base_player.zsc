@@ -87,6 +87,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 	{
 		Super.BeginPlay();
 		MarkPreCacheSounds();
+		A_ResetOneLinerMute();
 	}
 	
 	// Accensus provided me this

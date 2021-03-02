@@ -144,7 +144,6 @@ extend class SHDX_PlayerPawn
 	
 	void A_ResetOneLinerMute()
 	{
-		Console.PrintF("resetting onelinermute");
 		onelinermute = false;
 	}
 	
