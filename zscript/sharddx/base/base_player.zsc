@@ -87,7 +87,6 @@ Class SHDX_PlayerPawn : PlayerPawn
 	{
 		Super.BeginPlay();
 		MarkPreCacheSounds();
-		A_ResetOneLinerMute();
 	}
 	
 	// Accensus provided me this
@@ -113,6 +112,12 @@ Class SHDX_PlayerPawn : PlayerPawn
 			s.ClearSecret();
 			GiveSecret();
 		}
+	}
+	
+	override void Travelled()
+	{
+		Super.Travelled();
+		A_ResetOneLinerMute();
 	}
 	
 	override void Tick()
