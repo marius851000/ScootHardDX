@@ -19,7 +19,7 @@ Class SHDX_ClusterGrenade : SHDX_Projectile
 		Radius 7;
 		Height 14;
 		Speed 25;
-		Damage 10;
+		Damage 7;
 		DamageType "Explosive";
 		
 		Scale 0.12;
@@ -78,7 +78,7 @@ Class SHDX_ClusterGrenade : SHDX_Projectile
 					A_SpawnProjectile("SHDX_ClusterGrenade2", 32, 0, Random[ClusterGrenade](0, 360), (CMF_AIMDIRECTION|CMF_TRACKOWNER), Random[ClusterGrenade](0, 90));
 				}
 				
-				A_Explode(28, 80, damagetype:'Explosive');
+				A_Explode(18, 80, damagetype:'Explosive');
 				// SHDX_Utilities.DoExplosion(self, 40, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
@@ -129,7 +129,7 @@ Class SHDX_ClusterGrenade2 : SHDX_ClusterGrenade
 				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
 				A_SetScale(0.12, 0.12);
 				A_SetRenderStyle(0.9, STYLE_Add);
-				A_Explode(16, 56, damagetype:'Explosive');
+				A_Explode(12, 56, damagetype:'Explosive');
 				// SHDX_Utilities.DoExplosion(self, 32, 64., 72, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
@@ -309,10 +309,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 				whipcooldown = 15;
 			}
 			ENFO I 4;
-			// ENFO B 0 A_StartSound("pony/walk", CHAN_BODY);
-			ENFO BCDE 4 A_Chase(null, null);
-			// ENFO B 0 A_StartSound("pony/walk", CHAN_BODY);
-			ENFO BCDE 4 A_Chase(null, null);
+			ENFO BCDEBCDE 4 A_Chase(null, null);
 			Goto See;
 		Pain:
 			ENFO J 3;
@@ -446,7 +443,7 @@ Class SHDX_Grenade : SHDX_Projectile
 			EXPL A 3 Bright
 			{
 				A_SetRenderStyle(0.9, STYLE_Add);
-				A_Explode(32, 80, damagetype:'Explosive');
+				A_Explode(14, 72, damagetype:'Explosive');
 				// SHDX_Utilities.DoExplosion(self, 24, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
