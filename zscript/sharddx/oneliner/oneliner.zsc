@@ -142,6 +142,12 @@ extend class SHDX_PlayerPawn
 	
 	const ATTN_ONELINER = 0.25;
 	
+	void A_ResetOneLinerMute()
+	{
+		Console.PrintF("resetting onelinermute");
+		onelinermute = false;
+	}
+	
 	String A_GetDefaultVoiceOver()
 	{
 		return String.Format("voiceover%d", Random[OneLiner](1, 20));
