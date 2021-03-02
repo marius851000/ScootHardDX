@@ -44,13 +44,13 @@ skill hard
 
 skill discourse
 {
-	Aggressiveness = 0.75
+	Aggressiveness = 0.66
 	SpawnFilter = 3
 	ACSReturn = 3
-	DamageFactor = 1.5
+	DamageFactor = 1.25
 	Name = "$SHDX_SKILL4"
 	MustConfirm = "$SHDX_SKILLSURE4"
 	TextColor = "Red"
 	Key = "v"
-	MonsterHealth = 1.5
+	MonsterHealth = 1.25
 }

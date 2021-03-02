@@ -16,7 +16,7 @@ Class SHDX_PegapolBullet : FastProjectile
 {
 	Default
 	{
-		Speed 100;
+		Speed 75;
 		Radius 8;
 		Height 8;
 		DamageFunction Random[Pegapol](4,8);
