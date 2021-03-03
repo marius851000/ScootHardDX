@@ -16,7 +16,7 @@ Class SHDX_PegapolBullet : FastProjectile
 {
 	Default
 	{
-		Speed 75;
+		Speed 55;
 		Radius 8;
 		Height 8;
 		DamageFunction Random[Pegapol](4,8);
@@ -176,7 +176,8 @@ Class SHDX_Pegapol : SHDX_Enemy
 				
 				return ResolveState(null);
 			}
-			PEGA F 5 A_FaceTarget;
+			PEGA F 0 A_StartSound("pegapol/fireready", CHAN_WEAPON);
+			PEGA F 12 A_FaceTarget;
 			PEGA G 2 Bright A_PegapolFire;
 			PEGA H 2 Bright A_PegapolFire;
 			PEGA IF 2 A_FaceTarget;
@@ -678,7 +679,8 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 			}
 		Missile.Bullet:
 			PEGA F 0 A_StopSound(CHAN_BODY);
-			PEGA F 5 A_FaceTarget;
+			PEGA F 0 A_StartSound("pegapol/fireready", CHAN_WEAPON);
+			PEGA F 12 A_FaceTarget;
 			PEGA G 2 Bright A_PegapolFire;
 			PEGA H 2 Bright A_PegapolFire;
 			PEGA IF 2 A_FaceTarget;
@@ -748,8 +750,12 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 			PEGA F 2 A_PegaWizResetAttackType;
 			Goto See;
 		Missile.Tornadozer:
-			PEGA F 0 A_StopSound(CHAN_BODY);
-			PEGA F 5 A_FaceTarget;
+			PEGA F 0
+			{
+				A_StopSound(CHAN_BODY);
+				A_StartSound("pegawiz/fire", CHAN_VOICE);
+			}
+			PEGA F 15 A_FaceTarget;
 			PEGA G 2 Bright A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz");
 			PEGA H 2 Bright;
 			PEGA I 2 A_PegaWizResetAttackType;

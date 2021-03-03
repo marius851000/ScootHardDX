@@ -77,6 +77,7 @@ pegapol/active3			"sounds/enemies/pegapol/pp_active3.ogg"
 $random	pegapol/active	{ pegapol/active1 pegapol/active3 }
 pegapol/wings			"sounds/wing_flap.ogg"
 pegapol/charge			"sounds/wing_charge.ogg"
+pegapol/fireready		"sounds/weapons/gun_ready.ogg"
 
 pegawiz/sight1			"sounds/enemies/pegawiz/pw_sight1.ogg"
 pegawiz/sight2			"sounds/enemies/pegawiz/pw_sight2.ogg"

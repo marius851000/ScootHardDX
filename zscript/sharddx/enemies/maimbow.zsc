@@ -112,7 +112,7 @@ Class SHDX_MaimbowBullet : FastProjectile
 {
 	Default
 	{
-		Speed 120;
+		Speed 55;
 		Radius 8;
 		Height 8;
 		DamageFunction Random[Maimbow](5,7);
@@ -722,6 +722,37 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW I 3 Bright A_FaceTarget;
 			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
 			MBOW I 3 Bright A_FaceTarget;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
 			MBOW A 5 Bright A_StartSound("maimbow/chaingunwinddown", CHAN_WEAPON);
 			goto See2;
 		Missile.Rocket:
@@ -881,6 +912,69 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW S 2 Bright;
 			MBOW T 2;
 			MBOW Q 5;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();

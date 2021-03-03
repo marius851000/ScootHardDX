@@ -16,7 +16,7 @@ Class SHDX_HighGuardBullet : FastProjectile
 {
 	Default
 	{
-		Speed 75;
+		Speed 55;
 		Radius 8;
 		Height 8;
 		DamageFunction Random[HighGuard](3,7);

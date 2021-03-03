@@ -232,11 +232,11 @@ neat tricks.",SHDX_HELP_MENU8,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (ARMOR SYSTEM),SHDX_HELP_HEADER_MENU9,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo can equip three armor types.
 
-Basic Armor - Provides 50 points of all three armors.
-Bulletproof Armor - Provides 100 points of bullet armor.
-Fireproof Armor - Provides 100 points of fire armor.
-Weatherproof Armor - Provides 100 points of weather armor.
-Super Armor - Provides 150 points of all three armors.",SHDX_HELP_MENU9,,,,,,,,,,,,,,,,,,,,,,,
+Basic Armor - Provides 25 points of all three armors.
+Bulletproof Armor - Provides 50 points of bullet armor.
+Fireproof Armor - Provides 50 points of fire armor.
+Weatherproof Armor - Provides 50 points of weather armor.
+Super Armor - Provides 100 points of all three armors.",SHDX_HELP_MENU9,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (CHICKEN MODE),SHDX_HELP_HEADER_MENU10,,,,,,,,,,,,,,,,,,,,,,,
 "Occasionally you might find hidden, or in plain sight,
 mystical buckets of chicken labeled 'EFS'. These Eldritch
@@ -248,7 +248,7 @@ Alt Fire - channel all your power into a Clustercluck. This
 reverts you back after.",SHDX_HELP_MENU10,,,,,,,,,,,,,,,,,,,,,,,
 ,,Tutorials,,,,,,,,,,,,,,,,,,,,,,
 Heat up applesauce with explosives to get more health.,SHDX_TUTORIAL_POSTER_ROCKETFOOD,,,,,,,,,,,,,,,,,,,,,,,
-Every exit is guarded by a Management Access Card.,SHDX_TUTORIAL_POSTER_LOCKEDOUT,,,,,,,,,,,,,,,,,,,,,,,
+Most exits are guarded by a Management Access Card.,SHDX_TUTORIAL_POSTER_LOCKEDOUT,,,,,,,,,,,,,,,,,,,,,,,
 There are hazardous wires in some areas.,SHDX_TUTORIAL_POSTER_LIVEWIRES1,,,,,,,,,,,,,,,,,,,,,,,
 Some can be shut off with switches.,SHDX_TUTORIAL_POSTER_LIVEWIRES2,,,,,,,,,,,,,,,,,,,,,,,
 Use vending machines to get food for bits.,SHDX_TUTORIAL_POSTER_VENDING,,,,,,,,,,,,,,,,,,,,,,,
