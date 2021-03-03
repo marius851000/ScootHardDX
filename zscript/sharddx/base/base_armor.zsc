@@ -33,6 +33,7 @@ Class SHDX_Armor : Armor
 	override void AbsorbDamage(int damage, Name damagetype, out int newdamage, Actor inflictor, Actor source, int flags)
 	{
 		bool canresist;
+		bool playhitsound;
 		
 		if ((amount > 0) && !DamageTypeDefinition.IgnoreArmor(damagetype) && (damage > 0))
 		{			
@@ -51,8 +52,12 @@ Class SHDX_Armor : Armor
 				{
 					amount -= damage;
 					newdamage = 0;
+					playhitsound = true;
 				}
 			}
+			
+			if (Owner && playhitsound)
+				Owner.A_StartSound("armor/hit", CHAN_ARMOR);
 			
 			if (amount <= 0)
 			{

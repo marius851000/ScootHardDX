@@ -13,5 +13,3 @@ pickup/shard			"sounds/items/generic_pickup.ogg"
 
 powerup/cmode			"sounds/items/chicken_dance_start.ogg"	// ChickenDance
 powerup/cmodedone		"sounds/items/chicken_dance_end.ogg"	// slowmo chickendance
-
-pickup/hellajeff		"sounds/items/hella_jeff.ogg"

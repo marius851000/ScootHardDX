@@ -188,9 +188,9 @@ Class SHDX_Engineer : SHDX_Enemy
 			ENG1 H 1 bright;
 			Goto See;
 		Melee:
-			ENG1 I 3 A_FaceTarget;
-			ENG1 J 3 A_CustomMeleeAttack(5, "engineer/melee", "engineer/miss", "Lightning", true);
-			ENG1 K 3;
+			ENG1 I 3 Bright A_FaceTarget;
+			ENG1 J 3 Bright A_CustomMeleeAttack(5, "engineer/melee", "engineer/miss", "Lightning", true);
+			ENG1 K 3 Bright;
 			Goto See;
 		Sentry:
 			ENG1 L 0 A_StartSound("engineer/deploy", CHAN_VOICE);

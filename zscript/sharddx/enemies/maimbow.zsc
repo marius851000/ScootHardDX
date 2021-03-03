@@ -911,22 +911,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
-			MBOW Q 5;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
-			MBOW Q 5;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
@@ -935,22 +921,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
-			MBOW Q 5;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
-			MBOW Q 5;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
@@ -959,37 +930,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
-			MBOW Q 5;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
-			MBOW Q 5;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
-			MBOW Q 5;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
@@ -998,22 +939,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
-			MBOW Q 5;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
-			MBOW Q 5;
-			MBOW R 2 Bright
-			{
-				A_MaimbowFireChaingunWithSound();
-				A_FlapWings();
-			}
-			MBOW S 2 Bright;
-			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
@@ -1022,22 +948,88 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
-			MBOW Q 5;
+			MBOW Q 5 A_FaceTarget;
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
 				A_FlapWings();
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
-			MBOW Q 5;
+			MBOW Q 5 A_FaceTarget;
 			MBOW R 2 Bright
 			{
 				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
 				A_FlapWings();
 			}
 			MBOW S 2 Bright;
 			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
 			MBOW O 0
 			{
 				A_StartSound("maimbow/chaingunwinddown", CHAN_WEAPON);
