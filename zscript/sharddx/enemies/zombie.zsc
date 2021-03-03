@@ -169,7 +169,12 @@ Class SHDX_Zombie : SHDX_Enemy
 				return ResolveState("Death.Lightning.Normal");
 			}
 		Death.Lightning.Overcharge:
-			ZOMB F 0 A_StartSound("zombie/overcharge", CHAN_7);
+			ZOMB F 0
+			{
+				A_RemoveLight('zombielight');
+				A_AttachLightDef('zombielight', 'SHDX_ZOMBIEOVERHARGE');
+				A_StartSound("zombie/overcharge", CHAN_7);
+			}
 			ZOMB F 35;
 			EXPL A 0
 			{
@@ -180,6 +185,10 @@ Class SHDX_Zombie : SHDX_Enemy
 				A_StartSound("enforcer/explode", CHAN_6);
 				// A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnGibsFx(self);
+			}
+			EXPL A 0
+			{
+				A_RemoveLight('zombielight');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
@@ -304,7 +313,12 @@ Class SHDX_RocketZombie : SHDX_Zombie
 				return ResolveState("Death.Lightning.Normal");
 			}
 		Death.Lightning.Overcharge:
-			RZOM F 0 A_StartSound("zombie/overcharge", CHAN_7);
+			RZOM F 0
+			{
+				A_StartSound("zombie/overcharge", CHAN_7);
+				A_RemoveLight('zombielight');
+				A_AttachLightDef('zombielight', 'SHDX_ZOMBIEOVERHARGE');
+			}
 			RZOM F 35;
 			EXPL A 0
 			{
@@ -315,6 +329,10 @@ Class SHDX_RocketZombie : SHDX_Zombie
 				A_StartSound("enforcer/explode", CHAN_6);
 				// A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnGibsFx(self);
+			}
+			EXPL A 0
+			{
+				A_RemoveLight('zombielight');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;

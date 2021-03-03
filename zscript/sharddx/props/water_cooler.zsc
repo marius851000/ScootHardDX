@@ -32,7 +32,7 @@ class SHDX_WaterCooler : SHDX_Prop
 		if (uses < MAXUSES)
 		{
 			user.A_GiveInventory("Health", 10);
-			A_StartSound("vending/watercooler", 9);
+			A_StartSound("vending/watercooler", CHAN_VENDINGUSE);
 			user.A_Log(StringTable.Localize("$SHDX_WATERCOOLER_USED"));
 			uses++;
 		}
@@ -40,6 +40,7 @@ class SHDX_WaterCooler : SHDX_Prop
 		{
 			user.A_Log(StringTable.Localize("$SHDX_WATERCOOLER_OUTOFUSES"));
 		}
+		
 		return false;
 	}
 	

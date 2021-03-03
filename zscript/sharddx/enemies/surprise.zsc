@@ -32,7 +32,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		//$Sprite SURPA1
 		//$Title "Boss 1 - Ms. Surprise"
 		
-		Health 1200;
+		Health 1400;
 		Radius 20;
 		Height 56;
 		Mass 100;

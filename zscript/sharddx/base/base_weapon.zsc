@@ -65,6 +65,7 @@ Class SHDX_BaseQuickKick : CustomInventory
 			if (owner.player.cmd.buttons & BT_USER1)
 			{
 				owner.UseInventory(self);
+				owner.player.mo.PlayAttacking2();
 				iskicking = true;
 			}
 		}
@@ -76,13 +77,10 @@ Class SHDX_BaseQuickKick : CustomInventory
 			TNT1 A 0
 			{
 				if (invoker.iskicking)
-				{
 					A_Overlay(SHDX_PSP_FOOTCRUSH, "FootKick", true);
-				}
 				else if (invoker.iscrushing)
-				{
 					A_Overlay(SHDX_PSP_FOOTCRUSH, "FootCrush", true);
-				}
+				
 				A_OverlayOffset(SHDX_PSP_FOOTCRUSH, 0, 32);
 				A_OverlayFlags(SHDX_PSP_FOOTCRUSH, PSPF_ADDBOB, false);
 				A_OverlayFlags(SHDX_PSP_FOOTCRUSH, PSPF_PLAYERTRANSLATED, true);

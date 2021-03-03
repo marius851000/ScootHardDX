@@ -31,31 +31,6 @@ Class SHDX_TrashObj : SHDX_BreakableContainer
 		
 		SHDX_Actor.A_SpawnMetalJunkFx(self);
 		
-		/*Actor mo = null;
-		int i;
-
-		for(i = (Random[Trash]()&4)+4; i; i--)
-		{
-			mo = Spawn("DD_FloatingPaperJunk", Pos, ALLOW_REPLACE);
-			if (mo != null)
-			{
-				mo.Vel.X = Random2[Trash]() / 64.;
-				mo.Vel.Y = Random2[Trash]() / 64.;
-				mo.Vel.Z = ((Random[Trash]() & 7) + 5) * 0.75;
-			}
-		}
-	
-		for(i = (random[TVDebris]()&3)+3; i; i--)
-		{
-			SHDX_Actor.A_SpawnMetalJunkFx(self);
-			if (mo != null)
-			{
-				mo.Vel.X = random2[TVDebris]() / 64.;
-				mo.Vel.Y = random2[TVDebris]() / 64.;
-				mo.Vel.Z = ((random[TVDebris]() & 7) + 5) * 0.75;
-			}
-		} */
-		
 		A_DestroyDDContainer();
 	}
 	

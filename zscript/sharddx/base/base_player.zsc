@@ -37,18 +37,21 @@ Class SHDX_PlayerPawn : PlayerPawn
 	override void CalcHeight()
 	{
 		Super.CalcHeight();
+		
 		let player = self.player;
-		// player.viewz = pos.Z + player.viewheight + (bob * clamp(ViewBob, 0. , 1.5)); // [SP] Allow DECORATE changes to view bobbing speed.
+		
 		player.viewz = pos.Z + player.viewheight;
-		if (Floorclip && player.playerstate != PST_DEAD
-			&& pos.Z <= floorz)
+		
+		if (Floorclip && player.playerstate != PST_DEAD && pos.Z <= floorz)
 		{
 			player.viewz -= Floorclip;
 		}
+		
 		if (player.viewz > ceilingz - 4)
 		{
 			player.viewz = ceilingz - 4;
 		}
+		
 		if (player.viewz < floorz + 4)
 		{
 			player.viewz = floorz + 4;

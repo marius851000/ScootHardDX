@@ -80,6 +80,17 @@ Class SHDX_WaterGush : SHDX_Decoration
 		Height 20;
 	}
 
+	override bool Used(Actor user)
+	{
+		if (user.health >= 100)
+			return false;
+		
+		user.A_GiveInventory("Health", 2);
+		A_StartSound("vending/waterdrink", CHAN_VENDINGUSE);
+		
+		return false;
+	}
+	
 	States
 	{
 		Spawn:

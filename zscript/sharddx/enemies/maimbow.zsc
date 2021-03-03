@@ -83,12 +83,14 @@ Class SHDX_MaimbowMissile : SHDX_Missile
 		Radius 11;
 		Height 8;
 		Speed 30;
-		Damage 6;
+		Damage 5;
 		Projectile;
 		+RANDOMIZE
 		DamageType "Explosive";
 		// SeeSound "weapons/rocketf";
 		DeathSound "weapons/rocketx";
+		
+		+ROCKETTRAIL
 	}
 	
 	States
@@ -100,7 +102,7 @@ Class SHDX_MaimbowMissile : SHDX_Missile
 		Death:
 			EXPL A 0 Bright
 			{
-				A_Explode(16, 32, damagetype:'Explosive');
+				A_Explode(12, 40, damagetype:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
@@ -378,6 +380,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				
 				players[i].mo.A_SetBlend("FFFFFF", 1.0, 70);
 				players[i].mo.Teleport(pos2, ang2, 0);
+				players[i].mo.A_SetPitch(0);
 			}
 		}
 	}
@@ -1185,6 +1188,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW A 10
 			{
 				A_SetInvulnerable();
+				bNoPain = true;
 				A_Stage2Teleportation();
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
@@ -1203,6 +1207,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			{
 				A_UnSetInvulnerable();
 				bCanJump = true;
+				bNoPain = false;
 				A_AttachLightDef('maimbowlight', 'SHDX_BOSSLIGHT');
 			}
 			Goto See2;
@@ -1212,6 +1217,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW A 10
 			{
 				A_SetInvulnerable();
+				bNoPain = true;
 				A_Stage3Teleportation();
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
@@ -1230,6 +1236,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			{
 				A_UnSetInvulnerable();
 				bCanJump = true;
+				bNoPain = false;
 				A_AttachLightDef('maimbowlight', 'SHDX_BOSSLIGHT');
 			}
 			Goto See2;

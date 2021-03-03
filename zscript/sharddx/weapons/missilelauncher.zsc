@@ -101,6 +101,8 @@ Class SHDX_Missile : SHDX_Projectile
 		// SeeSound "weapons/rocketf";
 		DeathSound "weapons/rocketx";
 		Obituary "$SHDX_OB_MISSILE";
+		
+		+ROCKETTRAIL
 	}
 	
 	States

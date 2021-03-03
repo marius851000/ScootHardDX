@@ -16,31 +16,19 @@ Intermission EndEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end1/end1_2.png"
-		Text = "$SHDX_EP1END_2A"
+		Text = "$SHDX_EP1END_2"
 		TextColor = "Green"
 	}
 	TextScreen
 	{
-		Background = "graphics/cutscenes/end1/end1_2.png"
-		Text = "$SHDX_EP1END_2B"
-		TextColor = "Green"
-	}
-	TextScreen
-	{
-		Background = "graphics/cutscenes/end1/end1_3.png"
+		Background = "graphics/cutscenes/end1/end1_4.png"
 		Text = "$SHDX_EP1END_3"
 		TextColor = "Green"
 	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end1/end1_4.png"
-		Text = "$SHDX_EP1END_4A"
-		TextColor = "Green"
-	}
-	TextScreen
-	{
-		Background = "graphics/cutscenes/end1/end1_4.png"
-		Text = "$SHDX_EP1END_4B"
+		Text = "$SHDX_EP1END_4"
 		TextColor = "Green"
 	}
 	TextScreen
@@ -52,13 +40,13 @@ Intermission EndEpisode1
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end1/end1_6.png"
-		Text = "$SHDX_EP1END_6A"
+		Text = "$SHDX_EP1END_6"
 		TextColor = "Green"
 	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end1/end1_6.png"
-		Text = "$SHDX_EP1END_6B"
+		Text = "$SHDX_EP1END_7"
 		TextColor = "Green"
 	}
 	Fader

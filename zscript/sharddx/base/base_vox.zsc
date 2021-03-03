@@ -63,7 +63,9 @@ class SHDX_Vox : SHDX_Actor
 	static void SendSubtitleToHandler(String sub, int length)
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		
 		if (!hnd) return;
+		
 		hnd.AddSubtitle(sub, length, 5);
 	}
 	
@@ -119,6 +121,7 @@ class SHDX_Vox : SHDX_Actor
 	void StopOtherVoxObjects()
 	{
 		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		
 		if (hndlr)
 		{
 			if (hndlr.voxobjs.Size() > 0)
@@ -138,6 +141,7 @@ class SHDX_Vox : SHDX_Actor
 	override void Activate(Actor activator)
 	{
 		Super.Activate(activator);
+		
 		if (triggered)
 			return;
 		

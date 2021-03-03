@@ -348,7 +348,8 @@ Class SHDX_Enemy : SHDX_Actor
 			GIBX D -1;
 			Stop;
 		Death.Spectrum:
-			GIBR A 4;
+			GIBR A 2;
+			GIBR A 2 A_StartSound("misc/vaporize", CHAN_7);
 			GIBR B 0 A_SHDX_RainbowerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			GIBR BC 4;
 			GIBR D -1;
@@ -399,13 +400,12 @@ Class SHDX_Boss : SHDX_Enemy
 	override void Tick()
 	{
 		Super.Tick();
+		
 		if (cooldowntaunt > 0)
-		{
 			cooldowntaunt--;
-		}
 	}
 	
-	const COOLDOWNTAUNTTICS = (TICRATE * 10);
+	const COOLDOWNTAUNTTICS = (TICRATE * 6);
 	
 	void A_SHDX_PlayBossTaunt(Sound snd, bool bypasscooldown = false)
 	{
@@ -423,17 +423,13 @@ Class SHDX_Boss : SHDX_Enemy
 			return;
 			
 		if (bTriggerCutscene && (CutsceneToPlay != '' || CutsceneToPlay != 'None'))
-		{
 			level.StartSlideShow(CutsceneToPlay);
-		}
 	}
 	
 	void A_DD2_BossEndLevel()
 	{
 		if (bTriggerLevelEnd)
-		{
 			level.ExitLevel(0, false);
-		}
 	}
 	
 	void A_SHDX_SetToBossBarHUD()
@@ -466,6 +462,7 @@ Class SHDX_Boss : SHDX_Enemy
 		A_SHDX_SetToBossBarHUD();
 		A_UnSetInvulnerable();
 		A_AttachLightDef('atmoslight', 'SHDX_BOSSLIGHT');
+		
 		bCanJump = true;	// All bosses can jump, so there's no need to do anything special with this.
 		isactive = true;
 	}

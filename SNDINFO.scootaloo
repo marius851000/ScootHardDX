@@ -14,7 +14,7 @@ $playersound    scootaloo  male    *jump       DSEMPTY
 $playersound    scootaloo  male    *fist       DSEMPTY
 $playersound    scootaloo  male    *usefail    "sounds/usefail.ogg"
 $playersound	scootaloo  male    *dive	   "sounds/dive.ogg"
-$playersound	scootaloo  male    *surface	   "sounds/dive.ogg"
+$playersounddup	scootaloo  male    *surface	   *dive
 
 $playeralias    scootaloo  female    *death      scootaloo/death
 $playeralias    scootaloo  female    *xdeath     scootaloo/death
@@ -29,7 +29,22 @@ $playersound    scootaloo  female    *jump       DSEMPTY
 $playersound    scootaloo  female    *fist       DSEMPTY
 $playersound    scootaloo  female    *usefail    "sounds/usefail.ogg"
 $playersound	scootaloo  female    *dive	     "sounds/dive.ogg"
-$playersound	scootaloo  female    *surface    "sounds/dive.ogg"
+$playersounddup	scootaloo  female    *surface	   *dive
+
+$playeralias    scootaloo  neutral    *death      scootaloo/death
+$playeralias    scootaloo  neutral    *xdeath     scootaloo/death
+$playersound    scootaloo  neutral    *gibbed     "sounds/slop.ogg"
+$playeralias    scootaloo  neutral    *pain100    scootaloo/pain
+$playersounddup scootaloo  neutral    *pain75     *pain100
+$playersounddup scootaloo  neutral    *pain50     *pain100
+$playersounddup scootaloo  neutral    *pain25     *pain100
+$playersound    scootaloo  neutral    *grunt      DSEMPTY
+$playersound	scootaloo  neutral    *land       "sounds/p_land.ogg"
+$playersound    scootaloo  neutral    *jump       DSEMPTY
+$playersound    scootaloo  neutral    *fist       DSEMPTY
+$playersound    scootaloo  neutral    *usefail    "sounds/usefail.ogg"
+$playersound	scootaloo  neutral    *dive	     "sounds/dive.ogg"
+$playersounddup	scootaloo  neutral    *surface	   *dive
 
 $playeralias    scootaloo  other    *death      scootaloo/death
 $playeralias    scootaloo  other    *xdeath     scootaloo/death
@@ -44,7 +59,7 @@ $playersound    scootaloo  other    *jump       DSEMPTY
 $playersound    scootaloo  other    *fist       DSEMPTY
 $playersound    scootaloo  other    *usefail    "sounds/usefail.ogg"
 $playersound	scootaloo  other    *dive	    "sounds/dive.ogg"
-$playersound	scootaloo  other    *surface	"sounds/dive.ogg"
+$playersounddup	scootaloo  other    *surface	   *dive
 
 scootaloo/death1				"sounds/scootaloo/ScootScream.ogg"
 scootaloo/death2				"sounds/scootaloo/ScootThisStinks.ogg"

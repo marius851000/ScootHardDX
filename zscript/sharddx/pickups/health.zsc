@@ -77,13 +77,25 @@ Class SHDX_Applesauce : SHDX_Health
 		Radius 12;
 		Height 12;
 		Inventory.PickupMessage "$SHDX_PICKUP_APPLESAUCE";
-		+SHOOTABLE
+		+VULNERABLE
 		+NOTAUTOAIMED
 		+NOBLOOD
+		+DONTTHRUST
 		DamageFactor "Explosive", 2.0;
 		DamageFactor "Normal", 0.0;
 		DamageFactor "Bullet", 0.0;
 	}
+	
+	bool heatedup;
+	
+	override String PickupMessage()
+	{
+		if (heatedup)
+			return StringTable.Localize("$SHDX_PICKUP_APPLESAUCEHOT");
+		
+		return Super.PickupMessage();
+	}
+	
 	
 	States
 	{
@@ -92,30 +104,15 @@ Class SHDX_Applesauce : SHDX_Health
 			Stop;
 		
 		Death.Explosive:
-			SAUC A 0
+			SAUC B 0
 			{
 				A_StartSound("misc/foodcook", CHAN_BODY);
-				A_SpawnItemEx("SHDX_ApplesauceHot");
+				
+				Amount = 50;
+				
+				heatedup = true;
 			}
-			Stop;
-	}
-}
-
-Class SHDX_ApplesauceHot : SHDX_Health
-{
-	Default
-	{
-		Inventory.Amount 50;
-		Tag "$SHDX_TAG_APPLESAUCEHOT";
-		Radius 12;
-		Height 12;
-		Inventory.PickupMessage "$SHDX_PICKUP_APPLESAUCEHOT";
-	}
-	
-	States
-	{
-		Spawn:
-			SAUC A -1 Bright;
+			SAUC B -1 Bright;
 			Stop;
 	}
 }

@@ -3,7 +3,7 @@ Intermission EndEpisode3Aurora
 	Fader
 	{
 		Background = "graphics/cutscenes/end3b/end3b_1.png"
-		Music = ""
+		Music = "M_CUT1"
 		Time = 2
 		FadeType = FadeIn
 	}

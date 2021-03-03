@@ -33,10 +33,6 @@ $ambient 10 ambience/quakewater point continuous 0.7
 ambience/sawloop "sounds/saw_loop.ogg"
 $ambient 11 ambience/sawloop point continuous 0.7
 
-saw/shutoff	"sounds/saw_shutoff.ogg"
-
-pegasusdevice/alarm "sounds/alarm.ogg"
-
 ambience/wind "sounds/ambient/wind.ogg"
 $ambient 12 ambience/wind point continuous 0.7
 
@@ -45,3 +41,7 @@ $ambient 13 ambience/map09alarm point continuous 1.0
 
 ambience/quakewind "sounds/ambient/quake_wind.ogg"
 $ambient 14 ambience/quakewind point continuous 0.7
+
+saw/shutoff	"sounds/saw_shutoff.ogg"
+
+pegasusdevice/alarm "sounds/alarm.ogg"

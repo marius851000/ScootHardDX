@@ -19,7 +19,7 @@ Class SHDX_ClusterGrenade : SHDX_Projectile
 		Radius 7;
 		Height 14;
 		Speed 25;
-		Damage 7;
+		Damage 5;
 		DamageType "Explosive";
 		
 		Scale 0.12;
@@ -78,7 +78,7 @@ Class SHDX_ClusterGrenade : SHDX_Projectile
 					A_SpawnProjectile("SHDX_ClusterGrenade2", 32, 0, Random[ClusterGrenade](0, 360), (CMF_AIMDIRECTION|CMF_TRACKOWNER), Random[ClusterGrenade](0, 90));
 				}
 				
-				A_Explode(18, 80, damagetype:'Explosive');
+				A_Explode(14, 96, damagetype:'Explosive');
 				// SHDX_Utilities.DoExplosion(self, 40, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}
@@ -394,7 +394,7 @@ Class SHDX_Grenade : SHDX_Projectile
 		Radius 7;
 		Height 14;
 		Speed 25;
-		Damage 5;
+		Damage 4;
 		DamageType "Explosive";
 		
 		Scale 0.14;
@@ -443,7 +443,7 @@ Class SHDX_Grenade : SHDX_Projectile
 			EXPL A 3 Bright
 			{
 				A_SetRenderStyle(0.9, STYLE_Add);
-				A_Explode(14, 72, damagetype:'Explosive');
+				A_Explode(10, 76, damagetype:'Explosive');
 				// SHDX_Utilities.DoExplosion(self, 24, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}

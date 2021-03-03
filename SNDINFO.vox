@@ -1,11 +1,5 @@
 $pitchshiftrange 0
 
-cutscne/vox/1									"sounds/vox/atmosphere/dr_atmos_cs2_1.ogg"
-cutscne/vox/2									"sounds/vox/maimbow/maimbow_cs2_1.ogg"
-cutscne/vox/3									"sounds/vox/atmosphere/dr_atmos_cs2_2.ogg"
-cutscne/vox/4									"sounds/vox/maimbow/maimbow_cs2_2.ogg"
-cutscne/vox/5									"sounds/vox/atmosphere/dr_atmos_cs2_3.ogg"
-
 atmosphere/vox/intro							"sounds/vox/atmosphere/dr_atmos_vox_intro_e2.ogg"
 atmosphere/vox/hamslices						"sounds/vox/atmosphere/dr_atmos_vox_ham_slices.ogg"
 atmosphere/vox/quitethemess						"sounds/vox/atmosphere/dr_atmos_vox_no_stopping.ogg"

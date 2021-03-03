@@ -95,7 +95,7 @@ You found a Fillyseeker!,SHDX_PICKUP_FILLYSEEKER,,,,,,,,,,,,,,,,,,,,,,,
 You have a Hailer!,SHDX_PICKUP_HAILER,,,,,,,,,,,,,,,,,,,,,,,
 You looted a Lightning Gun!,SHDX_PICKUP_LIGHTNINGGUN,,,,,,,,,,,,,,,,,,,,,,,
 Now you have a machine gun. Ho-Ho-Ho.,SHDX_PICKUP_SMG,,,,,,,,,,,,,,,,,,,,,,,
-You procured a missile launcher.,SHDX_PICKUP_MISSILELAUNCHER,,,,,,,,,,,,,,,,,,,,,,,
+You misappropriated a Missile Launcher!,SHDX_PICKUP_MISSILELAUNCHER,,,,,,,,,,,,,,,,,,,,,,,
 You recovered a Rainbower!,SHDX_PICKUP_RAINBOWER,,,,,,,,,,,,,,,,,,,,,,,
 You took a Tornadozer!,SHDX_PICKUP_TORNADOZER,,,,,,,,,,,,,,,,,,,,,,,
 ,,Scootaloo Color Sets,,,,,,,,,,,,,,,,,,,,,,
@@ -247,13 +247,14 @@ Fire - Peck their brains out!
 Alt Fire - channel all your power into a Clustercluck. This
 reverts you back after.",SHDX_HELP_MENU10,,,,,,,,,,,,,,,,,,,,,,,
 ,,Tutorials,,,,,,,,,,,,,,,,,,,,,,
+Press use on some posters to get important tips.,SHDX_TUTORIAL_POSTER_INFO,,,,,,,,,,,,,,,,,,,,,,,
 Heat up applesauce with explosives to get more health.,SHDX_TUTORIAL_POSTER_ROCKETFOOD,,,,,,,,,,,,,,,,,,,,,,,
 Most exits are guarded by a Management Access Card.,SHDX_TUTORIAL_POSTER_LOCKEDOUT,,,,,,,,,,,,,,,,,,,,,,,
 There are hazardous wires in some areas.,SHDX_TUTORIAL_POSTER_LIVEWIRES1,,,,,,,,,,,,,,,,,,,,,,,
 Some can be shut off with switches.,SHDX_TUTORIAL_POSTER_LIVEWIRES2,,,,,,,,,,,,,,,,,,,,,,,
-Use vending machines to get food for bits.,SHDX_TUTORIAL_POSTER_VENDING,,,,,,,,,,,,,,,,,,,,,,,
-Spectrum pools are hurtful to the touch.,SHDX_TUTORIAL_POSTER_SPECTRUM,,,,,,,,,,,,,,,,,,,,,,,
-All weapons have an alt-fire. Check them out!,SHDX_TUTORIAL_POSTER_ALTFIRE,,,,,,,,,,,,,,,,,,,,,,,
+Use vending machines to get food in exchange for bits.,SHDX_TUTORIAL_POSTER_VENDING,,,,,,,,,,,,,,,,,,,,,,,
+Spectra pools are hurtful to the touch.,SHDX_TUTORIAL_POSTER_SPECTRUM,,,,,,,,,,,,,,,,,,,,,,,
+Most weapons have an alt-fire. Check them out!,SHDX_TUTORIAL_POSTER_ALTFIRE,,,,,,,,,,,,,,,,,,,,,,,
 Hold down the jump button/key and move to glide around.,SHDX_TUTORIAL_POSTER_GLIDE1,,,,,,,,,,,,,,,,,,,,,,,
 You can also look around while doing this.,SHDX_TUTORIAL_POSTER_GLIDE2,,,,,,,,,,,,,,,,,,,,,,,
 Master the movement to overpower your enemies.,SHDX_TUTORIAL_POSTER_GLIDE3,,,,,,,,,,,,,,,,,,,,,,,
@@ -262,7 +263,7 @@ Scootaloo: I Gotta Get Outta Here!,SHDX_VOX_SCOOTALOO_E1M1,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: There's The Exit!,SHDX_VOX_SCOOTALOO_E1M4,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: Oh Buck Me!,SHDX_VOX_SCOOTALOO_BOSS1_1,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: Who's Surprised Now?,SHDX_VOX_SCOOTALOO_BOSS1_2,,,,,,,,,,,,,,,,,,,,,,,
-Scootaloo: [distraught] What have they done to you?,SHDX_VOX_SCOOTALOO_ENFORCER,,,,,,,,,,,,,,,,,,,,,,,
+Scootaloo: What have they done to you?,SHDX_VOX_SCOOTALOO_ENFORCER,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: Why are you locked in a bathroom?,SHDX_VOX_SCOOTALOO_BATHROOM,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: [giggles] That's me!,SHDX_VOX_SCOOTALOO_MIRROR1,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo: Aw, banged yourself up real bad, huh?",SHDX_VOX_SCOOTALOO_MIRROR2,,,,,,,,,,,,,,,,,,,,,,,
@@ -270,25 +271,25 @@ Scootaloo: [giggles] That's me!,SHDX_VOX_SCOOTALOO_MIRROR1,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: I Gotta Stop This! They're going to flood the dam!,SHDX_VOX_SCOOTALOO_E2M4_1,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo: Water you waiting for, Atmosphere?!",SHDX_VOX_SCOOTALOO_E2M4_2,,,,,,,,,,,,,,,,,,,,,,,
 Cancer Mouse: Oh Hey Scootaloo!,SHDX_VOX_CANCERMOUSE_1,,,,,,,,,,,,,,,,,,,,,,,
-Scootaloo: [defeated] Hi Cancer Mouse...,SHDX_VOX_SCOOTALOO_CANCERMOUSE_1,,,,,,,,,,,,,,,,,,,,,,,
+Scootaloo: Hi Cancer Mouse...,SHDX_VOX_SCOOTALOO_CANCERMOUSE_1,,,,,,,,,,,,,,,,,,,,,,,
 Cancer Mouse: I want to I want to talk to you about something all the kids love. My Little Pony.,SHDX_VOX_CANCERMOUSE_2,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo: [relieved] Oh, that wasn't so bad!",SHDX_VOX_SCOOTALOO_CANCERMOUSE_2,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo: Oh, that wasn't so bad!",SHDX_VOX_SCOOTALOO_CANCERMOUSE_2,,,,,,,,,,,,,,,,,,,,,,,
 Cancer Mouse: On 4Chan!,SHDX_VOX_CANCERMOUSE_3,,,,,,,,,,,,,,,,,,,,,,,
-Scootaloo: [distraught] Please make it stop...,SHDX_VOX_SCOOTALOO_CANCERMOUSE_3,,,,,,,,,,,,,,,,,,,,,,,
+Scootaloo: Please make it stop...,SHDX_VOX_SCOOTALOO_CANCERMOUSE_3,,,,,,,,,,,,,,,,,,,,,,,
 "Cancer Mouse: Now 4Chan found this radio show host called Ghost, and he claimed to never watch My Little Pony, but it’s obvious that he's seen season 2 because...",SHDX_VOX_CANCERMOUSE_4,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo: [angry] Can we not do this, like, ever. I'm really busy, I gotta find my friends and bust outta here.",SHDX_VOX_SCOOTALOO_CANCERMOUSE_4,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo: Can we not do this, like, ever. I'm really busy, I gotta find my friends and bust outta here.",SHDX_VOX_SCOOTALOO_CANCERMOUSE_4,,,,,,,,,,,,,,,,,,,,,,,
 "Cancer Mouse: oh, and I thought you were a melting pot of friendship!",SHDX_VOX_CANCERMOUSE_5,,,,,,,,,,,,,,,,,,,,,,,
-Scootaloo: [angry] I don't have time for this! I'm done! Stick a fork in me! I'm DONE.,SHDX_VOX_SCOOTALOO_CANCERMOUSE_5,,,,,,,,,,,,,,,,,,,,,,,
+Scootaloo: I don't have time for this! I'm done! Stick a fork in me! I'm DONE.,SHDX_VOX_SCOOTALOO_CANCERMOUSE_5,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: We'll see about that you crazy bucker!,SHDX_VOX_SCOOTALOO_BOSS2_1,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: Say hello to your wife for me!,SHDX_VOX_SCOOTALOO_BOSS2_2,,,,,,,,,,,,,,,,,,,,,,,
-Scootaloo: [sad] I'm Sorry Orion...,SHDX_VOX_SCOOTALOO_ORIONWASP,,,,,,,,,,,,,,,,,,,,,,,
+Scootaloo: I'm Sorry Orion...,SHDX_VOX_SCOOTALOO_ORIONWASP,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: Time to put an end to this...,SHDX_VOX_SCOOTALOO_E3M2_1,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: Here come the fireworks!,SHDX_VOX_SCOOTALOO_E3M2_2,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo: Woah, what kind of deformed mess are YOU?",SHDX_VOX_SCOOTALOO_ILSE,,,,,,,,,,,,,,,,,,,,,,,
 "Ilse: I dunno, one that can fly?",SHDX_VOX_ILSE,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo: Maimbow, you killed my friends, and have disgraced Equestria. Your reign of terror ends here and now!",SHDX_VOX_SCOOTALOO_BOSS3_1,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: Give it up for Scoots!,SHDX_VOX_SCOOTALOO_BOSS3_2,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo: [sad, defeated] Aurora! No...",SHDX_VOX_SCOOTALOO_BOSS3_3,,,,,,,,,,,,,,,,,,,,,,,
+Scootaloo: Aurora! No...,SHDX_VOX_SCOOTALOO_BOSS3_3,,,,,,,,,,,,,,,,,,,,,,,
 Surprise: I'm done playing nice! DROP THE FLOOR.,SHDX_VOX_SURPRISE_DROP,,,,,,,,,,,,,,,,,,,,,,,
 Surprise: My love... avenge me!,SHDX_VOX_SURPRISE_DEATH,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: Hello Scootaloo. It seems you're making a mess of this place. Oh, where are my manners. Let me introduce myself. I am Dr. Atmosphere, the head engineer of this facility. I'm also the husband of Surprise... you know, the business mare you slaughtered escaping the factory. I'm going to make you really regret coming out of your mother's wretched womb...",SHDX_VOX_DRATMOS_1,,,,,,,,,,,,,,,,,,,,,,,
@@ -300,7 +301,7 @@ Dr. Atmosphere: You're all going to die up here.,SHDX_VOX_DRATMOS_6,,,,,,,,,,,,,
 "Dr. Atmosphere: You should know it wasn't my idea to unleash the enforcers on you. It was Maimbow's. However, I have something else in mind for you. [cackles]",SHDX_VOX_DRATMOS_7,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: I'm not going to lie, I miss Surprise. You took her from me...",SHDX_VOX_DRATMOS_8,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: [laughs maniacally] She's not dead, she can't be dead. I'll save her, I'll crush you, I'll crush you all, and I'll save her, and you won't leave the factory!",SHDX_VOX_DRATMOS_9,,,,,,,,,,,,,,,,,,,,,,,
-Dr. Atmosphere: [in pain] PRAISE THE FLOCK!,SHDX_VOX_DRATMOS_10,,,,,,,,,,,,,,,,,,,,,,,
+Dr. Atmosphere: PRAISE THE FLOCK!,SHDX_VOX_DRATMOS_10,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: Oh goodie, It's the little bitch that's been such a pain in my implanted balls. I am Maimbow Undash... you probably have figured out that I'm not your big sister… In fact, you could say that I'm your worst nightmare. Once I've dealt with you, I'm going to make Aurora watch... doesn't that sound oh so delightful? [laughs]",SHDX_VOX_MAIMBOW_1,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: You know, I never gave you the chance to say goodbye to Orion. I apologize for being so rude, you can have him, [laughs].",SHDX_VOX_MAIMBOW_2,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: How does it feel to kill one of your best friends? I think he said “I love you” while you slaughtered him. I hope you're happy with yourself.,SHDX_VOX_MAIMBOW_3,,,,,,,,,,,,,,,,,,,,,,,
@@ -311,8 +312,8 @@ Maimbow: You bitch! YOU RUINED EVERYTHING! I WILL KILL YOU WITH MY BARE HOOVES F
 "Maimbow: You know… I'm not even mad… If I can kill you, all this will be worth it. All that matters is if you die and I can shame Rainbow Dash for what she did to me! She will see me for what I am, a god. [chuckles]",SHDX_VOX_MAIMBOW_8,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: I see that you've made it to my lair. You know I have a little surprise for you. Consider it a gift, before your untimely demise [laughs].",SHDX_VOX_MAIMBOW_9,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: Welcome, Scootaloo, to your surprise. We have a second device that is better than the first one. It's only a prototype, but I will finish it. But first… you must die!",SHDX_VOX_MAIMBOW_10,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: [angrily] YOU FOOL. YOU CANNOT DESTROY ME, I AM A GOD!",SHDX_VOX_MAIMBOW_11,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: [angrily] I don't care if it's not ready, I'm turning this thing on… and you're going in it and that other bitch too!",SHDX_VOX_MAIMBOW_12,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: YOU FOOL. YOU CANNOT DESTROY ME, I AM A GOD!",SHDX_VOX_MAIMBOW_11,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: I don't care if it's not ready, I'm turning this thing on… and you're going in it and that other bitch too!",SHDX_VOX_MAIMBOW_12,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: No! You BITCH!,SHDX_VOX_MAIMBOW_13,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: [laughs evilly],SHDX_VOX_MAIMBOW_14,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
@@ -369,17 +370,22 @@ Additional Level and Weapon Design: Jona_Arts
 Voice of Scootaloo: Victoria Prater
 Voice of Low Guard Female/Aurora Dawn: Tabby
 Voice of Low Guard Male: DRPReskins
+Voice of Pegapol/Pegawiz: Metal Neon
 Voice of Engineer: Movieunleashers
 Voice of Surprise Pony: CakeofRage
 Voice of Dr. Atmosphere/High Guard: Redsoldier55
 Voice of Maimbow Undash: Jenna Pepper
 
-Beta Testers: Captain J, Earth, Soupernatural, T, TailTaless, Twily
-
-Special Thanks To: AuroraDawn, WoodenToaster, Jinzo, Korzodin and Zan",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
+Special Thanks To:
+AuroraDawn - for writing the fanfic Rainbow Factory, which inspired this
+WoodenToaster - for creating the song Rainbow Factory, which inspired the fic
+Jinzo - for finding the prototype
+Korzodin and Zan - for their advice",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
-"Sounds: Quake HiRes Pack, Source Engine, Tomb Raider,
-Wolfenstein 3-D Mac, Halo 2
+"Beta Testers: Captain J, Earth, Soupernatural, T, TailTaless, Twily
+
+Sounds: Quake HiRes Pack, Team Fortress 2, Source Engine,
+Tomb Raider, Wolfenstein 3-D Mac, Halo 2
 
 Fonts: Revue, Daidoh Remix, Crewniverse
 
@@ -519,7 +525,7 @@ His name is Pickle Rick.
 Funniest shit I've ever seen.",SHDX_CUPCAKE_34,,,,,,,,,,,,,,,,,,,,,,,
 ,,Obituaries,,,,,,,,,,,,,,,,,,,,,,
 %o tried to swim in liquid despair.,DD_OB_DESPAIR,,,,,,,,,,,,,,,,,,,,,,,
-%o got atomized into Spectrum.,SHDX_OB_SPECTRA,,,,,,,,,,,,,,,,,,,,,,,
+%o got atomized in Spectra.,SHDX_OB_SPECTRA,,,,,,,,,,,,,,,,,,,,,,,
 %o hated doing the dishes.,OB_SUICIDE,,,,,,,,,,,,,,,,,,,,,,,
 I warned you about about heights. I told you %o.,OB_FALLING,,,,,,,,,,,,,,,,,,,,,,,
 %o got squashed,OB_CRUSH,,,,,,,,,,,,,,,,,,,,,,,
@@ -549,7 +555,7 @@ I warned you about about heights. I told you %o.,OB_FALLING,,,,,,,,,,,,,,,,,,,,,
 %o got utterly destroyed by a Heavy Enforcer.,SHDX_OB_HEAVYENFORCER,,,,,,,,,,,,,,,,,,,,,,,
 %o got destroyed by a Light Enforcer.,SHDX_OB_LIGHTENFORCER,,,,,,,,,,,,,,,,,,,,,,,
 %o got atomized by a SpectraWasp.,SHDX_OB_SPECTRAWASP,,,,,,,,,,,,,,,,,,,,,,,
-%o stepped in a pool of Spectrum left behind by a SpectraWasp.,SHDX_OB_SPECTRAWASPPUDDLE,,,,,,,,,,,,,,,,,,,,,,,
+%o stepped in a pool of Spectra left behind by a SpectraWasp.,SHDX_OB_SPECTRAWASPPUDDLE,,,,,,,,,,,,,,,,,,,,,,,
 %o got floored by a SpectraSentry.,SHDX_OB_SENTRY,,,,,,,,,,,,,,,,,,,,,,,
 %o got deep fried by the PegaWiz.,SHDX_OB_PEGAWIZ,,,,,,,,,,,,,,,,,,,,,,,
 %o got blasted by %k.,SHDX_OB_BLASTER,,,,,,,,,,,,,,,,,,,,,,,
@@ -597,164 +603,103 @@ Ending,SHDX_ENDING,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Intro,,,,,,,,,,,,,,,,,,,,,,
 "Due to their importance in weather control
 and other tasks, there's a certain bit of
-nationalism and pride within the Pegasi
+nationalism and pride within the Pegasus
 race, and thus within the Pegasi city of
 Cloudsdale within Equestria. However,
 something changed recently that made
-that even more profound. And things got
-really dark at the Cloudsdale Weather
-Corporation, which became more
-militaristic.",SHDX_INTRO_1A,,,,,,,,,,,,,,,,,,,,,,,
+that even more profound.",SHDX_INTRO_1,,,,,,,,,,,,,,,,,,,,,,,
 "Pegasi across Equestria were
 suddenly required to do fitness exams,
-and if they failed, go through some
-rigorous training program at the monolithic
-facilities. However, there is no
-training program, as one filly is
-about to find out.",SHDX_INTRO_1B,,,,,,,,,,,,,,,,,,,,,,,
+and if they failed, are incarcerated
+at the Cloudsdale Weather Corporation.",SHDX_INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
 "Meet Scootaloo. She, her friend
 Orion Solstice, and another pegasi by
 the name of Aurora Dawn all failed
-their exams. Scootaloo and the others
-entered the Cloudsdale Weather Corporation.
-They were given a tour... an odd,
-foreboding tour by a colt with the name of
-Dr. Atmosphere. But something wasn't right,
-and Scootaloo felt it.",SHDX_INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
-"During the tour, she wanders off into one
-of the unfinished bathrooms. She is spotted by a 
-guard who chases after her in pursuit.
+their exams. Scootaloo failed, despite
+being trained by Rainbow Dash.",SHDX_INTRO_3,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo doesn't take this sitting down,
+and causes a distraction and gets away.
+A guard chases after her.
+
 She wrestles with the guard in the
 construction zone, before exerting
 enough force to overpower him. The two
 fall down a ventilation shaft thirty floors
 to the surface - to the Cloudsdale
-Weather Corporation's ground location.",SHDX_INTRO_3A,,,,,,,,,,,,,,,,,,,,,,,
-"Cloudsdale had two locations -
-a physical location, just north of Tchpsor,
-Boredomdai, and the floating
-part which was more mobile. It had stopped
-being mobile as of late.
-Fortunately for Scootaloo, she
-survived the fall. The guard was not so lucky.",SHDX_INTRO_3B,,,,,,,,,,,,,,,,,,,,,,,
-"She finds a two way CB radio and a
-hoof blaster on the dead guard, as well
-as his utility belt. The CB radio might be
-useful to call for help. Surely someone
-out there could help her. However, she
-can't get a signal from here. She'd need to
-go somewhere tall and out in the open.",SHDX_INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
+Weather Corporation's ground location.",SHDX_INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
+"Fortunately for Scootaloo, she
+survived the fall. The guard was not so lucky.",SHDX_INTRO_5,,,,,,,,,,,,,,,,,,,,,,,
+"She finds a two way CB radio, utility belt
+and a hoof blaster on the dead guard.
+Surely someone out there could help her.
+However, she can't get a signal from here.",SHDX_INTRO_6,,,,,,,,,,,,,,,,,,,,,,,
 "Arming herself with the blaster and
 strapping the utility belt up, she sees a door
 ahead. Her goal is simple - survive and rescue
- Orion, and Aurora if she can. There's no telling
-what unspeakable nightmares she'll encounter.",SHDX_INTRO_5A,,,,,,,,,,,,,,,,,,,,,,,
-"Despite what the suits
-say, she's been trained by the best -
-Rainbow Dash - even if she can't fly
-very well, she can kick ass. She took down
-one guard, what's another couple more?",SHDX_INTRO_5B,,,,,,,,,,,,,,,,,,,,,,,
+Orion, and Aurora if she can. There's no telling
+what unspeakable nightmares she'll encounter.",SHDX_INTRO_7,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Episode 1 End,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo was in shock, she was able to 
-take down not only Surprise, but an entire
-platoon of Rocket Guards. Catching her breath,
-she carefully traverses the Crumbling room 
-and gets to the door. She can
-taste the first bit of freedom from this place.
+"Scootaloo takes a breather after enduring
+a heated battle with Surprise and her
+platoon of Rocket Guards. She can hardly
+believe it herself.
 
-If only she was able to fly.",SHDX_EP1END_1,,,,,,,,,,,,,,,,,,,,,,,
-"She climbs a radio tower. She knows
-neighboring Boredomdai might be able
-to help contact mainland Equestria.
-She manages to get in contact with
-someone. Not holding her breath,
-she climbs back down.",SHDX_EP1END_2A,,,,,,,,,,,,,,,,,,,,,,,
-"Soon, however, she hears radio
-chatter from the Cloudsdale Weather
-Corporation - Equestrian forces arrive.
-Immediately Pegapol guards open fire
-on them. Scootaloo can hear it now -
-Equestrian forces are calling for backup.
-It's going to be war. She'll be rescued
-eventually, she just needs to survive
-long enough.",SHDX_EP1END_2B,,,,,,,,,,,,,,,,,,,,,,,
-"Soon, Dr. Atmosphere is informed
-about his wife, Surprise, who died
-at the hooves of Scootaloo. He will stop
-at nothing to gut you for what you have done.
-You even hear him cursing you on one
-of the CB radio channels.",SHDX_EP1END_3,,,,,,,,,,,,,,,,,,,,,,,
+She spots the exit behind Surprise's mosh
+pit.",SHDX_EP1END_1,,,,,,,,,,,,,,,,,,,,,,,
+"She climbs a radio tower and signals for
+help. She manages to get ahold of someone,
+but it's going to take a while for reinforcements
+to arrive. Scootaloo is on her own.",SHDX_EP1END_2,,,,,,,,,,,,,,,,,,,,,,,
 "Eventually she finds a computer room.
-One of the screens lights up. She is
-shocked at who it is. It looks like
-Rainbow Dash. No! It can't be! This has to
-be some sort of trick by the Pegasi Reich,
-surely.
+One of the screens lights up.
 
-""Well, hello Scootaloo.""",SHDX_EP1END_4A,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo was in shock. ""It can't
-be... my big sister wouldn't work
-for a place like this.""
+""Well, hello Scootaloo.""",SHDX_EP1END_3,,,,,,,,,,,,,,,,,,,,,,,
+"The aqua green pony looked like a bastardized
+version of Rainbow Dash. Scootaloo was
+shocked and confused.
+
+""Who are you?""
 
 The rainbow maned pony didn't
 acknowledge. ""Surrender now,
-Scootaloo.""",SHDX_EP1END_4B,,,,,,,,,,,,,,,,,,,,,,,
-"""There's nowhere to go. You try to
-leave, and you'll be greeted with a barrage
-of bullets. You stay in here, and you'll most
-certainly die.""",SHDX_EP1END_5,,,,,,,,,,,,,,,,,,,,,,,
-"""...Oh, and speaking of dying, next
-time I contact you, you can say goodbye
-to one of your friends!""
+Scootaloo.""",SHDX_EP1END_4,,,,,,,,,,,,,,,,,,,,,,,
+"""There's nowhere to go. This factory
+will be your grave.""",SHDX_EP1END_5,,,,,,,,,,,,,,,,,,,,,,,
+"""I don't need to kill you yet... I can
+kill one of your friends first. Doesn't
+that sound fun?""
 
-Scootaloo saw Aurora and Orion in
-the back. They were terrified and
-confused.
+They let out a menacing laugh.",SHDX_EP1END_6,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo knew what she had to do.
 
-""YOU LEAVE THEM ALONE!""",SHDX_EP1END_6A,,,,,,,,,,,,,,,,,,,,,,,
-"The dictatorial pony laughed.
-""Nonsense. What fun would that be.
-You have two hours to comply,
-bitch."" The screen then turned off.
+She had to get them back for sure.
 
-Scootaloo knew what she had to
-do. She had to rescue them. Even
-if it meant running into Dr.
-Atmosphere. She was really
-upset at the betrayal of Rainbow
-Dash, but her friends depended
-on her more than ever.",SHDX_EP1END_6B,,,,,,,,,,,,,,,,,,,,,,,
+However, little did she know what
+fears and horrors await her...",SHDX_EP1END_7,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Episode 2 Intro,,,,,,,,,,,,,,,,,,,,,,
-"Dr. Atmosphere needed to deal with
-this threat and fast!
+"Dr. Atmosphere, the head engineer,
+needed to act fast. Scootaloo was
+approaching at a rapid clip. He asks
+the rainbow-maned Pegasus for
+advice.",SHDX_EP1INTRO_1,,,,,,,,,,,,,,,,,,,,,,,
+"They calmly contemplate for a
+moment.
 
-""Mein fuhrer, the filly is rapidly
-approaching the pegasus device.
-Most of our forces are away from
-the facility, what should we do?""",SHDX_EP1INTRO_1,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow calmly contemplated.
+""Release the enforcers.""",SHDX_EP1INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
+"Dr. Atmosphere was reluctant at
+first. ""They're a wee bit unstable,
+we need more time to test them.""
 
-""Hm, is that so? Release the
-enforcers.""
+The multicolored Pegasus was
+not having it. ""I don't care. Do it
+now.""
 
-""...They are a bit unstable. I
-think we need more time to
-test them."" Dr. Atmosphere
-uttered with caution in his
-voice.",SHDX_EP1INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
-"""That bitch just waltzed in
-and killed your wife. And
-you’re just going to let her
-get away with that? Are
-you that weak?""
-
-""Oh I'm not weak... if you
-insist, but you’ll have to
-control them, as I’ll be in
-my lab far away from them.
-Show that bitch what
-they’re capable of, Mein
-fuhrer.""",SHDX_EP1INTRO_3,,,,,,,,,,,,,,,,,,,,,,,
+Dr. Atmosphere chuckles a bit
+and gives the Pegasus an odd
+amulet. ""Okay then, but I'm
+warning you...",SHDX_EP1INTRO_3,,,,,,,,,,,,,,,,,,,,,,,
+"The dictatorial Pegasus puts it on, and
+lets out a scream of agonizing pain.",SHDX_EP1INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Episode 2 End,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo takes the teleporter back to
 the main facility after killing the deranged
@@ -767,14 +712,11 @@ engineer... you ruined me,
 now I'll ruin you!""",SHDX_EP2END_2,,,,,,,,,,,,,,,,,,,,,,,
 "Orion looks at the screen.
 ""Don't worry Scoots, I love
-you! Kick flank!""
+you! Kick flank! Goodbye.""
 
-Scootaloo pounded on the TV
-screen. ""LET HIM GO YOU
-MONSTER!"" The authoritarian
-Pegasi didn't even acknowledge.
-Scootaloo was forced to watch
-it all, live.",SHDX_EP2END_3,,,,,,,,,,,,,,,,,,,,,,,
+Before she could say goodbye
+back, Orion is dropped into the
+device.",SHDX_EP2END_3,,,,,,,,,,,,,,,,,,,,,,,
 "The machine spits out bright
 components - mainly red. It's
 pumped into a nightmarish
@@ -788,63 +730,56 @@ at the loss of her friend,
 raises the CB radio and uses
 it.
 
-""Go buck yourself...""",SHDX_EP2END_6A,,,,,,,,,,,,,,,,,,,,,,,
+""Go buck yourself...""",SHDX_EP2END_6,,,,,,,,,,,,,,,,,,,,,,,
 "At this point, Scootaloo has one
 goal in mind....
 
-That pony, Rainbow Dash or not...
-they must die for their crimes.
-And that machine must be
-destroyed so that it will never,
-ever cause any more death.
+They must die for what they did
+to Orion. And that machine must
+be destroyed before it causes
+even more death.
 
 You go through a teleporter. It
 takes you not to another part
 of the facility, but to Cloudsdale's
-outer reaches. You must get through
-the city, and back into the factory.",SHDX_EP2END_6B,,,,,,,,,,,,,,,,,,,,,,,
+outer reaches...",SHDX_EP2END_7,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Pre Maimbow Fight,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow is extremely angry at the loss
-of the Pegasus Device. He readies a
-surprise assault on Scootaloo. In his
-rage, he forgets Aurora. Aurora uses
-this chance to get away. If she manages
-to survive or not... and if Scootaloo can
-find her...
+"Maimbow prepares to take on Scootaloo. In
+his preoccupation, Aurora manages to slip
+away and hide somewhere. Will Scootaloo
+be able to save her, or will she meet a
+terrible fate like Orion did?
 
 Maimbow is armed to the teeth. And he
 is not going to go down easily. It's do or die.",SHDX_EP3INTER_1,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Episode 3 End (Shared),,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo stands over Maimbow. Maimbow
-loses what appears to be a contact lens.
+"Scootaloo stands over the dying body
+of Maimbow Undash. He drops the amulet,
+as well as a rose colored contact lens. His
+cutie mark wears off. It was painted over.
 
-His eyes aren't a deep rosey color, but a
-golden amber. Suddenly it hits Scootaloo...
-It was Lightning Dust, the pony that
-Rainbow Dash got kicked out of the
-Wonderbolts! Lightning Dust had
-changed her identity. But why?",SHDX_EP3END_1,,,,,,,,,,,,,,,,,,,,,,,
+Scootaloo recognizes it. It was Lightning
+Dust. She had disguised herself!
+
+Scootaloo was in shock.",SHDX_EP3END_1,,,,,,,,,,,,,,,,,,,,,,,
 """Why, Lightning Dust?""
 
-""Because your so-called big sister ruined
+""Because your big sister ruined
 me! What better way than to ruin her
-and the legacy of the Pegasi! I wanted
-her to suffer... I wanted her to be miserable...
-so I weaseled my way up the Cloudsdale
+legacy? I wanted her to suffer...
+
+So I worked my way up the Cloudsdale
 Weather Corporation and hatched a plan...
 to get back at not just her... but you as well!""",SHDX_EP3END_2,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo took a step back. She couldn't
 believe it.
 
-""You did all this just to get back at me?
+""You did all this just to get back at us?
 Ponies have died because of you!""
 
 Maimbow started to falter. ""I know... I let
 hate overflow me... and for that, I have paid
-the price. I died at the hands of a disabled
-pegasus who can't even fly! Who knew...
-the very thing that I hated so much would
-be the thing that would destroy me!""",SHDX_EP3END_3,,,,,,,,,,,,,,,,,,,,,,,
+the price.""",SHDX_EP3END_3,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo stood in awe as Maimbow
 laid in his own blood.
 
@@ -857,7 +792,7 @@ down Rainbow Dash and tell her it was
 all her fault!""
 
 Maimbow chuckled. ""I was such a
-dumbass. I let my hate blind me.""",SHDX_EP3END_4,,,,,,,,,,,,,,,,,,,,,,,
+fool. I let my hate blind me.""",SHDX_EP3END_4,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow faltered more as he lost
 more blood. ""Forgive me... please...
 whatever waits me beyond this,
@@ -866,13 +801,12 @@ I deserve and I am ready for.""",SHDX_EP3END_5,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo contemplated for a moment.
 She couldn't bear to think about all the pain
 and misery Maimbow had brought her.
-She lost two of her friends to this bastard.
-
-She had her answer.
+She lost two of her friends to this bastard.",SHDX_EP3AEND_6,,,,,,,,,,,,,,,,,,,,,,,
+"She had her answer.
 
 ""You know what, you're right. I'll forgive
-you...""",SHDX_EP3AEND_6,,,,,,,,,,,,,,,,,,,,,,,
-"""..In hell.""",SHDX_EP3AEND_7,,,,,,,,,,,,,,,,,,,,,,,
+you...""",SHDX_EP3AEND_7,,,,,,,,,,,,,,,,,,,,,,,
+"""..In hell.""",SHDX_EP3AEND_8,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow was thrown into the second
 barely functional Pegasus Device, head
 first. The machine puked out every
@@ -883,23 +817,22 @@ The Pegaus race was too sick to save.
 It was disgraced by the actions of the
 Cloudsdale Weather Corporation.
 
-It must be purged.",SHDX_EP3AEND_8,,,,,,,,,,,,,,,,,,,,,,,
+It must be purged.",SHDX_EP3AEND_9,,,,,,,,,,,,,,,,,,,,,,,
 "She got control of the Enforcers using Maimbow's
-amulet the SpectraWasps. She swore to exterminate
-every last pegasi in Equestria and beyond,
+amulet. She also got control of the Spectrawasps.
+
+She swore to exterminate every last
+pegasi in Equestria and beyond,
 starting with the remaining forces of the
 Cloudsdale Weather Corporation. Those who
-chose to surrender were gutted of their free
-will, and forced to serve in her burning crusade.",SHDX_EP3AEND_9,,,,,,,,,,,,,,,,,,,,,,,
+chose to surrender were lobotomized, and
+forced to serve in her burning crusade.",SHDX_EP3AEND_10,,,,,,,,,,,,,,,,,,,,,,,
 "The loss of Orion and Aurora had pushed
-Scootaloo to insanity. She was now just as 
-genocidal as Maimbow was.
+Scootaloo to insanity.
 
-Maybe even more so - as she wanted no
-pegasi to remain by the time she was done.
-Once she's done with them, who knows what
-horrific crimes she'll continue to commit against
-life itself.
+Once she's done with the Pegasus race, who
+knows what horrific crimes she'll continue to
+commit against life itself.
 
 Scootaloo is no more, her soul is but a fleeting
 memory, and her body an empty husk of her
@@ -907,7 +840,7 @@ former self. All that remains is Absentia.
 
 Here she will continue her war against life itself...
 In the Rainbow Factory... where not a single
-soul gets through.",SHDX_EP3AEND_10,,,,,,,,,,,,,,,,,,,,,,,
+soul gets through.",SHDX_EP3AEND_11,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Episode 3 End (Good),,,,,,,,,,,,,,,,,,,,,,
 "Aurora, who had been quiet, spoke up.
 ""Maimbow, I forgive you. I believe love can conquer
@@ -917,16 +850,16 @@ consume me, I'd be no better than you.""",SHDX_EP3BEND_6,,,,,,,,,,,,,,,,,,,,,,,
 spoke up. ""Aurora's right. I must end the
 cycle of hate somewhere. However, rest
 assured, I'm going to help ensure this
-never happens again. Anywhere. Got it?""",SHDX_EP3BEND_7,,,,,,,,,,,,,,,,,,,,,,,
+never happens anywhere again. Got it?""",SHDX_EP3BEND_7,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow sheds a tear. ""Rainbow did
 good.""",SHDX_EP3BEND_8,,,,,,,,,,,,,,,,,,,,,,,
 "He gasps his last breath, before his life slowly
 fades from his body.",SHDX_EP3BEND_9,,,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo sees some sort of amulet that
-Maimbow dropped. It has a weird symbol.
-It appears to be what Maimbow used to
-control the Enforcers. She breaks the
-amulet. She hopes that frees them.",SHDX_EP3BEND_10,,,,,,,,,,,,,,,,,,,,,,,
+"Scootaloo sees the amulet that Maimbow
+dropped. It has a weird symbol. It appears
+to be what Maimbow used to control the
+Enforcers. She breaks the amulet. She
+hopes that frees them.",SHDX_EP3BEND_10,,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo, with a renewed sense of
 purpose, looks at her new friend. The
 two had survived the Cloudsdale
@@ -941,10 +874,7 @@ Orion, and never forget what happened here.
 
 However, they also found it in their hearts
 to forgive and learn from this. Equestria
-would recover.
-
-Scootaloo wanted to get back home. She
-wanted to talk to Rainbow Dash...",SHDX_EP3BEND_12,,,,,,,,,,,,,,,,,,,,,,,
+would recover.",SHDX_EP3BEND_12,,,,,,,,,,,,,,,,,,,,,,,
 ,,Credits,,,,,,,,,,,,,,,,,,,,,,
 "1. Jenna Pepper 2. SanyaWaffles 3. EllieJojo 4. Kelsie Finefeather 5. RodScorpion 6. NeonBat
 7. Marisa Kirisame 8. DRPReskins 9. Epic Acrylic 10. Earth

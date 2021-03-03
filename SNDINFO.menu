@@ -10,8 +10,8 @@ menu/cursor							"sounds/ui/slide.ogg"		// Move cursor up/down
 menu/invalid						"sounds/ui/error.ogg"		// Menu not available
 menu/choose							"sounds/ui/accept.ogg"	// Choose a menu item
 menu/clear							"sounds/ui/woosh.ogg"		// Close top menu
-menu/dismiss						"sounds/ui/woosh.ogg"		// Dismiss a prompt message
-menu/change							"sounds/ui/slide.ogg"		// Select new value for option
+$alias menu/dismiss					menu/clear		// Dismiss a prompt message
+$alias menu/change					menu/cursor		// Select new value for option
 $volume menu/activate 0.7
 $volume menu/backup 0.7
 $volume menu/prompt 0.7
@@ -23,14 +23,14 @@ $volume menu/dismiss 0.7
 $volume menu/change 0.7
 
 $alias misc/chatdd					menu/prompt			// Chat Ping
+misc/chat2				"sounds/ui/tink.ogg"		// Chat Tink Sound
 
 // Intermission
 intermission/tick				"sounds/switches/switch_push.ogg"
-intermission/cooptotal			"sounds/switches/switch_push.ogg"
+$alias intermission/cooptotal	intermission/tick
 intermission/nextstage			"sounds/weapons/blaster.ogg"
 intermission/paststats			"sounds/switches/switch_reset.ogg"
-intermission/pastcoopstats		"sounds/switches/switch_reset.ogg"
+$alias intermission/pastcoopstats		intermission/paststats
 intermission/pastdmstats		"sounds/weapons/blaster.ogg"
 
-mac/crash							"sounds/ui/maccrash2.ogg"
 error/sweetiebelle		"sounds/error_sweetie.ogg"

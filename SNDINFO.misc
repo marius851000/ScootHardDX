@@ -9,29 +9,21 @@ vending/fail			"sounds/ui/error.ogg"
 vending/failfilthyfrank	"sounds/no_money.ogg"
 vending/dispense		"sounds/clunk.ogg"
 vending/watercooler		"sounds/water_cooler.ogg"
+vending/waterdrink		"sounds/water_drink.ogg"
 
 misc/secret				"sounds/secret.ogg"
 
-weapons/chickenmiss		DSEMPTY		// Nothing!
-$pitchshiftrange 0
-
-misc/chat2				"sounds/ui/tink.ogg"		// Chat Tink Sound
-
 world/barrelx			"sounds/boom2.ogg"		// Generic Barrel Exploding
 
-misc/explosion			"sounds/boom2.ogg"
+$alias misc/explosion	world/barrelx
 
 world/boing				"sounds/tpoline.ogg"		// Trampoline
-
-weapons/chickenhit		"sounds/peck_hit.ogg"
 
 misc/teleport			"sounds/teleport.ogg"
 misc/foodcook			"sounds/FRIED01.ogg"		// Frying noise
 world/lava				"sounds/FRIED01.ogg"		// When in lava, you'll burn...
 world/glassbreak		"sounds/glass_break.ogg"	// Breaking Glass Noise		
-
 world/splash			"sounds/splash02.ogg"	// Splashing noise
-
 world/quake				"sounds/quake.ogg"
 
 thunder_sound_1 "sounds/world/THUNDR01.ogg"
@@ -56,14 +48,10 @@ $random thunder_sound_random
 }
 
 $alias world/thunder thunder_sound_1
-
 $attenuation thunder_sound_random 0.3
 $rolloff thunder_sound_random linear 1500 4000
-
 rain_sound "sounds/rain_sound.ogg"
-
 $rolloff rain_sound linear 150 400
-
 $limit rain_sound 4
 
 aurora/sight1			"sounds/aurora.ogg"
@@ -76,7 +64,6 @@ $random aurora/sight
 }
 
 credits/bordeaux		"sounds/bordeaux.ogg"
-
 armor/hit				"sounds/hullhit.ogg"
-
+misc/vaporize			"sounds/vaporize.ogg"
 misc/explosionpegasusdevice	"sounds/pegadevice_explosion.ogg"

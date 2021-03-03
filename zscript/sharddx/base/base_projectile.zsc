@@ -27,8 +27,6 @@ Class SHDX_Projectile : SHDX_Actor
 		+ActivatePCross
 		
 		+BloodSplatter
-		
-		// +MThruSpecies
 	}
 }
 
@@ -53,6 +51,7 @@ Class SHDX_MorphProjectile : MorphProjectile
 	override int DoSpecialDamage(Actor target, int damage, Name damagetype)
 	{
 		let armor = BasicArmor(target.FindInventory("BasicArmor"));
+		
 		if ( !armor )
 			return Super.DoSpecialDamage(target, damage, damagetype);
 		
@@ -67,13 +66,9 @@ Class SHDX_MorphProjectile : MorphProjectile
 		let actualsaveamount = armor.ActualSaveAmount;
 		
 		if (target.player)
-		{
 			target.player.mo.morphplayer(NULL, PlayerClass, Duration, MorphStyle, MorphFlash, UnMorphFlash);
-		}
 		else
-		{
 			target.morphmonster(MonsterClass, Duration, MorphStyle, MorphFlash, UnMorphFlash);
-		}
 		
 		//Restore information
 		armor.SavePercent = savepercent;

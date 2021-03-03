@@ -6,16 +6,6 @@
 	nostopcutoff
 end
 
-:DoorOpenMetal
-	play		doors/metalo
-	nostopcutoff
-end
-
-:DoorCloseMetal
-	play		doors/metalc
-	nostopcutoff
-end
-
 :DDDoorBaseOpen
 	door 11
 	play		doors/basedooropen
@@ -32,30 +22,6 @@ end
 	door 13
 	play		doors/pushwall
 	nostopcutoff
-end
-
-
-// Bushes
-
-:DDBushesOpen
-	platform 11
-	play			bushes/slide
-	nostopcutoff
-	stopsound		bushes/stop
-end
-
-:DDWoodSliding
-	platform 12
-	play			wooden/slide
-	nostopcutoff
-	stopsound		wooden/stop
-end
-
-:DDBuildingSlide
-	platform 13
-	play			rocks/slide
-	nostopcutoff
-	stopsound		rocks/stop
 end
 
 [DoorNormal

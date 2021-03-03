@@ -6,10 +6,11 @@ weapons/rocketf			"sounds/weapons/rocket_launcher_fire.ogg"	// Rocket Firing
 weapons/rocketx			"sounds/boom2.ogg"		// Rocket Exploding
 weapons/grenadef		"sounds/weapons/grenade_fire2.ogg"	// Grenade Fire
 weapons/fillyf			"sounds/weapons/homingrocketfire.ogg"
-weapons/fillyx			"sounds/boom2.ogg"
+weapons/fillyh			"sounds/weapons/homingrocketflight.ogg"
+$alias weapons/fillyx	weapons/rocketx
 weapons/fillydrunkf		"sounds/weapons/drunkfillyfire.ogg"
 weapons/rainbowerf		"sounds/weapons/rainbower.ogg"
-weapons/rainbowerx		"sounds/boom2.ogg"		// Rainbower Exploding
+$alias weapons/rainbowerx	weapons/rocketx		// Rainbower Exploding
 weapons/rainbowerf2		"sounds/weapons/rainbower2.ogg"		// Rainbower Fire Crackle
 weapons/tornadof2		"sounds/weapons/tornado_fire.ogg"	// needs a better sound
 weapons/tornadof		"sounds/weapons/tornado_projectile.ogg"
@@ -18,9 +19,8 @@ weapons/hailx			"sounds/glass_break.ogg"
 weapons/hailf2			"sounds/weapons/scatter_fire2.ogg"
 weapons/lightningf		"sounds/weapons/plasma_fire2.ogg"
 weapons/lightningx		"sounds/weapons/plasma_shotx.ogg"
-
+weapons/chickenmiss		DSEMPTY		// Nothing!
+weapons/chickenhit		"sounds/peck_hit.ogg"
 weapons/cluck			"sounds/chicken01.ogg"		// Chicken Cluck Noise
 weapons/chickenx		"sounds/chicken04.ogg"		// Higher Pitched Chicken Noise
 weapons/chickenxno		"sounds/no.ogg"				// Dr. Robotnik No
-
-weapons/fillyh			"sounds/weapons/homingrocketflight.ogg"

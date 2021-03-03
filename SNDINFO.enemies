@@ -1,5 +1,7 @@
 $pitchshiftrange 0
 
+// LOW GUARD
+
 grunt1/sight1				"sounds/enemies/guard/ben/g_see1.ogg"
 grunt1/sight2				"sounds/enemies/guard/ben/g_see2.ogg"
 grunt1/sight3				"sounds/enemies/guard/ben/g_see3.ogg"
@@ -36,6 +38,8 @@ $random	grunt2/pain			{ grunt2/pain1	grunt2/pain2 grunt2/pain3 }
 
 grunt/attack				"sounds/weapons/revolver.ogg"
 
+// HIGH GUARD
+
 hguard1/sight1				"sounds/enemies/high/redsoldier55/hg_see1.ogg"
 hguard1/sight2				"sounds/enemies/high/redsoldier55/hg_see2.ogg"
 $random hguard1/sight		{ hguard1/sight1 hguard1/sight2 }
@@ -59,6 +63,8 @@ grenadeguard/fire			"sounds/weapons/grenade_fire2.ogg"
 
 hguard/attack			"sounds/weapons/smg_fire.ogg"
 
+// PEGAPOL
+
 pegapol/sight1			"sounds/enemies/pegapol/pp_see1.ogg"
 pegapol/sight2			"sounds/enemies/pegapol/pp_see2.ogg"
 $random pegapol/sight	{ pegapol/sight1 pegapol/sight2 }
@@ -78,6 +84,8 @@ $random	pegapol/active	{ pegapol/active1 pegapol/active3 }
 pegapol/wings			"sounds/wing_flap.ogg"
 pegapol/charge			"sounds/wing_charge.ogg"
 pegapol/fireready		"sounds/weapons/gun_ready.ogg"
+
+// PEGAWIZ
 
 pegawiz/sight1			"sounds/enemies/pegawiz/pw_sight1.ogg"
 pegawiz/sight2			"sounds/enemies/pegawiz/pw_sight2.ogg"
@@ -112,6 +120,8 @@ pegawiz/charge			"sounds/wing_charge.ogg"
 pegawiz/dodge			"sounds/enemies/pegawiz/pw_dodge.ogg"
 pegawiz/startflying		"sounds/enemies/pegawiz/pw_fly.ogg"
 
+// ENGINEER
+
 engineer/sight1			"sounds/enemies/engie/en_see1.ogg"
 engineer/sight2			"sounds/enemies/engie/en_see2.ogg"
 engineer/sight3			"sounds/enemies/engie/en_see3.ogg"
@@ -141,6 +151,8 @@ engineer/shotx			"sounds/weapons/plasma_shotx.ogg"
 engineer/melee			"sounds/weapons/destablizer_hit.ogg"
 engineer/miss			"sounds/weapons/destablizer_full.ogg"
 
+// SPECTRAWASP
+
 spectrawasp/sight			"sounds/enemies/wasp/see.ogg"
 spectrawasp/active1			"sounds/enemies/wasp/active1.ogg"
 spectrawasp/active2			"sounds/enemies/wasp/active2.ogg"
@@ -152,6 +164,8 @@ spectrawasp/attacklaserf	"sounds/enemies/wasp/fire.ogg"
 spectrawasp/attacklaserx	"sounds/weapons/plasma_shotx.ogg"
 spectrawasp/attackspectraf	"sounds/enemies/zombie/zombie_throw.ogg"
 spectrawasp/attackspectrax	"sounds/enemies/zombie/zombie_shotx.ogg"
+
+// ZOMBIE
 
 zombie/spot				"sounds/world/THUNDR01.ogg"
 $limit zombie/spot 3
@@ -165,7 +179,7 @@ $limit zombie/sight 3
 
 zombie/overcharge		"sounds/zombie_whir.ogg"
 
-zombie2/scream			"sounds/enemies/zombie/zombie_aaaa.ogg"
+// ENFORCERS
 
 enforcer/clusterbombf	"sounds/weapons/grenade_fire.ogg"
 enforcer/clusterbombb	"sounds/weapons/grenade_bounce.ogg"
@@ -189,11 +203,13 @@ enforcer/explode		"sounds/boom2.ogg"
 enforcer/collarbeep		"sounds/enemies/enforcers/collar_beep.ogg"
 enforcer/grenadef		"sounds/weapons/grenade_fire2.ogg"
 enforcer/grenadeb		"sounds/weapons/grenade_bounce.ogg"
-enforcer/grenadex		"sounds/boom2.ogg"
+$alias enforcer/grenadex enforcer/clusterbombx
 enforcer/whipattack		"sounds/whip.ogg"
 enforcer/whipactive		"sounds/whipcrack.ogg"
 
+// SENTRIES
+
 minisentry/build		"sounds/enemies/sentry/build.ogg"
 minisentry/spot			"sounds/enemies/sentry/spot.ogg"
-minisentry/scan			"sounds/enemies/sentry/scan.ogg
+minisentry/scan			"sounds/enemies/sentry/scan.ogg"
 minisentry/explode		"sounds/boom2.ogg"

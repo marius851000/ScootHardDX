@@ -112,6 +112,8 @@ Class SHDX_FillyMissile : SHDX_Projectile
 		DamageType "Explosive";
 		// SeeSound "weapons/fillyf";
 		DeathSound "weapons/fillyx";
+		
+		+ROCKETTRAIL
 	}
 	
 	States

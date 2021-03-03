@@ -55,5 +55,7 @@ gameinfo
 	
 	statusbarclass = "SHDX_StatusBar"
 	
+	NoMergePickupMsg = true
+	
 	AddEventHandlers = "SHDX_Handler", "SHDX_AbortHandler", "SHDX_ReadThisHijacker", "weather_event"
 }

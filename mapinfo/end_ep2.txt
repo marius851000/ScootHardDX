@@ -45,13 +45,13 @@ Intermission EndEpisode2
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end2/end2_7.png"
-		Text = "$SHDX_EP2END_6A"
+		Text = "$SHDX_EP2END_6"
 		TextColor = "Green"
 	}
 	TextScreen
 	{
 		Background = "graphics/cutscenes/end2/end2_7.png"
-		Text = "$SHDX_EP2END_6B"
+		Text = "$SHDX_EP2END_7"
 		TextColor = "Green"
 	}
 	Fader
