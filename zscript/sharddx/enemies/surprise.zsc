@@ -62,6 +62,8 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		+SHDX_Boss.TriggerCutscene
 		
 		SHDX_Boss.CutsceneToPlay 'EndEpisode1';
+		
+		SHDX_Boss.TauntCooldownTime 10;
 	}
 	
 	bool floorlowered;

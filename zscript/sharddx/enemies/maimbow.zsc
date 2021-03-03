@@ -172,6 +172,8 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		
 		+DONTRIP
 		+NOICEDEATH
+		
+		SHDX_Boss.TauntCooldownTime 8;
 	}
 	
 	int maimbowstage;

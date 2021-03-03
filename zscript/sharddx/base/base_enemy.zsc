@@ -390,6 +390,9 @@ Class SHDX_Boss : SHDX_Enemy
 	meta Name CutsceneToPlay;
 	Property CutsceneToPlay: CutsceneToPlay;
 	
+	meta int TauntCooldownTime;
+	Property TauntCooldownTime: TauntCooldownTime;
+	
 	int cooldowntaunt;
 	
 	bool isactive;
@@ -405,8 +408,6 @@ Class SHDX_Boss : SHDX_Enemy
 			cooldowntaunt--;
 	}
 	
-	const COOLDOWNTAUNTTICS = (TICRATE * 6);
-	
 	void A_SHDX_PlayBossTaunt(Sound snd, bool bypasscooldown = false)
 	{
 		if (cooldowntaunt > 0 && !bypasscooldown)
@@ -414,7 +415,10 @@ Class SHDX_Boss : SHDX_Enemy
 	
 		A_StartSound(snd, CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
 		
-		cooldowntaunt = COOLDOWNTAUNTTICS;
+		if (TauntCooldownTime > 0)
+			cooldowntaunt = TauntCooldownTime * TICRATE;
+		else
+			cooldowntaunt = 8 * TICRATE;
 	}
 	
 	void A_DD2_BossPlayCutscene()

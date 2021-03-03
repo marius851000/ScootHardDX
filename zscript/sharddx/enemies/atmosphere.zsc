@@ -125,6 +125,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		+SHDX_Boss.TriggerCutscene
 		
 		SHDX_Boss.CutsceneToPlay 'EndEpisode2';
+		SHDX_Boss.TauntCooldownTime 10;
 	}
 	
 	bool fogchanged;
