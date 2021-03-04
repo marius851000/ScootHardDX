@@ -199,12 +199,24 @@ map E3M4 lookup SHDX_E3A4
 	sucktime = 1
 	EventHandlers = "SHDX_MaimbowHandler"
 	music = "M_MAMB"
-	next = "CREDITS"
+	next = "EndTitle"
+	nointermission
 	author = "SanyaWaffles, Metal Neon"
-	secretnext = "CREDITS"
 }
 
-map CREDITS lookup SHDX_CREDITS
+map CREDITS1 lookup SHDX_CREDITS
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "EndTitle"
+	secretnext = "EndTitle"
+	nointermission
+	EventHandlers = "SHDX_CreditMapEvent"
+}
+
+map CREDITS2 lookup SHDX_CREDITS
 {
 	sky1 = "SKY2"
 	cluster = 1

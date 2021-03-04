@@ -177,6 +177,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	}
 	
 	int maimbowstage;
+	bool goodend;
 	
 	const MAIMBOWFLY = 20;
 	
@@ -273,19 +274,28 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		maimbowstage = MAIMBOW_STAGE_3;
 	}
 	
-	void A_SHDX_MaimbowBossPlayCutscene()
+	void A_SHDX_GetEndingType()
 	{
-		if (shdx_skipcutscenes)
-			return;
-		
 		for (int i = 0; i < MAXPLAYERS; i++)
 		{
 			PlayerInfo pl = players[i];
 			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
 			{
-				A_SHDX_MaimbowPlayAuroraFoundCutscene();
+				goodend = true;
 				return;
 			}
+		}
+	}
+	
+	void A_SHDX_MaimbowBossPlayCutscene()
+	{
+		if (shdx_skipcutscenes)
+			return;
+			
+		if (goodend)
+		{
+			A_SHDX_MaimbowPlayAuroraFoundCutscene();
+			return;
 		}
 		
 		A_SHDX_MaimbowPlayAuroraNotFoundCutscene();
@@ -306,14 +316,11 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		if (shdx_skipcutscenes)
 			return;
 		
-		for (int i = 0; i < MAXPLAYERS; i++)
+		if (goodend)
 		{
-			PlayerInfo pl = players[i];
-			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
-			{
-				A_SHDX_SendOLToAllPlayers("scootaloo/maimbowundashendgood", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
-				return;
-			}
+			goodend = true;
+			A_SHDX_SendOLToAllPlayers("scootaloo/maimbowundashendgood", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+			return;
 		}
 		
 		A_SHDX_SendOLToAllPlayers("scootaloo/maimbowundashendbad", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
@@ -321,7 +328,13 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	void A_SHDX_MaimbowBossEndLevel()
 	{
-		level.ExitLevel(0, false);
+		if (goodend)
+		{
+			level.ChangeLevel("CREDITS2", 0, CHANGELEVEL_NOINTERMISSION, -1);
+			return;
+		}
+		
+		level.ChangeLevel("CREDITS1", 0, CHANGELEVEL_NOINTERMISSION, -1);
 	}
 	
 	void A_MaimbowSetBossMusic()
@@ -331,14 +344,10 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	void A_MaimbowVictoryMusic()
 	{
-		for (int i = 0; i < MAXPLAYERS; i++)
+		if (goodend)
 		{
-			PlayerInfo pl = players[i];
-			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
-			{
-				S_ChangeMusic("M_MVICG", 0, false);
-				return;
-			}
+			S_ChangeMusic("M_MVICG", 0, false);
+			return;
 		}
 		
 		S_ChangeMusic("M_MVICB", 0, false);
@@ -1314,9 +1323,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				A_RemoveLight('maimbowlight');
 				SetShade("ffffff");
-			}
-			MBOW \ 0
-			{
+				A_SHDX_GetEndingType();
 				A_MaimbowVictoryMusic();
 			}
 			MBOW \ 105;
