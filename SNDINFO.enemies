@@ -108,7 +108,7 @@ pegawiz/fire1			"sounds/enemies/pegawiz/pw_fire1.ogg"
 pegawiz/fire2			"sounds/enemies/pegawiz/pw_fire2.ogg"
 pegawiz/fire3			"sounds/enemies/pegawiz/pw_fire3.ogg"
 $random	pegawiz/fire	{ pegawiz/fire1 pegawiz/fire2 pegawiz/fire3 }
-pegapol/attack			"sounds/weapons/smg_fire.ogg"
+pegawiz/attack			"sounds/weapons/smg_fire.ogg"
 pegawiz/active1			"sounds/enemies/pegawiz/pw_active1.ogg"
 pegawiz/active2			"sounds/enemies/pegawiz/pw_active2.ogg"
 pegawiz/active3			"sounds/enemies/pegawiz/pw_active3.ogg"
@@ -119,6 +119,7 @@ pegawiz/wings			"sounds/wing_flap.ogg"
 pegawiz/charge			"sounds/wing_charge.ogg"
 pegawiz/dodge			"sounds/enemies/pegawiz/pw_dodge.ogg"
 pegawiz/startflying		"sounds/enemies/pegawiz/pw_fly.ogg"
+pegawiz/fireready		"sounds/weapons/gun_ready.ogg"
 
 // ENGINEER
 

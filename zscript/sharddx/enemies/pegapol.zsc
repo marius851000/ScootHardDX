@@ -679,7 +679,7 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 			}
 		Missile.Bullet:
 			PEGA F 0 A_StopSound(CHAN_BODY);
-			PEGA F 0 A_StartSound("pegapol/fireready", CHAN_WEAPON);
+			PEGA F 0 A_StartSound("pegawiz/fireready", CHAN_WEAPON);
 			PEGA F 12 A_FaceTarget;
 			PEGA G 2 Bright A_PegapolFire;
 			PEGA H 2 Bright A_PegapolFire;

@@ -547,3 +547,10 @@ decal TorSymbol 48
 	x-scale 0.2
 	y-scale 0.2
 }
+
+decal ItsBuckingRaw 49
+{
+	pic "graphics/decals/ItsBuckingRaw.png"
+	x-scale 0.2
+	y-scale 0.2
+}
