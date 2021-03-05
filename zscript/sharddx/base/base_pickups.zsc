@@ -20,7 +20,7 @@ mixin class PickupSoundOverride
 		int channel = CHAN_ITEM;
 		int flags = CHANF_OVERLAP;
 		
-		if (toucher && tougher.CheckLocalView())
+		if (toucher && toucher.CheckLocalView())
 		{
 			flags |= CHANF_MAYBE_LOCAL;
 			flags |= CHANF_NOPAUSE;
