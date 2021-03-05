@@ -26,7 +26,7 @@ Class SHDX_TrashCan : SHDX_BreakableContainer
 		Radius 12;
 		Height 38;
 		Health 5;
-		Mass 850;
+		Mass 400;
 
 		+Solid
 		+Shootable

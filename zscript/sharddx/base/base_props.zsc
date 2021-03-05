@@ -40,6 +40,10 @@ Class SHDX_BreakableContainer : Pottery1
 		
 		+Shootable
 		+DontGib
+		-Smashable
+		-SlidesOnWalls
+		-Pushable
+		-Telestomp
 	}
 	
 	States
