@@ -152,6 +152,36 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		SHDX_PlayerPawn.OneLinerPrefix "scootaloo";
 	}
 	
+	override void CheatGive(String name, int amount)
+	{
+		Super.CheatGive(name, amount);
+
+		if (!player.mo || player.health <= 0)
+			return;
+
+		int giveall = ALL_NO;
+		
+		if (name ~== "all")
+			giveall = ALL_YES;
+		else if (name ~== "everything")
+			giveall = ALL_YESYES;
+		
+		if (giveall || name ~== "armor")
+		{
+			let armoritem = Inventory(Spawn("SHDX_SuperArmor"));
+			
+			if (!armoritem.CallTryPickup(self))
+			{
+				armoritem.Destroy ();
+			}
+
+			if (!giveall)
+				return;
+		}
+		
+		return;
+	}
+	
 	override void Tick()
 	{
 		// to avoid something going on with "voodoo dolls" not performing right

@@ -12,60 +12,69 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-Class SHDX_BitCoin : Ammo
+extend class SHDX_Armor
 {
-	Default
+	Class<SHDX_Armor> GetParentArmor()
 	{
-		Radius 10;
-		Height 16;
-		Scale 0.12;
+		Class<Object> type = GetClass();
 		
-		Inventory.Amount 1;
-		Inventory.MaxAmount 50;
+		while (type.GetParentClass() != "SHDX_Armor" && type.GetParentClass() != null)
+		{
+			type = type.GetParentClass();
+		}
 		
-		Inventory.PickupSound "pickup/generic";
-		+Inventory.IgnoreSkill
+		return (Class<SHDX_Armor>)(type);
 	}
 	
-	mixin PickupSoundOverride;
-}
-
-Class SHDX_SilverBitCoin : SHDX_BitCoin
-{
-	Default
+	override Inventory CreateCopy(Actor other)
 	{
-		//$Sprite BIT1A0
-		//$Title "1 Bits"
-		//$Category "Health and Armor"
-		Tag "$SHDX_TAG_1BIT";
-		Inventory.Amount 1;
-		Inventory.PickupMessage "$SHDX_PICKUP_1BIT";
+		SHDX_Armor copy;
+		
+		Class<Object> o = GetClass();
+		
+		let type = GetParentArmor();
+		
+		if (type && GetClass() != type)
+		{
+			if (!GoAway())
+				Destroy();
+				
+			copy = SHDX_Armor(Spawn(type));
+			copy.amount = amount;
+			copy.BecomeItem();
+		}
+		else
+		{
+			copy = SHDX_Armor(Super.CreateCopy(other));
+			copy.amount = amount;
+		}
+		
+		if (copy.amount > copy.maxamount)
+			copy.amount = copy.maxamount;
+		
+		return copy;
 	}
 	
-	States
+	override bool HandlePickup(Inventory item)
 	{
-		Spawn:
-			BIT1 A -1;
-			Stop;
-	}
-}
-
-Class SHDX_GoldBitCoin : SHDX_BitCoin
-{
-	Default
-	{
-		//$Sprite BIT5A0
-		//$Title "5 Bits"
-		//$Category "Health and Armor"
-		Tag "$SHDX_TAG_5BIT";
-		Inventory.Amount 5;
-		Inventory.PickupMessage "$SHDX_PICKUP_5BIT";
-	}
-	
-	States
-	{
-		Spawn:
-			BIT5 A -1;
-			Stop;
+		let armoritem = SHDX_Armor(item);
+		
+		if (armoritem && armoritem.GetParentClass() == GetClass())
+		{
+			if (amount < maxamount)
+			{				
+				if (amount > 0 && amount + armoritem.amount < 0)
+					amount = 0;
+				else
+					amount += armoritem.amount;
+				
+				if (amount > maxamount)
+					amount = maxamount;
+				
+				item.bPickupGood = true;
+			}
+			return true;
+		}
+		return false;
 	}
 }
