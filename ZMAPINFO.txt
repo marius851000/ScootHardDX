@@ -22,6 +22,8 @@ include "mapinfo/intro.txt"
 
 include "mapinfo/end_ep1.txt"
 
+include "mapinfo/intro2.txt"
+
 include "mapinfo/end_ep2.txt"
 
 include "mapinfo/preboss3.txt"

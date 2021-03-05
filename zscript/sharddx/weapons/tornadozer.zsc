@@ -115,7 +115,7 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 		Scale 0.08;
 		Speed 25;
 		DamageType "Weather";
-		Damage 12;
+		Damage 16;
 		Projectile;
 		BounceType "Hexen";
 		BounceCount 4;
@@ -135,7 +135,7 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 		Death:
 			EXPL A 0 Bright
 			{
-				A_Explode(64, 64, damagetype:'Weather');
+				A_Explode(80, 64, damagetype:'Weather');
 				// SHDX_Utilities.DoExplosion(self, 32, 32, 64, DamageType:'Weather');
 			}
 		Death1:

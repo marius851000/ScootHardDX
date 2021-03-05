@@ -66,10 +66,22 @@ map E1M4 lookup SHDX_E1A4
 	cluster = 1
 	par = 75
 	sucktime = 1
-	next = "E2M1"
+	next = "INTRO2"
 	music = "M_SINT"
 	EventHandlers = "SHDX_SurpriseHandler"
 	author = "SanyaWaffles, Metal Neon"
+}
+
+map INTRO2 lookup SHDX_INTRO2
+{
+	LevelNum = 0
+	Music = ""
+	Next = "E2M1"
+	EventHandlers = "SHDX_Intro2SlideshowHandler"
+	NoIntermission
+	NoAutosaveHint
+	
+	Sky1 = "SKY1"
 }
 
 map E2M1 lookup SHDX_E2A1

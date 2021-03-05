@@ -202,7 +202,7 @@ Class SHDX_SpectraSentry : SHDX_MiniSentry
 			SSEN AA 4 A_Chase(null, "Missile", CHF_DONTMOVE);
 			SSEN A 0
 			{
-				if (Random[Sentry](0, 3) == 1)
+				if (Random[Sentry](0, 6) == 1)
 				{
 					A_StartSound("minisentry/scan", CHAN_BODY);
 				}

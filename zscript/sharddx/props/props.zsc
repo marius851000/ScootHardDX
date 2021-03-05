@@ -411,10 +411,20 @@ Class SHDX_HeavyEnforcerDormant : SHDX_Prop
 		Height 56;
 	}
 	
+	override void Activate(Actor activator)
+	{
+		Super.Activate(activator);
+		SetStateLabel("Active");
+	}
+	
 	States
 	{		
 		Spawn:
 			ENFO Q -1;
+			Stop;
+		Active:
+			ENFO A 0 A_StartSound("enforcer/activate", CHAN_BODY);
+			ENFO A -1;
 			Stop;
 	}
 }
@@ -424,17 +434,27 @@ Class SHDX_LightEnforcerDormant : SHDX_Prop
 	Default
 	{
 		//$Category "Obstacles"
-		//$Sprite ENFOQ1
+		//$Sprite ENF2P1
 		//$Title "Light Enforcer Dormant"
 		
 		Radius 20;
 		Height 56;
 	}
 	
+	override void Activate(Actor activator)
+	{
+		Super.Activate(activator);
+		SetStateLabel("Active");
+	}
+	
 	States
 	{		
 		Spawn:
 			ENF2 P -1;
+			Stop;
+		Active:
+			ENF2 A 0 A_StartSound("enforcer/activate", CHAN_BODY);
+			ENF2 A -1;
 			Stop;
 	}
 }

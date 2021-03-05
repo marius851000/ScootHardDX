@@ -41,6 +41,12 @@ mixin class SHDX_WeaponSystem
 			}
 		}
 	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		bDropped = false;	// we don't want this crushed by doors.
+	}
 
 	override void DoEffect()
 	{

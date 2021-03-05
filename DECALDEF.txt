@@ -554,3 +554,10 @@ decal ItsBuckingRaw 49
 	x-scale 0.2
 	y-scale 0.2
 }
+
+decal TutorialWeaponSwap 50
+{
+	pic "graphics/decals/tutorial_poster_weaponswap.png"
+	x-scale 0.12
+	y-scale 0.12
+}

@@ -84,3 +84,10 @@ class SHDX_IntroSlideshowHandler : SHDX_SlideshowHandler
 		InitSlideshowInfo('IntroEpisode1', true);
 	}
 }
+class SHDX_Intro2SlideshowHandler : SHDX_SlideshowHandler
+{
+	override void OnRegister()
+	{
+		InitSlideshowInfo('IntroEpisode2', false, true);
+	}
+}

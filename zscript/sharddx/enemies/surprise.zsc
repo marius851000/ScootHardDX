@@ -101,6 +101,19 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		}
 	}
 	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		A_SurpriseCheckForLowerFloor();
+		
+		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+	}
+	
+	void A_SurpriseCheckForLowerFloor()
+	{
+		if (!floorlowered && health <= (SpawnHealth() / 2))
+			SetStateLabel("SeeFloorPeelaway");
+	}
+	
 	void A_SurpriseLowerFloor()
 	{
 		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
@@ -182,13 +195,16 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			Loop;
 			
 		Missile:
-			SURP B 3 A_FaceTarget;
+			SURP B 3
+			{
+				A_FaceTarget();
+				A_SurpriseTaunt();
+			}
 			SURP C 5
 			{
 				A_StartSound("boss1/stomp", CHAN_WEAPON);
 				A_SpawnProjectile("SHDX_SurpriseTornado");
 			}
-			SURP E 0 A_SurpriseTaunt;
 			SURP EF 3;
 			SURP EF 3;
 			SURP EF 3;
@@ -215,8 +231,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		TeleportAbout:
 			SURP D 2 A_SetTranslucent(0.5, 0);
 			SURP D 1;
-			SURP D 0 A_Teleport("JustTeleported", "SHDX_BossSpot", "SHDX_NoFlash", 0);
-			SURP D 1;
+			SURP D 1 A_Teleport("JustTeleported", "SHDX_BossSpot", "SHDX_NoFlash", 0);
 			Goto See3;
 		Pain.Bullet:
 		Pain.Explosive:
@@ -224,10 +239,6 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		Pain.Ice:
 			SURP A 0
 			{
-				if (!floorlowered && health <= (SpawnHealth() / 2))
-					return ResolveState("SeeFloorPeelaway");
-				
-				return ResolveState(null);
 			}
 			SURP H 5
 			{
@@ -290,14 +301,13 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		Death.Spectrum:
 		XDeath:
 		Death:
-			SURP H 0
+			SURP H 105
 			{
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				A_RemoveLight('surpriselight');
 				SetShade("ffffff");
 				A_SurpriseSetBossVictoryMusic();
 			}
-			SURP H 105;
 			SURP I 5 A_NoBlocking;
 			SURP J 5
 			{
@@ -307,8 +317,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 			}
 			SURP KLM 5;
 			SURP M 100;
-			SURP M 0 A_SHDX_SendOLToAllPlayers("scootaloo/surpriseend", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
-			SURP M 125;
+			SURP M 125 A_SHDX_SendOLToAllPlayers("scootaloo/surpriseend", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 			SURP M 1 A_DD2_BossPlayCutscene();
 			SURP M -1 A_DD2_BossEndLevel();
 			Stop;
@@ -381,10 +390,12 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 				thingtodmg.Vel.Z = 12;
 			}
 		}
+		
 		if (!(Level.maptime & 4))
 		{
 			thingtodmg.DamageMobj(self.target, self.target, 15, 'Weather');
 		}
+		
 		return -1;
 	}
 }

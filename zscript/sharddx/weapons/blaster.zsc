@@ -73,14 +73,13 @@ Class SHDX_Blaster : SHDX_Weapon
 			PISF A 2 Bright A_Light1;
 			goto LightDone;
 		Fire:
-			PISG A 0
+			PISG A 2
 			{
 				A_GunFlash();
 				A_FireBullets (1.0, 0, 1, 10, "SHDX_BulletPuff", FBF_NORANDOMPUFFZ);
 				A_StartSound("weapons/blasterf", CHAN_WEAPON);
 				A_AttachLightDef('BlasterLight', 'SHDX_BULLETPUFF');
 			}
-			PISG A 2;
 			PISG B 2;
 			PISG C 3 A_RemoveLight('BlasterLight');
 			PISG D 3;

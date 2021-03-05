@@ -21,6 +21,8 @@ maimbow/vox/finaleintro1						"sounds/vox/maimbow/maimbow_vox_e3_boss_approach.o
 maimbow/vox/finaleintro2						"sounds/vox/maimbow/maimbow_vox_e3_boss_init.ogg"
 maimbow/vox/laugh								"sounds/enemies/undash/jenna/laugh.ogg"
 
+maimbow/scream									"sounds/vox/maimbow/maimbow_vox_intro2_scream.ogg"
+
 maimbow/vending1								"sounds/vending/vending1.ogg"
 maimbow/vending2								"sounds/vending/vending2.ogg"
 maimbow/vending3								"sounds/vending/vending3.ogg"
@@ -28,3 +30,5 @@ maimbow/vending4								"sounds/vending/vending4.ogg"
 maimbow/vending5								"sounds/vending/vending5.ogg"
 maimbow/vending6								"sounds/vending/vending6.ogg"
 maimbow/vending7								"sounds/vending/vending7.ogg"
+
+$alias enforcer/activate						pickup/weapon

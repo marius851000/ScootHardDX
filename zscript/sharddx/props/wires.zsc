@@ -42,33 +42,11 @@ Class SHDX_Wires : SHDX_SwitchableDecoration
 	}
 	
 	void A_SHDX_HurtToTouch()
-	{
-		BlockThingsIterator bi = BlockThingsIterator.Create(self, radius / 2);
-		double blockdist;
+	{	
+		int damageamt = RadiusAttack(self, Random[Wires](1, 10), radius, 'Lightning', 0, radius);
 		
-		while (bi.Next())
-		{
-			Actor a = bi.Thing;
-			
-			if (!a && a == self)
-				continue;
-			
-			if (!a.bShootable && !a.bVulnerable)
-				continue;
-			
-			blockdist = radius + a.radius;
-							
-			if (abs(pos.x - a.pos.x) > blockdist || abs(pos.y - a.pos.y) > blockdist)
-				continue;
-			
-			if (abs(a.pos.z - pos.z) > height)
-				continue;
-				
-			int damageamt = a.DamageMobj(self, self, Random[Wires](1, 10), 'Lightning', DMG_EXPLOSION, 0);
-			
-			if (damageamt > 0)
-				A_StartSound("misc/arc2", CHAN_BODY);
-		}
+		if (damageamt > 0)
+			A_StartSound("misc/arc2", CHAN_BODY);
 	}
 	
 	States

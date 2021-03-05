@@ -184,6 +184,21 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		S_ChangeMusic("M_ATVIC", 0, false);
 	}
 	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		A_AtmosphereCheckForFogMachine();
+		
+		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+	}
+	
+	void A_AtmosphereCheckForFogMachine()
+	{
+		if (!fogchanged && health <= (SpawnHealth() / 2))
+		{
+			SetStateLabel("SeeFogDensityMachine");
+		}
+	}
+	
 	void A_ChangeSkyboxLight()
 	{
 		SectorTagIterator sit = Level.CreateSectorTagIterator(668);
@@ -507,14 +522,6 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			ATMO F 2;
 			goto See2;
 		Pain:
-			SURP A 0
-			{
-				if (!fogchanged && health <= (SpawnHealth() / 2))
-				{
-					return ResolveState("SeeFogDensityMachine");
-				}
-				return ResolveState(null);
-			}
 			ATMO S 0
 			{
 				if (flyingmode >= 1)
@@ -624,17 +631,13 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 		Death.Spectrum:
 		XDeath:
 		Death:
-			ATMO S 0
+			ATMO S 150
 			{
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
 				A_RemoveLight('atmoslight');
-			}
-			ATMO S 0
-			{
 				A_AtmosphereVictoryMusic();
 			}
-			ATMO S 150;
 			ATMO S 5;
 			ATMO T 5
 			{
@@ -644,8 +647,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 			}
 			ATMO UV 5;
 			ATMO W 55;
-			ATMO W 0 A_SHDX_SendOLToAllPlayers("scootaloo/atmosphereend", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
-			ATMO W 220;
+			ATMO W 220 A_SHDX_SendOLToAllPlayers("scootaloo/atmosphereend", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 			ATMO W 1 A_DD2_BossPlayCutscene();
 			ATMO W -1 A_DD2_BossEndLevel();
 			Stop;

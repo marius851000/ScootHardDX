@@ -132,6 +132,7 @@ extend class SHDX_PlayerPawn
 	int timetosing;
 	int lockcount;
 	bool onelinermute;
+	bool bypasscooldown;
 	bool bypassmute;
 	int onelinerflags;
 	int SavedTimes;
@@ -162,6 +163,9 @@ extend class SHDX_PlayerPawn
 	
 	void A_OneLinerInit(Sound snd, int flags = OLSSF_DEFAULT)
 	{
+		if (onelinerflags & OLSSF_FORCEONELINER)
+			bypasscooldown = true;
+			
 		if (onelinercount <= 0 || onelinerflags & OLSSF_FORCEONELINER)
 			onelinercount = ONELINER_COOLDOWN_MAX;
 			
@@ -250,9 +254,10 @@ extend class SHDX_PlayerPawn
 		if (health <= 0)
 			return;
 		
-		if (onelinercount >= ONELINER_COOLDOWN_MAX)
+		if (onelinercount >= ONELINER_COOLDOWN_MAX || bypasscooldown)
 		{
 			onelinerhit = true;
+			bypasscooldown = false;
 			
 			if (SHDX_Utilities.CheckSoundExists(onelinersnd))
 				A_OneLinerSound(onelinersnd);

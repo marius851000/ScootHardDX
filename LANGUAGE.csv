@@ -20,6 +20,7 @@ Pegasus Device Put In Maintenance Mode.,SHDX_PEGASUS_DEVICE_UNLOCK,,,,,,,,,,,,,,
 Pegasus Device Security Disabled,SHDX_PEGASUS_DEVICE_1,,,,,,,,,,,,,,,,,,,,,,,
 Pegasus Device Overheating!,SHDX_PEGASUS_DEVICE_2,,,,,,,,,,,,,,,,,,,,,,,
 A bookshelf lowered somewhere...,SHDX_E2M2BOOKSHELFLOWERED,,,,,,,,,,,,,,,,,,,,,,,
+Press use to skip,SHDX_SKIPCUTSCENE,,,,,,,,,,,,,,,,,,,,,,,
 The way to the secret level is unlocked.,SHDX_SECRETLEVELUNLOCKED,,,,,,,,,,,,,,,,,,,,,,,
 ,,Titlemap,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Studios(TM) Scoot Hard DX(TM),SHDX_TITLEMAP_FINAL1,,,,,,,,,,,,,,,,,,,,,,,
@@ -128,7 +129,9 @@ the baddies running it. It won't be easy though.
 
 Reading this will give you hot tips(TM).",SHDX_HELP_MENU2,,,,,,,,,,,,,,,,,,,,,,,
 PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,,,,,,,,,,,,,
-"You can only carry one one missile weapon at a time.
+"You can only carry one of each of the missile, weather and
+big weapons. You can carry a blaster and SMG at the same
+time.
 
 Either use up your shots first, or swap it out by walking over
 another weapon and pressing the use key (default is E) to swap
@@ -255,9 +258,12 @@ Some can be shut off with switches.,SHDX_TUTORIAL_POSTER_LIVEWIRES2,,,,,,,,,,,,,
 Use vending machines to get food in exchange for bits.,SHDX_TUTORIAL_POSTER_VENDING,,,,,,,,,,,,,,,,,,,,,,,
 Spectra pools are hurtful to the touch.,SHDX_TUTORIAL_POSTER_SPECTRUM,,,,,,,,,,,,,,,,,,,,,,,
 Most weapons have an alt-fire. Check them out!,SHDX_TUTORIAL_POSTER_ALTFIRE,,,,,,,,,,,,,,,,,,,,,,,
-Hold down the jump button/key and move to glide around.,SHDX_TUTORIAL_POSTER_GLIDE1,,,,,,,,,,,,,,,,,,,,,,,
+Hold down jump (default: space) and move to glide around.,SHDX_TUTORIAL_POSTER_GLIDE1,,,,,,,,,,,,,,,,,,,,,,,
 You can also look around while doing this.,SHDX_TUTORIAL_POSTER_GLIDE2,,,,,,,,,,,,,,,,,,,,,,,
 Master the movement to overpower your enemies.,SHDX_TUTORIAL_POSTER_GLIDE3,,,,,,,,,,,,,,,,,,,,,,,
+Press use to swap between a weapon on the floor.,SHDX_TUTORIAL_POSTER_WEAPON1,,,,,,,,,,,,,,,,,,,,,,,
+You can only carry one of each weapon type.,SHDX_TUTORIAL_POSTER_WEAPON2,,,,,,,,,,,,,,,,,,,,,,,
+"However, you can still pick up current weapons for ammo.",SHDX_TUTORIAL_POSTER_WEAPON3,,,,,,,,,,,,,,,,,,,,,,,
 ,,Vox Subsystem,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: I Gotta Get Outta Here!,SHDX_VOX_SCOOTALOO_E1M1,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo: There's The Exit!,SHDX_VOX_SCOOTALOO_E1M4,,,,,,,,,,,,,,,,,,,,,,,
@@ -302,18 +308,18 @@ Dr. Atmosphere: You're all going to die up here.,SHDX_VOX_DRATMOS_6,,,,,,,,,,,,,
 "Dr. Atmosphere: I'm not going to lie, I miss Surprise. You took her from me...",SHDX_VOX_DRATMOS_8,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere: [laughs maniacally] She's not dead, she can't be dead. I'll save her, I'll crush you, I'll crush you all, and I'll save her, and you won't leave the factory!",SHDX_VOX_DRATMOS_9,,,,,,,,,,,,,,,,,,,,,,,
 Dr. Atmosphere: PRAISE THE FLOCK!,SHDX_VOX_DRATMOS_10,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: Oh goodie, It's the little bitch that's been such a pain in my implanted balls. I am Maimbow Undash... you probably have figured out that I'm not your big sister… In fact, you could say that I'm your worst nightmare. Once I've dealt with you, I'm going to make Aurora watch... doesn't that sound oh so delightful? [laughs]",SHDX_VOX_MAIMBOW_1,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: You probably have figured out that I'm not your big sister... In fact, you could say that I'm your worst nightmare. Once I've dealt with you, I'm going to make Aurora watch... doesn't that sound oh so delightful? [laughs]",SHDX_VOX_MAIMBOW_1,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: You know, I never gave you the chance to say goodbye to Orion. I apologize for being so rude, you can have him, [laughs].",SHDX_VOX_MAIMBOW_2,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: How does it feel to kill one of your best friends? I think he said “I love you” while you slaughtered him. I hope you're happy with yourself.,SHDX_VOX_MAIMBOW_3,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: Turn back now Scootaloo. You have no idea who or what you're messing with. We will prevail! We will win!,SHDX_VOX_MAIMBOW_4,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: No! STOP. Don't touch that!,SHDX_VOX_MAIMBOW_5,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: You bitch! YOU RUINED EVERYTHING! I WILL KILL YOU WITH MY BARE HOOVES FOR THAT.,SHDX_VOX_MAIMBOW_6,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: I SPENT YEARS PLANNING MY REVENGE… I SPENT YEARS PLOTTING WITH OTHER PEGASI JUST LIKE ME TO PUT AN END TO INCOMPETENT FUCKS LIKE YOU. AND WHAT? FOR NOTHING. NO, YOU CANNOT STOP ME, I AM A GOD, AND I WILL SMITE YOU IF IT'S THE LAST THING I DO.",SHDX_VOX_MAIMBOW_7,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: You know… I'm not even mad… If I can kill you, all this will be worth it. All that matters is if you die and I can shame Rainbow Dash for what she did to me! She will see me for what I am, a god. [chuckles]",SHDX_VOX_MAIMBOW_8,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: I SPENT YEARS PLANNING MY REVENGE... I SPENT YEARS PLOTTING WITH OTHER PEGASI JUST LIKE ME TO PUT AN END TO INCOMPETENT FUCKS LIKE YOU. AND WHAT? FOR NOTHING. NO, YOU CANNOT STOP ME, I AM A GOD, AND I WILL SMITE YOU IF IT'S THE LAST THING I DO.",SHDX_VOX_MAIMBOW_7,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: You know... I'm not even mad... If I can kill you, all this will be worth it. All that matters is if you die and I can shame Rainbow Dash for what she did to me! She will see me for what I am, a god. [chuckles]",SHDX_VOX_MAIMBOW_8,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: I see that you've made it to my lair. You know I have a little surprise for you. Consider it a gift, before your untimely demise [laughs].",SHDX_VOX_MAIMBOW_9,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: Welcome, Scootaloo, to your surprise. We have a second device that is better than the first one. It's only a prototype, but I will finish it. But first… you must die!",SHDX_VOX_MAIMBOW_10,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: Welcome, Scootaloo, to your surprise. We have a second device that is better than the first one. It's only a prototype, but I will finish it. But first... you must die!",SHDX_VOX_MAIMBOW_10,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow: YOU FOOL. YOU CANNOT DESTROY ME, I AM A GOD!",SHDX_VOX_MAIMBOW_11,,,,,,,,,,,,,,,,,,,,,,,
-"Maimbow: I don't care if it's not ready, I'm turning this thing on… and you're going in it and that other bitch too!",SHDX_VOX_MAIMBOW_12,,,,,,,,,,,,,,,,,,,,,,,
+"Maimbow: I don't care if it's not ready, I'm turning this thing on... and you're going in it and that other bitch too!",SHDX_VOX_MAIMBOW_12,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: No! You BITCH!,SHDX_VOX_MAIMBOW_13,,,,,,,,,,,,,,,,,,,,,,,
 Maimbow: [laughs evilly],SHDX_VOX_MAIMBOW_14,,,,,,,,,,,,,,,,,,,,,,,
 ,,Menu Stuff,,,,,,,,,,,,,,,,,,,,,,
@@ -331,6 +337,12 @@ Scoot Hard DX,SHARDDX_SHDXMENU,,,,,,,,,,,,,,,,,,,,,,,
 Scoot Hard DX Controls,OPTMNU_SHDXCONTROLS,,,,,,,,,,,,,,,,,,,,,,,
 Dialogue and Cutscene Options,OPTMNU_DIALOGCUTSCENEOPT,,,,,,,,,,,,,,,,,,,,,,,
 Help Screen,MNU_SHARDDX_HELP,,,,,,,,,,,,,,,,,,,,,,,
+Slot 1 - Blaster,CNTRLMNU_SLOT1,,,,,,,,,,,,,,,,,,,,,,,
+Slot 2 - SMG,CNTRLMNU_SLOT2,,,,,,,,,,,,,,,,,,,,,,,
+Slot 3 - Weather Weapon,CNTRLMNU_SLOT3,,,,,,,,,,,,,,,,,,,,,,,
+Slot 4 - Missile Weapon,CNTRLMNU_SLOT4,,,,,,,,,,,,,,,,,,,,,,,
+Slot 5 - Big Weapon,CNTRLMNU_SLOT5,,,,,,,,,,,,,,,,,,,,,,,
+Quick Kick,CNTRLMNU_USER1,,,,,,,,,,,,,,,,,,,,,,,
 Quick Kick,CNTRLMNU_QUICKKICK,,,,,,,,,,,,,,,,,,,,,,,
 Go to GZDoom Options (Advanced) for more settings,SHDX_MENU_ADVANCED_OPTIONS_NOTICE,,,,,,,,,,,,,,,,,,,,,,,
 DD2 Help Screen (NOT BUILT IN ONE),MNU_SHARDDX_DD2HELP,,,,,,,,,,,,,,,,,,,,,,,
@@ -569,24 +581,24 @@ I warned you about about heights. I told you %o.,OB_FALLING,,,,,,,,,,,,,,,,,,,,,
 %o got shocked by some live wires.,SHDX_OB_LIVEWIRES,,,,,,,,,,,,,,,,,,,,,,,
 ,,Map Strings,,,,,,,,,,,,,,,,,,,,,,
 Choose your difficulty,SHDX_SKILL_MENU,,,,,,,,,,,,,,,,,,,,,,,
-Games Journalist,SHDX_SKILL1,,,,,,,,,,,,,,,,,,,,,,,
+Just Wanna Grill!,SHDX_SKILL1,,,,,,,,,,,,,,,,,,,,,,,
 Where's The Trigger?,SHDX_SKILL2,,,,,,,,,,,,,,,,,,,,,,,
 Bring It On!,SHDX_SKILL3,,,,,,,,,,,,,,,,,,,,,,,
 The Cleaner,SHDX_SKILL4,,,,,,,,,,,,,,,,,,,,,,,
 "Easy Mode. Fewest enemies, lowest aggression, less damage taken, and enemies have lower health. You'll probably want this skill Eri.",SHDX_SKILLSURE1,"
 ",,,,,,,,,,,,,,,,,,,,,,
-"Medium Mode. A few more enemies, normal damage and health. Vending machines cost 2x more.",SHDX_SKILLSURE2,,,,,,,,,,,,,,,,,,,,,,,
-Hard Mode. Aggression is bumped up a bit. So is enemy health and enemy count. Vending machines cost 3x more.,SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
+"Medium Mode. A few more enemies, normal damage and health, and bumped up aggression. Vending machines cost 2x more.",SHDX_SKILLSURE2,,,,,,,,,,,,,,,,,,,,,,,
+"Hard Mode. Enemy count is much higher, and they do more damage and have higher health. Vending machines cost 3x more.",SHDX_SKILLSURE3,,,,,,,,,,,,,,,,,,,,,,,
 "Discourse Mode. Aggression is much higher, enemies are maxed out on health. Not only do vending machines cost 3x more, but coins are rarer now. Only the most epic of gamers will play on this skill.",SHDX_SKILLSURE4,,,,,,,,,,,,,,,,,,,,,,,
 Choose an episode,SHDX_EPISODE_MENU,,,,,,,,,,,,,,,,,,,,,,,
 Scoot Hard DX,SHDX_EP1STR,,,,,,,,,,,,,,,,,,,,,,,
 Titlemap,SHDX_TITLEMAP,,,,,,,,,,,,,,,,,,,,,,,
-Intro,SHDX_INTRO,,,,,,,,,,,,,,,,,,,,,,,
+Episode 1 Intro,SHDX_INTRO,,,,,,,,,,,,,,,,,,,,,,,
 Construction Zone,SHDX_E1A1,,,,,,,,,,,,,,,,,,,,,,,
 Winding Halls,SHDX_E1A2,,,,,,,,,,,,,,,,,,,,,,,
 The Mines,SHDX_E1A3,,,,,,,,,,,,,,,,,,,,,,,
 The Mosh Pit,SHDX_E1A4,,,,,,,,,,,,,,,,,,,,,,,
-Episode 2 Cutscene,SHDX_E2A0,,,,,,,,,,,,,,,,,,,,,,,
+Episode 2 Intro,SHDX_INTRO2,,,,,,,,,,,,,,,,,,,,,,,
 Into The Factory,SHDX_E2A1,,,,,,,,,,,,,,,,,,,,,,,
 Rainwater Facility,SHDX_E2A2,,,,,,,,,,,,,,,,,,,,,,,
 Everfree Dam,SHDX_E2A3,,,,,,,,,,,,,,,,,,,,,,,
@@ -681,11 +693,11 @@ fears and horrors await her...",SHDX_EP1END_7,,,,,,,,,,,,,,,,,,,,,,,
 needed to act fast. Scootaloo was
 approaching at a rapid clip. He asks
 the rainbow-maned Pegasus for
-advice.",SHDX_EP1INTRO_1,,,,,,,,,,,,,,,,,,,,,,,
+advice.",SHDX_EP2INTRO_1,,,,,,,,,,,,,,,,,,,,,,,
 "They calmly contemplate for a
 moment.
 
-""Release the enforcers.""",SHDX_EP1INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
+""Release the enforcers.""",SHDX_EP2INTRO_2,,,,,,,,,,,,,,,,,,,,,,,
 "Dr. Atmosphere was reluctant at
 first. ""They're a wee bit unstable,
 we need more time to test them.""
@@ -697,9 +709,9 @@ now.""
 Dr. Atmosphere chuckles a bit
 and gives the Pegasus an odd
 amulet. ""Okay then, but I'm
-warning you...",SHDX_EP1INTRO_3,,,,,,,,,,,,,,,,,,,,,,,
+warning you...",SHDX_EP2INTRO_3,,,,,,,,,,,,,,,,,,,,,,,
 "The dictatorial Pegasus puts it on, and
-lets out a scream of agonizing pain.",SHDX_EP1INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
+lets out a scream of agonizing pain.",SHDX_EP2INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Episode 2 End,,,,,,,,,,,,,,,,,,,,,,
 "Scootaloo takes the teleporter back to
 the main facility after killing the deranged
