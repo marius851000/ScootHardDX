@@ -66,7 +66,7 @@ Class SHDX_MiniSentry : SHDX_Enemy
 	{
 		TextureID flat = CurSector.GetTexture(Sector.Floor);
 		String fs = TexMan.GetName(flat);
-		if (fs == "F_LAVA" && A_CheckSolidFooting2() && health > 0)
+		if (fs == "F_LAVA" && CheckSolidFooting() && health > 0)
 		{
 			// The Floor Is Marxism- er, Lava
 			A_Die();

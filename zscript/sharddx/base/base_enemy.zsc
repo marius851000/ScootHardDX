@@ -138,7 +138,7 @@ Class SHDX_Enemy : SHDX_Actor
 		if (vecd.z > height && Distance3D(target) < 256)
 		{
 			// Randomize jump.
-			if (Random[JumpChance](0, 100) < 12 && A_CheckSolidFooting2(CSF_ALL))
+			if (Random[JumpChance](0, 100) < 12 && CheckSolidFooting())
 			{
 				// Face target, jump towards
 				A_FaceTarget(64);
@@ -174,81 +174,26 @@ Class SHDX_Enemy : SHDX_Actor
 		}
 	}
 	
-	// This function is from the ZDoom wiki and seems to do what we need?
-	action state A_CheckSolidFooting(StateLabel label, int flags = CSF_ALL)
+	// Rewrite A_CheckSolidfooting, but make it so we don't use any
+	// flags. We generally don't need that as we always check for all...
+	bool CheckSolidFooting()
 	{
-		// small optimization: if our z-vel has changed, we aren't standing on something
-		if (invoker.oldVelZ != vel.z)
-			return null;
-
-		// are we standing on solid ground?
-		if (abs(pos.z - GetZAt()) <= 1)
-		{
-			if (flags & CSF_SOLIDGROUND)
-				return ResolveState(label);
-		}
-
-		// are we standing on an actor?
-		bool ok; Actor below;
-		[ok, below] = TestMobjZ(true);
-		if (below)
-		{
-			if (flags & CSF_SOLIDACTORS)
-				return ResolveState(label);
-		}
-
-		// has our z-velocity not changed?
-		if (vel.z == invoker.oldVelZ && (flags & CSF_SOLIDGROUND))
-			return ResolveState(label);
-
-		// we aren't standing on anything
-		return null;
-	}
-	
-	
-	// Same function as above, but it doesn't return a function. It instead returns
-	// a boolean value
-	action bool A_CheckSolidFooting2(int flags = CSF_ALL)
-	{
-		// small optimization: if our z-vel has changed, we aren't standing on something
-		if (invoker.oldVelZ != vel.z)
+		if (oldVelZ != vel.z)
 			return false;
-
-		// are we standing on solid ground?
+		
 		if (abs(pos.z - GetZAt()) <= 1)
-		{
-			if (flags & CSF_SOLIDGROUND)
-				return true;
-		}
-
-		// are we standing on an actor?
-		bool ok; Actor below;
-		[ok, below] = TestMobjZ(true);
-		if (below)
-		{
-			if (flags & CSF_SOLIDACTORS)
-				return true;
-		}
-
-		// has our z-velocity not changed?
-		if (vel.z == invoker.oldVelZ && (flags & CSF_SOLIDGROUND))
 			return true;
-
-		// we aren't standing on anything
+		
+		bool k;
+		Actor a;
+		[k, a] = TestMobjZ(true);
+		if (a)
+			return true;
+		
+		if (vel.z == oldvelz)
+			return true;
+			
 		return false;
-	}
-	
-	// Might as well move this here
-	void A_SHDX_Look()
-	{
-		A_LookEx(0, 0, 1280, 1280, 180, "See");
-	}
-	
-	// [SW + Kinsie] - based on Kinsie's A_FDMChase
-	// but extended for my purposes
-	void A_SHDX_Chase(statelabel melee = "Melee", statelabel missile = "Missile", int flags = 0)
-	{		
-		A_Chase(melee, missile, flags);
 	}
 	
 	override void Tick()
