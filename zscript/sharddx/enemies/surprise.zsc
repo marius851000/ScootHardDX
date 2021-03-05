@@ -372,28 +372,13 @@ Class SHDX_SurpriseTornado : SHDX_Projectile
 	
 	override int DoSpecialDamage(Actor thingtodmg, int damage, Name damagetype)
 	{
-		int randVal;
-
-		if (!thingtodmg.bDontThrust)
+		if (level.maptime & 16)
 		{
-			thingtodmg.angle += Random2[TornadoDamage]() * (360 / 4096.);
-			thingtodmg.Vel.X += Random2[TornadoDamage]() / 64.;
-			thingtodmg.Vel.Y += Random2[TornadoDamage]() / 64.;
-		}
-
-		if ((Level.maptime & 16) && !thingtodmg.bBoss && !thingtodmg.bDontThrust)
-		{
-			randVal = min(160, random[Tornado]());
-			
-			thingtodmg.Vel.Z += randVal / 32.;
-			
-			if (thingtodmg.Vel.Z > 12)
-			{
-				thingtodmg.Vel.Z = 12;
-			}
+			thingtodmg.angle += RandomPick[Tornado](90, -45, -22, 0, 22, 45, 90);
+			thingtodmg.vel.z = Random[Tornado](4, 12);
 		}
 		
-		if (!(Level.maptime & 4))
+		if (level.maptime & 4)
 		{
 			thingtodmg.DamageMobj(self.target, self.target, 15, 'Weather');
 		}

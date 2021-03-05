@@ -12,39 +12,8 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-// Garbage base
-Class SHDX_TrashObj : SHDX_BreakableContainer
-{
-	Default
-	{
-		Health 5;
-		Mass 400;
-
-		+NoBlood
-		+Shootable
-		+DontGib
-	}
-	
-	void A_TrashDeath()
-	{
-		A_StartSound("misc/tcanbreak", CHAN_BODY);
-		
-		SHDX_Actor.A_SpawnMetalJunkFx(self);
-		
-		A_DestroyDDContainer();
-	}
-	
-	States
-	{
-		Death:
-			TNT1 A 1 A_TrashDeath;
-			TNT1 A 2;
-			Stop;
-	}
-}
-
 // A breakable trash can
-Class SHDX_TrashCan : SHDX_TrashObj
+Class SHDX_TrashCan : SHDX_BreakableContainer
 {
 	Default
 	{
@@ -56,6 +25,7 @@ Class SHDX_TrashCan : SHDX_TrashObj
 		
 		Radius 12;
 		Height 38;
+		Health 5;
 		Mass 850;
 
 		+Solid
@@ -81,10 +51,6 @@ Class SHDX_TrashCan : SHDX_TrashObj
 			Stop;
 		SpawnMaid:
 			TCAN B -1;
-			Stop;
-			
-		Death:
-			"####" "#" 0 A_TrashDeath;
 			Stop;
 	}
 }

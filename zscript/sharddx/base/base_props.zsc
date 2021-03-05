@@ -28,13 +28,16 @@ Class SHDX_Decoration : SHDX_Prop
 	}
 }
 
-// Breakable container base
-Class SHDX_BreakableContainer : SHDX_Prop
+// Breakable container base. We need to inherit from Pottery1
+Class SHDX_BreakableContainer : Pottery1
 {
 	Default
 	{
 		//$Arg0 "Object"
 		//$Arg0Str
+		
+		Scale 0.12;
+		
 		+Shootable
 		+DontGib
 	}
@@ -42,54 +45,12 @@ Class SHDX_BreakableContainer : SHDX_Prop
 	States
 	{
 		Death:
-			TNT1 A 0 A_DestroyDDContainer;
+			TNT1 A 0
+			{
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_PotteryExplode();
+			}
 			Stop;
-	}
-	
-	// Copied the code and made some edits from Pottery1
-	void A_DestroyDDContainer()
-	{
-		A_StartSound("generic/break", CHAN_BODY);	// hmm...
-		
-		// Spawn an item?
-		Class<Actor> type = GetSpawnableType(args[0]);
-		
-		if (type != null)
-		{
-			if (!(level.nomonsters || sv_nomonsters) || !(GetDefaultByType(type).bIsMonster))
-			{
-				// Only spawn monsters if not -nomonsters
-				Spawn(type, pos, ALLOW_REPLACE);
-			}
-		}
-		Destroy();
-	}
-}
-
-Class SHDX_EdibleDecoration : SHDX_Decoration
-{
-	Meta Sound EatingSound;
-	Property EatingSound : EatingSound;
-	Meta int HealthToGive;
-	Property HealthToGive : HealthToGive;
-	
-	bool haseaten;
-	
-	override bool Used(Actor user)
-	{
-		if (user && user.player && !haseaten)
-		{
-			// Don't need to cast to SHDX_PlayerPawn
-			let pl = PlayerPawn(user);
-			if (pl && pl.health < pl.MaxHealth)
-			{
-				A_StartSound(EatingSound, CHAN_BODY, CHANF_DEFAULT, 1.0);
-				user.A_GiveInventory("Health", HealthToGive);
-				haseaten = true;
-				self.SetStateLabel("Empty");
-				return true;
-			}
-		}
-		return false;
 	}
 }
