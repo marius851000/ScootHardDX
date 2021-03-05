@@ -1,0 +1,240 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_ChickenFlash : SHDX_Actor
+{
+	Default
+	{
+		+NOBLOCKMAP
+		Renderstyle "Add";
+		Alpha 0.67;
+	}
+	
+	States
+	{
+		Spawn:
+			CFLS A 1 Bright NoDelay A_StartSound("powerup/cmode", CHAN_BODY);
+			CFLS ABCDE 8;
+			Stop;
+	}
+}
+
+Class SHDX_ChickenFlash2 : SHDX_Actor
+{
+	Default
+	{
+		+NOBLOCKMAP
+		Renderstyle "Add";
+		Alpha 0.67;
+	}
+	
+	States
+	{
+		Spawn:
+			CFLS A 1 Bright NoDelay
+			{
+				A_SpawnChickenFeathersFx(self);
+				A_StartSound("powerup/cmodedone", CHAN_BODY);
+			}
+			CFLS ABCDE 8 Bright;
+			Stop;
+	}
+}
+
+Class SHDX_ChickenMorph : SHDX_PowerMorph
+{
+	Default
+	{
+		PowerMorph.PlayerClass "SHDX_ChickenPlayer";
+		PowerMorph.MorphFlash "SHDX_ChickenFlash";
+		PowerMorph.UnmorphFlash "SHDX_ChickenFlash2";
+		PowerMorph.MorphStyle (MRF_WHENINVULNERABLE|MRF_LOSEACTUALWEAPON|MRF_NEWTIDBEHAVIOUR);
+	}
+}
+
+Class SHDX_ChickenMode : SHDX_PowerupGiver
+{
+	Default
+	{
+		//$Sprite CMODA0
+		//$Title "Chicken Mode"
+		//$NonAngled
+		//$Category "Powerups"
+		
+		+INVENTORY.AUTOACTIVATE
+		+INVENTORY.ALWAYSPICKUP
+		
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Tag "$SHDX_TAG_CHICKENMODE";
+		Inventory.PickupMessage "$SHDX_PICKUP_CHICKENMODE";
+		Inventory.PickupSound "chicken/active";
+		Inventory.RespawnTics 4200;
+		Powerup.Type "SHDX_ChickenMorph";
+		Powerup.Duration -30;
+		Inventory.MaxAmount 0;
+	}
+	
+	States
+	{
+		Spawn:
+			CMOD A -1;
+			Stop;
+	}
+}
+
+Class SHDX_ChickenPlayer : SHDX_PlayerPawn
+{
+	Default
+	{
+		Health 250;
+		ReactionTime 0;
+		PainChance 255;
+		Radius 16;
+		Height 24;
+		Speed 1;
+		Gravity 0.35;
+		Scale 0.12;
+		+NoSkin
+		+NoPain
+		+NoDamage
+		+NoBlood
+		
+		Player.JumpZ 14;
+		Player.ViewHeight 21;
+		Player.ForwardMove 1.22, 0.61;
+		Player.SideMove 1.22, 0.61;
+		Player.SpawnClass "Chicken";
+		Player.SoundClass "Chicken";
+		Player.DisplayName "Chicken";
+		Player.MorphWeapon "SHDX_ChickenMouth";
+		
+		Player.Face "STC";
+		
+		Player.ColorRange 240, 254;
+	}
+	
+	bool unmorphnexttic;
+	
+	void ForceUnMorph()
+	{
+		if (player)
+		{
+			UndoPlayerMorph(player, 0, true);
+		}
+	}
+	
+	override void PlayerThink()
+	{
+		Super.PlayerThink();
+		if (unmorphnexttic)
+		{
+			unmorphnexttic = false;
+			ForceUnMorph();
+		}
+	}
+	
+	States
+	{
+		Spawn:
+			CHKN A 1;
+			Loop;
+		See:
+			CHKN BCDE 4;
+			Loop;
+		Melee:
+		Missile:
+			CHKN FG 5;
+			Goto Spawn;
+			
+		No:
+			CHKN H 105;
+			Goto Spawn;
+			
+		Pain:
+			CHKN I 5;
+			CHKN I 5 A_Pain;
+			Goto See;
+		
+		Death:
+			CHKN J 2 A_Scream;
+			CHKN KL 2;
+			CHKN M -1;
+			Stop;
+	}
+}
+
+Class SHDX_ChickenMouth : SHDX_Weapon
+{
+	Default
+	{
+		Tag "$SHDX_TAG_CHICKENBEAK";
+		DamageType "Chicken";
+		+WEAPON.CHEATNOTWEAPON
+		+WEAPON.DONTBOB
+	}
+	
+	States
+	{
+		Ready:
+			BEAK A 1 A_WeaponReady(WRF_ALLOWUSER1);
+			Loop;
+		Deselect:
+			BEAK A 1 A_Lower;
+			Loop;
+		Select:
+			BEAK A 1 A_Raise;
+			Loop;
+		Fire:
+			BEAK A 5 A_CustomPunch(6, false, 0, "SHDX_ChickenPuff");
+			BEAK B 1;
+			BEAK B 1;
+			BEAK A 2 A_ReFire;
+			Goto Ready;
+		User1:
+		AltFire:
+			BEAK A 0
+			{
+				A_Explode(360, 1024, flags:XF_NOTMISSILE, damagetype:'ChickenX');
+				// SHDX_Utilities.DoExplosion(invoker.Owner, 350, 32, 1024, flags:DE_NOTMISSILE, DamageType:'ChickenX');
+				
+				Sound snd;
+				if (!shdx_grafnomode)
+					snd = Random[ChickenNo](0, 10) <= 1 ? "weapons/chickenxno" : "weapons/chickenx"; 
+				else
+					snd = "weapons/chickenxno";
+				
+				A_StartSound(snd, CHAN_WEAPON);
+					
+				let o = SHDX_ChickenPlayer(invoker.Owner);
+				if (o)
+				{
+					o.SetStateLabel("No");
+				}
+			}
+			BEAK B 8;
+			BEAK A 5;
+			BEAK A 0
+			{
+				let o = SHDX_ChickenPlayer(invoker.Owner);
+				if (o)
+				{
+					o.unmorphnexttic = true;
+				}
+			}
+			BEAK A 105;
+			Goto Ready;
+	}
+}

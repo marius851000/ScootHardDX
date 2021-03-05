@@ -1,0 +1,50 @@
+gamedefaults
+{
+	Cluster = 1
+	
+	// Time
+	Par = 70
+	SuckTime = 0	// We don't need no stinkin SuckTime
+
+	// Physics...
+	AirControl = 0.6
+	// Gravity = 768
+	
+	Sky1 = "SKY1"
+	
+	Music = ""
+	
+	ExitPic = "TITLEPIC"
+	EnterPic = "TITLEPIC"
+	
+	// Lightning/Appearance of Level
+	SmoothLighting
+	ClipMidTextures
+	
+	UsePlayerStartZ
+
+	// Player Properties
+	AllowJump
+	AllowCrouch
+	AllowFreelook
+	AirSupply = 0
+
+	// Monster/Activation Properties
+	LaxMonsterActivation
+	MissilesActivateImpactLines
+	
+	NoInfighting
+	
+	// OpenGL Only Options (GZDoom)
+	// 1.2 is Mode X (320x200 streched vertically to 320x240)
+	// PixelRatio = 1.0
+	/* *************************
+	0 (Standard): bright lighting model and stronger fading in bright sectors.
+	1 (Bright): bright lighting model and weaker fading in bright sectors.
+	2 (Doom): dark lighting model and weaker fading in bright sectors but brightness nearby (req. GLSL)
+	3 (Dark): dark lighting model and weaker fading in bright sectors.
+	4 (Legacy): Emulates lighting of Legacy 1.4's GL renderer.
+	8 (Software): Emulates Doom software lighting, Requires GLSL 1.30 or greater (OpenGL 3.0+).
+	************************* */
+	// LightMode = 0
+}

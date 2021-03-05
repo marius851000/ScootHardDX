@@ -1,0 +1,21 @@
+Intermission PreBoss3
+{
+	Fader
+	{
+		Background = "graphics/cutscenes/preboss/preboss1_1.png"
+		Time = 2
+		Music = "M_CUT1"
+		FadeType = FadeIn
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/preboss/preboss1_1.png"
+		TextColor = "Cyan"
+		Text = "$SHDX_EP3INTER_1"
+	}
+	Fader
+	{
+		Time = 2
+		FadeType = FadeOut
+	}
+}

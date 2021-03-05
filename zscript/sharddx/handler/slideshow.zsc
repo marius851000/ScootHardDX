@@ -1,0 +1,93 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+class SHDX_SlideshowHandler : EventHandler
+{
+	int tix;
+	name IntermissionToPlay;	// Intermission To Play
+	bool ExitLevelOnFinish;		// Do we exit level on finish?
+	bool IntermissionPlayed;	// Has the intermission been played?
+	bool CutsceneDone;			// If we don't exit the level, mark cutscene as done
+	bool AutosaveMe;			// autosave before destroying?
+	bool DestroyMe;				// Destory This;
+	
+	void InitSlideshowInfo(name intermission, bool exitonfinish = false, bool autosave = false)
+	{
+		IntermissionToPlay = intermission;
+		ExitLevelOnFinish = exitonfinish;
+		AutosaveMe = autosave;
+	}
+	
+	void DoCutscene()
+	{
+		if (shdx_skipcutscenes)
+		{
+			if (ExitLevelOnFinish)
+				level.ExitLevel(0, false);
+			else
+				DestroyMe = true;
+		}
+	
+		if (IntermissionPlayed)
+		{
+			if (ExitLevelOnFinish)
+				level.ExitLevel(0, false);
+			
+			CutsceneDone = true;
+		}
+		
+		if (!shdx_skipcutscenes && !IntermissionPlayed)
+		{
+			level.StartIntermission(IntermissionToPlay, FState_InLevel);
+			IntermissionPlayed = true;
+		}
+	}
+	
+	override void WorldTick()
+	{
+		if (!CutsceneDone)
+			DoCutscene();
+		
+		if (CutsceneDone)
+		{
+			if (AutosaveMe)
+				level.MakeAutosave();
+			
+			DestroyMe = true;
+		}
+		
+		if (DestroyMe)
+		{
+			if (!bDestroyed)
+				Destroy();
+				
+			return;
+		}
+	}
+}
+
+class SHDX_IntroSlideshowHandler : SHDX_SlideshowHandler
+{
+	override void OnRegister()
+	{
+		InitSlideshowInfo('IntroEpisode1', true);
+	}
+}
+class SHDX_Intro2SlideshowHandler : SHDX_SlideshowHandler
+{
+	override void OnRegister()
+	{
+		InitSlideshowInfo('IntroEpisode2', false, true);
+	}
+}

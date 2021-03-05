@@ -1,0 +1,266 @@
+splash WaterSplashDD
+{
+	smallclass		SHDX_WaterSplashSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_WaterSplashBig
+	chunkclass		SHDX_WaterSplashSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SewageSplashDD
+{
+	smallclass		SHDX_SludgeSplashSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SludgeSplashBig
+	chunkclass		SHDX_SludgeSplashSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash PeptoSplashDD
+{
+	smallclass		SHDX_DespairSplashSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_DespairSplashBig
+	chunkclass		SHDX_DespairSplashSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash LavaSplashDD
+{
+	smallclass		SHDX_LavaSplashSmall
+	smallclip		12
+	smallsound		world/lavasizzle
+
+	baseclass		SHDX_LavaSplashBig
+	chunkclass		SHDX_LavaSplashSmall
+	sound			world/lavasizzle
+	noalert
+}
+
+splash SpectraRedDD
+{
+	smallclass		SHDX_SpectraSplashRedSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashRedBig
+	chunkclass		SHDX_SpectraSplashRedSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraOrangeDD
+{
+	smallclass		SHDX_SpectraSplashOrangeSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashOrangeBig
+	chunkclass		SHDX_SpectraSplashOrangeSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraYellowDD
+{
+	smallclass		SHDX_SpectraSplashYellowSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashYellowBig
+	chunkclass		SHDX_SpectraSplashYellowSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraGreenDD
+{
+	smallclass		SHDX_SpectraSplashGreenSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashGreenBig
+	chunkclass		SHDX_SpectraSplashGreenSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraBlueDD
+{
+	smallclass		SHDX_WaterSplashSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_WaterSplashBig
+	chunkclass		SHDX_WaterSplashSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash SpectraPurpleDD
+{
+	smallclass		SHDX_SpectraSplashPurpleSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_SpectraSplashPurpleBig
+	chunkclass		SHDX_SpectraSplashPurpleSmall
+	sound			world/watersplash
+	noalert
+}
+
+splash BloodDD
+{
+	smallclass		SHDX_BloodSplashRedSmall
+	smallclip		12
+	smallsound		world/smallsplash
+
+	baseclass		SHDX_BloodSplashRedBig
+	chunkclass		SHDX_BloodSplashRedSmall
+	sound			world/watersplash
+	noalert
+}
+
+terrain WaterDD
+{
+	splash				WaterSplashDD
+	footclip			4
+	liquid
+	friction			1.4
+}
+
+terrain PWaterDD
+{
+	splash				SpectraGreenDD
+	footclip			4
+	liquid
+	friction			1.4
+}
+
+terrain PeptoLava
+{
+	splash				PeptoSplashDD
+	footclip			4
+	liquid
+	friction			1.2
+	damagetype			PeptoSlime
+	damageamount		10
+	damagetimemask		7
+	AllowProtection
+}
+
+terrain RegularNukage
+{
+	splash				SewageSplashDD
+	footclip			4
+	liquid
+	friction			0.75
+	damagetype			RegularNukeSlime
+	damageamount		3
+	damagetimemask		31
+	AllowProtection
+}
+
+terrain LavaFlows
+{
+	splash				LavaSplashDD
+	footclip			4
+	liquid
+	// friction			0.5
+	damagetype			Fire
+	damageamount		6
+	damagetimemask		15
+	AllowProtection
+}
+
+terrain RedSpectra
+{
+	splash				SpectraRedDD
+	footclip			4
+	damagetype			Spectrum
+	damageamount		18
+	damagetimemask		12
+	liquid
+}
+
+terrain OrangeSpectra
+{
+	splash				SpectraOrangeDD
+	footclip			4
+	damagetype			Spectrum
+	damageamount		18
+	damagetimemask		12
+	liquid
+}
+
+terrain YellowSpectra
+{
+	splash				SpectraYellowDD
+	footclip			4
+	damagetype			Spectrum
+	damageamount		18
+	damagetimemask		12
+	liquid
+}
+
+terrain GreenSpectra
+{
+	splash				SpectraGreenDD
+	footclip			4
+	damagetype			Spectrum
+	damageamount		36
+	damagetimemask		12
+	liquid
+}
+
+terrain BlueSpectra
+{
+	splash				SpectraBlueDD
+	footclip			4
+	damagetype			Spectrum
+	damageamount		18
+	damagetimemask		12
+	liquid
+}
+
+terrain PurpleSpectra
+{
+	splash				SpectraPurpleDD
+	footclip			4
+	damagetype			Spectrum
+	damageamount		18
+	damagetimemask		12
+	liquid
+}
+
+terrain Blood
+{
+	splash				BloodDD
+	footclip			4
+	liquid
+}
+
+floor "OWATER01" WaterDD
+floor "PWATER01" PWaterDD
+
+floor "F_LAVA" LavaFlows
+
+floor "RSPECF0" RedSpectra
+floor "OSPECF0" OrangeSpectra
+floor "YSPECF0" YellowSpectra
+floor "GSPECF0" GreenSpectra
+floor "BSPECF0" BlueSpectra
+floor "PUSPECF0" PurpleSpectra
+
+floor "F_NUKE" RegularNukage
+
+floor "BLOODFLT" Blood

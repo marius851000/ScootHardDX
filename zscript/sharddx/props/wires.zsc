@@ -1,0 +1,137 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_Wires : SHDX_SwitchableDecoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Wires (Ceiling)"
+		//$Sprite WIREB0
+		//$Category "Obstacles/Traps"
+		
+		Radius 32;
+		Height 16;
+		
+		Obituary "$SHDX_OB_LIVEWIRES";
+		
+		+SpawnCeiling
+		+NoGravity
+		-Solid
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if (bDormant)
+		{
+			SetStateLabel("Inactive");
+			bDormant = false;
+		}
+	}
+	
+	void A_SHDX_HurtToTouch()
+	{	
+		int damageamt = RadiusAttack(self, Random[Wires](1, 10), radius, 'Lightning', 0, radius);
+		
+		if (damageamt > 0)
+			A_StartSound("misc/arc2", CHAN_BODY);
+	}
+	
+	States
+	{
+		Active:
+		Spawn:
+			WIRE BC 2 Bright A_SHDX_HurtToTouch;
+			Loop;
+		
+		Inactive:
+			WIRE A 4;
+			Loop;
+	}
+}
+
+Class SHDX_WiresFloor : SHDX_Wires
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Wires (Floor)"
+		//$Sprite WIREE0
+		//$Category "Obstacles/Traps"
+		
+		-SpawnCeiling
+		-NoGravity
+	}
+	
+	States
+	{
+		Active:
+		Spawn:
+			WIRE EF 2 Bright A_SHDX_HurtToTouch;
+			Loop;
+		
+		Inactive:
+			WIRE D 4;
+			Loop;
+	}
+}
+
+Class SHDX_TeslaCoilSingle : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Tesla Coil (Single)"
+		//$Sprite TSL2A0
+		//$Category "Light sources"
+		
+		Radius 32;
+		Height 24;
+		Scale 0.08;
+		
+		-Solid
+	}
+	
+	States
+	{
+		Spawn:
+			TSL2 AB 2 Bright;
+			Loop;
+	}
+}
+
+Class SHDX_TeslaCoilDouble : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Tesla Coil (Double)"
+		//$Sprite TSLAA0
+		//$Category "Light sources"
+		
+		Radius 32;
+		Height 24;
+		Scale 0.08;
+		
+		-Solid
+	}
+	
+	States
+	{
+		Spawn:
+			TSLA AB 2 Bright;
+			Loop;
+	}
+}

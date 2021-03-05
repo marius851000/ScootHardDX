@@ -1,0 +1,33 @@
+include "mapinfo/gi.txt"
+
+include "mapinfo/damage.txt"
+
+include "mapinfo/doomednum.txt"
+
+include "mapinfo/spawnid.txt"
+
+include "mapinfo/episodes.txt"
+
+include "mapinfo/skills.txt"
+
+include "mapinfo/gamedefaults.txt"
+
+include "mapinfo/cluster.txt"
+
+include "mapinfo/titlemap.txt"
+
+include "mapinfo/maps.txt"
+
+include "mapinfo/intro.txt"
+
+include "mapinfo/end_ep1.txt"
+
+include "mapinfo/intro2.txt"
+
+include "mapinfo/end_ep2.txt"
+
+include "mapinfo/preboss3.txt"
+
+include "mapinfo/end_ep3a.txt"
+
+include "mapinfo/end_ep3b.txt"

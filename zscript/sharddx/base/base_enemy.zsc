@@ -1,0 +1,439 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+enum ECheckSolidFootingFlags
+{
+    CSF_SOLIDGROUND = 1,
+    CSF_SOLIDACTORS = 2,
+    
+    CSF_ALL = CSF_SOLIDGROUND|CSF_SOLIDACTORS,
+}
+
+// Enemy Class Base
+Class SHDX_Enemy : SHDX_Actor
+{	
+	Default
+	{
+		//$Category "Monsters"
+		//$Color 12
+		
+		Scale 0.12;
+		Mass 100;
+		Height 56;
+		Radius 22;
+		BloodType "SHDX_Blood";
+		DamageFactor "Bullet", 1.00;
+		DamageFactor "Chicken", 1.00;
+		DamageFactor "ChickenX", 1.00;
+		DamageFactor "Weather", 1.00;
+		DamageFactor "RainbowerX", 1.00;
+		DamageFactor "Explosive", 1.00;
+		PainChance "Fire", 0;
+		SHDX_Enemy.JumpUpVelocity 18;
+		SHDX_Enemy.JumpForwardVelocity 16;
+		
+		Monster;
+		+FloorClip
+		+DropOff
+		+NoInfightSpecies
+		+LookAllAround
+		+SHDX_Enemy.CanJump
+		+SHDX_Enemy.CanSwim
+	}
+	
+	bool iscorpse;
+	bool isflying;
+
+	bool hasjumped;
+	
+	private int SHDXFlags;
+	flagdef CanJump: SHDXFlags, 0;
+	flagdef CanSwim: SHDXFlags, 1;
+	
+	meta int JumpUpVelocity;
+	Property JumpUpVelocity: JumpUpVelocity;
+	
+	meta int JumpForwardVelocity;
+	Property JumpForwardVelocity: JumpForwardVelocity;
+	
+	int jumpcooldown;
+	
+	vector3 oldPos;		// This needs to remain
+	double oldVelZ;		// From ZDoom Wiki
+	
+	uint startingtranslation;
+	
+	override void BeginPlay()
+	{
+		startingtranslation = translation;
+		Super.BeginPlay();	// hmmm...
+	}
+	
+	void A_SetElectrocutionTranslation()
+	{
+		A_SetTranslation('Electrocution');
+	}
+	
+	void A_ResetTranslation()
+	{
+		translation = startingtranslation;
+	}
+	
+	void SetOldVelZ()
+	{
+		oldVelZ = vel.z;
+	}
+	
+	virtual void DoAISubroutines()
+	{
+		SetOldVelZ();
+		CheckForEnemyJump();
+		CheckForEnemySwim();
+	}
+	
+	// [SW] - Check if enemy can jump... this is a complex function
+	void CheckForEnemyJump()
+	{
+		// if enemy has been flagged not to jump
+		// or is corpse, or is set to float or has no target
+		// we wanna return early...
+		if (health <= 0 || !bCanJump || bFloat || !target)
+			return;
+		
+		// Only do this if the enemy is in the See state.
+		if (!InStateSequence(CurState, ResolveState("See")))
+			return;
+
+		if (pos.z - floorz ~== 0)
+		{
+			hasjumped = false;
+		}
+		else if (hasjumped && pos.z - floorz > 16)
+		{
+			A_ChangeVelocity(2, 0, vel.z, CVF_REPLACE | CVF_RELATIVE);
+		}
+		
+		// if the enemy hasn't cooled down it's jump yet
+		// don't bother, decrement it
+		if (jumpcooldown > 0)
+		{				
+			jumpcooldown--;
+			return;
+		}
+		
+		// Check position and height offsets
+		Vector3 vecd = LevelLocals.Vec3Diff(pos, target.pos);
+		if (vecd.z > height && Distance3D(target) < 256)
+		{
+			// Randomize jump.
+			if (Random[JumpChance](0, 100) < 12 && CheckSolidFooting())
+			{
+				// Face target, jump towards
+				A_FaceTarget(64);
+				VelFromAngle(JumpForwardVelocity, angle);
+				vel.z += JumpUpVelocity;
+				
+				if (ResolveState("Jump"))
+					SetStateLabel("Jump");
+				
+				// Set cooldown
+				jumpcooldown = TICRATE * Random[JumpCooldown](2,4);
+				hasjumped = true;
+			}
+		}
+	}
+	
+	void CheckForEnemySwim()
+	{
+		if (!bCanSwim || isflying || health <= 0)
+			return;
+		
+		if (waterlevel >= 1)
+		{
+			bNoGravity = true;
+			bFloat = true;
+			FloatSpeed = 2;
+		}
+		else
+		{
+			bNoGravity = GetDefaultByType(GetClass()).bNoGravity;
+			bFloat = GetDefaultByType(GetClass()).bFloat;
+			FloatSpeed = GetDefaultByType(GetClass()).FloatSpeed;
+		}
+	}
+	
+	// Rewrite A_CheckSolidfooting, but make it so we don't use any
+	// flags. We generally don't need that as we always check for all...
+	bool CheckSolidFooting()
+	{
+		if (oldVelZ != vel.z)
+			return false;
+		
+		if (abs(pos.z - GetZAt()) <= 1)
+			return true;
+		
+		bool k;
+		Actor a;
+		[k, a] = TestMobjZ(true);
+		if (a)
+			return true;
+		
+		if (vel.z == oldvelz)
+			return true;
+			
+		return false;
+	}
+	
+	override void Tick()
+	{
+		DoAISubroutines();
+		
+		Super.Tick();
+	}
+	
+	void A_NewScream()
+	{
+		A_StartSound(DeathSound, CHAN_VOICE);
+		A_NoBlocking();
+	}
+	
+	void A_NewBossScream()
+	{
+		A_StartSound(DeathSound, CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+		A_NoBlocking();
+	}
+	
+	void A_NewXScream(bool playnormalscream = true)
+	{
+		A_StartSound("misc/splatx", CHAN_6);
+		
+		if (playnormalscream && !iscorpse)
+			A_StartSound(DeathSound, 9);
+	}
+	
+	void A_SHDX_ExtremeScreamAndUnblock()
+	{
+		A_NoBlocking();
+		
+		A_NewXScream();
+	}
+	
+	void A_SHDX_SquishSound()
+	{
+		A_StartSound("misc/splatx", CHAN_5);
+	}
+	
+	void A_SetCorpseShootable()
+	{
+		iscorpse = true;
+		SHDX_Utilities.AssignCorpseHitboxToEnemy(self);
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if (source && source.GetSpecies() == 'Sentry' && GetSpecies() == 'Pony')
+			damage = 0;
+		
+		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+	}
+	
+	void A_SHDX_ExplosiveOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
+	{
+		String ol = String.Format("explosive%d", Random[OneLiner](1, 20));
+		A_SHDX_GivePlayerOneLiner(r, ol);
+	}
+	
+	void A_SHDX_TornadozerOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
+	{
+		String ol = String.Format("tornado%d", Random[OneLiner](1, 20));
+		A_SHDX_GivePlayerOneLiner(r, ol);
+	}
+	
+	void A_SHDX_RainbowerOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
+	{		
+		String ol = String.Format("rainbower%d", Random[OneLiner](1, 20));
+		A_SHDX_GivePlayerOneLiner(r, ol);
+	}
+	
+	void A_SHDX_LightningOneLiner(int r = SHDX_ONELINER_NORMAL_CHANCE)
+	{
+		String ol = String.Format("lightning%d", Random[OneLiner](1, 20));
+		A_SHDX_GivePlayerOneLiner(r, ol);
+	}
+	
+	void A_SHDX_IceOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
+	{
+		String ol = String.Format("frozen%d", Random[OneLiner](1, 20));
+		A_SHDX_GivePlayerOneLiner(r, ol);
+	}
+	
+	States
+	{
+		Death.Explosive:
+			GIBX B 0 A_SHDX_ExplosiveOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			Goto Death.Extreme+1;
+		Death.Weather:
+			GIBX B 0 A_SHDX_TornadozerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			Goto Death.Extreme+1;
+		Death.Extreme:
+			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBX BC 5;
+			GIBX D -1;
+			Stop;
+		Death.Spectrum:
+			GIBR A 2;
+			GIBR A 2 A_StartSound("misc/vaporize", CHAN_7);
+			GIBR B 0 A_SHDX_RainbowerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBR BC 4;
+			GIBR D -1;
+			Stop;
+	}
+}
+
+
+Class SHDX_Boss : SHDX_Enemy
+{
+	Default
+	{
+		//$Category "Monsters/Bosses"
+		Mass 1000;
+		DamageFactor "Bullet", 0.50;	// Bullets are less effective against bosses
+		DamageFactor "Chicken", 0.00;
+		DamageFactor "ChickenX", 0.00;
+		DamageFactor "Weather", 0.75;
+		DamageFactor "RainbowX", 0.50;
+		DamageFactor "Explosive", 1.00;	// Explosives are more effective
+		
+		PainChance "Shrink", 0;
+		DamageFactor "Shrink", 0.0;
+
+		+Boss
+		+DontGib
+		+BossDeath
+		+DontMorph
+		+NeverRespawn
+		
+		+Ambush	// hmm...
+	}
+	
+	private int DD2BossFlags;
+	flagdef TriggerLevelEnd: DD2BossFlags, 0;
+	flagdef TriggerCutscene: DD2BossFlags, 1;
+	
+	meta Name CutsceneToPlay;
+	Property CutsceneToPlay: CutsceneToPlay;
+	
+	meta int TauntCooldownTime;
+	Property TauntCooldownTime: TauntCooldownTime;
+	
+	int cooldowntaunt;
+	
+	bool isactive;
+	int flyingmode;
+	bool saidspawnline;
+	bool skipintro;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (cooldowntaunt > 0)
+			cooldowntaunt--;
+	}
+	
+	void A_SHDX_PlayBossTaunt(Sound snd, bool bypasscooldown = false)
+	{
+		if (cooldowntaunt > 0 && !bypasscooldown)
+			return;
+	
+		A_StartSound(snd, CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+		
+		if (TauntCooldownTime > 0)
+			cooldowntaunt = TauntCooldownTime * TICRATE;
+		else
+			cooldowntaunt = 8 * TICRATE;
+	}
+	
+	void A_DD2_BossPlayCutscene()
+	{
+		if (shdx_skipcutscenes)
+			return;
+			
+		if (bTriggerCutscene && (CutsceneToPlay != '' || CutsceneToPlay != 'None'))
+			level.StartSlideShow(CutsceneToPlay);
+	}
+	
+	void A_DD2_BossEndLevel()
+	{
+		if (bTriggerLevelEnd)
+			level.ExitLevel(0, false);
+	}
+	
+	void A_SHDX_SetToBossBarHUD()
+	{
+		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		if (hnd)
+		{
+			hnd.bossmo = self;
+			hnd.bossfound = true;
+		}
+	}
+	
+	void A_SHDX_BossSubtitle(String str, Sound snd)
+	{
+		SHDX_Vox.SendSubtitleToHandler(StringTable.Localize(str), SHDX_Vox.GetSecondsFromSound(snd));
+	}
+	
+	void A_SHDX_BossInactive()
+	{
+		isactive = false;
+	}
+	
+	void A_SHDX_BossSkipIntro()
+	{
+		skipintro = true;
+	}
+	
+	void A_SHDX_BossInit()
+	{
+		A_SHDX_SetToBossBarHUD();
+		A_UnSetInvulnerable();
+		A_AttachLightDef('atmoslight', 'SHDX_BOSSLIGHT');
+		
+		bCanJump = true;	// All bosses can jump, so there's no need to do anything special with this.
+		isactive = true;
+	}
+	
+	state A_SHDX_BossJumpOverIntroState()
+	{
+		if (skipintro)
+			return ResolveState("See1A");
+			
+		return ResolveState(null);
+	}
+	
+	States
+	{
+		Raise:
+		Crush:
+			Stop;
+			
+		XDeath:
+		Death.Explosive:
+		Death.Weather:
+		Death.RainbowX:
+			Stop;
+	}
+}

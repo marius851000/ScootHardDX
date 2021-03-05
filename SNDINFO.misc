@@ -1,0 +1,69 @@
+$pitchshiftrange 0
+
+misc/splatx				"sounds/slop.ogg"
+// $volume misc/splatx		0.5
+gen/gibs				"sounds/gib01.ogg"
+// $volume gen/gibs		0.3
+
+vending/fail			"sounds/ui/error.ogg"
+vending/failfilthyfrank	"sounds/no_money.ogg"
+vending/dispense		"sounds/clunk.ogg"
+vending/watercooler		"sounds/water_cooler.ogg"
+vending/waterdrink		"sounds/water_drink.ogg"
+
+misc/secret				"sounds/secret.ogg"
+
+world/barrelx			"sounds/boom2.ogg"		// Generic Barrel Exploding
+
+$alias misc/explosion	world/barrelx
+
+world/boing				"sounds/tpoline.ogg"		// Trampoline
+
+misc/teleport			"sounds/teleport.ogg"
+misc/foodcook			"sounds/FRIED01.ogg"		// Frying noise
+world/lava				"sounds/FRIED01.ogg"		// When in lava, you'll burn...
+world/glassbreak		"sounds/glass_break.ogg"	// Breaking Glass Noise		
+world/splash			"sounds/splash02.ogg"	// Splashing noise
+world/quake				"sounds/quake.ogg"
+
+thunder_sound_1 "sounds/world/THUNDR01.ogg"
+thunder_sound_2 "sounds/world/THUNDR02.ogg"
+thunder_sound_3 "sounds/world/THUNDR03.ogg"
+thunder_sound_4 "sounds/world/THUNDR01.ogg"
+thunder_sound_5 "sounds/world/THUNDR02.ogg"
+thunder_sound_6 "sounds/world/THUNDR02.ogg"
+thunder_sound_7 "sounds/world/THUNDR03.ogg"
+thunder_sound_8 "sounds/world/THUNDR01.ogg"
+
+$random thunder_sound_random
+{
+    thunder_sound_1
+    thunder_sound_2
+    thunder_sound_3
+    thunder_sound_4
+    thunder_sound_5
+    thunder_sound_6
+    thunder_sound_7
+    thunder_sound_8
+}
+
+$alias world/thunder thunder_sound_1
+$attenuation thunder_sound_random 0.3
+$rolloff thunder_sound_random linear 1500 4000
+rain_sound "sounds/rain_sound.ogg"
+$rolloff rain_sound linear 150 400
+$limit rain_sound 4
+
+aurora/sight1			"sounds/aurora.ogg"
+aurora/sight2			"sounds/aurora2.ogg"
+
+$random aurora/sight
+{
+	aurora/sight1
+	aurora/sight2
+}
+
+credits/bordeaux		"sounds/bordeaux.ogg"
+armor/hit				"sounds/hullhit.ogg"
+misc/vaporize			"sounds/vaporize.ogg"
+misc/explosionpegasusdevice	"sounds/pegadevice_explosion.ogg"

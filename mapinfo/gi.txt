@@ -1,0 +1,61 @@
+gameinfo
+{
+	PreCacheClasses = "weather_actor"
+    titlepage = "TITLEPIC"
+    titlemusic = ""
+    titletime = 11
+    advisorytime = 0
+    pagetime = 5
+    chatsound = "misc/chat2"
+    finalemusic = ""
+    finaleflat = "FLTGRASS"
+    finalepage = "FINISHED"
+    // infopage = "HELP1", "HELP2", "HELP3", "HELP4"
+    quitsound = "menu/quit2"
+    borderflat = "FLTCONCA"
+    border = DoomBorder
+    telefogheight = 0
+    defkickback = 100
+    skyflatname = "F_SKY1"
+    translator = "xlat/doom.txt"
+    defaultbloodcolor = "68 00 00"
+    defaultbloodparticlecolor = "ff 00 00"
+    intermissionmusic = ""
+    intermissioncounter = false
+    dimcolor = "ff d7 00"
+    dimamount = 0.5
+	bluramount = 0.5
+    definventorymaxamount = 25
+    defaultrespawntime = 12
+    defaultdropstyle = 1
+    pickupcolor = "d6 ba 45"
+	DimColor = "00 00 00"
+    quitmessages = "$SHDX_QUIT1"
+
+	menufontcolor_title = "Fire"
+	menufontcolor_label = "Fire"
+	menufontcolor_value = "Cyan"
+	menufontcolor_action = "LightBlue"
+	MenuFontColor_Header = "Fire" 
+	menufontcolor_highlight = "Gold"
+	menufontcolor_selection = "Red"
+	
+    playerclasses = "SHDX_ScootalooPlayer"
+	MenuBackButton = "M_BACK"
+    pausesign = "M_PAUSE"
+	TextScreenX = 2
+	TextScreenY = 2
+	GibFactor = 1
+	CursorPic = "-"
+	norandomplayerclass = true
+	
+	statscreen_single = "SHDX_StatusScreen"
+	statscreen_coop = "SHDX_CoopStatusScreen"
+	statscreen_dm = "SHDX_DeathmatchStatusScreen"
+	
+	statusbarclass = "SHDX_StatusBar"
+	
+	NoMergePickupMsg = true
+	
+	AddEventHandlers = "SHDX_Handler", "SHDX_AbortHandler", "SHDX_ReadThisHijacker", "weather_event"
+}

@@ -1,0 +1,57 @@
+Intermission EndEpisode1
+{
+	Fader
+	{
+		Background = "graphics/cutscenes/end1/end1_1.png"
+		Music = "M_CUT1"
+		Time = 2
+		FadeType = FadeIn
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_1.png"
+		Text = "$SHDX_EP1END_1"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_2.png"
+		Text = "$SHDX_EP1END_2"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_4.png"
+		Text = "$SHDX_EP1END_3"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_4.png"
+		Text = "$SHDX_EP1END_4"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_5.png"
+		Text = "$SHDX_EP1END_5"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_6.png"
+		Text = "$SHDX_EP1END_6"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end1/end1_6.png"
+		Text = "$SHDX_EP1END_7"
+		TextColor = "Green"
+	}
+	Fader
+	{
+		Time = 2
+		FadeType = FadeOut
+	}
+}

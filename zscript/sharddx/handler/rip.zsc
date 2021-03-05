@@ -1,0 +1,265 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+enum ERIPSoundObitTypes
+{
+	RIP_Normal,
+	RIP_NormalEnd = 12,
+	RIP_FelixHet,
+	RIP_DeepHurting,
+	RIP_LowtaxLoser,
+	RIP_Jeopardy,
+	RIP_YoureTerrible,
+	RIP_CatechumenGameOver,
+};
+
+extend class SHDX_Handler
+{
+	// RIP Sound Obituary
+	transient int ripseconds;
+	transient int typeofrip;			// Type of high quality RIP
+	transient bool dorip;
+	transient bool restartmusic;
+	transient bool stoprip;
+	transient bool respawned;
+	const MAXRIPNUMSECONDS = 30;
+	const RIP_START = 3;
+	const RIP_SAFE = 7;
+	const RIP_SAFEEND = 11;
+	
+	void DoRIPTick()
+	{
+		// Only run if not GS_TITLELEVEL and mode is not multiplayer
+		if (gamestate != GS_TITLELEVEL && !multiplayer)
+		{
+			if (!(level.time % 35))
+			{
+				if (ripseconds < MAXRIPNUMSECONDS)
+					ProcessRIP();
+				
+				ripseconds++;
+				
+				if (ripseconds >= MAXRIPNUMSECONDS)
+					ripseconds = MAXRIPNUMSECONDS;	// To prevent overflow
+			}
+		}
+	}
+	
+	void ProcessRIP()
+	{
+		// Check for if the player has
+		// respawned, and restart music if so...
+		if (respawned)
+		{
+			if (restartmusic)
+			{
+				S_ChangeMusic("*", 0, true, true);
+				restartmusic = false;
+			}
+			
+			if (stoprip)
+			{
+				ripseconds = -1;
+				typeofrip = -1;
+				dorip = false;
+				stoprip = false;
+				respawned = false;
+				
+				return;
+			}
+		}
+		// only do this if the seconds are 5. Don't do if the
+		// be cool about fire safety RIP is being done
+		if (ripseconds == RIP_START && dorip)
+		{
+			typeofrip = Random[RIP](RIP_Normal, RIP_CatechumenGameOver);
+			
+			if (typeofrip == RIP_CatechumenGameOver)
+			{
+				S_ChangeMusic("", 0, false, true);
+				restartmusic = true;
+			}
+			
+			// Start the felix the cat RIP
+			if (typeofrip == RIP_FelixHet)
+			{
+				S_ChangeMusic("", 0, false, true);
+				restartmusic = true;
+				S_StartSound("epitaph/felixsafe", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
+			}
+			
+			// Start the Deep Hurting RIP
+			if (typeofrip == RIP_DeepHurting)
+			{
+				S_StartSound("epitaph/deephurting", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
+			}
+			
+			// Start the Lowtax Loser RIP
+			if (typeofrip == RIP_LowtaxLoser)
+			{
+				S_StartSound("epitaph/lowtax", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
+			}
+			
+			// Start Joel SMW64 Bootleg RIP
+			if (typeofrip == RIP_Jeopardy)
+			{
+				restartmusic = true;
+				S_ChangeMusic("music/D_JEOPTL.vgz", 0, false, true);
+				S_StartSound("epitaph/joelidiot", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
+			}
+			
+			if (typeofrip == RIP_YoureTerrible)
+			{
+				S_StartSound("epitaph/youreterrible", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
+			}
+			
+			if (typeofrip == RIP_CatechumenGameOver)
+			{
+				restartmusic = true;
+				S_ChangeMusic("music/D_CCDETH.ogg", 0, false);
+			}
+			
+			// Other RIPs
+			if (typeofrip >= RIP_Normal && typeofrip <= RIP_NormalEnd)
+			{
+				S_StartSound("epitaph/main", 10, CHANF_DEFAULT, SHDXPLAYER_RIPVOL, ATTN_NORM);
+			}
+		}
+		
+		// play game over music if the RIP is the Felix the Cat 'Het' rip
+		if (ripseconds == RIP_SAFE && typeofrip == RIP_FelixHet)
+		{
+			S_ChangeMusic("music/D_FLXOVR.ogg", 0, false, true);
+		}
+	}
+	
+	void RIPPlayerDied(PlayerEvent e)
+	{
+		PlayerInfo p = players[e.PlayerNumber];
+		
+		if (p && p.mo)
+		{
+			if (Cvar.GetCvar('shdx_rip', p).GetBool())
+			{
+				dorip = true;
+				ripseconds = 0;
+			}
+		}
+	}
+	
+	void RIPPlayerRespawned(PlayerEvent e)
+	{
+		PlayerInfo p = players[e.PlayerNumber];
+		
+		if (p && p.mo)
+		{
+			stoprip = true;
+			respawned = true;
+		}
+	}
+	
+	ui void DisplayRIP()
+	{
+		PlayerInfo p = players[consoleplayer];
+		
+		if (p && p.mo && p.mo.health <= 0 && ripseconds < MAXRIPNUMSECONDS - 1 && ripseconds > 0)
+		{
+			if (ripseconds >= 0 && ripseconds < RIP_START)
+			{
+				String saverestart = String.Format(Stringtable.Localize("$SHDX_RESTARTMSG1").." "..SHDX_Utilities.GetStringForKeyBind("+use").." "..Stringtable.Localize("$SHDX_RESTARTMSG2"));
+				
+				DrawRIPText(p, saverestart, "BIGFONT", Font.CR_RED);
+			}
+			
+			if (dorip)
+			{
+				// Start the felix the cat RIP
+				if (typeofrip == RIP_FelixHet)
+				{
+					DrawRIPText(p, StringTable.Localize("$SHDX_RIPSO_DANYET"));
+				}
+				
+				// Start the Deep Hurting RIP
+				if (typeofrip == RIP_DeepHurting)
+				{
+					DrawRIPText(p, StringTable.Localize("$SHDX_RIPSO_DEEPHURTING"), "BIGFONT", Font.CR_RED);
+				}
+				
+				// Start the Lowtax Loser RIP
+				if (typeofrip == RIP_LowtaxLoser)
+				{
+					DrawRIPText(p, StringTable.Localize("$SHDX_RIPSO_LOSER"), "BIGFONT", Font.CR_RED);
+				}
+				
+				// Start Joel SMW64 Bootleg RIP
+				if (typeofrip == RIP_Jeopardy)
+				{
+					DrawRIPText(p, StringTable.Localize("$SHDX_RIPSO_IDIOT"));
+				}
+				
+				// You're Terrible
+				if (typeofrip == RIP_YoureTerrible)
+				{
+					DrawGraphic("graphics/average_joe.png", Screen.GetWidth() / 2, Screen.GetHeight() / 2, true);
+				}
+				
+				// You're Terrible
+				if (typeofrip == RIP_CatechumenGameOver)
+				{
+					DrawGraphicFullscreen("graphics/game_over.png");
+				}
+			}
+		}
+	}
+	
+	// Draw text to the screen
+	ui void DrawRIPText(PlayerInfo CPlayer, String text, Font fnt = "BIGFONT", int fontcolor = Font.CR_WHITE)
+	{
+		if (CPlayer && CPlayer.mo && text.Length() > 0 && fnt)
+		{
+			Screen.DrawText(fnt, fontcolor, 320 - int(fnt.StringWidth(text) / 2), 250, text,
+							DTA_VirtualWidth,  640,
+							DTA_VirtualHeight, 400);
+		}
+	}
+	
+	ui void DrawGraphicFullscreen(string texturepath)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			int _rw, _rh;
+			[_rw, _rh] = TexMan.GetSize(rid);
+			
+			Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
+			Screen.DrawTexture(rid, false, 0, 0, 
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_FullscreenEx, 3);
+		}
+	}
+	
+	ui void DrawGraphic(string texturepath, int x, int y, bool centered = false)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
+			Vector2 size = TexMan.GetScaledSize(rid);
+			Vector2 scale = size * (floor(Screen.GetWidth()/640) * 0.33);
+			
+			Screen.DrawTexture(rid, false, x, y, 
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered,
+							DTA_DestWidth, int(scale.x), DTA_DestHeight, int(scale.y));
+		}
+	}
+}

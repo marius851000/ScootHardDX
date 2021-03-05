@@ -1,0 +1,188 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_TornadozerAmmo : Ammo
+{
+	Default
+	{
+		Inventory.MaxAmount 6;
+		Ammo.BackpackAmount 0;
+		Ammo.BackpackMaxAmount 6;
+	}
+}
+
+Class SHDX_Tornadozer : SHDX_BFGWeapon
+{
+	Default
+	{
+		//$Title "Tornadozer"
+		//$Sprite TGUNA0
+		
+		Tag "$SHDX_TAG_TORNADOZER";
+		Weapon.SelectionOrder 500;
+		Inventory.PickupMessage "$SHDX_PICKUP_TORNADOZER";
+		+WEAPON.NOAUTOFIRE
+		+WEAPON.NOAUTOAIM
+		+WEAPON.CHEATNOTWEAPON
+		Weapon.AmmoGive 6;
+		Weapon.AmmoUse1 1;
+		Weapon.AmmoUse2 1;
+		Weapon.AmmoType1 "SHDX_TornadozerAmmo";
+		Weapon.AmmoType2 "SHDX_TornadozerAmmo";
+		Obituary "$SHDX_OB_TORNADOZER";
+	}
+	
+	States
+	{
+		Ready: 
+			TORG A 1 A_WeaponReady;
+			LOOP;
+		Deselect: 
+			TORG A 1 A_Lower(10);
+			LOOP;
+		Select:
+			TORG A 1 A_Raise(8);
+			Loop;
+		Flash:
+			TNT1 A 1 A_Light1;
+			goto LightDone;
+		AltFire.LowAmmo:
+		Fire:
+			TORG A 3
+			{
+				A_StartSound("weapons/tornadof2", CHAN_WEAPON);
+				A_WeaponOffset(25, 44, WOF_INTERPOLATE);
+			}
+			TORG A 3 A_WeaponOffset(35, 48, WOF_INTERPOLATE);
+			TORG A 1
+			{
+				A_FireProjectile("SHDX_TornadozerProjectile");
+				A_WeaponOffset(40, 50, WOF_INTERPOLATE);
+			}
+			TORG A 1 A_WeaponOffset(1, 40, WOF_INTERPOLATE);
+			TORG A 5 A_ReFire;
+			Goto Ready;
+		AltFlash:
+			TNT1 A 1 A_Light1;
+			goto LightDone;
+		AltFire:
+			TORG A 0
+			{
+				if (CountInv("SHDX_TornadozerAmmo") >= 2)
+					return ResolveState("AltFire.HasAmmo");
+					
+				return ResolveState("AltFire.LowAmmo");
+			}
+		AltFire.HasAmmo:
+			TORG A 3
+			{
+				A_StartSound("weapons/tornadof2", CHAN_WEAPON);
+				A_WeaponOffset(25, 44, WOF_INTERPOLATE);
+			}
+			TORG A 3 A_WeaponOffset(35, 48, WOF_INTERPOLATE);
+			TORG A 1
+			{
+				A_FireProjectile("SHDX_TornadozerProjectile2");
+				A_TakeInventory("SHDX_TornadozerAmmo", 1);
+				A_WeaponOffset(40, 50, WOF_INTERPOLATE);
+			}
+			TORG A 1 A_WeaponOffset(1, 40, WOF_INTERPOLATE);
+			TORG A 5 A_ReFire;
+			Goto Ready;
+		Spawn:
+			TGUN A -1;
+			Loop;
+	}
+}
+
+Class SHDX_TornadozerProjectile : SHDX_Projectile
+{
+	Default
+	{
+		Radius 5;
+		Height 25;
+		Scale 0.08;
+		Speed 25;
+		DamageType "Weather";
+		Damage 16;
+		Projectile;
+		BounceType "Hexen";
+		BounceCount 4;
+		+MISSILE
+		+DROPOFF
+		+NOEXPLODEFLOOR
+		MaxStepHeight 16;
+	}
+	
+	States
+	{
+		Spawn:
+			TORN A 0 NoDelay A_StartSound("weapons/tornadof", CHAN_BODY);
+		Spawn1:
+			TORN ABCD 1;
+			Loop;
+		Death:
+			EXPL A 0 Bright
+			{
+				A_Explode(80, 64, damagetype:'Weather');
+				// SHDX_Utilities.DoExplosion(self, 32, 32, 64, DamageType:'Weather');
+			}
+		Death1:
+			TORN A 3
+			{
+				A_FadeTo(0.0, 0.1, true);
+			}
+			TORN BCD 3;
+			Loop;
+	}
+}
+
+Class SHDX_TornadozerProjectile2 : SHDX_TornadozerProjectile
+{
+	Default
+	{
+		Radius 10;
+		Height 50;
+		Scale 0.12;
+		Speed 8;
+		DamageType "Weather";
+		Damage 12;
+		Projectile;
+		BounceType "Hexen";
+		BounceCount 3;
+		+MISSILE
+		+DROPOFF
+		+RIPPER
+		+NOEXPLODEFLOOR
+		+FLOORHUGGER
+		+SEEKERMISSILE
+		MaxStepHeight 16;
+	}
+	
+	States
+	{
+		Spawn:
+			TORN A 0 NoDelay A_StartSound("weapons/tornadof", CHAN_BODY);
+		Spawn1:
+			TORN ABCD 1 A_SeekerMissile(4, 4, SMF_LOOK);
+			Loop;
+		Death:
+			TORN A 3
+			{
+				A_FadeTo(0.0, 0.1, true);
+			}
+			TORN BCD 3;
+			Loop;
+	}
+}

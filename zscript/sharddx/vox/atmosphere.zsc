@@ -1,0 +1,104 @@
+/*
+Copyright 2021 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+class SHDX_DrAtmosphere1 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Dr Atmosphere - Introduction"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("atmosphere/vox/intro", StringTable.Localize("$SHDX_VOX_DRATMOS_1"));
+	}
+}
+
+class SHDX_DrAtmosphere2 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Dr Atmosphere - Ham Slices"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("atmosphere/vox/hamslices", StringTable.Localize("$SHDX_VOX_DRATMOS_2"));
+	}
+}
+
+class SHDX_DrAtmosphere3 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Dr Atmosphere - I see that you've made quite the mess..."
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("atmosphere/vox/quitethemess", StringTable.Localize("$SHDX_VOX_DRATMOS_3"));
+	}
+}
+
+class SHDX_DrAtmosphere5 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Dr Atmosphere - I'm Going To Ask You To Leave"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("atmosphere/vox/imgoingtoaskyoutoleave", StringTable.Localize("$SHDX_VOX_DRATMOS_5"));
+	}
+}
+
+class SHDX_DrAtmosphere6 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Dr Atmosphere - You're All Going To Die Up Here!"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("atmosphere/vox/youreallgoingtodieuphere", StringTable.Localize("$SHDX_VOX_DRATMOS_6"));
+	}
+}
+
+class SHDX_DrAtmosphere7 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Dr Atmosphere - You Should Know It Wasn't My Idea..."
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("atmosphere/vox/youshouldknowitwasntmyidea", StringTable.Localize("$SHDX_VOX_DRATMOS_7"));
+	}
+}
+
+class SHDX_DrAtmosphere8 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Dr Atmosphere - I Miss Surprise"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("atmosphere/vox/imisssurprise", StringTable.Localize("$SHDX_VOX_DRATMOS_8"));
+	}
+}

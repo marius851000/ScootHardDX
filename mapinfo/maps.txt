@@ -1,0 +1,241 @@
+map TESTMAP "TESTMAP"
+{
+	LevelNum = 1
+	sky1 = "SKY1"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E1M1"
+	music = "M_SINT"
+	author = "It's a fucking Testmap"
+}
+
+map INTRO lookup SHDX_INTRO
+{
+	LevelNum = 0
+	Music = ""
+	Next = "E1M1"
+	EventHandlers = "SHDX_IntroSlideshowHandler"
+	NoIntermission
+	NoAutosaveHint
+	
+	Sky1 = "SKY1"
+}
+
+map E1M1 lookup SHDX_E1A1
+{
+	LevelNum = 1
+	sky1 = "SKY1"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E1M2"
+	music = "M_FACT"
+	author = "SanyaWaffles, Metal Neon"
+}
+
+map E1M2 lookup SHDX_E1A2
+{
+	LevelNum = 2
+	sky1 = "SKY1"
+	cluster = 1
+	par = 75
+	sucktime = 1
+	next = "E1M3"
+	music = "M_TCHERN"
+	author = "EllieJojo, SanyaWaffles, Metal Neon"
+}
+
+map E1M3 lookup SHDX_E1A3
+{
+	LevelNum = 3
+	sky1 = "SKY1"
+	cluster = 1
+	par = 75
+	sucktime = 1
+	next = "E1M4"
+	music = ""
+	author = "Metal Neon"
+}
+
+
+map E1M4 lookup SHDX_E1A4
+{
+	LevelNum = 4
+	sky1 = "SKY1"
+	cluster = 1
+	par = 75
+	sucktime = 1
+	next = "INTRO2"
+	music = "M_SINT"
+	EventHandlers = "SHDX_SurpriseHandler"
+	author = "SanyaWaffles, Metal Neon"
+}
+
+map INTRO2 lookup SHDX_INTRO2
+{
+	LevelNum = 0
+	Music = ""
+	Next = "E2M1"
+	EventHandlers = "SHDX_Intro2SlideshowHandler"
+	NoIntermission
+	NoAutosaveHint
+	
+	Sky1 = "SKY1"
+}
+
+map E2M1 lookup SHDX_E2A1
+{
+	LevelNum = 5
+	sky1 = "SKY4"
+	sky2 = "SKY4A"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E2M2"
+	music = "M_FACT"
+	author = "SanyaWaffles, Metal Neon"
+	lightning
+}
+
+map E2M2 lookup SHDX_E2A2
+{
+	LevelNum = 6
+	sky1 = "SKY5"
+	cluster = 1
+	par = 45
+	music = "M_RAIN"
+	sucktime = 1
+	next = "E2M4"
+	secretnext = "E2S1"
+	author = "SanyaWaffles, Metal Neon"
+}
+
+map E2M3 lookup SHDX_E2A3
+{
+	LevelNum = 7
+	sky1 = "SKY2"
+	sky2 = "SKY2A"
+	cluster = 1
+	par = 45
+	music = "M_DAM"
+	sucktime = 1
+	next = "E2M4"
+	author = "Philnemba"
+}
+
+map E2M4 lookup SHDX_E2A4
+{
+	LevelNum = 8
+	sky1 = "SKY6"
+	sky2 = "SKY2A"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E2M5"
+	author = "SanyaWaffles, Jona_Arts, Metal Neon"
+	music = "M_TCAMB"
+	lightning
+}
+
+map E2M5 lookup SHDX_E2A5
+{
+	LevelNum = 9
+	sky1 = "SKY3"
+	sky2 = "SKY3A"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E3M1"
+	author = "SanyaWaffles, Metal Neon"
+	music = "M_ATINT"
+	lightning
+	EventHandlers = "SHDX_AtmosphereHandler"
+}
+
+map E2S1 lookup SHDX_E2S1
+{
+	LevelNum = 10
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	music = "M_RAIN"
+	next = "E2M4"
+	secretnext = "E2M4"
+}
+
+map E3M1 lookup SHDX_E3A1
+{
+	LevelNum = 11
+	sky1 = "SKY5"
+	cluster = 1
+	par = 45
+	music = "M_SINT"
+	sucktime = 1
+	next = "E3M2"
+	author = "SanyaWaffles"
+	lightning
+}
+
+map E3M2 lookup SHDX_E3A2
+{
+	LevelNum = 12
+	sky1 = "SKY5"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E3M3"
+	author = "EllieJojo, SanyaWaffles, Metal Neon"
+	music = "M_DAM"
+}
+
+map E3M3 lookup SHDX_E3A3
+{
+	LevelNum = 13
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "E3M4"
+	author = "EllieJojo, SanyaWaffles, Metal Neon"
+	music = "M_TCHERN"
+}
+
+map E3M4 lookup SHDX_E3A4
+{
+	LevelNum = 14
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	EventHandlers = "SHDX_MaimbowHandler"
+	music = "M_MAMB"
+	next = "EndTitle"
+	nointermission
+	author = "SanyaWaffles, Metal Neon"
+}
+
+map CREDITS1 lookup SHDX_CREDITS
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "EndTitle"
+	secretnext = "EndTitle"
+	nointermission
+	EventHandlers = "SHDX_CreditMapEvent"
+}
+
+map CREDITS2 lookup SHDX_CREDITS
+{
+	sky1 = "SKY2"
+	cluster = 1
+	par = 45
+	sucktime = 1
+	next = "EndTitle"
+	secretnext = "EndTitle"
+	nointermission
+	EventHandlers = "SHDX_CreditMapEvent"
+}

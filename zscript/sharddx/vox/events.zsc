@@ -1,0 +1,129 @@
+/*
+Copyright 2021 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+class SHDX_ScootalooE1M1 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E1M1 - Gotta Get Outta Here!"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("scootaloo/gottagetouttahere", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E1M1"));
+	}
+}
+
+class SHDX_ScootalooE1M4 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E1M4 - There's The Exit!"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("scootaloo/surpriseexit", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E1M4"));
+	}
+}
+
+class SHDX_ScootalooE2M4 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E2M4 - They're Going To Flood The Dam"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("scootaloo/e2m4start", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E2M4_1"));
+	}
+}
+
+class SHDX_DrAtmosphere4 : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Dr Atmosphere - E2M4 - (Dam Blown) - You Inept Mule!"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("atmosphere/vox/youineptmule", StringTable.Localize("$SHDX_VOX_DRATMOS_4"));
+		AddVoxEntry("scootaloo/e2m4end", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E2M4_2"));
+	}
+}
+
+class SHDX_ScootalooCancerMouse : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E2M5 - Cancer Mouse"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("cancermouse/cancermouse1", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_1"));
+		AddVoxEntry("scootaloo/cancermouse1", StringTable.Localize("$SHDX_VOX_SCOOTALOO_CANCERMOUSE_1"));
+		AddVoxEntry("cancermouse/cancermouse2", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_2"));
+		AddVoxEntry("scootaloo/cancermouse2", StringTable.Localize("$SHDX_VOX_SCOOTALOO_CANCERMOUSE_2"));
+		AddVoxEntry("cancermouse/cancermouse3", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_3"));
+		AddVoxEntry("scootaloo/cancermouse3", StringTable.Localize("$SHDX_VOX_SCOOTALOO_CANCERMOUSE_3"));
+		AddVoxEntry("cancermouse/cancermouse4", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_4"));
+		AddVoxEntry("scootaloo/cancermouse4", StringTable.Localize("$SHDX_VOX_SCOOTALOO_CANCERMOUSE_4"));
+		AddVoxEntry("cancermouse/cancermouse5", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_5"));
+		AddVoxEntry("scootaloo/cancermouse5", StringTable.Localize("$SHDX_VOX_SCOOTALOO_CANCERMOUSE_5"));
+	}
+}
+
+class SHDX_ScootalooIlse : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E3M2 - Ilse Insult"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("scootaloo/deformedmess", StringTable.Localize("$SHDX_VOX_SCOOTALOO_ILSE"));
+		AddVoxEntry("ilse/onethatcanfly", StringTable.Localize("$SHDX_VOX_ILSE"));
+	}
+}
+
+
+class SHDX_ScootalooPegasusDeviceKey : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E3M2 - Time To Put An End To This"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("scootaloo/pegasusdevicefind", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E3M2_1"));
+	}
+}
+
+class SHDX_ScootalooPegasusDeviceFireworks : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E3M2 - Here Come The Fireworks"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("scootaloo/pegasusdeviceexplosion", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E3M2_2"));
+	}
+}

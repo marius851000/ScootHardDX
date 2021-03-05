@@ -1,0 +1,111 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+// Weapon
+Class SHDX_Weapon : Weapon
+{
+	Default
+	{
+		//$NotAngled
+		//$Category "Weapons"
+		//$Color 14
+
+		Radius 26;
+		Height 12;
+		Scale 0.12;
+		Weapon.Kickback 100;
+		Weapon.MinSelectionAmmo1 0;
+		Weapon.MinSelectionAmmo2 0;
+		// Weapon.BobStyle "Smooth";
+		// Weapon.BobSpeed 1.0;
+		// Weapon.UpSound "weapons/raiseA";
+		Inventory.PickupSound "pickup/weapon";
+		
+		+WEAPON.NODEATHINPUT
+	}
+	
+	mixin PickupSoundOverride;
+
+	States
+	{		
+		LightDone:
+			TNT1 A 0 A_Light0;
+			Stop;
+	}
+}
+
+Class SHDX_BaseQuickKick : CustomInventory
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+	
+	bool iskicking;
+	bool iscrushing;
+	
+	override void DoEffect()
+	{
+		Super.DoEffect();
+			
+		if (owner && owner.health > 0 && owner.player)
+		{
+			if (owner.player.cmd.buttons & BT_USER1)
+			{
+				owner.UseInventory(self);
+				owner.player.mo.PlayAttacking2();
+				iskicking = true;
+			}
+		}
+	}
+		
+	States
+	{
+		Use:
+			TNT1 A 0
+			{
+				if (invoker.iskicking)
+					A_Overlay(SHDX_PSP_FOOTCRUSH, "FootKick", true);
+				else if (invoker.iscrushing)
+					A_Overlay(SHDX_PSP_FOOTCRUSH, "FootCrush", true);
+				
+				A_OverlayOffset(SHDX_PSP_FOOTCRUSH, 0, 32);
+				A_OverlayFlags(SHDX_PSP_FOOTCRUSH, PSPF_ADDBOB, false);
+				A_OverlayFlags(SHDX_PSP_FOOTCRUSH, PSPF_PLAYERTRANSLATED, true);
+			}
+			Fail;
+	}
+}
+
+
+
+Class SHDX_NearFrozenFlag : Inventory
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+}
+
+/*
+Class SHDX_CrushFlag : Inventory
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+} */

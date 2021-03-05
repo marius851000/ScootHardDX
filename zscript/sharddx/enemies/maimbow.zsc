@@ -1,0 +1,1346 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_BossSpot2 : SpecialSpot
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Boss Teleport Spot 2"
+		
+		+Invisible
+	}
+}
+
+Class SHDX_BossSpotMaimbowStage2 : SHDX_Actor
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Maimbow Stage 2 Spot"
+		
+		+Invisible
+		+NOBLOCKMAP
+	}
+}
+
+Class SHDX_BossSpotScootalooStage2 : SHDX_Actor
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Scootaloo Stage 2 Spot"
+		
+		+Invisible
+		+NOBLOCKMAP
+	}
+}
+
+Class SHDX_BossSpotMaimbowStage3 : SHDX_Actor
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Maimbow Stage 3 Spot"
+		
+		+Invisible
+		+NOBLOCKMAP
+	}
+}
+
+Class SHDX_BossSpotScootalooStage3 : SHDX_Actor
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite internal:action
+		//$Title "Scootaloo Stage 3 Spot"
+		
+		+Invisible
+		+NOBLOCKMAP
+	}
+}
+
+Class SHDX_MaimbowMissile : SHDX_Missile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 30;
+		Damage 5;
+		Projectile;
+		+RANDOMIZE
+		DamageType "Explosive";
+		// SeeSound "weapons/rocketf";
+		DeathSound "weapons/rocketx";
+		
+		+ROCKETTRAIL
+	}
+	
+	States
+	{
+		Spawn:
+			MISL A 1 Bright;
+			Loop;
+		
+		Death:
+			EXPL A 0 Bright
+			{
+				A_Explode(12, 40, damagetype:'Explosive');
+			}
+			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
+			EXPL BCDEFGHI 3 Bright;
+			Stop;
+	}
+}
+
+Class SHDX_MaimbowBullet : FastProjectile
+{
+	Default
+	{
+		Speed 55;
+		Radius 8;
+		Height 8;
+		DamageFunction Random[Maimbow](5,7);
+		DamageType "Bullet";
+		Scale 0.12;
+		MissileType "SHDX_BulletTrail";
+		MissileHeight 8;
+		RenderStyle "Translucent";
+		Alpha 0.667;
+		
+		+CANNOTPUSH
+		+NODAMAGETHRUST
+		+SPAWNSOUNDSOURCE
+		
+		+BloodSplatter
+	}
+	States
+	{
+		Spawn:
+			BULL A 4 Bright;
+			Loop;
+		Death:
+			PUFF ABCD 4 Bright;
+			Stop;
+	}
+}
+
+Class SHDX_MaimbowUndashBoss : SHDX_Boss
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite MBOWA1
+		//$Title "Boss 3 - Maimbow Undash"
+		
+		Health 4500;
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 16;
+		PainChance "Explosive", 256;
+		PainChance "Bullet", 32;
+		PainChance "Spectrum", 256;
+		PainChance "Lightning", 128;
+		PainChance "Ice", 64;
+		DamageFactor "Bullet", 0.50;
+		DamageFactor "Explosive", 0.67;
+		DamageFactor "Spectrum", 0.15;
+		DamageFactor "Ice", 0.67;
+		DamageFactor "Disintegrate", 0.00;
+		
+		DeathSound "maimbow/death";
+		Obituary "$SHDX_OB_MAIMBOW";
+		Tag "$SHDX_TAG_MAIMBOW";
+		
+		+DONTRIP
+		+NOICEDEATH
+		
+		SHDX_Boss.TauntCooldownTime 8;
+	}
+	
+	int maimbowstage;
+	bool goodend;
+	
+	const MAIMBOWFLY = 20;
+	
+	int attacktype;
+	bool cutsceneplayed;
+	
+	int teleportcounter;
+	int walkcounter;
+	
+	const MAIMBOW_ATTACK_NONE = 0;
+	const MAIMBOW_ATTACK_EXPLOSIVE = 1;
+	const MAIMBOW_ATTACK_LIGHTNING = 2;
+	const MAIMBOW_ATTACK_ICE = 3;
+	const MAIMBOW_ATTACK_RAINBOWER = 4;
+	const MAIMBOW_ATTACK_TORNADOZER = 5;
+	const MAIMBOW_ATTACK_CHAINGUN = 6;
+	
+	const MAIMBOWFLYCOUNT = 20;
+	const MAIMBOWFLYCOUNTTHIRDSTAGE = MAIMBOWFLYCOUNT * 3;
+	const MAIMBOWWALKCOUNT = 10;
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		int ret;
+		
+		if (mod == 'Disintegrate')
+		{
+			A_Teleport("See2", "SHDX_BossSpot2", "SHDX_TeleportFog", 0);
+			return Super.DamageMobj(inflictor, source, 0, mod, flags, angle);
+		}
+		
+		ret = Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+		
+		A_MaimbowArenaCheck();
+		
+		if (attacktype == MAIMBOW_ATTACK_NONE)
+		{
+			if (mod  == 'Explosive')
+				attacktype = MAIMBOW_ATTACK_EXPLOSIVE;
+			else if (mod == 'Lightning')
+				attacktype = MAIMBOW_ATTACK_LIGHTNING;
+			else if (mod == 'Ice')
+				attacktype = MAIMBOW_ATTACK_ICE;
+			else if (mod == 'Spectrum')
+				attacktype = MAIMBOW_ATTACK_RAINBOWER;
+			else if (mod == 'Weather')
+				attacktype = MAIMBOW_ATTACK_TORNADOZER;
+			else if (mod == 'Bullet')
+				attacktype = MAIMBOW_ATTACK_CHAINGUN;
+		}
+		
+		return ret;
+	}
+	
+	void A_FlyTowardsTarget(double speedtofly = MAIMBOWFLY)
+	{
+		if (!target) return;
+		
+		if (speedtofly <= 0) speedtofly = MAIMBOWFLY;
+		
+		A_FaceTarget();
+		
+		VelFromAngle(speedtofly);
+		Vel.Z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, speedtofly);
+	}
+	
+	void A_MaimbowFireTwoRocketMissiles()
+	{
+		A_SpawnProjectile("SHDX_MaimbowMissile", spawnofs_xy:-12);
+		A_SpawnProjectile("SHDX_MaimbowMissile", spawnofs_xy:12);
+	}
+	
+	void A_MaimbowFireRainbower()
+	{
+		A_StartSound("weapons/rainbowerf", CHAN_WEAPON);
+		A_SpawnProjectile("SHDX_RainbowerProjectileA");
+	}
+	
+	void A_MaimbowFireChaingunWithSound()
+	{
+		A_StartSound("maimbow/chaingun", CHAN_WEAPON);
+		A_SpawnProjectile("SHDX_MaimbowBullet", 32);
+	}
+	
+	void A_MaimbowTaunt()
+	{
+		A_SHDX_PlayBossTaunt("maimbow/taunt"..Random[Maimbow](1,11));
+	}
+	
+	void A_SetMaimbowStage2()
+	{
+		SetStateLabel("MaimbowTeleport1");
+		maimbowstage = MAIMBOW_STAGE_2;
+	}
+	
+	void A_SetMaimbowStage3()
+	{
+		SetStateLabel("MaimbowTeleport2");
+		A_Stage3Teleportation();
+		maimbowstage = MAIMBOW_STAGE_3;
+	}
+	
+	void A_SHDX_GetEndingType()
+	{
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
+			{
+				goodend = true;
+				return;
+			}
+		}
+	}
+	
+	void A_SHDX_MaimbowBossPlayCutscene()
+	{
+		if (shdx_skipcutscenes)
+			return;
+			
+		if (goodend)
+		{
+			A_SHDX_MaimbowPlayAuroraFoundCutscene();
+			return;
+		}
+		
+		A_SHDX_MaimbowPlayAuroraNotFoundCutscene();
+	}
+	
+	void A_SHDX_MaimbowPlayAuroraFoundCutscene()
+	{
+		level.StartSlideShow('EndEpisode3Aurora');
+	}
+	
+	void A_SHDX_MaimbowPlayAuroraNotFoundCutscene()
+	{
+		level.StartSlideShow('EndEpisode3NoAurora');
+	}
+	
+	void A_SHDX_MaimbowAuroraOL()
+	{		
+		if (goodend)
+		{
+			goodend = true;
+			A_SHDX_SendOLToAllPlayers("scootaloo/maimbowundashendgood", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+			return;
+		}
+		
+		A_SHDX_SendOLToAllPlayers("scootaloo/maimbowundashendbad", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+	}
+	
+	void A_SHDX_MaimbowBossEndLevel()
+	{
+		if (goodend)
+		{
+			level.ChangeLevel("CREDITS2", 0, CHANGELEVEL_NOINTERMISSION, -1);
+			return;
+		}
+		
+		level.ChangeLevel("CREDITS1", 0, CHANGELEVEL_NOINTERMISSION, -1);
+	}
+	
+	void A_MaimbowSetBossMusic()
+	{
+		S_ChangeMusic("M_MBOW");
+	}
+	
+	void A_MaimbowVictoryMusic()
+	{
+		if (goodend)
+		{
+			S_ChangeMusic("M_MVICG", 0, false);
+			return;
+		}
+		
+		S_ChangeMusic("M_MVICB", 0, false);
+	}
+	
+	void A_FlapWings()
+	{
+		A_StartSound("maimbow/wings", CHAN_6);
+	}
+	
+	void A_TeleportMaimbow(Vector3 p, double ang)
+	{
+		self.Teleport(p, ang, 0);
+	}
+	
+	const TELEPORT_OFFSET = 48;
+	
+	void A_TeleportPlayers(Vector3 p, double ang)
+	{
+		double ang2 = ang;
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo && pl.mo.player)
+			{
+				Vector3 pos2 = p;
+				if (i > 0)
+				{
+					ang2 += 22.5;
+					pos2.x = TELEPORT_OFFSET * cos(ang2);
+					pos2.y = TELEPORT_OFFSET * sin(ang2);
+				}
+				
+				players[i].mo.A_Stop();
+				players[i].mo.SetStateLabel("Spawn");
+				players[i].mo.vel.x = 0;
+				players[i].mo.vel.y = 0;
+				players[i].mo.vel.z = 0;
+				
+				pl.cheats |= CF_TOTALLYFROZEN;
+				
+				players[i].mo.A_SetBlend("FFFFFF", 1.0, 70);
+				players[i].mo.Teleport(pos2, ang2, 0);
+				players[i].mo.A_SetPitch(0);
+			}
+		}
+	}
+	
+	void A_UnfreezePlayers()
+	{
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			
+			if (pl && pl.mo)
+				pl.cheats &= ~CF_TOTALLYFROZEN;
+		}
+	}
+	
+	void A_Stage2Teleportation()
+	{
+		let hnd = SHDX_MaimbowHandler(EventHandler.Find("SHDX_MaimbowHandler"));
+		
+		if (hnd)
+		{
+			hnd.SetTickerForWasps();
+			
+			if (hnd.stage2maimbowspot)
+				A_TeleportMaimbow(hnd.stage2maimbowspot.pos, hnd.stage2maimbowspot.angle);
+			
+			if (hnd.stage2scootaloospot)
+				A_TeleportPlayers(hnd.stage2scootaloospot.pos, hnd.stage2scootaloospot.angle);
+		}
+	}
+	
+	void A_Stage3Teleportation()
+	{
+		let hnd = SHDX_MaimbowHandler(EventHandler.Find("SHDX_MaimbowHandler"));
+		if (hnd)
+		{
+			if (hnd.stage3maimbowspot)
+				A_TeleportMaimbow(hnd.stage3maimbowspot.pos, hnd.stage3maimbowspot.angle);
+			
+			if (hnd.stage3scootaloospot)
+				A_TeleportPlayers(hnd.stage3scootaloospot.pos, hnd.stage3scootaloospot.angle);
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (flyingmode > 0)
+			isflying = true;
+		else
+			isflying = false;
+	}
+	
+	override void MarkPreCacheSounds()
+	{
+		Super.MarkPreCacheSounds();
+		
+		Sound snd;
+		for (int i = 1; i < 16; i++)
+		{
+			snd = String.Format("maimbow/taunt%d", i);
+			MarkSound(snd);
+		}
+	}
+	
+	void A_MaimbowAutosave()
+	{
+		level.MakeAutosave();
+	}
+	
+	void A_MaimbowHailerAttack()
+	{
+		int ang = 16;
+		
+		if (maimbowstage >= MAIMBOW_STAGE_3)
+			ang = 8;
+		
+		A_StartSound("weapons/hailf2", CHAN_WEAPON);
+		
+		for (int i = -32; i < 32; i += ang)
+		{
+			A_SpawnProjectile("SHDX_AtmosphereHailBall", angle:i);
+		}
+	}
+	
+	void A_MaimbowLightningAttack()
+	{
+		int ang = 16;
+		
+		if (maimbowstage >= MAIMBOW_STAGE_3)
+			ang = 8;
+		
+		for (int i = -32; i < 32; i += ang)
+		{
+			A_SpawnProjectile("SHDX_PlasmaBall", angle:i);
+		}
+	}
+	
+	void A_MaimbowResetAttackType()
+	{
+		attacktype = MAIMBOW_ATTACK_NONE;
+	}
+	
+	void A_MaimbowExplosionLine()
+	{
+		if (maimbowstage >= MAIMBOW_STAGE_3)
+		{
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine", angle:-12);
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine");
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine", angle:12);
+		}
+		else
+		{
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine");
+		}
+	}
+	
+	void A_MaimbowRainbower()
+	{
+		A_SpawnProjectile("SHDX_RainbowerProjectileA");
+	}
+	
+	void A_MaimbowFireTornadozer()
+	{
+		if (maimbowstage >= MAIMBOW_STAGE_3)
+		{
+			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz", spawnofs_xy:-16, angle:-30);
+			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz");
+			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz", spawnofs_xy:16, angle:30);
+		}
+		else
+		{
+			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz");
+		}
+	}
+	
+	void A_MaimbowInit()
+	{
+		A_UnSetInvulnerable();
+		A_SHDX_SetToBossBarHUD();
+		bCanJump = true;
+		isactive = true;
+		A_AttachLightDef('maimbowlight', 'SHDX_BOSSLIGHT');
+	}
+	
+	void A_MaimbowResetFlying()
+	{
+		flyingmode = 0;
+		bNoGravity = false;
+		bFloat = false;
+		bCanJump = true;
+	}
+	
+	const MAIMBOW_TELEPORT_COUNTER_MAX = 6;
+	
+	void A_MaimbowWarpAboutSecondArena()
+	{
+		if (maimbowstage == MAIMBOW_STAGE_2)
+		{
+			teleportcounter++;
+			
+			if (teleportcounter >= MAIMBOW_TELEPORT_COUNTER_MAX)
+				teleportcounter = MAIMBOW_TELEPORT_COUNTER_MAX;
+			
+			if (Random[MaimbowTeleport](0, 255) < 56 && teleportcounter >= MAIMBOW_TELEPORT_COUNTER_MAX)
+			{
+				teleportcounter = 0;
+				A_Teleport("See2", "SHDX_BossSpot", "SHDX_TeleportFog", 0);
+			}
+		}
+	}
+	
+	void A_MaimbowArenaCheck()
+	{
+		if (maimbowstage == MAIMBOW_STAGE_1 && health <= (SpawnHealth() * 0.667))
+			A_SetMaimbowStage2();
+
+		if (maimbowstage == MAIMBOW_STAGE_2 && health <= (SpawnHealth() * 0.333))
+			A_SetMaimbowStage3();
+	}
+	
+	States
+	{
+		Spawn:
+			MBOW A 34 NoDelay
+			{
+				isactive = false;
+				if (!shdx_skipcutscenes && !cutsceneplayed)
+				{
+					level.StartIntermission('PreBoss3', FState_InLevel);
+				}
+			}
+			MBOW A 1
+			{
+				if (!shdx_skipcutscenes && !cutsceneplayed)
+				{
+					level.MakeAutoSave();
+					cutsceneplayed = true;
+				}
+			}
+		Spawn1:
+			MBOW A 0
+			{
+				if (!saidspawnline)
+				{
+					A_SHDX_PlayBossTaunt("maimbow/spawn", true);
+					A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_9", "maimbow/spawn");
+					saidspawnline = true;
+				}
+			}
+		Spawn2:
+			MBOW A 10
+			{
+				A_SetInvulnerable();
+				A_Look();
+				A_RemoveLight('maimbowlight');
+			}
+			Loop;
+		See:
+			MBOW A 80;
+			MBOW A 0 A_MaimbowSetBossMusic;
+			MBOW A 0 A_SHDX_BossJumpOverIntroState;
+			MBOW A 0
+			{
+				bCanJump = false;
+				A_SHDX_PlayBossTaunt("maimbow/sight", true);
+				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_10", "maimbow/sight");
+			}
+			MBOW A 400;
+		See1:
+			MBOW A 0
+			{
+				A_SHDX_SendOLToAllPlayers("scootaloo/atmospherestart", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				A_MaimbowSetBossMusic();
+				A_SHDX_BossSkipIntro();
+			}
+		See1A:
+			MBOW B 0 A_MaimbowInit;
+		See2:
+			MBOW K 0
+			{
+				A_UnsetInvulnerable();
+				if (flyingmode >= 1)
+					return ResolveState("See2.Flying");
+				
+				return ResolveState(null);
+			}
+			MBOW BCDEBCDE 2 A_Chase;
+			MBOW E 0 A_MaimbowWarpAboutSecondArena;
+			MBOW E 0
+			{
+				if (maimbowstage <= MAIMBOW_STAGE_2)
+					return resolveState(null);
+				
+				walkcounter++;
+				
+				if (walkcounter >= MAIMBOWWALKCOUNT)
+				{
+					walkcounter = 0;
+					return ResolveState("StartFlying");
+				}
+					
+				return ResolveState("See2");
+			}
+			MBOW E 0 A_Jump(32, "StartFlying");
+			Loop;
+		See2.Flying:
+			MBOW K 4
+			{
+				A_UnsetInvulnerable();
+				A_FlapWings();
+				A_Chase(null, "Missile.Flying");
+			}
+			MBOW LMN 4 A_Chase(null, "Missile.Flying");
+			MBOW E 0 A_MaimbowWarpAboutSecondArena;
+			MBOW N 0
+			{
+				flyingmode++;
+				
+				if ((maimbowstage >= MAIMBOW_STAGE_3 && flyingmode >= MAIMBOWFLYCOUNT * 2) || (maimbowstage <= MAIMBOW_STAGE_2 && flyingmode >= MAIMBOWFLYCOUNT))
+					return ResolveState("StopFlying");
+					
+				return ResolveState(null);
+			}
+			Loop;
+		StartFlying:
+			MBOW K 0
+			{
+				bNoGravity = true;
+				bFloat = true;
+				bCanJump = false;
+				flyingmode = 1;
+			}
+			Goto See2.Flying;
+		Missile:
+			MBOW I 0
+			{
+				A_UnsetInvulnerable();
+				
+				if (attacktype > MAIMBOW_ATTACK_NONE)
+					return ResolveState("Missile.Retaliate");
+				
+				if (maimbowstage >= MAIMBOW_STAGE_2)
+					return ResolveState("Missile2");
+				
+				return ResolveState("Missile1");
+			}
+		Missile1:
+			MBOW M 0 A_Jump(256, "Missile.Stomp", "Missile.Chaingun");
+		Missile2:
+			MBOW M 0 A_Jump(256, "Missile.Stomp", "Missile.Rocket", "Missile.Chaingun");
+		Missile.Chaingun:
+			// ATMO M 0 A_StartSound("boss2/ice", CHAN_VOICE);
+			MBOW A 24
+			{
+				A_FaceTarget();
+				A_StartSound("maimbow/chaingunwindup", CHAN_WEAPON);
+			}
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW H 0 Bright A_MaimbowResetAttackType;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW H 2 Bright A_MaimbowFireChaingunWithSound;
+			MBOW I 3 Bright A_FaceTarget;
+			MBOW A 5 Bright A_StartSound("maimbow/chaingunwinddown", CHAN_WEAPON);
+			goto See2;
+		Missile.Rocket:
+			MBOW A 10 A_FaceTarget;
+			MBOW F 4 Bright A_MaimbowFireTwoRocketMissiles;
+			MBOW G 5 Bright;
+			goto See2;
+		Missile.Stomp:
+			MBOW Z 4;
+			MBOW Z 5;
+			MBOW Z 0 A_StartSound("boss2/stomp", CHAN_BODY);
+			MBOW [ 8
+			{
+				A_SpawnProjectile("SHDX_FloorArc", spawnofs_xy: -32);
+				A_SpawnProjectile("SHDX_FloorArc");
+				A_SpawnProjectile("SHDX_FloorArc", spawnofs_xy: 32);
+			}
+			Goto See2;
+		Missile.Retaliate:
+			MBOW A 0
+			{
+				switch (attacktype)
+				{
+					case MAIMBOW_ATTACK_EXPLOSIVE:
+						return ResolveState("Missile.Retaliate.Explosive");
+						break;
+					case MAIMBOW_ATTACK_LIGHTNING:
+						return ResolveState("Missile.Retaliate.Lightning");
+						break;
+					case MAIMBOW_ATTACK_ICE:
+						return ResolveState("Missile.Retaliate.Ice");
+						break;
+					case MAIMBOW_ATTACK_RAINBOWER:
+						return ResolveState("Missile.Retaliate.Rainbower");
+						break;
+					case MAIMBOW_ATTACK_TORNADOZER:
+						return ResolveState("Missile.Retaliate.Tornadozer");
+						break;
+					default:
+					case MAIMBOW_ATTACK_NONE:
+						break;
+				}
+				
+				return ResolveState("Missile.Chaingun");
+			}
+		Missile.Retaliate.Explosive:
+			MBOW A 0
+			{
+				A_StopSound(CHAN_BODY);
+				A_MaimbowTaunt();
+			}
+			MBOW A 15 A_FaceTarget;
+			MBOW F 2 Bright
+			{
+				A_MaimbowExplosionLine();
+				A_MaimbowResetAttackType();
+			}
+			MBOW G 2 Bright;
+			Goto See2;
+		Missile.Retaliate.Ice:
+			MBOW A 0
+			{
+				A_StopSound(CHAN_BODY);
+				A_MaimbowTaunt();
+			}
+			MBOW A 15 A_FaceTarget;
+			MBOW FG 2 Bright A_MaimbowHailerAttack;
+			MBOW G 0 A_MaimbowResetAttackType;
+			MBOW A 2 A_FaceTarget;
+			MBOW FG 2 Bright A_MaimbowHailerAttack;
+			Goto See2;
+		Missile.Retaliate.Lightning:
+			MBOW A 5 A_FaceTarget;
+			MBOW F 0
+			{
+				A_MaimbowTaunt();
+				A_StopSound(CHAN_7);
+			}
+			MBOW F 2 Bright
+			{
+				A_MaimbowLightningAttack();
+				A_MaimbowResetAttackType();
+			}
+			MBOW G 2 Bright;
+			MBOW F 2 Bright	A_MaimbowLightningAttack;
+			MBOW G 2 Bright;
+			MBOW F 2 Bright	A_MaimbowLightningAttack;
+			MBOW G 2 Bright;
+			MBOW F 2 Bright	A_MaimbowLightningAttack;
+			MBOW G 2 Bright;
+			MBOW F 2 Bright	A_MaimbowLightningAttack;
+			MBOW G 2 Bright;
+			MNOW A 2 A_FaceTarget;
+			Goto See2;
+		Missile.Retaliate.Rainbower:
+			MBOW A 0
+			{
+				A_StopSound(CHAN_BODY);
+				A_MaimbowTaunt();
+			}
+			MBOW A 15 A_FaceTarget;
+			MBOW F 2 Bright
+			{
+				A_MaimbowRainbower();
+				A_MaimbowResetAttackType();
+			}
+			MBOW G 2;
+			Goto See2;
+		Missile.Retaliate.Tornadozer:
+			MBOW A 0 A_StopSound(CHAN_BODY);
+			MBOW A 5 A_FaceTarget;
+			MBOW F 2 Bright
+			{
+				A_MaimbowFireTornadozer();
+				A_MaimbowResetAttackType();
+			}
+			MBOW G 2 Bright;
+			Goto See2;
+		Missile.Flying:
+			MBOW I 0
+			{
+				A_UnsetInvulnerable();
+				
+				if (attacktype > MAIMBOW_ATTACK_NONE)
+					return ResolveState("Missile.Flying.Retaliate");
+					
+				if (maimbowstage == MAIMBOW_STAGE_3)
+					return ResolveState("Missile.Flying2");
+					
+				if (maimbowstage == MAIMBOW_STAGE_2)
+					return ResolveState("Missile.Flying1");
+				
+				return ResolveState("Missile.Flying0");
+			}
+		Missile.Flying2:
+			MBOW I 0 A_Jump(256, "Missile.Flying.Rocket");
+		Missile.Flying1:
+			MBOW I 0 A_Jump(256, "Missile.Flying.Rocket", "Missile.Flying.Chaingun");
+		Missile.Flying0:
+			MBOW I 0 A_Jump(256, "Missile.Flying.Chaingun");
+		Missile.Flying.Chaingun:
+			MBOW O 0
+			{
+				A_StartSound("maimbow/chaingunwindup", CHAN_WEAPON);
+				A_FaceTarget();
+			}
+			MBOW KLMN 1 A_FaceTarget;
+			MBOW KLMN 1 A_FaceTarget;
+			MBOW KLMN 1 A_FaceTarget;
+			MBOW KLMN 1 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW R 2 Bright
+			{
+				A_MaimbowFireChaingunWithSound();
+				A_MaimbowResetAttackType();
+				A_FlapWings();
+			}
+			MBOW S 2 Bright;
+			MBOW T 2;
+			MBOW Q 5 A_FaceTarget;
+			MBOW O 0
+			{
+				A_StartSound("maimbow/chaingunwinddown", CHAN_WEAPON);
+				A_FaceTarget();
+			}
+			MBOW KLMN 1 A_FaceTarget;
+			goto See2;
+		Missile.Flying.Rocket:
+			MBOW V 5
+			{
+				A_FaceTarget();
+				A_MaimbowTaunt();
+			}
+			MBOW W 2 Bright
+			{
+				A_MaimbowFireTwoRocketMissiles();
+				A_FlyTowardsTarget();
+				A_FlapWings();
+			}
+			MBOW X 2 A_FlyTowardsTarget;
+			MBOW Y 2 A_FlyTowardsTarget;
+			goto See2;
+		Missile.Flying.Retaliate:
+			MBOW A 0
+			{
+				switch (attacktype)
+				{
+					case MAIMBOW_ATTACK_EXPLOSIVE:
+						return ResolveState("Missile.Flying.Retaliate.Explosive");
+						break;
+					case MAIMBOW_ATTACK_LIGHTNING:
+						return ResolveState("Missile.Flying.Retaliate.Lightning");
+						break;
+					case MAIMBOW_ATTACK_ICE:
+						return ResolveState("Missile.Flying.Retaliate.Ice");
+						break;
+					case MAIMBOW_ATTACK_RAINBOWER:
+						return ResolveState("Missile.Flying.Retaliate.Rainbower");
+						break;
+					case MAIMBOW_ATTACK_TORNADOZER:
+						return ResolveState("Missile.Flying.Retaliate.Tornadozer");
+						break;
+					case MAIMBOW_ATTACK_CHAINGUN:
+						return ResolveState("Missile.Flying.Chaingun");
+						break;
+					default:
+						break;
+				}
+				
+				return ResolveState("Missile.Flying.Rocket");
+			}
+		Missile.Flying.Retaliate.Explosive:
+			MBOW V 5
+			{
+				A_FaceTarget();
+				A_MaimbowTaunt();
+			}
+			MBOW W 2 Bright
+			{
+				A_MaimbowExplosionLine();
+				A_MaimbowResetAttackType();
+				A_FlyTowardsTarget();
+				A_FlapWings();
+			}
+			MBOW X 2 Bright	A_FlyTowardsTarget;
+			MBOW Y 2 A_FlyTowardsTarget;
+			goto See2;
+		Missile.Flying.Retaliate.Lightning:
+			MBOW V 5
+			{
+				A_FaceTarget();
+				A_MaimbowTaunt();
+				A_MaimbowLightningAttack();
+				A_MaimbowResetAttackType();
+			}
+			MBOW W 2 Bright
+			{
+				A_MaimbowLightningAttack();
+				A_FlyTowardsTarget();
+				A_FlapWings();
+			}
+			MBOW X 2 Bright
+			{
+				A_MaimbowLightningAttack();
+				A_FlyTowardsTarget();
+			}
+			MBOW Y 2 Bright
+			{
+				A_MaimbowLightningAttack();
+				A_FlyTowardsTarget();
+			}
+			MBOW X 2 Bright
+			{
+				A_MaimbowLightningAttack();
+				A_FlyTowardsTarget();
+			}
+			goto See2;
+		Missile.Flying.Retaliate.Ice:
+			MBOW V 5
+			{
+				A_FaceTarget();
+				A_MaimbowTaunt();
+			}
+			MBOW W 2 Bright
+			{
+				A_MaimbowHailerAttack();
+				A_MaimbowResetAttackType();
+				A_FlyTowardsTarget();
+				A_FlapWings();
+			}
+			MBOW X 2 Bright
+			{
+				A_MaimbowHailerAttack();
+				A_FlyTowardsTarget();
+			}
+			MBOW Y 2 A_FlyTowardsTarget;
+			goto See2;
+		Missile.Flying.Retaliate.Rainbower:
+			MBOW V 5
+			{
+				A_FaceTarget();
+				A_MaimbowTaunt();
+			}
+			MBOW W 2 Bright
+			{
+				A_MaimbowRainbower();
+				A_MaimbowResetAttackType();
+				A_FlyTowardsTarget();
+				A_FlapWings();
+			}
+			MBOW X 2 Bright A_FlyTowardsTarget;
+			MBOW Y 2 A_FlyTowardsTarget;
+			goto See2;
+		Missile.Flying.Retaliate.Tornadozer:
+			MBOW V 5
+			{
+				A_FaceTarget();
+				A_MaimbowTaunt();
+			}
+			MBOW W 2 Bright
+			{
+				A_MaimbowFireTornadozer();
+				A_MaimbowResetAttackType();
+				A_FlyTowardsTarget();
+				A_FlapWings();
+			}
+			MBOW X 2 Bright	A_FlyTowardsTarget;
+			MBOW Y 2 A_FlyTowardsTarget;
+			goto See2;
+			
+		MaimbowTeleport1:
+			MBOW A 0 A_MaimbowResetFlying;
+			MBOW A 10
+			{
+				A_SetInvulnerable();
+				bNoPain = true;
+				A_Stage2Teleportation();
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				SetShade("ffffff");
+				A_RemoveLight('maimbowlight');
+			}
+			MBOW A 10 A_UnfreezePlayers;
+			MBOW A 1 A_MaimbowAutosave;
+			MBOW A 0
+			{
+				A_SHDX_PlayBossTaunt("maimbow/phase2", true);
+				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_11", "maimbow/phase2");
+				bCanJump = false;
+			}
+			MBOW A 180;
+			MBOW B 0
+			{
+				A_UnSetInvulnerable();
+				bCanJump = true;
+				bNoPain = false;
+				A_AttachLightDef('maimbowlight', 'SHDX_BOSSLIGHT');
+			}
+			Goto See2;
+		
+		MaimbowTeleport2:
+			MBOW A 0 A_MaimbowResetFlying;
+			MBOW A 10
+			{
+				A_SetInvulnerable();
+				bNoPain = true;
+				A_Stage3Teleportation();
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				SetShade("ffffff");
+				A_RemoveLight('maimbowlight');
+			}
+			MBOW A 10 A_UnfreezePlayers;
+			MBOW A 1 A_MaimbowAutosave;
+			MBOW A 0
+			{
+				A_SHDX_PlayBossTaunt("maimbow/phase3", true);
+				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_12", "maimbow/phase3");
+				bCanJump = false;
+			}
+			MBOW A 250;
+			MBOW B 0
+			{
+				A_UnSetInvulnerable();
+				bCanJump = true;
+				bNoPain = false;
+				A_AttachLightDef('maimbowlight', 'SHDX_BOSSLIGHT');
+			}
+			Goto See2;
+			
+		Pain:
+			MBO2 A 0
+			{
+				if (flyingmode >= 1)
+					return ResolveState("Pain.Flying");
+				
+				return ResolveState(null);
+			}
+		Pain1:
+			MBOW \ 3
+			{
+				A_StartSound("maimbow/pain"..Random[Maimbow](1,3), CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+				A_SetRenderStyle(1.0, STYLE_Stencil);
+				SetShade("6e0600");
+			}
+			MBOW \ 2
+			{
+				SetShade("f08010");
+			}
+			MBOW \ 1
+			{
+				SetShade("ffee6a");
+			}
+			MBOW \ 0
+			{
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				SetShade("ffffff");
+			}
+			Goto See2;
+		Pain.Flying:
+			MBOW K 3
+			{
+				A_StartSound("maimbow/pain"..Random[Maimbow](1,3), CHAN_VOICE, attenuation:ATTN_BOSSTAUNT);
+				A_SetRenderStyle(1.0, STYLE_Stencil);
+				SetShade("6e0600");
+			}
+			MBOW K 2
+			{
+				SetShade("f08010");
+			}
+			MBOW K 1
+			{
+				SetShade("ffee6a");
+			}
+			MBOW K 0
+			{
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				SetShade("ffffff");
+			}
+			Goto See2.Flying;
+		StopFlying:
+			MBOW I 0 A_MaimbowResetFlying;
+			Goto Missile;
+		Death.Explosive:
+		Death.Weather:
+		Death.Spectrum:
+		XDeath:
+		Death:
+			MBOW \ 105
+			{
+				A_SetRenderStyle(1.0, STYLE_Normal);
+				A_RemoveLight('maimbowlight');
+				SetShade("ffffff");
+				A_SHDX_GetEndingType();
+				A_MaimbowVictoryMusic();
+			}
+			MBO2 A 5;
+			MBO2 B 5
+			{
+				A_SpawnGibsFx(self, SGFX_SPAWNNOEXTRA);
+				A_NewBossScream();
+				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_13", DeathSound);
+			}
+			MBO2 CD 5;
+			MBO2 E 150;
+			MBO2 E 190 A_SHDX_MaimbowAuroraOL;
+			MBO2 E 1 A_SHDX_MaimbowBossPlayCutscene;
+			MBO2 E -1 A_SHDX_MaimbowBossEndLevel;
+			Stop;
+	}
+}

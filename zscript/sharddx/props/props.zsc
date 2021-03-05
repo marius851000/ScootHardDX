@@ -1,0 +1,809 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_BlueVase : SHDX_Prop
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Blue Vase"
+		//$Sprite VASEA0
+		//$Category "Obstacles"
+		
+		Radius 10;
+		Height 26;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			VASE A -1;
+			Stop;
+			
+		Death:
+			VASE A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			VASE A 5;
+			Stop;
+	}
+}
+
+Class SHDX_PottedPlant : SHDX_Prop
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Potted Plant"
+		//$Sprite PLNTA0
+		//$Category "Obstacles"
+		
+		Radius 10;
+		Height 60;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			PLNT A -1;
+			Stop;
+			
+		Death:
+			PLNT A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			PLNT A 5;
+			Stop;
+	}
+}
+
+Class SHDX_Barrel1 : SHDX_Prop
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Wooden Barrel"
+		//$Sprite BARLA0
+		//$Category "Obstacles"
+		
+		Radius 10;
+		Height 28;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			BARL A -1;
+			Stop;
+			
+		Death:
+			BARL A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			BARL A 5;
+			Stop;
+	}
+}
+
+Class SHDX_Barrel2 : SHDX_Prop
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Green Barrel"
+		//$Sprite BAR2A0
+		//$Category "Obstacles"
+		
+		Radius 10;
+		Height 28;
+		Health 35;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			BAR2 A -1;
+			Stop;
+		Death:
+			BAR2 A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			BAR2 A 5;
+			Stop;
+	}
+}
+
+Class SHDX_ExplosiveBarrel : SHDX_ExplodeyProp
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Explosive Barrel"
+		//$Sprite EBARA0
+		//$Category "Obstacles"
+		
+		Radius 10;
+		Height 28;
+		
+		+SHOOTABLE
+		+NOBLOOD
+		
+		Health 10;
+		
+		Obituary "$SHDX_OB_BARREL";
+	}
+	
+	States
+	{
+		Spawn:
+			EBAR A -1;
+			Stop;
+		
+		Death:
+			EXPL A 0
+			{
+				A_Explode(128, 128, flags:XF_NOTMISSILE, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 128, 0, 128, 0, DE_NOTMISSILE, 'Explosive');
+				A_StartSound("misc/explosion", CHAN_BODY);
+				A_SpawnItemEx("SHDX_Explosiveness", 0, 0, 16);
+			}
+			TNT1 AAAAAA 5;
+			Stop;
+	}
+}
+
+Class SHDX_Hook : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Hook"
+		//$Sprite HOOKA0
+		//$Category "Decoration"
+		
+		Radius 8;
+		Height 50;
+		
+		+SpawnCeiling
+		+NoGravity
+	}
+	
+	States
+	{
+		Spawn:
+			HOOK A -1;
+			Stop;
+	}
+}
+
+Class SHDX_Hook2 : SHDX_Hook
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Bloody Hook"
+		//$Sprite HUK2A0
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			HUK2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_CoffeeMug : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Coffee Mug"
+		//$Sprite CUPCA0
+		//$Category "Decoration"
+		
+		+SHOOTABLE
+		+NOBLOOD
+		
+		Radius 8;
+		Height 8;
+		Health 1;
+	}
+	
+	States
+	{
+		Spawn:
+			CUPC A -1;
+			Stop;
+			
+		Death:
+			TNT1 A 0
+			{
+				A_StartSound("misc/glassbreak");
+				SHDX_Actor.A_SpawnGlassJunkFx(self);
+			}
+			Stop;
+	}
+}
+
+Class SHDX_OfficeChair : SHDX_Prop
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Office Chair"
+		//$Sprite OCHRA0
+		//$Category "Obstacles"
+		
+		Radius 11;
+		Height 32;
+		Health 15;
+		
+		+SHOOTABLE
+		+NOBLOOD
+		+PUSHABLE
+	}
+	
+	States
+	{
+		Spawn:
+			OCHR A -1;
+			Stop;
+			
+		Death:
+			OCHR A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			Stop;
+	}
+}
+
+Class SHDX_OfficeCup : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Water Cooler Cup"
+		//$Sprite OCUPA0
+		//$Category "Decoration"
+		
+		Radius 4;
+		Height 8;
+	}
+	
+	States
+	{
+		Spawn:
+			OCUP N -1;
+			Stop;
+	}
+}
+
+Class SHDX_OfficeCupStack : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Water Cooler Cup Stack"
+		//$Sprite OCPSA0
+		//$Category "Decoration"
+		
+		Radius 4;
+		Height 20;
+	}
+	
+	States
+	{
+		Spawn:
+			OCPS N -1;
+			Stop;
+	}
+}
+
+
+Class SHDX_DontrelPlush : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Dontrel Plush"
+		//$Sprite DOL0A0
+		//$Category "Decoration"
+		
+		Radius 5;
+		Height 10;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			DOL0 A -1;
+			Stop;
+			
+		Death:
+			DOL0 A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			DOL0 A 5;
+			Stop;
+	}
+}
+
+Class SHDX_CancerMouse : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Cancer Mouse"
+		//$Sprite CMOUA0
+		//$Category "Decoration"
+		
+		Radius 8;
+		Height 12;
+	}
+	
+	States
+	{
+		Spawn:
+			CMOU A -1;
+			Stop;
+	}
+}
+
+Class SHDX_HeavyEnforcerDormant : SHDX_Prop
+{
+	Default
+	{
+		//$Category "Obstacles"
+		//$Sprite ENFOQ1
+		//$Title "Heavy Enforcer Dormant"
+		
+		Radius 20;
+		Height 56;
+	}
+	
+	override void Activate(Actor activator)
+	{
+		Super.Activate(activator);
+		SetStateLabel("Active");
+	}
+	
+	States
+	{		
+		Spawn:
+			ENFO Q -1;
+			Stop;
+		Active:
+			ENFO A 0 A_StartSound("enforcer/activate", CHAN_BODY);
+			ENFO A -1;
+			Stop;
+	}
+}
+
+Class SHDX_LightEnforcerDormant : SHDX_Prop
+{
+	Default
+	{
+		//$Category "Obstacles"
+		//$Sprite ENF2P1
+		//$Title "Light Enforcer Dormant"
+		
+		Radius 20;
+		Height 56;
+	}
+	
+	override void Activate(Actor activator)
+	{
+		Super.Activate(activator);
+		SetStateLabel("Active");
+	}
+	
+	States
+	{		
+		Spawn:
+			ENF2 P -1;
+			Stop;
+		Active:
+			ENF2 A 0 A_StartSound("enforcer/activate", CHAN_BODY);
+			ENF2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_TchernobogStatue : SHDX_Prop
+{
+	Default
+	{
+		//$Category "Obstacles"
+		//$Sprite TCHRA0
+		//$Title "Tchernobog Statue"
+		
+		Scale 0.67;
+		
+		Radius 48;
+		Height 144;
+	}
+	
+	States
+	{		
+		Spawn:
+			TCHR A -1;
+			Stop;
+	}
+}
+
+Class SHDX_Flask : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Flask"
+		//$Sprite FLSKA0
+		//$Category "Decoration"
+		
+		+SHOOTABLE
+		+NOBLOOD
+		
+		Radius 8;
+		Height 8;
+		Health 1;
+	}
+	
+	States
+	{
+		Spawn:
+			FLSK A -1;
+			Stop;
+			
+		Death:
+			TNT1 A 0
+			{
+				A_StartSound("misc/glassbreak");
+				SHDX_Actor.A_SpawnGlassJunkFx(self);
+			}
+			Stop;
+	}
+}
+
+Class SHDX_Beaker : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Beaker"
+		//$Sprite BEKRA0
+		//$Category "Decoration"
+		
+		+SHOOTABLE
+		+NOBLOOD
+		
+		Radius 8;
+		Height 8;
+		Health 1;
+	}
+	
+	States
+	{
+		Spawn:
+			BEKR A -1;
+			Stop;
+			
+		Death:
+			TNT1 A 0
+			{
+				A_StartSound("misc/glassbreak");
+				SHDX_Actor.A_SpawnGlassJunkFx(self);
+			}
+			Stop;
+	}
+}
+
+Class SHDX_ZetaEnforcerDormant : SHDX_Prop
+{
+	Default
+	{
+		//$Category "Obstacles"
+		//$Sprite ZETAA1
+		//$Title "Zeta Enforcer Dormant"
+		
+		Radius 20;
+		Height 56;
+	}
+	
+	States
+	{		
+		Spawn:
+			ZETA A -1;
+			Stop;
+	}
+}
+
+Class SHDX_WarningSign1 : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Warning Sign 1"
+		//$Sprite WSG1A0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 26;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			WSG1 A -1;
+			Stop;
+			
+		Death:
+			TNT1 A 0
+			{
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			TNT1 A 5;
+			Stop;
+	}
+}
+
+Class SHDX_WarningSign2 : SHDX_WarningSign1
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Warning Sign 2"
+		//$Sprite WSG2A0
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			WSG2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_Bucket : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Bucket"
+		//$Sprite BUCKA0
+		//$Category "Decoration"
+		
+		+SHOOTABLE
+		+NOBLOOD
+		
+		Radius 8;
+		Height 8;
+		Health 1;
+	}
+	
+	States
+	{
+		Spawn:
+			BUCK A -1;
+			Stop;
+			
+		Death:
+			TNT1 A 0
+			{
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			Stop;
+	}
+}
+
+Class SHDX_Mop : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Mop"
+		//$Sprite MOP0A0
+		//$Category "Decoration"
+		
+		Radius 12;
+		Height 36;
+	}
+	
+	States
+	{
+		Spawn:
+			MOP0 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_PopcornCup : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Popcorn Cup"
+		//$Sprite PCRNA0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 20;
+		Mass 0;
+		VSpeed 0;
+
+		+NoGravity
+	}
+
+	States
+	{
+		Spawn:
+			PCRN A -1 NoDelay A_Stop;
+			Stop;
+	}
+}
+
+// Empty Popcorn Cups
+Class SHDX_EmptyPopcornCups : SHDX_PopcornCup
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Popcorn Cups - Empty"
+		//$Sprite PCRNB0
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			PCRN B -1 NoDelay A_Stop;
+			Stop;
+	}
+}
+
+// Empty Popcorn Cup
+Class SHDX_PopcornCupEmpty : SHDX_PopcornCup
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Popcorn Cup Empty"
+		//$Sprite PCRNC0
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			PCRN C -1 NoDelay A_Stop;
+			Stop;
+	}
+}
+
+
+Class SHDX_DrinkingCup : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Category "Decoration"
+		
+		Height 12;
+		Radius 10;
+	}
+}
+
+Class SHDX_DrinkingCup1 : SHDX_DrinkingCup
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Drinking Cup 1 (White 1)"
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			BCUP A -1;
+			Stop;
+	}
+}
+
+
+Class SHDX_DrinkingCup1Side : SHDX_DrinkingCup
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Drinking Cup 1 (White 2)"
+		//$Category "Decoration"
+	}
+	
+	States
+	{
+		Spawn:
+			BCUP B -1;
+			Stop;
+	}
+}
+
+Class SHDX_Vines : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Vines"
+		//$Sprite VINEA0
+		//$Category "Decoration"
+		
+		Radius 24;
+		Height 48;
+		
+		+NoGravity
+		+SpawnCeiling
+	}
+	
+	States
+	{
+		Spawn:
+			VINE A -1;
+			Stop;
+	}
+}

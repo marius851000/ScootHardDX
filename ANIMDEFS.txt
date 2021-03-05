@@ -1,0 +1,77 @@
+cameratexture CAMTEX32 32 32
+cameratexture CAMTEX64 64 64
+cameratexture CTEXT001 320 256 fit 80 64 worldpanning
+cameratexture CTEXT002 320 256 fit 80 64 worldpanning
+cameratexture CTEXT003 320 256 fit 80 64 worldpanning
+cameratexture CTEXT004 320 256 fit 80 64 worldpanning
+cameratexture CTEXT005 512 320 worldpanning
+cameratexture CTEXT006 512 320 worldpanning
+cameratexture CTEXT007 512 320 worldpanning
+
+texture TV0_A
+	pic TV0_A tics 2
+	pic TV0_B tics 2
+	pic TV0_C tics 2
+	pic TV0_D tics 2
+
+warp2 flat OWATER01
+warp2 flat PWATER01
+warp2 flat F_WATER2
+warp2 flat F_NUKE
+warp2 flat F_LAVA
+
+animateddoor door1a
+	opensound DoorOpenMetal
+	closesound DoorCloseMetal
+	pic door1a
+	pic door1b
+	pic door1c
+	pic door1d
+	pic door1e
+
+switch SW2S0 on sound switch/normbutn pic SW2S1 tics 0
+switch SW2S1 off sound switch/normbutn pic SW2S0 tics 0
+
+switch SW3S0 on sound switch/normbutn pic SW3S1 tics 0
+switch SW3S1 off sound switch/normbutn pic SW3S0 tics 0
+
+switch SW4S0 on sound switch/normbutn pic SW4S1 tics 0
+switch SW4S1 off sound switch/normbutn pic SW4S0 tics 0
+
+switch BGLASS_A on sound misc/glassbreak pic BGLASS_B tics 0
+switch MIDGLASS on sound misc/glassbreak pic GLSBRKNL tics 0
+
+switch VENT_E on sound misc/ventbust pic VENT_F tics 0
+
+texture M_CWC1
+	pic M_CWC1 tics 2
+	pic M_CWC2 tics 2
+	pic M_CWC3 tics 2
+	pic M_CWC4 tics 2
+	pic M_CWC5 tics 2
+	pic M_CWC6 tics 2
+	pic M_CWC5 tics 2
+	pic M_CWC4 tics 2
+	pic M_CWC3 tics 2
+	pic M_CWC2 tics 2
+
+Texture	WFALL1  	Range	WFALL4  	Tics 4
+Texture	RFALL_1  	Range	RFALL_4  	Tics 4
+Texture	OFALL_1  	Range	OFALL_4  	Tics 4
+Texture	YFALL_1  	Range	YFALL_4  	Tics 4
+Texture	GFALL_1  	Range	GFALL_4  	Tics 4
+Texture	BFALL_1  	Range	BFALL_4  	Tics 4
+Texture	PUFALL_1  	Range	PUFALL_4  	Tics 4
+Texture	BFALL1  	Range	BFALL4  	Tics 4
+Texture	PWFALL1  	Range	PWFALL4  	Tics 4
+
+Texture SAWB_1      Range	SAWB_3		Tics 3
+
+warp2 flat RSPECF0
+warp2 flat OSPECF0
+warp2 flat YSPECF0
+warp2 flat GSPECF0
+warp2 flat BSPECF0
+warp2 flat PUSPECF0
+
+warp2 flat BLOODFLT

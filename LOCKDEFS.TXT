@@ -1,0 +1,46 @@
+ClearLocks
+
+Lock 1
+{
+	//$Title "Red Card"
+	SHDX_RedCard
+	Message "$SHDX_LOCKED_REDACCESS"
+	RemoteMessage "$SHDX_LOCKED_REDACCESS"
+	Mapcolor 255 0 0
+}
+
+
+Lock 3
+{
+	//$Title "Green Card"
+	SHDX_GreenCard
+	Message "$SHDX_LOCKED_GREENACCESS"
+	RemoteMessage "$SHDX_LOCKED_GREENACCESS"
+	Mapcolor 0 255 0
+}
+
+Lock 2
+{
+	//$Title "Blue Card"
+	SHDX_BlueCard
+	Message "$SHDX_LOCKED_BLUEACCESS"
+	RemoteMessage "$SHDX_LOCKED_BLUEACCESS"
+	Mapcolor 0 0 255
+}
+
+Lock 4
+{
+	//$Title "Management Card"
+	SHDX_ManagementCard
+	Message "$SHDX_LOCKED_MANAGEMENTACCESS"
+	RemoteMessage "$SHDX_LOCKED_MANAGEMENTACCESS"
+	Mapcolor 0 255 255
+}
+
+Lock 7
+{
+	//$Title "No Access"
+	Message "$SHDX_LOCKED_NOACCESS"
+	RemoteMessage "$SHDX_LOCKED_NOACCESS"
+	Mapcolor 85 107 47
+}

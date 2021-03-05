@@ -1,0 +1,155 @@
+DefaultListMenu
+{
+	Font "BIGFONT", "Fire"
+	Linespacing 20
+	Selector "M_CWC1", -32, -4
+}
+
+ListMenu "MainMenu"
+{
+	size 320, 240
+	Position 96, 54
+	StaticPatch 48, 12, "M_SHDX"
+	TextItem "$MNU_SHARDDX_NEWGAME",		"n",	"PlayerclassMenu"
+	TextItem "$MNU_SHARDDX_SSTATES",		"s",	"SHARDDXGameFilesMenu"
+	TextItem "$MNU_SHARDDX_OPTIONS",		"o",	"ScootHardDXOptionsMenu"
+	TextItem "$MNU_SHARDDX_HELP",		"h",	"SHDX_ReadThisMenu"
+	TextItem "$MNU_SHARDDX_CREDITS",		"c",	"SHDX_CreditsMenu"
+	TextItem "$MNU_SHARDDX_QUIT", 		"e",	"QuitMenu"
+}
+
+LISTMENU "EpisodeMenu"
+{
+	size 320, 240
+	NetgameMessage "$NEWGAME"
+	Linespacing 20
+	
+	StaticTextCentered 160, 10, "$SHDX_EPISODE_MENU"
+	Position 80, 44
+}
+
+ListMenu "SkillMenu"
+{
+	size 320, 240
+	Linespacing 20
+	
+	StaticTextCentered 160, 10, "$SHDX_SKILL_MENU"
+	Position 100, 44
+}
+
+ListMenu "SHARDDXGameFilesMenu"
+{
+	size 320, 240
+	StaticTextCentered 160, 10, "$MNU_SHARDDX_SSTATES"
+	Linespacing 20
+	
+	Position 125, 44
+	TextItem "$MNU_SHARDDX_LOADGAME", "l", "SHARDDXLoadGameMenu"
+	TextItem "$MNU_SHARDDX_SAVEGAME", "s", "SHARDDXSaveGameMenu"
+}
+
+ListMenu "SHARDDXLoadGameMenu"
+{
+	StaticTextCentered 160, -10, "$MNU_SHARDDX_LOADGAME"
+	Position 80, 54
+	Class "LoadMenu"	// uses its own implementation
+}
+
+ListMenu "SHARDDXSaveGameMenu"
+{
+	StaticTextCentered 160, -10, "$MNU_SHARDDX_SAVEGAME"
+	Position 80, 54
+	Class "SaveMenu"	// uses its own implementation
+}
+
+OptionMenu "ScootHardDXOptionsMenu"
+{
+	Title "$SHARDDX_SHDXMENU"
+	Position -32
+	
+	StaticText "$MNU_SHARDDX_SPECIFIC"
+	
+	Submenu "$OPTMNU_SHDXCONTROLS",     "ScootHardDXControls"
+	Submenu "$OPTMNU_MOUSE",			"MouseOptions"
+	Submenu "$OPTMNU_JOYSTICK",			"JoystickOptions"
+	
+	StaticText ""
+	Submenu "$OPTMNU_HUD",				"HUDOptions"
+	Submenu "$OPTMNU_SOUND",			"SoundOptions"
+	Submenu "$OPTMNU_DISPLAY",			"VideoOptions"
+	Submenu "$OPTMNU_VIDEO",			"VideoModeMenu"
+	
+	StaticText ""
+	Option "$MNU_SHARDDX_MUTEPLAYER",		"shdx_snd_oneliners",	"OnOff"
+	Option "$MNU_SHARDDX_CUTSCENES",		"shdx_skipcutscenes",	"OnOff"
+	// Option "$MNU_SHARDDX_SKIPVOX",			"shdx_skipvox",			"OnOff"
+	Option "$MNU_SHARDDX_SUBTITLES",		"shdx_subtitles",		"OnOff"
+	// Option "$MNU_SHARDDX_COPYRIGHTCENSOR", "shdx_copyrightcensor",	"OnOff"
+	Option "$MNU_SHARDDX_HQRIP",			"shdx_rip",				"OnOff"
+	Option "$MNU_SHARDDX_DRAWVOXELS", 		"r_drawvoxels",			"OnOff"
+	Option "$MNU_SHARDDX_FASTBOOT",			"shdx_fastboot",		"OnOff"
+	
+	StaticText ""
+	Submenu "$MNU_SHARDDX_ADVOPTIONS",		"OptionsMenu"
+}
+
+OptionMenu "ScootHardDXControls"
+{
+	Title "$OPTMNU_SHDXCONTROLS"
+	ScrollTop 2
+	StaticTextSwitchable "$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
+
+	StaticText ""
+	Control    "$CNTRLMNU_ATTACK"           , "+attack"
+	Control    "$CNTRLMNU_ALTATTACK"        , "+altattack"
+	Control    "$CNTRLMNU_USER1"            , "+user1"
+
+	StaticText ""
+	Control    "$CNTRLMNU_USE"              , "+use"
+	
+	StaticText ""
+	Control    "$CNTRLMNU_NEXTWEAPON"     , "weapnext"
+	Control    "$CNTRLMNU_PREVIOUSWEAPON" , "weapprev"
+	
+	StaticText ""
+	Control    "$CNTRLMNU_SLOT1"          , "slot 1"
+	Control    "$CNTRLMNU_SLOT2"          , "slot 2"
+	Control    "$CNTRLMNU_SLOT3"          , "slot 3"
+	Control    "$CNTRLMNU_SLOT4"          , "slot 4"
+	Control    "$CNTRLMNU_SLOT5"          , "slot 5"
+
+	StaticText ""
+	Control    "$CNTRLMNU_FORWARD"          , "+forward"
+	Control    "$CNTRLMNU_BACK"             , "+back"
+	Control    "$CNTRLMNU_MOVELEFT"         , "+moveleft"
+	Control    "$CNTRLMNU_MOVERIGHT"        , "+moveright"
+
+	StaticText ""
+	Control    "$CNTRLMNU_JUMP"             , "+jump"
+	Control    "$CNTRLMNU_CROUCH"           , "+crouch"
+	Control    "$CNTRLMNU_TOGGLECROUCH"     , "crouch"
+	
+	StaticText ""
+	Control    "$CNTRLMNU_AUTOMAP"         , "togglemap"
+	
+	StaticText ""
+	Control    "$CNTRLMNU_SCREENSHOT"      , "screenshot"
+	Control    "$CNTRLMNU_CONSOLE"         , "toggleconsole"
+	Control    "$CNTRLMNU_PAUSE"           , "pause"
+
+	StaticText ""
+	Control    "$CNTRLMNU_OPEN_HELP"       , "menu_help"
+	Control    "$CNTRLMNU_OPEN_SAVE"       , "menu_save"
+	Control    "$CNTRLMNU_OPEN_LOAD"       , "menu_load"
+	Control    "$CNTRLMNU_OPEN_OPTIONS"    , "menu_options"
+	Control    "$CNTRLMNU_OPEN_DISPLAY"    , "menu_display"
+	Control    "$CNTRLMNU_EXIT_TO_MAIN"    , "menu_endgame"
+	Control    "$CNTRLMNU_MENU_QUIT"       , "menu_quit"
+
+	StaticText ""
+	Control    "$CNTRLMNU_QUICKSAVE"       , "quicksave"
+	Control    "$CNTRLMNU_QUICKLOAD"       , "quickload"
+	
+	StaticText ""
+	Submenu		"$MAPCNTRLMNU_CONTROLS" , "MapControlsMenu"
+}

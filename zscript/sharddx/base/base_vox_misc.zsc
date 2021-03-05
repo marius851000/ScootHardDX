@@ -1,0 +1,93 @@
+/*
+Copyright 2020-2021 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+extend class SHDX_Vox
+{
+	static void SendSubtitleToHandler(String sub, int length)
+	{
+		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		
+		if (!hnd) return;
+		
+		hnd.AddSubtitle(sub, length, 5);
+	}
+	
+	static int GetSecondsFromSound(Sound snd)
+	{
+		if (SHDX_Utilities.CheckSoundExists(snd))
+			return int(S_GetLength(snd) * Thinker.TICRATE);
+			
+		return 0;
+	}
+	
+	void AddVoxEntry(Sound snd, string subtitle)
+	{
+		let voxentry = new("SHDX_VoxEntry");
+		
+		voxentry.snd = snd;
+		voxentry.subtitle = subtitle;
+		voxentry.duration = SHDX_Vox.GetSecondsFromSound(snd);
+		
+		entries.Push(voxentry);
+	}
+	
+	void A_SHDX_SetPlayerMuted(bool muted)
+	{
+		PlayerInfo pl;
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			if (playeringame[i])
+			{
+				pl = players[i];
+				if (pl && pl.mo)
+				{
+					let npo = SHDX_PlayerPawn(pl.mo);
+					if (npo)
+					{
+						npo.onelinermute = muted;
+						if (muted)
+							npo.A_StopSound(SHDXPLAYER_DIALOGUECHANNEL1);
+					}
+				}
+			}
+		}
+	}
+	
+	void A_SHDX_PlayVoxSound(int i)
+	{
+		A_StartSound(entries[i].snd, VOXCHANNELSND, CHANF_DEFAULT, 1.0, ATTN_NONE);
+		
+		SHDX_Vox.SendSubtitleToHandler(entries[i].subtitle, entries[i].duration);
+	}
+	
+	void StopOtherVoxObjects()
+	{
+		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		
+		if (hndlr)
+		{
+			if (hndlr.voxobjs.Size() > 0)
+			{
+				for (int i = 0; i < hndlr.voxobjs.Size(); i++)
+				{
+					if (hndlr.voxobjs[i] && hndlr.voxobjs[i] != self && hndlr.voxobjs[i].triggered)
+					{
+						hndlr.voxobjs[i].A_StopSound(VOXCHANNELSND);
+						hndlr.voxobjs[i].Destroy();
+					}
+				}
+			}
+		}
+	}
+}

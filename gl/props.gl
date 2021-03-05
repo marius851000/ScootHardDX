@@ -1,0 +1,131 @@
+pointlight SHDX_TALLLAMP
+{
+    color 1.0 1.0 1.0
+    size 64
+	offset 0 52 0
+}
+
+object SHDX_Lamp
+{
+	frame LAMP { light SHDX_TALLLAMP }
+}
+
+pointlight SHDX_YELLOWLAMP
+{
+    color 1.0 1.0 0.0
+    size 64
+	offset 0 8 0
+}
+
+object SHDX_LittleCeilingLight
+{
+	frame CLIT { light SHDX_YELLOWLAMP }
+}
+
+object SHDX_LittleFloorLight
+{
+	frame FLT2 { light SHDX_YELLOWLAMP }
+}
+
+pointlight SHDX_REDLAMP
+{
+    color 1.0 0.0 0.0
+    size 64
+	offset 0 8 0
+}
+
+object SHDX_LittleCeilingLightRed
+{
+	frame CLT3 { light SHDX_REDLAMP }
+}
+
+object SHDX_LittleFloorLightRed
+{
+	frame FLT3 { light SHDX_REDLAMP }
+}
+
+pointlight SHDX_SMALLLAMP
+{
+    color 1.0 1.0 1.0
+    size 64
+	offset 0 8 0
+}
+
+object SHDX_GreenCeilingLight
+{
+	frame CLT2 { light SHDX_SMALLLAMP }
+}
+
+pointlight SHDX_WIREFLICKER
+{
+    color 0.0 1.0 1.0
+    size 64
+	offset 0 8 0
+}
+
+object SHDX_Wires
+{
+    frame WIREB { light SHDX_WIREFLICKER }
+    frame WIREC { light SHDX_WIREFLICKER }
+}
+
+object SHDX_WiresFloor
+{
+    frame WIREE { light SHDX_WIREFLICKER }
+    frame WIREF { light SHDX_WIREFLICKER }
+}
+
+flickerlight SHDX_TOASTER
+{
+    color 1.0 0.7 0.0
+    size 48
+    secondarySize 56
+    chance 0.3
+	offset 0 16 0
+}
+
+object SHDX_WoodenToaster
+{
+	frame WTSR { light SHDX_TOASTER }
+}
+
+flickerlight SHDX_PUMPKIN
+{
+    color 1.0 0.7 0.0
+    size 24
+    secondarySize 48
+    chance 0.3
+	offset 0 16 0
+}
+
+object SHDX_Pumpkin
+{
+	frame PUMP { light SHDX_PUMPKIN }
+}
+
+flickerlight SHDX_TESLASINGLECOILFLICKER
+{
+    color 0.50 0.0 0.50
+    size 48
+    secondarySize 56
+    chance 0.3
+}
+
+object SHDX_TeslaCoilSingle
+{
+	frame TSL2 { light SHDX_TESLASINGLECOILFLICKER }
+}
+
+flickerlight SHDX_TESLADOUBLECOILFLICKER
+{
+    color 0.0 1.0 1.0
+    size 48
+    secondarySize 56
+    chance 0.3
+	offset 0 16 0
+}
+
+object SHDX_TeslaCoilDouble
+{
+	frame TSLA { light SHDX_TESLADOUBLECOILFLICKER }
+}

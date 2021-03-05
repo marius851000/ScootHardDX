@@ -1,0 +1,262 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+class SHDX_CreditMapEvent : EventHandler
+{
+	ui int seconds;
+	bool ispressinguse[MAXPLAYERS];
+	ui int useticker;
+	bool aurorafound;
+	
+	const SECONDS_CREDITSTART = 1;
+	const SECONDS_CREDITEND = (SECONDS_CREDITSTART + 60);
+	const SECONDS_BORDEAUX_START = SECONDS_CREDITEND + 1;
+	const SECONDS_BORDEAUX_VOICE_START = SECONDS_BORDEAUX_START + 10;
+	const SECONDS_BODREAUX_END = SECONDS_BORDEAUX_VOICE_START + 16;
+	const SECONDS_MAX = SECONDS_BODREAUX_END + 1;
+	
+	override void OnRegister()
+	{
+		SetOrder(1);
+	}
+	
+	ui void DrawBGImage(string texturepath)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			int _rw, _rh;
+			[_rw, _rh] = TexMan.GetSize(rid);
+			
+			Vector2 ss = (Screen.GetWidth(), Screen.GetHeight());
+			Screen.DrawTexture(rid, false, 0, 0, 
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_FullscreenEx, 3);
+		}
+	}
+	
+	ui void DrawImageWithOffsets(string texturepath, int x, int y, bool centered = false, double alpha = 1.0)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			int _rw, _rh;
+			[_rw, _rh] = TexMan.GetSize(rid);
+			
+			Vector2 ss = (Screen.GetWidth(),Screen.GetHeight());
+			Screen.DrawTexture(rid, false, x, y, 
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered);
+		}
+	}
+	
+	ui void DrawCreditNumber(String str, int x, int y, double alpha = 1.0)
+	{
+		double hs;
+		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
+		Screen.DrawText("smallfont", Font.CR_FIRE, x, y, str,
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true,
+							DTA_Alpha, alpha);
+	}
+	
+	ui void DrawCredit(String strloc, int x, int y, Vector2 ss, double alpha = 1.0, int fcolor = Font.CR_FIRE)
+	{
+		Screen.DrawText("smallfont", fcolor, x, y, StringTable.Localize(strloc),
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true,
+							DTA_Alpha, alpha);
+	}
+	
+	ui void ClearBlack()
+	{
+		Screen.Clear(0, 0, Screen.GetWidth(), Screen.GetHeight(), 0x000000);
+	}
+	
+	ui void PlayBordeauxSound()
+	{
+		S_StartSound("credits/bordeaux", CHAN_VOICE, CHANF_DEFAULT, 1, ATTN_NORM);
+	}
+	
+	ui void PlayCreditMusic()
+	{
+		S_ChangeMusic("");
+	}
+	
+	ui void ShutOffMusic()
+	{
+		S_ChangeMusic("");
+	}
+	
+	void CheckForAurora()
+	{
+		if (aurorafound)
+			return;
+		
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
+			{
+				aurorafound = true;
+				return;
+			}
+		}
+	}
+	
+	ui void CheckIfPressingUse()
+	{
+		if (ispressinguse[consoleplayer])
+		{
+			if (++useticker > TICRATE * 5)
+			{
+				SendNetworkEvent("ExitLevel", 0, 0, 0);
+				useticker = 0;
+			}
+		}
+		else
+		{
+			useticker = 0;
+		}
+	}
+	
+	override void WorldTick()
+	{
+		CheckForAurora();
+	}
+	
+	override bool InputProcess(InputEvent e)
+	{
+		Array<int> keys;
+		Bindings.GetAllKeysForCommand(keys, "+use");
+		
+		for (int i = 0; i < keys.Size(); i++)
+		{
+			if (e.Keyscan == keys[i])
+			{
+				SendNetworkEvent("ToggleUseHold", e.Type == e.Type_KeyDown, consoleplayer);
+			}
+		}
+		
+		return false;
+	}
+	
+	override void UITick()
+	{
+		CheckIfPressingUse();
+		if (!(level.time % TICRATE))
+		{
+			if (seconds == SECONDS_CREDITSTART - 1)
+			{
+				PlayCreditMusic();
+			}
+			
+			if (seconds == SECONDS_CREDITEND && (!aurorafound || shdx_skipcutscenes))
+			{
+				SendNetworkEvent("ExitLevel", 0, 0, 0);
+			}
+			
+			if (aurorafound)
+			{
+				if (seconds == SECONDS_BORDEAUX_START)
+				{
+					ShutOffMusic();
+				}	
+				if (seconds == SECONDS_BORDEAUX_VOICE_START)
+				{
+					PlayBordeauxSound();
+				}
+			}
+			
+			if (seconds == SECONDS_BODREAUX_END)
+			{
+				SendNetworkEvent("ExitLevel", 0, 0, 0);
+			}
+			
+			seconds++;
+		}
+	}
+
+	// Override the RenderOverlay
+	override void RenderOverlay(RenderEvent e)
+	{
+		PlayerInfo p = players[consoleplayer];
+		
+		if (p && p.mo)
+		{
+			if (seconds >= 0)
+				ClearBlack();
+			
+			if (seconds >= SECONDS_CREDITSTART && seconds < SECONDS_CREDITEND)
+			{
+				// DrawBGImage("graphics/cutscenes/credits/teampic.png");
+				
+				double hs;
+				if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+				else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+				Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
+				
+				DrawCredit("CREDITS WIP", 0, 0, ss, fcolor:Font.CR_RED);
+				
+				DrawCredit("CREDITS TBD", 0, int(ss.y) - 40, ss);
+			}
+			
+			if (aurorafound)
+			{
+				if (seconds >= SECONDS_BORDEAUX_START && seconds < SECONDS_BORDEAUX_VOICE_START)
+				{
+					DrawBGImage("graphics/cutscenes/credits/maimbow1.png");
+				}
+				
+				if (seconds >= SECONDS_BORDEAUX_VOICE_START && seconds < SECONDS_BODREAUX_END)
+				{
+					DrawBGImage("graphics/cutscenes/credits/maimbow2.png");
+				}
+			}
+		}
+	}
+	
+	override void PlayerSpawned(PlayerEvent e)
+	{
+		PlayerInfo player = players[e.PlayerNumber];
+		if (player)
+		{
+			player.cheats |= CF_TOTALLYFROZEN;
+		}
+	}
+	
+	override void PlayerDisconnected(PlayerEvent e)
+	{
+		PlayerInfo player = players[e.PlayerNumber];
+		if (player)
+		{
+			player.cheats &= ~CF_TOTALLYFROZEN;
+		}
+	}
+	
+	override void NetworkProcess(ConsoleEvent e)
+	{
+		if (e.Name ~== "ExitLevel")
+		{
+			level.ExitLevel(0, false);
+		}
+		
+		if (e.Name ~== "ToggleUseHold")
+		{
+			ispressinguse[e.Args[1]] = e.Args[0];
+		}
+	}
+}

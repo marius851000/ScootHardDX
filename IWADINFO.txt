@@ -1,0 +1,8 @@
+IWad
+{
+	Name = "Scoot Hard DX: Daytime Drama Zero (BETA 2.666.2)"
+	Autoname = "Scoot Hard DX"
+	Game = "Doom"
+	Config = "ScootHardDX"
+	BannerColors = "F9 B7 64", "BF 5D 93"
+}

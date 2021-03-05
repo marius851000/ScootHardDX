@@ -1,0 +1,342 @@
+/*
+Copyright (c) 2020 Marisa Kirisame, UnSX Team
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+/*
+Copyright 2020 Sanya K. Waffles and Accensus
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_ReadThisHijacker : StaticEventHandler
+{
+	override void UiTick()
+	{
+		Menu cur = Menu.GetCurrentMenu();
+		if ( cur is 'ReadThisMenu' )
+		{
+			cur.Close();
+			Menu.SetMenu('SHDX_ReadThisMenu');
+		}
+	}
+}
+
+class SHDX_ReadThisMenu : GenericMenu
+{
+	int curpage, prevpage;
+	int fadetic;
+	int mInfoTic;
+	bool isrclick;
+	int pagedir;
+	
+	enum EHelpPage
+	{
+		PAGE_MENU1,
+		PAGE_MENU2,
+		PAGE_MENU3,
+		PAGE_MENU4,
+		PAGE_MENU4A,
+		PAGE_MENU4B,
+		PAGE_MENU4C,
+		PAGE_MENU4D,
+		PAGE_MENU4E,
+		PAGE_MENU4F,
+		PAGE_MENU5,
+		PAGE_MENU6,
+		PAGE_MENU7,
+		PAGE_MENU8,
+		PAGE_MENU9,
+		PAGE_MENU10,
+		NUM_HELP_PAGES
+	}
+	
+	override void Init(Menu parent)
+	{
+		Super.Init(parent);
+		curpage = 0;
+		prevpage = -1;
+		mInfoTic = gametic;
+		pagedir = 0;
+	}
+	
+	ui void DrawImageWithOffsets(string texturepath, int x, int y, bool centered = false)
+	{
+		if (texturepath.Length() > 0)
+		{
+			TextureID rid = TexMan.CheckForTexture(texturepath, TexMan.Type_Any);
+			int _rw, _rh;
+			[_rw, _rh] = TexMan.GetSize(rid);
+		
+			double hs;
+			if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+			else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+			Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
+			Screen.DrawTexture(rid, false, x, y, 
+							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered);
+		}
+	}
+	
+	private void DrawPage(int page, double alpha = 1.)
+	{
+		Font fnt = "Smallfont";
+		Font bigfont = "Bigfont";
+		int h = bigfont.GetHeight();
+		String hdr = "", txt = "";
+		BrokenLines l;
+		int maxlen = 0, lh;
+		double y = 0;
+		switch (page)
+		{
+			case PAGE_MENU1:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU1");
+				txt = StringTable.Localize("$SHDX_HELP_MENU1");
+				break;
+			case PAGE_MENU2:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU2");
+				txt = StringTable.Localize("$SHDX_HELP_MENU2");
+				break;
+			case PAGE_MENU3:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU3");
+				txt = StringTable.Localize("$SHDX_HELP_MENU3");
+				break;
+			case PAGE_MENU4:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4");
+				break;
+			case PAGE_MENU4A:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4A");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4A");
+				break;
+			case PAGE_MENU4B:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4B");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4B");
+				break;
+			case PAGE_MENU4C:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4C");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4C");
+				break;
+			case PAGE_MENU4D:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4D");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4D");
+				break;
+			case PAGE_MENU4E:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4E");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4E");
+				break;
+			case PAGE_MENU4F:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU4F");
+				txt = StringTable.Localize("$SHDX_HELP_MENU4F");
+				break;
+			case PAGE_MENU5:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU5");
+				txt = StringTable.Localize("$SHDX_HELP_MENU5");
+				break;
+			case PAGE_MENU6:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU6");
+				txt = StringTable.Localize("$SHDX_HELP_MENU6");
+				break;
+			case PAGE_MENU7:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU7");
+				txt = StringTable.Localize("$SHDX_HELP_MENU7");
+				break;
+			case PAGE_MENU8:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU8");
+				txt = StringTable.Localize("$SHDX_HELP_MENU8");
+				break;
+			case PAGE_MENU9:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU9");
+				txt = StringTable.Localize("$SHDX_HELP_MENU9");
+				break;
+			case PAGE_MENU10:
+				hdr = StringTable.Localize("$SHDX_HELP_HEADER_MENU10");
+				txt = StringTable.Localize("$SHDX_HELP_MENU10");
+				break;
+		}
+		
+		// Marisa K saves my ass again...
+		double hs;
+		if ( (Screen.GetWidth() < 640) || (Screen.GetHeight() < 266) ) hs = max(min(floor(Screen.GetWidth()/320.),floor(Screen.GetHeight()/133.)),1.)/2.;
+		else hs = max(min(floor(Screen.GetWidth()/640.),floor(Screen.GetHeight()/266.)),1.);
+		Vector2 ss = (Screen.GetWidth()/hs,Screen.GetHeight()/hs);
+		
+		screen.DrawText(bigfont, Font.CR_RED, 0, 0, hdr,
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
+		
+		screen.DrawText(fnt, Font.CR_FIRE, 0, bigfont.GetHeight() * 1.5, txt,
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
+		
+		if (page == PAGE_MENU4)
+		{
+			DrawImageWithOffsets("HELPSMG", 32, 76);
+		}
+		if (page == PAGE_MENU4A)
+		{
+			DrawImageWithOffsets("HELPGUN2", 32, 144);
+		}
+		if (page == PAGE_MENU4B)
+		{
+			DrawImageWithOffsets("HELPGUN3", 32, 144);
+		}
+		if (page == PAGE_MENU4C)
+		{
+			DrawImageWithOffsets("HELPGUN4", 32, 144);
+		}
+		if (page == PAGE_MENU4D)
+		{
+			DrawImageWithOffsets("HELPGUN5", 32, 144);
+		}
+		if (page == PAGE_MENU4E)
+		{
+			DrawImageWithOffsets("HELPGUN6", 32, 144);
+		}
+		if (page == PAGE_MENU4F)
+		{
+			DrawImageWithOffsets("HELPGUN7", 32, 160);
+		}
+		if (page == PAGE_MENU5)
+		{
+			DrawImageWithOffsets("HELPVEND", 32, 144);
+			DrawImageWithOffsets("HELPBITS", 128, 144);
+		}
+		if (page == PAGE_MENU7)
+		{
+			DrawImageWithOffsets("HELPKEYS", 32, 128);
+		}
+		if (page == PAGE_MENU9)
+		{
+			DrawImageWithOffsets("HELPARMR", 32, 128);
+		}
+		if (page == PAGE_MENU10)
+		{
+			DrawImageWithOffsets("HELPEFS", 32, 176);
+		}
+							
+		Screen.DrawText(fnt, Font.CR_RED, 0, ss.y - fnt.GetHeight(), StringTable.Localize("$SHDX_HELP_MOVETIP"),
+							DTA_VirtualWidthF,  ss.x,
+							DTA_VirtualHeightF, ss.y,
+							DTA_KeepRatio, true);
+	}
+
+	override void Drawer()
+	{
+		screen.Dim(0, 1.0, 0,0, screen.GetWidth(), screen.GetHeight());
+		
+		DrawPage(curpage);
+	}
+
+	override bool MenuEvent(int mkey, bool fromcontroller)
+	{
+		switch (mkey)
+		{
+			case MKEY_Enter:
+			case MKEY_Right:
+			case MKEY_Down:
+			case MKEY_PageDown:
+				if ((curpage < NUM_HELP_PAGES - 1))
+				{
+					MenuSound("menu/choose");
+					prevpage = curpage;
+					curpage++;
+					pagedir = 1;
+					fadetic = gametic;
+				}
+				return true;
+				break;
+			case MKEY_Clear:
+			case MKEY_Left:
+			case MKEY_Up:
+			case MKEY_PageUp:
+				if ((curpage > 0))
+				{
+					MenuSound("menu/choose");
+					prevpage = curpage;
+					curpage--;
+					pagedir = -1;
+					fadetic = gametic;
+				}
+				return true;
+				break;
+		}
+		return Super.MenuEvent(mkey, fromcontroller);
+	}
+
+	override bool MouseEvent(int type, int x, int y)
+	{
+		if (type == MOUSE_Click && y != -1)
+		{
+			return MenuEvent(isrclick ? MKEY_Clear : MKEY_Enter, true);
+		}
+		return false;
+	}
+	
+	override bool OnUIEvent(UIEvent ev)
+	{
+		int y;
+		bool res;
+		switch (ev.type)
+		{
+			case UIEvent.Type_WheelDown:
+				return MenuEvent(MKEY_Enter, true);
+				break;
+			case UIEvent.Type_WheelUp:
+				return MenuEvent(MKEY_Clear, true);
+				break;
+			case UIEvent.Type_LButtonDown:
+				isrclick = false;
+				return Super.OnUIEvent(ev);
+			case UIEvent.Type_RButtonDown:
+				isrclick = true;
+				// copy over what base mnenus do for left click
+				y = ev.MouseY;
+				res = MouseEventBack(MOUSE_Click, ev.MouseX, y);
+				if (res) y = -1;
+				res |= MouseEvent(MOUSE_Click, ev.MouseX, y);
+				if (res) SetCapture(true);
+				return false;
+				break;
+			case UIEvent.Type_RButtonUp:
+				// copy over what base menus do for left release
+				if (mMouseCapture)
+				{
+					SetCapture(false);
+					y = ev.MouseY;
+					res = MouseEventBack(MOUSE_Release, ev.MouseX, y);
+					if (res) y = -1;
+					res |= MouseEvent(MOUSE_Release, ev.MouseX, y);
+				}
+				return false;
+				break;	
+		}
+		return Super.OnUIEvent(ev);
+	}
+}

@@ -1,0 +1,171 @@
+DoomEdNums
+{
+	6000 = SHDX_LowGuardSpawner
+	6001 = SHDX_LowGuardMale
+	6002 = SHDX_LowGuardFemale
+	6003 = SHDX_HighGuard
+	
+	6006 = SHDX_Pegapol
+	6007 = SHDX_PegaWiz
+	
+	6008 = SHDX_Engineer
+	6009 = SHDX_Zombie
+	6010 = SHDX_RocketZombie
+	
+	6011 = SHDX_HeavyEnforcer
+	6012 = SHDX_LightEnforcer
+	
+	6013 = SHDX_RocketGuard
+	6014 = SHDX_GrenadeGuard
+	
+	6015 = SHDX_SpectraWasp
+	6016 = SHDX_SpectraSentry
+	
+	6050 = SHDX_BossSpot
+	6051 = SHDX_SurpriseBoss
+	6052 = SHDX_DrAtmosphereBoss
+	6053 = SHDX_ZombieSpot
+	6054 = SHDX_MaimbowUndashBoss
+	6055 = SHDX_RocketGuardSpot
+	6056 = SHDX_BossSpot2
+	6057 = SHDX_BossSpotMaimbowStage2
+	6058 = SHDX_BossSpotScootalooStage2
+	6059 = SHDX_BossSpotMaimbowStage3
+	6060 = SHDX_BossSpotScootalooStage3
+	
+	6500 = SHDX_SubmachineGun
+	6502 = SHDX_MissileLauncher
+	6503 = SHDX_FillySeeker
+	6506 = SHDX_Rainbower
+	6507 = SHDX_Tornadozer
+	6508 = SHDX_HailerWeapon
+	6509 = SHDX_LightningGun
+	
+	6590 = SHDX_SilverBitCoin
+	6591 = SHDX_GoldBitCoin
+	6600 = SHDX_Sandwich
+	6601 = SHDX_Applesauce
+	6602 = SHDX_Cupcake
+	6603 = SHDX_Pizza
+	
+	6610 = SHDX_ChickenMode
+	6612 = SHDX_BulletproofArmorPickup
+	6613 = SHDX_FireproofArmorPickup
+	// 6614 = SHDX_SBaHJMode
+	6615 = SHDX_WeatherproofArmorPickup
+	6616 = SHDX_BasicArmor
+	6617 = SHDX_SuperArmor
+	6618 = SHDX_BulletProofArmorShard
+	6619 = SHDX_FireProofArmorShard
+	6620 = SHDX_WeatherProofArmorShard
+	
+	6700 = SHDX_BlueVase
+	6701 = SHDX_PottedPlant
+	6702 = SHDX_FlagPole
+	6703 = SHDX_Lamp
+	6704 = SHDX_Barrel1
+	6705 = SHDX_Barrel2
+	6706 = SHDX_ExplosiveBarrel
+	6707 = SHDX_LittleCeilingLight
+	6708 = SHDX_LittleFloorLight
+	6709 = SHDX_Toilet
+	6710 = SHDX_Urinal
+	6711 = SHDX_MaleGuardCorpse
+	6712 = SHDX_MaleGuardCorpse2
+	6713 = SHDX_FlagPole2
+	6714 = SHDX_FlagDestroyableSmall
+	6715 = SHDX_Skeleton
+	6716 = SHDX_SkeletonBloody
+	6717 = SHDX_Wires
+	6718 = SHDX_WiresFloor
+	6719 = SHDX_Hook
+	6720 = SHDX_Hook2
+	6721 = SHDX_CoffeeMug
+	6722 = SHDX_WaterCooler
+	6723 = SHDX_TrashCan
+	6724 = SHDX_GreenCeilingLight
+	6725 = SHDX_FlagDestroyableMedium
+	6726 = SHDX_FlagDestroyableLarge
+	6727 = SHDX_OfficeChair
+	6728 = SHDX_OfficeCup
+	6729 = SHDX_OfficeCupStack
+	6730 = SHDX_SurpriseCorpse
+	6731 = SHDX_BloodPuddle
+	6732 = SHDX_WoodenToaster
+	6733 = SHDX_TeslaCoilSingle
+	6734 = SHDX_TeslaCoilDouble
+	6735 = SHDX_Mushroom
+	6736 = SHDX_Mushroom2
+	6737 = SHDX_MineCart
+	6738 = SHDX_PurpleCrystal
+	6739 = SHDX_GreenCrystal
+	6740 = SHDX_Stalagtite
+	6741 = SHDX_Stalagmite
+	6742 = SHDX_LittleCeilingLightRed
+	6743 = SHDX_LittleFloorLightRed
+	6744 = SHDX_DontrelPlush
+	6745 = SHDX_CancerMouse
+	6746 = SHDX_HeavyEnforcerDormant
+	6747 = SHDX_LightEnforcerDormant
+	6748 = SHDX_TchernobogStatue
+	6749 = SHDX_Flask
+	6750 = SHDX_Beaker
+	6751 = SHDX_ZetaEnforcerDormant
+	6752 = SHDX_SkeletonTCRGhost
+	6753 = SHDX_Pumpkin
+	6754 = SHDX_Pickaxe
+	6755 = SHDX_StalagtiteIce
+	6756 = SHDX_StalagmiteIce
+	6757 = SHDX_WarningSign1
+	6758 = SHDX_WarningSign2
+	6779 = SHDX_Bucket
+	6780 = SHDX_Mop
+	6781 = SHDX_PopcornCup
+	6782 = SHDX_EmptyPopcornCups
+	6783 = SHDX_PopcornCupEmpty
+	6784 = SHDX_DrinkingCup1
+	6785 = SHDX_DrinkingCup1Side
+	6786 = SHDX_Vines
+	6787 = SHDX_SkeletonHighGuard
+	
+	6800 = SHDX_RedCard
+	6801 = SHDX_BlueCard
+	6802 = SHDX_GreenCard
+	6803 = SHDX_ManagementCard
+	
+	7000 = SHDX_JumpPad
+	7001 = SHDX_VendingMachine
+	7002 = SHDX_AuroraDawn
+	7003 = SHDX_AuroraSpot
+	7004 = SHDX_MirrorOneLiner
+	7005 = SHDX_SHSDLEasterEggOneLiner
+	
+	7100 = SHDX_ScootalooE1M1
+	7101 = SHDX_ScootalooE1M4
+	7102 = SHDX_ScootalooE2M4
+	7103 = SHDX_ScootalooCancerMouse
+	7104 = SHDX_ScootalooIlse
+	7105 = SHDX_ScootalooPegasusDeviceKey
+	7106 = SHDX_ScootalooPegasusDeviceFireworks
+	
+	7510 = SHDX_DrAtmosphere1
+	7511 = SHDX_DrAtmosphere2
+	7512 = SHDX_DrAtmosphere3
+	7513 = SHDX_DrAtmosphere4
+	7514 = SHDX_DrAtmosphere5
+	7515 = SHDX_DrAtmosphere6
+	7516 = SHDX_DrAtmosphere7
+	7517 = SHDX_DrAtmosphere8
+	
+	7530 = SHDX_Maimbow1
+	7531 = SHDX_Maimbow2
+	7532 = SHDX_Maimbow3
+	7533 = SHDX_Maimbow4
+	7534 = SHDX_Maimbow5
+	7535 = SHDX_Maimbow6
+	7536 = SHDX_Maimbow7
+	7537 = SHDX_Maimbow8
+	7538 = SHDX_Maimbow9
+	7539 = SHDX_Maimbow10
+	7540 = SHDX_Maimbow14
+}

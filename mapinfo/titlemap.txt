@@ -1,0 +1,8 @@
+// For Titlemap
+map TITLEMAP lookup SHDX_TITLEMAP
+{
+	cluster = 1
+	par = 30
+	sucktime = 1
+	EventHandlers = "SHDX_TitlemapEvent"
+}

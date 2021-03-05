@@ -1,0 +1,81 @@
+Intermission EndEpisode3NoAurora
+{
+	Fader
+	{
+		Background = "graphics/cutscenes/end3a/end3a_1.png"
+		Music = "M_CUT1"
+		Time = 2
+		FadeType = FadeIn
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_1.png"
+		Text = "$SHDX_EP3END_1"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_1.png"
+		Text = "$SHDX_EP3END_2"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_1.png"
+		Text = "$SHDX_EP3END_3"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_1.png"
+		Text = "$SHDX_EP3END_4"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_1.png"
+		Text = "$SHDX_EP3END_5"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_2.png"
+		Text = "$SHDX_EP3AEND_6"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_3.png"
+		Text = "$SHDX_EP3AEND_7"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_4.png"
+		Text = "$SHDX_EP3AEND_8"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_5.png"
+		Text = "$SHDX_EP3AEND_9"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_6.png"
+		Text = "$SHDX_EP3AEND_10"
+		TextColor = "Green"
+	}
+	TextScreen
+	{
+		Background = "graphics/cutscenes/end3a/end3a_6.png"
+		Text = "$SHDX_EP3AEND_11"
+		TextColor = "Green"
+	}
+	Fader
+	{
+		Time = 2
+		FadeType = FadeOut
+	}
+}

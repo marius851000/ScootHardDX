@@ -1,0 +1,106 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_Toilet : SHDX_SwitchableDecoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Toilet"
+		//$Sprite JOHNA0
+		//$Category "Obstacles"
+		
+		Height 40;
+		Radius 12;
+		Health 5;
+		Mass 1000;
+		Activation THINGSPEC_Default | THINGSPEC_Switch | THINGSPEC_NoDeathSpecial;
+		
+		+Solid
+		+UseSpecial
+		+Shootable
+		+NoBlood
+		+DontGib
+		+DontFall
+	}
+	
+	void A_ToggleToiletStart()
+	{
+		A_DisableSpecial();
+		A_StartSound("misc/toiletflush", CHAN_BODY);
+	}
+	
+	void A_ToiletXPlode()
+	{
+		A_StartSound("misc/toiletbreak", CHAN_BODY);
+		A_DisableSpecial();
+		A_NoBlocking();
+		
+		SHDX_Actor.A_SpawnMetalJunkFx(self);
+		
+		A_SpawnItemEx("SHDX_WaterGush");
+	}
+	
+	States
+	{
+		Active:
+		Inactive:
+			JOHN A 1 A_ToggleToiletStart;
+			JOHN A 38;
+			JOHN A 1 A_EnableSpecial;
+			Goto Spawn;
+		
+		Spawn:
+			JOHN A 1;
+			Loop;
+		
+		Death:
+			JOHN B 1 A_ToiletXPlode;
+			JOHN B -1;
+			Stop;
+	}
+}
+
+Class SHDX_WaterGush : SHDX_Decoration
+{
+	Default
+	{
+		Radius 10;
+		Height 20;
+	}
+
+	override bool Used(Actor user)
+	{
+		if (user.health >= 100)
+			return false;
+		
+		user.A_GiveInventory("Health", 2);
+		A_StartSound("vending/waterdrink", CHAN_VENDINGUSE);
+		
+		return false;
+	}
+	
+	States
+	{
+		Spawn:
+			WTRF A 2;
+			WTRF B 2 A_StartSound("misc/watergush", CHAN_BODY, CHANF_LOOPING, ATTN_NORM);
+			WTRF CD 2;
+			Goto GushLoop;
+			
+		GushLoop:
+			WTRF EGFH 2;
+			Loop;
+	}
+}

@@ -1,0 +1,563 @@
+// Animators
+stretcher BloodStretcher
+{
+	StretchTime	35
+	GoalY		0.45
+}
+
+slider BloodSlider
+{
+	SlideTime	35
+	DistY		-5
+}
+
+combiner BloodSmearer
+{
+	BloodStretcher
+	BloodSlider
+}
+// End Animators
+
+decal SHDX_BulletChip1
+{
+	pic CHIP1
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.12
+	y-scale 0.12
+	randomflipx
+	randomflipy
+}
+
+// Big Chips
+decal SHDX_BulletChip2
+{
+	pic CHIP2
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.12
+	y-scale 0.12
+	randomflipx
+	randomflipy
+}
+
+// Blood Splat Decals
+decal BloodSplat1
+{
+	pic BSPLAT1
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat2
+{
+	pic BSPLAT2
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat3
+{
+	pic BSPLAT3
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat4
+{
+	pic BSPLAT4
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat5
+{
+	pic BSPLAT5
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat6
+{
+	pic BSPLAT6
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat7
+{
+	pic BSPLAT7
+	shade "BloodDefault"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+// Blood smears
+decal BloodSmear1
+{
+	pic BSMEAR1
+	x-scale 0.12
+	y-scale 0.12
+	shade "BloodDefault"
+	randomflipx
+	animator BloodSmearer
+}
+
+decal BloodSmear2
+{
+	pic BSMEAR1
+	x-scale 0.12
+	y-scale 0.12
+	shade "BloodDefault"
+	randomflipx
+	animator BloodSmearer
+}
+
+// Scorch
+decal SHDX_Scorch
+{
+	pic BLAST1
+	shade "00 00 00"
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+}
+
+decal SHDX_MediumScorch
+{
+	pic BLAST1
+	shade "00 00 00"
+	x-scale 0.15
+	y-scale 0.15
+	randomflipx
+	randomflipy
+}
+
+decal SHDX_SmallScorch
+{
+	pic BLAST1
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+fader SHDX_FrostFade
+{
+   DecayStart 5;
+   DecayTime 10;
+}
+
+decal SHDX_FrostScorch
+{
+	pic BLAST1
+	shade "A5 F2 F3"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+	animator SHDX_FrostFade
+}
+
+generator SHDX_BulletPuff				SHDX_BulletChip1
+generator SHDX_ScootalooSMGBullet		SHDX_BulletChip1
+generator SHDX_LowGuardBullet			SHDX_BulletChip1
+generator SHDX_HighGuardBullet			SHDX_BulletChip1
+generator SHDX_PegapolBullet			SHDX_BulletChip1
+generator SHDX_MaimbowBullet			SHDX_BulletChip1
+generator SHDX_FillyMissile				SHDX_MediumScorch
+generator SHDX_Missile					SHDX_Scorch
+generator SHDX_MaimbowMissile			SHDX_Scorch
+generator SHDX_PlasmaBall				SHDX_MediumScorch
+generator SHDX_LightningGunPlasmaBall	SHDX_MediumScorch
+generator SHDX_LightningGunDisintegratingBall	SHDX_Scorch
+generator SHDX_HailBall					SHDX_FrostScorch
+generator SHDX_HailBall2				SHDX_FrostScorch
+generator SHDX_MiniSentryHailBall		SHDX_FrostScorch
+
+decal CWCLogoColour 1
+{
+	pic "graphics/decals/cwc_logo_1.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal CWCLogoRed 2
+{
+	pic "graphics/decals/cwc_logo_2.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal CWCLogoNastyStencil 3
+{
+	pic "graphics/decals/cwc_logo_3.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal EasterEggArk 5
+{
+	pic "graphics/decals/ark_logo.png"
+	x-scale 0.55
+	y-scale 0.55
+}
+
+decal CafeteriaSign 6
+{
+	pic "graphics/decals/cafeteria_sign.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal WarningSign 7
+{
+	pic "graphics/decals/warning_sign.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal GraffitiScootaloo 8
+{
+	pic "graphics/decals/grafitti_a.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal GraffitiHelpUs 9
+{
+	pic "graphics/decals/grafitti_b.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal DryErase1 10
+{
+	pic "graphics/decals/dry_erase_1.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal DryErase2 11
+{
+	pic "graphics/decals/dry_erase_2.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal DryErase3 12
+{
+	pic "graphics/decals/dry_erase_3.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal PraiseTheFlock 13
+{
+	pic "graphics/decals/praise_the_flock.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal PegapolPoster 14
+{
+	pic "graphics/decals/pegapol_poster.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal GoldShield 15
+{
+	pic "graphics/decals/gold_shield.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterRocketFood 16
+{
+	pic "graphics/decals/tutorial_poster_rocket_food.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterLockedOut 17
+{
+	pic "graphics/decals/tutorial_poster_locked_out.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterVending 18
+{
+	pic "graphics/decals/tutorial_poster_vending.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterSpectrum 19
+{
+	pic "graphics/decals/tutorial_poster_spectrum.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterLiveWires 20
+{
+	pic "graphics/decals/tutorial_poster_live_wires.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal SewerCount 21
+{
+	pic "graphics/decals/sewercount.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal AtmosphereScore 22
+{
+	pic "graphics/decals/atmosphere_music.png"
+	x-scale 0.08
+	y-scale 0.08
+}
+
+// Blood Splat Decals
+decal PlaceableBloodSplat1 23
+{
+	pic BSPLAT1
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat2 24
+{
+	pic BSPLAT2
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat3 25
+{
+	pic BSPLAT3
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat4 26
+{
+	pic BSPLAT4
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat5 27
+{
+	pic BSPLAT5
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat6 28
+{
+	pic BSPLAT6
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal PlaceableBloodSplat7 29
+{
+	pic BSPLAT7
+	shade "ff 00 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+}
+
+decal AtmosphereFamilyPic 30
+{
+	pic "graphics/decals/atmosphere_family_pic.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal MaimbowPortrait 31
+{
+	pic "graphics/decals/MaimbowPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal DrAtmospherePortrait 32
+{
+	pic "graphics/decals/DrAtmosPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal SurprisePortrait 33
+{
+	pic "graphics/decals/SurprisePortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal PinkLadyPortrait 34
+{
+	pic "graphics/decals/PinkLadyPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal WoodenToasterPortrait 35
+{
+	pic "graphics/decals/WoodenToasterPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal MaskedHorrorPortrait 36
+{
+	pic "graphics/decals/MaskedHorrorPortrait.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal EnforcerPoster 37
+{
+	pic "graphics/decals/enforcer_poster.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal SpectraWaspPoster 38
+{
+	pic "graphics/decals/spectrawasp_poster.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal CelestiaRedScare 39
+{
+	pic "graphics/decals/redscare_celestia.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal LunasRevolution 40
+{
+	pic "graphics/decals/lunas_revolution.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal DrAtmosphereMovie 41
+{
+	pic "graphics/decals/dr_atmos_movie.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal MaimbowAction 42
+{
+	pic "graphics/decals/maimbow_action.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal BigJohnsLuvShack 43
+{
+	pic "graphics/decals/big_johns_luv_shack.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal TutorialPosterAltFire 44
+{
+	pic "graphics/decals/tutorial_poster_altfire.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal TutorialPosterBridgeIsOut 45
+{
+	pic "graphics/decals/tutorial_poster_bridge.png"
+	x-scale 0.12
+	y-scale 0.12
+}
+
+decal PeriodicTable 46
+{
+	pic "graphics/decals/periodic_table.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal SurpriseGraffiti 47
+{
+	pic "graphics/decals/touch_me_surprise.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal TorSymbol 48
+{
+	pic "graphics/decals/tor_symbol.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal ItsBuckingRaw 49
+{
+	pic "graphics/decals/ItsBuckingRaw.png"
+	x-scale 0.2
+	y-scale 0.2
+}
+
+decal TutorialWeaponSwap 50
+{
+	pic "graphics/decals/tutorial_poster_weaponswap.png"
+	x-scale 0.12
+	y-scale 0.12
+}

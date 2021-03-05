@@ -1,0 +1,7 @@
+// Episodes
+clearepisodes
+episode intro
+{
+	name = "$SHDX_EPISODE"
+	key = "s"
+}

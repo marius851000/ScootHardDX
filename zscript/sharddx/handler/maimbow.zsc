@@ -1,0 +1,278 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+class SHDX_MaimbowHandler : EventHandler
+{
+	SHDX_MaimbowUndashBoss maimbow;
+	int currentstage;
+	int previousstage;
+	Array<SHDX_Zombie> zombies;
+	Array<SHDX_RocketGuard> rgs;
+	
+	SHDX_BossSpotMaimbowStage2 stage2maimbowspot;
+	SHDX_BossSpotScootalooStage2 stage2scootaloospot;
+	SHDX_BossSpotMaimbowStage3 stage3maimbowspot;
+	SHDX_BossSpotScootalooStage3  stage3scootaloospot;
+	
+	int spawntics;
+	
+	const TIMETOSPAWNZOMBIES = (TICRATE * 35);
+	const TIMETOSPAWNROCKETGUARDS = (TICRATE * 60);
+	const TIMETOCOPYARRAY = (TICRATE * 10);
+	
+	override void WorldTick()
+	{
+		PruneZombiesFromArray();
+		PruneRocketGuardFromArray();
+		MaimbowUndashRoutine();
+	}
+	
+	override void WorldThingSpawned(WorldEvent e)
+	{
+		CheckIfSpawnedZombie(e.Thing);
+		CheckIfSpawnedRocketGuard(e.Thing);
+		CheckIfSpawnedMaimbow(e.Thing);
+		CheckIfSpots(e.Thing);
+	}
+	
+	override void WorldThingDied(WorldEvent e)
+	{
+		CheckIfKilledZombie(e.Thing);
+		CheckIfKilledRocketGuard(e.Thing);
+	}
+	
+	void CheckIfSpawnedZombie(Actor a)
+	{
+		let z = SHDX_Zombie(a);
+		if (z)
+			zombies.Push(z);
+	}
+	
+	void CheckIfSpawnedMaimbow(Actor a)
+	{
+		let m = SHDX_MaimbowUndashBoss(a);
+		if (m)
+			maimbow = m;
+	}
+	
+	void CheckIfSpots(Actor a)
+	{
+		let ssm2 = SHDX_BossSpotMaimbowStage2(a);
+		if (ssm2) stage2maimbowspot = ssm2;
+		
+		let sss2 = SHDX_BossSpotScootalooStage2(a);
+		if (sss2) stage2scootaloospot = sss2;
+		
+		let ssm3 = SHDX_BossSpotMaimbowStage3(a);
+		if (ssm3) stage3maimbowspot = ssm3;
+		
+		let sss3 = SHDX_BossSpotScootalooStage3(a);
+		if (sss3) stage3scootaloospot = sss3;	
+	}
+	
+	void SetTickerForWasps()
+	{
+		spawntics = TIMETOSPAWNROCKETGUARDS - 3;
+	}
+	
+	void MaimbowUndashRoutine()
+	{
+		if (maimbow)
+		{
+			if (maimbow.isactive)
+			{
+				spawntics++;
+				
+				currentstage = maimbow.maimbowstage;
+				
+				if (spawntics >= TIMETOSPAWNZOMBIES && currentstage == MAIMBOW_STAGE_1)
+				{
+					SpawnZombiesFromSpots();
+					spawntics = 0;
+				}
+				else if (spawntics >= TIMETOSPAWNROCKETGUARDS && currentstage == MAIMBOW_STAGE_2)
+				{
+					SpawnRocketGuardsFromSpots();
+					spawntics = 0;
+				}
+				
+				if (currentstage != previousstage)
+				{
+					KillZombies();
+					KillRocketGuards();
+					previousstage = currentstage;
+				}
+				
+				if (maimbow.health <= 0)
+				{
+					KillAllMonsters();
+				}
+			}
+		}
+	}
+	
+	void KillAllMonsters()
+	{
+		ThinkerIterator monsterit = ThinkerIterator.Create("SHDX_Enemy");
+		SHDX_Enemy enemy;
+		
+		// iterate through the spots
+		while (enemy = SHDX_Enemy(monsterit.Next()))
+		{
+			// if spot exists
+			if (enemy)
+				enemy.A_Die('Extreme');
+		}
+	}
+	
+	void KillZombies()
+	{
+		ThinkerIterator zombieit = ThinkerIterator.Create("SHDX_Zombie");
+		SHDX_Zombie zom;
+		
+		// iterate through the spots
+		while (zom = SHDX_Zombie(zombieit.Next()))
+		{
+			// if spot exists
+			if (zom)
+				zom.A_Die('Extreme');
+		}
+	}
+	
+	void SpawnZombiesFromSpots()
+	{
+		ThinkerIterator deadraiserit = ThinkerIterator.Create("SHDX_ZombieSpot");
+		SHDX_ZombieSpot raiserspot;
+		
+		// iterate through the spots
+		while (raiserspot = SHDX_ZombieSpot(deadraiserit.Next()))
+		{
+			// if spot exists
+			if (raiserspot)
+				raiserspot.SetStateLabel("RaiseTheDead");
+		}
+	}
+	
+	void CheckIfKilledZombie(Actor a)
+	{
+		let z = SHDX_Zombie(a);
+		if (z)
+		{
+			int s = zombies.Find(z);
+			
+			if (s >= zombies.Size())
+				return;
+				
+			zombies.Delete(s);
+		}
+	}
+	
+	void PruneZombiesFromArray()
+	{
+		if (level.time % TIMETOCOPYARRAY == 0)
+		{
+			int size = zombies.Size();
+			
+			if (size < 1)
+				return;
+			
+			if (zombies.Find(null) >= size)
+				return;
+			
+			Array<SHDX_Zombie> tempitems;
+			for (int i = 0; i < size; i++)
+			{
+				if (zombies[i] && zombies[i].health > 0)
+					tempitems.Push(zombies[i]);
+			}
+			
+			zombies.Move(tempitems);
+		}
+	}
+	
+	
+	void CheckIfSpawnedRocketGuard(Actor a)
+	{
+		let r = SHDX_RocketGuard(a);
+		if (r)
+			rgs.Push(r);
+	}
+	
+	void KillRocketGuards()
+	{
+		ThinkerIterator rgit = ThinkerIterator.Create("SHDX_RocketGuard");
+		SHDX_RocketGuard rg;
+		
+		// iterate through the spots
+		while (rg = SHDX_RocketGuard(rgit.Next()))
+		{
+			// if spot exists
+			if (rg)
+				rg.A_Die('Extreme');
+		}
+	}
+	
+	void SpawnRocketGuardsFromSpots()
+	{
+		ThinkerIterator rgspotit = ThinkerIterator.Create("SHDX_RocketGuardSpot");
+		SHDX_RocketGuardSpot rgspot;
+		
+		// iterate through the spots
+		while (rgspot = SHDX_RocketGuardSpot(rgspotit.Next()))
+		{
+			// if spot exists
+			if (rgspot)
+				rgspot.SetStateLabel("SpawnInRocketGuard");
+		}
+	}
+	
+	void CheckIfKilledRocketGuard(Actor a)
+	{
+		let r = SHDX_RocketGuard(a);
+		if (r)
+		{
+			int s = rgs.Find(r);
+			
+			if (s >= rgs.Size())
+				return;
+				
+			rgs.Delete(s);
+		}
+	}
+	
+	void PruneRocketGuardFromArray()
+	{
+		if (level.time % TIMETOCOPYARRAY == 0)
+		{
+			int size = rgs.Size();
+			
+			if (size < 1)
+				return;
+			
+			if (rgs.Find(null) >= size)
+				return;
+			
+			Array<SHDX_RocketGuard> tempitems;
+			for (int i = 0; i < size; i++)
+			{
+				if (rgs[i] && rgs[i].health > 0)
+				{
+					tempitems.Push(rgs[i]);
+				}
+			}
+			
+			rgs.Move(tempitems);
+		}
+	}
+}

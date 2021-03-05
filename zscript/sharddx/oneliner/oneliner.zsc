@@ -1,0 +1,282 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+const SHDX_ONELINER_NORMAL_CHANCE = 25;
+const SHDX_ONELINER_GIB_CHANCE = 50;
+const SHDX_ONELINER_BOSS_CHANCE = 100;
+
+enum OneLinerFlags
+{
+	OLSSF_DEFAULT = 0,
+	OLSSF_FORCEONELINER = 1,
+	OLSSF_BYPASSMUTE = 2,
+	OLSSF_BYPASSPLAYERPREFIX = 4,
+	OLSSF_NOGRIN = 8,
+
+}
+
+extend class SHDX_Enemy
+{
+	void A_SHDX_SendOLToPlayerPawn(SHDX_PlayerPawn pp, int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT)
+	{
+		String finalsnd;
+		if (Random[OneLiner](0, 100) <= r)
+		{
+			if (snd.Length() < 1)
+			{
+				snd = pp.A_GetDefaultVoiceOver();
+			}
+			
+			if (flags & OLSSF_BYPASSPLAYERPREFIX)
+			{
+				finalsnd = snd;
+			}
+			else
+			{
+				finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
+			}
+			
+			// pp.A_Log("Oneliner: "..finalsnd);
+			
+			if (!(flags & OLSSF_NOGRIN))
+				pp.A_SetMugshotState("Grin");
+			
+			pp.A_OneLinerInit(finalsnd, flags);
+		}
+	}
+	
+	void A_SHDX_SendOLToAllPlayers(String snd = "", int flags = OLSSF_DEFAULT)
+	{
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo)
+			{
+				let pp = SHDX_PlayerPawn(pl.mo);
+				if (pp)
+				{
+					String finalsnd;
+					if (flags & OLSSF_BYPASSPLAYERPREFIX)
+					{
+						finalsnd = snd;
+					}
+					else
+					{
+						finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
+					}
+					
+					if (!(flags & OLSSF_NOGRIN))
+						pp.A_SetMugshotState("Grin");
+					
+					pp.A_OneLinerInit(finalsnd, flags);
+				}
+			}
+		}
+	}
+	
+	/*	***********************************************
+	 *			A_SHDX_GivePlayerOneLiner();
+	 *		Gives the player a token obbject
+	 *		that causes the player pawn to sound
+	 *		off a one liner.
+	 *	***********************************************/
+	void A_SHDX_GivePlayerOneLiner(int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT)
+	{
+		if (!target)
+			return;
+			
+		if (iscorpse)
+			return;
+		
+		let SHDXpl = SHDX_PlayerPawn(target);
+		if (SHDXpl)
+		{
+			A_SHDX_SendOLToPlayerPawn(SHDXpl, r, snd, flags);
+		}
+		else
+		{
+			let eb = SHDX_ExplodeyProp(target);
+			if (eb)
+			{
+				let SHDXpl2 = SHDX_PlayerPawn(eb.target);
+				if (SHDXpl2)
+				{
+					A_SHDX_SendOLToPlayerPawn(SHDXpl2, r, snd, flags);
+				}
+			}
+		}
+	}
+}
+
+extend class SHDX_PlayerPawn
+{
+	const ONELINER_COOLDOWN_MAX = TICRATE * 5;
+	const ONELINER_TIME_TO_SING = TICRATE * 60;
+	const ONELINER_TIME_TO_SING_END = ONELINER_TIME_TO_SING + (TICRATE * 30);
+	const ONELINER_USE_LOCKED_MAX = 3;
+	
+	int onelinercount;		// One Liner Counter
+	bool onelinerhit;		// One Liner Flag
+	Sound onelinersnd;		// One Liner Sound
+	int timetosing;
+	int lockcount;
+	bool onelinermute;
+	bool bypasscooldown;
+	bool bypassmute;
+	int onelinerflags;
+	int SavedTimes;
+	bool SavedTrigger;
+	
+	meta String OneLinerPrefix;
+	Property OneLinerPrefix: OneLinerPrefix;
+	
+	const ATTN_ONELINER = 0.25;
+	
+	void A_ResetOneLinerMute()
+	{
+		onelinermute = false;
+	}
+	
+	String A_GetDefaultVoiceOver()
+	{
+		return String.Format("voiceover%d", Random[OneLiner](1, 20));
+	}
+	
+	bool A_CheckOneLinerCVar()
+	{
+		if (player)
+			return Cvar.GetCVar('shdx_snd_oneliners', player).GetBool();
+		
+		return false;
+	}
+	
+	void A_OneLinerInit(Sound snd, int flags = OLSSF_DEFAULT)
+	{
+		if (onelinerflags & OLSSF_FORCEONELINER)
+			bypasscooldown = true;
+			
+		if (onelinercount <= 0 || onelinerflags & OLSSF_FORCEONELINER)
+			onelinercount = ONELINER_COOLDOWN_MAX;
+			
+		if (onelinerflags & OLSSF_BYPASSMUTE)
+			bypassmute = true;
+			
+		onelinerflags = flags;
+		
+		onelinersnd = snd;
+	}
+	
+	void A_SHDX_OLSubtitle(String str, Sound snd)
+	{
+		SHDX_Vox.SendSubtitleToHandler(StringTable.Localize(str), SHDX_Vox.GetSecondsFromSound(snd));
+	}
+	
+	// Check if oneliner requires subtitles
+	virtual void A_CheckIfOneLinerRequiresSubtitles(Sound snd)
+	{
+		if (snd == "scootaloo/surprisestart")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS1_1", snd);
+		}
+		else if (snd == "scootaloo/surpriseend")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS1_2", snd);
+		}
+		else if (snd == "scootaloo/enforcer")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_ENFORCER", snd);
+		}
+		else if (snd == "scootaloo/bathroom")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BATHROOM", snd);
+		}
+		else if (snd == "scootaloo/atmospherestart")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS2_1", snd);
+		}
+		else if (snd == "scootaloo/atmosphereend")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS2_2", snd);
+		}
+		else if (snd == "scootaloo/sorryorion")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_ORIONWASP", snd);
+		}
+		else if (snd == "scootaloo/maimbowundashstart")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_1", snd);
+		}
+		else if (snd == "scootaloo/maimbowundashendgood")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_2", snd);
+		}
+		else if (snd == "scootaloo/maimbowundashendbad")
+		{
+			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_3", snd);
+		}
+	}
+	
+	void A_OneLinerSound(Sound snd)
+	{
+		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_DEFAULT, 4.0, ATTN_ONELINER);
+		
+		A_CheckIfOneLinerRequiresSubtitles(snd);
+	}
+	
+	void A_StopOneLinerSound()
+	{
+		A_StopSound(SHDXPLAYER_DIALOGUECHANNEL1);
+	}
+	
+	// Perform Voice One Liner Actions
+	void A_OneLinerProcess()
+	{
+		if (!A_CheckOneLinerCVar())
+			return;
+			
+		if (onelinermute && !bypassmute)
+		{
+			onelinercount = 0;
+			return;	
+		}
+		
+		if (health <= 0)
+			return;
+		
+		if (onelinercount >= ONELINER_COOLDOWN_MAX || bypasscooldown)
+		{
+			onelinerhit = true;
+			bypasscooldown = false;
+			
+			if (SHDX_Utilities.CheckSoundExists(onelinersnd))
+				A_OneLinerSound(onelinersnd);
+		}
+		
+		if (onelinerhit)
+		{
+			if (onelinercount > 0)
+				onelinercount--;
+			
+			if (onelinercount <= 0)
+			{
+				onelinercount = 0;
+				onelinersnd = "";
+				onelinerhit = false;
+				onelinerflags = 0;
+				bypassmute = false;
+			}
+		}
+	}
+}
+

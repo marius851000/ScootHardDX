@@ -1,0 +1,151 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_HailAmmo : Ammo
+{
+	Default
+	{
+		Inventory.MaxAmount 40;
+		Ammo.BackpackAmount 0;
+		Ammo.BackpackMaxAmount 40;
+	}
+}
+
+Class SHDX_HailerWeapon : SHDX_WeatherWeapon
+{
+	Default
+	{
+		//$Title "Hailer"
+		//$Sprite FGUNA0
+		
+		Tag "$SHDX_TAG_HAILER";
+		Weapon.SelectionOrder 500;
+		Inventory.PickupMessage "$SHDX_PICKUP_HAILER";
+		+WEAPON.NOAUTOFIRE
+		+WEAPON.NOAUTOAIM
+		Weapon.AmmoGive 40;
+		Weapon.AmmoUse1 1;
+		Weapon.AmmoUse2 1;
+		Weapon.AmmoType1 "SHDX_HailAmmo";
+		Weapon.AmmoType2 "SHDX_HailAmmo";
+		Obituary "$SHDX_OB_HAILER";
+	}
+	States
+	{
+		Spawn: 
+			FGUN A -1;
+			LOOP;
+		Ready: 
+			FRZG A 1 A_WeaponReady;
+			LOOP;
+		Deselect: 
+			FRZG A 1 A_Lower(10);
+			LOOP;
+		Select:
+			FRZG A 1 A_Raise(10);
+			Loop;
+		Flash:
+			FRZF AB 1 Bright A_Light1;
+			goto LightDone;
+		AltFire.LowAmmo:
+		Fire:
+			FRZG A 3;
+			FRZG A 0 A_GunFlash;
+			FRZG B 1
+			{
+				A_StartSound("weapons/hailf", CHAN_WEAPON);
+				A_FireProjectile("SHDX_HailBall", 0, true, 0);
+			}
+			FRZG C 1;
+			FRZG A 3 A_ReFire;
+			Goto Ready;
+		AltFire:
+			FRZG A 0
+			{
+				if (CountInv("SHDX_HailAmmo") < 5)
+					return ResolveState("AltFire.LowAmmo");
+				
+				return ResolveState("AltFire.HasAmmo");
+			}
+		AltFire.HasAmmo:
+			FRZG A 3;
+			FRZG A 5
+			{
+				A_GunFlash();
+				A_StartSound("weapons/hailf2", CHAN_WEAPON);
+				
+				A_FireProjectile("SHDX_HailBall2", -4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_FireProjectile("SHDX_HailBall2", -2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_FireProjectile("SHDX_HailBall2", 0, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_FireProjectile("SHDX_HailBall2", 2, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_FireProjectile("SHDX_HailBall2", 4, true, Random[Hailer](-10, 10), Random[Hailer](-4, 4), flags:FPF_NOAUTOAIM);
+				A_WeaponOffset(25, 44, WOF_INTERPOLATE);
+			}
+			FRZG A 5 A_WeaponOffset(30, 46, WOF_INTERPOLATE);
+			FRZG A 5 A_WeaponOffset(35, 48, WOF_INTERPOLATE);
+			FRZG A 15 A_WeaponOffset(40, 50, WOF_INTERPOLATE);
+			FRZG A 5 A_WeaponOffset(35, 48, WOF_INTERPOLATE);
+			FRZG A 5 A_WeaponOffset(1, 40, WOF_INTERPOLATE);
+			FRZG A 3 A_ReFire;
+			Goto Ready;
+	}
+}
+
+Class SHDX_HailBall : SHDX_Projectile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 24;
+		Damage 7;
+		DamageType "Ice";
+		// SeeSound "weapons/hailf";
+		DeathSound "weapons/hailx";
+	}
+	
+	States
+	{
+		Spawn:
+			HAIL A 1;
+			Loop;
+		Death:
+			HAIL B 1 A_FadeTo(0.00, 0.1, FTF_REMOVE);
+			Loop;
+	}
+}
+
+Class SHDX_HailBall2 : SHDX_Projectile
+{
+	Default
+	{
+		Radius 8;
+		Height 5;
+		Speed 36;
+		Damage 7;
+		DamageType "Ice";
+		// SeeSound "weapons/hailf";
+		DeathSound "weapons/hailx";
+	}
+	
+	States
+	{
+		Spawn:
+			HAIL A 1;
+			Loop;
+		Death:
+			HAIL B 1 A_FadeTo(0.00, 0.1, FTF_REMOVE);
+			Loop;
+	}
+}

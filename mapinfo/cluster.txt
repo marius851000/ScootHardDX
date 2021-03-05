@@ -1,0 +1,8 @@
+
+// For cluster purposes
+cluster 1
+{
+	flat = "FLTDIRTA"
+	music = "UNUSED"
+	exittext = ""
+}

@@ -1,0 +1,231 @@
+/*
+Copyright 2020 Mikk and Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+// Based upon Mikk's Universal Headshot code, but an older version. This is not meant
+// for headshots, but for corpse hitboxes and narrow flag hitboxes
+Class SHDX_Hitbox : SHDX_Actor
+{
+	Default
+	{
+		Health 0x7FFFFFFF;	// this must remain. It's the max integer for 32-bit
+		Radius 32;
+		Height 32;
+		
+		+Shootable
+		+NoBlood
+		// +IsMonster
+		+NoDamageThrust
+		+NoRadiusDmg
+		+NoGravity
+		+NeverTarget
+		+NotAutoAimed
+	}
+	
+	States
+	{
+		Spawn:
+			HBOX A 1;
+			Loop;
+		Death:
+			TNT1 A 1;
+			Stop;
+	}
+	
+	// bool isheadshot;
+	bool iscorpse;
+	bool isflaghitbox;
+	int lasthealth;
+	double headshotscale;
+	name damagetopass;
+	
+	override void BeginPlay()
+	{
+		Super.BeginPlay();
+		lasthealth = health;
+	}
+	
+	// Use this to set the scale
+	// of the visible hitbox. The
+	// sprite is a simple box with a 32x32
+	// pixel box. It's not as extravagant
+	// as Nash's method which uses a model though...
+	void SetScaleForSize()
+	{
+		A_SetScale(radius / 32, height / 32);
+	}
+	
+	// This is used to pass damage onto the enemies themselves as well.
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		/*
+		if (isheadshot)
+		{
+			// as an absolute failsafe, don't damage hitbox
+			// if the source is the hitbox's master
+			if (source == master)
+			{
+				return Super.DamageMobj(inflictor, source, 0, mod, flags, angle);
+			}
+			// If in dashmode and not explosive or Fire
+			if (mod == 'Fire' || mod == 'EventHorizon' || mod == 'Ice' || mod == 'Bleach')
+			{
+				damagetopass = mod;
+				damage = 0;
+			}
+		} */
+		
+		if (mod == 'Normal' || mod == 'Bullet' || mod == 'Ice' || mod == 'Electric' || mod == 'Lightning')
+		{
+			/* 
+			if (isheadshot && !iscorpse)
+				damagetopass = 'Headshot';
+			else
+			{
+				if (iscorpse)
+				{
+					damagetopass = mod;
+					damage = 0;
+				}
+			} */
+			
+			if (iscorpse)
+			{
+				damagetopass = mod;
+				damage = 0;
+			}
+		}
+		else if (mod == 'Melee' && master.GetSpecies() == 'SpectraEnemy')
+		{
+			if (iscorpse)
+			{
+				damagetopass = mod;
+				damage = 0;
+			}
+		}
+		else
+		{
+			damagetopass = mod;
+		}
+		
+		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		bInvisible = !CVar.FindCvar('shdx_showextrahitboxes').GetBool();
+		
+		if (!master)
+			Destroy();
+			
+		if (master && master.health <= 0 && !iscorpse)
+			Destroy();
+			
+		let shdxenemy = SHDX_Enemy(master);
+		
+		// if attached to a non-corpse...
+		if (shdxenemy && isCorpse && !shdxenemy.isCorpse)
+		{
+			Destroy();
+		}
+		
+		if (master)
+			A_SetSpecies(master.GetSpecies());
+		
+		SetScaleForSize();
+		
+		// bIsMonster = isHeadshot;
+		
+		// If/Else/Else If Pyramid. I'm open to ways to optimize this
+		// unlike YandereDev. I don't think zscript supports using the
+		// "is" command in a switch/case statement... but if someone
+		// knows a better way of doing this I'm open to ideas
+		if (master)
+		{
+			if (iscorpse)
+			{
+				// If the box is on a corpse...
+				A_SetSize(32, 1);
+				A_Warp(AAPTR_MASTER, 1, 0, 0, 0, WARPF_INTERPOLATE|WARPF_COPYINTERPOLATION|WARPF_NOCHECKPOSITION);
+				bNoDamageThrust = false;
+				bNoRadiusDmg = false;
+			}
+			else if (isflaghitbox)
+			{
+				A_SetSize(8, master.height);
+				// A_Warp(AAPTR_MASTER, 1, 0, 0, 0, WARPF_INTERPOLATE|WARPF_COPYINTERPOLATION|WARPF_NOCHECKPOSITION);
+			}
+			
+			
+			// check if the health of the hitbox
+			// has changed...
+			if (self.health < self.lasthealth)
+			{
+				// Check who's shooting the
+				// hitbox
+				Actor hitboxhitter = target;
+				if (!hitboxhitter)
+				{
+					hitboxhitter = self;
+				}
+				
+				// if the hitbox is a corpse
+				// and damage occurs, just set the
+				// master into it's Death.Extreme state
+				// this emulates Duke 3D's corpses
+				if (iscorpse)
+				{					
+					if (damagetopass == 'Spectrum')
+						master.SetStateLabel("Death.Spectrum");
+					else
+						master.SetStateLabel("Death.Extreme");
+					
+					Destroy();
+				}
+				else
+				{
+					// we use DamageMobj on the master here as opposed to A_DamageMaster
+					// because it allows us more direct control over who is actually doing the damage
+					if (hitboxhitter == master)
+					{
+						self.lasthealth = self.health;
+						return;
+					}
+					
+					master.DamageMobj(hitboxhitter, hitboxhitter, (self.lastHealth - self.health), damagetopass);
+				}
+				
+				self.lasthealth = self.health;
+			}
+		}
+	}
+}
+
+extend class SHDX_Utilities
+{
+	static play void AssignCorpseHitboxToEnemy(Actor self)
+	{
+		let enmy = SHDX_Enemy(self);
+		if (enmy)
+		{
+			let hb = SHDX_Hitbox(Actor.Spawn("SHDX_Hitbox"));
+			if (hb)
+			{
+				hb.master = self;
+				hb.iscorpse = true;
+			}
+		}
+	}
+}

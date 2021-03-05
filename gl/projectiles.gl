@@ -1,0 +1,202 @@
+flickerlight SHDX_PLASMAFLICKER
+{
+    color 0.87 1.0 1.0
+    size 24
+    secondarySize 48
+    chance 0.3
+}
+
+flickerlight SHDX_PLASMA_X1
+{
+    color 0.3 0.5 0.7
+    size 64
+    secondarySize 72
+    chance 0.4
+}
+
+flickerlight SHDX_PLASMA_X2
+{
+    color 0.3 0.5 0.7
+    size 80
+    secondarySize 88
+    chance 0.4
+}
+
+flickerlight SHDX_PLASMAFLICKER2
+{
+    color 0.87 1.0 1.0
+    size 48
+    secondarySize 64
+    chance 0.3
+}
+
+flickerlight SHDX_PLASMA_X3
+{
+    color 0.3 0.5 0.7
+    size 80
+    secondarySize 96
+    chance 0.4
+}
+
+flickerlight SHDX_PLASMA_X4
+{
+    color 0.3 0.5 0.7
+    size 96
+    secondarySize 112
+    chance 0.4
+}
+
+object SHDX_PlasmaBall
+{
+	frame PLASA { light SHDX_PLASMAFLICKER }
+	frame PLASB { light SHDX_PLASMAFLICKER }
+	frame PLASC { light SHDX_PLASMA_X1 }
+	frame PLASD { light SHDX_PLASMA_X2 }
+}
+
+object SHDX_LightningGunPlasmaBall
+{
+	frame PLASA { light SHDX_PLASMAFLICKER }
+	frame PLASB { light SHDX_PLASMAFLICKER }
+	frame PLASC { light SHDX_PLASMA_X1 }
+	frame PLASD { light SHDX_PLASMA_X2 }
+}
+
+object SHDX_LightningGunDisintegratingBall
+{
+	frame PLASA { light SHDX_PLASMAFLICKER2 }
+	frame PLASB { light SHDX_PLASMAFLICKER2 }
+	frame PLASC { light SHDX_PLASMA_X3 }
+	frame PLASD { light SHDX_PLASMA_X4 }
+}
+
+flickerlight SHDX_ARCFLICKER
+{
+    color 0.87 1.0 1.0
+    size 24
+    secondarySize 48
+    chance 0.3
+}
+
+object SHDX_FloorArc
+{
+	frame ATLX { light SHDX_ARCFLICKER }
+}
+
+pointlight SHDX_GRENADE1
+{
+    color 1.0 0.0 0.0
+    size 48
+	offset 0 0 0
+}
+
+pointlight SHDX_GRENADECLUSTER
+{
+    color 1.0 0.0 0.0
+    size 48
+	offset 0 0 0
+}
+
+pointlight SHDX_GRENADECLUSTER2
+{
+    color 1.0 0.0 0.0
+    size 24
+	offset 0 0 0
+}
+
+object SHDX_ClusterGrenade
+{
+	frame CLST { light SHDX_GRENADECLUSTER }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
+}
+
+object SHDX_ClusterGrenade2
+{
+	frame CLST { light SHDX_GRENADECLUSTER2 }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
+}
+
+object SHDX_ClusterGrenadeFS
+{
+	frame CLST { light SHDX_GRENADECLUSTER }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
+}
+
+object SHDX_ClusterGrenadeFS2
+{
+	frame CLST { light SHDX_GRENADECLUSTER2 }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
+}
+
+object SHDX_Grenade
+{
+	frame GREN { light SHDX_GRENADE1 }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
+}
+
+pointlight SHDX_GRENADEGUARD
+{
+    color 0.0 0.0 1.0
+    size 48
+	offset 0 0 0
+}
+
+object SHDX_GuardGrenade
+{
+	frame GREN { light SHDX_GRENADEGUARD }
+    frame EXPLA { light SHDX_ROCKET_X1 }
+    frame EXPLB { light SHDX_ROCKET_X1 }
+    frame EXPLC { light SHDX_ROCKET_X2 }
+    frame EXPLD { light SHDX_ROCKET_X2 }
+    frame EXPLE { light SHDX_ROCKET_X3 }
+    frame EXPLF { light SHDX_ROCKET_X3 }
+    frame EXPLG { light SHDX_ROCKET_X4 }
+    frame EXPLH { light SHDX_ROCKET_X4 }
+}
+
+object SHDX_AtmosphereHailBall
+{
+	frame HAILA { light SHDX_PLASMAFLICKER }
+	frame HAILB { light SHDX_PLASMA_X1 }
+}
+
+object SHDX_MiniSentryHailBall
+{
+	frame HAILA { light SHDX_PLASMAFLICKER }
+	frame HAILB { light SHDX_PLASMA_X1 }
+}

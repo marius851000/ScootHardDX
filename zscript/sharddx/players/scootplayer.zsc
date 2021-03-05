@@ -1,0 +1,307 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_MeleePuff : SHDX_BulletPuff
+{
+	Default
+	{
+		DamageType "Melee";
+		ActiveSound "weapons/silent";
+		SeeSound "weapons/silent";
+		AttackSound "weapons/silent";
+		RenderStyle "None";
+
+		+NoBlockMap
+		+NoGravity
+		+Randomize
+		+PuffOnActors
+		+DontSplash
+		+ActivatePCross
+		-AllowParticles
+	}
+
+	States
+	{
+		Melee:
+		Crash:
+		Spawn:
+			TNT1 A 5;	// invisible
+			Stop;
+	}
+}
+
+Class SHDX_ScootalooQuickKick : SHDX_BaseQuickKick
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+	
+	override void DoEffect()
+	{
+
+			
+		if (owner && owner is "SHDX_ChickenPlayer")
+		{
+			return;
+		}
+		
+		Super.DoEffect();
+	}
+	
+	States
+	{
+		FootKick:
+			HUFG A 0
+			{
+				invoker.iskicking = true;
+			}
+			HUFG A 3;
+			HUFG B 6 A_CustomPunch(Random[Kick](15,25), true, 0, "SHDX_MeleePuff", 64, 0, 0, "ArmorBonus", "weapons/kickhit");
+			HUFG A 3;
+			HUFG A 1
+			{
+				invoker.iskicking = false;
+				// A_TakeInventory("DD2_NearFrozenFlag", 1);
+			}
+			Stop;
+	}
+}
+
+Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
+{
+	Default
+	{
+		TeleFogSourceType "SHDX_TeleportFog";
+		TeleFogDestType "SHDX_TeleportFog";
+		
+		Scale 0.10;
+		
+		Speed 1;
+		Health 100;
+		Radius 13;
+		Height 34;
+		Mass 80;
+		PainChance 255;
+		
+		Friction 1.0;
+		// Friction 0.99;
+		
+		BloodType "SHDX_Blood", "SHDX_Blood", "SHDX_Blood";
+		
+		Player.MaxHealth 100;
+		
+		Player.DisplayName "Scootaloo";
+		Player.StartItem "SHDX_ScootalooQuickKick";
+		Player.StartItem "SHDX_Blaster";
+		Player.SoundClass "scootaloo";
+		
+		Player.WeaponSlot 1, "SHDX_Blaster";
+		Player.WeaponSlot 2, "SHDX_SubmachineGun";
+		Player.WeaponSlot 3, "SHDX_HailerWeapon", "SHDX_LightningGun";
+		Player.WeaponSlot 4, "SHDX_MissileLauncher", "SHDX_FillySeeker";
+		Player.WeaponSlot 5, "SHDX_Tornadozer", "SHDX_Rainbower"; 
+
+		Player.ColorRange 240, 254;
+		Player.ColorSet 0, "$SHDX_SCOOTALOO_COLORSET1", 250, 240, 254;
+		Player.ColorSet 1, "$SHDX_SCOOTALOO_COLORSET2", 24, 16, 31;
+		Player.ColorSet 2, "$SHDX_SCOOTALOO_COLORSET3", 54, 48, 63;
+		Player.ColorSet 3, "$SHDX_SCOOTALOO_COLORSET4", 88, 80, 95;
+		Player.ColorSet 4, "$SHDX_SCOOTALOO_COLORSET5", 120, 112, 127;
+		Player.ColorSet 5, "$SHDX_SCOOTALOO_COLORSET6", 150, 144, 159;
+		Player.ColorSet 6, "$SHDX_SCOOTALOO_COLORSET7", 180, 176, 190;
+		Player.ColorSet 7, "$SHDX_SCOOTALOO_COLORSET8", 100, 96, 111;
+		
+		Player.DamageScreenColor "FF0000", 0.70;
+		Player.DamageScreenColor "FFA500", 0.70, "Explosive";
+		Player.DamageScreenColor "FF5800", 0.50, "Fire";
+		Player.DamageScreenColor "00FF00", 0.70, "Spectra";
+		Player.DamageScreenColor "00FFFF", 0.70, "Lightning";
+		Player.DamageScreenColor "A5F2F3", 0.70, "Ice";
+		Player.DamageScreenColor "FFFFFF", 0.00, "Falling";
+		
+		Player.TeleportFreezeTime 0;
+		
+		Player.ForwardMove 2.4, 1.2;
+		Player.SideMove 2.4, 1.2;
+		
+		Player.ViewHeight 26;
+		Player.AttackZOffset 8;
+		Player.JumpZ 14;
+		
+		Player.AirCapacity 0;
+		
+		Player.Face "STF";
+		
+		Player.CrouchSprite "SCOC";
+		
+		+NoSkin
+		
+		SHDX_PlayerPawn.OneLinerPrefix "scootaloo";
+	}
+	
+	override void CheatGive(String name, int amount)
+	{
+		Super.CheatGive(name, amount);
+
+		if (!player.mo || player.health <= 0)
+			return;
+
+		int giveall = ALL_NO;
+		
+		if (name ~== "all")
+			giveall = ALL_YES;
+		else if (name ~== "everything")
+			giveall = ALL_YESYES;
+		
+		if (giveall || name ~== "armor")
+		{
+			let armoritem = Inventory(Spawn("SHDX_SuperArmor"));
+			
+			if (!armoritem.CallTryPickup(self))
+			{
+				armoritem.Destroy ();
+			}
+
+			if (!giveall)
+				return;
+		}
+		
+		return;
+	}
+	
+	override void Tick()
+	{
+		// to avoid something going on with "voodoo dolls" not performing right
+		// or the like.
+		
+		if (!player || !player.mo || player.mo != self)
+		{
+			// Only perform the PlayerPawn functionality, nothing more...
+			Super.Tick();
+			return;	// bailing out...
+		}
+		
+		Super.Tick();	// call any PlayerPawn Tick functionality
+		
+		let player = self.player;
+		UserCmd cmd = player.cmd;
+		
+		if (player)
+		{
+			if (!player.onground && vel.z > 0)
+			{
+				if ((cmd.buttons & BT_JUMP) && player.jumptics <= -6)
+				{
+					gravity = 0.25;
+				}
+				else
+				{
+					gravity = GetDefaultByType("SHDX_ScootalooPlayer").Gravity;
+				}
+			}
+			
+			if (!(cmd.buttons & BT_JUMP))
+			{
+				gravity = GetDefaultByType("SHDX_ScootalooPlayer").Gravity;
+			}
+		}
+	}
+	
+	override void MarkPreCacheSounds()
+	{
+		Sound snd;
+		for (int i = 1; i < 11; i++)
+		{
+			snd = String.Format("scootaloo/voiceover%d", i);
+			MarkSound(snd);
+		}
+	}
+	
+	States
+	{
+		Spawn:
+			SCOO A 6;
+			Loop;
+			
+		See:
+			SCOO BCDE 4;
+			Loop;
+		
+		Melee:
+			SCOO N 3;
+			SCOO A 2;
+			Goto Spawn;
+			
+		Missile:
+			SCOO FGH 2 BRIGHT;
+			Goto Spawn;
+			
+		Pain:
+			SCOO I 4;
+			SCOO I 4 A_NewPlayerPain;
+			Goto Spawn;
+		
+		Death:
+		Death.Fire:
+			SCOO J 5
+			{
+				A_StopOneLinerSound();
+				DDFunc_PlayerDies();
+			}
+			SCOO KL 3;
+			SCOO M -1;
+			Stop;
+		
+		Death.Extreme:
+		Death.Explosive:
+			TNT1 A 0
+			{
+				A_StopOneLinerSound();
+				DDFunc_PlayerDiesXTreem();
+			}
+			GIBX A 4 A_XScream();
+			GIBX B 4 A_PlayerScream();
+			GIBX BC 4;
+			GIBX D -1;
+			Stop;
+		
+		Death.Spectrum:
+			TNT1 A 0 A_StopOneLinerSound;
+			GIBR A 2;
+			GIBR A 2 A_StartSound("misc/vaporize", CHAN_7);
+			GIBR BC 4;
+			GIBR D -1;
+			Stop;
+			
+		Death.Falling:
+			SCOO O 0 A_StopOneLinerSound;
+			SCOO O 35;
+			SCOO P 35;
+			SCOO O 8;
+			SCOO O 12;
+			SCOO Q 15;
+			SCOO R 15;
+			SCOO T 4 A_StartSound("scootaloo/death1", CHAN_VOICE);
+			SCOO TU 4;
+			TNT1 A 105;
+			TNT1 A -1;
+			Stop;
+		
+		Crush:
+			GIBX E -1;
+			Stop;
+	}
+}

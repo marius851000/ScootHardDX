@@ -1,0 +1,310 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_PlasmaBall : SHDX_Projectile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 20;
+		Damage 3;
+		Projectile;
+		+RANDOMIZE
+		DamageType "Lightning";
+		SeeSound "engineer/attack";
+		DeathSound "engineer/shotx";
+	}
+	
+	States
+	{
+		Spawn:
+			PLAS AB 1 Bright;
+			Loop;
+		Death:
+			PLAS C 2 Bright;
+			PLAS DE 2;
+			Stop;
+	}
+}
+
+Class SHDX_MiniSentryBall : SHDX_Projectile
+{
+	Default
+	{
+		Radius 7;
+		Height 14;
+		Speed 25;
+		
+		Scale 0.14;
+		Mass 25;
+		
+		Gravity 0.75;
+	}
+
+	States
+	{
+		Spawn:
+			SNTB ABCD 1 Bright;
+			SNTB D 0 Bright
+			{
+				bNoGravity = false;
+				
+				if (target && target.health <= 0)
+					Destroy();
+			}
+			SNTB ABCD 1 Bright;
+			Loop;
+		
+		Death:
+			MSNT E 0 Bright
+			{				
+				A_StartSound("minisentry/build", CHAN_7, attenuation:0.5);
+			}
+		FadeLoop:
+			MSNT E 6;
+			MSNT F 6;
+			MSNT G 6;
+			MSNT H 6;
+			MSNT A 116;
+		SpawnSentry:
+			MSNT A 0 Bright
+			{
+				Actor a;
+				bool b;
+				[b, a] = A_SpawnItemEx("SHDX_MiniSentry", 0, 0, 8, flags:SXF_NOCHECKPOSITION);
+				if (target && a)
+				{
+					a.master = target;
+					let eng = SHDX_Engineer(target);
+					if (eng)
+					{
+						eng.sentry = SHDX_MiniSentry(a);
+					}
+				}
+			}
+			Stop;
+	}
+}
+
+Class SHDX_Engineer : SHDX_Enemy
+{
+	Default
+	{
+		//$Category "Monsters"
+		//$Sprite ENG1A1
+		//$Title "Engineer (Blue)"
+		Health 80;
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 14;
+		PainChance 144;
+		SeeSound "engineer/sight";
+		PainSound "engineer/pain";
+		DeathSound "engineer/death";
+		ActiveSound "engineer/active";
+		Obituary "$SHDX_OB_ENGINEER";
+		Species "Pony";
+		Tag "$SHDX_TAG_ENGINEER";
+	}
+	
+	int user_bathroom;
+	bool deployedsentry;
+	SHDX_MiniSentry sentry;
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if (source && source == sentry)
+			damage = 0;
+		
+		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+	}
+	
+	void A_DropItemsEngie()
+	{
+		if (target)
+		{
+			// A_SHDX_DropItem("SHDX_LightningGun", true);
+			
+			if (target.CountInv("SHDX_BitCoin") < 50)
+			{
+				if (G_SkillPropertyInt(SKILLP_ACSReturn) <= 2)
+					A_SHDX_DropItem("SHDX_GoldBitCoin", false);
+				else
+					A_SHDX_DropItem("SHDX_SilverBitCoin", false);
+			}
+		}
+	}
+	
+	bool A_CheckIfBathroomEngie()
+	{
+		return (user_bathroom >= 1);
+	}
+	
+	States
+	{
+		Spawn:
+			ENG1 A 10 A_Look;
+			Loop;
+		See:
+			ENG1 BCDEBCDE 4 A_Chase;
+			Loop;
+		Missile:
+			ENG1 F 0 A_StopSound(CHAN_BODY);
+			ENG1 F 0
+			{
+				if (!deployedsentry && target && CheckIfTargetInLOS(179, 0, 0, 0))
+					return ResolveState("Sentry");
+					
+				return ResolveState(null);
+			}
+		Missile.Plasma:
+			ENG1 F 5 A_FaceTarget;
+			ENG1 G 1 bright A_SpawnProjectile("SHDX_PlasmaBall");
+			ENG1 H 1 bright;
+			ENG1 F 2 A_FaceTarget;
+			ENG1 G 1 bright A_SpawnProjectile("SHDX_PlasmaBall");
+			ENG1 H 1 bright;
+			ENG1 F 2 A_FaceTarget;
+			ENG1 G 1 bright A_SpawnProjectile("SHDX_PlasmaBall");
+			ENG1 H 1 bright;
+			ENG1 F 2 A_FaceTarget;
+			ENG1 G 1 bright A_SpawnProjectile("SHDX_PlasmaBall");
+			ENG1 H 1 bright;
+			ENG1 F 2 A_FaceTarget;
+			ENG1 G 1 bright A_SpawnProjectile("SHDX_PlasmaBall");
+			ENG1 H 1 bright;
+			Goto See;
+		Melee:
+			ENG1 I 3 Bright A_FaceTarget;
+			ENG1 J 3 Bright A_CustomMeleeAttack(5, "engineer/melee", "engineer/miss", "Lightning", true);
+			ENG1 K 3 Bright;
+			Goto See;
+		Sentry:
+			ENG1 L 0 A_StartSound("engineer/deploy", CHAN_VOICE);
+			ENG1 L 3 A_FaceTarget;
+			ENG1 M 5
+			{
+				A_SpawnProjectile("SHDX_MiniSentryBall");
+				deployedsentry = true;
+			}
+			ENG1 A 2;
+			Goto See;
+			
+		Pain:
+			ENG1 N 3;
+			ENG1 N 3 A_Pain;
+			Goto See;
+		Death:
+			ENG1 O 5 A_Scream;
+			ENG1 P 5
+			{
+				A_NoBlocking();
+				
+				if (A_CheckIfBathroomEngie())
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				else
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
+			}
+			ENG1 Q 5;
+			ENG1 R -1 A_SetCorpseShootable;
+			Stop;
+		Death.Lightning:
+			ENG1 O 5 A_Scream;
+			ENG1 P 5
+			{
+				A_NoBlocking();
+				
+				if (A_CheckIfBathroomEngie())
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				else
+					A_SHDX_LightningOneLiner();
+			}
+			ENG1 Q 5;
+			ENG1 R -1 A_SetCorpseShootable;
+			Stop;
+		Ice:
+			ENG1 N 0
+			{
+				if (A_CheckIfBathroomEngie())
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				else
+					A_SHDX_IceOneLiner();
+			}
+			ENG1 N 5 A_GenericFreezeDeath;
+			ENG1 N 1 A_FreezeDeathChunks;
+			Wait;
+		Death.Explosive:
+			GIBX A 3
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsEngie();
+				A_SpawnGibsFx(self);
+			}
+			GIBX B 0
+			{
+				if (A_CheckIfBathroomEngie())
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				else
+					A_SHDX_ExplosiveOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			}
+			Goto Super::Death.Extreme+2;
+		Death.Extreme:
+			GIBX A 3
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsEngie();
+				A_SpawnGibsFx(self);
+			}
+			GIBX B 0
+			{
+				if (A_CheckIfBathroomEngie())
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				else
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			}
+			Goto Super::Death.Extreme+2;
+		Death.Weather:
+			GIBX A 3
+			{
+				A_SHDX_ExtremeScreamAndUnblock();
+				A_DropItemsEngie();
+				A_SpawnGibsFx(self);
+			}
+			GIBX B 0
+			{
+				if (A_CheckIfBathroomEngie())
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				else
+					A_SHDX_TornadozerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			}
+			Goto Super::Death.Extreme+2;
+		Death.Spectrum:
+			GIBR A 4;
+			GIBR B 0
+			{
+				if (A_CheckIfBathroomEngie())
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+				else
+					A_SHDX_RainbowerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			}
+			Goto Super::Death.Spectrum+2;
+		Crush:
+			GIBX D 0 A_SHDX_SquishSound;
+			GIBX D 1;
+			GIBX D -1;
+			Stop;
+	}
+}

@@ -1,0 +1,60 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_AbortHandler : StaticEventHandler
+{
+	ui bool ingame;
+	ui int tics;
+	
+	ui void AbortRoutine()
+	{
+		if (gamestate == GS_LEVEL || gamestate == GS_TITLELEVEL)
+		{
+			ingame = true;
+			tics = 0;
+		}
+		else if (gamestate == GS_FULLCONSOLE && (ingame && !players[consoleplayer].viewheight || tics > 0))
+		{
+			ingame = false;
+			
+			if (tics == 1)
+			{
+				Console.Printf("\cf"..StringTable.Localize("$SHDX_CRASHMESSAGE"));
+				
+				S_StartSound("error/sweetiebelle", 1024, CHANF_UI|CHANF_NOPAUSE|CHANF_OVERLAP, 1, ATTN_NONE);
+			}
+			
+			tics++;
+			
+			if (tics >= 2)
+				tics = 2;
+		}
+	}
+
+	override void UiTick()
+	{
+		AbortRoutine();
+	}
+	
+	override void NetworkProcess(ConsoleEvent e)
+	{
+		if (e.Name ~== "triggermanualabort" && e.isManual)
+		{
+			if (players[e.Player].mo)
+			{
+				players[e.Player].mo.ThrowAbortException(StringTable.Localize("$SHDX_MANUALCRASHABORT"));
+			}
+		}
+	}
+}

@@ -1,0 +1,8 @@
+#include "gl/glow.gl"
+#include "gl/enemies.gl"
+#include "gl/fx.gl"
+#include "gl/items.gl"
+#include "gl/projectiles.gl"
+#include "gl/puffs.gl"
+#include "gl/weapons.gl"
+#include "gl/props.gl"

@@ -1,0 +1,76 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+extend class SHDX_Utilities
+{
+	// I wrote this one on my own
+	static clearscope String UniCharAt(String str, int pos)
+	{
+		String ret = String.Format("%c", str.GetNextCodePoint(pos));
+		
+		return ret;
+	}
+	
+	// https://gist.github.com/Doom2fan/3d2efec41ef2c1054e4a6b6a7f79ef2d
+	// Thanks Phantombeta for these functions. These are unicode
+	// safe versions of Left and Mid just in case I need them.
+	// I had used Left and Mid previously in older code, but
+	// it seems to have since been replaced. That said
+	// this could still be useful and I want to future
+	// proof myself.
+    static clearscope string UniLeft (string str, int numChars) {
+        int strLen = str.CodePointCount ();
+        if (strLen < numChars)
+            numChars = strLen;
+
+        int curPos = 0;
+        for (int i = 0; i < numChars; i++) {
+            int c;
+            [c, curPos] = str.GetNextCodePoint (curPos);
+        }
+
+        return str.Left (curPos);
+    }
+
+    static clearscope string UniMid (string str, int startChar, int numChars) {
+        int strLen = str.CodePointCount ();
+
+        if (startChar >= strLen)
+            return "";
+
+        if (startChar + numChars > strLen || startChar + numChars < startChar)
+            numChars = strLen - startChar;
+        int charCount = startChar + numChars;
+
+        int startPos;
+        int endPos;
+        int prevPos;
+        int curPos = 0;
+        for (int i = 0; i < charCount; i++) {
+            if (i == startChar)
+                startPos = curPos;
+
+            prevPos = curPos;
+            int c;
+            [c, curPos] = str.GetNextCodePoint (curPos);
+
+            if (i == charCount - 1) {
+                endPos = curPos;
+                break;
+            }
+        }
+
+        return str.Mid (startPos, endPos - startPos);
+    }
+}

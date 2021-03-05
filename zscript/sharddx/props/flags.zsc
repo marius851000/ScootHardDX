@@ -1,0 +1,193 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_FlagPole : SHDX_Prop
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Flag pole (Pegapol)"
+		//$Sprite FLAGA0
+		//$Category "Obstacles"
+		
+		Radius 10;
+		Height 56;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			FLAG A -1;
+			Stop;
+			
+		Death:
+			FLAG B 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			FLAG B -1;
+			Stop;
+	}
+}
+
+Class SHDX_FlagDestroyableSmall : SHDX_Decoration
+{
+	Default
+	{
+		//$Angled
+		//$Title "CWC Flag Destroyable (Small)"
+		//$Sprite FLG2A0
+		//$Category "Decoration/Flags"
+		
+		Health 5;
+		Radius 0;
+		Height 56;
+		// DeathSound "misc/explosion2";
+		
+		+Shootable
+		+NoBlood
+		+DontGib
+		+DontFall
+		+WallSprite
+		+NoGravity
+		+DontThrust
+	}
+	
+	int lengthofflag;
+	
+	virtual void SetLengthOfFlag()
+	{
+		lengthofflag = 32;
+	}
+	
+	void SpawnHitboxes()
+	{
+		Vector3 vec;
+		double ang = SHDX_Actor.A_SHDX_NormalizeAngle(angle + 90);
+		int i;
+		for (i = -lengthofflag; i <= lengthofflag; i += 8)
+		{
+			vec = Vec3Angle(i, ang, 0, false);
+			let hb = SHDX_Hitbox(Spawn("SHDX_Hitbox", vec, ALLOW_REPLACE));
+			hb.master = self;
+			hb.isflaghitbox = true;
+		}
+	}
+	
+	override void BeginPlay()
+	{
+		Super.BeginPlay();
+		SetLengthOfFlag();
+		SpawnHitboxes();
+	}
+
+	States
+	{
+		Spawn:
+			FLG2 A -1;
+			Stop;
+		
+		Death:
+			FLG2 B 0
+			{
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			FLG2 B -1 A_Stop();
+			Stop;
+	}
+}
+
+Class SHDX_FlagDestroyableMedium : SHDX_FlagDestroyableSmall
+{
+	Default
+	{
+		//$Angled
+		//$Title "CWC Flag Destroyable (Med.)"
+		//$Sprite FLG2A0
+		//$Category "Decoration/Flags"
+		
+		Height 112;
+		
+		Scale 0.24;
+	}
+	
+	override void SetLengthOfFlag()
+	{
+		lengthofflag = 48;
+	}
+	
+}
+
+Class SHDX_FlagDestroyableLarge : SHDX_FlagDestroyableSmall
+{
+	Default
+	{
+		//$Angled
+		//$Title "CWC Flag Destroyable (Large)"
+		//$Sprite FLG2A0
+		//$Category "Decoration/Flags"
+		
+		Height 224;
+		
+		Scale 0.48;
+	}
+	
+	override void SetLengthOfFlag()
+	{
+		lengthofflag = 64;
+	}
+	
+}
+
+Class SHDX_FlagPole2 : SHDX_Prop
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Flag pole (CWC)"
+		//$Sprite FLG3A0
+		//$Category "Obstacles"
+		
+		Radius 22;
+		Height 56;
+		Health 5;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			FLG3 A -1;
+			Stop;
+			
+		Death:
+			FLG3 B 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				
+				SHDX_Actor.A_SpawnMetalJunkFx(self);
+			}
+			FLG3 B -1;
+			Stop;
+	}
+}

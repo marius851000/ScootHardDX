@@ -1,0 +1,20 @@
+Glow
+{
+	// Spectrum flats
+	Texture "RSPECF0", "ff1000", fullbright, glow 160
+	Texture "OSPECF0", "f29638", fullbright, glow 160
+	Texture "YSPECF0", "ffe634", fullbright, glow 160
+	Texture "GSPECF0", "00aa44", fullbright, glow 160
+	Texture "BSPECF0", "4270ff", fullbright, glow 160
+	Texture "PUSPECF0", "be54d4", fullbright, glow 160
+	
+	// Lava
+	Texture "F_LAVA", "ff8000", fullbright, glow 80
+	
+	// Nukage
+	Texture "F_NUKE", "d0c030", fullbright, glow 80
+	
+	// Light Textures
+	Texture "LITE10", "fff4a8", fullbright, glow 32
+	Texture "LITE00", "ffffff", fullbright, glow 32
+}

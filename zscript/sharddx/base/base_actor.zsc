@@ -1,0 +1,201 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+enum EGibTypeToSpawn
+{
+	SGFX_SPAWNNOEXTRA = 0,
+    SGFX_SPAWNHEAD = 1,
+    SGFX_SPAWNEYES = 2,
+	SGFX_SPAWNARM = 4,
+	SGFX_SPAWNLEG = 8,
+	
+	SGFX_SPAWNALL = SGFX_SPAWNHEAD|SGFX_SPAWNEYES|SGFX_SPAWNARM|SGFX_SPAWNLEG,
+}
+
+Class SHDX_Actor : Actor
+{
+	Default
+	{
+		TeleFogSourceType "SHDX_TeleportFog";
+		TeleFogDestType "SHDX_TeleportFog";
+		
+		Scale 0.12;
+		
+		BloodType "SHDX_Blood", "SHDX_Blood", "SHDX_Blood";
+	}
+	
+	static void A_DD2_SpawnGib(Actor self, Class<Actor> gibtype = "SHDX_Giblets", bool dontthrust = false)
+	{
+		Actor a;
+		
+		if (!self)
+			return;
+			
+		Vector3 vel3;
+		
+		Vector3 pos3;
+		pos3.x = self.pos.x + Random[GibFx](-16, 16);
+		pos3.y = self.pos.y + Random[GibFx](-16, 16);
+		pos3.z = self.pos.z + Random[GibFx](-16, 16);
+		
+		if (!dontthrust)
+		{
+			vel3.x = self.vel.x + FRandom[GibFx](-32, 32);
+			vel3.y = self.vel.y + FRandom[GibFx](-32, 32);
+			vel3.z = self.vel.z + FRandom[GibFx](0, 90);
+		}
+		else
+		{
+			vel3.x = 0;
+			vel3.y = 0;
+			vel3.z = 0;
+		}
+		
+		a = self.Spawn(gibtype, pos3, ALLOW_REPLACE);
+		
+		a.vel = vel3;
+		a.A_FaceMovementDirection();
+	}
+	
+	static void A_SpawnGibsFx(Actor self, int flags = SGFX_SPAWNALL)
+	{
+		if (!self)
+			return;
+		
+		for (int i = 0; i < 23; i++)
+		{
+			A_DD2_SpawnGib(self, "SHDX_WallGib");
+		}
+		
+		for (int i = 0; i < 28; i++)
+		{
+			A_DD2_SpawnGib(self, "SHDX_Giblets");
+		}
+		
+		for (int i = 0; i < 4; i++)
+		{
+			A_DD2_SpawnGib(self, "SHDX_BoneGibs");
+		}
+		
+		if (flags & SGFX_SPAWNHEAD)
+		{
+			A_DD2_SpawnGib(self, "SHDX_HeadGib");
+		}
+		
+		if (flags & SGFX_SPAWNEYES)
+		{
+			A_DD2_SpawnGib(self, "SHDX_EyeGib");
+			A_DD2_SpawnGib(self, "SHDX_EyeGib");
+		}
+		
+		if (flags & SGFX_SPAWNARM)
+		{
+			A_DD2_SpawnGib(self, "SHDX_ArmGib");
+		}
+		
+		if (flags & SGFX_SPAWNLEG)
+		{
+			A_DD2_SpawnGib(self, "SHDX_LegGib");
+		}
+	}
+	
+	static void A_SpawnAshFx(Actor self)
+	{
+		if (!self)
+			return;
+			
+		for (int i = 0; i < 20; i++)
+		{
+			A_DD2_SpawnGib(self, "SHDX_AshGibs");
+		}
+	}
+	
+	static void A_SpawnMetalJunkFx(Actor self)
+	{
+		if (!self)
+			return;
+			
+		for (int i = 0; i < 32; i++)
+		{
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk");
+		}
+	}
+	
+	static void A_SpawnMetalJunk2Fx(Actor self)
+	{
+		if (!self)
+			return;
+			
+		for (int i = 0; i < 8; i++)
+		{
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk1");
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk2");
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk3");
+			A_DD2_SpawnGib(self, "SHDX_MetalJunk4");
+		}
+	}
+	
+	static void A_SpawnGlassJunkFx(Actor self)
+	{
+		if (!self)
+			return;
+			
+		for (int i = 0; i < 32; i++)
+		{
+			A_DD2_SpawnGib(self, "SHDX_GlassJunk");
+		}
+	}
+	
+	static void A_SpawnChickenFeathersFx(Actor self)
+	{
+		if (!self)
+			return;
+		
+		for (int i = 0; i < 16; i++)
+		{
+			A_DD2_SpawnGib(self, "SHDX_ChickenFeather");
+		}
+	}
+	
+	// Rewriting the DropItem Function to learn some basics of
+	// lower-level ZScript coding. Based on
+	// https://forum.zdoom.org/viewtopic.php?f=39&t=55409
+	void A_SHDX_DropItem(Class<Actor> todrop = "SHDX_SilverBitCoin", bool halveammo = true)
+	{
+		Actor a = Spawn(todrop, self.pos, ALLOW_REPLACE);
+		
+		a.bDROPPED = true;
+		a.vel.x = Random[ItemDrop](-1, 1);
+		a.vel.y = Random[ItemDrop](-1, 1);
+		a.vel.z = 8;
+		
+		let aa = Ammo(a);
+		
+		if (aa && halveammo)
+			aa.amount = int(aa.amount * 0.5);
+		
+		// a.vel += self.vel;
+	}
+	
+	static double A_SHDX_NormalizeAngle(double ang)
+	{
+		double ret = ang;
+		if (ret < 0)
+			ret = 360 - (ret % 360);
+		else
+			ret = ret % 360;
+		
+		return ret;
+	}
+}

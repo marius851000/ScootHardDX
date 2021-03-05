@@ -1,0 +1,422 @@
+/*
+Copyright 2020 Sanya K. Waffles and Marisa Kirisame
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+const ARMOR_PICKUP_AMOUNT = 50;
+
+Class SHDX_BulletProofBase : SHDX_Armor
+{
+	Default
+	{
+		Inventory.MaxAmount 100;
+		Inventory.InterHubAmount 100;
+	}
+
+	override bool CanResistDamage(Name damageType)
+	{
+		if (damageType == 'Bullet')
+			return true;
+			
+		return false;
+	}
+}
+
+Class SHDX_BulletProofArmorShard : SHDX_BulletProofBase
+{
+	Default
+	{
+		//$Sprite ASR1A0
+		//$Title "Bulletproof Armor Shard"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_BULLETSHARD";
+		Inventory.PickupSound "pickup/shard";
+		Tag "$SHDX_TAG_BULLETSHARD";
+		
+		Inventory.Amount 2;
+	} 
+	
+	States
+	{
+		Spawn:
+			ASR1 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_BulletProofArmorPickup : Inventory
+{
+	Default
+	{
+		//$Sprite ARM1A0
+		//$Title "Bulletproof Armor"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_BULLETARMOR";
+		Inventory.PickupSound "pickup/armorvest";
+		Tag "$SHDX_TAG_BULLETPROOF";
+	}
+	
+	override bool TryPickup(in out Actor toucher)
+	{
+		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
+		
+		if ((barmor && barmor.amount >= ARMOR_PICKUP_AMOUNT))
+		{
+			return false;
+		}
+		else
+		{
+			if (!barmor || barmor.amount < ARMOR_PICKUP_AMOUNT)
+			{
+				barmor = SHDX_BulletProofBase(Spawn("SHDX_BulletProofBase"));
+				barmor.amount = ARMOR_PICKUP_AMOUNT;
+				barmor.BecomeItem();
+				toucher.AddInventory(barmor);
+			}			
+			Destroy();
+		}
+		
+		return true;
+	}
+	
+	States
+	{
+		Spawn:
+			ARM1 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_FireProofBase : SHDX_Armor
+{
+	Default
+	{
+		Inventory.MaxAmount 100;
+		Inventory.InterHubAmount 100;
+	}
+
+	override bool CanResistDamage(Name damageType)
+	{
+		if (damageType == 'Fire' || damageType == 'Slime' || damageType == 'Explosive')
+			return true;
+		
+		return false;
+	}
+}
+
+Class SHDX_FireProofArmorShard : SHDX_FireProofBase
+{
+	Default
+	{
+		//$Sprite ASR2A0
+		//$Title "Fireproof Armor Shard"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_FIRESHARD";
+		Inventory.PickupSound "pickup/shard";
+		Tag "$SHDX_TAG_FIRESHARD";
+		
+		Inventory.Amount 2;
+	} 
+	
+	States
+	{
+		Spawn:
+			ASR2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_FireProofArmorPickup : Inventory
+{
+	Default
+	{
+		//$Sprite ARM2A0
+		//$Title "Fireproof Armor"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_FIREPROOF";
+		Inventory.PickupSound "pickup/armorvest";
+		Tag "$SHDX_TAG_FIREPROOF";
+	}
+	
+	override bool TryPickup(in out Actor toucher)
+	{
+		SHDX_FireProofBase farmor = SHDX_FireProofBase(toucher.FindInventory("SHDX_FireProofBase"));
+		
+		if ((farmor && farmor.amount >= ARMOR_PICKUP_AMOUNT))
+		{
+			return false;
+		}
+		else
+		{
+			if (!farmor || farmor.amount < ARMOR_PICKUP_AMOUNT)
+			{
+				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
+				farmor.amount = ARMOR_PICKUP_AMOUNT;
+				farmor.BecomeItem();
+				toucher.AddInventory(farmor);
+			}			
+			Destroy();
+		}
+		
+		return true;
+	}
+	
+	States
+	{
+		Spawn:
+			ARM2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_WeatherProofBase : SHDX_Armor
+{
+	Default
+	{
+		Inventory.MaxAmount 100;
+		Inventory.InterHubAmount 100;
+	}
+
+	override bool CanResistDamage(Name damageType)
+	{
+		if (damageType == 'Weather' || damageType == 'Lightning' || damageType == 'Ice' || damageType == 'Spectrum')
+			return true;
+		
+		return false;
+	}
+}
+
+
+Class SHDX_WeatherProofArmorShard : SHDX_WeatherProofBase
+{
+	Default
+	{
+		//$Sprite ASR3A0
+		//$Title "Weatherproof Armor Shard"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_WEATHERSHARD";
+		Inventory.PickupSound "pickup/shard";
+		Tag "$SHDX_TAG_WEATHERSHARD";
+		
+		Inventory.Amount 2;
+	} 
+	
+	States
+	{
+		Spawn:
+			ASR3 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_WeatherProofArmorPickup : Inventory
+{
+	Default
+	{
+		//$Sprite ARM3A0
+		//$Title "Weatherproof Armor"
+		//$NonAngled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_WEATHERPROOF";
+		Inventory.PickupSound "pickup/armorvest";
+		Tag "$SHDX_TAG_WEATHERPROOF";
+	}
+	
+	override bool TryPickup(in out Actor toucher)
+	{
+		SHDX_WeatherProofBase warmor = SHDX_WeatherProofBase(toucher.FindInventory("SHDX_WeatherProofBase"));
+		
+		if ((warmor && warmor.amount >= ARMOR_PICKUP_AMOUNT))
+		{
+			return false;
+		}
+		else
+		{
+			if (!warmor || warmor.amount < ARMOR_PICKUP_AMOUNT)
+			{
+				warmor = SHDX_WeatherProofBase(Spawn("SHDX_WeatherProofBase"));
+				warmor.amount = ARMOR_PICKUP_AMOUNT;
+				warmor.BecomeItem();
+				toucher.AddInventory(warmor);
+			}			
+			Destroy();
+		}
+		
+		return true;
+	}
+	
+	States
+	{
+		Spawn:
+			ARM3 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_BasicArmor : Inventory
+{
+	Default
+	{
+		//$Sprite BARMA0
+		//$Title "Basic Armor"
+		//$NonAgnled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_BASICARMOR";
+		Inventory.PickupSound "pickup/armorvest";
+		Tag "$SHDX_TAG_BASICARMOR";
+	}
+	
+	const BASIC_ARMOR_AMOUNT_GIVE = 25;
+	
+	override bool TryPickup(in out Actor toucher)
+	{
+		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
+		SHDX_FireProofBase farmor = SHDX_FireProofBase(toucher.FindInventory("SHDX_FireProofBase"));
+		SHDX_WeatherProofBase warmor = SHDX_WeatherProofBase(toucher.FindInventory("SHDX_WeatherProofBase"));
+		
+		if ((barmor && barmor.amount >= BASIC_ARMOR_AMOUNT_GIVE) && (farmor && farmor.amount >= BASIC_ARMOR_AMOUNT_GIVE) && (warmor && warmor.amount >= BASIC_ARMOR_AMOUNT_GIVE))
+		{
+			return false;
+		}
+		else
+		{
+			if (!barmor || barmor.amount < BASIC_ARMOR_AMOUNT_GIVE)
+			{
+				barmor = SHDX_BulletProofBase(Spawn("SHDX_BulletProofBase"));
+				barmor.amount = BASIC_ARMOR_AMOUNT_GIVE;
+				barmor.BecomeItem();
+				toucher.AddInventory(barmor);
+			}
+			
+			if (!farmor || farmor.amount < BASIC_ARMOR_AMOUNT_GIVE)
+			{
+				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
+				farmor.amount = BASIC_ARMOR_AMOUNT_GIVE;
+				farmor.BecomeItem();
+				toucher.AddInventory(farmor);
+			}
+			
+			if (!warmor || warmor.amount < BASIC_ARMOR_AMOUNT_GIVE)
+			{
+				warmor = SHDX_WeatherProofBase(Spawn("SHDX_WeatherProofBase"));
+				warmor.amount = BASIC_ARMOR_AMOUNT_GIVE;
+				warmor.BecomeItem();
+				toucher.AddInventory(warmor);
+			}
+			
+			Destroy();
+		}
+		
+		return true;
+	}
+	
+	States
+	{
+		Spawn:
+			BARM A -1;
+			Stop;
+	}
+}
+
+Class SHDX_SuperArmor : Inventory
+{
+	Default
+	{
+		//$Sprite SARMA0
+		//$Title "Super Armor"
+		//$NonAgnled
+		//$Category "Health and Armor"
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+		Inventory.PickupMessage "$SHDX_PICKUP_SUPERARMOR";
+		Inventory.PickupSound "pickup/armorvest";
+		Tag "$SHDX_TAG_SUPERARMOR";
+	}
+	
+	const SUPER_ARMOR_AMOUNT = 100;
+	
+	override bool TryPickup(in out Actor toucher)
+	{
+		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
+		SHDX_FireProofBase farmor = SHDX_FireProofBase(toucher.FindInventory("SHDX_FireProofBase"));
+		SHDX_WeatherProofBase warmor = SHDX_WeatherProofBase(toucher.FindInventory("SHDX_WeatherProofBase"));
+		
+		if ((barmor && barmor.amount >= SUPER_ARMOR_AMOUNT) && (farmor && farmor.amount >= SUPER_ARMOR_AMOUNT) && (warmor && warmor.amount >= SUPER_ARMOR_AMOUNT))
+		{
+			return false;
+		}
+		else
+		{
+			if (!barmor || barmor.amount < SUPER_ARMOR_AMOUNT)
+			{
+				barmor = SHDX_BulletProofBase(Spawn("SHDX_BulletProofBase"));
+				barmor.amount = SUPER_ARMOR_AMOUNT;
+				barmor.BecomeItem();
+				toucher.AddInventory(barmor);
+			}
+			
+			if (!farmor || farmor.amount < SUPER_ARMOR_AMOUNT)
+			{
+				farmor = SHDX_FireProofBase(Spawn("SHDX_FireProofBase"));
+				farmor.amount = SUPER_ARMOR_AMOUNT;
+				farmor.BecomeItem();
+				toucher.AddInventory(farmor);
+			}
+			
+			if (!warmor || warmor.amount < SUPER_ARMOR_AMOUNT)
+			{
+				warmor = SHDX_WeatherProofBase(Spawn("SHDX_WeatherProofBase"));
+				warmor.amount = SUPER_ARMOR_AMOUNT;
+				warmor.BecomeItem();
+				toucher.AddInventory(warmor);
+			}
+			
+			Destroy();
+		}
+		
+		return true;
+	}
+	
+	States
+	{
+		Spawn:
+			SARM A -1;
+			Stop;
+	}
+}

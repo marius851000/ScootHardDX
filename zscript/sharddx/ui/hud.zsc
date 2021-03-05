@@ -1,0 +1,237 @@
+/*
+Copyright 2020 Sanya K. Waffles, Marisa Kirisame
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+class SHDX_HudDisable : Inventory
+{
+	Default
+	{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 1;
+	}
+}
+
+class SHDX_StatusBar : BaseStatusBar
+{
+	HUDFont mHUDFont;
+	HUDFont mIndexFont;
+	HUDFont mSmallFont;
+	InventoryBarState diparms;
+	
+	Inventory lastsel;
+	Weapon lastwep;
+	
+	override void Init()
+	{
+		Super.Init();
+		SetSize(32, 320, 200);
+		
+		// create fonts
+		mHUDFont = HUDFont.Create("HudFont");
+		mIndexFont = HUDFont.Create("tinyfont");
+		mSmallFont = HUDFont.Create("Smallfont");
+		diparms = InventoryBarState.Create();
+	}
+	
+	override void DrawAutomapHUD(double ticFrac)
+	{
+		DoDrawAutomapHUD(Font.CR_GREY, Font.CR_UNTRANSLATED);
+	}
+	
+	override void Draw(int state, double TicFrac)
+	{
+		Super.Draw(state, TicFrac);
+		
+		if(state == HUD_StatusBar)
+		{
+			BeginStatusBar();
+			DrawMainBar(TicFrac);
+		}
+		else if(state == HUD_Fullscreen)
+		{
+			BeginHUD();
+			fullscreenOffsets = true;
+			DrawFSHUD();
+		}
+	}
+	
+	protected void DrawSHDXHudBG(int _x, int _y)
+	{
+		DrawImage("graphics/hud/hudbg.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+	}
+	
+	protected void DrawSHDXHealth(int _x, int _y)
+	{
+		DrawImage("graphics/hud/hud_bigpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawTexture(GetMugShot(4), (_x + 2, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (_x + 25, _y + 4), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+	}
+	
+	protected void DrawSHDXArmors(int _x, int _y)
+	{
+		if (GetAmount("SHDX_BulletProofBase") > 0)
+		{
+			DrawImage("graphics/hud/hud_smallpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawImage("graphics/hud/hud_bulletarmor.png", (_x + 8, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BulletProofBase"), 3), (_x + 2, _y + 16), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+		}
+		if (GetAmount("SHDX_FireProofBase") > 0)
+		{
+			DrawImage("graphics/hud/hud_smallpart.png", (_x + 32, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawImage("graphics/hud/hud_firearmor.png", (_x + 40, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_FireProofBase"), 3), (_x + 34, _y + 16), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+		}
+		if (GetAmount("SHDX_WeatherProofBase") > 0)
+		{
+			DrawImage("graphics/hud/hud_smallpart.png", (_x + 64, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawImage("graphics/hud/hud_wxarmor.png", (_x + 72, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_WeatherProofBase"), 3), (_x + 66, _y + 16), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+		}
+	}
+	
+	protected void DrawSHDXBits(int _x, int _y)
+	{
+		DrawImage("graphics/hud/hud_smallpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawImage("graphics/hud/hud_coin.png", (_x + 7, _y + 2), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawString(mSmallFont, FormatNumber(GetAmount("SHDX_BitCoin"), 3), (_x + 3, _y + 16), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+	}
+	
+	protected void DrawSHDXFrags(int _x, int _y)
+	{
+		DrawImage("graphics/hud/hud_bigpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawString(mSmallFont, StringTable.Localize("$SHDX_HUD_FRAGS"), (_x, _y + 5), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+		DrawString(mSmallFont, FormatNumber(CPlayer.FragCount, 3), (_x, _y + 14), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+	}
+	
+	protected string GetSHDXWeaponIcon()
+	{
+		String ico;
+		let w = CPlayer.ReadyWeapon;
+		if (w is "SHDX_Blaster" || w is "SHDX_SubmachineGun")
+		{
+			ico = "graphics/hud/hud_bullets.png";
+		}
+		else if (w is "SHDX_MissileLauncher")
+		{
+			ico = "graphics/hud/hud_missile.png";
+		}
+		else if (w is "SHDX_FillySeeker")
+		{
+			ico = "graphics/hud/hud_fillyseeker.png";
+		}
+		else if (w is "SHDX_HailerWeapon")
+		{
+			ico = "graphics/hud/hud_hailer.png";
+		}
+		else if (w is "SHDX_LightningGun")
+		{
+			ico = "graphics/hud/hud_lightning.png";
+		}
+		else if (w is "SHDX_Rainbower")
+		{
+			ico = "graphics/hud/hud_rainbow.png";
+		}
+		else if (w is "SHDX_Tornadozer")
+		{
+			ico = "graphics/hud/hud_tornado.png";
+		}
+		return ico;
+	}
+	
+	protected void DrawSHDXAmmo(int _x, int _y)
+	{
+		Inventory a1, a2;
+		[a1, a2] = GetCurrentAmmo();
+		DrawImage("graphics/hud/hud_bigpart.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		DrawImage(GetSHDXWeaponIcon(), (_x + 10, _y + 4), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		
+		// all built in weapons only have one ammo type
+		if (a1)
+		{
+			DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (_x + 28, _y + 4), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_CYAN);
+		}
+	}
+	
+	// Draw Keys
+	protected void DrawSHDXKeys(int _x = 80, int _y = 172)
+	{
+		DrawImage("graphics/hud/hud_keyback.png", (_x, _y), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		
+		if (GetAmount("SHDX_RedCard"))
+			DrawImage("graphics/hud/hud_redkey.png", (_x + 3, _y + 3), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		
+		if (GetAmount("SHDX_GreenCard"))
+			DrawImage("graphics/hud/hud_greenkey.png", (_x + 17, _y + 3), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			
+		if (GetAmount("SHDX_BlueCard"))
+			DrawImage("graphics/hud/hud_bluekey.png", (_x + 3, _y + 17), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+			
+		if (GetAmount("SHDX_ManagementCard"))
+			DrawImage("graphics/hud/hud_mgmtkey.png", (_x + 17, _y + 17), DI_ITEM_OFFSETS, scale:(0.25, 0.25));
+		
+		if (GetAmount("SHDX_FoundAurora"))
+			DrawImage("graphics/hud/hud_aurora.png", (_x + 2, _y + 2), DI_ITEM_OFFSETS, scale:(0.12, 0.12));
+	}
+	
+	const MAINBAROFSY = 168;
+	
+	protected void DrawMainBar(double TicFrac)
+	{
+		DrawSHDXHudBG(-640, MAINBAROFSY);
+		DrawSHDXHudBG(-320, MAINBAROFSY);
+		DrawSHDXHudBG(0, MAINBAROFSY);
+		DrawSHDXHudBG(320, MAINBAROFSY);
+		DrawSHDXHudBG(640, MAINBAROFSY);
+		if (!GetAmount("SHDX_HudDisable"))
+		{
+			// If this is like SBARINFO, things drawn first
+			// are 'drawn over' by subsequent functions
+			DrawSHDXHealth(0, MAINBAROFSY);
+			DrawSHDXArmors(76, MAINBAROFSY);
+			DrawSHDXBits(180, MAINBAROFSY);
+			
+			if (deathmatch)
+			{
+				DrawSHDXFrags(212, MAINBAROFSY);
+			}
+			else
+			{
+				DrawSHDXKeys(212, MAINBAROFSY);		// Draw keys next
+			}
+			DrawSHDXAmmo(256, MAINBAROFSY);
+		}
+	}
+	
+	protected void DrawFSHUD()
+	{
+		if (!GetAmount("SHDX_HudDisable"))
+		{
+			
+			// Lower Left
+			DrawSHDXHealth(0, -32);
+			DrawSHDXBits(72, -32);
+			DrawSHDXArmors(112, -32);
+			// Lower Right
+			DrawSHDXAmmo(-140, -32);
+			
+			if (deathmatch)
+			{
+				DrawSHDXFrags(-40, -32);
+			}
+			else
+			{
+				DrawSHDXKeys(-40, -32);
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+$pitchshiftrange 0
+
+pickup/powerup			"sounds/items/get_powerup.ogg"	// Powerup Pickup
+pickup/generic			"sounds/items/generic_pickup.ogg"		// Generic Pickup
+pickup/weapon			"sounds/items/weapon_pickup.ogg"
+pickup/key				"sounds/items/key_pickup.ogg"		// Key Pickup
+pickup/healthfood		"sounds/eat.ogg"			// Food Health Pickups
+
+pickup/armorvest		"sounds/items/armor.ogg"
+
+$alias pickup/shard		pickup/generic
+$alias pickup/health	pickup/generic
+
+powerup/cmode			"sounds/items/chicken_dance_start.ogg"	// ChickenDance
+powerup/cmodedone		"sounds/items/chicken_dance_end.ogg"	// slowmo chickendance

@@ -1,0 +1,155 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+Class SHDX_PlayerPawn : PlayerPawn
+{
+	Default
+	{
+		TeleFogSourceType "SHDX_TeleportFog";
+		TeleFogDestType "SHDX_TeleportFog";
+		
+		Scale 0.14;
+		
+		Speed 1;
+		Health 100;
+		Mass 100;
+		PainChance 255;
+		
+		Friction 0.995;
+		
+		BloodType "SHDX_Blood", "SHDX_Blood", "SHDX_Blood";
+		
+		Player.TeleportFreezeTime 0;
+	}
+	
+	override void CalcHeight()
+	{
+		Super.CalcHeight();
+		
+		let player = self.player;
+		
+		player.viewz = pos.Z + player.viewheight;
+		
+		if (Floorclip && player.playerstate != PST_DEAD && pos.Z <= floorz)
+		{
+			player.viewz -= Floorclip;
+		}
+		
+		if (player.viewz > ceilingz - 4)
+		{
+			player.viewz = ceilingz - 4;
+		}
+		
+		if (player.viewz < floorz + 4)
+		{
+			player.viewz = floorz + 4;
+		}
+	}
+	
+	void DDFunc_PlayerDies()
+	{
+		A_NoBlocking();
+		A_PlayerScream();
+	}
+	
+	void DDFunc_PlayerDiesXTreem()
+	{
+		A_NoBlocking();
+		SHDX_Actor.A_SpawnGibsFx(self);
+	}
+	
+	void A_NewPlayerPain()
+	{		
+		if (!IsActorPlayingSound(SHDXPLAYER_DIALOGUECHANNEL1))
+			A_StartSound("*pain100", CHAN_6);
+	}
+	
+	void PerSecondFunctions()
+	{
+		
+	}
+
+	override bool CanCrouch() const
+	{
+		return player.morphTics <= 1 || bCrouchableMorph;
+	}
+	
+	override void BeginPlay()
+	{
+		Super.BeginPlay();
+		MarkPreCacheSounds();
+	}
+	
+	// Accensus provided me this
+	void AdjustFrictionForMovement()
+	{
+		if (player)
+		{
+			int buttons = player.cmd.buttons;
+			int oldbuttons = player.oldbuttons;
+
+			int ForwardMove = GetPlayerInput(INPUT_FORWARDMOVE);
+			int SideMove = GetPlayerInput(INPUT_SIDEMOVE);
+			bool Moving = (buttons & BT_FORWARD || buttons & BT_BACK || buttons & BT_MOVELEFT || buttons & BT_MOVERIGHT) || (ForwardMove != 0 || SideMove != 0);
+			Friction = player.onground && !Moving ? 0.93 : 1.00;
+		}
+	}
+	
+	void CheckForSecrets()
+	{
+		let s = CurSector;
+		if (s.IsSecret())
+		{
+			s.ClearSecret();
+			GiveSecret();
+		}
+	}
+	
+	override void Travelled()
+	{
+		Super.Travelled();
+		A_ResetOneLinerMute();
+	}
+	
+	override void Tick()
+	{
+		// to avoid something going on with "voodoo dolls" not performing right
+		// or the like.
+		
+		if (!player || !player.mo || player.mo != self)
+		{
+			// Only perform the PlayerPawn functionality, nothing more...
+			Super.Tick();
+			return;	// bailing out...
+		}
+		
+		Super.Tick();	// call any PlayerPawn Tick functionality
+		
+		CheckForSecrets();
+		
+		AdjustFrictionForMovement();
+		
+		A_OneLinerProcess();
+		
+		// This is mainly here to do things on every ~second or so.
+		// We use modulo to check if current tics can be divided by 35
+		// If it can, execute PerSecond Functions
+		if (!(level.time % TICRATE))
+		{
+			// any per-second functions go here
+			PerSecondFunctions();
+		}
+	}
+}

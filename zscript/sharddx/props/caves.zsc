@@ -1,0 +1,231 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+Class SHDX_Mushroom : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Mushroom (Brown)"
+		//$Sprite MSH1A0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			MSH1 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_Mushroom2 : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Mushroom (Spotted)"
+		//$Sprite MSH2A0
+		//$Category "Decoration"
+		
+		Radius 10;
+		Height 10;
+	}
+	
+	States
+	{
+		Spawn:
+			MSH2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_MineCart : SHDX_Prop
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Mine Cart"
+		//$Sprite MCRTA1A5
+		//$Category "Obstacles"
+		
+		Radius 20;
+		Height 30;
+	}
+	
+	States
+	{
+		Spawn:
+			MCRT A -1;
+			Stop;
+	}
+}
+
+Class SHDX_Pickaxe : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Mine Cart"
+		//$Sprite MCRTA1A5
+		//$Category "Decoration"
+		
+		Radius 12;
+		Height 24;
+	}
+	
+	States
+	{
+		Spawn:
+			PAXE A -1;
+			Stop;
+	}
+}
+
+Class SHDX_PurpleCrystal : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Purple Crystal"
+		//$Sprite CRS1A0
+		//$Category "Decoration"
+		
+		Radius 12;
+		Height 40;
+		
+		+NoGravity
+		+SpawnCeiling
+	}
+	
+	States
+	{
+		Spawn:
+			CRS1 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_GreenCrystal : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Green Crystal"
+		//$Sprite CRS2A0
+		//$Category "Decoration"
+		
+		Radius 12;
+		Height 24;
+	}
+	
+	States
+	{
+		Spawn:
+			CRS2 A -1;
+			Stop;
+	}
+}
+
+Class SHDX_Stalagtite : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Stalagtite"
+		//$Sprite STALA0
+		//$Category "Decoration"
+		
+		Radius 16;
+		Height 20;
+		
+		+NoGravity
+		+SpawnCeiling
+	}
+	
+	States
+	{
+		Spawn:
+			STAL A -1;
+			Stop;
+	}
+}
+
+Class SHDX_Stalagmite : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Stalagmite"
+		//$Sprite STL2A0
+		//$Category "Decoration"
+		
+		Radius 16;
+		Height 20;
+	}
+	
+	States
+	{
+		Spawn:
+			STL2 A -1;
+			Stop;
+	}
+}
+Class SHDX_StalagtiteIce : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Stalagtite Ice"
+		//$Sprite ISTLA0
+		//$Category "Decoration"
+		
+		Radius 16;
+		Height 20;
+		
+		+NoGravity
+		+SpawnCeiling
+	}
+	
+	States
+	{
+		Spawn:
+			ISTL A -1;
+			Stop;
+	}
+}
+
+Class SHDX_StalagmiteIce  : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Stalagmite Ice"
+		//$Sprite IST2A0
+		//$Category "Decoration"
+		
+		Radius 16;
+		Height 20;
+	}
+	
+	States
+	{
+		Spawn:
+			IST2 A -1;
+			Stop;
+	}
+}

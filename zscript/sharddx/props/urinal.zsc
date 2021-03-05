@@ -1,0 +1,83 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+// Urinal Texture
+Class SHDX_Urinal : SHDX_SwitchableDecoration
+{
+	Default
+	{
+		//$Title "Urinal"
+		//$Category "Decoration"
+		//$Color 4
+		
+		Radius 20;
+		Height 60;
+		Health 5;
+		Mass 1000;
+		VSpeed 0;
+		Activation THINGSPEC_Default | THINGSPEC_Switch | THINGSPEC_NoDeathSpecial;
+		
+		-Solid
+		+UseSpecial
+		+Shootable
+		+NoBlood
+		+DontGib
+		+DontFall
+		+NoGravity
+		+DontThrust
+		+NoTeleport
+		+WallSprite
+	}
+	
+	void A_ToggleUrinalStart()
+	{
+		A_DisableSpecial();
+		A_StartSound("misc/toiletflush", CHAN_BODY);
+		A_Stop();
+	}
+	
+	void A_UrinalXPlode()
+	{
+		A_StartSound("misc/toiletbreak", CHAN_BODY);
+		A_DisableSpecial();
+		A_NoBlocking();
+		
+		SHDX_Actor.A_SpawnMetalJunkFx(self);
+		
+		A_StartSound("misc/watergush", CHAN_BODY, CHANF_LOOPING, 0.5, ATTN_NORM);
+		A_Stop();
+	}
+
+	States
+	{
+		Active:
+		Inactive:
+			URNL A 1 A_ToggleUrinalStart;
+			URNL A 38;
+			URNL A 1 A_EnableSpecial;
+			Goto Spawn;
+		
+		Spawn:
+			URNL A 1 A_Stop;
+			Loop;
+			
+		Death:
+			URNL B 0 A_UrinalXPlode;
+			Goto DeathLoop;
+		
+		DeathLoop:
+			URNL BC 2 A_Stop;
+			Loop;
+	}
+}

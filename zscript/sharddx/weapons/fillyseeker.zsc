@@ -1,0 +1,273 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+Class SHDX_SeekerMissileAmmo : Ammo
+{
+	Default
+	{
+		Inventory.MaxAmount 8;
+		Ammo.BackpackAmount 0;
+		Ammo.BackpackMaxAmount 8;
+	}
+}
+
+Class SHDX_FillySeeker : SHDX_MissileWeapon
+{
+	Default
+	{
+		//$Title "Fillyseeker"
+		//$Sprite GUN5A0
+		
+		Weapon.SelectionOrder 350;
+		Inventory.PickupMessage "$SHDX_PICKUP_FILLYSEEKER";
+		Tag "$SHDX_TAG_FILLYSEEKER";
+		+WEAPON.NOAUTOFIRE
+		+WEAPON.NOAUTOAIM
+		+Weapon.CheatNotWeapon
+		Weapon.AmmoGive 8;
+		Weapon.AmmoUse1 1;
+		Weapon.AmmoUse2 1;
+		Weapon.AmmoType1 "SHDX_SeekerMissileAmmo";
+		Weapon.AmmoType2 "SHDX_SeekerMissileAmmo";
+		Obituary "$SHDX_OB_FILLYSEEKER";
+	}
+	
+	States
+	{
+		Ready: 
+			HSKG A 1 A_WeaponReady;
+			LOOP;
+		Deselect:
+			HSKG A 1 A_Lower(10);
+			LOOP;
+		Select:
+			HSKG A 1 A_Raise(10);
+			Loop;
+		Flash:
+			HSKF A 2 Bright A_Light1;
+			goto LightDone;
+		Fire: 
+		AltFire.LowOnAmmo:
+			HSKG A 3 A_GunFlash;
+			HSKG B 2
+			{
+				A_StartSound("weapons/fillyf", CHAN_WEAPON);
+				A_FireProjectile("SHDX_FillyMissile");
+			}
+			HSKG B 2;
+			HSKG B 2; // ACS_NamedExecute("SHDX_OutOfAmmo", 0, 2)
+			HSKG A 2;
+			HSKG A 0 A_ReFire;
+			Goto Ready;
+		AltFire:
+			HSKG A 0
+			{
+				if (CountInv("SHDX_SeekerMissileAmmo") < 4)
+					return ResolveState("AltFire.LowOnAmmo");
+					
+				return ResolveState("AltFire.HasAmmo");
+			}
+		AltFire.HasAmmo:
+			HSKG A 3 A_GunFlash;
+			HSKG B 2
+			{
+				A_StartSound("weapons/grenadef", CHAN_WEAPON);
+				A_FireProjectile("SHDX_ClusterGrenadeFS");
+				A_TakeInventory("SHDX_SeekerMissileAmmo", 3);
+			}
+			HSKG B 2;
+			HSKG B 2; // ACS_NamedExecute("SHDX_OutOfAmmo", 0, 2)
+			HSKG A 2;
+			HSKG A 0 A_ReFire;
+			Goto Ready;
+		Spawn:
+			GUN5 A -1;
+			LOOP;
+	}
+}
+
+Class SHDX_FillyMissile : SHDX_Projectile
+{
+	Default
+	{
+		Radius 11;
+		Height 6;
+		Speed 60;
+		Damage 10;
+		Projectile;
+		+SCREENSEEKER
+		+SEEKERMISSILE
+		DamageType "Explosive";
+		// SeeSound "weapons/fillyf";
+		DeathSound "weapons/fillyx";
+		
+		+ROCKETTRAIL
+	}
+	
+	States
+	{
+		Spawn:
+			MISL A 0 NoDelay A_StartSound("weapons/fillyh", CHAN_6, CHANF_LOOPING);
+		Spawn1:
+			MISL A 1 A_SeekerMissile(5, 5, SMF_LOOK, 256, 10);
+			Loop;
+		
+		Death:
+			EXPL A 0 Bright
+			{
+				A_StopSound(CHAN_6);
+				A_Explode(56, 80, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 56, 32, 80, DamageType:'Explosive');
+			}
+			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
+			EXPL BCDEFGHI 3 Bright;
+			Stop;
+	}
+}
+
+Class SHDX_ClusterGrenadeFS : SHDX_Projectile
+{
+	Default
+	{
+		Radius 7;
+		Height 14;
+		Speed 25;
+		Damage 10;
+		DamageType "Explosive";
+		
+		Scale 0.12;
+		Mass 25;
+		
+		// BounceCount 5;
+		// BounceType "Hexen";
+       //  BounceFactor 0.65;
+       //  WallBounceFactor 0.7;
+		
+		Gravity 0.75;
+		
+		// BounceSound "enforcer/clusterbombb";
+		
+		// +CanBounceWater
+	}
+	
+	override int SpecialMissileHit(Actor victim)
+	{
+		if (victim && victim != target)
+		{
+			let hbx = SHDX_Hitbox(victim);
+			if (hbx && hbx.iscorpse)
+			{
+				return 1;
+			}
+			
+			if (victim is "SHDX_Enemy")
+			{
+				return -1;
+			}
+		}
+		
+		return Super.SpecialMissileHit(victim);
+	}
+
+	States
+	{
+		Spawn:
+			CLST ABCD 1 Bright;
+			CLST D 0 Bright
+			{
+				bNoGravity = false;
+			}
+			CLST ABCD 1 Bright;
+			Loop;
+		
+		Death:
+			EXPL A 3 Bright
+			{
+				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
+				A_SetRenderStyle(0.9, STYLE_Add);
+				
+				for (int i = 0; i < 4; i++)
+				{
+					A_SpawnProjectile("SHDX_ClusterGrenadeFS2", 32, 0, Random[ClusterGrenade](0, 360), (CMF_AIMDIRECTION|CMF_TRACKOWNER), Random[ClusterGrenade](0, 90));
+				}
+				
+				A_Explode(128, 128, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 128, 128., 192, flags:DE_EXTRAZTHRUST);
+				A_Stop();
+			}
+			EXPL B 3 Bright
+			{
+				A_Quake(2, 8, 0, 1096);
+				A_Stop();
+			}
+			EXPL CDEFGHI 3 Bright
+			{
+				A_FadeOut(0.1);
+				A_Stop();
+			}
+			Stop;
+	}
+}
+
+Class SHDX_ClusterGrenadeFS2 : SHDX_ClusterGrenadeFS
+{
+	Default
+	{
+		Radius 4;
+		Height 7;
+		Speed 10;
+		Damage 5;
+		DamageType "Explosive";
+		
+		Scale 0.08;
+		Mass 15;
+		
+		BounceCount 5;
+		BounceType "Hexen";
+        BounceFactor 0.65;
+        WallBounceFactor 0.7;
+		
+		Gravity 0.75;
+		
+		BounceSound "enforcer/clusterbombb";
+		
+		+CanBounceWater
+	}
+
+	States
+	{
+		Death:
+			EXPL A 3 Bright
+			{
+				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
+				A_SetScale(0.12, 0.12);
+				A_SetRenderStyle(0.9, STYLE_Add);
+				A_Explode(96, 64, damagetype:'Explosive');
+				// SHDX_Utilities.DoExplosion(self, 96, 64., 128, flags:DE_EXTRAZTHRUST);
+				A_Stop();
+			}
+			EXPL B 3 Bright
+			{
+				A_Quake(2, 8, 0, 1096);
+				A_Stop();
+			}
+			EXPL CDEFGHI 3 Bright
+			{
+				A_FadeOut(0.1);
+				A_Stop();
+			}
+			Stop;
+	}
+}

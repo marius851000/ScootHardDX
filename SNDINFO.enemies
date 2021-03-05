@@ -1,0 +1,216 @@
+$pitchshiftrange 0
+
+// LOW GUARD
+
+grunt1/sight1				"sounds/enemies/guard/ben/g_see1.ogg"
+grunt1/sight2				"sounds/enemies/guard/ben/g_see2.ogg"
+grunt1/sight3				"sounds/enemies/guard/ben/g_see3.ogg"
+$random	grunt1/sight		{ grunt1/sight1	grunt1/sight2 grunt1/sight3 }
+
+grunt1/death1				"sounds/enemies/guard/ben/g_dead1.ogg"
+grunt1/death2				"sounds/enemies/guard/ben/g_dead2.ogg"
+grunt1/death3				"sounds/enemies/guard/ben/g_dead3.ogg"
+grunt1/pain					"sounds/enemies/guard/ben/g_pain.ogg"
+$random	grunt1/death		{ grunt1/death1	grunt1/death2 grunt1/death3 }
+
+grunt1/active1				"sounds/enemies/guard/ben/g_active1.ogg"
+grunt1/active2				"sounds/enemies/guard/ben/g_active2.ogg"
+$random	grunt1/active		{ grunt1/active1 grunt1/active2 }
+
+grunt2/sight1				"sounds/enemies/guard/tab/g2_see1.ogg"
+grunt2/sight2				"sounds/enemies/guard/tab/g2_see2.ogg"
+grunt2/sight3				"sounds/enemies/guard/tab/g2_see3.ogg"
+$random	grunt2/sight		{ grunt2/sight1	grunt2/sight2 grunt2/sight3 }
+
+grunt2/death1				"sounds/enemies/guard/tab/g2_dead1.ogg"
+grunt2/death2				"sounds/enemies/guard/tab/g2_dead2.ogg"
+grunt2/death3				"sounds/enemies/guard/tab/g2_dead3.ogg"
+$random	grunt2/death		{ grunt2/death1	grunt2/death2 grunt2/death3 }
+
+grunt2/active1				"sounds/enemies/guard/tab/g2_active1.ogg"
+grunt2/active2				"sounds/enemies/guard/tab/g2_active2.ogg"
+$random	grunt2/active		{ grunt2/active1 grunt2/active2 }
+
+grunt2/pain1				"sounds/enemies/guard/tab/g2_pain1.ogg"
+grunt2/pain2				"sounds/enemies/guard/tab/g2_pain2.ogg"
+grunt2/pain3				"sounds/enemies/guard/tab/g2_pain3.ogg"
+$random	grunt2/pain			{ grunt2/pain1	grunt2/pain2 grunt2/pain3 }
+
+grunt/attack				"sounds/weapons/revolver.ogg"
+
+// HIGH GUARD
+
+hguard1/sight1				"sounds/enemies/high/redsoldier55/hg_see1.ogg"
+hguard1/sight2				"sounds/enemies/high/redsoldier55/hg_see2.ogg"
+$random hguard1/sight		{ hguard1/sight1 hguard1/sight2 }
+
+hguard1/active1				"sounds/enemies/high/redsoldier55/hg_active1.ogg"
+hguard1/active2				"sounds/enemies/high/redsoldier55/hg_active2.ogg"
+hguard1/active3				"sounds/enemies/high/redsoldier55/hg_active2.ogg"
+$random hguard1/active		{ hguard1/active1 hguard1/active2 hguard1/active3 }		
+
+hguard1/death1				"sounds/enemies/high/redsoldier55/hg_dead1.ogg"
+hguard1/death2				"sounds/enemies/high/redsoldier55/hg_dead2.ogg"
+$random hguard1/death		{ hguard1/death1 hguard1/death2 }
+
+hguard1/pain1				"sounds/enemies/high/redsoldier55/hg_pain1.ogg"
+hguard1/pain2				"sounds/enemies/high/redsoldier55/hg_pain2.ogg"
+$random hguard1/pain		{ hguard1/pain1 hguard1/pain2 }
+
+rocketguard/loading			"sounds/rocket_load.ogg"
+
+grenadeguard/fire			"sounds/weapons/grenade_fire2.ogg"
+
+hguard/attack			"sounds/weapons/smg_fire.ogg"
+
+// PEGAPOL
+
+pegapol/sight1			"sounds/enemies/pegapol/pp_see1.ogg"
+pegapol/sight2			"sounds/enemies/pegapol/pp_see2.ogg"
+$random pegapol/sight	{ pegapol/sight1 pegapol/sight2 }
+pegapol/pain1			"sounds/enemies/pegapol/pp_pain1.ogg"
+pegapol/pain2			"sounds/enemies/pegapol/pp_pain2.ogg"
+pegapol/pain3			"sounds/enemies/pegapol/pp_pain3.ogg"
+pegapol/pain4			"sounds/enemies/pegapol/pp_pain4.ogg"
+$random pegapol/pain	{ pegapol/pain1 pegapol/pain2 pegapol/pain3 pegapol/pain4 }
+pegapol/death1			"sounds/enemies/pegapol/pp_die1.ogg"
+pegapol/death2			"sounds/enemies/pegapol/pp_die2.ogg"
+pegapol/death3			"sounds/enemies/pegapol/pp_die3.ogg"
+$random	pegapol/death	{ pegapol/death1 pegapol/death2 pegapol/death3 }
+pegapol/attack			"sounds/weapons/smg_fire.ogg"
+pegapol/active1			"sounds/enemies/pegapol/pp_active1.ogg"
+pegapol/active3			"sounds/enemies/pegapol/pp_active3.ogg"
+$random	pegapol/active	{ pegapol/active1 pegapol/active3 }
+pegapol/wings			"sounds/wing_flap.ogg"
+pegapol/charge			"sounds/wing_charge.ogg"
+pegapol/fireready		"sounds/weapons/gun_ready.ogg"
+
+// PEGAWIZ
+
+pegawiz/sight1			"sounds/enemies/pegawiz/pw_sight1.ogg"
+pegawiz/sight2			"sounds/enemies/pegawiz/pw_sight2.ogg"
+pegawiz/sight3			"sounds/enemies/pegawiz/pw_sight3.ogg"
+pegawiz/sight4			"sounds/enemies/pegawiz/pw_sight4.ogg"
+pegawiz/sight5			"sounds/enemies/pegawiz/pw_sight5.ogg"
+$random pegawiz/sight	{ pegawiz/sight1 pegawiz/sight2 pegawiz/sight3 pegawiz/sight4 pegawiz/sight5 }
+pegawiz/pain1			"sounds/enemies/pegawiz/pw_pain1.ogg"
+pegawiz/pain2			"sounds/enemies/pegawiz/pw_pain2.ogg"
+pegawiz/pain3			"sounds/enemies/pegawiz/pw_pain3.ogg"
+pegawiz/pain4			"sounds/enemies/pegawiz/pw_pain4.ogg"
+$random pegawiz/pain	{ pegawiz/pain1 pegawiz/pain2 pegawiz/pain3 pegawiz/pain4 }
+pegawiz/death1			"sounds/enemies/pegawiz/pw_death1.ogg"
+pegawiz/death2			"sounds/enemies/pegawiz/pw_death2.ogg"
+pegawiz/death3			"sounds/enemies/pegawiz/pw_death3.ogg"
+pegawiz/death4			"sounds/enemies/pegawiz/pw_death4.ogg"
+pegawiz/death5			"sounds/enemies/pegawiz/pw_death5.ogg"
+$random	pegawiz/death	{ pegawiz/death1 pegawiz/death2 pegawiz/death3 pegawiz/death4 pegawiz/death5 }
+pegawiz/fire1			"sounds/enemies/pegawiz/pw_fire1.ogg"
+pegawiz/fire2			"sounds/enemies/pegawiz/pw_fire2.ogg"
+pegawiz/fire3			"sounds/enemies/pegawiz/pw_fire3.ogg"
+$random	pegawiz/fire	{ pegawiz/fire1 pegawiz/fire2 pegawiz/fire3 }
+pegawiz/attack			"sounds/weapons/smg_fire.ogg"
+pegawiz/active1			"sounds/enemies/pegawiz/pw_active1.ogg"
+pegawiz/active2			"sounds/enemies/pegawiz/pw_active2.ogg"
+pegawiz/active3			"sounds/enemies/pegawiz/pw_active3.ogg"
+pegawiz/active4			"sounds/enemies/pegawiz/pw_active4.ogg"
+pegawiz/active5			"sounds/enemies/pegawiz/pw_active5.ogg"
+$random	pegawiz/active	{ pegawiz/active1 pegawiz/active2 pegawiz/active3 pegawiz/active4 pegawiz/active5 }
+pegawiz/wings			"sounds/wing_flap.ogg"
+pegawiz/charge			"sounds/wing_charge.ogg"
+pegawiz/dodge			"sounds/enemies/pegawiz/pw_dodge.ogg"
+pegawiz/startflying		"sounds/enemies/pegawiz/pw_fly.ogg"
+pegawiz/fireready		"sounds/weapons/gun_ready.ogg"
+
+// ENGINEER
+
+engineer/sight1			"sounds/enemies/engie/en_see1.ogg"
+engineer/sight2			"sounds/enemies/engie/en_see2.ogg"
+engineer/sight3			"sounds/enemies/engie/en_see3.ogg"
+$random engineer/sight  { engineer/sight1 engineer/sight2 engineer/sight3 }
+engineer/death1			"sounds/enemies/engie/en_dead1.ogg"
+engineer/death2			"sounds/enemies/engie/en_dead2.ogg"
+engineer/death3			"sounds/enemies/engie/en_dead3.ogg"
+engineer/death4			"sounds/enemies/engie/en_dead4.ogg"
+$random engineer/death  { engineer/death1 engineer/death2 engineer/death3  engineer/death4 }
+engineer/pain1			"sounds/enemies/engie/en_pain1.ogg"
+engineer/pain2			"sounds/enemies/engie/en_pain2.ogg"
+engineer/pain3			"sounds/enemies/engie/en_pain3.ogg"
+engineer/pain4			"sounds/enemies/engie/en_pain4.ogg"
+$random engineer/pain  { engineer/pain1 engineer/pain2 engineer/pain3  engineer/pain4 }
+engineer/active1		"sounds/enemies/engie/en_active1.ogg"
+engineer/active2		"sounds/enemies/engie/en_active2.ogg"
+engineer/active3		"sounds/enemies/engie/en_active3.ogg"
+engineer/active4		"sounds/enemies/engie/en_active4.ogg"
+$random engineer/active	{ engineer/active1 engineer/active2 engineer/active3 engineer/active4 }
+engineer/deploy1		"sounds/enemies/engie/en_deploy1.ogg"
+engineer/deploy2		"sounds/enemies/engie/en_deploy2.ogg"
+engineer/deploy3		"sounds/enemies/engie/en_deploy3.ogg"
+engineer/deploy4		"sounds/enemies/engie/en_deploy4.ogg"
+$random engineer/deploy	{ engineer/deploy1 engineer/deploy2 engineer/deploy3 engineer/deploy4 }
+engineer/attack			"sounds/weapons/plasma_fire.ogg"
+engineer/shotx			"sounds/weapons/plasma_shotx.ogg"
+engineer/melee			"sounds/weapons/destablizer_hit.ogg"
+engineer/miss			"sounds/weapons/destablizer_full.ogg"
+
+// SPECTRAWASP
+
+spectrawasp/sight			"sounds/enemies/wasp/see.ogg"
+spectrawasp/active1			"sounds/enemies/wasp/active1.ogg"
+spectrawasp/active2			"sounds/enemies/wasp/active2.ogg"
+spectrawasp/active3			"sounds/enemies/wasp/active3.ogg"
+$random spectrawasp/active	{ spectrawasp/active1 spectrawasp/active2 spectrawasp/active3 }
+spectrawasp/death			"sounds/enemies/wasp/death.ogg"
+spectrawasp/pain			"sounds/enemies/wasp/pain.ogg"
+spectrawasp/attacklaserf	"sounds/enemies/wasp/fire.ogg"
+spectrawasp/attacklaserx	"sounds/weapons/plasma_shotx.ogg"
+spectrawasp/attackspectraf	"sounds/enemies/zombie/zombie_throw.ogg"
+spectrawasp/attackspectrax	"sounds/enemies/zombie/zombie_shotx.ogg"
+
+// ZOMBIE
+
+zombie/spot				"sounds/world/THUNDR01.ogg"
+$limit zombie/spot 3
+
+zombie/attack			"sounds/enemies/zombie/zombie_throw.ogg"
+zombie/shotx			"sounds/enemies/zombie/zombie_shotx.ogg"
+zombie/sight			"sounds/enemies/zombie/zombie_sight.ogg"
+zombie/active			"sounds/enemies/zombie/zombie_active.ogg"
+zombie/pain				"sounds/enemies/zombie/zombie_pain.ogg"
+$limit zombie/sight 3
+
+zombie/overcharge		"sounds/zombie_whir.ogg"
+
+// ENFORCERS
+
+enforcer/clusterbombf	"sounds/weapons/grenade_fire.ogg"
+enforcer/clusterbombb	"sounds/weapons/grenade_bounce.ogg"
+enforcer/clusterbombx	"sounds/boom2.ogg"
+enforcer/sight1			"sounds/enemies/enforcers/enf_sight1.ogg"
+enforcer/sight2			"sounds/enemies/enforcers/enf_sight2.ogg"
+$random enforcer/sight	{ enforcer/sight1 enforcer/sight2 }
+enforcer/shield			"sounds/enemies/enforcers/enf_shieldup.ogg"
+enforcer/shieldsup1		"sounds/enemies/enforcers/enf_shield1.ogg"
+enforcer/shieldsup2		"sounds/enemies/enforcers/enf_shield2.ogg"
+enforcer/shieldsup3		"sounds/enemies/enforcers/enf_shield3.ogg"
+$random enforcer/shieldsup	{ enforcer/shieldsup1 enforcer/shieldsup2 enforcer/shieldsup3 }
+enforcer/death1			"sounds/enemies/enforcers/enf_death1.ogg"
+enforcer/death2			"sounds/enemies/enforcers/enf_death2.ogg"
+$random enforcer/death	{ enforcer/death1 enforcer/death2 }
+enforcer/active1		"sounds/enemies/enforcers/enf_active1.ogg"
+enforcer/active2		"sounds/enemies/enforcers/enf_active2.ogg"
+$random enforcer/active	{ enforcer/active1 enforcer/active2 }
+enforcer/whipinit		"sounds/enemies/enforcers/enf_whip.ogg"
+enforcer/explode		"sounds/boom2.ogg"
+enforcer/collarbeep		"sounds/enemies/enforcers/collar_beep.ogg"
+enforcer/grenadef		"sounds/weapons/grenade_fire2.ogg"
+enforcer/grenadeb		"sounds/weapons/grenade_bounce.ogg"
+$alias enforcer/grenadex enforcer/clusterbombx
+enforcer/whipattack		"sounds/whip.ogg"
+enforcer/whipactive		"sounds/whipcrack.ogg"
+
+// SENTRIES
+
+minisentry/build		"sounds/enemies/sentry/build.ogg"
+minisentry/spot			"sounds/enemies/sentry/spot.ogg"
+minisentry/scan			"sounds/enemies/sentry/scan.ogg"
+minisentry/explode		"sounds/boom2.ogg"

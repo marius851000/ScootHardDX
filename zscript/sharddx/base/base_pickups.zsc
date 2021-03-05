@@ -1,0 +1,91 @@
+/*
+Copyright 2020 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+mixin class PickupSoundOverride
+{ 
+	override void PlayPickupSound(Actor toucher)
+	{
+		double attenuation = ATTN_NORM;
+		int channel = CHAN_ITEM;
+		int flags = CHANF_OVERLAP;
+		
+		if (toucher && toucher.CheckLocalView())
+		{
+			flags |= CHANF_MAYBE_LOCAL;
+			flags |= CHANF_NOPAUSE;
+		}
+		else
+		{
+			flags |= CHANF_MAYBE_LOCAL;
+		}
+			
+		if (bNoAttenPickupSound)
+			attenuation = ATTN_NONE;
+			
+		toucher.A_StartSound(PickupSound, channel, flags, 1.0, attenuation);
+	}
+}
+
+// Health Pickup actor
+Class SHDX_Health : Health
+{
+	Default
+	{
+		//$NotAngled
+		//$Category "Health and Armor"
+		//$Color 1
+		
+		Radius 14;
+		Height 28;
+		Scale 0.12;
+		Inventory.PickupSound "pickup/healthfood";
+	}
+	
+	mixin PickupSoundOverride;
+}
+
+// Base Key Object Sets scale, pickup noise and size
+Class SHDX_Key : Key
+{
+	Default
+	{
+		//$NotAngled
+		//$Category "Keys"
+		//$Color 13
+
+		Radius 16;
+		Height 32;
+		Scale 0.12;
+		Inventory.PickupSound "pickup/key";
+	}
+	
+	mixin PickupSoundOverride;
+}
+
+
+Class SHDX_PowerupGiver : PowerupGiver
+{
+	Default
+	{
+		//$NotAngled
+		//$Category "Keys"
+		//$Color 13
+
+		Radius 12;
+		Height 24;
+		Scale 0.12;
+	}
+	
+	mixin PickupSoundOverride;
+}
