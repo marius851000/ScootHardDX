@@ -201,13 +201,17 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		A_MaimbowArenaCheck();
+		int ret;
 		
 		if (mod == 'Disintegrate')
 		{
 			A_Teleport("See2", "SHDX_BossSpot2", "SHDX_TeleportFog", 0);
 			return Super.DamageMobj(inflictor, source, 0, mod, flags, angle);
 		}
+		
+		ret = Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+		
+		A_MaimbowArenaCheck();
 		
 		if (attacktype == MAIMBOW_ATTACK_NONE)
 		{
@@ -225,7 +229,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 				attacktype = MAIMBOW_ATTACK_CHAINGUN;
 		}
 		
-		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+		return ret;
 	}
 	
 	void A_FlyTowardsTarget(double speedtofly = MAIMBOWFLY)

@@ -186,9 +186,11 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
+		int ret =  Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+		
 		A_AtmosphereCheckForFogMachine();
 		
-		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+		return ret;
 	}
 	
 	void A_AtmosphereCheckForFogMachine()
