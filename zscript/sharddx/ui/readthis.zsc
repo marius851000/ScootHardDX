@@ -201,27 +201,27 @@ class SHDX_ReadThisMenu : GenericMenu
 		}
 		if (page == PAGE_MENU4A)
 		{
-			DrawImageWithOffsets("HELPGUN2", 32, 144);
+			DrawImageWithOffsets("HELPGUN2", 32, 176);
 		}
 		if (page == PAGE_MENU4B)
 		{
-			DrawImageWithOffsets("HELPGUN3", 32, 144);
+			DrawImageWithOffsets("HELPGUN3", 32, 176);
 		}
 		if (page == PAGE_MENU4C)
 		{
-			DrawImageWithOffsets("HELPGUN4", 32, 144);
+			DrawImageWithOffsets("HELPGUN4", 32, 176);
 		}
 		if (page == PAGE_MENU4D)
 		{
-			DrawImageWithOffsets("HELPGUN5", 32, 144);
+			DrawImageWithOffsets("HELPGUN5", 32, 176);
 		}
 		if (page == PAGE_MENU4E)
 		{
-			DrawImageWithOffsets("HELPGUN6", 32, 144);
+			DrawImageWithOffsets("HELPGUN6", 32, 176);
 		}
 		if (page == PAGE_MENU4F)
 		{
-			DrawImageWithOffsets("HELPGUN7", 32, 160);
+			DrawImageWithOffsets("HELPGUN7", 32, 176);
 		}
 		if (page == PAGE_MENU5)
 		{
