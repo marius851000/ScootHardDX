@@ -102,7 +102,7 @@ flickerlight SHDX_RAINNOWERFLAME
     chance 0.3
 }
 
-object SHDX_RainbowFlameBall
+object SHDX_RainbowerProjectileB
 {
 	frame RBWN { light SHDX_RAINNOWERFLAME }
 }
