@@ -520,15 +520,14 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	void A_MaimbowFireTornadozer()
 	{
+		int ang = 16;
+		
 		if (maimbowstage >= MAIMBOW_STAGE_3)
+			ang = 8;
+		
+		for (int i = -32; i < 32; i += ang)
 		{
-			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz", spawnofs_xy:-16, angle:-30);
-			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz");
-			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz", spawnofs_xy:16, angle:30);
-		}
-		else
-		{
-			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz");
+			A_SpawnProjectile("SHDX_TornadozerProjectile2", angle:i);
 		}
 	}
 	

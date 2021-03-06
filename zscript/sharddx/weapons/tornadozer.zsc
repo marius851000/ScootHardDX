@@ -16,9 +16,9 @@ Class SHDX_TornadozerAmmo : Ammo
 {
 	Default
 	{
-		Inventory.MaxAmount 6;
+		Inventory.MaxAmount 60;
 		Ammo.BackpackAmount 0;
-		Ammo.BackpackMaxAmount 6;
+		Ammo.BackpackMaxAmount 60;
 	}
 }
 
@@ -35,8 +35,8 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 		+WEAPON.NOAUTOFIRE
 		+WEAPON.NOAUTOAIM
 		+WEAPON.CHEATNOTWEAPON
-		Weapon.AmmoGive 6;
-		Weapon.AmmoUse1 1;
+		Weapon.AmmoGive 60;
+		Weapon.AmmoUse1 2;
 		Weapon.AmmoUse2 1;
 		Weapon.AmmoType1 "SHDX_TornadozerAmmo";
 		Weapon.AmmoType2 "SHDX_TornadozerAmmo";
@@ -64,13 +64,13 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 				A_StartSound("weapons/tornadof2", CHAN_WEAPON);
 				A_WeaponOffset(25, 44, WOF_INTERPOLATE);
 			}
-			TORG A 3 A_WeaponOffset(35, 48, WOF_INTERPOLATE);
-			TORG A 1
+			TORG B 3 A_WeaponOffset(40, 54, WOF_INTERPOLATE);
+			TORG B 1
 			{
 				A_FireProjectile("SHDX_TornadozerProjectile");
-				A_WeaponOffset(40, 50, WOF_INTERPOLATE);
+				A_WeaponOffset(48, 64, WOF_INTERPOLATE);
 			}
-			TORG A 1 A_WeaponOffset(1, 40, WOF_INTERPOLATE);
+			TORG B 1 A_WeaponOffset(1, 40, WOF_INTERPOLATE);
 			TORG A 5 A_ReFire;
 			Goto Ready;
 		AltFlash:
@@ -79,25 +79,30 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 		AltFire:
 			TORG A 0
 			{
-				if (CountInv("SHDX_TornadozerAmmo") >= 2)
+				if (CountInv("SHDX_TornadozerAmmo") >= 10)
 					return ResolveState("AltFire.HasAmmo");
 					
 				return ResolveState("AltFire.LowAmmo");
 			}
 		AltFire.HasAmmo:
-			TORG A 3
+			TORG A 1 A_WeaponOffset(25, 44, WOF_INTERPOLATE);
+			TORG A 1 A_WeaponOffset(30, 46, WOF_INTERPOLATE);
+			TORG A 1 A_WeaponOffset(34, 46, WOF_INTERPOLATE);
+			TORG A 1 A_WeaponOffset(28, 44, WOF_INTERPOLATE);
+			TORG B 1 A_WeaponOffset(32, 46, WOF_INTERPOLATE);
+			TORG B 1 A_WeaponOffset(44, 48, WOF_INTERPOLATE);
+			TORG B 1 A_WeaponOffset(42, 46, WOF_INTERPOLATE);
+			TORG B 1 A_WeaponOffset(44, 46, WOF_INTERPOLATE);
+			TORG B 3 A_WeaponOffset(44, 52, WOF_INTERPOLATE);
+			TORG B 3 A_WeaponOffset(40, 56, WOF_INTERPOLATE);
+			TORG B 1
 			{
 				A_StartSound("weapons/tornadof2", CHAN_WEAPON);
-				A_WeaponOffset(25, 44, WOF_INTERPOLATE);
-			}
-			TORG A 3 A_WeaponOffset(35, 48, WOF_INTERPOLATE);
-			TORG A 1
-			{
 				A_FireProjectile("SHDX_TornadozerProjectile2");
-				A_TakeInventory("SHDX_TornadozerAmmo", 1);
-				A_WeaponOffset(40, 50, WOF_INTERPOLATE);
+				A_TakeInventory("SHDX_TornadozerAmmo", 9);
+				A_WeaponOffset(48, 64, WOF_INTERPOLATE);
 			}
-			TORG A 1 A_WeaponOffset(1, 40, WOF_INTERPOLATE);
+			TORG A 5 A_WeaponOffset(1, 40, WOF_INTERPOLATE);
 			TORG A 5 A_ReFire;
 			Goto Ready;
 		Spawn:
@@ -111,18 +116,13 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 	Default
 	{
 		Radius 5;
-		Height 25;
-		Scale 0.08;
+		Height 12;
+		Scale 0.06;
 		Speed 25;
 		DamageType "Weather";
-		Damage 16;
+		Damage 18;
 		Projectile;
-		BounceType "Hexen";
-		BounceCount 4;
 		+MISSILE
-		+DROPOFF
-		+NOEXPLODEFLOOR
-		MaxStepHeight 16;
 	}
 	
 	States
@@ -135,7 +135,7 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 		Death:
 			EXPL A 0 Bright
 			{
-				A_Explode(80, 64, damagetype:'Weather');
+				A_Explode(64, 80, damagetype:'Weather');
 				// SHDX_Utilities.DoExplosion(self, 32, 32, 64, DamageType:'Weather');
 			}
 		Death1:

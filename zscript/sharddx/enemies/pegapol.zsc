@@ -585,6 +585,14 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 		}
 	}
 	
+	void A_TornadozerShot()
+	{
+		for (int i = -32; i < 32; i += 16)
+		{
+			A_SpawnProjectile("SHDX_TornadozerProjectile2", angle:i);
+		}
+	}
+	
 	States
 	{
 		Spawn:
@@ -759,7 +767,7 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 				A_StartSound("pegawiz/fire", CHAN_VOICE);
 			}
 			PEGA F 15 A_FaceTarget;
-			PEGA G 2 Bright A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz");
+			PEGA G 2 Bright A_TornadozerShot;
 			PEGA H 2 Bright;
 			PEGA I 2 A_PegaWizResetAttackType;
 			Goto See;

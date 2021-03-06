@@ -23,3 +23,4 @@ crosshairhealth 0
 crosshaircolor "80 ff b4"
 autosavecount 8
 longsavemessages false
+m_simpleoptions false
