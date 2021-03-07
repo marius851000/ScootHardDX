@@ -31,4 +31,4 @@ maimbow/vending5								"sounds/vending/vending5.ogg"
 maimbow/vending6								"sounds/vending/vending6.ogg"
 maimbow/vending7								"sounds/vending/vending7.ogg"
 
-$alias enforcer/activate						pickup/weapon
+enforcer/activate								"sounds/vox/enforcer_ready.ogg"

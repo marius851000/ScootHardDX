@@ -15,19 +15,19 @@ Intermission IntroEpisode2
 	}
 	TextScreen
 	{
-		Background = "graphics/cutscenes/intro2/enf_1.png"
+		Background = "graphics/cutscenes/intro2/enf_2.png"
 		TextColor = "Green"
 		Text = "$SHDX_EP2INTRO_2"
 	}
 	TextScreen
 	{
-		Background = "graphics/cutscenes/intro2/enf_2.png"
+		Background = "graphics/cutscenes/intro2/enf_3.png"
 		TextColor = "Green"
 		Text = "$SHDX_EP2INTRO_3"
 	}
 	TextScreen
 	{
-		Background = "graphics/cutscenes/intro2/enf_3.png"
+		Background = "graphics/cutscenes/intro2/enf_4.png"
 		TextColor = "Green"
 		Text = "$SHDX_EP2INTRO_4"
 	}
