@@ -30,3 +30,12 @@ end
 	2		DDDoorBaseOpen
 	3		DDDoorBaseClose
 ]
+
+// aperegon's Weather Effects
+:rain_sequence
+   playrepeat	rain_sound
+   //attenuation normal
+   //attenuation idle
+   //attenuation static
+   attenuation surround
+end

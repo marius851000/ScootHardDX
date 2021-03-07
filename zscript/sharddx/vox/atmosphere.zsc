@@ -12,16 +12,29 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-class SHDX_DrAtmosphere1 : SHDX_Vox
+class SHDX_DrAtmosphere1A : SHDX_Vox
 {
 	Default
 	{
-		//$Title "Dr Atmosphere - Introduction"
+		//$Title "Dr Atmosphere - Introduction A"
 	}
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/intro", StringTable.Localize("$SHDX_VOX_DRATMOS_1"));
+		AddVoxEntry("atmosphere/vox/intro1", StringTable.Localize("$SHDX_VOX_DRATMOS_1A"));
+	}
+}
+
+class SHDX_DrAtmosphere1B : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Dr Atmosphere - Introduction B"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("atmosphere/vox/intro2", StringTable.Localize("$SHDX_VOX_DRATMOS_1B"));
 	}
 }
 

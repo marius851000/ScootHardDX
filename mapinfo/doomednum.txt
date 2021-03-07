@@ -148,7 +148,7 @@ DoomEdNums
 	7105 = SHDX_ScootalooPegasusDeviceKey
 	7106 = SHDX_ScootalooPegasusDeviceFireworks
 	
-	7510 = SHDX_DrAtmosphere1
+	7510 = SHDX_DrAtmosphere1A
 	7511 = SHDX_DrAtmosphere2
 	7512 = SHDX_DrAtmosphere3
 	7513 = SHDX_DrAtmosphere4
@@ -156,6 +156,7 @@ DoomEdNums
 	7515 = SHDX_DrAtmosphere6
 	7516 = SHDX_DrAtmosphere7
 	7517 = SHDX_DrAtmosphere8
+	7518 = SHDX_DrAtmosphere1B
 	
 	7530 = SHDX_Maimbow1
 	7531 = SHDX_Maimbow2

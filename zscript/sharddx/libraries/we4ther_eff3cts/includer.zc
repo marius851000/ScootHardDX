@@ -1,3 +1,10 @@
+//all weather related constants
+#include "zscript/sharddx/libraries/we4ther_eff3cts/weather/constants.zc"
+//basic analitic geometry math
+#include "zscript/sharddx/libraries/we4ther_eff3cts/weather/math.zc"
+//helpers that store info for future use
+#include "zscript/sharddx/libraries/we4ther_eff3cts/weather/helpers.zc"
+
 //initialize weather sequence
 //to apply specific weather to specific map go to this file
 #include "zscript/sharddx/libraries/we4ther_eff3cts/weather/main_event.zc"
@@ -10,10 +17,6 @@
 #include "zscript/sharddx/libraries/we4ther_eff3cts/weather/percipitation_spawner.zc"
 //actual thing which actually shows as snow/rain/etc
 #include "zscript/sharddx/libraries/we4ther_eff3cts/weather/actual_precipitation.zc"
-//rain sound
-#include "zscript/sharddx/libraries/we4ther_eff3cts/weather/specific_effects/rain_sound.zc"
-//thunder sound
-#include "zscript/sharddx/libraries/we4ther_eff3cts/weather/specific_effects/thunder_sound.zc"
 
 //thing that read weather definition
 #include "zscript/sharddx/libraries/we4ther_eff3cts/lump_parser/c_like_parser.zc"

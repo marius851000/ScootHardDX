@@ -26,30 +26,6 @@ world/glassbreak		"sounds/glass_break.ogg"	// Breaking Glass Noise
 world/splash			"sounds/splash02.ogg"	// Splashing noise
 world/quake				"sounds/quake.ogg"
 
-thunder_sound_1 "sounds/world/THUNDR01.ogg"
-thunder_sound_2 "sounds/world/THUNDR02.ogg"
-thunder_sound_3 "sounds/world/THUNDR03.ogg"
-thunder_sound_4 "sounds/world/THUNDR01.ogg"
-thunder_sound_5 "sounds/world/THUNDR02.ogg"
-thunder_sound_6 "sounds/world/THUNDR02.ogg"
-thunder_sound_7 "sounds/world/THUNDR03.ogg"
-thunder_sound_8 "sounds/world/THUNDR01.ogg"
-
-$random thunder_sound_random
-{
-    thunder_sound_1
-    thunder_sound_2
-    thunder_sound_3
-    thunder_sound_4
-    thunder_sound_5
-    thunder_sound_6
-    thunder_sound_7
-    thunder_sound_8
-}
-
-$alias world/thunder thunder_sound_1
-$attenuation thunder_sound_random 0.3
-$rolloff thunder_sound_random linear 1500 4000
 rain_sound "sounds/rain_sound.ogg"
 $rolloff rain_sound linear 150 400
 $limit rain_sound 4

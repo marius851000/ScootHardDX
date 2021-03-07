@@ -1,6 +1,7 @@
 $pitchshiftrange 0
 
-atmosphere/vox/intro							"sounds/vox/atmosphere/dr_atmos_vox_intro_e2.ogg"
+atmosphere/vox/intro1							"sounds/vox/atmosphere/dr_atmos_vox_intro_e2_1.ogg"
+atmosphere/vox/intro2							"sounds/vox/atmosphere/dr_atmos_vox_intro_e2_2.ogg"
 atmosphere/vox/hamslices						"sounds/vox/atmosphere/dr_atmos_vox_ham_slices.ogg"
 atmosphere/vox/quitethemess						"sounds/vox/atmosphere/dr_atmos_vox_no_stopping.ogg"
 atmosphere/vox/youineptmule						"sounds/vox/atmosphere/dr_atmos_vox_mule.ogg"
