@@ -1,12 +1,9 @@
 $pitchshiftrange 0
 
 misc/splatx				"sounds/slop.ogg"
-// $volume misc/splatx		0.5
 gen/gibs				"sounds/gib01.ogg"
-// $volume gen/gibs		0.3
 
 vending/fail			"sounds/ui/error.ogg"
-vending/failfilthyfrank	"sounds/no_money.ogg"
 vending/dispense		"sounds/clunk.ogg"
 vending/watercooler		"sounds/water_cooler.ogg"
 vending/waterdrink		"sounds/water_drink.ogg"
