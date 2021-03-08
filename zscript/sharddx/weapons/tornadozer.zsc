@@ -61,7 +61,7 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 		Fire:
 			TORG A 3
 			{
-				A_StartSound("weapons/tornadof2", CHAN_WEAPON);
+				A_StartSound("weapons/tornadof3", CHAN_WEAPON);
 				A_WeaponOffset(25, 44, WOF_INTERPOLATE);
 			}
 			TORG B 3 A_WeaponOffset(40, 54, WOF_INTERPOLATE);
@@ -97,7 +97,7 @@ Class SHDX_Tornadozer : SHDX_BFGWeapon
 			TORG B 3 A_WeaponOffset(40, 56, WOF_INTERPOLATE);
 			TORG B 1
 			{
-				A_StartSound("weapons/tornadof2", CHAN_WEAPON);
+				A_StartSound("weapons/tornadof3", CHAN_WEAPON);
 				A_FireProjectile("SHDX_TornadozerProjectile2");
 				A_TakeInventory("SHDX_TornadozerAmmo", 9);
 				A_WeaponOffset(48, 64, WOF_INTERPOLATE);

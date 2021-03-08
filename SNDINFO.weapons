@@ -12,6 +12,7 @@ weapons/fillydrunkf		"sounds/weapons/drunkfillyfire.ogg"
 weapons/rainbowerf		"sounds/weapons/rainbower.ogg"
 $alias weapons/rainbowerx	weapons/rocketx		// Rainbower Exploding
 weapons/rainbowerf2		"sounds/weapons/rainbower2.ogg"		// Rainbower Fire Crackle
+weapons/tornadof3		"sounds/weapons/tornado_fire2.ogg"
 weapons/tornadof2		"sounds/weapons/tornado_fire.ogg"	// needs a better sound
 weapons/tornadof		"sounds/weapons/tornado_projectile.ogg"
 weapons/hailf			"sounds/weapons/ice_fire.ogg"
