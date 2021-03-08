@@ -80,6 +80,7 @@ OptionMenu "ScootHardDXOptionsMenu"
 	Submenu "$OPTMNU_VIDEO",			"VideoModeMenu"
 	
 	StaticText ""
+	Slider "$MNU_SHARDDX_FOV",				"fov",					70, 140, 10
 	Option "$MNU_SHARDDX_MUTEPLAYER",		"shdx_snd_oneliners",	"OnOff"
 	Option "$MNU_SHARDDX_CUTSCENES",		"shdx_skipcutscenes",	"OnOff"
 	// Option "$MNU_SHARDDX_SKIPVOX",			"shdx_skipvox",			"OnOff"
