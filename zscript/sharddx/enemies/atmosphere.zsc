@@ -195,7 +195,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	
 	void A_AtmosphereCheckForFogMachine()
 	{
-		if (!fogchanged && health <= (SpawnHealth() / 2))
+		if (!fogchanged && !InStateSequence(CurState, ResolveState("SeeFogDensityMachine")) && health <= (SpawnHealth() / 2))
 		{
 			SetStateLabel("SeeFogDensityMachine");
 		}

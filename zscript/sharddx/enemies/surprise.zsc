@@ -112,7 +112,7 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 	
 	void A_SurpriseCheckForLowerFloor()
 	{
-		if (!floorlowered && health <= (SpawnHealth() / 2))
+		if (!floorlowered && !InStateSequence(CurState, ResolveState("SeeFloorPeelaway")) && health <= (SpawnHealth() / 2))
 			SetStateLabel("SeeFloorPeelaway");
 	}
 	

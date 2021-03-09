@@ -454,30 +454,34 @@ Class SHDX_PegaWizExplosiveLine2 : SHDX_Projectile
 	}
 }
 
-Class SHDX_TornadozerProjectilePegaWiz : SHDX_TornadozerProjectile2
+Class SHDX_TornadozerProjectilePegaWiz : SHDX_Projectile
 {
-	int decaycounter;
+	Default
+	{
+		Radius 5;
+		Height 12;
+		Scale 0.06;
+		Speed 25;
+		DamageType "Weather";
+		Damage 9;
+		Projectile;
+		+MISSILE
+	}
 	
 	States
 	{
 		Spawn:
 			TORN A 0 NoDelay A_StartSound("weapons/tornadof", CHAN_BODY);
-			TORN A 0
-			{
-				decaycounter = 72;
-			}
 		Spawn1:
-			TORN ABCD 1 A_SeekerMissile(4, 4, SMF_LOOK);
-			TORN D 0
-			{
-				decaycounter--;
-				if (decaycounter <= 0)
-					return ResolveState("Death");
-					
-				return ResolveState(null);
-			}
+			TORN ABCD 1;
 			Loop;
 		Death:
+			EXPL A 0 Bright
+			{
+				A_Explode(32, 40, damagetype:'Weather');
+				// SHDX_Utilities.DoExplosion(self, 32, 32, 64, DamageType:'Weather');
+			}
+		Death1:
 			TORN A 3
 			{
 				A_FadeTo(0.0, 0.1, true);
@@ -589,7 +593,7 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 	{
 		for (int i = -32; i < 32; i += 16)
 		{
-			A_SpawnProjectile("SHDX_TornadozerProjectile2", angle:i);
+			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz", angle:i);
 		}
 	}
 	
