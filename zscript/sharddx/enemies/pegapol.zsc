@@ -307,13 +307,13 @@ Class SHDX_Pegapol : SHDX_Enemy
 			{
 				A_NoBlocking();
 				A_DropItemsPegapol();
-				A_SHDX_LightningOneLiner();
+				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_LIGHTNING);
 			}
 			PEGA M 5;
 			PEGA N -1 A_SetCorpseShootable;
 			Stop;
 		Ice:
-			PEGA S 0 A_SHDX_IceOneLiner;
+			PEGA S 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_FROZEN);
 			PEGA S 5
 			{
 				A_GenericFreezeDeath();
@@ -911,7 +911,7 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 			{
 				A_NoBlocking();
 				A_DropItemsPegaWiz();
-				A_SHDX_LightningOneLiner();
+				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_LIGHTNING);
 			}
 			PEGA M 5;
 			PEGA N -1 A_SetCorpseShootable;

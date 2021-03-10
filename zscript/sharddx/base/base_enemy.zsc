@@ -249,53 +249,23 @@ Class SHDX_Enemy : SHDX_Actor
 		return Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
 	}
 	
-	void A_SHDX_ExplosiveOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
-	{
-		String ol = String.Format("explosive%d", Random[OneLiner](1, 20));
-		A_SHDX_GivePlayerOneLiner(r, ol);
-	}
-	
-	void A_SHDX_TornadozerOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
-	{
-		String ol = String.Format("tornado%d", Random[OneLiner](1, 20));
-		A_SHDX_GivePlayerOneLiner(r, ol);
-	}
-	
-	void A_SHDX_RainbowerOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
-	{		
-		String ol = String.Format("rainbower%d", Random[OneLiner](1, 20));
-		A_SHDX_GivePlayerOneLiner(r, ol);
-	}
-	
-	void A_SHDX_LightningOneLiner(int r = SHDX_ONELINER_NORMAL_CHANCE)
-	{
-		String ol = String.Format("lightning%d", Random[OneLiner](1, 20));
-		A_SHDX_GivePlayerOneLiner(r, ol);
-	}
-	
-	void A_SHDX_IceOneLiner(int r = SHDX_ONELINER_GIB_CHANCE)
-	{
-		String ol = String.Format("frozen%d", Random[OneLiner](1, 20));
-		A_SHDX_GivePlayerOneLiner(r, ol);
-	}
-	
 	States
 	{
 		Death.Explosive:
-			GIBX B 0 A_SHDX_ExplosiveOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_EXPLOSIVE);
 			Goto Death.Extreme+1;
 		Death.Weather:
-			GIBX B 0 A_SHDX_TornadozerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_TORNADOZER);
 			Goto Death.Extreme+1;
 		Death.Extreme:
-			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_DEFAULT);
 			GIBX BC 5;
 			GIBX D -1;
 			Stop;
 		Death.Spectrum:
 			GIBR A 2;
 			GIBR A 2 A_StartSound("misc/vaporize", CHAN_7);
-			GIBR B 0 A_SHDX_RainbowerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+			GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_RAINBOWER);
 			GIBR BC 4;
 			GIBR D -1;
 			Stop;

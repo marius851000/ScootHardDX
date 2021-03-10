@@ -275,7 +275,7 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 				if (A_CheckIfOrionWasp())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/sorryorion", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
-					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_EXPLOSIVE);
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;

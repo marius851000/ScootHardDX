@@ -375,7 +375,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			EXPL BCDEFGHI 3 Bright;
 			Stop;
 		Ice:
-			ENF2 I 0 A_SHDX_IceOneLiner;
+			ENF2 I 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_FROZEN);
 			ENFO J 5 A_GenericFreezeDeath;
 			ENFO J 1 A_FreezeDeathChunks;
 			Wait;
@@ -600,7 +600,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 				if (A_CheckIfFirstEnforcer())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/enforcer", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
-					A_SHDX_IceOneLiner();
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_FROZEN);
 			}
 			ENF2 I 5 A_GenericFreezeDeath;
 			ENF2 I 1 A_FreezeDeathChunks;

@@ -135,7 +135,7 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 			{
 				A_NoBlocking();
 				A_DropItemsLowGuard();
-				A_SHDX_LightningOneLiner();
+				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_LIGHTNING);
 			}
 			GRD1 K 5;
 			GRD1 L -1 A_SetCorpseShootable;
@@ -168,7 +168,7 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 			}
 			Goto Super::Death.Extreme;
 		Ice:
-			GRD1 H 0 A_SHDX_IceOneLiner;
+			GRD1 H 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_FROZEN);
 			GRD1 H 5 A_GenericFreezeDeath;
 			GRD1 H 1 A_FreezeDeathChunks;
 			Wait;
@@ -218,7 +218,7 @@ Class SHDX_LowGuardFemale : SHDX_LowGuardMale
 			GRD2 H 0 A_ResetTranslation;
 			Goto See;
 		Ice:
-			GRD2 H 0 A_SHDX_IceOneLiner;
+			GRD2 H 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_FROZEN);
 			GRD2 H 5 A_GenericFreezeDeath;
 			GRD2 H 1 A_FreezeDeathChunks;
 			Wait;
@@ -241,7 +241,7 @@ Class SHDX_LowGuardFemale : SHDX_LowGuardMale
 			{
 				A_NoBlocking();
 				A_DropItemsLowGuard();
-				A_SHDX_LightningOneLiner();
+				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_LIGHTNING);
 			}
 			GRD2 K 5;
 			GRD2 L -1 A_SetCorpseShootable;
