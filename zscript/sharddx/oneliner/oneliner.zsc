@@ -72,7 +72,6 @@ extend class SHDX_Enemy
 				do
 				{
 					snd = GetOLSoundForType(pp, oltype);
-					Console.PrintF(snd);
 				}
 				while (snd == pp.previousol);
 			}
