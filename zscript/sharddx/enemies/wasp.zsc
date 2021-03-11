@@ -91,7 +91,7 @@ Class SHDX_SpectraWaspPuddle : SHDX_LiquidPuddle
 		+Special
 	}
 	
-	const SPECTRUMCTRMAX = 10;
+	const SPECTRUMCTRMAX = 80;
 	int spectrumpuddlectr;
 	
 	state A_StretchPuddle()
@@ -104,6 +104,14 @@ Class SHDX_SpectraWaspPuddle : SHDX_LiquidPuddle
 			return ResolveState("Remain");
 			
 		return ResolveState(null);
+	}
+	
+	void A_SpawnRedParticles()
+	{
+		for (int i = 0; i < 16; i++)
+		{
+			A_SpawnParticle("FF382A", SPF_FULLBRIGHT, (TICRATE * 3), 4, 0, Random[SpectraPuddle](-24,24), Random[SpectraPuddle](-24,24), 0, 0, 0, Random[SpectraPuddle](2, 4), fadestepf:0.05);
+		}
 	}
 	
 	override void Touch(Actor toucher)
@@ -119,9 +127,11 @@ Class SHDX_SpectraWaspPuddle : SHDX_LiquidPuddle
 			Loop;
 		
 		Remain:
-			"####" A 40 Bright
+			"####" A 5 Bright
 			{
 				spectrumpuddlectr++;
+				
+				A_SpawnRedParticles();
 				
 				if (spectrumpuddlectr >= SPECTRUMCTRMAX)
 					return ResolveState("FadeOat");
@@ -131,7 +141,10 @@ Class SHDX_SpectraWaspPuddle : SHDX_LiquidPuddle
 			Loop;
 			
 		FadeOat:
-			"####" A 1 A_FadeTo(0.0, 0.1, true);
+			"####" A 1
+			{
+				A_FadeTo(0.0, 0.1, true);
+			}
 			Wait;
 	}
 }
@@ -154,8 +167,6 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 		DeathSound "spectrawasp/death";
 		ActiveSound "spectrawasp/active";
 		Obituary "$SHDX_OB_SPECTRAWASP";
-		
-		DamageFactor "RainbowerX", 0.25;
 		
 		Species "SpectraEnemy";
 		
