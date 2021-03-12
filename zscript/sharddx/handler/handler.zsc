@@ -17,6 +17,9 @@ class SHDX_Handler : EventHandler
 	int vendingmachineusecount;
 	bool vendingeastereggcompleted;
 	
+	int premorphhealthvalues[MAXPLAYERS];
+	PlayerInfo premorphplayers[MAXPLAYERS];
+	
 	override void PostUiTick()
 	{
 		DoSubtitles();

@@ -117,6 +117,57 @@ Class SHDX_PlayerPawn : PlayerPawn
 		}
 	}
 	
+	// Store the player's health in the handler
+	// so it can be restored on unmorph
+	override bool MorphPlayer(PlayerInfo activator, Class<PlayerPawn> spawntype, int duration, int style, Class<Actor> enter_flash, Class<Actor> exit_flash)
+	{
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			
+			if (pl && pl.mo && player && pl == player)
+			{
+				let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+				if (hnd)
+				{
+					hnd.premorphhealthvalues[i] = player.health;
+					hnd.premorphplayers[i] = pl;
+				}
+				return Super.MorphPlayer(activator, spawntype, duration, style, enter_flash, exit_flash);
+			}
+		}
+		
+		return Super.MorphPlayer(activator, spawntype, duration, style, enter_flash, exit_flash);
+	}
+	
+	// Restore health after unmorph
+	override bool UndoPlayerMorph(PlayerInfo activator, int unmorphflag, bool force)
+	{
+		bool ret = Super.UndoPlayerMorph(activator, unmorphflag, force);
+		
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			PlayerInfo pl = players[i];
+			
+			let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+			if (hnd)
+			{			
+				if (pl && pl.mo && hnd.premorphplayers[i] && activator == hnd.premorphplayers[i])
+				{
+					if (hnd.premorphhealthvalues[i] > MaxHealth)
+					{
+						hnd.premorphplayers[i].health = hnd.premorphhealthvalues[i];
+						hnd.premorphplayers[i].mo.health = hnd.premorphhealthvalues[i];
+					}
+					
+					return ret;
+				}
+			}
+		}
+		
+		return ret;
+	}
+	
 	override void Travelled()
 	{
 		Super.Travelled();
