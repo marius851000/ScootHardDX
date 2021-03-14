@@ -29,6 +29,7 @@ class SHDX_CreditMapEvent : EventHandler
 	ui int creditx, credity;
 	ui int holdtime;
 	ui int stage;
+	ui int ticdelta;
 	
 	override void OnRegister()
 	{
@@ -120,19 +121,28 @@ class SHDX_CreditMapEvent : EventHandler
 	override void UITick()
 	{
 		CheckIfPressingUse();
-		if (!(level.time % TICRATE))
+		
+		if (ticdelta <= 0)
+		{
+			ticdelta = int(floor(gametic / TICRATE));
+		}
+		
+		ticdelta++;
+		
+		if (!(ticdelta % TICRATE))
 		{
 			seconds++;
-			
-			if (seconds > SECONDS_HOLDTIME)
-			{
-				stage++;
-				seconds = 0;
-			}
-			if (stage >= MAX_STAGES)
-			{
-				SendNetworkEvent("ExitLevel", 0, 0, 0);
-			}
+		}
+		
+		if (seconds > SECONDS_HOLDTIME)
+		{
+			seconds = 0;
+			stage++;
+		}
+		
+		if (stage >= MAX_STAGES)
+		{
+			SendNetworkEvent("ExitLevel", 0, 0, 0);
 		}
 	}
 
