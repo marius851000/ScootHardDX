@@ -384,7 +384,7 @@ Press any key to continue...,TXT_PRESSAKEY,,,,,,,,Pulse cualquier tecla para con
 Credits,MNU_SHARDDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 WAFFLE IRON STUDIOS,SHDX_CREDITS_HEADER_WIS,,,,,,,,,,,,,,,,,,,,,,,
 "Creative Director and Design Lead: SanyaWaffles
-Secondary Creative Lead, Music, Sound and Level Design: Metal Neon
+Music, Sound and Level Design: Metal Neon
 Additional Level Design, Additional Sound Design: Elliejojo
 Additional Level Design: Philnemba
 Additional Level and Weapon Design: Jona_Arts
@@ -392,17 +392,17 @@ Additional Level and Weapon Design: Jona_Arts
 Voice of Scootaloo: Victoria Prater
 Voice of Low Guard Female/Aurora Dawn: Tabby
 Voice of Low Guard Male: DRPReskins
-Voice of Pegapol/Pegawiz: Metal Neon
 Voice of Engineer: Movieunleashers
-Voice of Surprise Pony: CakeofRage
-Voice of Dr. Atmosphere/High Guard: Redsoldier55
+Voice of Surprise Pony: CakeOfRage
+Voice of Dr. Atmosphere/High Guard: Redsoilder55
 Voice of Maimbow Undash: Jenna Pepper
 
 Special Thanks To:
 AuroraDawn - for writing the fanfic Rainbow Factory, which inspired this
 WoodenToaster - for creating the song Rainbow Factory, which inspired the fic
 Jinzo - for finding the prototype
-Korzodin and Zan - for their advice",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
+Korzodin and Zan - for their advice
+Accensus - For helping me alot with tricky code issues and being cool",SHDX_CREDITS_WIS,,,,,,,,,,,,,,,,,,,,,,,
 ADDITIONAL CREDITS,SHDX_CREDITS_HEADER_ADD,,,,,,,,,,,,,,,,,,,,,,,
 "Beta Testers: Captain J, Earth, Soupernatural, T, TailTaless, Twily
 
@@ -413,8 +413,8 @@ Fonts: Revue, Daidoh Remix, Crewniverse
 
 Libraries: Apeirogon's Weather Effects Library
 
-Additional Code by Accensus, Chronos ""phantombeta"" Ouroboros,
-Mikk, Marisa Kirisame, and Nash Muhandes.",SHDX_CREDITS_ADD,,,,,,,,,,,,,,,,,,,,,,,
+Additional Code by Chronos ""phantombeta"" Ouroboros, Mikk,
+Marisa Kirisame, and Nash Muhandes.",SHDX_CREDITS_ADD,,,,,,,,,,,,,,,,,,,,,,,
 Are you sure you want to quit?,SHDX_QUIT1,,,,,,,,,,,,,,,,,,,,,,,
 ,,Tags,,,,,,,,,,,,,,,,,,,,,,
 Boss 1 - Surprise,SHDX_TAG_SURPRISE,,,,,,,,,,,,,,,,,,,,,,,
@@ -898,7 +898,45 @@ However, they also found it in their hearts
 to forgive and learn from this. Equestria
 would recover.",SHDX_EP3BEND_12,,,,,,,,,,,,,,,,,,,,,,,
 ,,Credits,,,,,,,,,,,,,,,,,,,,,,
-"1. Jenna Pepper 2. SanyaWaffles 3. EllieJojo 4. Kelsie Finefeather 5. RodScorpion 6. NeonBat
-7. Marisa Kirisame 8. DRPReskins 9. Epic Acrylic 10. Earth
-Not Pictured: Alabeanz, Redsoldier55, Jona_Arts, Metal Neon, AndromedaHawking",SHDX_CREDITPIC,,,,,,,,,,,,,,,,,,,,,,,
-TEAM SCOOT HARD DX THANKS YOU FOR PLAYING!,SHDX_CREDITPICHEADER,,,,,,,,,,,,,,,,,,,,,,,
+Scoot Hard DX Development Team,SHDX_CREDITTEAMSCOOTHARDDX,,,,,,,,,,,,,,,,,,,,,,,
+"Creative Director, Art and Level Design",SHDX_CREDITCREATIVEDIRECTOR,,,,,,,,,,,,,,,,,,,,,,,
+SanyaWaffles,SHDX_CREDITSANYA,,,,,,,,,,,,,,,,,,,,,,,
+"Music, Sound and Additional Level Design",SHDX_CREDITMUSIC,,,,,,,,,,,,,,,,,,,,,,,
+Metal Neon,SHDX_CREDITMETAL,,,,,,,,,,,,,,,,,,,,,,,
+Additional Level Design and Additional Sounds,SHDX_CREDITLEVEL,,,,,,,,,,,,,,,,,,,,,,,
+EllieJojo,SHDX_CREDITELLIE,,,,,,,,,,,,,,,,,,,,,,,
+Weapons and Additonal Level Design,SHDX_CREDITADDITIONAL,,,,,,,,,,,,,,,,,,,,,,,
+Jona_Arts,SHDX_CREDITJONA,,,,,,,,,,,,,,,,,,,,,,,
+Additional Level Design,SHDX_CREDITADDITIONAL2,,,,,,,,,,,,,,,,,,,,,,,
+Philnemba,SHDX_CREDITPHIL,,,,,,,,,,,,,,,,,,,,,,,
+Voice of Scootaloo,SHDX_CREDITSCOOTALOO,,,,,,,,,,,,,,,,,,,,,,,
+Victoria Prater,SHDX_CREDITVICTORIA,,,,,,,,,,,,,,,,,,,,,,,
+Voice of Male Low Guards,SHDX_CREDITLOWGUARDMALE,,,,,,,,,,,,,,,,,,,,,,,
+DRPReskins,SHDX_CREDITDRP,,,,,,,,,,,,,,,,,,,,,,,
+"Voice of Female Low Guards, Aurora Dawn",SHDX_CREDITLOWGUARDFEMALE,,,,,,,,,,,,,,,,,,,,,,,
+Tabby,SHDX_CREDITTABBY,,,,,,,,,,,,,,,,,,,,,,,
+Voice of Engineer,SHDX_CREDITENGINEER,,,,,,,,,,,,,,,,,,,,,,,
+MovieUnleashers,SHDX_CREDITMOVIEUNLEASHERS,,,,,,,,,,,,,,,,,,,,,,,
+Voice of Surprise,SHDX_CREDITSURPRISE,,,,,,,,,,,,,,,,,,,,,,,
+CakeOfRage,SHDX_CREDITCAKE,,,,,,,,,,,,,,,,,,,,,,,
+"Voice of High Guards, Dr. Atmosphere",SHDX_CREDITATMOS,,,,,,,,,,,,,,,,,,,,,,,
+Redsoilder55,SHDX_CREDITRED,,,,,,,,,,,,,,,,,,,,,,,
+Voice of Maimbow Undash,SHDX_CREDITMAIMBOW,,,,,,,,,,,,,,,,,,,,,,,
+Jenna Pepper Fox,SHDX_CREDITJENNA,,,,,,,,,,,,,,,,,,,,,,,
+Special Thanks,SHDX_CREDITSPECIALTHANKS,,,,,,,,,,,,,,,,,,,,,,,
+AuroraDawn,SHDX_CREDITAURORADAWN,,,,,,,,,,,,,,,,,,,,,,,
+WoodenToaster,SHDX_CREDITWOODENTOASTER,,,,,,,,,,,,,,,,,,,,,,,
+Jinzo,SHDX_CREDITJINZO,,,,,,,,,,,,,,,,,,,,,,,
+Korzodin,SHDX_CREDITKORZODIN,,,,,,,,,,,,,,,,,,,,,,,
+Zan,SHDX_CREDITZAN,,,,,,,,,,,,,,,,,,,,,,,
+Accensus,SHDX_CREDITACCENSUS,,,,,,,,,,,,,,,,,,,,,,,
+Weather Library,SHDX_CREDITWXLIBRARY,,,,,,,,,,,,,,,,,,,,,,,
+Apeirogon,SHDX_CREDITAPEIROGON,,,,,,,,,,,,,,,,,,,,,,,
+Additional Code,SHDX_CREDITADDITIONALCODE,,,,,,,,,,,,,,,,,,,,,,,
+phantombeta,SHDX_CREDITPHANTOMBETA,,,,,,,,,,,,,,,,,,,,,,,
+Mikk,SHDX_CREDITMIKK,,,,,,,,,,,,,,,,,,,,,,,
+Marisa Kirisame,SHDX_CREDITMARISAK,,,,,,,,,,,,,,,,,,,,,,,
+Nash Muhandes,SHDX_CREDITNASH,,,,,,,,,,,,,,,,,,,,,,,
+Thanks For Playing!,SHDX_CREDITTHANKS,,,,,,,,,,,,,,,,,,,,,,,
+Find Aurora for the Good Ending!,SHDX_CREDITFINDAURORA,,,,,,,,,,,,,,,,,,,,,,,
+See You Next Mission!,SHDX_CREDITGOODEND,,,,,,,,,,,,,,,,,,,,,,,
