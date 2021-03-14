@@ -154,7 +154,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 			{			
 				if (pl && pl.mo && hnd.premorphplayers[i] && activator == hnd.premorphplayers[i])
 				{
-					if (hnd.premorphhealthvalues[i] > MaxHealth)
+					if (hnd.premorphhealthvalues[i] > 100)
 					{
 						hnd.premorphplayers[i].health = hnd.premorphhealthvalues[i];
 						hnd.premorphplayers[i].mo.health = hnd.premorphhealthvalues[i];

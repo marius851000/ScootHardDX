@@ -188,6 +188,9 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	{
 		int ret =  Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
 		
+		if (mod == 'Massacre')
+			return ret;
+		
 		A_AtmosphereCheckForFogMachine();
 		
 		return ret;

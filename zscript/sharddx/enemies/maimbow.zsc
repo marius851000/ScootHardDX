@@ -211,6 +211,9 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 		
 		ret = Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
 		
+		if (mod == 'Massacre')
+			return ret;
+		
 		A_MaimbowArenaCheck();
 		
 		if (attacktype == MAIMBOW_ATTACK_NONE)

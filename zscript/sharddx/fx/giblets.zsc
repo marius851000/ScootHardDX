@@ -36,10 +36,7 @@ Class SHDX_Blood : SHDX_Actor replaces Blood
 	States
 	{
 		Spawn:
-			BLOD A 3 NoDelay
-			{
-				A_Stop();
-			}
+			BLOD A 3 NoDelay A_Stop;
 			BLOD B 3 A_Stop;
 			BLOD C 3 A_Stop;
 			BLOD D 3 A_Stop;
@@ -175,10 +172,10 @@ Class SHDX_WallGib : SHDX_Giblets
 	{
 		Radius 4;
 		Height 4;
-		Speed 100;
+		Scale 0.12;
+		Speed 60;
 		Projectile;
 		Damage 0;
-		Scale 0.12;
 		DeathSound "gen/gibs";
 	}
 	
@@ -200,7 +197,6 @@ Class SHDX_WallGibFall : SHDX_Giblets
 		Radius 10;
 		Height 10;
 		Gravity 0.05;
-		Speed 0;
 		+FLOORCLIP
 		+NOBLOCKMONST
 		+SLIDESONWALLS
@@ -283,7 +279,7 @@ Class SHDX_AshGibs : SHDX_Actor
 }
 
 // Junk spawn
-Class SHDX_MetalJunk : SHDX_Actor
+Class SHDX_MetalJunk : SHDX_Giblets
 {
 	Default
 	{

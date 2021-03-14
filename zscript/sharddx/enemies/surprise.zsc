@@ -105,6 +105,9 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 	{
 		int ret = Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
 		
+		if (mod == 'Massacre')
+			return ret;
+		
 		A_SurpriseCheckForLowerFloor();
 		
 		return ret;

@@ -352,7 +352,17 @@ class SHDX_CreditMapEvent : EventHandler
 		if (player)
 		{
 			player.cheats |= CF_TOTALLYFROZEN;
-			player.mo.A_GiveInventory("SHDX_HudDisable");
+			player.mo.A_GiveInventory("SHDX_HudDisable", 1);
+		}
+	}
+	
+	override void PlayerEntered(PlayerEvent e)
+	{
+		PlayerInfo player = players[e.PlayerNumber];
+		if (player)
+		{
+			player.cheats |= CF_TOTALLYFROZEN;
+			player.mo.A_GiveInventory("SHDX_HudDisable", 1);
 		}
 	}
 	
@@ -362,7 +372,7 @@ class SHDX_CreditMapEvent : EventHandler
 		if (player)
 		{
 			player.cheats &= ~CF_TOTALLYFROZEN;
-			player.mo.A_TakeInventory("SHDX_HudDisable");
+			player.mo.A_TakeInventory("SHDX_HudDisable", 255);
 		}
 	}
 	

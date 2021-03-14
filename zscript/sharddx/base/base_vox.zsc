@@ -66,9 +66,4 @@ class SHDX_Vox : SHDX_Actor
 		
 		triggered = true;
 	}
-	
-	virtual void SetupVoices()
-	{
-		
-	}
 }

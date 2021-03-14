@@ -90,4 +90,9 @@ extend class SHDX_Vox
 			}
 		}
 	}
+	
+	virtual void SetupVoices()
+	{
+		
+	}
 }
