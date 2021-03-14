@@ -316,17 +316,21 @@ class SHDX_CreditMapEvent : EventHandler
 										DTA_VirtualWidthF,  ss.x,
 										DTA_VirtualHeightF, ss.y,
 										DTA_KeepRatio, true);
-										
+					
+					String str3;
+					int len3;
+					
 					if (level.mapname ~== "CREDITS1")
-					{
-						
-						String str3 = StringTable.Localize("$SHDX_CREDITFINDAURORA");
-						int len3 = fnt.StringWidth(str3) / 2;
-						Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2-len3), ss.y/3 + 64, str3,
-											DTA_VirtualWidthF,  ss.x,
-											DTA_VirtualHeightF, ss.y,
-											DTA_KeepRatio, true);
-					}
+						str3 = StringTable.Localize("$SHDX_CREDITFINDAURORA");
+					else if (level.mapname ~== "CREDITS2")
+						str3 = StringTable.Localize("$SHDX_CREDITGOODEND");
+					
+					len3 = fnt.StringWidth(str3) / 2;
+					
+					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2-len3), ss.y/3 + 64, str3,
+										DTA_VirtualWidthF,  ss.x,
+										DTA_VirtualHeightF, ss.y,
+										DTA_KeepRatio, true);
 				}
 			}
 		}
