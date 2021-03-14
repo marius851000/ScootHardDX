@@ -134,7 +134,7 @@ class SHDX_CreditMapEvent : EventHandler
 			seconds++;
 		}
 		
-		if (seconds > SECONDS_HOLDTIME)
+		if ((stage < MAX_STAGES - 1 && seconds > SECONDS_HOLDTIME) || (stage >= MAX_STAGES - 1 && seconds > (SECONDS_HOLDTIME * 2)))
 		{
 			seconds = 0;
 			stage++;
@@ -223,7 +223,7 @@ class SHDX_CreditMapEvent : EventHandler
 				}
 				else if (stage == 8)
 				{
-					av = "";
+					av = "dane.png";
 					role = "$SHDX_CREDITENGINEER";
 					credit = "$SHDX_CREDITMOVIEUNLEASHERS";
 				}
