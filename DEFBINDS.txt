@@ -41,8 +41,8 @@ tab togglemap
 pause pause
 sysrq screenshot
 t messagemode
-mwheeldown weapprev
-mwheelup weapnext
+mwheeldown weapnext
+mwheelup weapprev
 ` toggleconsole
 
 // Xbox 360 / PS2 controllers
