@@ -149,7 +149,7 @@ class SHDX_CreditMapEvent : EventHandler
 			stage++;
 			alpha = 1.0;
 		}
-		else if (stage == ADDITIONAL_CODE && seconds > (SECONDS_HOLDTIME * 3))
+		else if (stage == ADDITIONAL_CODE && seconds > SECONDS_HOLDTIME_ADDITIONAL)
 		{
 			seconds = 0;
 			stage++;
@@ -285,7 +285,7 @@ class SHDX_CreditMapEvent : EventHandler
 				}
 				else if (stage == 15)
 				{
-					av = "";
+					av = "korzodin.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITKORZODIN";
 				}
