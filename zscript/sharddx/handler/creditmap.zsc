@@ -249,7 +249,7 @@ class SHDX_CreditMapEvent : EventHandler
 				}
 				else if (stage == 9)
 				{
-					av = "";
+					av = "cakeofrage.png";
 					role = "$SHDX_CREDITSURPRISE";
 					credit = "$SHDX_CREDITCAKE";
 				}
