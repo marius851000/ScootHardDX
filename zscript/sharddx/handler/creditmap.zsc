@@ -78,13 +78,13 @@ class SHDX_CreditMapEvent : EventHandler
 			ofs = 64;
 		}
 		
-		Screen.DrawText("BIGFONT", Font.CR_FIRE, x+ofs, y, StringTable.Localize(role),
+		Screen.DrawText("BIGFONT", Font.CR_CYAN, x+ofs, y, StringTable.Localize(role),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true,
 							DTA_Alpha, a);
 		
-		Screen.DrawText("BIGFONT", Font.CR_FIRE, x+ofs, y+64, StringTable.Localize(person),
+		Screen.DrawText("BIGFONT", Font.CR_CYAN, x+ofs, y+64, StringTable.Localize(person),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true,
@@ -322,7 +322,7 @@ class SHDX_CreditMapEvent : EventHandler
 						}
 					}
 					
-					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2 - len), 0, str,
+					Screen.DrawText("BIGFONT", Font.CR_CYAN, (ss.x/2 - len), 0, str,
 									DTA_VirtualWidthF,  ss.x,
 									DTA_VirtualHeightF, ss.y,
 									DTA_KeepRatio, true,
@@ -344,7 +344,7 @@ class SHDX_CreditMapEvent : EventHandler
 						}
 					}
 					
-					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2 - len), 0, str,
+					Screen.DrawText("BIGFONT", Font.CR_CYAN, (ss.x/2 - len), 0, str,
 									DTA_VirtualWidthF,  ss.x,
 									DTA_VirtualHeightF, ss.y,
 									DTA_KeepRatio, true,
@@ -375,7 +375,7 @@ class SHDX_CreditMapEvent : EventHandler
 					
 					Screen.Dim(0x000000, alpha2, 0, 0, Screen.GetWidth(), Screen.GetHeight());
 					
-					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2 - len), 0, str,
+					Screen.DrawText("BIGFONT", Font.CR_CYAN, (ss.x/2 - len), 0, str,
 									DTA_VirtualWidthF,  ss.x,
 									DTA_VirtualHeightF, ss.y,
 									DTA_KeepRatio, true,
@@ -385,7 +385,7 @@ class SHDX_CreditMapEvent : EventHandler
 					
 					int len2 = fnt.StringWidth(str2) / 2;
 					
-					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2-len2), ss.y/3, str2,
+					Screen.DrawText("BIGFONT", Font.CR_CYAN, (ss.x/2-len2), ss.y/3, str2,
 										DTA_VirtualWidthF,  ss.x,
 										DTA_VirtualHeightF, ss.y,
 										DTA_KeepRatio, true,
@@ -398,7 +398,7 @@ class SHDX_CreditMapEvent : EventHandler
 					
 					len2 = fnt.StringWidth(str2) / 2;
 					
-					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2-len2), ss.y/3 + 64, str2,
+					Screen.DrawText("BIGFONT", Font.CR_CYAN, (ss.x/2-len2), ss.y/3 + 64, str2,
 										DTA_VirtualWidthF,  ss.x,
 										DTA_VirtualHeightF, ss.y,
 										DTA_KeepRatio, true,
