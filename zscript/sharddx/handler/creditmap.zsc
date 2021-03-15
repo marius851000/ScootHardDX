@@ -78,13 +78,13 @@ class SHDX_CreditMapEvent : EventHandler
 			ofs = 64;
 		}
 		
-		Screen.DrawText("BIGFONT", Font.CR_RED, x+ofs, y, StringTable.Localize(role),
+		Screen.DrawText("BIGFONT", Font.CR_FIRE, x+ofs, y, StringTable.Localize(role),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true,
 							DTA_Alpha, a);
 		
-		Screen.DrawText("BIGFONT", Font.CR_RED, x+ofs, y+64, StringTable.Localize(person),
+		Screen.DrawText("BIGFONT", Font.CR_FIRE, x+ofs, y+64, StringTable.Localize(person),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true,
