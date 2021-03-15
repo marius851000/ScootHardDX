@@ -20,23 +20,29 @@ class SHDX_CreditMapEvent : EventHandler
 	
 	const SECONDS_CREDITSTART = 0;
 	
-	const SECONDS_HOLDTIME = 6;
+	const SECONDS_FADETIME = 7;
+	const SECONDS_HOLDTIME = SECONDS_FADETIME + 2;
+	const SECONDS_FADETIME_ADDITIONAL = 14;
+	const SECONDS_HOLDTIME_ADDITIONAL = SECONDS_FADETIME_ADDITIONAL + 2;
 	const SECONDS_SCROLLTIME = 4;
 	const SECONDS_BREAK = 2;
 	
-	const MAX_STAGES = 24;
+	const MAX_STAGES = 19;
+	const ADDITIONAL_CODE = MAX_STAGES - 1;
 	
 	ui int creditx, credity;
 	ui int holdtime;
 	ui int stage;
 	ui int ticdelta;
+	ui double alpha;
+	ui double alpha2;
 	
 	override void OnRegister()
 	{
 		SetOrder(1);
 	}
 	
-	ui void DrawImageWithOffsets(string texturepath, int x, int y, Vector2 ss, bool centered = false, double alpha = 1.0)
+	ui void DrawImageWithOffsets(string texturepath, int x, int y, Vector2 ss, bool centered = false, double a = 1.0)
 	{
 		if (texturepath.Length() > 0)
 		{
@@ -52,11 +58,12 @@ class SHDX_CreditMapEvent : EventHandler
 							DTA_VirtualWidthF, ss.x, DTA_VirtualHeightF, ss.y, DTA_CenterOffset, centered,
 							DTA_DestWidth, int(scale.x), DTA_DestHeight, int(scale.y), DTA_KeepRatio, false,
 							DTA_LegacyRenderStyle, STYLE_Translucent,
-							DTA_Alpha, alpha);
+							DTA_Alpha, a,
+							DTA_Masked, false);
 		}
 	}
 	
-	ui void DrawCreditWithPic(string picname, string role, string person, int x, int y, Vector2 ss, double alpha = 1.0)
+	ui void DrawCreditWithPic(string picname, string role, string person, int x, int y, Vector2 ss, double a = 1.0)
 	{
 		String pfp;
 		int ofs;
@@ -68,22 +75,22 @@ class SHDX_CreditMapEvent : EventHandler
 			
 		if (pfp != "")
 		{
-			ofs = 80;
+			ofs = 64;
 		}
 		
 		Screen.DrawText("BIGFONT", Font.CR_RED, x+ofs, y, StringTable.Localize(role),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true,
-							DTA_Alpha, alpha);
+							DTA_Alpha, a);
 		
 		Screen.DrawText("BIGFONT", Font.CR_RED, x+ofs, y+64, StringTable.Localize(person),
 							DTA_VirtualWidthF,  ss.x,
 							DTA_VirtualHeightF, ss.y,
 							DTA_KeepRatio, true,
-							DTA_Alpha, alpha);
+							DTA_Alpha, a);
 		if (pfp != "")	
-			DrawImageWithOffsets(pfp, x-80, y+32, ss, alpha);					
+			DrawImageWithOffsets(pfp, x-64, y+32, ss, true, a);					
 	}
 	
 	ui void CheckIfPressingUse()
@@ -125,6 +132,8 @@ class SHDX_CreditMapEvent : EventHandler
 		if (ticdelta <= 0)
 		{
 			ticdelta = int(floor(gametic / TICRATE));
+			alpha = 1.0;
+			alpha2 = 0.0;
 		}
 		
 		ticdelta++;
@@ -134,14 +143,30 @@ class SHDX_CreditMapEvent : EventHandler
 			seconds++;
 		}
 		
-		if ((stage < MAX_STAGES - 1 && seconds > SECONDS_HOLDTIME) || (stage >= MAX_STAGES - 1 && seconds > (SECONDS_HOLDTIME * 2)))
+		if (stage < ADDITIONAL_CODE && seconds > SECONDS_HOLDTIME)
 		{
 			seconds = 0;
 			stage++;
+			alpha = 1.0;
 		}
-		
-		if (stage >= MAX_STAGES)
+		else if (stage == ADDITIONAL_CODE && seconds > (SECONDS_HOLDTIME * 3))
 		{
+			seconds = 0;
+			stage++;
+			alpha = 1.0;
+		}
+		else if (stage == MAX_STAGES && seconds > (SECONDS_HOLDTIME * 3))
+		{
+			seconds = 0;
+			stage++;
+			alpha = 1.0;
+			alpha2 = 0.0;
+		}
+		else if (stage >= MAX_STAGES+1)
+		{
+			seconds = 0;
+			alpha = 0.0;
+			alpha2 = 1.0;
 			SendNetworkEvent("ExitLevel", 0, 0, 0);
 		}
 	}
@@ -163,11 +188,6 @@ class SHDX_CreditMapEvent : EventHandler
 				String str = StringTable.Localize("$SHDX_CREDITTEAMSCOOTHARDDX");
 				
 				int len = fnt.StringWidth(str) / 2;
-				
-				Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2 - len), 0, str,
-									DTA_VirtualWidthF,  ss.x,
-									DTA_VirtualHeightF, ss.y,
-									DTA_KeepRatio, true);
 									
 				String av;
 				String role;
@@ -281,66 +301,112 @@ class SHDX_CreditMapEvent : EventHandler
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITACCENSUS";
 				}
-				else if (stage == 18)
-				{
-					av = "";
-					role = "$SHDX_CREDITWXLIBRARY";
-					credit = "$SHDX_CREDITAPEIROGON";
-				}
-				else if (stage == 19)
+				else if (stage == ADDITIONAL_CODE)
 				{
 					av = "";
 					role = "$SHDX_CREDITADDITIONALCODE";
-					credit = "$SHDX_CREDITPHANTOMBETA";
-				}
-				else if (stage == 20)
-				{
-					av = "";
-					role = "$SHDX_CREDITADDITIONALCODE";
-					credit = "$SHDX_CREDITMIKK";
-				}
-				else if (stage == 21)
-				{
-					av = "";
-					role = "$SHDX_CREDITADDITIONALCODE";
-					credit = "$SHDX_CREDITMARISAK";
-				}
-				else if (stage == 22)
-				{
-					av = "";
-					role = "$SHDX_CREDITADDITIONALCODE";
-					credit = "$SHDX_CREDITNASH";
+					credit = "$SHDX_CREDITADDITIONALCODE2";
 				}
 				
-				if (stage <= 22)
+				if (stage < ADDITIONAL_CODE)
 				{
-					DrawCreditWithPic(av, role, credit, ss.x/3, ss.y/3, ss);
+					if (seconds >= (SECONDS_FADETIME))
+					{
+						if (!(ticdelta % (TICRATE / 7)))
+						{
+							alpha -= 0.025;
+							if (alpha <= 0.0)
+							{
+								alpha = 0.0;
+							}
+						}
+					}
+					
+					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2 - len), 0, str,
+									DTA_VirtualWidthF,  ss.x,
+									DTA_VirtualHeightF, ss.y,
+									DTA_KeepRatio, true,
+									DTA_Alpha, 1.0);
+					
+					DrawCreditWithPic(av, role, credit, ss.x/3, ss.y/3, ss, alpha);
 				}
-				else
+				else if (stage == ADDITIONAL_CODE)
 				{
+					if (seconds >= SECONDS_FADETIME_ADDITIONAL)
+					{
+						if (!(ticdelta % (TICRATE / 7)))
+						{
+							alpha -= 0.025;
+							if (alpha <= 0.0)
+							{
+								alpha = 0.0;
+							}
+						}
+					}
+					
+					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2 - len), 0, str,
+									DTA_VirtualWidthF,  ss.x,
+									DTA_VirtualHeightF, ss.y,
+									DTA_KeepRatio, true,
+									DTA_Alpha, 1.0);
+					
+					DrawCreditWithPic(av, role, credit, ss.x/3, ss.y/3, ss, alpha);
+				}
+				else if (stage == MAX_STAGES)
+				{
+					if (seconds >= SECONDS_HOLDTIME_ADDITIONAL)
+					{
+						if (!(ticdelta % (TICRATE / 7)))
+						{
+							alpha -= 0.005;
+							alpha2 += 0.005;
+							if (alpha <= 0.0)
+							{
+								alpha = 0.0;
+								S_ChangeMusic("");
+							}
+							if (alpha2 >= 1.0)
+							{
+								alpha2 = 1.0;
+							}
+						}
+						SetMusicVolume(alpha);
+					}
+					
+					Screen.Dim(0x000000, alpha2, 0, 0, Screen.GetWidth(), Screen.GetHeight());
+					
+					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2 - len), 0, str,
+									DTA_VirtualWidthF,  ss.x,
+									DTA_VirtualHeightF, ss.y,
+									DTA_KeepRatio, true,
+									DTA_Alpha, alpha);
 					
 					String str2 = StringTable.Localize("$SHDX_CREDITTHANKS");
 					
 					int len2 = fnt.StringWidth(str2) / 2;
+					
 					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2-len2), ss.y/3, str2,
 										DTA_VirtualWidthF,  ss.x,
 										DTA_VirtualHeightF, ss.y,
-										DTA_KeepRatio, true);
-					
-					String str3;
-					int len3;
+										DTA_KeepRatio, true,
+										DTA_Alpha, alpha);
 					
 					if (level.mapname ~== "CREDITS1")
-						str3 = StringTable.Localize("$SHDX_CREDITFINDAURORA");
+						str2 = StringTable.Localize("$SHDX_CREDITFINDAURORA");
 					else if (level.mapname ~== "CREDITS2")
-						str3 = StringTable.Localize("$SHDX_CREDITGOODEND");
+						str2 = StringTable.Localize("$SHDX_CREDITGOODEND");
 					
-					len3 = fnt.StringWidth(str3) / 2;
+					len2 = fnt.StringWidth(str2) / 2;
 					
-					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2-len3), ss.y/3 + 64, str3,
+					Screen.DrawText("BIGFONT", Font.CR_FIRE, (ss.x/2-len2), ss.y/3 + 64, str2,
 										DTA_VirtualWidthF,  ss.x,
 										DTA_VirtualHeightF, ss.y,
-										DTA_KeepRatio, true);
+										DTA_KeepRatio, true,
+										DTA_Alpha, alpha);
+				}
+				else if (stage >= MAX_STAGES)
+				{
+					Screen.Dim(0x000000, 1.0, 0, 0, Screen.GetWidth(), Screen.GetHeight());
 				}
 			}
 		}
