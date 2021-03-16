@@ -32,7 +32,7 @@ extend class SHDX_Vox
 					if (soundplayinduration == 0)
 						A_SHDX_PlayVoxSound(sndindex);
 					
-					betweensoundsduration = Thinker.TICRATE;
+					betweensoundsduration = int(Thinker.TICRATE / 2);
 				}
 				
 				if (soundplayinduration < entries[sndindex].duration)

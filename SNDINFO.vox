@@ -33,3 +33,14 @@ maimbow/vending6								"sounds/vending/vending6.ogg"
 maimbow/vending7								"sounds/vending/vending7.ogg"
 
 enforcer/activate								"sounds/vox/enforcer_ready.ogg"
+
+scootaloo/cancermouse1			"sounds/scootaloo/cancermouse/ScootHiCancerMouse.ogg"
+scootaloo/cancermouse2			"sounds/scootaloo/cancermouse/ScootThatWasntBad.ogg"
+scootaloo/cancermouse3			"sounds/scootaloo/cancermouse/ScootPleaseMakeItStop.ogg"
+scootaloo/cancermouse4			"sounds/scootaloo/cancermouse/ScootDontHaveTime.ogg"
+
+cancermouse/cancermouse1		"sounds/vox/cancermouse/CancerMouseHi.ogg"
+cancermouse/cancermouse2		"sounds/vox/cancermouse/CancerMouseMLP.ogg"
+cancermouse/cancermouse3		"sounds/vox/cancermouse/CancerMouse4Chan.ogg"
+cancermouse/cancermouse4		"sounds/vox/cancermouse/CancerMouseGhost.ogg"
+cancermouse/cancermouse5		"sounds/vox/cancermouse/CancerMousePot.ogg"

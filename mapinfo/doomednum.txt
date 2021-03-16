@@ -144,7 +144,7 @@ DoomEdNums
 	7101 = SHDX_ScootalooE1M4
 	7102 = SHDX_ScootalooE2M4
 	7103 = SHDX_ScootalooCancerMouse
-	7104 = SHDX_ScootalooIlse
+	
 	7105 = SHDX_ScootalooPegasusDeviceKey
 	7106 = SHDX_ScootalooPegasusDeviceFireworks
 	
