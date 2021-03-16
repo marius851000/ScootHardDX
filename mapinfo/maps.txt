@@ -106,7 +106,7 @@ map E2M2 lookup SHDX_E2A2
 	par = 45
 	music = "M_RAIN"
 	sucktime = 1
-	next = "E2M4"
+	next = "E2M3"
 	secretnext = "E2S1"
 	author = "SanyaWaffles, Metal Neon"
 }
@@ -121,7 +121,7 @@ map E2M3 lookup SHDX_E2A3
 	music = "M_DAM"
 	sucktime = 1
 	next = "E2M4"
-	author = "Philnemba"
+	author = "Philnemba, SanyaWaffles"
 }
 
 map E2M4 lookup SHDX_E2A4
