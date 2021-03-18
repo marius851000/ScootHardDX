@@ -237,7 +237,7 @@ class SHDX_CreditMapEvent : EventHandler
 				}
 				else if (stage == 7)
 				{
-					av = "";
+					av = "tab.png";
 					role = "$SHDX_CREDITLOWGUARDFEMALE";
 					credit = "$SHDX_CREDITTABBY";
 				}
