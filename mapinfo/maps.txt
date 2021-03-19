@@ -160,7 +160,7 @@ map E2S1 lookup SHDX_E2S1
 	cluster = 1
 	par = 45
 	sucktime = 1
-	music = "M_RAIN"
+	music = "M_FACT"
 	next = "E2M4"
 	secretnext = "E2M4"
 }
