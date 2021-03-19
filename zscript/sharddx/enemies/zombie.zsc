@@ -158,6 +158,11 @@ Class SHDX_Zombie : SHDX_Enemy
 			ZOMB F 0 A_ResetTranslation;
 			Goto See;
 			
+		Ice:
+			ZOMB F 315 A_SHDX_FreezeDeath;
+			ZOMB F 105 A_SHDX_IceShards;
+			Wait;
+			
 		Death.Lightning:
 			ZOMB F 0 A_SetElectrocutionTranslation;
 			ZOMB F 3 A_NewScream;
@@ -302,6 +307,11 @@ Class SHDX_RocketZombie : SHDX_Zombie
 			RZOM F 0 A_ResetTranslation;
 			Goto See;
 			
+		Ice:
+			RZOM F 315 A_SHDX_FreezeDeath;
+			RZOM F 105 A_SHDX_IceShards;
+			Wait;
+		
 		Death.Lightning:
 			RZOM F 0 A_SetElectrocutionTranslation;
 			RZOM F 3 A_NewScream;

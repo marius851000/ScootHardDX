@@ -243,8 +243,8 @@ Class SHDX_Engineer : SHDX_Enemy
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_FROZEN);
 			}
-			ENG1 N 5 A_GenericFreezeDeath;
-			ENG1 N 1 A_FreezeDeathChunks;
+			ENG1 N 315 A_SHDX_FreezeDeath;
+			ENG1 N 105 A_SHDX_IceShards;
 			Wait;
 		Death.Explosive:
 			GIBX A 3

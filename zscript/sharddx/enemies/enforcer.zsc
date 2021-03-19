@@ -376,8 +376,8 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			Stop;
 		Ice:
 			ENF2 I 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_FROZEN);
-			ENFO J 5 A_GenericFreezeDeath;
-			ENFO J 1 A_FreezeDeathChunks;
+			ENFO J 315 A_SHDX_FreezeDeath;
+			ENFO J 105 A_SHDX_IceShards;
 			Wait;
 		Crush:
 			GIBX D 0 A_SHDX_SquishSound;
@@ -602,8 +602,8 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_FROZEN);
 			}
-			ENF2 I 5 A_GenericFreezeDeath;
-			ENF2 I 1 A_FreezeDeathChunks;
+			ENF2 I 315 A_SHDX_FreezeDeath;
+			ENF2 I 105 A_SHDX_IceShards;
 			Wait;
 		Crush:
 			GIBX D 0 A_SHDX_SquishSound;

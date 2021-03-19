@@ -388,3 +388,28 @@ Class SHDX_GlassJunk : SHDX_MetalJunk
 			Stop;
 	}
 }
+
+class SHDX_ScootalooIceChunkHead : IceChunkHead replaces IceChunkHead
+{
+	Default
+	{
+		Scale 0.12;
+		
+		Speed 0;
+		Gravity 0.2;
+		+FLOORCLIP
+		+NOBLOCKMONST
+		+SLIDESONWALLS
+		+CORPSE
+		+RANDOMIZE
+	}
+	
+	States
+	{
+		Spawn:
+			ICEC A 0 NoDelay A_SetTranslation('Ice');
+		Spawn1:
+			ICEC ABCD 2 A_CheckPlayerDone;
+			Loop;
+	}
+}
