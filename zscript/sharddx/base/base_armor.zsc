@@ -19,7 +19,6 @@ Class SHDX_Armor : Armor
 		+INVENTORY.AUTOACTIVATE;
 		+INVENTORY.UNTOSSABLE;
 		+INVENTORY.UNDROPPABLE;
-		+INVENTORY.KEEPDEPLETED;
 	}
 	
 	mixin PickupSoundOverride;
@@ -44,7 +43,6 @@ Class SHDX_Armor : Armor
 				{
 					newdamage = (damage - amount);
 					DepleteOrDestroy();
-					Destroy();	// Possible bug? This needs to be called.
 					return;
 				}
 				else
@@ -61,7 +59,6 @@ Class SHDX_Armor : Armor
 			if (amount <= 0)
 			{
 				DepleteOrDestroy();
-				Destroy();	// Possible bug? This needs to be called.
 				return;
 			}
 		}

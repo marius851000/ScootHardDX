@@ -269,14 +269,22 @@ extend class SHDX_PlayerPawn
 	
 	void A_OneLinerInit(Sound snd, int flags = OLSSF_DEFAULT)
 	{
-		if (onelinerflags & OLSSF_FORCEONELINER)
+		if (flags & OLSSF_FORCEONELINER)
+		{
+			Console.PrintF("OLSSF_FORCEONELINER");
 			bypasscooldown = true;
-			
-		if (onelinercount <= 0 || onelinerflags & OLSSF_FORCEONELINER)
 			onelinercount = ONELINER_COOLDOWN_MAX;
+		}
+		
+		if (onelinercount <= 0)
+		{
+			onelinercount = ONELINER_COOLDOWN_MAX;
+		}
 			
-		if (onelinerflags & OLSSF_BYPASSMUTE)
+		if (flags & OLSSF_BYPASSMUTE)
+		{
 			bypassmute = true;
+		}
 			
 		onelinerflags = flags;
 		
@@ -350,6 +358,9 @@ extend class SHDX_PlayerPawn
 	{
 		if (!A_CheckOneLinerCVar())
 			return;
+		
+		if (health <= 0)
+			return;
 			
 		if (onelinermute && !bypassmute)
 		{
@@ -357,11 +368,9 @@ extend class SHDX_PlayerPawn
 			return;	
 		}
 		
-		if (health <= 0)
-			return;
-		
 		if (onelinercount >= ONELINER_COOLDOWN_MAX || bypasscooldown)
 		{
+			Console.PrintF("onelinercount: "..onelinercount);
 			onelinerhit = true;
 			bypasscooldown = false;
 			
