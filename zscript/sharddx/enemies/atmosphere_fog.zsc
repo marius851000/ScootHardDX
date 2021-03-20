@@ -1,0 +1,176 @@
+/*
+Copyright 2020-2021 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+extend class SHDX_DrAtmosphereBoss
+{
+	bool fogchanged;
+	
+	void AtmosphereCheckForFogMachine()
+	{
+		if (!fogchanged && !InStateSequence(CurState, ResolveState("SeeFogDensityMachine")) && health <= (SpawnHealth() / 2))
+		{
+			SetStateLabel("SeeFogDensityMachine");
+		}
+	}
+	
+	void A_ChangeSkyboxLight()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(668);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			// s.SetFogDensity(152);
+			s.SetFade("0065CA");
+			s.SetColor("294BD6");
+		}
+		fogchanged = true;
+	}
+	
+	void A_FogDensityMachine()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(152);
+			s.SetFade("6f1306");
+			TextureID skyid1 = TexMan.CheckForTexture("SKY3C", TexMan.Type_Any);
+			TextureID skyid2 = TexMan.CheckForTexture("SKY3A", TexMan.Type_Any);
+			level.ChangeSky(skyid1, skyid2);
+		}
+		fogchanged = true;
+	}
+	
+	void A_FogScaleUp1()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(164);
+			s.SetFade("661011");
+		}
+	}
+	
+	void A_FogScaleUp2()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(172);
+			s.SetFade("610e16");
+		}
+	}
+	
+	void A_FogScaleUp3()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(178);
+			s.SetFade("580b21");
+		}
+	}
+	
+	void A_FogScaleUp4()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(182);
+			s.SetFade("540a27");
+		}
+	}
+	
+	void A_FogScaleUp5()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(192);
+			s.SetFade("4b0731");
+		}
+	}
+	
+	void A_FogScaleUp6()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(194);
+			s.SetFade("4b0731");
+		}
+	}
+	
+	void A_FogScaleUp7()
+	{
+		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
+		int i;
+		while (i = sit.Next())
+		{
+			if (i == -1)
+				break;
+			
+			Sector s = level.Sectors[i];
+			
+			s.SetFogDensity(200);
+			s.SetFade("390147");
+		}
+	}
+}

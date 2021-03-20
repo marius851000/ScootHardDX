@@ -1,0 +1,178 @@
+/*
+Copyright 2020-2021 Sanya K. Waffles
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+Class SHDX_MaimbowMissile : SHDX_Missile
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 30;
+		Damage 5;
+		Projectile;
+		+RANDOMIZE
+		DamageType "Explosive";
+		// SeeSound "weapons/rocketf";
+		DeathSound "weapons/rocketx";
+		
+		+ROCKETTRAIL
+	}
+	
+	States
+	{
+		Spawn:
+			MISL A 1 Bright;
+			Loop;
+		
+		Death:
+			EXPL A 0 Bright
+			{
+				A_Explode(12, 40, damagetype:'Explosive');
+			}
+			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
+			EXPL BCDEFGHI 3 Bright;
+			Stop;
+	}
+}
+
+Class SHDX_MaimbowBullet : FastProjectile
+{
+	Default
+	{
+		Speed 55;
+		Radius 8;
+		Height 8;
+		DamageFunction Random[Maimbow](5,7);
+		DamageType "Bullet";
+		Scale 0.12;
+		MissileType "SHDX_BulletTrail";
+		MissileHeight 8;
+		RenderStyle "Translucent";
+		Alpha 0.667;
+		
+		+CANNOTPUSH
+		+NODAMAGETHRUST
+		+SPAWNSOUNDSOURCE
+		
+		+BloodSplatter
+	}
+	States
+	{
+		Spawn:
+			BULL A 4 Bright;
+			Loop;
+		Death:
+			PUFF ABCD 4 Bright;
+			Stop;
+	}
+}
+
+extend class SHDX_MaimbowUndashBoss
+{
+	void A_FlyTowardsTarget(double speedtofly = MAIMBOWFLY)
+	{
+		if (!target) return;
+		
+		if (speedtofly <= 0) speedtofly = MAIMBOWFLY;
+		
+		A_FaceTarget();
+		
+		VelFromAngle(speedtofly);
+		Vel.Z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, speedtofly);
+	}
+	
+	void A_MaimbowFireTwoRocketMissiles()
+	{
+		A_SpawnProjectile("SHDX_MaimbowMissile", spawnofs_xy:-12);
+		A_SpawnProjectile("SHDX_MaimbowMissile", spawnofs_xy:12);
+	}
+	
+	void A_MaimbowFireRainbower()
+	{
+		A_StartSound("weapons/rainbowerf", CHAN_WEAPON);
+		A_SpawnProjectile("SHDX_RainbowerProjectileA");
+	}
+	
+	void A_MaimbowFireChaingunWithSound()
+	{
+		A_StartSound("maimbow/chaingun", CHAN_WEAPON);
+		A_SpawnProjectile("SHDX_MaimbowBullet", 32);
+	}
+	
+	void A_MaimbowHailerAttack()
+	{
+		int ang = 16;
+		
+		if (maimbowstage >= MAIMBOW_STAGE_3)
+			ang = 8;
+		
+		A_StartSound("weapons/hailf2", CHAN_WEAPON);
+		
+		for (int i = -32; i < 32; i += ang)
+		{
+			A_SpawnProjectile("SHDX_AtmosphereHailBall", angle:i);
+		}
+	}
+	
+	void A_MaimbowLightningAttack()
+	{
+		int ang = 16;
+		
+		if (maimbowstage >= MAIMBOW_STAGE_3)
+			ang = 8;
+		
+		for (int i = -32; i < 32; i += ang)
+		{
+			A_SpawnProjectile("SHDX_PlasmaBall", angle:i);
+		}
+	}
+	
+	void A_MaimbowResetAttackType()
+	{
+		attacktype = MAIMBOW_ATTACK_NONE;
+	}
+	
+	void A_MaimbowExplosionLine()
+	{
+		if (maimbowstage >= MAIMBOW_STAGE_3)
+		{
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine", angle:-12);
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine");
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine", angle:12);
+		}
+		else
+		{
+			A_SpawnProjectile("SHDX_PegaWizExplosiveLine");
+		}
+	}
+	
+	void A_MaimbowRainbower()
+	{
+		A_SpawnProjectile("SHDX_RainbowerProjectileA");
+	}
+	
+	void A_MaimbowFireTornadozer()
+	{
+		int ang = 16;
+		
+		if (maimbowstage >= MAIMBOW_STAGE_3)
+			ang = 8;
+		
+		for (int i = -32; i < 32; i += ang)
+		{
+			A_SpawnProjectile("SHDX_TornadozerProjectilePegaWiz", angle:i);
+		}
+	}
+}

@@ -148,7 +148,7 @@ Class SHDX_Engineer : SHDX_Enemy
 		}
 	}
 	
-	bool A_CheckIfBathroomEngie()
+	bool CheckIfBathroomEngie()
 	{
 		return (user_bathroom >= 1);
 	}
@@ -213,7 +213,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			{
 				A_NoBlocking();
 				
-				if (A_CheckIfBathroomEngie())
+				if (CheckIfBathroomEngie())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
@@ -227,7 +227,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			{
 				A_NoBlocking();
 				
-				if (A_CheckIfBathroomEngie())
+				if (CheckIfBathroomEngie())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_LIGHTNING);
@@ -238,7 +238,7 @@ Class SHDX_Engineer : SHDX_Enemy
 		Ice:
 			ENG1 N 0
 			{
-				if (A_CheckIfBathroomEngie())
+				if (CheckIfBathroomEngie())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_FROZEN);
@@ -255,7 +255,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			}
 			GIBX B 0
 			{
-				if (A_CheckIfBathroomEngie())
+				if (CheckIfBathroomEngie())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_EXPLOSIVE);
@@ -270,7 +270,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			}
 			GIBX B 0
 			{
-				if (A_CheckIfBathroomEngie())
+				if (CheckIfBathroomEngie())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
@@ -285,7 +285,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			}
 			GIBX B 0
 			{
-				if (A_CheckIfBathroomEngie())
+				if (CheckIfBathroomEngie())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_TORNADOZER);
@@ -295,7 +295,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			GIBR A 4;
 			GIBR B 0
 			{
-				if (A_CheckIfBathroomEngie())
+				if (CheckIfBathroomEngie())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/bathroom", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_RAINBOWER);

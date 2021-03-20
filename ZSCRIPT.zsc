@@ -1,7 +1,7 @@
 /*
  * Note: This license has also been called the "New BSD License" or "Modified BSD License". See also the 2-clause BSD License.
  *
- * Copyright 2020 Sanya K. Waffles
+ * Copyright 2020-2021 Sanya K. Waffles
  *
  * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
  *
@@ -20,7 +20,6 @@
  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
 
 version "4.3"
 
@@ -53,8 +52,14 @@ version "4.3"
 #include "zscript/sharddx/base/base_vox_loop.zsc"
 #include "zscript/sharddx/base/base_vox_misc.zsc"
 
+#include "zscript/sharddx/controllers/vending.zsc"
+#include "zscript/sharddx/controllers/jumppad.zsc"
+#include "zscript/sharddx/controllers/aurora.zsc"
+#include "zscript/sharddx/controllers/mirror.zsc"
+
 #include "zscript/sharddx/enemies/lowguard.zsc"
 #include "zscript/sharddx/enemies/highguard.zsc"
+#include "zscript/sharddx/enemies/highguard_variants.zsc"
 #include "zscript/sharddx/enemies/pegapol.zsc"
 #include "zscript/sharddx/enemies/engineer.zsc"
 #include "zscript/sharddx/enemies/sentry.zsc"
@@ -62,9 +67,14 @@ version "4.3"
 #include "zscript/sharddx/enemies/zombie.zsc"
 #include "zscript/sharddx/enemies/wasp.zsc"
 #include "zscript/sharddx/enemies/surprise.zsc"
+#include "zscript/sharddx/enemies/surprise_floor.zsc"
 #include "zscript/sharddx/enemies/atmosphere.zsc"
+#include "zscript/sharddx/enemies/atmosphere_fog.zsc"
 #include "zscript/sharddx/enemies/zombiespot.zsc"
 #include "zscript/sharddx/enemies/maimbow.zsc"
+#include "zscript/sharddx/enemies/maimbow_attacks.zsc"
+#include "zscript/sharddx/enemies/maimbow_aurora.zsc"
+#include "zscript/sharddx/enemies/maimbow_teleport.zsc"
 
 #include "zscript/sharddx/fx/flash.zsc"
 #include "zscript/sharddx/fx/giblets.zsc"
@@ -82,6 +92,7 @@ version "4.3"
 #include "zscript/sharddx/handler/slideshow.zsc"
 #include "zscript/sharddx/handler/subtitle.zsc"
 #include "zscript/sharddx/handler/vox.zsc"
+
 #include "zscript/sharddx/handler/titlemap.zsc"
 #include "zscript/sharddx/handler/creditmap.zsc"
 
@@ -130,8 +141,3 @@ version "4.3"
 #include "zscript/sharddx/vox/events.zsc"
 #include "zscript/sharddx/vox/atmosphere.zsc"
 #include "zscript/sharddx/vox/maimbow.zsc"
-
-#include "zscript/sharddx/vending.zsc"
-#include "zscript/sharddx/jumppad.zsc"
-#include "zscript/sharddx/aurora.zsc"
-#include "zscript/sharddx/mirror.zsc"

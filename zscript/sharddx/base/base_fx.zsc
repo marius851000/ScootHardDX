@@ -48,8 +48,6 @@ Class SHDX_ItemFog : ItemFog replaces ItemFog
 	}
 }
 
-// Basic bullet puff
-// sets some scale stuff
 Class SHDX_BulletPuff : BulletPuff replaces BulletPuff
 {
 	Default
@@ -66,8 +64,6 @@ Class SHDX_BulletPuff : BulletPuff replaces BulletPuff
 		+NoGravity
 		+ActivatePCross
 		+AllowThruFlags
-		// +ThruSpecies
-		// +MThruSpecies
 	}
 
 	States

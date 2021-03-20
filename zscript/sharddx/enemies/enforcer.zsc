@@ -500,7 +500,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		A_SpawnProjectile("SHDX_Grenade", 40, -4);
 	}
 	
-	bool A_CheckIfFirstEnforcer()
+	bool CheckIfFirstEnforcer()
 	{
 		return (user_firstenforcer >= 1);
 	}
@@ -574,7 +574,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 			{
 				A_NoBlocking();
 				
-				if (A_CheckIfFirstEnforcer())
+				if (CheckIfFirstEnforcer())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/enforcer", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
@@ -597,7 +597,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 		Ice:
 			ENF2 I 0
 			{
-				if (A_CheckIfFirstEnforcer())
+				if (CheckIfFirstEnforcer())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/enforcer", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_FROZEN);

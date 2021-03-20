@@ -31,7 +31,7 @@ class SHDX_VendingMachine : SHDX_Actor
 	const VEND_MEDIUM_MULTI = 2;
 	const VEND_HARD_MULTI = 3;
 	
-	int A_GetVendingMachineCount()
+	int GetVendingMachineCount()
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		if (!hnd) return 0;
@@ -39,7 +39,7 @@ class SHDX_VendingMachine : SHDX_Actor
 		return hnd.vendingmachineusecount;
 	}
 	
-	void A_IncrementVendingMachineEasterEgg()
+	void IncrementVendingMachineEasterEgg()
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		if (!hnd) return;
@@ -53,7 +53,7 @@ class SHDX_VendingMachine : SHDX_Actor
 		}
 	}
 	
-	bool A_CheckVendingMachineEasterEgg()
+	bool CheckVendingMachineEasterEgg()
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		if (!hnd) return false;
@@ -121,11 +121,11 @@ class SHDX_VendingMachine : SHDX_Actor
 					if (nomoneycooldown <= 0)
 						nomoneycount++;
 					
-					if (!A_CheckVendingMachineEasterEgg() && nomoneycount > 5 && nomoneycooldown <= 0)
+					if (!CheckVendingMachineEasterEgg() && nomoneycount > 5 && nomoneycooldown <= 0)
 					{
-						A_IncrementVendingMachineEasterEgg();
+						IncrementVendingMachineEasterEgg();
 						
-						int sndnum = A_GetVendingMachineCount();
+						int sndnum = GetVendingMachineCount();
 						
 						String snd = "maimbow/vending"..sndnum;
 						

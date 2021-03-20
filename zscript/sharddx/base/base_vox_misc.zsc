@@ -42,7 +42,7 @@ extend class SHDX_Vox
 		entries.Push(voxentry);
 	}
 	
-	void A_SHDX_SetPlayerMuted(bool muted)
+	void SetPlayerMuted(bool muted)
 	{
 		PlayerInfo pl;
 		for (int i = 0; i < MAXPLAYERS; i++)
@@ -64,7 +64,7 @@ extend class SHDX_Vox
 		}
 	}
 	
-	void A_SHDX_PlayVoxSound(int i)
+	void PlayVoxSound(int i)
 	{
 		A_StartSound(entries[i].snd, VOXCHANNELSND, CHANF_DEFAULT, 1.0, ATTN_NONE);
 		

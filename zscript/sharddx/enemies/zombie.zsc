@@ -217,20 +217,17 @@ Class SHDX_Zombie : SHDX_Enemy
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnGibsFx(self);
 			}
-			// GIBX B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			GIBX BC 5;
 			GIBX D 1;
 			Stop;
 		Death.Spectrum:
 			GIBR A 0 A_ResetTranslation;
 			GIBR A 4;
-			// GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE);
 			GIBR BC 4;
 			GIBR D 1;
 			Stop;
 		Crush:
 			GIBX D 0 A_SHDX_SquishSound;
-			// GIBX D 1 A_SHDX_GivePlayerOneLiner;
 			GIBX D 1;
 			Stop;
 	}
@@ -335,9 +332,7 @@ Class SHDX_RocketZombie : SHDX_Zombie
 				A_ResetTranslation();
 				A_StopSound(CHAN_7);
 				A_Explode(176, 128, flags:XF_NOTMISSILE, damagetype:'Explosive');
-				// SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
 				A_StartSound("enforcer/explode", CHAN_6);
-				// A_SHDX_ExtremeScreamAndUnblock();
 				A_SpawnGibsFx(self);
 			}
 			EXPL A 0

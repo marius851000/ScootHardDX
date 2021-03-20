@@ -66,8 +66,6 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		SHDX_Boss.TauntCooldownTime 10;
 	}
 	
-	bool floorlowered;
-	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
@@ -108,36 +106,9 @@ Class SHDX_SurpriseBoss : SHDX_Boss
 		if (mod == 'Massacre')
 			return ret;
 		
-		A_SurpriseCheckForLowerFloor();
+		SurpriseCheckForLowerFloor();
 		
 		return ret;
-	}
-	
-	void A_SurpriseCheckForLowerFloor()
-	{
-		if (!floorlowered && !InStateSequence(CurState, ResolveState("SeeFloorPeelaway")) && health <= (SpawnHealth() / 2))
-			SetStateLabel("SeeFloorPeelaway");
-	}
-	
-	void A_SurpriseLowerFloor()
-	{
-		SectorTagIterator sit = Level.CreateSectorTagIterator(667);
-		int i;
-		
-		while (i = sit.Next())
-		{
-			if (i == -1)
-				break;
-			
-			Sector s = level.Sectors[i];
-			
-			s.SetTexture(Sector.floor, TexMan.CheckForTexture("GSPECF0", TexMan.Type_Flat));
-			level.CreateFloor(s, Floor.FloorLowerByValue, null, 8, 128);
-			// s.SetGlowColor(Sector.floor, "00FF00");
-			// s.SetGlowHeight(Sector.floor, 64);
-		}
-		
-		floorlowered = true;
 	}
 	
 	States

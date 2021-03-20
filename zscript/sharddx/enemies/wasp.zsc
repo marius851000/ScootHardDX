@@ -106,7 +106,7 @@ Class SHDX_SpectraWaspPuddle : SHDX_LiquidPuddle
 		return ResolveState(null);
 	}
 	
-	void A_SpawnRedParticles()
+	void SpawnRedParticles()
 	{
 		for (int i = 0; i < 16; i++)
 		{
@@ -131,7 +131,7 @@ Class SHDX_SpectraWaspPuddle : SHDX_LiquidPuddle
 			{
 				spectrumpuddlectr++;
 				
-				A_SpawnRedParticles();
+				SpawnRedParticles();
 				
 				if (spectrumpuddlectr >= SPECTRUMCTRMAX)
 					return ResolveState("FadeOat");
@@ -202,7 +202,7 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 		tfx.target = self.target;
 	}
 	
-	bool A_CheckIfOrionWasp()
+	bool CheckIfOrionWasp()
 	{
 		return (user_orionwasp >= 1);
 	}
@@ -255,7 +255,7 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 			}
 			WASP L 5
 			{
-				if (A_CheckIfOrionWasp())
+				if (CheckIfOrionWasp())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/sorryorion", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
@@ -283,7 +283,7 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 				if (!iscorpse)
 					A_SpawnSpectrumPuddle();
 				
-				if (A_CheckIfOrionWasp())
+				if (CheckIfOrionWasp())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/sorryorion", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_EXPLOSIVE);

@@ -12,58 +12,57 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-extend class SHDX_Vox
-{
-	override void Tick()
+extend class SHDX_MaimbowUndashBoss
+{	
+	void A_SHDX_GetEndingType()
 	{
-		Super.Tick();
-		
-		if (triggered)
+		for (int i = 0; i < MAXPLAYERS; i++)
 		{
-			voxplaying = true;
-			StopOtherVoxObjects();
-			if (!idle)
+			PlayerInfo pl = players[i];
+			if (pl && pl.mo && pl.mo.CountInv("SHDX_FoundAurora"))
 			{
-				if (betweensoundsduration == 0)
-				{
-					if (sndindex == 0)
-						SetPlayerMuted(true);
-					
-					if (soundplayinduration == 0)
-						PlayVoxSound(sndindex);
-					
-					betweensoundsduration = int(Thinker.TICRATE / 2);
-				}
-				
-				if (soundplayinduration < entries[sndindex].duration)
-						soundplayinduration++;
-				
-				if (soundplayinduration >= entries[sndindex].duration)
-				{
-					soundplayinduration = 0;
-					idle = true;
-				}
-			}
-			
-			if (idle)
-			{
-				betweensoundsduration--;
-				
-				if (betweensoundsduration <= 0)
-				{
-					idle = false;
-					sndindex++;
-					betweensoundsduration = 0;
-					soundplayinduration = 0;
-					if (sndindex >= entries.Size())
-					{
-						SetPlayerMuted(false);
-						voxplaying = false;
-						Destroy();
-						return;
-					}
-				}
+				goodend = true;
+				return;
 			}
 		}
+	}
+	
+	void A_SHDX_MaimbowBossPlayCutscene()
+	{
+		if (shdx_skipcutscenes)
+			return;
+			
+		if (goodend)
+		{
+			level.StartSlideShow('EndEpisode3Aurora');
+			return;
+		}
+		
+		level.StartSlideShow('EndEpisode3NoAurora');
+	}
+	
+	void A_SHDX_MaimbowAuroraOL()
+	{		
+		if (goodend)
+		{
+			goodend = true;
+			
+			A_SHDX_SendOLToAllPlayers("scootaloo/maimbowundashendgood", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+			
+			return;
+		}
+		
+		A_SHDX_SendOLToAllPlayers("scootaloo/maimbowundashendbad", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
+	}
+	
+	void A_SHDX_MaimbowBossEndLevel()
+	{
+		if (goodend)
+		{
+			level.ChangeLevel("CREDITS2", 0, CHANGELEVEL_NOINTERMISSION, -1);
+			return;
+		}
+		
+		level.ChangeLevel("CREDITS1", 0, CHANGELEVEL_NOINTERMISSION, -1);
 	}
 }

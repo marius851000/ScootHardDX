@@ -24,27 +24,12 @@ class SHDX_AtmosphereHandler : EventHandler
 	
 	override void WorldTick()
 	{
-		// BossInfoTick();
-		PruneZombiesFromArray();
 		DrAtmosphereRoutine();
 	}
 	
 	override void WorldThingSpawned(WorldEvent e)
 	{
-		CheckIfSpawnedZombie(e.Thing);
 		CheckIfSpawnedAtmosphere(e.Thing);
-	}
-	
-	override void WorldThingDied(WorldEvent e)
-	{
-		CheckIfKilledZombie(e.Thing);
-	}
-	
-	void CheckIfSpawnedZombie(Actor a)
-	{
-		let z = SHDX_Zombie(a);
-		if (z)
-			zombies.Push(z);
 	}
 	
 	void CheckIfSpawnedAtmosphere(Actor a)
@@ -100,43 +85,6 @@ class SHDX_AtmosphereHandler : EventHandler
 			// if spot exists
 			if (raiserspot)
 				raiserspot.SetStateLabel("RaiseTheDead");
-		}
-	}
-	
-	void CheckIfKilledZombie(Actor a)
-	{
-		let z = SHDX_Zombie(a);
-		if (z)
-		{
-			int s = zombies.Find(z);
-			
-			if (s >= zombies.Size())
-				return;
-				
-			zombies.Delete(s);
-		}
-	}
-	
-	void PruneZombiesFromArray()
-	{
-		if (level.time % TIMETOCOPYARRAY == 0)
-		{
-			int size = zombies.Size();
-			
-			if (size < 1)
-				return;
-			
-			if (zombies.Find(null) >= size)
-				return;
-			
-			Array<SHDX_Zombie> tempitems;
-			for (int i = 0; i < size; i++)
-			{
-				if (zombies[i] && zombies[i].health > 0)
-					tempitems.Push(zombies[i]);
-			}
-			
-			zombies.Move(tempitems);
 		}
 	}
 }
