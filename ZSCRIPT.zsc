@@ -98,7 +98,7 @@ version "4.3"
 #include "zscript/sharddx/handler/creditmap.zsc"
 
 #include "zscript/sharddx/handler/surprise.zsc"
-#include "zscript/sharddx/handler/zombie.zsc"
+#include "zscript/sharddx/handler/atmosphere.zsc"
 #include "zscript/sharddx/handler/maimbow.zsc"
 
 #include "zscript/sharddx/oneliner/oneliner.zsc"
