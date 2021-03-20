@@ -21,12 +21,12 @@ class SHDX_MirrorOneLiner : SecActUseWall
 		//$Sprite internal:action
 	}
 	
-	void A_SHDX_SendMirrorOL(SHDX_PlayerPawn pp)
+	void SendMirrorOL(SHDX_PlayerPawn pp)
 	{
 		String mirrorsnd;
 		mirrorsnd = String.Format("%s/%s%d", pp.OneLinerPrefix, "mirror", Random[OneLiner](1,3));
 		
-		pp.A_OneLinerInit(mirrorsnd, OLSSF_NOGRIN);
+		pp.OneLinerInit(mirrorsnd, OLSSF_NOGRIN);
 	}
 	
 	mixin SHDX_TriggerOverride;
@@ -38,7 +38,7 @@ class SHDX_MirrorOneLiner : SecActUseWall
 			let shdxpl = SHDX_PlayerPawn(triggerer);
 			if (shdxpl && shdxpl.player)
 			{
-				A_SHDX_SendMirrorOL(shdxpl);
+				SendMirrorOL(shdxpl);
 			}
 		}
 		return false;
@@ -57,12 +57,12 @@ class SHDX_SHSDLEasterEggOneLiner : SHDX_Actor
 		Height 32;
 	}
 	
-	void A_SHDX_SendEasterEggOL(SHDX_PlayerPawn pp)
+	void SendEasterEggOL(SHDX_PlayerPawn pp)
 	{
 		String eggol;	// Darlia?
 		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "thatsme");
 		
-		pp.A_OneLinerInit(eggol);
+		pp.OneLinerInit(eggol);
 	}
 	
 	override bool Used(Actor user)
@@ -70,7 +70,7 @@ class SHDX_SHSDLEasterEggOneLiner : SHDX_Actor
 		let shdxpl = SHDX_PlayerPawn(user);
 		if (shdxpl && shdxpl.player)
 		{
-			A_SHDX_SendEasterEggOL(shdxpl);
+			SendEasterEggOL(shdxpl);
 		}
 		return false;
 	}

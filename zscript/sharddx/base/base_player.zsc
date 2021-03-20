@@ -171,7 +171,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 	override void Travelled()
 	{
 		Super.Travelled();
-		A_ResetOneLinerMute();
+		ResetOneLinerMute();
 	}
 	
 	override void Tick()
@@ -192,7 +192,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 		
 		AdjustFrictionForMovement();
 		
-		A_OneLinerProcess();
+		OneLinerProcess();
 		
 		// This is mainly here to do things on every ~second or so.
 		// We use modulo to check if current tics can be divided by 35

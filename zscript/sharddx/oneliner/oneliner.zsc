@@ -38,28 +38,31 @@ enum OneLinerType
 
 extend class SHDX_Enemy
 {
-	String GetOLSoundForType(SHDX_PlayerPawn pp, int oltype = 0)
+	// Get Oneliner From Type.
+	String GetOLSoundForType(SHDX_PlayerPawn pp, int oltype = OLTYPE_DEFAULT)
 	{
 		String ret;
 		if (oltype == OLTYPE_DEFAULT)
-			ret = pp.A_GetDefaultVoiceOver();
+			ret = pp.GetDefaultVoiceOver();
 		else if (oltype == OLTYPE_EXPLOSIVE)
-			ret = pp.A_GetExplosiveVoiceOver();
+			ret = pp.GetExplosiveVoiceOver();
 		else if (oltype == OLTYPE_FROZEN)
-			ret = pp.A_GetFrozenVoiceOver();
+			ret = pp.GetFrozenVoiceOver();
 		else if (oltype == OLTYPE_LIGHTNING)
-			ret = pp.A_GetLightningVoiceOver();
+			ret = pp.GetLightningVoiceOver();
 		else if (oltype == OLTYPE_TORNADOZER)
-			ret = pp.A_GetTornadoVoiceOver();
+			ret = pp.GetTornadoVoiceOver();
 		else if (oltype == OLTYPE_RAINBOWER)
-			ret = pp.A_GetRainbowerVoiceOver();
+			ret = pp.GetRainbowerVoiceOver();
 			
 		return ret;
 	}
 	
-	void A_SHDX_SendOLToPlayerPawn(SHDX_PlayerPawn pp, int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT, int oltype = OLTYPE_DEFAULT)
+	// Send the oneliner to the player pawn
+	void SHDX_SendOLToPlayerPawn(SHDX_PlayerPawn pp, int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT, int oltype = OLTYPE_DEFAULT)
 	{
 		String finalsnd;
+		
 		if (Random[OneLiner](0, 100) <= r)
 		{
 			if (snd.Length() < 1)
@@ -88,15 +91,11 @@ extend class SHDX_Enemy
 					pp.previousol = snd;
 			}
 			
-			// pp.A_Log("Oneliner: "..finalsnd);
-			
-			if (!(flags & OLSSF_NOGRIN))
-				pp.A_SetMugshotState("Grin");
-			
-			pp.A_OneLinerInit(finalsnd, flags);
+			pp.OneLinerInit(finalsnd, flags);
 		}
 	}
 	
+	// Send One Liner to all players
 	void A_SHDX_SendOLToAllPlayers(String snd = "", int flags = OLSSF_DEFAULT)
 	{
 		for (int i = 0; i < MAXPLAYERS; i++)
@@ -108,6 +107,7 @@ extend class SHDX_Enemy
 				if (pp)
 				{
 					String finalsnd;
+					
 					if (flags & OLSSF_BYPASSPLAYERPREFIX)
 					{
 						finalsnd = snd;
@@ -117,21 +117,13 @@ extend class SHDX_Enemy
 						finalsnd = String.Format("%s/%s", pp.OneLinerPrefix, snd);
 					}
 					
-					if (!(flags & OLSSF_NOGRIN))
-						pp.A_SetMugshotState("Grin");
-					
-					pp.A_OneLinerInit(finalsnd, flags);
+					pp.OneLinerInit(finalsnd, flags);
 				}
 			}
 		}
 	}
 	
-	/*	***********************************************
-	 *			A_SHDX_GivePlayerOneLiner();
-	 *		Gives the player a token obbject
-	 *		that causes the player pawn to sound
-	 *		off a one liner.
-	 *	***********************************************/
+	// Give just the target (killer) a one-liner
 	void A_SHDX_GivePlayerOneLiner(int r = SHDX_ONELINER_NORMAL_CHANCE, String snd = "", int flags = OLSSF_DEFAULT, int oltype = OLTYPE_DEFAULT)
 	{
 		if (!target)
@@ -143,7 +135,7 @@ extend class SHDX_Enemy
 		let SHDXpl = SHDX_PlayerPawn(target);
 		if (SHDXpl)
 		{
-			A_SHDX_SendOLToPlayerPawn(SHDXpl, r, snd, flags, oltype);
+			SHDX_SendOLToPlayerPawn(SHDXpl, r, snd, flags, oltype);
 		}
 		else
 		{
@@ -153,7 +145,7 @@ extend class SHDX_Enemy
 				let SHDXpl2 = SHDX_PlayerPawn(eb.target);
 				if (SHDXpl2)
 				{
-					A_SHDX_SendOLToPlayerPawn(SHDXpl2, r, snd, flags, oltype);
+					SHDX_SendOLToPlayerPawn(SHDXpl2, r, snd, flags, oltype);
 				}
 			}
 		}
@@ -170,27 +162,18 @@ extend class SHDX_PlayerPawn
 	int onelinercount;		// One Liner Counter
 	bool onelinerhit;		// One Liner Flag
 	Sound onelinersnd;		// One Liner Sound
-	int timetosing;
-	int lockcount;
-	bool onelinermute;
-	bool bypasscooldown;
-	bool bypassmute;
-	int onelinerflags;
-	int SavedTimes;
-	bool SavedTrigger;
-	String previousol;
+	bool onelinermute;		// One Liner Vox Mute (can be bypassed)
+	String previousol;		// Previous One Liner as a string
 	
 	meta String OneLinerPrefix;
 	Property OneLinerPrefix: OneLinerPrefix;
 	
-	const ATTN_ONELINER = 0.25;
-	
-	void A_ResetOneLinerMute()
+	void ResetOneLinerMute()
 	{
 		onelinermute = false;
 	}
 	
-	String A_GetDefaultVoiceOver()
+	String GetDefaultVoiceOver()
 	{
 		String snd;
 		
@@ -199,12 +182,12 @@ extend class SHDX_PlayerPawn
 		return snd;
 	}
 	
-	String A_GetExplosiveVoiceOver()
+	String GetExplosiveVoiceOver()
 	{
 		String snd;
 		
 		if (!Random[OneLiner](0, 1))
-			snd = A_GetDefaultVoiceOver();
+			snd = GetDefaultVoiceOver();
 		else
 			snd = String.Format("explosive%d", Random[OneLiner](1, 2));
 		
@@ -212,54 +195,55 @@ extend class SHDX_PlayerPawn
 		return snd;
 	}
 	
-	String A_GetFrozenVoiceOver()
+	String GetFrozenVoiceOver()
 	{
 		String snd;
 		
 		if (!Random[OneLiner](0, 1))
-			snd = A_GetDefaultVoiceOver();
+			snd = GetDefaultVoiceOver();
 		else
 			snd = String.Format("frozen%d", Random[OneLiner](1, 3));
 			
 		return snd;
 	}
 	
-	String A_GetLightningVoiceOver()
+	String GetLightningVoiceOver()
 	{
 		String snd;
 		
 		if (!Random[OneLiner](0, 1))
-			snd = A_GetDefaultVoiceOver();
+			snd = GetDefaultVoiceOver();
 		else
 			snd = String.Format("lightning%d", Random[OneLiner](1, 2));
 			
 		return snd;
 	}
 	
-	String A_GetTornadoVoiceOver()
+	String GetTornadoVoiceOver()
 	{
 		String snd;
 		
 		if (!Random[OneLiner](0, 1))
-			snd = A_GetDefaultVoiceOver();
+			snd = GetDefaultVoiceOver();
 		else
 			snd = String.Format("tornado%d", Random[OneLiner](1, 3));
 			
 		return snd;
 	}
 	
-	String A_GetRainbowerVoiceOver()
+	String GetRainbowerVoiceOver()
 	{
 		String snd;
+		
 		if (!Random[OneLiner](0, 1))
-			snd = A_GetDefaultVoiceOver();
+			snd = GetDefaultVoiceOver();
 		else
 			snd =  "rainbower";
 			
 		return snd;
 	}
 	
-	bool A_CheckOneLinerCVar()
+	bool CheckOneLinerCVar()
 	{
 		if (player)
 			return Cvar.GetCVar('shdx_snd_oneliners', player).GetBool();
@@ -267,85 +251,92 @@ extend class SHDX_PlayerPawn
 		return false;
 	}
 	
-	void A_OneLinerInit(Sound snd, int flags = OLSSF_DEFAULT)
+	void OneLinerInit(Sound snd, int flags = OLSSF_DEFAULT)
 	{
-		if (flags & OLSSF_FORCEONELINER)
-		{
-			Console.PrintF("OLSSF_FORCEONELINER");
-			bypasscooldown = true;
-			onelinercount = ONELINER_COOLDOWN_MAX;
-		}
+		if (!CheckOneLinerCVar())
+			return;
 		
-		if (onelinercount <= 0)
-		{
+		if (health <= 0)
+			return;
+			
+		if (onelinercount <= 0 || flags & OLSSF_FORCEONELINER)
 			onelinercount = ONELINER_COOLDOWN_MAX;
-		}
-			
-		if (flags & OLSSF_BYPASSMUTE)
+		
+		if (onelinermute && !(flags & OLSSF_BYPASSMUTE))
 		{
-			bypassmute = true;
+			onelinercount = 0;
+			return;	
 		}
-			
-		onelinerflags = flags;
 		
 		onelinersnd = snd;
+		
+		if (onelinercount >= ONELINER_COOLDOWN_MAX)
+		{
+			onelinerhit = true;
+			
+			if (SHDX_Utilities.CheckSoundExists(onelinersnd))
+				OneLinerSound(onelinersnd);
+			
+			if (!(flags & OLSSF_NOGRIN))
+				A_SetMugshotState("Grin");
+		}
 	}
 	
-	void A_SHDX_OLSubtitle(String str, Sound snd)
+	void OLSubtitle(String str, Sound snd)
 	{
 		SHDX_Vox.SendSubtitleToHandler(StringTable.Localize(str), SHDX_Vox.GetSecondsFromSound(snd));
 	}
 	
 	// Check if oneliner requires subtitles
-	virtual void A_CheckIfOneLinerRequiresSubtitles(Sound snd)
+	virtual void CheckIfOneLinerRequiresSubtitles(Sound snd)
 	{
 		if (snd == "scootaloo/surprisestart")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS1_1", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS1_1", snd);
 		}
 		else if (snd == "scootaloo/surpriseend")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS1_2", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS1_2", snd);
 		}
 		else if (snd == "scootaloo/enforcer")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_ENFORCER", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_ENFORCER", snd);
 		}
 		else if (snd == "scootaloo/bathroom")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BATHROOM", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_BATHROOM", snd);
 		}
 		else if (snd == "scootaloo/atmospherestart")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS2_1", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS2_1", snd);
 		}
 		else if (snd == "scootaloo/atmosphereend")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS2_2", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS2_2", snd);
 		}
 		else if (snd == "scootaloo/sorryorion")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_ORIONWASP", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_ORIONWASP", snd);
 		}
 		else if (snd == "scootaloo/maimbowundashstart")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_1", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_1", snd);
 		}
 		else if (snd == "scootaloo/maimbowundashendgood")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_2", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_2", snd);
 		}
 		else if (snd == "scootaloo/maimbowundashendbad")
 		{
-			A_SHDX_OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_3", snd);
+			OLSubtitle("$SHDX_VOX_SCOOTALOO_BOSS3_3", snd);
 		}
 	}
 	
-	void A_OneLinerSound(Sound snd)
+	void OneLinerSound(Sound snd)
 	{
-		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_DEFAULT, 4.0, ATTN_ONELINER);
+		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_DEFAULT, 4.0, ATTN_NORM);
 		
-		A_CheckIfOneLinerRequiresSubtitles(snd);
+		CheckIfOneLinerRequiresSubtitles(snd);
 	}
 	
 	void A_StopOneLinerSound()
@@ -354,30 +345,8 @@ extend class SHDX_PlayerPawn
 	}
 	
 	// Perform Voice One Liner Actions
-	void A_OneLinerProcess()
-	{
-		if (!A_CheckOneLinerCVar())
-			return;
-		
-		if (health <= 0)
-			return;
-			
-		if (onelinermute && !bypassmute)
-		{
-			onelinercount = 0;
-			return;	
-		}
-		
-		if (onelinercount >= ONELINER_COOLDOWN_MAX || bypasscooldown)
-		{
-			Console.PrintF("onelinercount: "..onelinercount);
-			onelinerhit = true;
-			bypasscooldown = false;
-			
-			if (SHDX_Utilities.CheckSoundExists(onelinersnd))
-				A_OneLinerSound(onelinersnd);
-		}
-		
+	void OneLinerProcess()
+	{		
 		if (onelinerhit)
 		{
 			if (onelinercount > 0)
@@ -388,8 +357,6 @@ extend class SHDX_PlayerPawn
 				onelinercount = 0;
 				onelinersnd = "";
 				onelinerhit = false;
-				onelinerflags = 0;
-				bypassmute = false;
 			}
 		}
 	}
