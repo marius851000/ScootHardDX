@@ -170,4 +170,9 @@ DoomEdNums
 	7538 = SHDX_Maimbow9
 	7539 = SHDX_Maimbow10
 	7540 = SHDX_Maimbow14
+	
+	7550 = SHDX_Bordeaux1
+	7551 = SHDX_Bordeaux2
+	7552 = SHDX_Bordeaux3
+	7553 = SHDX_Bordeaux4
 }

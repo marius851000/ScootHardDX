@@ -140,5 +140,6 @@ version "4.3"
 #include "zscript/sharddx/weapons/tornadozer.zsc"
 
 #include "zscript/sharddx/vox/events.zsc"
+#include "zscript/sharddx/vox/bordeaux.zsc"
 #include "zscript/sharddx/vox/atmosphere.zsc"
 #include "zscript/sharddx/vox/maimbow.zsc"
