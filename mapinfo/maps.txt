@@ -161,8 +161,8 @@ map E2S1 lookup SHDX_E2S1
 	par = 45
 	sucktime = 1
 	music = "M_FACT"
-	next = "E2M4"
-	secretnext = "E2M4"
+	next = "E2M3"
+	secretnext = "E2M3"
 }
 
 map E3M1 lookup SHDX_E3A1
