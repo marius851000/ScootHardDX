@@ -96,3 +96,24 @@ Class SHDX_AuroraDawn : SHDX_Actor
 			Stop;
 	}
 }
+
+
+Class SHDX_AuroraDawnSecretLevel : SHDX_AuroraDawn
+{
+	Default
+	{
+		//$Category "Controllers"
+		//$Sprite AUROA0
+		//$Title "Aurora Dawn (Secret Level)"
+	}
+	
+	States
+	{	
+		Spawn:
+			AURO A 10 A_AuroraLook;
+			loop;
+		See:
+			TNT1 A 10 A_StartSound("aurora/giggle", CHAN_VOICE);
+			Stop;
+	}
+}
