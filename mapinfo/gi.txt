@@ -55,6 +55,8 @@ gameinfo
 	
 	statusbarclass = "SHDX_StatusBar"
 	
+	MapArrow = "mapinfo/maparrow.txt"
+	
 	NoMergePickupMsg = true
 	
 	AddEventHandlers = "SHDX_Handler", "SHDX_AbortHandler", "SHDX_ReadThisHijacker", "weather_event"

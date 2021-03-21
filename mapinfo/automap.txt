@@ -1,0 +1,10 @@
+Automap
+{
+    Base = "Doom"
+    showlocks = true
+    WallColor = "00 176 97"
+    TwoSidedWallColor = "00 00 00"
+    ExtraFloorWallColor = "00 00 00"
+    FloorDiffWallColor = "00 237 171"
+    CeilingDiffWallColor = "00 237 240"
+}

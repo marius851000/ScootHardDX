@@ -1,5 +1,7 @@
 include "mapinfo/gi.txt"
 
+include "mapinfo/automap.txt"
+
 include "mapinfo/damage.txt"
 
 include "mapinfo/doomednum.txt"
