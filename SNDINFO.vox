@@ -44,3 +44,8 @@ cancermouse/cancermouse2		"sounds/vox/cancermouse/CancerMouseMLP.ogg"
 cancermouse/cancermouse3		"sounds/vox/cancermouse/CancerMouse4Chan.ogg"
 cancermouse/cancermouse4		"sounds/vox/cancermouse/CancerMouseGhost.ogg"
 cancermouse/cancermouse5		"sounds/vox/cancermouse/CancerMousePot.ogg"
+
+bordeaux/vox/intro				"sounds/vox/bordeaux/BordeauxLaugh.ogg"
+bordeaux/vox/grounded			"sounds/vox/bordeaux/BordeauxGrounded.ogg"
+bordeaux/vox/personalhell		"sounds/vox/bordeaux/BordeauxLinesPersonalHell.ogg"
+bordeaux/vox/outro				"sounds/vox/bordeaux/BordeauxOutro.ogg"
