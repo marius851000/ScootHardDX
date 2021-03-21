@@ -213,7 +213,6 @@ map E3M4 lookup SHDX_E3A4
 	EventHandlers = "SHDX_MaimbowHandler"
 	music = "M_MAMB"
 	next = "EndTitle"
-	nointermission
 	author = "SanyaWaffles, Metal Neon"
 }
 

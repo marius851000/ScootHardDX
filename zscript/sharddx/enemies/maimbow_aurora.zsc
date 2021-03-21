@@ -59,10 +59,10 @@ extend class SHDX_MaimbowUndashBoss
 	{
 		if (goodend)
 		{
-			level.ChangeLevel("CREDITS2", 0, CHANGELEVEL_NOINTERMISSION, -1);
+			level.ChangeLevel("CREDITS2", 0, 0, -1);
 			return;
 		}
 		
-		level.ChangeLevel("CREDITS1", 0, CHANGELEVEL_NOINTERMISSION, -1);
+		level.ChangeLevel("CREDITS1", 0, 0, -1);
 	}
 }
