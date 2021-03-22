@@ -45,6 +45,10 @@ $ambient 14 ambience/quakewind point continuous 0.7
 ambience/arcade "sounds/ambient/arcade.ogg"
 $ambient 15 ambience/arcade point continuous 1.0
 
+ambience/mayo "sounds/mayo.ogg"
+$ambient 16 ambience/mayo point continuous 1.0
+
+
 saw/shutoff	"sounds/saw_shutoff.ogg"
 
 pegasusdevice/alarm "sounds/alarm.ogg"
