@@ -27,7 +27,7 @@ class SHDX_CreditMapEvent : EventHandler
 	const SECONDS_SCROLLTIME = 4;
 	const SECONDS_BREAK = 2;
 	
-	const MAX_STAGES = 19;
+	const MAX_STAGES = 20;
 	const ADDITIONAL_CODE = MAX_STAGES - 1;
 	
 	ui int creditx, credity;
@@ -267,35 +267,41 @@ class SHDX_CreditMapEvent : EventHandler
 				}
 				else if (stage == 12)
 				{
+					av = "drom.png";
+					role = "$SHDX_CREDITMYSTERIOUSVOICE";
+					credit = "$SHDX_CREDITDROM";
+				}
+				else if (stage == 13)
+				{
 					av = "auroradawn.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITAURORADAWN";
 				}
-				else if (stage == 13)
+				else if (stage == 14)
 				{
 					av = "woodentoaster.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITWOODENTOASTER";
 				}
-				else if (stage == 14)
+				else if (stage == 15)
 				{
 					av = "jinzo.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITJINZO";
 				}
-				else if (stage == 15)
+				else if (stage == 16)
 				{
 					av = "korzodin.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITKORZODIN";
 				}
-				else if (stage == 16)
+				else if (stage == 17)
 				{
 					av = "zan.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITZAN";
 				}
-				else if (stage == 17)
+				else if (stage == 18)
 				{
 					av = "accensus.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
