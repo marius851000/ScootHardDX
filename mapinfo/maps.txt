@@ -75,7 +75,7 @@ map E1M4 lookup SHDX_E1A4
 map INTRO2 lookup SHDX_INTRO2
 {
 	LevelNum = 0
-	Music = ""
+	Music = "M_ENF"
 	Next = "E2M1"
 	EventHandlers = "SHDX_Intro2SlideshowHandler"
 	NoIntermission
