@@ -28,6 +28,8 @@ include "mapinfo/intro2.txt"
 
 include "mapinfo/end_ep2.txt"
 
+include "mapinfo/secret.txt"
+
 include "mapinfo/preboss3.txt"
 
 include "mapinfo/end_ep3a.txt"

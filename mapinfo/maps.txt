@@ -164,6 +164,7 @@ map E2S1 lookup SHDX_E2S1
 	next = "E2M3"
 	secretnext = "E2M3"
 	author = "Metal Neon"
+	EventHandlers = "SHDX_IntroSecretLevelSlideshowHandler"
 }
 
 map E3M1 lookup SHDX_E3A1

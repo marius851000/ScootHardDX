@@ -91,3 +91,11 @@ class SHDX_Intro2SlideshowHandler : SHDX_SlideshowHandler
 		InitSlideshowInfo('IntroEpisode2', false, true);
 	}
 }
+
+class SHDX_IntroSecretLevelSlideshowHandler : SHDX_SlideshowHandler
+{
+	override void OnRegister()
+	{
+		InitSlideshowInfo('IntroSecretLevel', false, true);
+	}
+}
