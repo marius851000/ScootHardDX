@@ -21,6 +21,10 @@ Class SHDX_MetalJunk : SHDX_Actor
 		Spawn:
 			JUNK CDAB 2;
 			Loop;
+		Crash:
+		Death:
+			TNT1 A 0;
+			Stop;
 	}
 }
 
