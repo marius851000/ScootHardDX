@@ -182,6 +182,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBOW A 34 NoDelay
 			{
 				isactive = false;
+				bCanJump = false;
 				if (!shdx_skipcutscenes && !cutsceneplayed)
 				{
 					level.StartIntermission('PreBoss3', FState_InLevel);
@@ -810,7 +811,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			{
 				A_SetInvulnerable();
 				bNoPain = true;
-				A_Stage2Teleportation();
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
 				A_RemoveLight('maimbowlight');
@@ -839,7 +839,6 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			{
 				A_SetInvulnerable();
 				bNoPain = true;
-				A_Stage3Teleportation();
 				A_SetRenderStyle(1.0, STYLE_Normal);
 				SetShade("ffffff");
 				A_RemoveLight('maimbowlight');

@@ -39,6 +39,10 @@ class SHDX_MaimbowHandler : EventHandler
 	override void WorldThingSpawned(WorldEvent e)
 	{
 		CheckIfSpawnedMaimbow(e.Thing);
+		CheckIfSpawnedMaimbowSpot2(e.Thing);
+		CheckIfSpawnedScootalooSpot2(e.Thing);
+		CheckIfSpawnedMaimbowSpot3(e.Thing);
+		CheckIfSpawnedScootalooSpot3(e.Thing);
 	}
 	
 	void CheckIfSpawnedMaimbow(Actor a)
@@ -46,6 +50,34 @@ class SHDX_MaimbowHandler : EventHandler
 		let m = SHDX_MaimbowUndashBoss(a);
 		if (m)
 			maimbow = m;
+	}
+	
+	void CheckIfSpawnedMaimbowSpot2(Actor a)
+	{
+		let m = SHDX_BossSpotMaimbowStage2(a);
+		if (m)
+			stage2maimbowspot = m;
+	}
+	
+	void CheckIfSpawnedScootalooSpot2(Actor a)
+	{
+		let m = SHDX_BossSpotScootalooStage2(a);
+		if (m)
+			stage2scootaloospot = m;
+	}
+	
+	void CheckIfSpawnedMaimbowSpot3(Actor a)
+	{
+		let m = SHDX_BossSpotMaimbowStage3(a);
+		if (m)
+			stage3maimbowspot = m;
+	}
+	
+	void CheckIfSpawnedScootalooSpot3(Actor a)
+	{
+		let m = SHDX_BossSpotScootalooStage3(a);
+		if (m)
+			stage3scootaloospot = m;
 	}
 	
 	void SetTickerForWasps()

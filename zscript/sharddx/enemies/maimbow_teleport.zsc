@@ -90,18 +90,18 @@ extend class SHDX_MaimbowUndashBoss
 	void SetMaimbowStage2()
 	{
 		SetStateLabel("MaimbowTeleport1");
-		A_Stage2Teleportation();
+		Stage2Teleportation();
 		maimbowstage = MAIMBOW_STAGE_2;
 	}
 	
 	void SetMaimbowStage3()
 	{
 		SetStateLabel("MaimbowTeleport2");
-		A_Stage3Teleportation();
+		Stage3Teleportation();
 		maimbowstage = MAIMBOW_STAGE_3;
 	}	
 	
-	void A_Stage2Teleportation()
+	void Stage2Teleportation()
 	{
 		let hnd = SHDX_MaimbowHandler(EventHandler.Find("SHDX_MaimbowHandler"));
 		
@@ -117,7 +117,7 @@ extend class SHDX_MaimbowUndashBoss
 		}
 	}
 	
-	void A_Stage3Teleportation()
+	void Stage3Teleportation()
 	{
 		let hnd = SHDX_MaimbowHandler(EventHandler.Find("SHDX_MaimbowHandler"));
 		if (hnd)
