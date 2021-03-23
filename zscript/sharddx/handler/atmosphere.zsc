@@ -19,6 +19,10 @@ class SHDX_AtmosphereHandler : EventHandler
 	
 	int zombietics;
 	
+	int zombiecount;
+	
+	const ZOMBIE_MAX = 24;
+	
 	const TIMETOSPAWNZOMBIES = (TICRATE * 15);
 	const TIMETOCOPYARRAY = (TICRATE * 10);
 	
@@ -30,6 +34,12 @@ class SHDX_AtmosphereHandler : EventHandler
 	override void WorldThingSpawned(WorldEvent e)
 	{
 		CheckIfSpawnedAtmosphere(e.Thing);
+		CheckIfSpawnedZombie(e.Thing);
+	}
+	
+	override void WorldThingDied(WorldEvent e)
+	{
+		CheckIfKilledZombie(e.Thing);
 	}
 	
 	void CheckIfSpawnedAtmosphere(Actor a)
@@ -37,6 +47,20 @@ class SHDX_AtmosphereHandler : EventHandler
 		let at = SHDX_DrAtmosphereBoss(a);
 		if (at)
 			dratmos = at;
+	}
+	
+	void CheckIfSpawnedZombie(Actor a)
+	{
+		let s = SHDX_Zombie(a);
+		if (s)
+			zombiecount++;
+	}
+	
+	void CheckIfKilledZombie(Actor a)
+	{
+		let s = SHDX_Zombie(a);
+		if (s)
+			zombiecount--;
 	}
 	
 	void DrAtmosphereRoutine()

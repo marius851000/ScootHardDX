@@ -27,9 +27,15 @@ class SHDX_MaimbowHandler : EventHandler
 	
 	int spawntics;
 	
+	int rocketguardcount;
+	int zombiecount;
+	
 	const TIMETOSPAWNZOMBIES = (TICRATE * 35);
 	const TIMETOSPAWNROCKETGUARDS = (TICRATE * 60);
 	const TIMETOCOPYARRAY = (TICRATE * 10);
+	
+	const MAX_ROCKETGUARDS = 36;
+	const MAX_ZOMBIES = 30;
 	
 	override void WorldTick()
 	{
@@ -43,6 +49,13 @@ class SHDX_MaimbowHandler : EventHandler
 		CheckIfSpawnedScootalooSpot2(e.Thing);
 		CheckIfSpawnedMaimbowSpot3(e.Thing);
 		CheckIfSpawnedScootalooSpot3(e.Thing);
+		CheckIfSpawnedRocketGuard(e.Thing);
+	}
+	
+	override void WorldThingDied(WorldEvent e)
+	{
+		CheckIfKilledRocketGuard(e.Thing);
+		CheckIfKilledZombie(e.Thing);
 	}
 	
 	void CheckIfSpawnedMaimbow(Actor a)
@@ -78,6 +91,34 @@ class SHDX_MaimbowHandler : EventHandler
 		let m = SHDX_BossSpotScootalooStage3(a);
 		if (m)
 			stage3scootaloospot = m;
+	}
+	
+	void CheckIfSpawnedRocketGuard(Actor a)
+	{
+		let s = SHDX_RocketGuard(a);
+		if (s)
+			rocketguardcount++;
+	}
+	
+	void CheckIfKilledRocketGuard(Actor a)
+	{
+		let s = SHDX_RocketGuard(a);
+		if (s)
+			rocketguardcount--;
+	}
+	
+	void CheckIfSpawnedZombie(Actor a)
+	{
+		let s = SHDX_Zombie(a);
+		if (s)
+			zombiecount++;
+	}
+	
+	void CheckIfKilledZombie(Actor a)
+	{
+		let s = SHDX_Zombie(a);
+		if (s)
+			zombiecount--;
 	}
 	
 	void SetTickerForWasps()
@@ -165,6 +206,8 @@ class SHDX_MaimbowHandler : EventHandler
 	
 	void SpawnZombiesFromSpots()
 	{
+		if (zombiecount >= MAX_ZOMBIES)
+			return;
 		ThinkerIterator deadraiserit = ThinkerIterator.Create("SHDX_ZombieSpot");
 		SHDX_ZombieSpot raiserspot;
 		
@@ -174,11 +217,16 @@ class SHDX_MaimbowHandler : EventHandler
 			// if spot exists
 			if (raiserspot)
 				raiserspot.SetStateLabel("RaiseTheDead");
+			
+			if (zombiecount >= MAX_ZOMBIES)
+				return;
 		}
 	}
 	
 	void SpawnRocketGuardsFromSpots()
 	{
+		if (rocketguardcount >= MAX_ZOMBIES)
+			return;
 		ThinkerIterator rgspotit = ThinkerIterator.Create("SHDX_RocketGuardSpot");
 		SHDX_RocketGuardSpot rgspot;
 		
@@ -188,6 +236,9 @@ class SHDX_MaimbowHandler : EventHandler
 			// if spot exists
 			if (rgspot)
 				rgspot.SetStateLabel("SpawnInRocketGuard");
+			
+			if (rocketguardcount >= MAX_ZOMBIES)
+				return;
 		}
 	}
 }

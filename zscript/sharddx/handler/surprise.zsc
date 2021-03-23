@@ -46,10 +46,14 @@ class SHDX_SurpriseHandler : EventHandler
 {
 	SHDX_SurpriseBoss surpboss;
 	
+	int rockerguardcount;
+	
 	int rocketguardtics;
 	
 	const TIMETOSPAWNROCKETGUARDS = (TICRATE * 30);
 	const TIMETOCOPYARRAY = (TICRATE * 10);
+	
+	const MAX_ROCKETGUARDS = 18;
 	
 	override void WorldTick()
 	{
@@ -61,11 +65,30 @@ class SHDX_SurpriseHandler : EventHandler
 		CheckIfSpawnedSurprise(e.Thing);
 	}
 	
+	override void WorldThingDied(WorldEvent e)
+	{
+		CheckIfKilledRocketGuard(e.Thing);
+	}
+	
 	void CheckIfSpawnedSurprise(Actor a)
 	{
 		let s = SHDX_SurpriseBoss(a);
 		if (s)
 			surpboss = s;
+	}
+	
+	void CheckIfSpawnedRocketGuard(Actor a)
+	{
+		let s = SHDX_RocketGuard(a);
+		if (s)
+			rockerguardcount++;
+	}
+	
+	void CheckIfKilledRocketGuard(Actor a)
+	{
+		let s = SHDX_RocketGuard(a);
+		if (s)
+			rockerguardcount--;
 	}
 	
 	void SurpriseRoutine()
@@ -105,6 +128,9 @@ class SHDX_SurpriseHandler : EventHandler
 	
 	void SpawnRocketGuardsFromSpots()
 	{
+		if (rockerguardcount >= MAX_ROCKETGUARDS)
+			return;
+		
 		ThinkerIterator rgspotit = ThinkerIterator.Create("SHDX_RocketGuardSpot");
 		SHDX_RocketGuardSpot rgspot;
 		
@@ -114,6 +140,9 @@ class SHDX_SurpriseHandler : EventHandler
 			// if spot exists
 			if (rgspot)
 				rgspot.SetStateLabel("SpawnInRocketGuard");
+			
+			if (rockerguardcount >= MAX_ROCKETGUARDS)
+				return;
 		}
 	}
 }
