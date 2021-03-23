@@ -242,6 +242,7 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 			WASP I 5;
 			Goto See;
 		
+		/*
 		Death:
 		Death.Ice:
 			WASP K 0
@@ -268,8 +269,12 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 			}
 			WASP O -1;
 			Stop;
+		*/
 		
 		XDeath:
+		Ice:
+		Death:
+		Death.Ice:
 		Death.Explosive:
 		Death.Weather:
 		Death.Extreme:
@@ -277,16 +282,19 @@ Class SHDX_SpectraWasp : SHDX_Enemy
 			EXPL A 0
 			{
 				A_NoBlocking();
+				A_NewScream();
 				A_StartSound("minisentry/explode", CHAN_7);
+				A_StartSound("misc/metalgibs", CHAN_6);
 				A_SpawnMetalJunk2Fx(self);
+				A_SHDX_SpawnGib(self, "SHDX_WaspHeadGib");
+				A_SHDX_SpawnGib(self, "SHDX_WaspBottomGib");
 				
-				if (!iscorpse)
-					A_SpawnSpectrumPuddle();
+				A_SpawnSpectrumPuddle();
 				
 				if (CheckIfOrionWasp())
 					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_BOSS_CHANCE, "scootaloo/sorryorion", OLSSF_FORCEONELINER|OLSSF_BYPASSMUTE|OLSSF_BYPASSPLAYERPREFIX|OLSSF_NOGRIN);
 				else
-					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_EXPLOSIVE);
+					A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_DEFAULT);
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;

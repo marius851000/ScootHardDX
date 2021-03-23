@@ -469,8 +469,8 @@ Class SHDX_TchernobogStatue : SHDX_Prop
 		
 		Scale 0.67;
 		
-		Radius 48;
-		Height 144;
+		Radius 64;
+		Height 320;
 	}
 	
 	States

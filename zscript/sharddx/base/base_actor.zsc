@@ -35,7 +35,7 @@ Class SHDX_Actor : Actor
 		BloodType "SHDX_Blood", "SHDX_Blood", "SHDX_Blood";
 	}
 	
-	static void A_DD2_SpawnGib(Actor self, Class<Actor> gibtype = "SHDX_Giblets", bool dontthrust = false)
+	static void A_SHDX_SpawnGib(Actor self, Class<Actor> gibtype = "SHDX_Giblets", bool dontthrust = false)
 	{
 		Actor a;
 		
@@ -75,38 +75,38 @@ Class SHDX_Actor : Actor
 		
 		for (int i = 0; i < 23; i++)
 		{
-			A_DD2_SpawnGib(self, "SHDX_WallGib");
+			A_SHDX_SpawnGib(self, "SHDX_WallGib");
 		}
 		
 		for (int i = 0; i < 28; i++)
 		{
-			A_DD2_SpawnGib(self, "SHDX_Giblets");
+			A_SHDX_SpawnGib(self, "SHDX_Giblets");
 		}
 		
 		for (int i = 0; i < 4; i++)
 		{
-			A_DD2_SpawnGib(self, "SHDX_BoneGibs");
+			A_SHDX_SpawnGib(self, "SHDX_BoneGibs");
 		}
 		
 		if (flags & SGFX_SPAWNHEAD)
 		{
-			A_DD2_SpawnGib(self, "SHDX_HeadGib");
+			A_SHDX_SpawnGib(self, "SHDX_HeadGib");
 		}
 		
 		if (flags & SGFX_SPAWNEYES)
 		{
-			A_DD2_SpawnGib(self, "SHDX_EyeGib");
-			A_DD2_SpawnGib(self, "SHDX_EyeGib");
+			A_SHDX_SpawnGib(self, "SHDX_EyeGib");
+			A_SHDX_SpawnGib(self, "SHDX_EyeGib");
 		}
 		
 		if (flags & SGFX_SPAWNARM)
 		{
-			A_DD2_SpawnGib(self, "SHDX_ArmGib");
+			A_SHDX_SpawnGib(self, "SHDX_ArmGib");
 		}
 		
 		if (flags & SGFX_SPAWNLEG)
 		{
-			A_DD2_SpawnGib(self, "SHDX_LegGib");
+			A_SHDX_SpawnGib(self, "SHDX_LegGib");
 		}
 	}
 	
@@ -117,7 +117,7 @@ Class SHDX_Actor : Actor
 			
 		for (int i = 0; i < 20; i++)
 		{
-			A_DD2_SpawnGib(self, "SHDX_AshGibs");
+			A_SHDX_SpawnGib(self, "SHDX_AshGibs");
 		}
 	}
 	
@@ -128,7 +128,7 @@ Class SHDX_Actor : Actor
 			
 		for (int i = 0; i < 32; i++)
 		{
-			A_DD2_SpawnGib(self, "SHDX_MetalJunk");
+			A_SHDX_SpawnGib(self, "SHDX_MetalJunk");
 		}
 	}
 	
@@ -139,10 +139,10 @@ Class SHDX_Actor : Actor
 			
 		for (int i = 0; i < 8; i++)
 		{
-			A_DD2_SpawnGib(self, "SHDX_MetalJunk1");
-			A_DD2_SpawnGib(self, "SHDX_MetalJunk2");
-			A_DD2_SpawnGib(self, "SHDX_MetalJunk3");
-			A_DD2_SpawnGib(self, "SHDX_MetalJunk4");
+			A_SHDX_SpawnGib(self, "SHDX_MetalJunk1");
+			A_SHDX_SpawnGib(self, "SHDX_MetalJunk2");
+			A_SHDX_SpawnGib(self, "SHDX_MetalJunk3");
+			A_SHDX_SpawnGib(self, "SHDX_MetalJunk4");
 		}
 	}
 	
@@ -153,7 +153,7 @@ Class SHDX_Actor : Actor
 			
 		for (int i = 0; i < 32; i++)
 		{
-			A_DD2_SpawnGib(self, "SHDX_GlassJunk");
+			A_SHDX_SpawnGib(self, "SHDX_GlassJunk");
 		}
 	}
 	
@@ -164,7 +164,7 @@ Class SHDX_Actor : Actor
 		
 		for (int i = 0; i < 16; i++)
 		{
-			A_DD2_SpawnGib(self, "SHDX_ChickenFeather");
+			A_SHDX_SpawnGib(self, "SHDX_ChickenFeather");
 		}
 	}
 	

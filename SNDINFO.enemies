@@ -154,12 +154,12 @@ engineer/miss			"sounds/weapons/destablizer_full.ogg"
 
 // SPECTRAWASP
 
-spectrawasp/sight			"sounds/enemies/wasp/see.ogg"
-spectrawasp/active1			"sounds/enemies/wasp/active1.ogg"
-spectrawasp/active2			"sounds/enemies/wasp/active2.ogg"
-spectrawasp/active3			"sounds/enemies/wasp/active3.ogg"
+spectrawasp/sight			"sounds/enemies/wasp/WaspSpot.ogg"
+spectrawasp/active1			"sounds/enemies/wasp/WaspActive1.ogg"
+spectrawasp/active2			"sounds/enemies/wasp/WaspActive2.ogg"
+spectrawasp/active3			"sounds/enemies/wasp/WaspActive3.ogg"
 $random spectrawasp/active	{ spectrawasp/active1 spectrawasp/active2 spectrawasp/active3 }
-spectrawasp/death			"sounds/enemies/wasp/death.ogg"
+spectrawasp/death			"sounds/enemies/wasp/WaspDie.ogg"
 spectrawasp/pain			"sounds/enemies/wasp/pain.ogg"
 spectrawasp/attacklaserf	"sounds/enemies/wasp/fire.ogg"
 spectrawasp/attacklaserx	"sounds/weapons/plasma_shotx.ogg"
