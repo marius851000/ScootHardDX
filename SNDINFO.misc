@@ -1,7 +1,10 @@
 $pitchshiftrange 0
 
+misc/metalgibs				"sounds/RobotGib.ogg"
+misc/metalgibhit			"sounds/RobotBolts.ogg"
+
 misc/splatx				"sounds/slop.ogg"
-gen/gibs				"sounds/gib01.ogg"
+misc/gibs				"sounds/gib01.ogg"
 
 vending/fail			"sounds/ui/error.ogg"
 vending/dispense		"sounds/clunk.ogg"
@@ -40,6 +43,3 @@ credits/bordeaux		"sounds/bordeaux.ogg"
 armor/hit				"sounds/hullhit.ogg"
 misc/vaporize			"sounds/vaporize.ogg"
 misc/explosionpegasusdevice	"sounds/pegadevice_explosion.ogg"
-
-misc/metalgibs				"sounds/RobotGib.ogg"
-misc/metalgibhit			"sounds/RobotBolts.ogg"

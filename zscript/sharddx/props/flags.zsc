@@ -40,7 +40,7 @@ Class SHDX_FlagPole : SHDX_Prop
 			{
 				A_NoBlocking();
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			FLAG B -1;
 			Stop;
@@ -107,7 +107,7 @@ Class SHDX_FlagDestroyableSmall : SHDX_Decoration
 		Death:
 			FLG2 B 0
 			{
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			FLG2 B -1 A_Stop();
 			Stop;
@@ -185,7 +185,7 @@ Class SHDX_FlagPole2 : SHDX_Prop
 				A_NoBlocking();
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
 				
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			FLG3 B -1;
 			Stop;

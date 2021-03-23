@@ -25,6 +25,8 @@ Class SHDX_SwitchableDecoration : SwitchableDecoration
 		+NoBloodDecals
 	}
 	
+	mixin SHDX_GibSystem;
+	
 	void A_DisableSpecial()
 	{
 		bUseSpecial = false;

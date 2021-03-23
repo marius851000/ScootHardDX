@@ -40,7 +40,7 @@ Class SHDX_BlueVase : SHDX_Prop
 			{
 				A_NoBlocking();
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			VASE A 5;
 			Stop;
@@ -75,7 +75,7 @@ Class SHDX_PottedPlant : SHDX_Prop
 			{
 				A_NoBlocking();
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			PLNT A 5;
 			Stop;
@@ -110,7 +110,7 @@ Class SHDX_Barrel1 : SHDX_Prop
 			{
 				A_NoBlocking();
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			BARL A 5;
 			Stop;
@@ -144,7 +144,7 @@ Class SHDX_Barrel2 : SHDX_Prop
 			{
 				A_NoBlocking();
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			BAR2 A 5;
 			Stop;
@@ -259,7 +259,7 @@ Class SHDX_CoffeeMug : SHDX_Decoration
 			TNT1 A 0
 			{
 				A_StartSound("misc/glassbreak");
-				SHDX_Actor.A_SpawnGlassJunkFx(self);
+				A_SpawnGlassJunkFx();
 			}
 			Stop;
 	}
@@ -294,7 +294,7 @@ Class SHDX_OfficeChair : SHDX_Prop
 			{
 				A_NoBlocking();
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			Stop;
 	}
@@ -371,7 +371,7 @@ Class SHDX_DontrelPlush : SHDX_Decoration
 			{
 				A_NoBlocking();
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			DOL0 A 5;
 			Stop;
@@ -508,7 +508,7 @@ Class SHDX_Flask : SHDX_Decoration
 			TNT1 A 0
 			{
 				A_StartSound("misc/glassbreak");
-				SHDX_Actor.A_SpawnGlassJunkFx(self);
+				A_SpawnGlassJunkFx();
 			}
 			Stop;
 	}
@@ -541,7 +541,7 @@ Class SHDX_Beaker : SHDX_Decoration
 			TNT1 A 0
 			{
 				A_StartSound("misc/glassbreak");
-				SHDX_Actor.A_SpawnGlassJunkFx(self);
+				A_SpawnGlassJunkFx();
 			}
 			Stop;
 	}
@@ -594,7 +594,7 @@ Class SHDX_WarningSign1 : SHDX_Decoration
 			TNT1 A 0
 			{
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			TNT1 A 5;
 			Stop;
@@ -646,7 +646,7 @@ Class SHDX_Bucket : SHDX_Decoration
 			TNT1 A 0
 			{
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 			}
 			Stop;
 	}

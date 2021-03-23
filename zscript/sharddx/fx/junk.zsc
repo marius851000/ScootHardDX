@@ -1,0 +1,141 @@
+// Junk spawn
+Class SHDX_MetalJunk : SHDX_Actor
+{
+	Default
+	{
+		Radius 10;
+		Height 10;
+		Speed 0;
+		Scale 0.15;
+		Gravity 0.2;
+		+FLOORCLIP
+		+NOBLOCKMONST
+		+SLIDESONWALLS
+		+CORPSE
+		+RANDOMIZE
+		-SOLID
+	}
+	
+	States
+	{
+		Spawn:
+			JUNK CDAB 2;
+			Loop;
+	}
+}
+
+
+Class SHDX_MetalJunk1 : SHDX_MetalJunk
+{	
+	States
+	{
+		Spawn:
+			SGB1 AAAA 2;
+			Loop;
+		Crash:
+		Death:
+			TNT1 A 0 A_StartSound("misc/metalgibhit", CHAN_7);
+			Stop;
+	}
+}
+
+Class SHDX_MetalJunk2 : SHDX_MetalJunk1
+{	
+	States
+	{
+		Spawn:
+			SGB2 AAAA 2;
+			Loop;
+	}
+}
+
+Class SHDX_MetalJunk3 : SHDX_MetalJunk1
+{	
+	States
+	{
+		Spawn:
+			SGB3 AAAA 2;
+			Loop;
+	}
+}
+
+Class SHDX_MetalJunk4 : SHDX_MetalJunk1
+{	
+	States
+	{
+		Spawn:
+			SGB4 AAAA 2;
+			Loop;
+	}
+}
+
+Class SHDX_ChickenFeather : SHDX_Actor
+{
+	Default
+	{
+		Radius 10;
+		Height 10;
+		Speed 0;
+		Scale 0.12;
+		Gravity 0.0125;
+		+FLOORCLIP
+		+NOBLOCKMONST
+		+SLIDESONWALLS
+		+CORPSE
+		+RANDOMIZE
+		-SOLID
+	}
+	
+	States
+	{
+		Spawn:
+			FTHR ABCD 3;
+			Loop;
+		Crash:
+			TNT1 A 0;
+			Stop;
+	}
+}
+
+Class SHDX_GlassJunk : SHDX_MetalJunk
+{
+	States
+	{
+		Spawn:
+			GLSS ABCD 2;
+			Loop;
+		Crash:
+			TNT1 A 0;
+			Stop;
+	}
+}
+
+Class SHDX_WaspHeadGib : SHDX_MetalJunk1
+{
+	Default
+	{
+		Scale 0.12;
+	}
+	
+	States
+	{
+		Spawn:
+			WGB1 ABCD 2;
+			Loop;
+	}
+}
+
+Class SHDX_WaspBottomGib : SHDX_MetalJunk1
+{
+	Default
+	{
+		Scale 0.12;
+	}
+	
+	States
+	{
+		Spawn:
+			WGB2 ABCD 2;
+			Loop;
+	}
+}

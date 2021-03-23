@@ -153,7 +153,7 @@ Class SHDX_MiniSentry : SHDX_Enemy
 				A_SetScale(0.08, 0.08);
 				A_StartSound("minisentry/explode", CHAN_7);
 				A_StartSound("misc/metalgibs", CHAN_6);
-				A_SpawnMetalJunk2Fx(self);
+				A_SpawnMetalJunk2Fx();
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
@@ -229,7 +229,7 @@ Class SHDX_SpectraSentry : SHDX_MiniSentry
 			{
 				A_StartSound("minisentry/explode", CHAN_7);
 				A_StartSound("misc/metalgibs", CHAN_6);
-				A_SpawnMetalJunk2Fx(self);
+				A_SpawnMetalJunk2Fx();
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;

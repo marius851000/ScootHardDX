@@ -47,7 +47,7 @@ Class SHDX_Toilet : SHDX_SwitchableDecoration
 		A_DisableSpecial();
 		A_NoBlocking();
 		
-		SHDX_Actor.A_SpawnMetalJunkFx(self);
+		A_SpawnMetalJunkFx();
 		
 		A_SpawnItemEx("SHDX_WaterGush");
 	}

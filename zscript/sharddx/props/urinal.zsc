@@ -53,7 +53,7 @@ Class SHDX_Urinal : SHDX_SwitchableDecoration
 		A_DisableSpecial();
 		A_NoBlocking();
 		
-		SHDX_Actor.A_SpawnMetalJunkFx(self);
+		A_SpawnMetalJunkFx();
 		
 		A_StartSound("misc/watergush", CHAN_BODY, CHANF_LOOPING, 0.5, ATTN_NORM);
 		A_Stop();

@@ -189,7 +189,7 @@ Class SHDX_Zombie : SHDX_Enemy
 				// SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
 				A_StartSound("enforcer/explode", CHAN_6);
 				// A_SHDX_ExtremeScreamAndUnblock();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			EXPL A 0
 			{
@@ -215,7 +215,7 @@ Class SHDX_Zombie : SHDX_Enemy
 			{
 				A_ResetTranslation();
 				A_SHDX_ExtremeScreamAndUnblock();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			GIBX BC 5;
 			GIBX D 1;
@@ -333,7 +333,7 @@ Class SHDX_RocketZombie : SHDX_Zombie
 				A_StopSound(CHAN_7);
 				A_Explode(176, 128, flags:XF_NOTMISSILE, damagetype:'Explosive');
 				A_StartSound("enforcer/explode", CHAN_6);
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			EXPL A 0
 			{

@@ -152,7 +152,7 @@ Class SHDX_HighGuard : SHDX_Enemy
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsHighGuard();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			Goto Super::Death.Explosive;
 		Death.Weather:
@@ -161,7 +161,7 @@ Class SHDX_HighGuard : SHDX_Enemy
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsHighGuard();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			Goto Super::Death.Weather;
 		Death.Extreme:
@@ -170,7 +170,7 @@ Class SHDX_HighGuard : SHDX_Enemy
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsHighGuard();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			Goto Super::Death.Extreme;
 		Crush:

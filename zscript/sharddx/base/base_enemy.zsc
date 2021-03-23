@@ -267,7 +267,7 @@ Class SHDX_Enemy : SHDX_Actor
 		
 		for (int i = 0; i <= 24; i++)
 		{
-			SHDX_Actor.A_SHDX_SpawnGib(self, "IceChunk");
+			A_SHDX_SpawnGib("IceChunk");
 		}
 		
 		A_NoBlocking();

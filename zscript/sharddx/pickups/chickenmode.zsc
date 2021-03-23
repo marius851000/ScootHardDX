@@ -39,12 +39,19 @@ Class SHDX_ChickenFlash2 : SHDX_Actor
 		Alpha 0.67;
 	}
 	
+	void A_SpawnChickenFeathersFx()
+	{
+		for (int i = 0; i < 16; i++)
+		{
+			A_SHDX_SpawnGib("SHDX_ChickenFeather");
+		}
+	}
+	
 	States
 	{
 		Spawn:
 			CFLS A 1 Bright NoDelay
 			{
-				A_SpawnChickenFeathersFx(self);
 				A_StartSound("powerup/cmodedone", CHAN_BODY);
 			}
 			CFLS ABCDE 8 Bright;

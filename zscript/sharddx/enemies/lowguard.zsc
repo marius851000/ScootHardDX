@@ -146,7 +146,7 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsLowGuard();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			Goto Super::Death.Explosive;
 		Death.Weather:
@@ -155,7 +155,7 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsLowGuard();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			Goto Super::Death.Weather;
 		Death.Extreme:
@@ -164,7 +164,7 @@ Class SHDX_LowGuardMale : SHDX_Enemy
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsLowGuard();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			Goto Super::Death.Extreme;
 		Ice:

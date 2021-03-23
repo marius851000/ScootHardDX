@@ -251,7 +251,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsEngie();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			GIBX B 0
 			{
@@ -266,7 +266,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsEngie();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			GIBX B 0
 			{
@@ -281,7 +281,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsEngie();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			GIBX B 0
 			{

@@ -369,7 +369,7 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 				// SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
 				A_StartSound("enforcer/explode", CHAN_7);
 				// A_SHDX_ExtremeScreamAndUnblock();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
@@ -589,7 +589,7 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 				// SHDX_Utilities.DoExplosion(self, 175, 64., 128, flags:DE_EXTRAZTHRUST, DamageType:'Explosive');
 				A_StartSound("enforcer/explode", CHAN_7);
 				// A_SHDX_ExtremeScreamAndUnblock();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;

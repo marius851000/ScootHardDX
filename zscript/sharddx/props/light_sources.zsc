@@ -48,7 +48,7 @@ Class SHDX_Lamp : SHDX_Prop
 			{
 				A_StartSound("misc/glassbreak", CHAN_7);
 				
-				A_SpawnAshFx(self);
+				A_SpawnAshFx();
 			}
 			Stop;
 	}

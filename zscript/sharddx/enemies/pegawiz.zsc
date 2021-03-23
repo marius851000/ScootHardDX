@@ -546,7 +546,7 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsPegaWiz();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			Goto Super::Death.Explosive;
 		Death.Weather:
@@ -554,7 +554,7 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsPegaWiz();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			Goto Super::Death.Weather;
 		Death.Extreme:
@@ -562,7 +562,7 @@ Class SHDX_PegaWiz : SHDX_Pegapol
 			{
 				A_SHDX_ExtremeScreamAndUnblock();
 				A_DropItemsPegaWiz();
-				A_SpawnGibsFx(self);
+				A_SpawnGibsFx();
 			}
 			Goto Super::Death.Extreme;
 	}

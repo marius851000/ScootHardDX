@@ -46,13 +46,15 @@ Class SHDX_BreakableContainer : Pottery1
 		-Telestomp
 	}
 	
+	mixin SHDX_GibSystem;
+	
 	States
 	{
 		Death:
 			TNT1 A 0
 			{
 				A_StartSound("misc/tcanbreak", CHAN_BODY);
-				SHDX_Actor.A_SpawnMetalJunkFx(self);
+				A_SpawnMetalJunkFx();
 				A_PotteryExplode();
 			}
 			Stop;

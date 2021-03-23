@@ -930,7 +930,7 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 			MBO2 A 5;
 			MBO2 B 5
 			{
-				A_SpawnGibsFx(self, SGFX_SPAWNNOEXTRA);
+				A_SpawnGibsFx(SGFX_SPAWNNOEXTRA);
 				A_NewBossScream();
 				A_SHDX_BossSubtitle("$SHDX_VOX_MAIMBOW_13", DeathSound);
 			}
