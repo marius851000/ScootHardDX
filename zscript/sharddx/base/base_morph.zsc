@@ -49,7 +49,7 @@ class SHDX_PowerMorph : PowerMorph
 	}
 
 	override void EndEffect()
-	{		
+	{
 		Super.EndEffect();
 		
 		for (int i = 0; i < armors.Size(); i++)
