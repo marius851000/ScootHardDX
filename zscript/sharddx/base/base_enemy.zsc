@@ -297,6 +297,7 @@ Class SHDX_Enemy : SHDX_Actor
 			GIBX D -1;
 			Stop;
 		Death.Spectrum:
+			GIBR A 0 A_NoBlocking();
 			GIBR A 2;
 			GIBR A 2 A_StartSound("misc/vaporize", CHAN_7);
 			GIBR B 0 A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_GIB_CHANCE, oltype:OLTYPE_RAINBOWER);

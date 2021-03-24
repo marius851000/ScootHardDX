@@ -292,7 +292,7 @@ Class SHDX_Engineer : SHDX_Enemy
 			}
 			Goto Super::Death.Extreme+2;
 		Death.Spectrum:
-			GIBR A 4;
+			GIBR A 4 A_NoBlocking();
 			GIBR B 0
 			{
 				if (CheckIfBathroomEngie())
