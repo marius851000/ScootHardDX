@@ -33,6 +33,8 @@ DoomEdNums
 	6059 = SHDX_BossSpotMaimbowStage3
 	6060 = SHDX_BossSpotScootalooStage3
 	
+	6061 = SHDX_LowGuardRetro
+	
 	6500 = SHDX_SubmachineGun
 	6502 = SHDX_MissileLauncher
 	6503 = SHDX_FillySeeker

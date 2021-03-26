@@ -110,10 +110,10 @@ Class SHDX_AuroraDawnSecretLevel : SHDX_AuroraDawn
 	States
 	{	
 		Spawn:
-			AURO A 10 A_AuroraLook;
+			AURO AAAAAAAA 5 A_AuroraLook;
 			loop;
 		See:
-			TNT1 A 10 A_StartSound("aurora/giggle", CHAN_VOICE);
+			TNT1 A 10 A_StartSound("aurora/laugh", CHAN_VOICE);
 			Stop;
 	}
 }

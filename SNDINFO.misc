@@ -33,6 +33,8 @@ $limit rain_sound 4
 aurora/sight1			"sounds/aurora.ogg"
 aurora/sight2			"sounds/aurora2.ogg"
 
+aurora/laugh			"sounds/AuroraLaughCreepy.ogg"
+
 $random aurora/sight
 {
 	aurora/sight1
