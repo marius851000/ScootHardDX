@@ -12,8 +12,6 @@ cutscene/intro2/1		"sounds/cutscenes/intro2/intro2_1.ogg"
 cutscene/intro2/2		"sounds/cutscenes/intro2/intro2_2.ogg"
 cutscene/intro2/3		"sounds/cutscenes/intro2/intro2_3.ogg"
 cutscene/intro2/4		"sounds/cutscenes/intro2/intro2_4.ogg"
-cutscene/intro2/5		"sounds/cutscenes/intro2/intro2_5.ogg"
-cutscene/intro2/6		"sounds/cutscenes/intro2/intro2_6.ogg"
 
 cutscene/end1/1			"sounds/cutscenes/end1/end1.ogg"
 cutscene/end1/2			"sounds/cutscenes/end1/end2.ogg"
