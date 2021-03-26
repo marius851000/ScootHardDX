@@ -1,0 +1,61 @@
+$pitchshiftrange 0
+
+cutscene/intro1/1		"sounds/cutscenes/intro1/intro1.ogg"
+cutscene/intro1/2		"sounds/cutscenes/intro1/intro2.ogg"
+cutscene/intro1/3		"sounds/cutscenes/intro1/intro3.ogg"
+cutscene/intro1/4		"sounds/cutscenes/intro1/intro4.ogg"
+cutscene/intro1/5		"sounds/cutscenes/intro1/intro5.ogg"
+cutscene/intro1/6		"sounds/cutscenes/intro1/intro6.ogg"
+cutscene/intro1/7		"sounds/cutscenes/intro1/intro7.ogg"
+
+cutscene/intro2/1		"sounds/cutscenes/intro2/intro2_1.ogg"
+cutscene/intro2/2		"sounds/cutscenes/intro2/intro2_2.ogg"
+cutscene/intro2/3		"sounds/cutscenes/intro2/intro2_3.ogg"
+cutscene/intro2/4		"sounds/cutscenes/intro2/intro2_4.ogg"
+cutscene/intro2/5		"sounds/cutscenes/intro2/intro2_5.ogg"
+cutscene/intro2/6		"sounds/cutscenes/intro2/intro2_6.ogg"
+
+cutscene/end1/1			"sounds/cutscenes/end1/end1.ogg"
+cutscene/end1/2			"sounds/cutscenes/end1/end2.ogg"
+cutscene/end1/3			"sounds/cutscenes/end1/end3.ogg"
+cutscene/end1/4			"sounds/cutscenes/end1/end4.ogg"
+cutscene/end1/5			"sounds/cutscenes/end1/end5.ogg"
+cutscene/end1/6			"sounds/cutscenes/end1/end6.ogg"
+cutscene/end1/7			"sounds/cutscenes/end1/end7.ogg"
+cutscene/end1/8			"sounds/cutscenes/end1/end8.ogg"
+
+cutscene/secret			"sounds/cutscenes/secret/secret.ogg"
+
+cutscene/end2/1			"sounds/cutscenes/end2/end2_1.ogg"
+cutscene/end2/2			"sounds/cutscenes/end2/end2_2.ogg"
+cutscene/end2/3			"sounds/cutscenes/end2/end2_3.ogg"
+cutscene/end2/4			"sounds/cutscenes/end2/end2_4.ogg"
+cutscene/end2/5			"sounds/cutscenes/end2/end2_5.ogg"
+cutscene/end2/6			"sounds/cutscenes/end2/end2_6.ogg"
+cutscene/end2/7			"sounds/cutscenes/end2/end2_7.ogg"
+cutscene/end2/8			"sounds/cutscenes/end2/end2_8.ogg"
+
+cutscene/preboss		"sounds/cutscenes/preboss/preboss.ogg"
+
+cutscene/end/1			"sounds/cutscenes/end/end1.ogg"
+cutscene/end/2			"sounds/cutscenes/end/end2.ogg"
+cutscene/end/3			"sounds/cutscenes/end/end3.ogg"
+cutscene/end/4			"sounds/cutscenes/end/end4.ogg"
+cutscene/end/5			"sounds/cutscenes/end/end5.ogg"
+
+cutscene/bad/1			"sounds/cutscenes/end/bad1.ogg"
+cutscene/bad/2			"sounds/cutscenes/end/bad2.ogg"
+cutscene/bad/3			"sounds/cutscenes/end/bad3.ogg"
+cutscene/bad/4			"sounds/cutscenes/end/bad4.ogg"
+cutscene/bad/5			"sounds/cutscenes/end/bad5.ogg"
+cutscene/bad/6			"sounds/cutscenes/end/bad6.ogg"
+
+cutscene/good/1			"sounds/cutscenes/end/good1.ogg"
+cutscene/good/2			"sounds/cutscenes/end/good2.ogg"
+cutscene/good/3			"sounds/cutscenes/end/good3.ogg"
+cutscene/good/4			"sounds/cutscenes/end/good4.ogg"
+cutscene/good/5			"sounds/cutscenes/end/good5.ogg"
+cutscene/good/6			"sounds/cutscenes/end/good6.ogg"
+cutscene/good/7			"sounds/cutscenes/end/good7.ogg"
+
+

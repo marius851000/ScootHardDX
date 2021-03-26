@@ -7,52 +7,59 @@ Intermission EndEpisode2
 		Time = 2
 		FadeType = FadeIn
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_1.png"
-		Text = "$SHDX_EP2END_1"
-		TextColor = "Green"
+		Sound = "cutscene/end2/1"
+		Time = 13
+		Subtitle = "$SHDX_EP2END_1"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_2.png"
-		Text = "$SHDX_EP2END_2"
-		TextColor = "Green"
+		Sound = "cutscene/end2/2"
+		Time = 7
+		Subtitle = "$SHDX_EP2END_2"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_3.png"
-		Text = "$SHDX_EP2END_3"
-		TextColor = "Green"
+		Sound = "cutscene/end2/3"
+		Time = 12
+		Subtitle = "$SHDX_EP2END_3"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_4.png"
 		Time = 10
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_5.png"
-		Text = "$SHDX_EP2END_4"
-		TextColor = "Green"
+		Sound = "cutscene/end2/4"
+		Time = 7
+		Subtitle = "$SHDX_EP2END_4"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_6.png"
-		Text = "$SHDX_EP2END_5"
-		TextColor = "Green"
+		Sound = "cutscene/end2/5"
+		Time = 7
+		Subtitle = "$SHDX_EP2END_5"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_7.png"
-		Text = "$SHDX_EP2END_6"
-		TextColor = "Green"
+		Sound = "cutscene/end2/6"
+		Time = 8
+		Subtitle = "$SHDX_EP2END_6"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_7.png"
-		Text = "$SHDX_EP2END_7"
-		TextColor = "Green"
+		Sound = "cutscene/end2/7"
+		Time = 10
+		Subtitle = "$SHDX_EP2END_7"
 	}
 	Fader
 	{

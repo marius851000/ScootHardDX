@@ -7,47 +7,54 @@ Intermission IntroEpisode1
 		Time = 2
 		FadeType = FadeIn
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_1.png"
-		TextColor = "Cyan"
-		Text = "$SHDX_INTRO_1"
+		Sound = "cutscene/intro1/1"
+		Time = 14
+		Subtitle = "$SHDX_INTRO_1"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_1.png"
-		TextColor = "Cyan"
-		Text = "$SHDX_INTRO_2"
+		Sound = "cutscene/intro1/2"
+		Time = 9
+		Subtitle = "$SHDX_INTRO_2"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_2.png"
-		TextColor = "Green"
-		Text = "$SHDX_INTRO_3"
+		Sound = "cutscene/intro1/3"
+		Time = 12
+		Subtitle = "$SHDX_INTRO_3"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_3.png"
-		TextColor = "Green"
-		Text = "$SHDX_INTRO_4"
+		Sound = "cutscene/intro1/4"
+		Time = 18
+		Subtitle = "$SHDX_INTRO_4"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_4.png"
-		TextColor = "Green"
-		Text = "$SHDX_INTRO_5"
+		Sound = "cutscene/intro1/5"
+		Time = 5
+		Subtitle = "$SHDX_INTRO_5"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_4.png"
-		TextColor = "Green"
-		Text = "$SHDX_INTRO_6"
+		Sound = "cutscene/intro1/6"
+		Time = 10
+		Subtitle = "$SHDX_INTRO_6"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_5.png"
-		TextColor = "Green"
-		Text = "$SHDX_INTRO_7"
+		Sound = "cutscene/intro1/7"
+		Time = 13
+		Subtitle = "$SHDX_INTRO_7"
 	}
 	Fader
 	{

@@ -163,7 +163,6 @@ map E2S1 lookup SHDX_E2S1
 	music = "M_FACT"
 	next = "E2M3"
 	secretnext = "E2M3"
-	author = "Metal Neon"
 	EventHandlers = "SHDX_IntroSecretLevelSlideshowHandler"
 }
 

@@ -7,29 +7,33 @@ Intermission IntroEpisode2
 		Time = 2
 		FadeType = FadeIn
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro2/enf_1.png"
-		TextColor = "Green"
-		Text = "$SHDX_EP2INTRO_1"
+		Sound = "cutscene/intro2/1"
+		Time = 10
+		Subtitle = "$SHDX_EP2INTRO_1"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro2/enf_2.png"
-		TextColor = "Green"
-		Text = "$SHDX_EP2INTRO_2"
+		Sound = "cutscene/intro2/2"
+		Time = 5
+		Subtitle = "$SHDX_EP2INTRO_2"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro2/enf_3.png"
-		TextColor = "Green"
-		Text = "$SHDX_EP2INTRO_3"
+		Sound = "cutscene/intro2/3"
+		Time = 20
+		Subtitle = "$SHDX_EP2INTRO_3"
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/intro2/enf_4.png"
-		TextColor = "Green"
-		Text = "$SHDX_EP2INTRO_4"
+		Sound = "cutscene/intro2/4"
+		Time = 6
+		Subtitle = "$SHDX_EP2INTRO_4"
 	}
 	Fader
 	{

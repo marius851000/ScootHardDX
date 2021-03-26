@@ -7,11 +7,12 @@ Intermission PreBoss3
 		Music = "M_CUT1"
 		FadeType = FadeIn
 	}
-	TextScreen
+	Image
 	{
 		Background = "graphics/cutscenes/preboss/preboss1_1.png"
-		TextColor = "Cyan"
-		Text = "$SHDX_EP3INTER_1"
+		Sound = "cutscene/preboss"
+		Time = 17
+		Subtitle = "$SHDX_EP3INTER_1"
 	}
 	Fader
 	{
