@@ -42,7 +42,7 @@ map E1M2 lookup SHDX_E1A2
 	par = 75
 	sucktime = 1
 	next = "E1M3"
-	music = "M_TCHERN"
+	music = "M_WIND"
 	author = "EllieJojo, SanyaWaffles, Metal Neon"
 }
 
@@ -235,7 +235,7 @@ map CREDITS2 lookup SHDX_CREDITS
 	cluster = 1
 	par = 45
 	sucktime = 1
-	music = "M_SHDX"
+	music = "M_WIND"
 	next = "EndTitle"
 	secretnext = "EndTitle"
 	nointermission
