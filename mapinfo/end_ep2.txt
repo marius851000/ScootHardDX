@@ -18,7 +18,7 @@ Intermission EndEpisode2
 	{
 		Background = "graphics/cutscenes/end2/end2_2.png"
 		Sound = "cutscene/end2/2"
-		Time = 7
+		Time = 8
 		Subtitle = "$SHDX_EP2END_2"
 	}
 	Image

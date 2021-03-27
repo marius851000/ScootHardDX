@@ -30,7 +30,7 @@ map E1M1 lookup SHDX_E1A1
 	par = 45
 	sucktime = 1
 	next = "E1M2"
-	music = "M_FACT"
+	music = "M_CONS"
 	author = "SanyaWaffles, Metal Neon"
 }
 
