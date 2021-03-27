@@ -46,14 +46,14 @@ Intermission EndEpisode1
 	{
 		Background = "graphics/cutscenes/end1/end1_6.png"
 		Sound = "cutscene/end1/6"
-		Time = 5
+		Time = 10
 		Subtitle = "$SHDX_EP1END_6"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/end1/end1_6.png"
 		Sound = "cutscene/end1/7"
-		Time = 5
+		Time = 9
 		Subtitle = "$SHDX_EP1END_7"
 	}
 	Fader
