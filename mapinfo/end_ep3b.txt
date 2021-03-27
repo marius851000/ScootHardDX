@@ -46,7 +46,7 @@ Intermission EndEpisode3Aurora
 	{
 		Background = "graphics/cutscenes/end3b/end3b_2.png"
 		Sound = "cutscene/good/1"
-		Time = 11
+		Time = 12
 		Subtitle = "$SHDX_EP3BEND_6"
 	}
 	Image
