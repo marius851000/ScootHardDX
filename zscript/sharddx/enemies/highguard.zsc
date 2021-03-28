@@ -124,7 +124,7 @@ Class SHDX_HighGuard : SHDX_Enemy
 			{
 				A_NoBlocking();
 				A_DropItemsHighGuard();
-				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE, oltype:OLTYPE_FROZEN);
+				A_SHDX_GivePlayerOneLiner(SHDX_ONELINER_NORMAL_CHANCE);
 			}
 			HIGH N 5;
 			HIGH O -1 A_SetCorpseShootable;
