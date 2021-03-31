@@ -8,7 +8,7 @@ pickup/healthfood		"sounds/eat.ogg"			// Food Health Pickups
 
 pickup/armorvest		"sounds/items/armor.ogg"
 
-$alias pickup/shard		pickup/generic
+pickup/shard			"sounds/items/shard.ogg"
 $alias pickup/health	pickup/generic
 
 powerup/cmode			"sounds/items/chicken_dance_start.ogg"	// ChickenDance
