@@ -116,8 +116,6 @@ OptionMenu "ScootHardDXControls"
 	Control    "$CNTRLMNU_SLOT2"          , "slot 2"
 	Control    "$CNTRLMNU_SLOT3"          , "slot 3"
 	Control    "$CNTRLMNU_SLOT4"          , "slot 4"
-	Control    "$CNTRLMNU_SLOT5"          , "slot 5"
-
 	StaticText ""
 	Control    "$CNTRLMNU_FORWARD"          , "+forward"
 	Control    "$CNTRLMNU_BACK"             , "+back"
