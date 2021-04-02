@@ -30,7 +30,8 @@ Class SHDX_FillySeeker : SHDX_MissileWeapon
 		//$Title "Fillyseeker"
 		//$Sprite GUN5A0
 		
-		Weapon.SelectionOrder 350;
+		Weapon.SelectionOrder 750;
+		
 		Inventory.PickupMessage "$SHDX_PICKUP_FILLYSEEKER";
 		Tag "$SHDX_TAG_FILLYSEEKER";
 		+WEAPON.NOAUTOFIRE

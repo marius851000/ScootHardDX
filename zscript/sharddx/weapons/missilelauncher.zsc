@@ -29,7 +29,7 @@ Class SHDX_MissileLauncher : SHDX_MissileWeapon
 		//$Title "Missile Launcher"
 		//$Sprite GUN4A0
 		
-		Weapon.SelectionOrder 2500;
+		Weapon.SelectionOrder 750;
 		Weapon.AmmoUse1 1;
 		Weapon.AmmoUse2 1;
 		Weapon.AmmoGive 10;

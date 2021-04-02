@@ -53,7 +53,7 @@ Class SHDX_SubmachineGun : SHDX_Weapon
 		//$Title "Submachine Gun"
 		//$Sprite GUN3A0
 		
-		Weapon.selectionOrder 1700;
+		Weapon.selectionOrder 2000;
 		Inventory.PickupMessage "$SHDX_PICKUP_SMG";
 		Obituary "$SHDX_OB_SMG";
 		Tag "$SHDX_TAG_SMG";

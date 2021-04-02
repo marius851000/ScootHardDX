@@ -50,7 +50,7 @@ Class SHDX_Blaster : SHDX_Weapon
 {
 	Default
 	{
-		Weapon.SelectionOrder 1900;
+		Weapon.SelectionOrder 3700;
 		Obituary "$SHDX_OB_BLASTER";
 		+WEAPON.WIMPY_WEAPON
 		DamageType "Bullet";
