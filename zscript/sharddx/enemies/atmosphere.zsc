@@ -184,6 +184,9 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
+		if (!isactive && mod != 'Massacre')
+			return 0;
+			
 		int ret =  Super.DamageMobj(inflictor, source, damage, mod, flags, angle);
 		
 		if (mod == 'Massacre')

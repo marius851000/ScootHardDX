@@ -71,6 +71,9 @@ Class SHDX_MaimbowUndashBoss : SHDX_Boss
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
+		if (!isactive && mod != 'Massacre')
+			return 0;
+			
 		int ret;
 		
 		if (mod == 'Disintegrate')
