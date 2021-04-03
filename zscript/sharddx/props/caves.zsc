@@ -80,8 +80,8 @@ Class SHDX_Pickaxe : SHDX_Decoration
 	Default
 	{
 		//$NotAngled
-		//$Title "Mine Cart"
-		//$Sprite MCRTA1A5
+		//$Title "PickAxe"
+		//$Sprite PAXEA0
 		//$Category "Decoration"
 		
 		Radius 12;
