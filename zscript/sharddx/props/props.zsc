@@ -378,6 +378,41 @@ Class SHDX_DontrelPlush : SHDX_Decoration
 	}
 }
 
+Class SHDX_MaimbowPlush : SHDX_Decoration
+{
+	Default
+	{
+		//$NotAngled
+		//$Title "Maimbow Plush"
+		//$Sprite MPLSA0
+		//$Category "Decoration"
+		
+		Radius 5;
+		Height 10;
+		Health 10;
+		
+		+SHOOTABLE
+		+NOBLOOD
+	}
+	
+	States
+	{
+		Spawn:
+			MPLS A -1;
+			Stop;
+			
+		Death:
+			MPLS A 0
+			{
+				A_NoBlocking();
+				A_StartSound("misc/tcanbreak", CHAN_BODY);
+				A_SpawnMetalJunkFx();
+			}
+			MPLS A 5;
+			Stop;
+	}
+}
+
 Class SHDX_CancerMouse : SHDX_Decoration
 {
 	Default

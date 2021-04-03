@@ -105,7 +105,7 @@ DoomEdNums
 	6741 = SHDX_Stalagmite
 	6742 = SHDX_LittleCeilingLightRed
 	6743 = SHDX_LittleFloorLightRed
-	6744 = SHDX_DontrelPlush
+	6744 = SHDX_MaimbowPlush
 	6745 = SHDX_CancerMouse
 	6746 = SHDX_HeavyEnforcerDormant
 	6747 = SHDX_LightEnforcerDormant
@@ -129,6 +129,7 @@ DoomEdNums
 	6785 = SHDX_DrinkingCup1Side
 	6786 = SHDX_Vines
 	6787 = SHDX_SkeletonHighGuard
+	6788 = SHDX_DontrelPlush
 	
 	6800 = SHDX_RedCard
 	6801 = SHDX_BlueCard
