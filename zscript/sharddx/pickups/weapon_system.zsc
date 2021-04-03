@@ -34,7 +34,7 @@ mixin class SHDX_WeaponSystem
 				dropper.RemoveInventory(a1);
 			}
 			
-			if (a2)
+			if (a2 && a2 != a1)
 			{
 				ammogive2 = a2.amount;
 				dropper.RemoveInventory(a2);
