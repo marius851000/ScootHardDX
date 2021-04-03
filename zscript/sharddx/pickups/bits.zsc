@@ -23,7 +23,7 @@ Class SHDX_BitCoin : Ammo
 		Inventory.Amount 1;
 		Inventory.MaxAmount 50;
 		
-		Inventory.PickupSound "pickup/generic";
+		Inventory.PickupSound "pickup/coin";
 		+Inventory.IgnoreSkill
 	}
 	
