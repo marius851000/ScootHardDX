@@ -70,7 +70,7 @@ Class SHDX_ClusterGrenade : SHDX_Projectile
 		Death:
 			EXPL A 3 Bright
 			{
-				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
+				A_StartSound("enforcer/clusterbombx", 100, CHANF_OVERLAP);
 				A_SetRenderStyle(0.9, STYLE_Add);
 				
 				for (int i = 0; i < 4; i++)
@@ -126,7 +126,7 @@ Class SHDX_ClusterGrenade2 : SHDX_ClusterGrenade
 		Death:
 			EXPL A 3 Bright
 			{
-				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
+				A_StartSound("enforcer/clusterbombx", 100, CHANF_OVERLAP);
 				A_SetScale(0.12, 0.12);
 				A_SetRenderStyle(0.9, STYLE_Add);
 				A_Explode(12, 56, damagetype:'Explosive');
@@ -406,7 +406,6 @@ Class SHDX_Grenade : SHDX_Projectile
         WallBounceFactor 0.7;
 		
 		BounceSound "enforcer/grenadeb";
-		Deathsound "enforcer/grenadex";
 		
 		Gravity 0.75;
 		
@@ -444,6 +443,7 @@ Class SHDX_Grenade : SHDX_Projectile
 			{
 				A_SetRenderStyle(0.9, STYLE_Add);
 				A_Explode(10, 76, damagetype:'Explosive');
+				A_StartSound("enforcer/grenadex", 100, CHANF_OVERLAP);
 				// SHDX_Utilities.DoExplosion(self, 24, 128., 80, flags:DE_EXTRAZTHRUST);
 				A_Stop();
 			}

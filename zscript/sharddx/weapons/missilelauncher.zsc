@@ -99,7 +99,6 @@ Class SHDX_Missile : SHDX_Projectile
 		+RANDOMIZE
 		DamageType "Explosive";
 		// SeeSound "weapons/rocketf";
-		DeathSound "weapons/rocketx";
 		Obituary "$SHDX_OB_MISSILE";
 		
 		+ROCKETTRAIL
@@ -114,8 +113,8 @@ Class SHDX_Missile : SHDX_Projectile
 		Death:
 			EXPL A 0 Bright
 			{
+				A_StartSound("weapons/rocketx", 100, CHANF_OVERLAP);
 				A_Explode(64, 128, damagetype:'Explosive');
-				// SHDX_Utilities.DoExplosion(self, 64, 32, 128, DamageType:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;
@@ -142,7 +141,6 @@ Class SHDX_Grenade2 : SHDX_Grenade
         WallBounceFactor 0.7;
 		
 		BounceSound "enforcer/grenadeb";
-		Deathsound "enforcer/grenadex";
 		
 		Gravity 0.75;
 		
@@ -183,6 +181,7 @@ Class SHDX_Grenade2 : SHDX_Grenade
 			EXPL A 3 Bright
 			{
 				A_SetRenderStyle(0.9, STYLE_Add);
+				A_StartSound("enforcer/grenadex", 100, CHANF_OVERLAP);
 				A_Explode(64, 176, damagetype:'Explosive');
 				// SHDX_Utilities.DoExplosion(self, 64, 128., 176, flags:DE_EXTRAZTHRUST);
 				A_Stop();

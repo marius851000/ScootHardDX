@@ -180,39 +180,3 @@ Class SHDX_HighGuard : SHDX_Enemy
 			Stop;
 	}
 }
-
-Class SHDX_RocketGuardMissile : SHDX_Missile
-{
-	Default
-	{
-		Radius 11;
-		Height 8;
-		Speed 30;
-		Damage 4;
-		Projectile;
-		+RANDOMIZE
-		DamageType "Explosive";
-		SeeSound "weapons/rocketf";
-		DeathSound "weapons/rocketx";
-		Obituary "$SHDX_OB_MISSILE";
-		
-		+ROCKETTRAIL
-	}
-	
-	States
-	{
-		Spawn:
-			MISL A 1 Bright;
-			Loop;
-		
-		Death:
-			EXPL A 0 Bright
-			{
-				A_Explode(14, 40, damagetype:'Explosive');
-				// SHDX_Utilities.DoExplosion(self, 12, 32, 32, DamageType:'Explosive');
-			}
-			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
-			EXPL BCDEFGHI 3 Bright;
-			Stop;
-	}
-}

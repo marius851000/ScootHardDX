@@ -25,7 +25,6 @@ Class SHDX_MaimbowMissile : SHDX_Missile
 		+RANDOMIZE
 		DamageType "Explosive";
 		// SeeSound "weapons/rocketf";
-		DeathSound "weapons/rocketx";
 		
 		+ROCKETTRAIL
 	}
@@ -40,6 +39,7 @@ Class SHDX_MaimbowMissile : SHDX_Missile
 			EXPL A 0 Bright
 			{
 				A_Explode(12, 40, damagetype:'Explosive');
+				A_StartSound("weapons/rocketx", 100, CHANF_OVERLAP);
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
 			EXPL BCDEFGHI 3 Bright;

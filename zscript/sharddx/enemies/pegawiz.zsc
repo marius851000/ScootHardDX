@@ -24,7 +24,6 @@ Class SHDX_PegaWizExplosiveLine : SHDX_Projectile
 		+RANDOMIZE
 		DamageType "Explosive";
 		// SeeSound "weapons/rocketf";
-		DeathSound "weapons/rocketx";
 	}
 	
 	States
@@ -37,6 +36,7 @@ Class SHDX_PegaWizExplosiveLine : SHDX_Projectile
 			EXPL A 0 Bright
 			{
 				A_Explode(12, 112, flags:0, damagetype:'Explosive');
+				A_StartSound("weapons/rocketx", 100, CHANF_OVERLAP);
 				// SHDX_Utilities.DoExplosion(self, 16, 32, 80, DamageType:'Explosive');
 			}
 			EXPL A 3 Bright A_Quake(2, 8, 0, 1096);
@@ -69,7 +69,7 @@ Class SHDX_PegaWizExplosiveLine2 : SHDX_Projectile
 		Crash:
 			EXPL A 0 NoDelay Bright
 			{
-				A_StartSound("weapons/rocketx", CHAN_BODY);
+				A_StartSound("weapons/rocketx", 100, CHANF_OVERLAP);
 				A_Explode(10, 112, flags:0, damagetype:'Explosive');
 				// SHDX_Utilities.DoExplosion(self, 18, 32, 72, DamageType:'Explosive', IgnoreMe:target);
 			}
