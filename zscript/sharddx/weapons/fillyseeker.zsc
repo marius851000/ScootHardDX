@@ -112,7 +112,6 @@ Class SHDX_FillyMissile : SHDX_Projectile
 		+SEEKERMISSILE
 		DamageType "Explosive";
 		// SeeSound "weapons/fillyf";
-		DeathSound "weapons/fillyx";
 		
 		+ROCKETTRAIL
 	}
@@ -129,6 +128,7 @@ Class SHDX_FillyMissile : SHDX_Projectile
 			EXPL A 0 Bright
 			{
 				A_StopSound(CHAN_6);
+				A_StartSound("weapons/fillyx", 100, CHANF_OVERLAP);
 				A_Explode(56, 80, damagetype:'Explosive');
 				// SHDX_Utilities.DoExplosion(self, 56, 32, 80, DamageType:'Explosive');
 			}
@@ -196,7 +196,7 @@ Class SHDX_ClusterGrenadeFS : SHDX_Projectile
 		Death:
 			EXPL A 3 Bright
 			{
-				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
+				A_StartSound("enforcer/clusterbombx", 100, CHANF_OVERLAP);
 				A_SetRenderStyle(0.9, STYLE_Add);
 				
 				for (int i = 0; i < 4; i++)
@@ -252,7 +252,7 @@ Class SHDX_ClusterGrenadeFS2 : SHDX_ClusterGrenadeFS
 		Death:
 			EXPL A 3 Bright
 			{
-				A_StartSound("enforcer/clusterbombx", CHAN_WEAPON);
+				A_StartSound("enforcer/clusterbombx", 100, CHANF_OVERLAP);
 				A_SetScale(0.12, 0.12);
 				A_SetRenderStyle(0.9, STYLE_Add);
 				A_Explode(96, 64, damagetype:'Explosive');
