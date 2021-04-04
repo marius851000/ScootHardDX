@@ -135,7 +135,6 @@ map E2M4 lookup SHDX_E2A4
 	next = "E2M5"
 	author = "SanyaWaffles, Jona_Arts, Metal Neon"
 	music = "M_TCAMB"
-	lightning
 }
 
 map E2M5 lookup SHDX_E2A5

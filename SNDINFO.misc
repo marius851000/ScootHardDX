@@ -13,6 +13,8 @@ vending/waterdrink		"sounds/water_drink.ogg"
 
 misc/secret				"sounds/secret.ogg"
 
+misc/ding				"sounds/ding.ogg"	
+
 world/barrelx			"sounds/boom2.ogg"		// Generic Barrel Exploding
 
 $alias misc/explosion	world/barrelx
