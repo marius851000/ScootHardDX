@@ -111,3 +111,42 @@ class SHDX_ScootalooPegasusDeviceFireworks : SHDX_Vox
 		AddVoxEntry("scootaloo/pegasusdeviceexplosion", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E3M2_2"));
 	}
 }
+
+class SHDX_ScootalooE2S1A : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E2MS1 - What The?"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("scootaloo/whatthe", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E2S1_A"));
+	}
+}
+
+class SHDX_ScootalooE2S1B : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E2S1 - Aurora!"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("scootaloo/auroracall", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E2S1_B"));
+	}
+}
+
+class SHDX_ScootalooE2M4ILiveAgain : SHDX_Vox
+{
+	Default
+	{
+		//$Title "Scootaloo - E2M4 - I Live Again!"
+	}
+	
+	override void SetupVoices()
+	{
+		AddVoxEntry("scootaloo/iliveagain", StringTable.Localize("$SHDX_VOX_SCOOTALOO_ILIVEAGAIN"));
+	}
+}

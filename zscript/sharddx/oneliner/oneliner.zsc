@@ -177,7 +177,7 @@ extend class SHDX_PlayerPawn
 	{
 		String snd;
 		
-		snd = String.Format("voiceover%d", Random[OneLiner](1, 10));
+		snd = String.Format("voiceover%d", Random[OneLiner](1, 12));
 		
 		return snd;
 	}
@@ -226,7 +226,7 @@ extend class SHDX_PlayerPawn
 		if (!Random[OneLiner](0, 1))
 			snd = GetDefaultVoiceOver();
 		else
-			snd = String.Format("tornado%d", Random[OneLiner](1, 3));
+			snd = String.Format("tornado%d", Random[OneLiner](1, 4));
 			
 		return snd;
 	}

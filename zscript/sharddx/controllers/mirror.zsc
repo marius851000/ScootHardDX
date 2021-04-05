@@ -75,3 +75,127 @@ class SHDX_SHSDLEasterEggOneLiner : SHDX_Actor
 		return false;
 	}
 }
+
+class SHDX_ILiveAgain : SHDX_Actor 
+{
+	Default
+	{
+		//$Category "Controllers"
+		//$Title "I Live Again"
+		//$Sprite internal:action
+		
+		Radius 24;
+		Height 32;
+	}
+	
+	void SendEasterEggOL(SHDX_PlayerPawn pp)
+	{
+		String eggol;	// Darlia?
+		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "iliveagain");
+		
+		pp.OneLinerInit(eggol);
+	}
+	
+	override bool Used(Actor user)
+	{	
+		let shdxpl = SHDX_PlayerPawn(user);
+		if (shdxpl && shdxpl.player)
+		{
+			SendEasterEggOL(shdxpl);
+		}
+		return false;
+	}
+}
+
+class SHDX_SodaMachine : SHDX_Actor 
+{
+	Default
+	{
+		//$Category "Controllers"
+		//$Title "Soda Machine"
+		//$Sprite internal:action
+		
+		Radius 24;
+		Height 32;
+	}
+	
+	void SendEasterEggOL(SHDX_PlayerPawn pp)
+	{
+		String eggol;	// Darlia?
+		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "sodamachine");
+		
+		pp.OneLinerInit(eggol);
+	}
+	
+	override bool Used(Actor user)
+	{	
+		let shdxpl = SHDX_PlayerPawn(user);
+		if (shdxpl && shdxpl.player)
+		{
+			SendEasterEggOL(shdxpl);
+		}
+		return false;
+	}
+}
+
+class SHDX_Polybius : SHDX_Actor 
+{
+	Default
+	{
+		//$Category "Controllers"
+		//$Title "Polybius"
+		//$Sprite internal:action
+		
+		Radius 24;
+		Height 32;
+	}
+	
+	void SendEasterEggOL(SHDX_PlayerPawn pp)
+	{
+		String eggol;	// Darlia?
+		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "polybius");
+		
+		pp.OneLinerInit(eggol);
+	}
+	
+	override bool Used(Actor user)
+	{	
+		let shdxpl = SHDX_PlayerPawn(user);
+		if (shdxpl && shdxpl.player)
+		{
+			SendEasterEggOL(shdxpl);
+		}
+		return false;
+	}
+}
+
+class SHDX_LeNo : SHDX_Actor 
+{
+	Default
+	{
+		//$Category "Controllers"
+		//$Title "Le No"
+		//$Sprite internal:action
+		
+		Radius 24;
+		Height 32;
+	}
+	
+	void SendEasterEggOL(SHDX_PlayerPawn pp)
+	{
+		String eggol;	// Darlia?
+		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "ehno");
+		
+		pp.OneLinerInit(eggol);
+	}
+	
+	override bool Used(Actor user)
+	{	
+		let shdxpl = SHDX_PlayerPawn(user);
+		if (shdxpl && shdxpl.player)
+		{
+			SendEasterEggOL(shdxpl);
+		}
+		return false;
+	}
+}

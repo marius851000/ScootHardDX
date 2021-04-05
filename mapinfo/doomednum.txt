@@ -143,6 +143,9 @@ DoomEdNums
 	7004 = SHDX_MirrorOneLiner
 	7005 = SHDX_SHSDLEasterEggOneLiner
 	7006 = SHDX_AuroraDawnSecretLevel
+	7007 = SHDX_SodaMachine
+	7008 = SHDX_Polybius
+	7009 = SHDX_LeNo
 	
 	7100 = SHDX_ScootalooE1M1
 	7101 = SHDX_ScootalooE1M4
@@ -151,6 +154,11 @@ DoomEdNums
 	
 	7105 = SHDX_ScootalooPegasusDeviceKey
 	7106 = SHDX_ScootalooPegasusDeviceFireworks
+	
+	7107 = SHDX_ScootalooE2S1A
+	7108 = SHDX_ScootalooE2S1B
+	
+	7109 = SHDX_ScootalooE2M4ILiveAgain
 	
 	7510 = SHDX_DrAtmosphere1A
 	7511 = SHDX_DrAtmosphere2
