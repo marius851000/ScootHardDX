@@ -27,8 +27,10 @@ class SHDX_CreditMapEvent : EventHandler
 	const SECONDS_SCROLLTIME = 4;
 	const SECONDS_BREAK = 2;
 	
-	const MAX_STAGES = 20;
-	const ADDITIONAL_CODE = MAX_STAGES - 1;
+	const START_STAGE = 0;
+	const SPECIALTHANKS = 14;
+	const ADDITIONAL_CODE = SPECIALTHANKS + 6;
+	const MAX_STAGES = ADDITIONAL_CODE+1;
 	
 	ui int creditx, credity;
 	ui int holdtime;
@@ -193,7 +195,7 @@ class SHDX_CreditMapEvent : EventHandler
 				String role;
 				String credit;
 				
-				if (stage == 0)
+				if (stage == START_STAGE)
 				{
 					av = "sanya.png";
 					role = "$SHDX_CREDITCREATIVEDIRECTOR";
@@ -273,35 +275,41 @@ class SHDX_CreditMapEvent : EventHandler
 				}
 				else if (stage == 13)
 				{
+					av = "joe.png";
+					role = "$SHDX_CREDITPROOF";
+					credit = "$SHDX_CREDITAVERAGEJOE";
+				}
+				else if (stage == SPECIALTHANKS)
+				{
 					av = "auroradawn.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITAURORADAWN";
 				}
-				else if (stage == 14)
+				else if (stage == SPECIALTHANKS+1)
 				{
 					av = "woodentoaster.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITWOODENTOASTER";
 				}
-				else if (stage == 15)
+				else if (stage == SPECIALTHANKS+2)
 				{
 					av = "jinzo.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITJINZO";
 				}
-				else if (stage == 16)
+				else if (stage == SPECIALTHANKS+3)
 				{
 					av = "korzodin.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITKORZODIN";
 				}
-				else if (stage == 17)
+				else if (stage == SPECIALTHANKS+4)
 				{
 					av = "zan.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
 					credit = "$SHDX_CREDITZAN";
 				}
-				else if (stage == 18)
+				else if (stage == SPECIALTHANKS+5)
 				{
 					av = "accensus.png";
 					role = "$SHDX_CREDITSPECIALTHANKS";
