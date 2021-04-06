@@ -159,7 +159,7 @@ map E2S1 lookup SHDX_E2S1
 	cluster = 1
 	par = 45
 	sucktime = 1
-	music = "M_FACT"
+	music = "M_EDGE"
 	next = "E2M3"
 	secretnext = "E2M3"
 	EventHandlers = "SHDX_IntroSecretLevelSlideshowHandler"
