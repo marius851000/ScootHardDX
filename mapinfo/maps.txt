@@ -55,7 +55,7 @@ map E1M3 lookup SHDX_E1A3
 	sucktime = 1
 	next = "E1M4"
 	music = ""
-	author = "Metal Neon"
+	author = "Metal Neon, SanyaWaffles"
 }
 
 
@@ -171,7 +171,7 @@ map E3M1 lookup SHDX_E3A1
 	sky1 = "SKY5"
 	cluster = 1
 	par = 45
-	music = "M_SINT"
+	music = "M_CLOUD"
 	sucktime = 1
 	next = "E3M2"
 	author = "SanyaWaffles"
