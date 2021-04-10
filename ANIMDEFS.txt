@@ -8,6 +8,12 @@ cameratexture CTEXT005 512 320 worldpanning
 cameratexture CTEXT006 512 320 worldpanning
 cameratexture CTEXT007 512 320 worldpanning
 
+texture JBOX_A
+	pic JBOX_A tics 6
+	pic JBOX_B tics 6
+	pic JBOX_C tics 6
+	pic JBOX_D tics 6
+
 texture TV0_A
 	pic TV0_A tics 2
 	pic TV0_B tics 2
@@ -19,15 +25,6 @@ warp2 flat PWATER01
 warp2 flat F_WATER2
 warp2 flat F_NUKE
 warp2 flat F_LAVA
-
-animateddoor door1a
-	opensound DoorOpenMetal
-	closesound DoorCloseMetal
-	pic door1a
-	pic door1b
-	pic door1c
-	pic door1d
-	pic door1e
 
 switch SW2S0 on sound switch/normbutn pic SW2S1 tics 0
 switch SW2S1 off sound switch/normbutn pic SW2S0 tics 0
