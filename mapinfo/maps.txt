@@ -175,7 +175,6 @@ map E3M1 lookup SHDX_E3A1
 	sucktime = 1
 	next = "E3M2"
 	author = "SanyaWaffles"
-	lightning
 }
 
 map E3M2 lookup SHDX_E3A2
