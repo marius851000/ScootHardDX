@@ -137,7 +137,7 @@ class SHDX_VendingMachine : SHDX_Actor
 							A_StartSound("vending/dispense", CHAN_VENDINGUSE, CHAN_OVERLAP);
 							shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_HOTMEAL"));
 							nomoneycount = 0;
-							return;
+							return false;
 						}
 						else
 						{
