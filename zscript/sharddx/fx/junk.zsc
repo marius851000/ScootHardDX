@@ -14,7 +14,6 @@ Class SHDX_MetalJunk : SHDX_Actor
 		+CORPSE
 		+RANDOMIZE
 		-SOLID
-		+DONTSPLASH
 	}
 	
 	States
@@ -105,6 +104,11 @@ Class SHDX_ChickenFeather : SHDX_Actor
 
 Class SHDX_GlassJunk : SHDX_MetalJunk
 {
+	Default
+	{
+		+DONTSPLASH
+	}
+	
 	States
 	{
 		Spawn:
