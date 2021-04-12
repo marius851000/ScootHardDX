@@ -28,8 +28,8 @@ class SHDX_VendingMachine : SHDX_Actor
 	const VEND_APPLE_COST = 1;
 	const VEND_MEAL_COST = 5;
 	const VEND_EASY_MULTI = 1;
-	const VEND_MEDIUM_MULTI = 2;
-	const VEND_HARD_MULTI = 3;
+	const VEND_MEDIUM_MULTI = 3;
+	const VEND_HARD_MULTI = 5;
 	
 	int GetVendingMachineCount()
 	{
@@ -136,6 +136,8 @@ class SHDX_VendingMachine : SHDX_Actor
 							shdxpl.A_GiveInventory("Health", 25);
 							A_StartSound("vending/dispense", CHAN_VENDINGUSE, CHAN_OVERLAP);
 							shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_HOTMEAL"));
+							nomoneycount = 0;
+							return;
 						}
 						else
 						{
