@@ -47,7 +47,13 @@ No Unironically Fuck You Nukkus Go Away You Don't Get a HAL,SHDX_TITLEMAP_NUKKUS
 is owned by Hasbro. This is not endorsed by them nor is meant to
 replace any official product. It is also not intended for kids. It is
 intended for mature audiences, suggested 18+ years of age.
-Please support the official release.",SHDX_TITLEMAP_DISCLAIMER,,,,,,,,,,,"Scoot Hard DX est une parodie sous les lois d'utilisation équitable. My Little Pony: Les Amies, c'est Magique appartient à Hasbro. Ceci n'est pas approuvé par eux et n'est pas sesné remplacer un produit officiel. Ce n'est aussi pas destiné aux enfants. C'est destiné à un public mature, de suggestion 18+ d'âge. S'il vous plaît soutenez l'oeuvre originale.",,,,,,,,,,,,
+Please support the official release.",SHDX_TITLEMAP_DISCLAIMER,,,,,,,,,,,"Scoot Hard DX est une parodie sous les loi d'utilisation
+équitable. My Little Pony: Les Amies, c'est Magique
+appartient à Hasbro. Ceci n'est pas approuvé par eux
+et n'est pas sesné remplacer un produit officiel. Ce n'est
+aussi pas destiné aux enfants. C'est destiné à un public
+mature, de suggestion 18+ d'âge. S'il vous plaît soutenez
+l'oeuvre originale.",,,,,,,,,,,,
 WARNING: Satirical and Mature Content,SHDX_TITLEMAP_ADVISORY,,,,,,,,,,,ATTENTION: Contenu Satirique et Mature,,,,,,,,,,,,
 Health,SHDX_HUD_HEALTH,,,,,,,,Salud,,,Vie,,,,,,,,,,,,
 Armor,SHDX_HUD_ARMOR,,,Armour,,,,,Armadura,,,Armure,,,,,,,,,,,,
@@ -110,7 +116,7 @@ Blue,SHDX_SCOOTALOO_COLORSET6,,,,,,,,,,,,,,,,,,,,,,,
 Brown,SHDX_SCOOTALOO_COLORSET7,,,,,,,,,,,,,,,,,,,,,,,
 Army,SHDX_SCOOTALOO_COLORSET8,,,,,,,,,,,,,,,,,,,,,,,
 ,,Help Screen,,,,,,,,,,,,,,,,,,,,,,
-"Left/Right Click or Use Arrow Keys To Cycle Screens, ESC to Escape",SHDX_HELP_MOVETIP,,,,,,,,,,,,,,,,,,,,,,,
+"Left/Right Click or Use Arrow Keys To Cycle Screens, ESC to Exit",SHDX_HELP_MOVETIP,,,,,,,,,,,,,,,,,,,,,,,
 USING THE MENUS,SHDX_HELP_HEADER_MENU1,,,,,,,,,,,,,,,,,,,,,,,
 "Scoot Hard DX can be configured using the menus.
 
@@ -469,12 +475,15 @@ Missile Launcher,SHDX_TAG_MISSILELAUNCHER,,,,,,,,,,,,,,,,,,,,,,,
 Rainbower,SHDX_TAG_RAINBNOWER,,,,,,,,,,,,,,,,,,,,,,,
 Tornadozer,SHDX_TAG_TORNADOZER,,,,,,,,,,,,,,,,,,,,,,,
 ,,RIP Sound Obituary,,,,,,,,,,,,,,,,,,,,,,
-[Da]        [Nyet],SHDX_RIPSO_DANYET,"Russian for ""Yes / No""",,,,,,,,,,,,,,,,,,,,,,
+[Da]        [Nyet],SHDX_RIPSO_DANYET,"Russian for ""Yes / No"". Doesn't need translation.",,,,,,,,,,,,,,,,,,,,,,
 DEEP HURTING,SHDX_RIPSO_DEEPHURTING,MST3K Reference,,,,,,,,,,,,,,,,,,,,,,
 loser,SHDX_RIPSO_LOSER,Lowtax is called a loser.,,,,,,,,,,,,,,,,,,,,,,
 YOU FUCKING IDIOT,SHDX_RIPSO_IDIOT,Reference to Joel of Vinesauce,,,,,,,,,,,,,,,,,,,,,,
 ,,Cupcakes,,,,,,,,,,,,,,,,,,,,,,
-Cupcake Says:,SHDX_CUPCAKE_SAYS,,,,,,,,,,,,,,,,,,,,,,,
+Cupcake Says:,SHDX_CUPCAKE_SAYS,"NOTE: Some of the cupcakes might not translate
+well into other languages due to wordplay or other
+language barriers. In that case, be creative and
+roughly translate it to something culturally equivilent.",,,,,,,,,,,,,,,,,,,,,,
 Baseball wrong. Pony with four balls cannot walk.,SHDX_CUPCAKE_01,,,,,,,,,,,,,,,,,,,,,,,
 "Here's a fun activity! Drink the stuff beneath
 the sink and see who takes a nap first!",SHDX_CUPCAKE_02,,,,,,,,,,,,,,,,,,,,,,,
@@ -539,7 +548,7 @@ banning direct to DVD/Blu-Ray movies.",SHDX_CUPCAKE_29,,,,,,,,,,,,,,,,,,,,,,,
 "Muffin had so much to say.
 
 RIP Muffin. :(",SHDX_CUPCAKE_30,,,,,,,,,,,,,,,,,,,,,,,
-#FreeCivvie,SHDX_CUPCAKE_31,,,,,,,,,,,,,,,,,,,,,,,
+#FreeCivvie,SHDX_CUPCAKE_31,Doesn't need translating,,,,,,,,,,,,,,,,,,,,,,
 "My girlfriend Jenna is wanted for
 liking boobs yet being on Twitter",SHDX_CUPCAKE_32,,,,,,,,,,,,,,,,,,,,,,,
 "Shoutout to Jenna, Ellie and Ben
