@@ -62,7 +62,7 @@ class SHDX_SHSDLEasterEggOneLiner : SHDX_Actor
 		String eggol;	// Darlia?
 		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "thatsme");
 		
-		pp.OneLinerInit(eggol);
+		pp.OneLinerInit(eggol, OLSSF_FORCEONELINER|OLSSF_NOGRIN);
 	}
 	
 	override bool Used(Actor user)
@@ -93,7 +93,7 @@ class SHDX_ILiveAgain : SHDX_Actor
 		String eggol;	// Darlia?
 		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "iliveagain");
 		
-		pp.OneLinerInit(eggol);
+		pp.OneLinerInit(eggol, OLSSF_FORCEONELINER|OLSSF_NOGRIN);
 	}
 	
 	override bool Used(Actor user)
@@ -124,7 +124,7 @@ class SHDX_SodaMachine : SHDX_Actor
 		String eggol;	// Darlia?
 		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "sodamachine");
 		
-		pp.OneLinerInit(eggol);
+		pp.OneLinerInit(eggol, OLSSF_FORCEONELINER|OLSSF_NOGRIN);
 	}
 	
 	override bool Used(Actor user)
@@ -155,7 +155,7 @@ class SHDX_Polybius : SHDX_Actor
 		String eggol;	// Darlia?
 		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "polybius");
 		
-		pp.OneLinerInit(eggol);
+		pp.OneLinerInit(eggol, OLSSF_FORCEONELINER|OLSSF_NOGRIN);
 	}
 	
 	override bool Used(Actor user)
@@ -186,7 +186,7 @@ class SHDX_LeNo : SHDX_Actor
 		String eggol;	// Darlia?
 		eggol = String.Format("%s/%s", pp.OneLinerPrefix, "ehno");
 		
-		pp.OneLinerInit(eggol);
+		pp.OneLinerInit(eggol, OLSSF_FORCEONELINER|OLSSF_NOGRIN);
 	}
 	
 	override bool Used(Actor user)
