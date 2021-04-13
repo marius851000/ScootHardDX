@@ -220,7 +220,7 @@ map CREDITS1 lookup SHDX_CREDITS
 	cluster = 1
 	par = 45
 	sucktime = 1
-	music = "M_RAIN"
+	music = "M_ABSENT"
 	next = "EndTitle"
 	secretnext = "EndTitle"
 	nointermission
