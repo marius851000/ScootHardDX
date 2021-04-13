@@ -45,6 +45,8 @@ Class SHDX_Weapon : Weapon
 	}
 }
 
+// A base quick kick. Theoretically can do a crushing animation as well, but
+// it's not uses in SHDX
 Class SHDX_BaseQuickKick : CustomInventory
 {
 	Default
@@ -89,8 +91,7 @@ Class SHDX_BaseQuickKick : CustomInventory
 	}
 }
 
-
-
+// This is currently unused in SHDX
 Class SHDX_NearFrozenFlag : Inventory
 {
 	Default

@@ -12,10 +12,14 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// One Liner subsystem
+
+// Constants for chance
 const SHDX_ONELINER_NORMAL_CHANCE = 25;
 const SHDX_ONELINER_GIB_CHANCE = 50;
 const SHDX_ONELINER_BOSS_CHANCE = 100;
 
+// Flags for how the one-liner is processed
 enum OneLinerFlags
 {
 	OLSSF_DEFAULT = 0,
@@ -26,6 +30,7 @@ enum OneLinerFlags
 
 }
 
+// Flags for the type of one-liner being used
 enum OneLinerType
 {
 	OLTYPE_DEFAULT = 0,
@@ -36,6 +41,7 @@ enum OneLinerType
 	OLTYPE_RAINBOWER = 5,
 }
 
+// Enemy code
 extend class SHDX_Enemy
 {
 	// Get Oneliner From Type.
@@ -79,6 +85,7 @@ extend class SHDX_Enemy
 				while (snd == pp.previousol);
 			}
 			
+			// bypass prefix
 			if (flags & OLSSF_BYPASSPLAYERPREFIX)
 			{
 				finalsnd = snd;
@@ -152,12 +159,11 @@ extend class SHDX_Enemy
 	}
 }
 
+// player code
 extend class SHDX_PlayerPawn
 {
+	// cooldown max
 	const ONELINER_COOLDOWN_MAX = TICRATE * 5;
-	const ONELINER_TIME_TO_SING = TICRATE * 60;
-	const ONELINER_TIME_TO_SING_END = ONELINER_TIME_TO_SING + (TICRATE * 30);
-	const ONELINER_USE_LOCKED_MAX = 3;
 	
 	int onelinercount;		// One Liner Counter
 	bool onelinerhit;		// One Liner Flag
@@ -168,11 +174,13 @@ extend class SHDX_PlayerPawn
 	meta String OneLinerPrefix;
 	Property OneLinerPrefix: OneLinerPrefix;
 	
+	// Reset Oneliner Mute
 	void ResetOneLinerMute()
 	{
 		onelinermute = false;
 	}
 	
+	// Get default voiceover
 	String GetDefaultVoiceOver()
 	{
 		String snd;
@@ -182,6 +190,9 @@ extend class SHDX_PlayerPawn
 		return snd;
 	}
 	
+	// The following functions will either get the
+	// default voiceover, or damagetype-specific
+	// oneliners
 	String GetExplosiveVoiceOver()
 	{
 		String snd;
@@ -243,6 +254,7 @@ extend class SHDX_PlayerPawn
 		return snd;
 	}
 	
+	// Check if one-liners are active
 	bool CheckOneLinerCVar()
 	{
 		if (player)
@@ -251,6 +263,7 @@ extend class SHDX_PlayerPawn
 		return false;
 	}
 	
+	// One Liner Init
 	void OneLinerInit(Sound snd, int flags = OLSSF_DEFAULT)
 	{
 		if (!CheckOneLinerCVar())
@@ -282,6 +295,7 @@ extend class SHDX_PlayerPawn
 		}
 	}
 	
+	// Send subtitle (specific oneliners only)
 	void OLSubtitle(String str, Sound snd)
 	{
 		SHDX_Vox.SendSubtitleToHandler(StringTable.Localize(str), SHDX_Vox.GetSecondsFromSound(snd));
@@ -332,6 +346,7 @@ extend class SHDX_PlayerPawn
 		}
 	}
 	
+	// emit sound
 	void OneLinerSound(Sound snd)
 	{
 		A_StartSound(snd, SHDXPLAYER_DIALOGUECHANNEL1, CHANF_DEFAULT, 4.0, ATTN_NORM);
@@ -339,6 +354,7 @@ extend class SHDX_PlayerPawn
 		CheckIfOneLinerRequiresSubtitles(snd);
 	}
 	
+	// stop oneliner sound
 	void A_StopOneLinerSound()
 	{
 		A_StopSound(SHDXPLAYER_DIALOGUECHANNEL1);

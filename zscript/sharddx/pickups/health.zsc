@@ -88,6 +88,7 @@ Class SHDX_Applesauce : SHDX_Health
 	
 	bool heatedup;
 	
+	// If heated up, we need a different applesauce pickup message
 	override String PickupMessage()
 	{
 		if (heatedup)
@@ -106,6 +107,7 @@ Class SHDX_Applesauce : SHDX_Health
 		Death.Explosive:
 			SAUC B 0
 			{
+				// Heated up!
 				A_StartSound("misc/foodcook", CHAN_BODY);
 				
 				Amount = 50;
@@ -130,7 +132,8 @@ Class SHDX_Cupcake : SHDX_Health
 		Inventory.PickupMessage "$SHDX_PICKUP_CUPCAKE";
 		Tag "$SHDX_TAG_CUPCAKE";
 	}
-
+	
+	// Give a cringe message
 	override bool TryPickup(in out Actor toucher)
 	{
 		if (toucher.health < MaxAmount)

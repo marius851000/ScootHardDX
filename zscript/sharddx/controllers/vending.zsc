@@ -12,6 +12,7 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// Vending machine
 class SHDX_VendingMachine : SHDX_Actor
 {
 	Default
@@ -31,6 +32,7 @@ class SHDX_VendingMachine : SHDX_Actor
 	const VEND_MEDIUM_MULTI = 3;
 	const VEND_HARD_MULTI = 5;
 	
+	// Get amount of times vending machine has been used in a level
 	int GetVendingMachineCount()
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
@@ -39,6 +41,7 @@ class SHDX_VendingMachine : SHDX_Actor
 		return hnd.vendingmachineusecount;
 	}
 	
+	// Increment the vending machine
 	void IncrementVendingMachineEasterEgg()
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
@@ -53,6 +56,7 @@ class SHDX_VendingMachine : SHDX_Actor
 		}
 	}
 	
+	// Check Vending Machine if it's been completed
 	bool CheckVendingMachineEasterEgg()
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
@@ -61,6 +65,7 @@ class SHDX_VendingMachine : SHDX_Actor
 		return hnd.vendingeastereggcompleted;
 	}
 	
+	// Process cooldown
 	override void Tick()
 	{
 		Super.Tick();
@@ -69,20 +74,25 @@ class SHDX_VendingMachine : SHDX_Actor
 			nomoneycooldown--;
 	}
 	
+	// use vending machine
 	override bool Used(Actor user)
 	{	
 		let shdxpl = SHDX_PlayerPawn(user);
 		if (shdxpl && shdxpl.player)
 		{
+			// calculate health difference
 			int healthdiff = shdxpl.MaxHealth - shdxpl.health;
+			// if health difference is greater
 			if (healthdiff > 0)
 			{
 				int bitcount = shdxpl.CountInv("SHDX_BitCoin");
 				
 				int multiplier;
 				
+				// Get skill
 				int skill = G_SkillPropertyInt(SKILLP_ACSReturn);
 				
+				// calculate multiplier
 				if (skill == 0)
 					multiplier = VEND_EASY_MULTI;
 				if (skill == 1)
@@ -93,6 +103,7 @@ class SHDX_VendingMachine : SHDX_Actor
 				// Console.PrintF("skill: "..skill);
 				// Console.PrintF("multiplier: "..skill);
 				
+				// get vending machine item costs
 				int applecost = int(VEND_APPLE_COST * multiplier);
 				int mealcost = int(VEND_MEAL_COST * multiplier);
 				
@@ -101,6 +112,7 @@ class SHDX_VendingMachine : SHDX_Actor
 				
 				if (bitcount >= (applecost))
 				{
+					// Buy some apples!
 					if (bitcount >= applecost && bitcount < mealcost)
 					{
 						shdxpl.A_GiveInventory("Health", 10);
@@ -118,9 +130,11 @@ class SHDX_VendingMachine : SHDX_Actor
 				}
 				else
 				{
+					// No money
 					if (nomoneycooldown <= 0)
 						nomoneycount++;
 					
+					// Easter egg routines
 					if (!CheckVendingMachineEasterEgg() && nomoneycount > 5 && nomoneycooldown <= 0)
 					{
 						IncrementVendingMachineEasterEgg();
@@ -131,6 +145,7 @@ class SHDX_VendingMachine : SHDX_Actor
 						
 						A_StartSound(snd, CHAN_VENDINGUSE, CHANF_OVERLAP, attenuation:0.5);
 						
+						// Maimbow is fed up, give player a ration
 						if (sndnum == 7)
 						{
 							shdxpl.A_GiveInventory("Health", 25);
@@ -171,7 +186,7 @@ class SHDX_VendingMachine : SHDX_Actor
 			}
 			else
 			{
-				A_StartSound("vending/fail", CHAN_VENDINGUSE);
+				A_StartSound("vending/fail", CHAN_VENDINGUSE, CHANF_OVERLAP);
 				shdxpl.A_Log(StringTable.Localize("$SHDX_VENDING_NOTHUNGRY"));
 			}
 		}

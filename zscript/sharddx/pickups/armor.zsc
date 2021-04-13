@@ -303,6 +303,9 @@ Class SHDX_BasicArmor : Inventory
 	
 	const BASIC_ARMOR_AMOUNT_GIVE = 25;
 	
+	// Give the player three of each armor type, and only up to 25 of each... if the
+	// max has been reached, then only give 25 for the others... if all three are at 25
+	// or higher, don't bother
 	override bool TryPickup(in out Actor toucher)
 	{
 		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));
@@ -371,6 +374,8 @@ Class SHDX_SuperArmor : Inventory
 	
 	const SUPER_ARMOR_AMOUNT = 100;
 	
+	// Similar logic to the basic armor, except it gives 100 of each instead of
+	// 25 of each.
 	override bool TryPickup(in out Actor toucher)
 	{
 		SHDX_BulletProofBase barmor = SHDX_BulletProofBase(toucher.FindInventory("SHDX_BulletProofBase"));

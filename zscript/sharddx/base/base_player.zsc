@@ -12,7 +12,6 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-
 Class SHDX_PlayerPawn : PlayerPawn
 {
 	Default
@@ -36,6 +35,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 	
 	mixin SHDX_GibSystem;
 	
+	// Keep view centered
 	override void CalcHeight()
 	{
 		Super.CalcHeight();
@@ -72,17 +72,21 @@ Class SHDX_PlayerPawn : PlayerPawn
 		A_SpawnGibsFx();
 	}
 	
+	// Play a pain sound only if the player isn't
+	// emitting a one-liner
 	void A_NewPlayerPain()
 	{		
 		if (!IsActorPlayingSound(SHDXPLAYER_DIALOGUECHANNEL1))
 			A_StartSound("*pain100", CHAN_6);
 	}
 	
+	// Process functions that run once every second (35-tics)
 	void PerSecondFunctions()
 	{
 		
 	}
-
+	
+	// Can crouch
 	override bool CanCrouch() const
 	{
 		return player.morphTics <= 1 || bCrouchableMorph;
@@ -94,6 +98,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 		MarkPreCacheSounds();
 	}
 	
+	// Make friction be less slippery
 	// Accensus provided me this
 	void AdjustFrictionForMovement()
 	{
@@ -109,6 +114,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 		}
 	}
 	
+	// Check For Secrets
 	void CheckForSecrets()
 	{
 		let s = CurSector;
@@ -119,8 +125,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 		}
 	}
 	
-	
-	
+	// custom freeze death
 	void A_SHDX_PPFreezeDeath()
 	{
 		A_SetTranslation('Ice');
@@ -136,6 +141,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 		}
 	}
 	
+	// shatter enemy
 	void A_SHDX_PPIceShards()
 	{
 		if (vel != (0, 0, 0) && !bShattering)
@@ -231,12 +237,11 @@ Class SHDX_PlayerPawn : PlayerPawn
 		ResetOneLinerMute();
 	}
 	
-	
+	// Tick function
 	override void Tick()
 	{
 		// to avoid something going on with "voodoo dolls" not performing right
 		// or the like.
-		
 		if (!player || !player.mo || player.mo != self)
 		{
 			// Only perform the PlayerPawn functionality, nothing more...

@@ -12,6 +12,8 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// Gib system
+
 mixin class SHDX_GibSystem
 {
 	enum EGibTypeToSpawn
@@ -24,7 +26,8 @@ mixin class SHDX_GibSystem
 		
 		SGFX_SPAWNALL = SGFX_SPAWNHEAD|SGFX_SPAWNEYES|SGFX_SPAWNARM|SGFX_SPAWNLEG,
 	}
-
+	
+	// Spawn Gib and send it flying in a different direction
 	void A_SHDX_SpawnGib(Class<Actor> gibtype = "SHDX_Giblets", bool dontthrust = false)
 	{
 		Actor a;
@@ -55,6 +58,7 @@ mixin class SHDX_GibSystem
 		a.A_FaceMovementDirection();
 	}
 	
+	// Spawn Gibs. Uses a flag to spawn specific parts
 	void A_SpawnGibsFx(int flags = SGFX_SPAWNALL)
 	{		
 		for (int i = 0; i < 23; i++)
@@ -94,6 +98,7 @@ mixin class SHDX_GibSystem
 		}
 	}
 	
+	// Spawn ashes
 	void A_SpawnAshFx()
 	{			
 		for (int i = 0; i < 20; i++)
@@ -102,15 +107,16 @@ mixin class SHDX_GibSystem
 		}
 	}
 	
+	// Spawn metal junk
 	void A_SpawnMetalJunkFx()
-	{		
-			
+	{			
 		for (int i = 0; i < 32; i++)
 		{
 			A_SHDX_SpawnGib("SHDX_MetalJunk");
 		}
 	}
 	
+	// Spawn nuts and bolts
 	void A_SpawnMetalJunk2Fx()
 	{			
 		for (int i = 0; i < 8; i++)
@@ -122,6 +128,7 @@ mixin class SHDX_GibSystem
 		}
 	}
 	
+	// Spawn glass
 	void A_SpawnGlassJunkFx()
 	{			
 		for (int i = 0; i < 32; i++)

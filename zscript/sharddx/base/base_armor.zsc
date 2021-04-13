@@ -29,6 +29,8 @@ Class SHDX_Armor : Armor
 		return false;
 	}
 	
+	// This works by taking the armor off, before passing the remaining damage as an actual damage dealt
+	// to the player
 	override void AbsorbDamage(int damage, Name damagetype, out int newdamage, Actor inflictor, Actor source, int flags)
 	{
 		bool canresist;
@@ -43,7 +45,7 @@ Class SHDX_Armor : Armor
 				if (amount <= damage)
 				{
 					newdamage = (damage - amount);
-					Destroy();
+					Destroy();	// We must destroy, not DepleteOrDestroy
 					return;
 				}
 				else
@@ -59,7 +61,7 @@ Class SHDX_Armor : Armor
 			
 			if (amount <= 0)
 			{
-				Destroy();
+				Destroy();	// We must destroy, not DepleteOrDestroy
 				return;
 			}
 		}

@@ -12,8 +12,10 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// Misc Vox functions
 extend class SHDX_Vox
 {
+	// Send subtitle over to handler
 	static void SendSubtitleToHandler(String sub, int length)
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
@@ -23,6 +25,7 @@ extend class SHDX_Vox
 		hnd.AddSubtitle(sub, length, 5);
 	}
 	
+	// Get seconds from sound entry
 	static int GetSecondsFromSound(Sound snd)
 	{
 		if (SHDX_Utilities.CheckSoundExists(snd))
@@ -31,6 +34,7 @@ extend class SHDX_Vox
 		return 0;
 	}
 	
+	// Add vox entry
 	void AddVoxEntry(Sound snd, string subtitle)
 	{
 		let voxentry = new("SHDX_VoxEntry");
@@ -42,6 +46,8 @@ extend class SHDX_Vox
 		entries.Push(voxentry);
 	}
 	
+	// Set all players as muted
+	// so they won't do one-liners
 	void SetPlayerMuted(bool muted)
 	{
 		PlayerInfo pl;
@@ -64,6 +70,7 @@ extend class SHDX_Vox
 		}
 	}
 	
+	// Play the actual sound and send the subtitle over
 	void PlayVoxSound(int i)
 	{
 		A_StartSound(entries[i].snd, VOXCHANNELSND, CHANF_DEFAULT, 1.0, ATTN_NONE);
@@ -71,6 +78,7 @@ extend class SHDX_Vox
 		SHDX_Vox.SendSubtitleToHandler(entries[i].subtitle, entries[i].duration);
 	}
 	
+	// Stop other vox objects.
 	void StopOtherVoxObjects()
 	{
 		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
@@ -91,6 +99,8 @@ extend class SHDX_Vox
 		}
 	}
 	
+	// a virtual to setup voices. Each derived Vox entry
+	// uses this to initialize the sounds
 	virtual void SetupVoices()
 	{
 		

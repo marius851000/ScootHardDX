@@ -12,6 +12,7 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// Base enemy class
 
 enum ECheckSolidFootingFlags
 {
@@ -77,7 +78,7 @@ Class SHDX_Enemy : SHDX_Actor
 	
 	override void BeginPlay()
 	{
-		startingtranslation = translation;
+		startingtranslation = translation;	// store starting translation
 		Super.BeginPlay();	// hmmm...
 	}
 	
@@ -358,6 +359,8 @@ Class SHDX_Boss : SHDX_Enemy
 			cooldowntaunt--;
 	}
 	
+	// Think of this like a one-liner for the boss, but it spouts it
+	// before taking
 	void A_SHDX_PlayBossTaunt(Sound snd, bool bypasscooldown = false)
 	{
 		if (cooldowntaunt > 0 && !bypasscooldown)
@@ -371,6 +374,7 @@ Class SHDX_Boss : SHDX_Enemy
 			cooldowntaunt = 8 * TICRATE;
 	}
 	
+	// Play cutscene stored as property
 	void A_DD2_BossPlayCutscene()
 	{
 		if (shdx_skipcutscenes)
@@ -380,12 +384,14 @@ Class SHDX_Boss : SHDX_Enemy
 			level.StartSlideShow(CutsceneToPlay);
 	}
 	
+	// end the level
 	void A_DD2_BossEndLevel()
 	{
 		if (bTriggerLevelEnd)
 			level.ExitLevel(0, false);
 	}
 	
+	// Assign boss to boss bar
 	void A_SHDX_SetToBossBarHUD()
 	{
 		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
@@ -396,21 +402,25 @@ Class SHDX_Boss : SHDX_Enemy
 		}
 	}
 	
+	// Send Subtitle via the Vox Subsystem
 	void A_SHDX_BossSubtitle(String str, Sound snd)
 	{
 		SHDX_Vox.SendSubtitleToHandler(StringTable.Localize(str), SHDX_Vox.GetSecondsFromSound(snd));
 	}
 	
+	// Set boss as inactive
 	void A_SHDX_BossInactive()
 	{
 		isactive = false;
 	}
 	
+	// Skip intro upon resurrect
 	void A_SHDX_BossSkipIntro()
 	{
 		skipintro = true;
 	}
 	
+	// Init boss properties
 	void A_SHDX_BossInit()
 	{
 		A_SHDX_SetToBossBarHUD();
@@ -421,6 +431,7 @@ Class SHDX_Boss : SHDX_Enemy
 		isactive = true;
 	}
 	
+	// Skip over the intro (done after resurrect of the player)
 	state A_SHDX_BossJumpOverIntroState()
 	{
 		if (skipintro)

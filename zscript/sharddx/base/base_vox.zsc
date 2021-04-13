@@ -12,6 +12,8 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// The Vox Subsystem. I wrote this, aside the subtitle subystem
+
 class SHDX_Vox : SHDX_Actor
 {
 	Default
@@ -22,19 +24,20 @@ class SHDX_Vox : SHDX_Actor
 		//$NotAngled
 	}
 	
-	int sndindex;
+	int sndindex;					// The current sound index
 	
-	int soundplayinduration;
-	int betweensoundsduration;
+	int soundplayinduration;		// Counter for the sound themselves
+	int betweensoundsduration;		// Counter for in-between sounds
 	
-	Array<SHDX_VoxEntry> entries;
+	Array<SHDX_VoxEntry> entries;	// Array of sound entries
 	
-	bool triggered;
-	bool idle;
-	bool voxplaying;
+	bool triggered;					// If it's been triggered or not
+	bool idle;						// if it's idling
+	bool voxplaying;				// if the vox is playing
 	
-	const VOXCHANNELSND = 9999;
+	const VOXCHANNELSND = 9999;		// use a high channel
 	
+	// We want to setup and precache all the sounds
 	override void BeginPlay()
 	{
 		SetupVoices();
@@ -42,6 +45,7 @@ class SHDX_Vox : SHDX_Actor
 		MarkPreCacheSounds();
 	}
 	
+	// Precache sounds
 	override void MarkPreCacheSounds()
 	{
 		for (int i = 0; i < entries.Size(); i++)
@@ -53,6 +57,7 @@ class SHDX_Vox : SHDX_Actor
 		}
 	}
 	
+	// Activate
 	override void Activate(Actor activator)
 	{
 		Super.Activate(activator);

@@ -12,6 +12,7 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// Chicken Mode Flash
 Class SHDX_ChickenFlash : SHDX_Actor
 {
 	Default
@@ -30,6 +31,7 @@ Class SHDX_ChickenFlash : SHDX_Actor
 	}
 }
 
+// Chicken Mode unmofrphing flash
 Class SHDX_ChickenFlash2 : SHDX_Actor
 {
 	Default
@@ -59,6 +61,7 @@ Class SHDX_ChickenFlash2 : SHDX_Actor
 	}
 }
 
+// Chicken Mode Morph
 Class SHDX_ChickenMorph : SHDX_PowerMorph
 {
 	Default
@@ -70,6 +73,7 @@ Class SHDX_ChickenMorph : SHDX_PowerMorph
 	}
 }
 
+// The actual powerup
 Class SHDX_ChickenMode : SHDX_PowerupGiver
 {
 	Default
@@ -102,6 +106,7 @@ Class SHDX_ChickenMode : SHDX_PowerupGiver
 	}
 }
 
+// Graf please don't sue me
 Class SHDX_ChickenPlayer : SHDX_PlayerPawn
 {
 	Default
@@ -133,8 +138,10 @@ Class SHDX_ChickenPlayer : SHDX_PlayerPawn
 		Player.ColorRange 240, 254;
 	}
 	
+	// unmorph next tic
 	bool unmorphnexttic;
 	
+	// Force unmorph
 	void ForceUnMorph()
 	{
 		if (player)
@@ -143,6 +150,7 @@ Class SHDX_ChickenPlayer : SHDX_PlayerPawn
 		}
 	}
 	
+	// Override playerthink
 	override void PlayerThink()
 	{
 		Super.PlayerThink();
@@ -183,6 +191,7 @@ Class SHDX_ChickenPlayer : SHDX_PlayerPawn
 	}
 }
 
+// the beak
 Class SHDX_ChickenMouth : SHDX_Weapon
 {
 	Default
@@ -214,17 +223,20 @@ Class SHDX_ChickenMouth : SHDX_Weapon
 		AltFire:
 			BEAK A 0
 			{
+				// Clustercluck routine
 				A_Explode(360, 1024, flags:XF_NOTMISSILE, damagetype:'ChickenX');
-				// SHDX_Utilities.DoExplosion(invoker.Owner, 350, 32, 1024, flags:DE_NOTMISSILE, DamageType:'ChickenX');
 				
+				// Randomly go no
 				Sound snd;
+				
 				if (!shdx_grafnomode)
 					snd = Random[ChickenNo](0, 10) <= 1 ? "weapons/chickenxno" : "weapons/chickenx"; 
 				else
 					snd = "weapons/chickenxno";
 				
 				A_StartSound(snd, CHAN_WEAPON);
-					
+				
+				// Hit the dab
 				let o = SHDX_ChickenPlayer(invoker.Owner);
 				if (o)
 				{

@@ -12,8 +12,10 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+// The ROTT-esque weapon system
 mixin class SHDX_WeaponSystem
 {
+	// On weapon drop
 	override void OnDrop(Actor dropper)
 	{
 		if (dropper)
@@ -28,12 +30,15 @@ mixin class SHDX_WeaponSystem
 			if (ammotype2)
 				a2 = Ammo(dropper.FindInventory(ammotype2));
 			
+			// Process secondary ammo
 			if (a1)
 			{
 				ammogive1 = a1.amount;
 				dropper.RemoveInventory(a1);
 			}
 			
+			// Only process secondary ammo if it's different than the
+			// primary ammo
 			if (a2 && a2 != a1)
 			{
 				ammogive2 = a2.amount;
@@ -42,12 +47,14 @@ mixin class SHDX_WeaponSystem
 		}
 	}
 	
+	// Don't crush this!
 	override void Tick()
 	{
 		Super.Tick();
 		bDropped = false;	// we don't want this crushed by doors.
 	}
-
+	
+	// DoEffect
 	override void DoEffect()
 	{
 		Super.DoEffect();
@@ -63,6 +70,7 @@ mixin class SHDX_WeaponSystem
 		}
 	}
 	
+	// Get the parent weapon
 	Class<SHDX_Weapon> GetParentWeapon()
 	{
 		Class<Object> type = GetClass();
@@ -75,6 +83,7 @@ mixin class SHDX_WeaponSystem
 		return (Class<SHDX_Weapon>)(type);
 	}
 	
+	// TryPickup
 	override bool TryPickup(in out Actor toucher)
 	{
 		// Don't pick up if player is currently a chicken
@@ -132,6 +141,7 @@ mixin class SHDX_WeaponSystem
 	}
 }
 
+// The actual weapontypes
 Class SHDX_MissileWeapon : SHDX_Weapon
 {
 	mixin SHDX_WeaponSystem;

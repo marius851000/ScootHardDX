@@ -20,12 +20,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+// Subtitle subsystem. Only thing that remains from SWWM_GZ, which was janky and
+// gave me more problems than anything when working with the code
+
 Class SHDX_Subtitle : HUDMessageBase
 {
 	String whichline;
 	int lifespan, curtime;
 	transient CVar safezone, lang;
-
+	
+	// Generate Subtitle
 	static SHDX_Subtitle Make( String whichline, int lifespan )
 	{
 		let l = new("SHDX_Subtitle");
@@ -33,14 +37,16 @@ Class SHDX_Subtitle : HUDMessageBase
 		l.curtime = l.lifespan = lifespan;
 		return l;
 	}
-
+	
+	// Tick
 	override bool Tick()
 	{
 		// if ( players[consoleplayer].Health <= 0 ) curtime = int.min;
 		curtime--;
 		return (curtime<-20);
 	}
-
+	
+	// Draw to screen
 	override void Draw( int bottom, int visibility )
 	{
 		Vector2 hs = StatusBar.GetHUDScale();
