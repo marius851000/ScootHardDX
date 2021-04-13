@@ -405,7 +405,7 @@ Class SHDX_Boss : SHDX_Enemy
 	// Send Subtitle via the Vox Subsystem
 	void A_SHDX_BossSubtitle(String str, Sound snd)
 	{
-		SHDX_Vox.SendSubtitleToHandler(StringTable.Localize(str), SHDX_Vox.GetSecondsFromSound(snd));
+		SHDX_Vox.SendSubtitleToHandler(str, SHDX_Vox.GetSecondsFromSound(snd));
 	}
 	
 	// Set boss as inactive
