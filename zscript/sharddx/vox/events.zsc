@@ -21,7 +21,7 @@ class SHDX_ScootalooE1M1 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("scootaloo/gottagetouttahere", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E1M1"));
+		AddVoxEntry("scootaloo/gottagetouttahere", "$SHDX_VOX_SCOOTALOO_E1M1");
 	}
 }
 
@@ -34,7 +34,7 @@ class SHDX_ScootalooE1M4 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("scootaloo/surpriseexit", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E1M4"));
+		AddVoxEntry("scootaloo/surpriseexit", "$SHDX_VOX_SCOOTALOO_E1M4");
 	}
 }
 
@@ -47,7 +47,7 @@ class SHDX_ScootalooE2M4 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("scootaloo/e2m4start", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E2M4_1"));
+		AddVoxEntry("scootaloo/e2m4start", "$SHDX_VOX_SCOOTALOO_E2M4_1");
 	}
 }
 
@@ -60,8 +60,8 @@ class SHDX_DrAtmosphere4 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/youineptmule", StringTable.Localize("$SHDX_VOX_DRATMOS_4"));
-		AddVoxEntry("scootaloo/e2m4end", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E2M4_2"));
+		AddVoxEntry("atmosphere/vox/youineptmule", "$SHDX_VOX_DRATMOS_4");
+		AddVoxEntry("scootaloo/e2m4end", "$SHDX_VOX_SCOOTALOO_E2M4_2");
 	}
 }
 
@@ -74,15 +74,15 @@ class SHDX_ScootalooCancerMouse : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("cancermouse/cancermouse1", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_1"));
-		AddVoxEntry("scootaloo/cancermouse1", StringTable.Localize("$SHDX_VOX_SCOOTALOO_CANCERMOUSE_1"));
-		AddVoxEntry("cancermouse/cancermouse2", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_2"));
-		AddVoxEntry("scootaloo/cancermouse2", StringTable.Localize("$SHDX_VOX_SCOOTALOO_CANCERMOUSE_2"));
-		AddVoxEntry("cancermouse/cancermouse3", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_3"));
-		AddVoxEntry("scootaloo/cancermouse3", StringTable.Localize("$SHDX_VOX_SCOOTALOO_CANCERMOUSE_3"));
-		AddVoxEntry("cancermouse/cancermouse4", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_4"));
-		AddVoxEntry("cancermouse/cancermouse5", StringTable.Localize("$SHDX_VOX_CANCERMOUSE_5"));
-		AddVoxEntry("scootaloo/cancermouse4", StringTable.Localize("$SHDX_VOX_SCOOTALOO_CANCERMOUSE_5"));
+		AddVoxEntry("cancermouse/cancermouse1", "$SHDX_VOX_CANCERMOUSE_1");
+		AddVoxEntry("scootaloo/cancermouse1", "$SHDX_VOX_SCOOTALOO_CANCERMOUSE_1");
+		AddVoxEntry("cancermouse/cancermouse2", "$SHDX_VOX_CANCERMOUSE_2");
+		AddVoxEntry("scootaloo/cancermouse2", "$SHDX_VOX_SCOOTALOO_CANCERMOUSE_2");
+		AddVoxEntry("cancermouse/cancermouse3", "$SHDX_VOX_CANCERMOUSE_3");
+		AddVoxEntry("scootaloo/cancermouse3", "$SHDX_VOX_SCOOTALOO_CANCERMOUSE_3");
+		AddVoxEntry("cancermouse/cancermouse4", "$SHDX_VOX_CANCERMOUSE_4");
+		AddVoxEntry("cancermouse/cancermouse5", "$SHDX_VOX_CANCERMOUSE_5");
+		AddVoxEntry("scootaloo/cancermouse4", "$SHDX_VOX_SCOOTALOO_CANCERMOUSE_5");
 	}
 }
 
@@ -95,7 +95,7 @@ class SHDX_ScootalooPegasusDeviceKey : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("scootaloo/pegasusdevicefind", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E3M2_1"));
+		AddVoxEntry("scootaloo/pegasusdevicefind", "$SHDX_VOX_SCOOTALOO_E3M2_1");
 	}
 }
 
@@ -108,7 +108,7 @@ class SHDX_ScootalooPegasusDeviceFireworks : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("scootaloo/pegasusdeviceexplosion", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E3M2_2"));
+		AddVoxEntry("scootaloo/pegasusdeviceexplosion", "$SHDX_VOX_SCOOTALOO_E3M2_2");
 	}
 }
 
@@ -121,7 +121,7 @@ class SHDX_ScootalooE2S1A : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("scootaloo/whatthe", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E2S1_A"));
+		AddVoxEntry("scootaloo/whatthe", "$SHDX_VOX_SCOOTALOO_E2S1_A");
 	}
 }
 
@@ -134,7 +134,7 @@ class SHDX_ScootalooE2S1B : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("scootaloo/auroracall", StringTable.Localize("$SHDX_VOX_SCOOTALOO_E2S1_B"));
+		AddVoxEntry("scootaloo/auroracall", "$SHDX_VOX_SCOOTALOO_E2S1_B");
 	}
 }
 
@@ -147,6 +147,6 @@ class SHDX_ScootalooE2M4ILiveAgain : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("scootaloo/iliveagain", StringTable.Localize("$SHDX_VOX_SCOOTALOO_ILIVEAGAIN"));
+		AddVoxEntry("scootaloo/iliveagain", "$SHDX_VOX_SCOOTALOO_ILIVEAGAIN");
 	}
 }

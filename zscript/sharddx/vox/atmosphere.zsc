@@ -21,7 +21,7 @@ class SHDX_DrAtmosphere1A : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/intro1", StringTable.Localize("$SHDX_VOX_DRATMOS_1A"));
+		AddVoxEntry("atmosphere/vox/intro1", "$SHDX_VOX_DRATMOS_1A");
 	}
 }
 
@@ -34,7 +34,7 @@ class SHDX_DrAtmosphere1B : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/intro2", StringTable.Localize("$SHDX_VOX_DRATMOS_1B"));
+		AddVoxEntry("atmosphere/vox/intro2", "$SHDX_VOX_DRATMOS_1B");
 	}
 }
 
@@ -47,7 +47,7 @@ class SHDX_DrAtmosphere2 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/hamslices", StringTable.Localize("$SHDX_VOX_DRATMOS_2"));
+		AddVoxEntry("atmosphere/vox/hamslices", "$SHDX_VOX_DRATMOS_2");
 	}
 }
 
@@ -60,7 +60,7 @@ class SHDX_DrAtmosphere3 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/quitethemess", StringTable.Localize("$SHDX_VOX_DRATMOS_3"));
+		AddVoxEntry("atmosphere/vox/quitethemess", "$SHDX_VOX_DRATMOS_3");
 	}
 }
 
@@ -73,7 +73,7 @@ class SHDX_DrAtmosphere5 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/imgoingtoaskyoutoleave", StringTable.Localize("$SHDX_VOX_DRATMOS_5"));
+		AddVoxEntry("atmosphere/vox/imgoingtoaskyoutoleave", "$SHDX_VOX_DRATMOS_5");
 	}
 }
 
@@ -86,7 +86,7 @@ class SHDX_DrAtmosphere6 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/youreallgoingtodieuphere", StringTable.Localize("$SHDX_VOX_DRATMOS_6"));
+		AddVoxEntry("atmosphere/vox/youreallgoingtodieuphere", "$SHDX_VOX_DRATMOS_6");
 	}
 }
 
@@ -99,7 +99,7 @@ class SHDX_DrAtmosphere7 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/youshouldknowitwasntmyidea", StringTable.Localize("$SHDX_VOX_DRATMOS_7"));
+		AddVoxEntry("atmosphere/vox/youshouldknowitwasntmyidea", "$SHDX_VOX_DRATMOS_7");
 	}
 }
 
@@ -112,6 +112,6 @@ class SHDX_DrAtmosphere8 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("atmosphere/vox/imisssurprise", StringTable.Localize("$SHDX_VOX_DRATMOS_8"));
+		AddVoxEntry("atmosphere/vox/imisssurprise", "$SHDX_VOX_DRATMOS_8");
 	}
 }

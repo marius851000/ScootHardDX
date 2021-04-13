@@ -21,7 +21,7 @@ class SHDX_Maimbow1 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/intro", StringTable.Localize("$SHDX_VOX_MAIMBOW_1"));
+		AddVoxEntry("maimbow/vox/intro", "$SHDX_VOX_MAIMBOW_1");
 	}
 }
 
@@ -34,7 +34,7 @@ class SHDX_Maimbow2 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/spectrawaspintro", StringTable.Localize("$SHDX_VOX_MAIMBOW_2"));
+		AddVoxEntry("maimbow/vox/spectrawaspintro", "$SHDX_VOX_MAIMBOW_2");
 	}
 }
 
@@ -47,7 +47,7 @@ class SHDX_Maimbow3 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/spectrawaspdeath", StringTable.Localize("$SHDX_VOX_MAIMBOW_3"));
+		AddVoxEntry("maimbow/vox/spectrawaspdeath", "$SHDX_VOX_MAIMBOW_3");
 	}
 }
 
@@ -60,7 +60,7 @@ class SHDX_Maimbow4 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/turnbacknowscootaloo", StringTable.Localize("$SHDX_VOX_MAIMBOW_4"));
+		AddVoxEntry("maimbow/vox/turnbacknowscootaloo", "$SHDX_VOX_MAIMBOW_4");
 	}
 }
 
@@ -73,7 +73,7 @@ class SHDX_Maimbow5 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/donttouchthat", StringTable.Localize("$SHDX_VOX_MAIMBOW_5"));
+		AddVoxEntry("maimbow/vox/donttouchthat", "$SHDX_VOX_MAIMBOW_5");
 	}
 }
 
@@ -86,7 +86,7 @@ class SHDX_Maimbow6 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/youruinedeverything", StringTable.Localize("$SHDX_VOX_MAIMBOW_6"));
+		AddVoxEntry("maimbow/vox/youruinedeverything", "$SHDX_VOX_MAIMBOW_6");
 	}
 }
 
@@ -99,7 +99,7 @@ class SHDX_Maimbow7 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/pohintro", StringTable.Localize("$SHDX_VOX_MAIMBOW_7"));
+		AddVoxEntry("maimbow/vox/pohintro", "$SHDX_VOX_MAIMBOW_7");
 	}
 }
 
@@ -112,7 +112,7 @@ class SHDX_Maimbow8 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/pohoutro", StringTable.Localize("$SHDX_VOX_MAIMBOW_8"));
+		AddVoxEntry("maimbow/vox/pohoutro", "$SHDX_VOX_MAIMBOW_8");
 	}
 }
 
@@ -125,7 +125,7 @@ class SHDX_Maimbow9 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/finaleintro1", StringTable.Localize("$SHDX_VOX_MAIMBOW_9"));
+		AddVoxEntry("maimbow/vox/finaleintro1", "$SHDX_VOX_MAIMBOW_9");
 	}
 }
 
@@ -138,7 +138,7 @@ class SHDX_Maimbow10 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/finaleintro2", StringTable.Localize("$SHDX_VOX_MAIMBOW_10"));
+		AddVoxEntry("maimbow/vox/finaleintro2", "$SHDX_VOX_MAIMBOW_10");
 	}
 }
 
@@ -151,6 +151,6 @@ class SHDX_Maimbow14 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("maimbow/vox/laugh", StringTable.Localize("$SHDX_VOX_MAIMBOW_14"));
+		AddVoxEntry("maimbow/vox/laugh", "$SHDX_VOX_MAIMBOW_14");
 	}
 }

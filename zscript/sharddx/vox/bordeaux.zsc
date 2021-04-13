@@ -21,7 +21,7 @@ class SHDX_Bordeaux1 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("bordeaux/vox/intro", StringTable.Localize("$SHDX_VOX_BORDEAUX_1"));
+		AddVoxEntry("bordeaux/vox/intro", "$SHDX_VOX_BORDEAUX_1");
 	}
 }
 
@@ -34,7 +34,7 @@ class SHDX_Bordeaux2 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("bordeaux/vox/grounded", StringTable.Localize("$SHDX_VOX_BORDEAUX_2"));
+		AddVoxEntry("bordeaux/vox/grounded", "$SHDX_VOX_BORDEAUX_2");
 	}
 }
 
@@ -47,7 +47,7 @@ class SHDX_Bordeaux3 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("bordeaux/vox/personalhell", StringTable.Localize("$SHDX_VOX_BORDEAUX_3"));
+		AddVoxEntry("bordeaux/vox/personalhell", "$SHDX_VOX_BORDEAUX_3");
 	}
 }
 
@@ -61,7 +61,7 @@ class SHDX_Bordeaux4 : SHDX_Vox
 	
 	override void SetupVoices()
 	{
-		AddVoxEntry("bordeaux/vox/outro", StringTable.Localize("$SHDX_VOX_BORDEAUX_4"));
+		AddVoxEntry("bordeaux/vox/outro", "$SHDX_VOX_BORDEAUX_4");
 	}
 }
 
