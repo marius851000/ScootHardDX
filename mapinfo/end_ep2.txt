@@ -11,7 +11,7 @@ Intermission EndEpisode2
 	{
 		Background = "graphics/cutscenes/end2/end2_1.png"
 		Sound = "cutscene/end2/1"
-		Time = 13
+		Time = 14
 		Subtitle = "$SHDX_EP2END_1"
 	}
 	Image
@@ -37,28 +37,28 @@ Intermission EndEpisode2
 	{
 		Background = "graphics/cutscenes/end2/end2_5.png"
 		Sound = "cutscene/end2/4"
-		Time = 7
+		Time = 8
 		Subtitle = "$SHDX_EP2END_4"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_6.png"
 		Sound = "cutscene/end2/5"
-		Time = 7
+		Time = 8
 		Subtitle = "$SHDX_EP2END_5"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_7.png"
 		Sound = "cutscene/end2/6"
-		Time = 8
+		Time = 9
 		Subtitle = "$SHDX_EP2END_6"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/end2/end2_7.png"
 		Sound = "cutscene/end2/7"
-		Time = 10
+		Time = 18
 		Subtitle = "$SHDX_EP2END_7"
 	}
 	Fader

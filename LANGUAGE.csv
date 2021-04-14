@@ -10,13 +10,13 @@ details as possible about what happened.",SHDX_CRASHMESSAGE,,,,,,,,,,,"Exception
 
 Scoot Hard DX A Abandonné! S'il vous plaît contactez @WaffleIronCoop ou @SanyaWaffles sur Twitter, MP sur discord avec un rapport de bug, ou rapportez le dans une des discussion à moins que vous ayez provoqué ceci manuellement. Envoyez nous une capture d'écran et autant de détails que possible sur ce qui est arrivé.",,,,,,,,,,,,
 You found a secret area!,SECRETMESSAGE,,,,,,,,Encontraste un area secreto!,,,Tu as trouvé une zone secrète!,,,,,,,,,,,Našli ste skrytú oblasť!,
-Touchplate Triggered!,SHDX_TOUCHPLATE,,,,,,,,¡Placa Disparada!,,,(Touchplate ?) Déclenché(e)!,,,,,,,,,,,Dotyková doska je aktivovaná!,
+Touchplate Triggered!,SHDX_TOUCHPLATE,,,,,,,,¡Placa Disparada!,,,Interrupteur Déclenché!,,,,,,,,,,,Dotyková doska je aktivovaná!,
 Bridge Raised!,SHDX_BRIGDE_RAISED,,,,,,,,,,,Pont Levé!,,,,,,,,,,,,
 BETA,SHDX_BETA_HUD_STRING,,,,,,,,,,,BETA,,,,,,,,,,,,
-Error! Invalid Help Screen at %d,SHDX_HELP_SCREEN_ERROR,,,,,,,,,,,Erreur! Ecran d'aide incorrect (a ou vers) %d,,,,,,,,,,,,
+Error! Invalid Help Screen at %d,SHDX_HELP_SCREEN_ERROR,,,,,,,,,,,Erreur! Ecran d'aide incorrect à la page %d,,,,,,,,,,,,
 I guess you don't watch Puffin Forest...,SHDX_OBELISK_MSG,Puffin Forest is a Youtuber who does DND stuff,,,,,,,Supongo que no ves Puffin Forest...,,,Tu n'as pas dû regarder Puffin Forest...,,,,,,,,,,,"Nemyslím si, že sledujete Puffinský les ...",
 Delayed Secret Opened!,SHDX_DELAYEDSECRET,,,,,,,,,,,Secret en Retard Ouvert!,,,,,,,,,,,,
-More To Go!,SHDX_MORETOGO,,,,,,,,,,,Davantage à Faire! (?),,,,,,,,,,,,
+More To Go!,SHDX_MORETOGO,,,,,,,,,,,Plus à Activer!,,,,,,,,,,,,
 Sequence Complete!,SHDX_SEQUENCECOMPLETE,,,,,,,,,,,Sequence Terminée!,,,,,,,,,,,,
 Pegasus Device Put In Maintenance Mode.,SHDX_PEGASUS_DEVICE_UNLOCK,,,,,,,,,,,Dispositif Pegasus Mis En Maintenance.,,,,,,,,,,,,
 Pegasus Device Security Disabled,SHDX_PEGASUS_DEVICE_1,,,,,,,,,,,Sécurité du Dispositif Pegasus Désactivée,,,,,,,,,,,,
@@ -79,9 +79,9 @@ Blue Access Card Required To Use This!,SHDX_LOCKED_BLUEACCESS,,,,,,,,,,,Carte d'
 Management Access Card Required To Use This!,SHDX_LOCKED_MANAGEMENTACCESS,,,,,,,,,,,Carte d'Accés du Management pour Utiliser Ceci!,,,,,,,,,,,,
 No Access.,SHDX_LOCKED_NOACCESS,,,,,,,,,,,Pas d'Accés.,,,,,,,,,,,,
 ,,Items,,,,,,,,,,,,,,,,,,,,,,
-Picked up a 1 bit coin.,SHDX_PICKUP_1BIT,,,,,,,,Desestabilizadora,,,,,,,,,,,,,,,
-Picked up a 5 bit coin.,SHDX_PICKUP_5BIT,,,,,,,,,,,,,,,,,,,,,,,
-Chicken Mode!,SHDX_PICKUP_CHICKENMODE,,,,,,,,,,,,,,,,,,,,,,,
+Picked up a 1 bit coin.,SHDX_PICKUP_1BIT,,,,,,,,Desestabilizadora,,,Vous avez récupéré une pièce d'un bit.,,,,,,,,,,,,
+Picked up a 5 bit coin.,SHDX_PICKUP_5BIT,,,,,,,,,,,Récupéré une pièce de 5 bits.,,,,,,,,,,,,
+Chicken Mode!,SHDX_PICKUP_CHICKENMODE,,,,,,,,,,,Mode Poulet!,,,,,,,,,,,,
 Picked up a Sandwich.,SHDX_PICKUP_SANDWICH,,,,,,,,,,,,,,,,,,,,,,,
 Picked up Pizza.,SHDX_PICKUP_PIZZA,,,,,,,,,,,,,,,,,,,,,,,
 Picked up Foal(TM) Applesauce.,SHDX_PICKUP_APPLESAUCE,,,,,,,,,,,,,,,,,,,,,,,
@@ -639,22 +639,19 @@ Credits,SHDX_CREDITS,,,,,,,,,,,,,,,,,,,,,,,
 "Meet Scootaloo. Despite being trained by the exceptional Rainbow Dash, she failed her exams. Not only her, but her friends Orion Solstice and Aurora Dawn. The feds rolled in to cart them away, but Scootaloo didn't take that sitting down. She caused a distraction and escaped.",SHDX_INTRO_3,,,,,,,,,,,,,,,,,,,,,,,
 "A guard chased her down, so she had to wrestle him in the construction zone before overpowering him. The two fell down a ventilation shaft thirty floors to the surface - to the Cloudsdale Weather Corporation's ground location.",SHDX_INTRO_4,,,,,,,,,,,,,,,,,,,,,,,
 "Fortunately for Scootaloo, she survived the fall. The guard was not so lucky.",SHDX_INTRO_5,,,,,,,,,,,,,,,,,,,,,,,
-" She found a two-way CB radio, a utility belt, and a hoof blaster on the dead guard. Surely she could use those to contact someone to help her. However, she couldn't get a signal from there.",SHDX_INTRO_6,,,,,,,,,,,,,,,,,,,,,,,
+"She found a two-way CB radio, a utility belt, and a hoof blaster on the dead guard. Surely she could use those to contact someone to help her. However, she couldn't get a signal from there.",SHDX_INTRO_6,,,,,,,,,,,,,,,,,,,,,,,
 "Arming herself with the blaster and utility belt, she saw a door ahead of her. Her goal was simple: survive. Rescue Orion, and Aurora if she could. There was no telling what unspeakable nightmares she'd encounter.",SHDX_INTRO_7,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Episode 1 End,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo took a breather after enduring the heated battle with Surprise and her platoon of Rocket Guards. She could hardly believe it herself. She spotted the exit behind Surprise's mosh pit.,SHDX_EP1END_1,,,,,,,,,,,,,,,,,,,,,,,
-"She climbed a radio tower and signaled for help. She managed to get a hold of someone, but it was going to take a while for reinforcements to arrive. Scootaloo was on her own.
-",SHDX_EP1END_2,,,,,,,,,,,,,,,,,,,,,,,
+"She climbed a radio tower and signaled for help. She managed to get a hold of someone, but it was going to take a while for reinforcements to arrive. Scootaloo was on her own.",SHDX_EP1END_2,,,,,,,,,,,,,,,,,,,,,,,
 "Eventually, she found a computer room. One of the screens lit up.
 
-""Why, hello there Scootaloo.""
-",SHDX_EP1END_3,,,,,,,,,,,,,,,,,,,,,,,
+""Why, hello there Scootaloo.""",SHDX_EP1END_3,,,,,,,,,,,,,,,,,,,,,,,
 "The aqua green pony looked like a bastardized version of Rainbow Dash. Scootaloo was shocked and confused.
 
 ""Who are you?""
 
-The rainbow-maned pony didn't acknowledge. 
-",SHDX_EP1END_4,,,,,,,,,,,,,,,,,,,,,,,
+The rainbow-maned pony didn't acknowledge",SHDX_EP1END_4,,,,,,,,,,,,,,,,,,,,,,,
 """Surrender now, Scootaloo. There's nowhere to go. This factory will be your grave.",SHDX_EP1END_5,,,,,,,,,,,,,,,,,,,,,,,
 """I don't need to kill you yet... I can kill one of your friends first. Doesn't that sound fun?"" They let out a menacing laugh.",SHDX_EP1END_6,,,,,,,,,,,,,,,,,,,,,,,
 Scootaloo knew what she had to do. She had to get them back for sure. Little did she know what fears and horrors would await her...,SHDX_EP1END_7,,,,,,,,,,,,,,,,,,,,,,,
@@ -719,8 +716,7 @@ Maimbow started to falter. ""I know... I let hate overflow me... and for that, I
 Maimbow chuckled. ""I was such a fool. I let my hate blind me.""",SHDX_EP3END_4,,,,,,,,,,,,,,,,,,,,,,,
 "Maimbow faltered as he lost more blood. ""Forgive me... please… whatever awaits me beyond this, I deserve and am ready for.""",SHDX_EP3END_5,,,,,,,,,,,,,,,,,,,,,,,
 ,,Intermission Episode 3 End (Bad),,,,,,,,,,,,,,,,,,,,,,
-"Scootaloo contemplated for a moment. She couldn't bear to think about all the pain and misery Maimbow had brought her. She lost two of her friends to this bastard.
-",SHDX_EP3AEND_6,,,,,,,,,,,,,,,,,,,,,,,
+Scootaloo contemplated for a moment. She couldn't bear to think about all the pain and misery Maimbow had brought her. She lost two of her friends to this bastard.,SHDX_EP3AEND_6,,,,,,,,,,,,,,,,,,,,,,,
 "She had her answer.
 
 ""You know what, you're right. I'll forgive you...""",SHDX_EP3AEND_7,,,,,,,,,,,,,,,,,,,,,,,
@@ -732,7 +728,7 @@ The Pegasus race was too sick to save. It was disgraced by the actions of the Cl
 It needed to be purged.",SHDX_EP3AEND_9,,,,,,,,,,,,,,,,,,,,,,,
 "She got control of the Enforcers using Maimbow's amulet and later took control of the Spectrawasps.
 
-She swore to exterminate every last pegasus in Equestria and beyond, starting with the remaining forces of the Cloudsdale Weather Corporation. Those who chose to surrender were lobotomized, and forced to serve in her burning crusade.",SHDX_EP3AEND_10,,,,,,,,,,,,,,,,,,,,,,,
+She swore to exterminate every last pegasus in Equestria and beyond, starting with the remaining forces of the Cloudsdale Weather Corporation. Those  chose to surrender were lobotomized, and forced to serve in her burning crusade.",SHDX_EP3AEND_10,,,,,,,,,,,,,,,,,,,,,,,
 "The loss of Orion and Aurora had pushed Scootaloo to insanity.
 
 Once she was done with the Pegasus race, no one knew what horrific crimes she'd continue to commit against life itself for the remainder of her lifetime.

@@ -25,14 +25,14 @@ Intermission EndEpisode3NoAurora
 	{
 		Background = "graphics/cutscenes/end3a/end3a_1.png"
 		Sound = "cutscene/end/3"
-		Time = 16
+		Time = 15
 		Subtitle = "$SHDX_EP3END_3"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/end3a/end3a_1.png"
 		Sound = "cutscene/end/4"
-		Time = 23
+		Time = 21
 		Subtitle = "$SHDX_EP3END_4"
 	}
 	Image
@@ -53,7 +53,7 @@ Intermission EndEpisode3NoAurora
 	{
 		Background = "graphics/cutscenes/end3a/end3a_3.png"
 		Sound = "cutscene/bad/2"
-		Time = 7
+		Time = 6
 		Subtitle = "$SHDX_EP3AEND_7"
 	}
 	Image
@@ -67,21 +67,21 @@ Intermission EndEpisode3NoAurora
 	{
 		Background = "graphics/cutscenes/end3a/end3a_5.png"
 		Sound = "cutscene/bad/4"
-		Time = 19
+		Time = 18
 		Subtitle = "$SHDX_EP3AEND_9"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/end3a/end3a_6.png"
 		Sound = "cutscene/bad/5"
-		Time = 19
+		Time = 18
 		Subtitle = "$SHDX_EP3AEND_10"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/end3a/end3a_6.png"
 		Sound = "cutscene/bad/6"
-		Time = 26
+		Time = 30
 		Subtitle = "$SHDX_EP3AEND_11"
 	}
 	Fader

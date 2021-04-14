@@ -25,14 +25,14 @@ Intermission IntroEpisode2
 	{
 		Background = "graphics/cutscenes/intro2/enf_3.png"
 		Sound = "cutscene/intro2/3"
-		Time = 20
+		Time = 21
 		Subtitle = "$SHDX_EP2INTRO_3"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/intro2/enf_4.png"
 		Sound = "cutscene/intro2/4"
-		Time = 6
+		Time = 7
 		Subtitle = "$SHDX_EP2INTRO_4"
 	}
 	Fader

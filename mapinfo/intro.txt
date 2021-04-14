@@ -11,28 +11,28 @@ Intermission IntroEpisode1
 	{
 		Background = "graphics/cutscenes/intro/intro_1.png"
 		Sound = "cutscene/intro1/1"
-		Time = 14
+		Time = 16
 		Subtitle = "$SHDX_INTRO_1"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_1.png"
 		Sound = "cutscene/intro1/2"
-		Time = 9
+		Time = 10
 		Subtitle = "$SHDX_INTRO_2"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_2.png"
 		Sound = "cutscene/intro1/3"
-		Time = 12
+		Time = 17
 		Subtitle = "$SHDX_INTRO_3"
 	}
 	Image
 	{
 		Background = "graphics/cutscenes/intro/intro_3.png"
 		Sound = "cutscene/intro1/4"
-		Time = 18
+		Time = 12
 		Subtitle = "$SHDX_INTRO_4"
 	}
 	Image
@@ -46,7 +46,7 @@ Intermission IntroEpisode1
 	{
 		Background = "graphics/cutscenes/intro/intro_4.png"
 		Sound = "cutscene/intro1/6"
-		Time = 10
+		Time = 11
 		Subtitle = "$SHDX_INTRO_6"
 	}
 	Image
