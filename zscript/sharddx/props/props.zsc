@@ -395,6 +395,13 @@ Class SHDX_MaimbowPlush : SHDX_Decoration
 		+NOBLOOD
 	}
 	
+	override bool Used(Actor user)
+	{
+		A_StartSound("misc/maimbowplush", CHAN_VOICE);
+		
+		return false;
+	}
+	
 	States
 	{
 		Spawn:
