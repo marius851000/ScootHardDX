@@ -4,7 +4,40 @@ SARMA="voxels/SARMA.kvx"
 	Scale = 3.0
 }
 
+ARM1A="voxels/ARM1A.kvx"
+{
+	Spin = 50
+	Scale = 3.0
+}
+
+ARM2A="voxels/ARM2A.kvx"
+{
+	Spin = 50
+	Scale = 3.0
+}
+
+ARM3A="voxels/ARM3A.kvx"
+{
+	Spin = 50
+	Scale = 3.0
+}
+
 MCRTA="voxels/MCRTA.kvx"
+{
+	Scale = 3.0
+}
+
+BARLA="voxels/BARLA.kvx"
+{
+	Scale = 3.0
+}
+
+BAR2A="voxels/BAR2A.kvx"
+{
+	Scale = 3.0
+}
+
+EBARA="voxels/EBARA.kvx"
 {
 	Scale = 3.0
 }
