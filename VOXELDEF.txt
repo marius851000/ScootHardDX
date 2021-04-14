@@ -29,15 +29,15 @@ MCRTA="voxels/MCRTA.kvx"
 
 BARLA="voxels/BARLA.kvx"
 {
-	Scale = 3.0
+	Scale = 4.0
 }
 
 BAR2A="voxels/BAR2A.kvx"
 {
-	Scale = 3.0
+	Scale = 4.0
 }
 
 EBARA="voxels/EBARA.kvx"
 {
-	Scale = 3.0
+	Scale = 4.0
 }
