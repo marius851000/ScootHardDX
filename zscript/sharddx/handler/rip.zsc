@@ -83,7 +83,7 @@ extend class SHDX_Handler
 		// be cool about fire safety RIP is being done
 		if (ripseconds == RIP_START && dorip)
 		{
-			typeofrip = Random[RIP](RIP_Normal, RIP_CatechumenGameOver);
+			typeofrip = Random[OneLiner](RIP_Normal, RIP_CatechumenGameOver);
 			
 			if (typeofrip == RIP_CatechumenGameOver)
 			{
