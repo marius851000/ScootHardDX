@@ -29,6 +29,7 @@ The way to the secret level is unlocked.,SHDX_SECRETLEVELUNLOCKED,,,,,,,,,,,Le p
 Waffle Iron Studios(TM) Scoot Hard DX(TM),SHDX_TITLEMAP_FINAL1,,,,,,,,,,,,,,,,,,,,,,,
 Build,SHDX_TITLEMAP_FINAL2,,,,,,,,,,,,,,,,,,,,,,,
 WI/GZDoom 4.6pre Compatible,SHDX_TITLEMAP_FINAL3,,,,,,,,Compatible con GZDoom 4.3.3,,,,,,,,,,,,,,,
+Version 1.1,SHDX_TITLEMAP_VERSION,,,,,,,,,,,,,,,,,,,,,,,
 MultiThreaded Enabled,SHDX_TITLEMAP_MULTI,,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Systems(TM) WaffleTower i7,SHDX_TITLEMAP_SANYAUSERNAME,Custom fake bootup message based on username,,,,,,,,,,,,,,,,,,,,,,
 "
@@ -79,45 +80,45 @@ Blue Access Card Required To Use This!,SHDX_LOCKED_BLUEACCESS,,,,,,,,,,,Carte d'
 Management Access Card Required To Use This!,SHDX_LOCKED_MANAGEMENTACCESS,,,,,,,,,,,Carte d'Accés du Management pour Utiliser Ceci!,,,,,,,,,,,,
 No Access.,SHDX_LOCKED_NOACCESS,,,,,,,,,,,Pas d'Accés.,,,,,,,,,,,,
 ,,Items,,,,,,,,,,,,,,,,,,,,,,
-Picked up a 1 bit coin.,SHDX_PICKUP_1BIT,,,,,,,,Desestabilizadora,,,Vous avez récupéré une pièce d'un bit.,,,,,,,,,,,,
-Picked up a 5 bit coin.,SHDX_PICKUP_5BIT,,,,,,,,,,,Récupéré une pièce de 5 bits.,,,,,,,,,,,,
+Picked up a 1 bit coin.,SHDX_PICKUP_1BIT,,,,,,,,Desestabilizadora,,,Ramassé une pièce d'un bit.,,,,,,,,,,,,
+Picked up a 5 bit coin.,SHDX_PICKUP_5BIT,,,,,,,,,,,Ramassé une pièce de 5 bits.,,,,,,,,,,,,
 Chicken Mode!,SHDX_PICKUP_CHICKENMODE,,,,,,,,,,,Mode Poulet!,,,,,,,,,,,,
-Picked up a Sandwich.,SHDX_PICKUP_SANDWICH,,,,,,,,,,,,,,,,,,,,,,,
-Picked up Pizza.,SHDX_PICKUP_PIZZA,,,,,,,,,,,,,,,,,,,,,,,
-Picked up Foal(TM) Applesauce.,SHDX_PICKUP_APPLESAUCE,,,,,,,,,,,,,,,,,,,,,,,
-Picked up Foal(TM) Applesauce Hot.,SHDX_PICKUP_APPLESAUCEHOT,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Cupcake! +100 Health!,SHDX_PICKUP_CUPCAKE,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Red Keycard.,SHDX_PICKUP_REDKEY,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Blue Keycard.,SHDX_PICKUP_BLUEKEY,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Green Keycard.,SHDX_PICKUP_GREENKEY,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Management Keycard.,SHDX_PICKUP_MANAGEMENTKEY,,,,,,,,,,,,,,,,,,,,,,,
-Picked up Bulletproof Armor.,SHDX_PICKUP_BULLETARMOR,,,,,,,,,,,,,,,,,,,,,,,
-Picked up Fireproof Armor.,SHDX_PICKUP_FIREPROOF,,,,,,,,,,,,,,,,,,,,,,,
-Picked up Weatherproof Armor.,SHDX_PICKUP_WEATHERPROOF,,,,,,,,,,,,,,,,,,,,,,,
-Picked up Basic Armor.,SHDX_PICKUP_BASICARMOR,,,,,,,,,,,,,,,,,,,,,,,
-Picked up Super Armor.,SHDX_PICKUP_SUPERARMOR,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Bulletproof Shard,SHDX_PICKUP_BULLETSHARD,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Fireproof Shard,SHDX_PICKUP_FIRESHARD,,,,,,,,,,,,,,,,,,,,,,,
-Picked up a Weatherproof Shard,SHDX_PICKUP_WEATHERSHARD,,,,,,,,,,,,,,,,,,,,,,,
-You found a Fillyseeker!,SHDX_PICKUP_FILLYSEEKER,,,,,,,,,,,,,,,,,,,,,,,
-You have a Hailer!,SHDX_PICKUP_HAILER,,,,,,,,,,,,,,,,,,,,,,,
-You looted a Lightning Gun!,SHDX_PICKUP_LIGHTNINGGUN,,,,,,,,,,,,,,,,,,,,,,,
-Now you have a machine gun. Ho-Ho-Ho.,SHDX_PICKUP_SMG,,,,,,,,,,,,,,,,,,,,,,,
-You misappropriated a Missile Launcher!,SHDX_PICKUP_MISSILELAUNCHER,,,,,,,,,,,,,,,,,,,,,,,
-You recovered a Rainbower!,SHDX_PICKUP_RAINBOWER,,,,,,,,,,,,,,,,,,,,,,,
-You took a Tornadozer!,SHDX_PICKUP_TORNADOZER,,,,,,,,,,,,,,,,,,,,,,,
+Picked up a Sandwich.,SHDX_PICKUP_SANDWICH,,,,,,,,,,,Ramassé un Sandwich.,,,,,,,,,,,,
+Picked up Pizza.,SHDX_PICKUP_PIZZA,,,,,,,,,,,Ramassé une pizza.,,,,,,,,,,,,
+Picked up Foal(TM) Applesauce.,SHDX_PICKUP_APPLESAUCE,,,,,,,,,,,Ramassé de la Compote Foal(TM).,,,,,,,,,,,,
+Picked up Foal(TM) Applesauce Hot.,SHDX_PICKUP_APPLESAUCEHOT,,,,,,,,,,,Ramassé de la Compote Chaude Foal(TM).,,,,,,,,,,,,
+Picked up a Cupcake! +100 Health!,SHDX_PICKUP_CUPCAKE,,,,,,,,,,,Ramassé un Cupcake! +100 de vie!,,,,,,,,,,,,
+Picked up a Red Keycard.,SHDX_PICKUP_REDKEY,,,,,,,,,,,Ramassé une carte d'accès Rouge.,,,,,,,,,,,,
+Picked up a Blue Keycard.,SHDX_PICKUP_BLUEKEY,,,,,,,,,,,Ramassé une carte d'accès Bleue.,,,,,,,,,,,,
+Picked up a Green Keycard.,SHDX_PICKUP_GREENKEY,,,,,,,,,,,Ramassé une carte d'accès Verte.,,,,,,,,,,,,
+Picked up a Management Keycard.,SHDX_PICKUP_MANAGEMENTKEY,,,,,,,,,,,Ramassé une carte d'accès de Gestion.,,,,,,,,,,,,
+Picked up Bulletproof Armor.,SHDX_PICKUP_BULLETARMOR,,,,,,,,,,,Ramassé une Armure Pare-Balles.,,,,,,,,,,,,
+Picked up Fireproof Armor.,SHDX_PICKUP_FIREPROOF,,,,,,,,,,,Ramassé une Armure Pare-Feu.,,,,,,,,,,,,
+Picked up Weatherproof Armor.,SHDX_PICKUP_WEATHERPROOF,,,,,,,,,,,Ramassé une Armure Imperméable.,,,,,,,,,,,,
+Picked up Basic Armor.,SHDX_PICKUP_BASICARMOR,,,,,,,,,,,Ramassé une Armure Simple.,,,,,,,,,,,,
+Picked up Super Armor.,SHDX_PICKUP_SUPERARMOR,,,,,,,,,,,Ramassé une Super Armure.,,,,,,,,,,,,
+Picked up a Bulletproof Shard,SHDX_PICKUP_BULLETSHARD,,,,,,,,,,,Ramassé un Débris Pare-Balle.,,,,,,,,,,,,
+Picked up a Fireproof Shard,SHDX_PICKUP_FIRESHARD,,,,,,,,,,,Ramassé un Débris Pare-Feu.,,,,,,,,,,,,
+Picked up a Weatherproof Shard,SHDX_PICKUP_WEATHERSHARD,,,,,,,,,,,Ramassé un Débris Imperméable.,,,,,,,,,,,,
+You found a Fillyseeker!,SHDX_PICKUP_FILLYSEEKER,,,,,,,,,,,Tu as trouvé un Fillyseeker!,,,,,,,,,,,,
+You have a Hailer!,SHDX_PICKUP_HAILER,,,,,,,,,,,Tu as un Hailer!,,,,,,,,,,,,
+You looted a Lightning Gun!,SHDX_PICKUP_LIGHTNINGGUN,,,,,,,,,,,Tu as pillé un Lightning Gun!,,,,,,,,,,,,
+Now you have a machine gun. Ho-Ho-Ho.,SHDX_PICKUP_SMG,,,,,,,,,,,Maintenant tu as une mitraillette. Ho-Ho-Ho.,,,,,,,,,,,,
+You misappropriated a Missile Launcher!,SHDX_PICKUP_MISSILELAUNCHER,,,,,,,,,,,Tu as détourné un lance-missile.,,,,,,,,,,,,
+You recovered a Rainbower!,SHDX_PICKUP_RAINBOWER,,,,,,,,,,,Tu as récupéré un Rainbower!,,,,,,,,,,,,
+You took a Tornadozer!,SHDX_PICKUP_TORNADOZER,,,,,,,,,,,Tu as pris un Tornadozer!,,,,,,,,,,,,
 ,,Scootaloo Color Sets,,,,,,,,,,,,,,,,,,,,,,
-Normal,SHDX_SCOOTALOO_COLORSET1,,,,,,,,,,,,,,,,,,,,,,,
-Red,SHDX_SCOOTALOO_COLORSET2,,,,,,,,,,,,,,,,,,,,,,,
-Blonde,SHDX_SCOOTALOO_COLORSET3,,,,,,,,,,,,,,,,,,,,,,,
-Green,SHDX_SCOOTALOO_COLORSET4,,,,,,,,,,,,,,,,,,,,,,,
-Cyan,SHDX_SCOOTALOO_COLORSET5,,,,,,,,,,,,,,,,,,,,,,,
-Blue,SHDX_SCOOTALOO_COLORSET6,,,,,,,,,,,,,,,,,,,,,,,
-Brown,SHDX_SCOOTALOO_COLORSET7,,,,,,,,,,,,,,,,,,,,,,,
-Army,SHDX_SCOOTALOO_COLORSET8,,,,,,,,,,,,,,,,,,,,,,,
+Normal,SHDX_SCOOTALOO_COLORSET1,,,,,,,,,,,Normal,,,,,,,,,,,,
+Red,SHDX_SCOOTALOO_COLORSET2,,,,,,,,,,,Rouge,,,,,,,,,,,,
+Blonde,SHDX_SCOOTALOO_COLORSET3,,,,,,,,,,,Blond,,,,,,,,,,,,
+Green,SHDX_SCOOTALOO_COLORSET4,,,,,,,,,,,Vert,,,,,,,,,,,,
+Cyan,SHDX_SCOOTALOO_COLORSET5,,,,,,,,,,,Cyan,,,,,,,,,,,,
+Blue,SHDX_SCOOTALOO_COLORSET6,,,,,,,,,,,Bleu,,,,,,,,,,,,
+Brown,SHDX_SCOOTALOO_COLORSET7,,,,,,,,,,,Marron,,,,,,,,,,,,
+Army,SHDX_SCOOTALOO_COLORSET8,,,,,,,,,,,Armée,,,,,,,,,,,,
 ,,Help Screen,,,,,,,,,,,,,,,,,,,,,,
-"Left/Right Click or Use Arrow Keys To Cycle Screens, ESC to Exit",SHDX_HELP_MOVETIP,,,,,,,,,,,,,,,,,,,,,,,
-USING THE MENUS,SHDX_HELP_HEADER_MENU1,,,,,,,,,,,,,,,,,,,,,,,
+"Left/Right Click or Use Arrow Keys To Cycle Screens, ESC to Exit",SHDX_HELP_MOVETIP,,,,,,,,,,,"Click Gauche/Droite ou Touches Directionelles Pour Faire Défiler les Écrans, ESC pour Sortir",,,,,,,,,,,,
+USING THE MENUS,SHDX_HELP_HEADER_MENU1,,,,,,,,,,,UTILISER LES MENUS,,,,,,,,,,,,
 "Scoot Hard DX can be configured using the menus.
 
 Press Escape to bring up the menu. Press F1 to bring up this screen.
@@ -128,14 +129,27 @@ Previous saves don't work between versions of the game.
 OPTIONS: configure and tweak Scoot Hard DX or GZDoom
 HELP SCREEN: this help screen
 CREDITS: the people who worked on the game.
-EXIT TO SYSTEM: exit the game",SHDX_HELP_MENU1,,,,,,,,,,,,,,,,,,,,,,,
-STORY IN A NUTSHELL,SHDX_HELP_HEADER_MENU2,,,,,,,,,,,,,,,,,,,,,,,
+EXIT TO SYSTEM: exit the game",SHDX_HELP_MENU1,,,,,,,,,,,"Scoot Hard DX pour être configuré en utilisant les menus.
+
+Appuyez sur Echap pour afficher le Menu. Appuyez sur F1 pour afficher cet écran.
+
+NOUVELLE PARTIE: commence une nouvelle partie. Choisissez votre difficulté et go.
+ÉTAT DE JEU: sauvegarde votre partie actuelle, Les précédentes sauvegardes ne marchent pas entre les différentes versions du jeu.
+OPTIONS: configure et ajuste Scoot Hard DX ou GZDoom
+ECRAN D'AIDE: cet écran d'aide.
+CREDITS: les gens qui ont travaillés sur ce jeu.
+SORTIR VERS LE SYSTEME: sortir du jeu.",,,,,,,,,,,,
+STORY IN A NUTSHELL,SHDX_HELP_HEADER_MENU2,,,,,,,,,,,HISTOIRE EN BREF,,,,,,,,,,,,
 "You are Scootaloo. Your mission is to escape
 the Cloudsdale Weather Corporation and take down
 the baddies running it. It won't be easy though.
 
-Reading this will give you hot tips(TM).",SHDX_HELP_MENU2,,,,,,,,,,,,,,,,,,,,,,,
-PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,,,,,,,,,,,,,
+Reading this will give you hot tips(TM).",SHDX_HELP_MENU2,,,,,,,,,,,"Vous incarnez Scootaloo. Votre mission est d'infiltrer
+la Cloudsdale Weather Corporation et de tuer
+les méchants la gérant. Néantmoins ce ne seras pas si facile.
+
+Lire ceci vous donneras des astuces chaudes(TM).",,,,,,,,,,,,
+PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,JOUER AU JEU (ARMES),,,,,,,,,,,,
 "You can only carry one of each of the missile, weather and
 big weapons. You can carry a blaster and SMG at the same
 time.
@@ -144,12 +158,22 @@ Either use up your shots first, or swap it out by walking over
 another weapon and pressing the use key (default is E) to swap
 it out. The dropped weapon will contain the ammo as well. If you
 pick up the same weapon you currently have, you will pick up
-the ammo from it rather than swap it out.",SHDX_HELP_MENU3,,,,,,,,,,,,,,,,,,,,,,,
-PLAYING THE GAME (WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4,,,,,,,,,,,,,,,,,,,,,,,
+the ammo from it rather than swap it out.",SHDX_HELP_MENU3,,,,,,,,,,,"Vous ne pouvez porter qu'une grosse arme à missile ou
+à météo à la fois. Vous pouvez porter un blaster et une SMG
+en même temps.
+
+Soit utilisez toutes vos balles, ou échangez le en marchant sur 
+une autre arme et appuyez sur Utiliser (par défaut E) pour 
+l'échanger. L'arme abandonnée contiendras les munitions. Si vous
+ramassez la même arme que celle que vous avez déjà, vous en tirerez
+les munitions de l'arme au lieu de l'échanger.",,,,,,,,,,,,
+PLAYING THE GAME (WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4,,,,,,,,,,,JOUER AU JEU (ARMES CONTINUATION),,,,,,,,,,,,
 "Bullet Weapons:
 Blaster - You start with this weapon. Never runs out of ammo.
-Submachine Gun - Rapid fire goodness. Infinite ammo.",SHDX_HELP_MENU4,,,,,,,,,,,,,,,,,,,,,,,
-PLAYING THE GAME (MISSILE WEAPONS),SHDX_HELP_HEADER_MENU4A,,,,,,,,,,,,,,,,,,,,,,,
+Submachine Gun - Rapid fire goodness. Infinite ammo.",SHDX_HELP_MENU4,,,,,,,,,,,"Armes à Balles:
+Blaster - Vous commencez avec cette arme. Ne s'épuise jamais de balles.
+Mitraillette - Plaisir du Tire Rapide. Munitions Infinies.",,,,,,,,,,,,
+PLAYING THE GAME (MISSILE WEAPONS),SHDX_HELP_HEADER_MENU4A,,,,,,,,,,,JOUER AU JEU (ARMES À MISSILES),,,,,,,,,,,,
 "Missile Launcher
 
 Primary Fire - Shoots a straight firing missile.
@@ -157,7 +181,14 @@ Secondary Fire - Shoots a grenade that can bounce around.
 
 A basic rocket launcher.
 
-Contains 10 shots.",SHDX_HELP_MENU4A,,,,,,,,,,,,,,,,,,,,,,,
+Contains 10 shots.",SHDX_HELP_MENU4A,,,,,,,,,,,"Lance-Missiles
+
+Tir Primaire - Tir droit de missile.
+Secondary Fire - Tire une grenade rebondissante.
+
+Un lance-roquettes basique.
+
+Contient 10 tirs.",,,,,,,,,,,,
 PLAYING THE GAME (MISSILE WEAPONS CONTINUED),SHDX_HELP_HEADER_MENU4B,,,,,,,,,,,,,,,,,,,,,,,
 "FillySeeker
 

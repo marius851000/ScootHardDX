@@ -17,6 +17,7 @@ crosshair 1
 am_portaloverlay false
 cl_maxdecals 2560
 gl_ssao 1
+fov 100
 screenblocks 11
 r_deathcamera 1
 crosshairhealth 0
