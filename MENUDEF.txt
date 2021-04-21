@@ -127,6 +127,7 @@ OptionMenu "ScootHardDXControls"
 	Control    "$CNTRLMNU_CROUCH"           , "+crouch"
 	Control    "$CNTRLMNU_TOGGLECROUCH"     , "crouch"
 	Control    "$CNTRLMNU_RUN"              , "+speed"
+	Control    "$CNTRLMNU_TOGGLERUN"        , "toggle cl_run"
 	
 	StaticText ""
 	Control    "$CNTRLMNU_AUTOMAP"         , "togglemap"
