@@ -153,15 +153,15 @@ Class SHDX_ScootalooPlayer : SHDX_PlayerPawn
 		Player.DamageScreenColor "FF0000", 0.70;
 		Player.DamageScreenColor "FFA500", 0.70, "Explosive";
 		Player.DamageScreenColor "FF5800", 0.50, "Fire";
-		Player.DamageScreenColor "00FF00", 0.70, "Spectra";
+		Player.DamageScreenColor "00FF00", 0.70, "Spectrum";
 		Player.DamageScreenColor "00FFFF", 0.70, "Lightning";
 		Player.DamageScreenColor "A5F2F3", 0.70, "Ice";
 		Player.DamageScreenColor "FFFFFF", 0.00, "Falling";
 		
 		Player.TeleportFreezeTime 0;
 		
-		Player.ForwardMove 2.4, 1.2;
-		Player.SideMove 2.4, 1.2;
+		Player.ForwardMove 1.2, 1.2;
+		Player.SideMove 1.2, 1.2;
 		
 		Player.ViewHeight 26;
 		Player.AttackZOffset 8;

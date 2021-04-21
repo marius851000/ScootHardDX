@@ -18,7 +18,8 @@ enter invuse
 = sizeup
 ctrl +crouch
 space +jump
-shift +user1
+q +user1
+shift +speed
 w +forward
 a +moveleft
 s +back
