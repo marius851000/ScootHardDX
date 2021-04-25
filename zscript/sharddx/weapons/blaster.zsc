@@ -53,6 +53,7 @@ Class SHDX_Blaster : SHDX_Weapon
 		Weapon.SelectionOrder 3700;
 		Obituary "$SHDX_OB_BLASTER";
 		+WEAPON.WIMPY_WEAPON
+		+WEAPON.CHEATNOTWEAPON
 		DamageType "Bullet";
 		Tag "$SHDX_TAG_BLASTER";
 	}

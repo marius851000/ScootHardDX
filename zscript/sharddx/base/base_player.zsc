@@ -33,6 +33,9 @@ Class SHDX_PlayerPawn : PlayerPawn
 		Player.TeleportFreezeTime 0;
 	}
 	
+	bool pickedupweapon;
+	SHDX_Weapon weaponitem;
+	
 	mixin SHDX_GibSystem;
 	
 	// Keep view centered
@@ -231,6 +234,27 @@ Class SHDX_PlayerPawn : PlayerPawn
 		return ret;
 	}
 	
+	void CheckForHint()
+	{
+		if (player.cmd.buttons & BT_USE)
+		{
+			pickedupweapon = false;
+			weaponitem = null;
+			return;
+		}
+		
+		if (weaponitem)
+		{
+			double blockdist = radius + weaponitem.radius;
+			if (abs(pos.x - weaponitem.pos.x) > blockdist || abs(pos.y - weaponitem.pos.y) > blockdist)
+			{
+				pickedupweapon = false;
+				weaponitem = null;
+				return;
+			}
+		}
+	}
+	
 	override void Travelled()
 	{
 		Super.Travelled();
@@ -256,6 +280,8 @@ Class SHDX_PlayerPawn : PlayerPawn
 		AdjustFrictionForMovement();
 		
 		OneLinerProcess();
+		
+		CheckForHint();
 		
 		// This is mainly here to do things on every ~second or so.
 		// We use modulo to check if current tics can be divided by 35

@@ -35,6 +35,36 @@ class SHDX_Handler : EventHandler
 	{
 		DisplayRIP();
 		DrawBossBar();
+		DrawWeaponHint();
+	}
+	
+	ui void DrawWeaponHint()
+	{
+		if (!CVar.GetCvar('shdx_weaponhint', players[consoleplayer]).GetBool())
+			return;
+		
+		if (players[consoleplayer].mo && players[consoleplayer].mo.health > 0)
+		{
+			let pp = SHDX_PlayerPawn(players[consoleplayer].mo);
+			if (pp)
+			{
+				if (pp.pickedupweapon)
+				{
+					Vector2 hs = StatusBar.GetHUDScale();
+					Vector2 ss = (Screen.GetWidth()/hs.x, Screen.GetHeight()/hs.y);
+					
+					String str = StringTable.Localize("$SHDX_WEAPONMSG");
+					
+					int len = Smallfont.StringWidth(str) / 2;
+					
+					Screen.DrawText(Smallfont, Font.CR_GOLD, (ss.x/2 - len), (ss.y / 2) + 64,
+										str,
+										DTA_VirtualWidthF,  ss.x,
+										DTA_VirtualHeightF, ss.y,
+										DTA_KeepRatio, true);
+				}
+			}
+		}
 	}
 	
 	override void WorldThingSpawned(WorldEvent e)

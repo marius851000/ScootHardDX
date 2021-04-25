@@ -82,6 +82,7 @@ OptionMenu "ScootHardDXOptionsMenu"
 	StaticText ""
 	Slider "$MNU_SHARDDX_FOV",				"fov",					70, 140, 10
 	Option "$PLYRMNU_ALWAYSRUN",			"cl_run",				"OnOff"
+	Option "$MNU_SHARDDX_WEAPONHINTS",		"shdx_weaponhint",		"OnOff"
 	Option "$MNU_SHARDDX_MUTEPLAYER",		"shdx_snd_oneliners",	"OnOff"
 	Option "$MNU_SHARDDX_CUTSCENES",		"shdx_skipcutscenes",	"OnOff"
 	Option "$MNU_SHARDDX_SUBTITLES",		"shdx_subtitles",		"OnOff"

@@ -36,7 +36,7 @@ Class SHDX_FillySeeker : SHDX_MissileWeapon
 		Tag "$SHDX_TAG_FILLYSEEKER";
 		+WEAPON.NOAUTOFIRE
 		+WEAPON.NOAUTOAIM
-		+Weapon.CheatNotWeapon
+		+WEAPON.CHEATNOTWEAPON
 		Weapon.AmmoGive 8;
 		Weapon.AmmoUse1 1;
 		Weapon.AmmoUse2 1;

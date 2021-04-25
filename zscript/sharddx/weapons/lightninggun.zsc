@@ -34,6 +34,7 @@ Class SHDX_LightningGun : SHDX_WeatherWeapon
 		Inventory.PickupMessage "$SHDX_PICKUP_LIGHTNINGGUN";
 		+WEAPON.NOAUTOFIRE
 		+WEAPON.NOAUTOAIM
+		+WEAPON.CHEATNOTWEAPON
 		Weapon.AmmoGive 75;
 		Weapon.AmmoUse1 1;
 		Weapon.AmmoUse2 1;

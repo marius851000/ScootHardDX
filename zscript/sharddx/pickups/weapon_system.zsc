@@ -131,6 +131,13 @@ mixin class SHDX_WeaponSystem
 				
 				return Super.TryPickup(toucher);
 			}
+			
+			let pp = SHDX_PlayerPawn(toucher);
+			if (pp)
+			{
+				pp.pickedupweapon = true;
+				pp.weaponitem = self;
+			}
 				
 			// don't pick up...
 			return false;
