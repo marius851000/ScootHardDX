@@ -43,8 +43,6 @@ Class SHDX_Subtitle : HUDMessageBase
 		// if ( players[consoleplayer].Health <= 0 ) curtime = int.min;
 		curtime--;
 		
-		Console.PrintF("curtime "..curtime);
-		
 		return (curtime<-20);
 	}
 	

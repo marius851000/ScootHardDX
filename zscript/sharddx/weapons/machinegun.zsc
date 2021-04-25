@@ -60,6 +60,16 @@ Class SHDX_SubmachineGun : SHDX_Weapon
 		DamageType "Bullet";
 	}
 	
+	// Give a cringe message
+	override bool TryPickup(in out Actor toucher)
+	{
+		bool r = Super.TryPickup(toucher);
+		
+		TakeInventory("SHDX_Blaster", 1);
+		
+		return r;
+	}
+	
 	States
 	{
 		Ready:
