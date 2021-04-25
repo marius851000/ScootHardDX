@@ -14,7 +14,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 // The ROTT-esque weapon system
 mixin class SHDX_WeaponSystem
-{
+{	
 	// On weapon drop
 	override void OnDrop(Actor dropper)
 	{
@@ -112,7 +112,7 @@ mixin class SHDX_WeaponSystem
 					return Super.TryPickup(toucher);
 				}
 				else
-				{
+				{					
 					return false;
 				}
 			}
@@ -131,7 +131,7 @@ mixin class SHDX_WeaponSystem
 				
 				return Super.TryPickup(toucher);
 			}
-			
+				
 			// don't pick up...
 			return false;
 		}
