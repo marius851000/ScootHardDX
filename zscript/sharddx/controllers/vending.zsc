@@ -35,34 +35,40 @@ class SHDX_VendingMachine : SHDX_Actor
 	// Get amount of times vending machine has been used in a level
 	int GetVendingMachineCount()
 	{
-		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
-		if (!hnd) return 0;
+		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		
-		return hnd.vendingmachineusecount;
+		if (!hndlr)
+			return 0;
+		
+		return hndlr.vendingmachineusecount;
 	}
 	
 	// Increment the vending machine
 	void IncrementVendingMachineEasterEgg()
 	{
-		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
-		if (!hnd) return;
+		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		
-		hnd.vendingmachineusecount++;
-		
-		if (hnd.vendingmachineusecount >= 7)
+		if (hndlr)
 		{
-			hnd.vendingmachineusecount = 7;
-			hnd.vendingeastereggcompleted = true;
+			hndlr.vendingmachineusecount++;
+			
+			if (hndlr.vendingmachineusecount >= 7)
+			{
+				hndlr.vendingmachineusecount = 7;
+				hndlr.vendingeastereggcompleted = true;
+			}
 		}
 	}
 	
 	// Check Vending Machine if it's been completed
 	bool CheckVendingMachineEasterEgg()
 	{
-		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
-		if (!hnd) return false;
+		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		
-		return hnd.vendingeastereggcompleted;
+		if (!hndlr)
+			return false;
+		
+		return hndlr.vendingeastereggcompleted;
 	}
 	
 	// Process cooldown
@@ -100,15 +106,9 @@ class SHDX_VendingMachine : SHDX_Actor
 				if (skill >= 2)
 					multiplier = VEND_HARD_MULTI;
 				
-				// Console.PrintF("skill: "..skill);
-				// Console.PrintF("multiplier: "..skill);
-				
 				// get vending machine item costs
 				int applecost = int(VEND_APPLE_COST * multiplier);
 				int mealcost = int(VEND_MEAL_COST * multiplier);
-				
-				// Console.PrintF("applecost: "..applecost);
-				// Console.PrintF("mealcost: "..mealcost);
 				
 				if (bitcount >= (applecost))
 				{

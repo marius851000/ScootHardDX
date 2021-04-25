@@ -66,6 +66,7 @@ Class SHDX_FloorArc : SHDX_Projectile
 	override void Tick()
 	{
 		Super.Tick();
+		
 		if (target.health <= 0 && !InStateSequence(CurState, ResolveState("Death")))
 			Destroy();
 	}
@@ -131,6 +132,7 @@ Class SHDX_DrAtmosphereBoss : SHDX_Boss
 	override void Tick()
 	{
 		Super.Tick();
+		
 		if (flyingmode > 0)
 			isflying = true;
 		else

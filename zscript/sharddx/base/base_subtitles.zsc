@@ -29,7 +29,7 @@ Class SHDX_Subtitle : HUDMessageBase
 	int lifespan, curtime;
 	
 	// Generate Subtitle
-	static SHDX_Subtitle Make( String whichline, int lifespan )
+	static SHDX_Subtitle Make(String whichline, int lifespan)
 	{
 		let l = new("SHDX_Subtitle");
 		l.whichline = whichline;
@@ -40,38 +40,46 @@ Class SHDX_Subtitle : HUDMessageBase
 	// Tick
 	override bool Tick()
 	{
-		// if ( players[consoleplayer].Health <= 0 ) curtime = int.min;
 		curtime--;
 		
 		return (curtime<-20);
 	}
 	
 	// Draw to screen
-	override void Draw( int bottom, int visibility )
+	override void Draw(int bottom, int visibility)
 	{
 		Vector2 hs = StatusBar.GetHUDScale();
 		Vector2 ss = (Screen.GetWidth()/hs.x,Screen.GetHeight()/hs.y);
-		String loc = StringTable.Localize(whichline);
-		if ( loc.Length() <= 0 ) return;	// don't draw empty strings
-		String locs = loc;
-		Font fnt = SmallFont;
-		BrokenLines l = fnt.BreakLines(locs,int(ss.x*.5));
+		
+		String str = StringTable.Localize(whichline);
+		if ( str.Length() <= 0 )
+			return;
+		
+		BrokenLines bl = SmallFont.BreakLines(str, int(ss.x*.5));
 		int maxlen = 0;
-		for ( int i=0; i<l.Count(); i++ )
+		for (int i = 0; i < bl.Count(); i++)
 		{
-			int len = fnt.StringWidth(l.StringAt(i));
-			if ( len > maxlen ) maxlen = len;
+			int len = SmallFont.StringWidth(bl.StringAt(i));
+			
+			if ( len > maxlen )
+				maxlen = len;
 		}
-		int h = fnt.GetHeight();
-		int fh = h*l.Count();
+		int h = SmallFont.GetHeight();
+		int fh = h * bl.Count();
+		
 		double alph = clamp((curtime/20.)+1.,0.,1.);
 		alph *= clamp((lifespan-curtime)/10.,0.,1.);
-		Screen.Dim("Black",alph*.8,int((Screen.GetWidth()-(maxlen+12)*hs.x)/2.),int(bottom-(2+fh)*hs.y),int((maxlen+12)*hs.x),int((fh+4)*hs.y));
+		
+		Screen.Dim("Black", alph*.8, int((Screen.GetWidth()-(maxlen+12)*hs.x)/2.),
+					int(bottom-(2+fh)*hs.y), int((maxlen+12)*hs.x), int((fh+4)*hs.y));
+		
 		int yy = fh;
-		for ( int i=0; i<l.Count(); i++ )
+		
+		for (int i = 0; i < bl.Count(); i++)
 		{
-			int len = fnt.StringWidth(l.StringAt(i));
-			Screen.DrawText(fnt,Font.CR_FIRE,(ss.x-len)/2.,(bottom/hs.y)-yy,l.StringAt(i),DTA_VirtualWidthF,ss.x,DTA_VirtualHeightF,ss.y,DTA_KeepRatio,true,DTA_Alpha,alph);
+			int len = SmallFont.StringWidth(bl.StringAt(i));
+			Screen.DrawText(SmallFont, Font.CR_FIRE, (ss.x-len)/2., (bottom/hs.y)-yy, bl.StringAt(i), DTA_VirtualWidthF, ss.x,
+							DTA_VirtualHeightF, ss.y, DTA_KeepRatio, true, DTA_Alpha, alph);
 			yy -= h;
 		}
 	}

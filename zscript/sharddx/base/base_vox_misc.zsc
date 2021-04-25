@@ -18,11 +18,10 @@ extend class SHDX_Vox
 	// Send subtitle over to handler
 	static void SendSubtitleToHandler(String sub, int length)
 	{
-		let hnd = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
+		let hndlr = SHDX_Handler(EventHandler.Find("SHDX_Handler"));
 		
-		if (!hnd) return;
-		
-		hnd.AddSubtitle(sub, length, 5);
+		if (hndlr)
+			hndlr.AddSubtitle(sub, length, 5);
 	}
 	
 	// Get seconds from sound entry
