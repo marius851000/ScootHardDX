@@ -67,6 +67,7 @@ Press,SHDX_RESTARTMSG1,,,,,,,,Empujar,,,Appuyez sur,,,,,,,,,,,,
 from most recent save.",SHDX_RESTARTMSG2,,,,,,,,"para comenzar
 del estado de salvar más reciente",,,pour démarrer votre sauvegarde la plus récente.,,,,,,,,,,,,
 or,SHDX_KEYBINDOR,,,,,,,,o,,,ou,,,,,,,,,,,,
+Press use (default: E) to swap weapon.,SHDX_WEAPONMSG,,,,,,,,,,,,,,,,,,,,,,,
 ,,Misc Messages,,,,,,,,,,,,,,,,,,,,,,
 Recieved a hot meal.,SHDX_VENDING_HOTMEAL,,,,,,,,,,,Reçu un repas chaud.,,,,,,,,,,,,
 Recieved a Foal(R) apple.,SHDX_VENDING_APPLE,,,,,,,,,,,Reçu une pomme Foal(R).,,,,,,,,,,,,

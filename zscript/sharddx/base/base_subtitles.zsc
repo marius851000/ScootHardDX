@@ -27,7 +27,6 @@ Class SHDX_Subtitle : HUDMessageBase
 {
 	String whichline;
 	int lifespan, curtime;
-	transient CVar safezone, lang;
 	
 	// Generate Subtitle
 	static SHDX_Subtitle Make( String whichline, int lifespan )
@@ -43,6 +42,9 @@ Class SHDX_Subtitle : HUDMessageBase
 	{
 		// if ( players[consoleplayer].Health <= 0 ) curtime = int.min;
 		curtime--;
+		
+		Console.PrintF("curtime "..curtime);
+		
 		return (curtime<-20);
 	}
 	

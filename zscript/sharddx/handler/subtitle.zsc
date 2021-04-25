@@ -49,7 +49,7 @@ extend class SHDX_Handler
 		{
 			let l = SHDX_Subtitle.Make(subtitle, subtitlespan);
 			
-			StatusBar.AttachMessage(l,-3473);
+			StatusBar.AttachMessage(l, -3473);
 			
 			// SendNetworkEvent("dd2bordeauxsubtitle."..subtitle,consoleplayer);
 		}
