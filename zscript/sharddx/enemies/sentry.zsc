@@ -41,7 +41,7 @@ Class SHDX_MiniSentry : SHDX_Enemy
 	Default
 	{
 		ActiveSound "minisentry/active";
-		Health 15;
+		Health 10;
 		Radius 12;
 		Height 32;
 		Mass 100;
@@ -122,8 +122,10 @@ Class SHDX_MiniSentry : SHDX_Enemy
 	States
 	{	
 		Spawn:
+			MSNT A 116;
+		Spawn1:
 			MSNT A 10 A_Look;
-			loop;
+			Loop;
 		See:
 			MSNT AA 4 A_Chase(null, "Missile", CHF_DONTMOVE);
 			MSNT A 0

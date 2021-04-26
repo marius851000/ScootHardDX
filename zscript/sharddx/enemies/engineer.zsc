@@ -77,7 +77,6 @@ Class SHDX_MiniSentryBall : SHDX_Projectile
 			MSNT F 6;
 			MSNT G 6;
 			MSNT H 6;
-			MSNT A 116;
 		SpawnSentry:
 			MSNT A 0 Bright
 			{
