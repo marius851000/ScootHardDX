@@ -313,6 +313,12 @@ Class SHDX_HeavyEnforcer : SHDX_Enemy
 			Goto See;
 		Pain:
 			ENFO J 3;
+			ENFO J 3;
+			Goto See;
+		Pain.Spectrum:
+		Pain.Ice:
+		Pain.Explosive:
+			ENFO J 3;
 			ENFO J 3 A_Pain;
 			Goto ShieldsUp;
 		Pain.Lightning:
@@ -527,6 +533,12 @@ Class SHDX_LightEnforcer : SHDX_Enemy
 			ENF2 G 4 Bright A_GrenadeFire;
 			Goto See;
 		Pain:
+			ENF2 I 3;
+			ENF2 I 3;
+			Goto See;
+		Pain.Spectrum:
+		Pain.Ice:
+		Pain.Explosive:
 			ENF2 I 3;
 			ENF2 I 3 A_Pain;
 			Goto ShieldsUp;
