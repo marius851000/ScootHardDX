@@ -68,8 +68,7 @@ Class SHDX_Rainbower : SHDX_BFGWeapon
 				A_StartSound("weapons/rainbowerf", CHAN_WEAPON);
 				A_FireProjectile("SHDX_RainbowerProjectileA");
 			}
-			RBWG A 1;
-			RBWG A 0 A_ReFire;
+			RBWG A 5;
 			Goto Ready;
 		AltFire:
 			RBWG A 6
@@ -84,8 +83,7 @@ Class SHDX_Rainbower : SHDX_BFGWeapon
 				
 				A_TakeInventory("SHDX_SpectraAmmo", 1);
 			}
-			RBWG B 2;
-			RBWG A 0 A_ReFire;
+			RBWG B 7;
 			Goto Ready;
 		Spawn:
 			GUN6 A -1;
