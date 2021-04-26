@@ -25,6 +25,18 @@ A bookshelf lowered somewhere...,SHDX_E2M2BOOKSHELFLOWERED,,,,,,,,,,,Une étagè
 Our Dark Lord Tchernobog.,SHDX_TCHERNOBOG,,,,,,,,,,,Notre Seigneur Sombre Tchernobog.,,,,,,,,,,,,
 Press use (default: E) to skip,SHDX_SKIPCUTSCENE,,,,,,,,,,,Appuyez sur utiliser (défaut: E) pour passer,,,,,,,,,,,,
 The way to the secret level is unlocked.,SHDX_SECRETLEVELUNLOCKED,,,,,,,,,,,Le passage vers le niveau secret est débloqué.,,,,,,,,,,,,
+Health,SHDX_HUD_HEALTH,,,,,,,,Salud,,,Vie,,,,,,,,,,,,
+Armor,SHDX_HUD_ARMOR,,,Armour,,,,,Armadura,,,Armure,,,,,,,,,,,,
+Ammo 1,SHDX_HUD_AMMO1,Ammo is short for ammunition,,,,,,,Munición 1,,,Munitions 1,,,,,,,,,,,,
+Ammo 2,SHDX_HUD_AMMO2,,,,,,,,Munición 2,,,Munitions 2,,,,,,,,,,,,
+Frags,SHDX_HUD_FRAGS,,,,,,,,Mata,,,Grenades,,,,,,,,,,,,
+Bits,SHDX_HUD_BITS,,,,,,,,,,,Bits,,,,,,,,,,,,
+Press,SHDX_RESTARTMSG1,,,,,,,,Empujar,,,Appuyez sur,,,,,,,,,,,,
+"to start
+from most recent save.",SHDX_RESTARTMSG2,,,,,,,,"para comenzar
+del estado de salvar más reciente",,,pour démarrer votre sauvegarde la plus récente.,,,,,,,,,,,,
+or,SHDX_KEYBINDOR,,,,,,,,o,,,ou,,,,,,,,,,,,
+Press use (default: E) to swap weapon.,SHDX_WEAPONMSG,,,,,,,,,,,,,,,,,,,,,,,
 ,,Titlemap,,,,,,,,,,,,,,,,,,,,,,
 Waffle Iron Studios(TM) Scoot Hard DX(TM),SHDX_TITLEMAP_FINAL1,,,,,,,,,,,,,,,,,,,,,,,
 Build,SHDX_TITLEMAP_FINAL2,,,,,,,,,,,,,,,,,,,,,,,
@@ -56,18 +68,6 @@ aussi pas destiné aux enfants. C'est destiné à un public
 mature, de suggestion 18+ d'âge. S'il vous plaît soutenez
 l'oeuvre originale.",,,,,,,,,,,,
 WARNING: Satirical and Mature Content,SHDX_TITLEMAP_ADVISORY,,,,,,,,,,,ATTENTION: Contenu Satirique et Mature,,,,,,,,,,,,
-Health,SHDX_HUD_HEALTH,,,,,,,,Salud,,,Vie,,,,,,,,,,,,
-Armor,SHDX_HUD_ARMOR,,,Armour,,,,,Armadura,,,Armure,,,,,,,,,,,,
-Ammo 1,SHDX_HUD_AMMO1,Ammo is short for ammunition,,,,,,,Munición 1,,,Munitions 1,,,,,,,,,,,,
-Ammo 2,SHDX_HUD_AMMO2,,,,,,,,Munición 2,,,Munitions 2,,,,,,,,,,,,
-Frags,SHDX_HUD_FRAGS,,,,,,,,Mata,,,Grenades,,,,,,,,,,,,
-Bits,SHDX_HUD_BITS,,,,,,,,,,,Bits,,,,,,,,,,,,
-Press,SHDX_RESTARTMSG1,,,,,,,,Empujar,,,Appuyez sur,,,,,,,,,,,,
-"to start
-from most recent save.",SHDX_RESTARTMSG2,,,,,,,,"para comenzar
-del estado de salvar más reciente",,,pour démarrer votre sauvegarde la plus récente.,,,,,,,,,,,,
-or,SHDX_KEYBINDOR,,,,,,,,o,,,ou,,,,,,,,,,,,
-Press use (default: E) to swap weapon.,SHDX_WEAPONMSG,,,,,,,,,,,,,,,,,,,,,,,
 ,,Misc Messages,,,,,,,,,,,,,,,,,,,,,,
 Recieved a hot meal.,SHDX_VENDING_HOTMEAL,,,,,,,,,,,Reçu un repas chaud.,,,,,,,,,,,,
 Recieved a Foal(R) apple.,SHDX_VENDING_APPLE,,,,,,,,,,,Reçu une pomme Foal(R).,,,,,,,,,,,,
@@ -79,7 +79,6 @@ Red Access Card Required To Use This!,SHDX_LOCKED_REDACCESS,,,,,,,,,,,Carte d'Ac
 Green Access Card Required To Use This!,SHDX_LOCKED_GREENACCESS,,,,,,,,,,,Carte d'Accés Verte Requiert pour Utiliser Ceci!,,,,,,,,,,,,
 Blue Access Card Required To Use This!,SHDX_LOCKED_BLUEACCESS,,,,,,,,,,,Carte d'Accés Bleue Requiert pour Utiliser Ceci!,,,,,,,,,,,,
 Management Access Card Required To Use This!,SHDX_LOCKED_MANAGEMENTACCESS,,,,,,,,,,,Carte d'Accés du Management pour Utiliser Ceci!,,,,,,,,,,,,
-No Access.,SHDX_LOCKED_NOACCESS,,,,,,,,,,,Pas d'Accés.,,,,,,,,,,,,
 ,,Items,,,,,,,,,,,,,,,,,,,,,,
 Picked up a 1 bit coin.,SHDX_PICKUP_1BIT,,,,,,,,Desestabilizadora,,,Ramassé une pièce d'un bit.,,,,,,,,,,,,
 Picked up a 5 bit coin.,SHDX_PICKUP_5BIT,,,,,,,,,,,Ramassé une pièce de 5 bits.,,,,,,,,,,,,
@@ -152,8 +151,9 @@ les méchants la gérant. Néantmoins ce ne seras pas si facile.
 Lire ceci vous donneras des astuces chaudes(TM).",,,,,,,,,,,,
 PLAYING THE GAME (WEAPONS),SHDX_HELP_HEADER_MENU3,,,,,,,,,,,JOUER AU JEU (ARMES),,,,,,,,,,,,
 "You can only carry one of each of the missile, weather and
-big weapons. You can carry a blaster and SMG at the same
-time.
+big weapons.
+
+When you pick up a Submachine Gun, it replaces your blaster.
 
 Either use up your shots first, or swap it out by walking over
 another weapon and pressing the use key (default is E) to swap
@@ -430,7 +430,6 @@ Music, Sound and Level Design: Metal Neon
 Additional Level Design, Additional Sound Design: Elliejojo
 Additional Level Design: Philnemba
 Additional Level and Weapon Design: Jona_Arts
-
 Voice of Scootaloo: Victoria Prater
 Voice of Low Guard Female & Aurora Dawn: Tabby
 Voice of Low Guard Male: DRPReskins
@@ -439,7 +438,6 @@ Voice of Surprise Pony: CakeOfRage
 Voice of Dr. Atmosphere & High Guard: Redsoilder55
 Voice of Maimbow Undash: Jenna Pepper
 Mysterious Voice: AndromedaHawking
-
 Script Proofreading: The Average Joe
 
 Special Thanks To:
