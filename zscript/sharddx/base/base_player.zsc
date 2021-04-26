@@ -236,7 +236,7 @@ Class SHDX_PlayerPawn : PlayerPawn
 	
 	void CheckForHint()
 	{
-		if (player.cmd.buttons & BT_USE)
+		if (player && player.cmd.buttons & BT_USE)
 		{
 			pickedupweapon = false;
 			weaponitem = null;

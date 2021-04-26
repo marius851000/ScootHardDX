@@ -30,6 +30,7 @@ Class SHDX_ChickenPuff : SHDX_BulletPuff
 		+ActivatePCross
 		+AllowThruFlags
 		+PUFFONACTORS
+		+FOILINVUL
 	}
 
 	States

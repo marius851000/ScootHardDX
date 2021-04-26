@@ -123,6 +123,7 @@ Class SHDX_TornadozerProjectile : SHDX_Projectile
 		Damage 18;
 		Projectile;
 		+MISSILE
+		+FOILINVUL
 	}
 	
 	States
@@ -167,6 +168,7 @@ Class SHDX_TornadozerProjectile2 : SHDX_TornadozerProjectile
 		+NOEXPLODEFLOOR
 		+FLOORHUGGER
 		+SEEKERMISSILE
+		+FOILINVUL
 		MaxStepHeight 16;
 	}
 	
