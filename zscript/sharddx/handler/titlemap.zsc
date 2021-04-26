@@ -126,7 +126,7 @@ class SHDX_TitlemapEvent : EventHandler
 		String mp = CVar.GetCvar('r_multithreaded', players[consoleplayer]).GetBool() ? StringTable.Localize("$SHDX_TITLEMAP_MULTI") : "";
 		if (!hal)
 		{
-			lawg = String.Format("%s %s %s %s %s\n%s %s", StringTable.Localize("$SHDX_TITLEMAP_FINAL1"), StringTable.Localize("$SHDX_TITLEMAP_FINAL2"),
+			lawg = String.Format("%s %s %s %s %s\n%s", StringTable.Localize("$SHDX_TITLEMAP_FINAL1"), StringTable.Localize("$SHDX_TITLEMAP_FINAL2"),
 												StringTable.Localize("$SHDX_BUILDNUM"), StringTable.Localize("$SHDX_TITLEMAP_VERSION"), StringTable.Localize("$SHDX_TITLEMAP_FINAL3"), mp);
 		}
 		else
