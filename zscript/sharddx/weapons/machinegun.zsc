@@ -60,14 +60,16 @@ Class SHDX_SubmachineGun : SHDX_Weapon
 		DamageType "Bullet";
 	}
 	
-	// Give a cringe message
-	override bool TryPickup(in out Actor toucher)
+	override void DoEffect()
 	{
-		bool r = Super.TryPickup(toucher);
-		
-		TakeInventory("SHDX_Blaster", 1);
-		
-		return r;
+		Super.DoEffect();
+		let w = Weapon(FindInventory("SHDX_Blaster"));
+
+		if (w && Owner && Owner.player && Owner.player.ReadyWeapon == w)
+		{
+			Owner.player.PendingWeapon = self;
+			TakeInventory("SHDX_Blaster", 1);
+		}
 	}
 	
 	States
@@ -81,7 +83,7 @@ Class SHDX_SubmachineGun : SHDX_Weapon
 			Wait;
 		Select:
 			SMGG A 1 A_Raise(10);
-			Loop;
+			Wait;
 		Flash:
 			SMGF A 1 Bright A_Light1;
 			goto LightDone;
